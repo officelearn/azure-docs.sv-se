@@ -1,23 +1,23 @@
 ---
-title: "Förstå Azure IoT Hub anpassade slutpunkter | Microsoft Docs"
-description: "Utvecklarhandbok - använder regler för routning för att vidarebefordra meddelanden från enhet till moln till anpassade slutpunkter."
+title: Förstå Azure IoT Hub anpassade slutpunkter | Microsoft Docs
+description: Utvecklarhandbok - använder regler för routning för att vidarebefordra meddelanden från enhet till moln till anpassade slutpunkter.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enhet till moln
 
@@ -26,11 +26,13 @@ IoT-hubb kan du dirigera [meddelanden från enhet till moln] [ lnk-device-to-clo
 | Egenskap      | Beskrivning |
 | ------------- | ----------- |
 | **Namn**      | Unika namn som identifierar regeln. |
-| **Source**    | Ursprung för dataström som ska användas. Till exempel enhetstelemetrin. |
+| **Källa**    | Ursprung för dataström som ska användas. Till exempel enhetstelemetrin. |
 | **Villkor** | Frågeuttrycket för regel för vidarebefordran som körs mot meddelandets sidhuvuden och brödtext och avgör om det finns en matchning för slutpunkten. Mer information om hur du skapar en väg villkor finns i [referens - frågespråket för jobb och enheten twins][lnk-devguide-query-language]. |
-| **Slutpunkt**  | Namnet på slutpunkten där IoT-hubb skickar meddelanden som matchar villkoret. Slutpunkter måste vara i samma region som IoT-hubben, får annars du debiteras för cross-region skrivningar. |
+| **slutpunkt**  | Namnet på slutpunkten där IoT-hubb skickar meddelanden som matchar villkoret. Slutpunkter måste vara i samma region som IoT-hubben, får annars du debiteras för cross-region skrivningar. |
 
 Ett enda meddelande kan matchar villkoret på flera routningsregler fallet IoT-hubb skickar meddelandet till slutpunkten som är associerade med varje matchade regel. IoT-hubb också automatiskt deduplicates meddelandeleverans, så om ett meddelande matchar flera regler som har samma mål, det är bara skriva en gång till denna destination.
+
+## <a name="endpoints-and-routing"></a>Slutpunkter och Routning
 
 En IoT-hubb har standard [inbyggd slutpunkt][lnk-built-in]. Du kan skapa anpassade slutpunkter skicka meddelanden till andra tjänster i din prenumeration länkar till hubben. IoT-hubb stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
 
@@ -50,6 +52,12 @@ För mer information om läsning från anpassade slutpunkter, se:
 * Läsning från [Händelsehubbar][lnk-getstarted-eh].
 * Läsning från [Service Bus-köer][lnk-getstarted-queue].
 * Läsning från [Service Bus-ämnen][lnk-getstarted-topic].
+
+## <a name="latency"></a>Svarstid
+
+När du dirigerar enhet till moln telemetri meddelanden med hjälp av inbyggda slutpunkter är det den ökade i fördröjningen slutpunkt till slutpunkt efter skapandet av den första vägen.
+
+I de flesta fall är genomsnittliga ökningen av svarstiden mindre än en sekund. Du kan övervaka svarstid med **d2c.endpoints.latency.builtIn.events** [IoT-hubb mått](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Skapa eller ta bort någon väg efter den första inte påverkar fördröjningen slutpunkt till slutpunkt.
 
 ### <a name="next-steps"></a>Nästa steg
 

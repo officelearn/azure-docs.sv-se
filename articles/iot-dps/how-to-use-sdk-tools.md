@@ -1,25 +1,25 @@
 ---
-title: "Förenkla utvecklingen med hjälp av verktygen i Azure IoT Hub-enhet etablering Service SDK"
-description: "Det här dokumentet går igenom de verktyg som finns i Azure IoT Hub-enhet etablering Service SDK: er för utveckling"
+title: Förenkla utvecklingen med hjälp av verktygen i Azure IoT Hub-enhet etablering Service SDK
+description: 'Det här dokumentet går igenom de verktyg som finns i Azure IoT Hub-enhet etablering Service SDK: er för utveckling'
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 01/18/2018
+ms.date: 04/09/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 76c6f64dea202f661691fafaa78a6d77b4a40f14
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktygen i SDK: erna för att förenkla utvecklingen för etablering
-IoT-hubb enheten Etableringstjänsten förenklar etableringsprocessen med zero touch, just-in-time-allokering på en säker och skalbar sätt.  Attesteringen av säkerhet i form av X.509-certifikat eller Trusted Platform Module (TPM) måste anges.  Dessutom samarbetar Microsoft med [andra säkerhet maskinvarupartners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) att förbättra förtroendet säkra IoT-distributionen. Förstå maskinvarukrav för säkerhet kan vara ganska svårt för utvecklare. En uppsättning Azure IoT etablering Service SDK tillhandahålls så att utvecklare kan använda ett bekvämlighet lager för skrivning klienter som kommunicerar med tjänsten etablering. SDK: erna dessutom exempel för vanliga scenarier som en uppsättning verktyg för att förenkla säkerhet attestering under utveckling.
+IoT-hubb enheten Etableringstjänsten förenklar etableringsprocessen med zero touch-in-time [Automatisk etablering](concepts-auto-provisioning.md) på en säker och skalbar sätt.  Attesteringen av säkerhet i form av X.509-certifikat eller Trusted Platform Module (TPM) måste anges.  Dessutom samarbetar Microsoft med [andra säkerhet maskinvarupartners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) att förbättra förtroendet säkra IoT-distributionen. Förstå maskinvarukrav för säkerhet kan vara ganska svårt för utvecklare. En uppsättning Azure IoT etablering Service SDK tillhandahålls så att utvecklare kan använda ett bekvämlighet lager för skrivning klienter som kommunicerar med tjänsten etablering. SDK: erna dessutom exempel för vanliga scenarier som en uppsättning verktyg för att förenkla säkerhet attestering under utveckling.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Betrodda Platform Module (TPM) simulator
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) kan referera till en standard för säker lagring av nycklar för att autentisera plattformen eller den kan referera till i/o-gränssnitt som används för att interagera med moduler som implementerar standarden. TPM: er kan finnas som diskreta maskinvara, inbyggd maskinvara, inbyggd programvara eller programvara.  I produktion, TPM finns på enheten, antingen som diskreta maskinvara, inbyggd maskinvara eller inbyggd programvara. I testfasen tillhandahålls en programvarubaserad TPM-simulatorn för utvecklare.  Den här simulator är endast tillgängligt för att utveckla på Windows-plattformen för tillfället.
@@ -56,7 +56,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 2. Ändra roten till azure iot-sdk-java.
 3. Kör ```mvn install -DskipTests=true``` att hämta alla nödvändiga paketen och kompilera SDK
 4. Navigera till roten för X.509-certifikat Generator i ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
-5. Skapa med```mvn clean install```
+5. Skapa med ```mvn clean install```
 6. Kör verktyget med följande kommandon:
 ```
 cd target

@@ -4,22 +4,22 @@ description: Data plattformar för datavetenskap virtuell dator.
 keywords: datavetenskap verktyg, datavetenskap virtuell dator, verktyg för datavetenskap, datavetenskap för linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c9c85ebed6382a4188db028fbfb35675751bce76
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-platforms"></a>Dataplattformar
 
@@ -35,7 +35,7 @@ Följande är data platform verktyg som stöds på DSVM.
 | Stöds DSVM versioner      | Windows      |
 | Vanliga användningsområden      | Snabb utveckling lokalt med mindre datamängd <br/> Kör i databasen R   |
 | Länkar till exempel      |    Ett litet antal New York City Dataset läses in i SQL-databasen `nyctaxi`. <br/> Jupyter-exempel som visar Microsoft R och analyser i databasen finns på:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Relaterade verktyg på DSVM       | SQL Server Management Studio <br/> ODBC/JDBC-drivrutiner<br/> pyodbc, RODBC<br />Apache ökad      |
+| Relaterade verktyg på DSVM       | SQL Server Management Studio <br/> ODBC/JDBC-drivrutiner<br/> pyodbc RODBC<br />Apache ökad      |
 
 > [!NOTE]
 > SQL Server 2016 developer edition kan endast användas för utveckling och testning. Du behöver en licens eller en av de virtuella datorerna SQL Server att köra den i produktion. 
@@ -62,15 +62,15 @@ DSVM levereras också med ODBC-drivrutiner och JDBC-drivrutiner tala med SQL Ser
 SQL Server är installerat på vanligt sätt. Det finns på `C:\Program Files\Microsoft SQL Server`. Instansen i databasen R påträffades vid `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. DSVM har också en separat fristående R Server-instans som installerats på `C:\Program Files\Microsoft\R Server\R_SERVER`. Dessa två-R-instanser delar inte biblioteken.
 
 
-## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (Standalone)
+## <a name="apache-spark-2x-standalone"></a>Apache Väck 2.x (fristående)
 
 | | |
 | ------------- | ------------- |
 | Vad är det?   | En fristående (nod i processen) instans av populära Apache Spark-plattform, ett system för snabb storskalig databearbetning och maskininlärning     |
 | Stöds DSVM versioner      | Linux <br /> Windows (försök)      |
-| Vanliga användningsområden      | * Snabb utveckling av Spark/PySpark program lokalt med mindre datamängd och senare distribuerar den stora Spark-kluster, till exempel Azure HDInsight<br/> * Test Microsoft R Server Spark Context <br />* Använder SparkML eller Microsofts öppen källkod [MMLSpark](https://github.com/Azure/mmlspark) bibliotek för att skapa ML-program  |
+| Vanliga användningsområden      | * Snabb utveckling av Spark/PySpark program lokalt med mindre datamängd och senare distribuerar den stora Spark-kluster, till exempel Azure HDInsight<br/> * Testa Microsoft R Server Spark-kontext <br />* Använder SparkML eller Microsofts öppen källkod [MMLSpark](https://github.com/Azure/mmlspark) bibliotek för att skapa ML-program  |
 | Länkar till exempel      |    Jupyter-exempel: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark sammanhang): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Relaterade verktyg på DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache ökad      |
+| Relaterade verktyg på DSVM       | PySpark Scala<br/>Jupyter (Spark/PySpark kärnor)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache ökad      |
 
 ### <a name="how-to-use-it"></a>Hur du använder det.
 Du kan köra Spark genom att skicka Spark jobb på kommandoraden med `spark-submit` eller `pyspark` kommandon. Du kan också skapa en Jupyter-anteckningsbok genom att skapa en ny anteckningsbok med Spark-kernel. 

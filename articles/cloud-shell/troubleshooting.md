@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell-felsökning | Microsoft Docs"
-description: "Felsöka Azure-molnet Shell"
+title: Azure Cloud Shell-felsökning | Microsoft Docs
+description: Felsöka Azure-molnet Shell
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7ab344f77ef88ffdc2ff1976d97b0b9aa86aa3fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
@@ -148,3 +148,29 @@ Med PowerShell-cmdlets, kan användare inte skapa filer under Azure enhet. När 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
 Om användaren som kör ett kommando som skulle skapa en Windows-dialogruta som `Connect-AzureAD` eller `Login-AzureRMAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+## <a name="gdpr-compliance-for-cloud-shell"></a>BNPR kompatibilitet för molnet Shell
+
+Azure Cloud Shell allvarligt tar personliga data, data skapas och lagras av Azure Cloud Shell-tjänsten används för att ange standardvärden för din upplevelse som de senast använda shell, önskad storlek, önskade teckensnitt, och filresursen information den bakre clouddrive. Bör du vill exportera eller ta bort data, har vi tagit med följande instruktioner.
+
+### <a name="export"></a>Exportera
+För att **exportera** användarinställningar molnet Shell som sparar du önskade shell, storlek och teckensnitt som kör följande kommandon.
+
+1. Starta Bash i molnet Shell
+2. Kör följande kommandon:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### <a name="delete"></a>Ta bort
+För att **ta bort** dina inställningar molnet Shell som sparar du önskade shell, storlek och teckensnitt som kör följande kommandon. Nästa gång du startar molnet Shell blir du ombedd att publicera en filresurs igen. 
+
+De faktiska Azure filer resurs inte tas bort om du tar bort dina inställningar, gå till Azure-filer för att slutföra åtgärden.
+
+1. Starta Bash i molnet Shell
+2. Kör följande kommandon:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

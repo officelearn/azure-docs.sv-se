@@ -1,8 +1,8 @@
 ---
-title: "Förstå och lösa WebHCat fel på HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur på cirka vanliga fel som returneras av WebHCat i HDInsight och hur du löser dem."
+title: Förstå och lösa WebHCat fel på HDInsight - Azure | Microsoft Docs
+description: Lär dig hur på cirka vanliga fel som returneras av WebHCat i HDInsight och hur du löser dem.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 03805086bf1cff3f6d2a27a46960d736538bf57b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och åtgärda fel togs emot från WebHCat på HDInsight
 
@@ -48,9 +46,9 @@ Om följande standardvärden överskrids kan försämra WebHCat prestanda eller 
 
 | Inställning | Vad läget gör | Standardvärde |
 | --- | --- | --- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
+| [yarn.Scheduler.Capacity.maximum-program][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
 | [templeton.Exec.Max procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
-| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Antalet dagar som jobbhistorik bevaras |7 dagar |
+| [mapreduce.jobhistory.Max-ålder-ms][max-age-ms] |Antalet dagar som jobbhistorik bevaras |7 dagar |
 
 ## <a name="too-many-requests"></a>För många förfrågningar
 

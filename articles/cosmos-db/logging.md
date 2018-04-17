@@ -3,8 +3,8 @@ title: Azure DB Cosmos-diagnostikloggning | Microsoft Docs
 description: Använd den här självstudiekursen för att komma igång med Azure Cosmos DB loggning.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 0b49a23de62385a8aa362680dde845512d9302fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -442,13 +442,13 @@ I följande tabell beskrivs innehållet i varje loggpost.
 
 | Azure Storage-fältet eller egenskapen | Log Analytics-egenskap | Beskrivning |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
-| **resourceId** | **Resurs** | Azure DB som Cosmos-konto som loggar är aktiverad.|
+| **Tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
+| **Resurs-ID** | **Resurs** | Azure DB som Cosmos-konto som loggar är aktiverad.|
 | **Kategori** | **Kategori** | För Azure Cosmos DB loggar **DataPlaneRequests** är bara tillgängliga värde. |
-| **operationName** | **OperationName** | Namnet på åtgärden. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs-, ReadFeed, ta bort, ersätta, Execute, SqlQuery, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **OperationName** | **OperationName** | Namnet på åtgärden. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs-, ReadFeed, ta bort, ersätta, Execute, SqlQuery, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
 | **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **ActivityId** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
-| **userAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
+| **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
 | **resourceType** | **resourceType** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databas, samling, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
 | **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på operation utförs.|

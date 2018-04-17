@@ -1,25 +1,23 @@
 ---
-title: "Felsöka HDFS med Azure HDinsight | Microsoft Docs"
-description: "Få svar på vanliga frågor om hur du arbetar med HDFS och Azure HDInsight."
-keywords: "Azure HDInsight, HDFS, vanliga frågor och svar, felsökningsguide för vanliga frågor"
+title: Felsöka HDFS med Azure HDinsight | Microsoft Docs
+description: Få svar på vanliga frågor om hur du arbetar med HDFS och Azure HDInsight.
+keywords: Azure HDInsight, HDFS, vanliga frågor och svar, felsökningsguide för vanliga frågor
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Felsöka HDFS med Azure HDInsight
 
@@ -31,7 +29,7 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hado
 
 Åtkomst till ditt lokala HDFS från kommandoraden och programkod i stället för med hjälp av Azure Blob storage eller Azure Data Lake Store från i HDInsight-klustret.   
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. I Kommandotolken, Använd `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` litteralt, som i följande kommando:
 
@@ -151,7 +149,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är mindre än eller nära HDFS replikering faktorn.
 
-### <a name="resolution-steps"></a>Lösningssteg 
+### <a name="resolution-steps"></a>Lösningsanvisningar 
 
 1. Hämta status för HDFS på HDInsight-kluster med hjälp av följande kommandon:
 

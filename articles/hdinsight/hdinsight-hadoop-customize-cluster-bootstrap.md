@@ -1,8 +1,8 @@
 ---
 title: Anpassa HDInsight-kluster med bootstrap - Azure | Microsoft Docs
-description: "Lär dig hur du anpassar HDInsight-kluster med starttjänsten."
+description: Lär dig hur du anpassar HDInsight-kluster med starttjänsten.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,33 +10,31 @@ tags: azure-portal
 ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3991a291de04b8bd9696b456fc11c24a9ddfe1d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med starttjänsten
 
 Ibland kan vill du konfigurera konfigurationsfiler, bland annat:
 
 * clusterIdentity.xml
-* core-site.xml
-* gateway.xml
-* hbase-env.xml
+* Core-site.xml
+* gateway.XML
+* hbase env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-site
+* mapred-plats
 * oozie-site.xml
-* oozie-env.xml
+* oozie env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

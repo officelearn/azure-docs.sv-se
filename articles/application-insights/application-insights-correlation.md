@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korrelation telemetri i Application Insights
 
@@ -58,7 +58,7 @@ I resultatet visa anteckningen som delar alla telemetri objekt roten `operation_
 | pageView   | Lagrets sida                |              | STYz               | STYz         |
 | beroende | GET/Home/Stock           | qJSXU        | STYz               | STYz         |
 | Begäran    | GET-Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| beroende | Hämta /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| beroende | Hämta /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA=       | STYz         |
 
 Nu när anropet `GET /api/stock/value` görs till en extern tjänsten som du vill veta identiteten för servern. Du kan ange `dependency.target` fältet på lämpligt sätt. När den externa tjänsten inte stöder övervakning - `target` har angetts till värdnamnet för tjänsten som `stock-prices-api.com`. Men om tjänsten identifierar sig genom att returnera en fördefinierad HTTP-huvudet - `target` innehåller tjänstidentiteten som tillåter Application Insights att skapa distribuerade spårning genom att fråga telemetri från tjänsten. 
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0 stöder extrahering av Http-huvuden och sedan starta den nya ak
 Det finns en ny Http-modul [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) för ASP.NET-klassisk. Den här modulen implementerar telemetri korrelation med DiagnosticsSource. Startar aktivitet baserat på inkommande begärandehuvuden. Den också korrelerar telemetri från de olika stegen i behandling av begäranden. Även i fall när varje steg i processen för IIS körs på en annan hantera trådar.
 
 Application Insights SDK startversion `2.4.0-beta1` använder DiagnosticsSource och aktiviteten för att samla in telemetri och koppla den till den aktuella aktiviteten. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Telemetri korrelation i Java SDK
+Den [Application Insights SDK för Java](app-insights-java-get-started.md) stöder automatisk korrelation av telemetri från och med version `2.0.0`. Fyller automatiskt `operation_id` för all telemetri (spår, undantag, anpassade händelser och så vidare) som utfärdade inom omfånget för en begäran. Den också tar hand om sprider korrelation rubrikerna (beskrivs ovan) för tjänster samtal via HTTP om den [Java SDK agent](app-insights-java-agent.md) har konfigurerats. Obs: endast anrop som görs via Apache http-klienten har stöd för funktionen korrelation. Om du använder mallen för resten av källan eller Feign användas både med Apache http-klient under huven.
+
+För närvarande stöds inte automatisk kontexten spridning över tekniker (t.ex. Kafka, RabbitMQ, Azure Service Bus). Det är möjligt, men manuellt kod sådana scenarier med hjälp av den `trackDependency` och `trackRequest` API: er, varigenom en beroendetelemetri representerar ett meddelande som köas av en producent och begäran representerar ett meddelande som bearbetas av en konsument. I det här fallet både `operation_id` och `operation_parentId` ska spridas i meddelandets egenskaper.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>Rollnamn
+Ibland kanske du vill anpassa visningen av Komponentnamn i den [programavbildningen](app-insights-app-map.md). Om du vill göra det måste du manuellt ange den `cloud_roleName` genom att göra något av följande:
+
+Via en telemetri initieraren (alla telemetri objekt är märkta)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Via den [kontexten enhetsklass](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (endast telemetri objektet är märkta)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

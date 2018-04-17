@@ -1,26 +1,24 @@
 ---
-title: "Kör jobb för Apache Sqoop med Azure HDInsight (Hadoop) | Microsoft Docs"
-description: "Lär dig hur du använder Azure PowerShell från en arbetsstation för att köra Sqoop importera och exportera mellan ett Hadoop-kluster och en Azure SQL database."
+title: Kör jobb för Apache Sqoop med Azure HDInsight (Hadoop) | Microsoft Docs
+description: Lär dig hur du använder Azure PowerShell från en arbetsstation för att köra Sqoop importera och exportera mellan ett Hadoop-kluster och en Azure SQL database.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c9d708144ee10a7f55a6ffff33925e865ecd415
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Använda Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -96,9 +94,9 @@ Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-da
         
         |Namn|Värde|
         |----|-----|
-        | Standard lagringskontonamn | &lt;CluterName>store |
-        | Azure SQL server-databasnamn | &lt;ClusterName>dbserver |
-        | Azure SQL-databasnamn | &lt;ClusterName>db |
+        | Standard lagringskontonamn | &lt;CluterName > lagra |
+        | Azure SQL server-databasnamn | &lt;Klusternamn > dbserver |
+        | Azure SQL-databasnamn | &lt;Klusternamn > db |
      
 3. Välj **jag samtycker till villkoren som anges ovan**.
 4. Klicka på **Köp**. Du ser en ny panel med rubriken skicka distribution för malldistribution. Det tar cirka 20 minuter att skapa klustret och SQL Database.

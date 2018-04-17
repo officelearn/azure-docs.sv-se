@@ -5,7 +5,7 @@ keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegre
 services: cosmos-db
 documentationcenter: ''
 author: LalithaMV
-manager: jhubbard
+manager: kfile
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 725dfa2e76ae03f17a17991c523e85e9c69a69ec
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
 
@@ -401,7 +401,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>OKEJ</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -423,7 +423,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>OKEJ</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -445,7 +445,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>OKEJ</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -467,7 +467,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>OKEJ</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -489,7 +489,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>OKEJ</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -511,7 +511,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>OKEJ</strong>
          </td>
       </tr>
    </tbody>
@@ -551,7 +551,7 @@ Logiska operatorer fungerar med booleska värden. De logiska tabellerna sanninge
 | False |True |False |Odefinierad |
 | Odefinierad |True |Odefinierad |Odefinierad |
 
-| AND | True | False | Odefinierad |
+| OCH | True | False | Odefinierad |
 | --- | --- | --- | --- |
 | True |True |False |Odefinierad |
 | False |False |False |False |
@@ -832,7 +832,7 @@ I följande exempel utökar här om du vill visa hur du returnerar JSON primitiv
     ]
 
 
-### <a name="-operator"></a>* Operator
+### <a name="-operator"></a>* Operatorn
 Särskilda operatorn (*) går för att projicera dokumentet-är. När den används, måste det vara det enda beräknade fältet. När en fråga som `SELECT * FROM Families f` är giltigt, `SELECT VALUE * FROM Families f ` och `SELECT *, f.id FROM Families f ` är inte giltiga.
 
 **Fråga**
@@ -1429,7 +1429,7 @@ Matematiska funktioner utför en beräkning, baserat på värden som har angetts
 | [COS (num_expr)](#bk_cos) | Returnerar trigonometriska värden cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | [BET (num_expr)](#bk_cot) | Returnerar trigonometriska värden cotangens för den angivna vinkeln i radianer i uttryck. |
 | [GRADER (num_expr)](#bk_degrees) | Returnerar en motsvarande vinkel i grader för en vinkel angiven i radianer. |
-| [PI ()](#bk_pi) | Returnerar värdet PI konstant. |
+| [PI)](#bk_pi) | Returnerar värdet PI konstant. |
 | [RADIANER (num_expr)](#bk_radians) | Returnerar radianer när ett numeriskt uttryck i grader anges. |
 | [SIN (num_expr)](#bk_sin) | Returnerar trigonometriska värden sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | [TAN (num_expr)](#bk_tan) | Returnerar tangens för input-uttryck i det angivna uttrycket. |
@@ -1455,11 +1455,11 @@ Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL
   <td><strong>Beskrivning</strong></td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (uttryck)</a></td>
   <td>Returnerar ett booleskt värde som anger om värdet är en matris.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (uttryck)</a></td>
   <td>Returnerar ett booleskt värde som anger om värdet är ett booleskt värde.</td>
 </tr>
 <tr>
@@ -1483,7 +1483,7 @@ Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL
   <td>Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (uttryck)</a></td>
   <td>Returnerar ett booleskt värde som anger om värdet är en sträng, siffra, Boolean eller null.</td>
 </tr>
 
@@ -1519,7 +1519,7 @@ Följande skalärfunktioner utföra en åtgärd på ett inkommande värde och re
 | [ÖVRE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Returnerar ett stränguttryck när gemen data har konverterats till versaler. |
 | [Ersätt (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Ersätter alla förekomster av ett angivet strängvärde med ett annat värde. |
 | [REPLIKERA (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Upprepar ett strängvärde till ett angivet antal gånger. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returnerar ett strängvärde omvänd ordning. |
+| [OMVÄND (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returnerar ett strängvärde omvänd ordning. |
 
 Med dessa funktioner kan köra du nu frågor som liknar följande. Exempelvis returnerar gruppnamnet versaler på följande sätt:
 
@@ -1994,7 +1994,7 @@ Cosmos DB visar resurser via ett REST-API som kan anropas med valfritt språk so
 
 Följande exempel visar hur du skapar en fråga och skicka den mot en Cosmos-DB-databaskonto.
 
-### <a id="RestAPI"></a>REST API
+### <a id="RestAPI"></a>REST-API
 Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Databasen konton kan etableras med hjälp av en Azure-prenumeration. Resursmodell Cosmos DB består av en uppsättning resurser under ett databaskonto som är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för en feed i det här dokumentet. Ett databaskonto består av en uppsättning databaser som alla innehåller flera samlingar, var och en av vilka i sin tur innehåller dokument, UDF: er och andra typer av resurser.
 
 Modellen grundläggande interaktion med dessa resurser är via HTTP-verb som GET, PUT, POST och DELETE med sina standard tolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos-DB-fråga. Frågor är alltid skrivskyddade åtgärder med inga sidoeffekter.

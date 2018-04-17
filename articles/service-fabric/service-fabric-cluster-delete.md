@@ -1,11 +1,11 @@
 ---
 title: Ta bort ett Azure-kluster och dess resurser | Microsoft Docs
-description: "Lär dig hur du vill ta bort ett Service Fabric-kluster du tar bort resursgruppen som innehåller klustret eller selektivt ta bort resurser."
+description: Lär dig hur du vill ta bort ett Service Fabric-kluster du tar bort resursgruppen som innehåller klustret eller selektivt ta bort resurser.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 7da2277fef224ff7859cac1ad5a2290c9dc56a85
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Ta bort ett Service Fabric-kluster på Azure och resurser som används
 Service Fabric-klustret består av många andra Azure-resurser förutom klusterresursen sig själv. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av.
@@ -43,10 +43,10 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Du får en uppmaning om att bekräfta om du inte använde den *-Force* alternativet. Vid bekräftelse tas av RG och alla resurser som den innehåller bort.
+Du får en uppmaning om att bekräfta om du inte använde den *-Force* alternativet. RG och alla resurser som den innehåller tas bort på bekräftelse.
 
 ### <a name="delete-a-resource-group-in-the-azure-portal"></a>Ta bort en resursgrupp i Azure-portalen
-1. Logga in på den [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till det Service Fabric-kluster du vill ta bort.
 3. Klicka på resursgrupp namn på klustret essentials sidan.
 4. Detta öppnar den **resurs grupp Essentials** sidan.
@@ -60,12 +60,12 @@ Om resursgruppen har resurser som är relaterade till Service Fabric-kluster som
 
 Om du har distribuerat ditt kluster med hjälp av portalen eller med någon av Service Fabric Resource Manager-mallar i mallgalleriet är alla resurser som klustret använder märkta med följande två taggar. Du kan använda dem för att bestämma vilka resurser som du vill ta bort.
 
-***Taggen nr 1:*** nyckel = clusterName, värde = 'namn på klustret'
+***Taggen #1:*** nyckel = clusterName, värde = 'namn på klustret'
 
-***Taggen nr 2:*** nyckel = resourceName, värde = ServiceFabric
+***Taggen #2:*** nyckel = resourceName, värde = ServiceFabric
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>Ta bort specifika resurser i Azure-portalen
-1. Logga in på den [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till det Service Fabric-kluster du vill ta bort.
 3. Gå till **alla inställningar** på bladet essentials.
 4. Klicka på **taggar** under **resurshantering** i inställningsbladet.
@@ -84,13 +84,13 @@ Du kan ta bort resurser i taget genom att köra följande Azure PowerShell-cmdle
 ```powershell
 Login-AzureRmAccount
 ```
-För var och en av resurserna som vill du ta bort, kör du följande:
+Kör följande skript för var och en av de resurser som du vill ta bort:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Ta bort klusterresursen genom att köra följande:
+Kör följande skript för att ta bort klusterresursen:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

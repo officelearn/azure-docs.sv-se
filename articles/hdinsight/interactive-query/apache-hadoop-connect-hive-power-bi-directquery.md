@@ -1,26 +1,24 @@
 ---
-title: "Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder Microsoft Power BI för att visualisera interaktiva Hive-fråga data som bearbetas av Azure HDInsight."
-keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery
+title: Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder Microsoft Power BI för att visualisera interaktiva Hive-fråga data som bearbetas av Azure HDInsight.
+keywords: hdinsight hadoop och hive, interaktiva fråga interaktiva hive, LLAP, directquery
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b8da1f17b9e477caf9031cf94ee14f3a181e247e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualisera interaktiva Hive-fråga data med Microsoft Power BI med direktfrågan i Azure HDInsight
 

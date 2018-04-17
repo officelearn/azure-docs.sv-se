@@ -1,6 +1,6 @@
 ---
-title: "Använda Azure-fil med AKS"
-description: "Använda Azure-diskarna med AKS"
+title: Använda Azure-fil med AKS
+description: Använda Azure-diskarna med AKS
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volymer med Azure-filer
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>Montera filresursen som volym
 
-Du kan montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Uppdatera `aksshare` dela med namnet på Azure-filer.
+Montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Uppdatera `aksshare` dela med namnet på Azure-filer.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ Använd kubectl för att skapa en baljor.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Nu har du en behållare som körs med din Azure-filresursen monterat i den `/mnt/azure` directory. Du kan se volymen montera vid inspektion av din baljor via `kubectl describe pod azure-files-pod`.
+Nu har du en behållare som körs med din Azure-filresursen monterat i den `/mnt/azure` directory.  Du kan se volymen montera vid inspektion av din baljor via `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Nästa steg
 

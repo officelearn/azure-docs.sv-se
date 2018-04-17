@@ -1,11 +1,11 @@
 ---
-title: "Förhindra att oväntade kostnader, hantera fakturerings - Azure | Microsoft Docs"
-description: "Lär dig att undvika oväntade debiteringar på fakturan Azure. Använda funktionerna för hantering och uppföljning av kostnaden för en Microsoft Azure-prenumeration."
-services: 
-documentationcenter: 
+title: Förhindra att oväntade kostnader, hantera fakturerings - Azure | Microsoft Docs
+description: Lär dig att undvika oväntade debiteringar på fakturan Azure. Använda funktionerna för hantering och uppföljning av kostnaden för en Microsoft Azure-prenumeration.
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntat avgifter med Azure fakturerings- och kostnaden management
 
@@ -62,7 +62,7 @@ Konfigurera fakturaaviseringar för att få e-postmeddelanden när förbruknings
 
 Du kanske vill använda kostnadsuppskattning från prisnivå Kalkylatorn som en riktlinje för din första aviseringen.
 
-### <a name="spending-limit"></a>Kontrollera att du har en utgiftsgräns
+### <a name="spending-limit"></a> Kontrollera att du har en utgiftsgräns
 
 Om du har en prenumeration som använder krediter sedan aktiveras utgiftsgränsen du som standard. Det här sättet när du lägger till alla dina krediter ditt kreditkort inte hämta debiteras. Finns det [fullständig lista över Azure erbjudanden och tillgängligheten för utgiftsgräns](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -76,7 +76,7 @@ Klicka på listen och följ anvisningarna för att ta bort utgiftsgränsen. Om d
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Sätt att övervaka dina kostnader när du använder Azure-tjänster
 
-### <a name="tags"></a>Lägga till taggar i dina resurser för att gruppera dina faktureringsuppgifter
+### <a name="tags"></a> Lägga till taggar i dina resurser för att gruppera dina faktureringsuppgifter
 
 Du kan använda taggar om du vill gruppera faktureringsinformation för tjänster som stöds. Till exempel om du kör flera virtuella datorer för olika team, kan du använda taggar för att kategorisera kostnader per kostnadsställe (HR, marknadsföring, ekonomi) eller miljö (produktion, Förproduktion, test). 
 
@@ -86,7 +86,7 @@ Taggar visas i olika kostnaden reporting vyer. Till exempel de som är synliga i
 
 Mer information finns i [med taggar för att organisera dina Azure-resurser](../azure-resource-manager/resource-group-using-tags.md).
 
-### <a name="costs"></a>Regelbundet kontrollera portal för kostnadsuppdelning och bränna hastighet
+### <a name="costs"></a> Regelbundet kontrollera portal för kostnadsuppdelning och bränna hastighet
 
 När du har hämtat dina tjänster som körs regelbundet kontrollera hur mycket de kostnadshantering du. Du kan se de aktuella utgifter och bränna hastighet på Azure-portalen. 
 
@@ -138,7 +138,7 @@ Fakturan ska vara tillgänglig efter att din faktureringsperioden. Du kan också
 
 Använda vår fakturering API för att genom programmering få användningsdata. Använda RateCard-API och API: et för användning tillsammans för att hämta fakturerade förbrukningen. Mer information finns i [få insikter om dina Microsoft Azure-resursförbrukning](billing-usage-rate-card-overview.md).
 
-## <a name="other-offers"></a>Ytterligare resurser och specialfall
+## <a name="other-offers"></a> Ytterligare resurser och specialfall
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>Kunder EA, CSP och sponsring
 Kontakta din Kontoansvariga eller Azure partner att komma igång.
@@ -151,7 +151,7 @@ Kontakta din Kontoansvariga eller Azure partner att komma igång.
 
 Om du hanterar IT för stora organisationer rekommenderar vi att läsa [Azure enterprise kodskelett](../azure-resource-manager/resource-manager-subscription-governance.md) och [enterprise IT vitboken](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF hämtning endast på engelska).
 
-#### <a name="EA"></a>Preview Enterprise-avtal kostnad vyer i Azure Portal 
+#### <a name="EA"></a> Preview Enterprise-avtal kostnad vyer i Azure Portal 
 
 Enterprise kostnaden vyer är för närvarande i förhandsversion. Konfigurationsobjekt för att Observera:
 - Prenumerationen kostnaderna baseras på användning och hänsyn inte till förskottsinbetalade belopp, överskott, inkluderade kvantiteter, justeringar och skatter. De faktiska debiteringarna beräknas på nivån registrering. 
@@ -172,7 +172,7 @@ Om du är kontoadministratören, gå till den [prenumerationer bladet i Azure po
 
 ![Skärmbild av din roll i vyn prenumerationer i Azure-portalen](./media/billing-getting-started/sub-blade-view.PNG)
 
-Om du inte kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst via [Azure Active Directory-rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md) (RBAC). Hantera prenumerationer och ändra fakturering info, [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa) och be dem att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
+Om du inte kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst via [Azure Active Directory-rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) (RBAC). Hantera prenumerationer och ändra fakturering info, [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa) och be dem att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
 
 Om din kontoadministratör är inte längre med din organisation och du behöver hantera fakturering, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten

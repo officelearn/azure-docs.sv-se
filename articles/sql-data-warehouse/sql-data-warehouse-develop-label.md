@@ -1,28 +1,27 @@
 ---
-title: "Använda etiketter på betalningsinstrument frågor i SQL Data Warehouse | Microsoft Docs"
-description: "Tips för att använda etiketter på betalningsinstrument frågor i Azure SQL Data Warehouse för utveckling av lösningar."
+title: Använda etiketter på betalningsinstrument frågor i SQL Data Warehouse | Microsoft Docs
+description: Tips för att använda etiketter på betalningsinstrument frågor i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 48fe625573639c0ec98e672f02a35e4a9ae268e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Använd etiketter till betalningsinstrument frågor i SQL Data Warehouse
-SQL Data Warehouse stöder ett begrepp som kallas frågan etiketter. Innan du fortsätter till varje djup ska vi titta på ett exempel på en:
+# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Med etiketter till betalningsinstrument frågor i Azure SQL Data Warehouse
+Tips för att använda etiketter på betalningsinstrument frågor i Azure SQL Data Warehouse för utveckling av lösningar.
+
+
+## <a name="what-are-labels"></a>Vad är etiketter?
+SQL Data Warehouse stöder ett begrepp som kallas frågan etiketter. Innan du fortsätter till varje djup ska vi titta på ett exempel:
 
 ```sql
 SELECT *
@@ -31,11 +30,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Det här sista raden taggar strängen 'Min fråga etiketten' i frågan. Detta är särskilt användbara etiketten är frågan kan via de av DMV: er. Detta ger oss en mekanism för att spåra problem frågor och för att identifiera förlopp genom ett ETL-körning.
+Den sista raden taggar strängen 'Min fråga etiketten' i frågan. Den här taggen är särskilt användbara eftersom etiketten är frågan kan via de av DMV: er. Fråga om etiketter tillhandahåller en mekanism för att hitta problemet frågor och hjälper till att identifiera pågår via en ELT kör.
 
-En bra namngivningskonvention hjälper verkligen finns här. Till exempel liknande ' projekt: procedur: INSTRUKTIONEN: kommentar ' skulle bidra till att identifiera frågan i bland all kod i källkontroll.
+En bra namngivningskonvention hjälper verkligen. Till exempel hjälper från etiketten med projekt procedur, INSTRUKTION eller kommentar till att identifiera frågan bland all kod i källkontroll.
 
-Du kan använda följande fråga som använder de dynamiska hanteringsvyer om du vill söka efter etikett:
+Följande fråga använder en dynamisk hanteringsvy för att söka efter etikett.
 
 ```sql
 SELECT  *
@@ -45,18 +44,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Det är viktigt att du omsluter hakparenteser eller dubbla citattecken runt word etiketten när du frågar. Etiketten är ett reserverat ord och kommer orsakade ett fel om det inte har avgränsad.
+> Det är viktigt att placera hakparenteser eller dubbla citattecken runt word etiketten vid fråga. Etiketten är ett reserverat ord och orsakar ett fel när den inte är avgränsad. 
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt][development overview].
+För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
 
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

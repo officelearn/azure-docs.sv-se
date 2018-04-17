@@ -1,26 +1,24 @@
 ---
-title: "Använda tom edge noder på Hadoop-kluster i HDInsight - Azure | Microsoft Docs"
-description: "Hur du lägger till en tom kantnod ett HDInsight-kluster som kan användas som en klient och sedan testa/host HDInsight-program."
+title: Använda tom edge noder på Hadoop-kluster i HDInsight - Azure | Microsoft Docs
+description: Hur du lägger till en tom kantnod ett HDInsight-kluster som kan användas som en klient och sedan testa/host HDInsight-program.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Använda tom edge noder på Hadoop-kluster i HDInsight
 
@@ -67,9 +65,9 @@ När du har skapat en kantnod kan du ansluta till kantnoden med SSH och kör kli
 > Anpassade komponenter som är installerade på kantnoden få kommersiellt rimliga support från Microsoft. Detta kan resultera i att lösa eventuella problem. Du kan vara enligt eller community-resurser för ytterligare hjälp. Följande är några av de mest aktiva platser för att få hjälp i communityn:
 >
 > * [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
-> * [http://StackOverflow.com](http://stackoverflow.com).
+> * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Om du använder en Apache-teknik kan du hitta hjälp via Apache project-webbplatser på [http://apache.org](http://apache.org), som den [Hadoop](http://hadoop.apache.org/) plats.
+> Om du använder en Apache-teknik kan du hitta hjälp via Apache project-webbplatser på [ http://apache.org ](http://apache.org), som den [Hadoop](http://hadoop.apache.org/) plats.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägg till en kantnod till ett befintligt kluster
 I det här avsnittet använder du en Resource Manager-mall för att lägga till en kantnod i ett befintligt HDInsight-kluster.  Resource Manager-mallen finns i [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skriptåtgärd på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det går att anropa åtgärder som skript från en Resource Manager-mall.
@@ -132,7 +130,7 @@ Edge-noden visas som ett program på Azure-portalen.  Portalen innehåller infor
 
 **Använda Hive på kantnoden**
 
-1. Använda SSH för att ansluta till kantnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+1. Använd SSH för att ansluta till gränsnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 2. När du har anslutit till kantnod med SSH, använder du följande kommando för att öppna konsolen Hive:
    

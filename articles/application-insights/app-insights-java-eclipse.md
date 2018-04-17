@@ -1,6 +1,6 @@
 ---
-title: "Kom igång med Azure Application Insights med Java i Eclipse | Microsoft docs"
-description: "Använda plugin-programmet Eclipse för att lägga till prestanda och övervakning av programanvändning till din Java-webbplats med Application Insights"
+title: Kom igång med Azure Application Insights med Java i Eclipse | Microsoft docs
+description: Använda plugin-programmet Eclipse för att lägga till prestanda och övervakning av programanvändning till din Java-webbplats med Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Kom igång med Application Insights med Java i Eclipse
 Application Insights SDK skickar telemetri från ditt webbprogram för Java så att du kan analysera användnings- och prestandadata. Plugin-program för Application Insights Eclipse installeras automatiskt SDK i projektet så att du får slut på rutan telemetri plus en API som du kan använda för att skriva en anpassad telemetri.   
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För närvarande pluginprogrammet fungerar för Maven-projekt och dynamiskt webbprojekt i Eclipse.
 ([Lägg till Application Insights till andra typer av Java-projekt][java].)
 
 Du behöver:
 
-* Oracle JRE 1.6 eller senare
+* JRE 1.7 eller 1.8
 * En prenumeration på [Microsoft Azure](https://azure.microsoft.com/).
 * [Solförmörkelse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/), Indigo eller senare.
 * Windows 7 eller senare och Windows Server 2008 eller senare
@@ -39,7 +39,7 @@ Du behöver bara göra detta en gång per dator. Det här steget installerar en 
 1. Klicka på Hjälp, installera ny programvara i Eclipse.
 
     ![Hjälp, installera ny programvara](./media/app-insights-java-eclipse/0-plugin.png)
-2. SDK finns i http://dl.microsoft.com/eclipse under Azure Toolkit.
+2. SDK är i http://dl.microsoft.com/eclipse, under Azure Toolkit.
 3. Avmarkera **kontakta alla update platser...**
 
     ![För Application Insights SDK, rensar kontakta uppdatera alla platser](./media/app-insights-java-eclipse/1-plugin.png)

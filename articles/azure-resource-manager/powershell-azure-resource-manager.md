@@ -1,8 +1,8 @@
 ---
-title: "Hantera Azure lösningar med PowerShell | Microsoft Docs"
-description: "Använda Azure PowerShell och Resource Manager för att hantera dina resurser."
+title: Hantera Azure lösningar med PowerShell | Microsoft Docs
+description: Använda Azure PowerShell och Resource Manager för att hantera dina resurser.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9521a9be1d2bdc91836830dbb6471d2ffcb4daaf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -51,9 +51,9 @@ Resursgruppen är för närvarande är tom.
 
 I den här artikeln får distribuera du en virtuell dator och dess relaterade virtuella nätverk. Det finns tre resursspecifika roller som ger vanligtvis behövs åtkomst för att hantera virtuella lösningar:
 
-* [Virtual Machine-deltagare](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage-konto deltagare](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine-deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage-konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 I stället för att tilldela roller till enskilda användare, är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver vidta liknande åtgärder. Tilldela sedan den gruppen till rätt roll. För att förenkla den här artikeln kan skapa du en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen till en roll för ett omfång. 
 

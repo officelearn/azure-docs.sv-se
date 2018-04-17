@@ -1,6 +1,6 @@
 ---
 title: Azure CDN regler motorn funktioner | Microsoft Docs
-description: I referensdokumentationen för Azure CDN regler motorn matchar villkoren och funktioner.
+description: I referensdokumentationen för Azure CDN regler motorn funktioner.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/10/2018
 ms.author: rli
-ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -54,7 +54,7 @@ Namn | Syfte
 [Komprimera filtyper](#compress-file-types) | Definierar filformat för filer som är komprimerade på servern.
 [Internt Max-åldern som standard](#default-internal-max-age) | Anger maximal ålder standardintervallet för POP till ursprunget server Cachevalidering.
 [Upphör att gälla sidhuvud behandling](#expires-header-treatment) | Styr generering av `Expires` huvuden genom en POP när funktionen externa maximal ålder är aktiv.
-[External Max-Age](#external-max-age) | Anger tidsintervallet maximal ålder för webbläsaren till POP Cachevalidering.
+[Externa maximal ålder](#external-max-age) | Anger tidsintervallet maximal ålder för webbläsaren till POP Cachevalidering.
 [Tvinga inre maximal ålder](#force-internal-max-age) | Anger intervallet för maximal ålder för POP till ursprung server Cachevalidering.
 [H.264-stöd (http-progressiv nedladdning)](#h264-support-http-progressive-download) | Avgör vilka typer av H.264 som kan användas för att strömma innehåll.
 [Kontrollera No-Cache-begäran](#honor-no-cache-request) | Anger om en HTTP-klientens no-cache-begäranden som vidarebefordras till den ursprungliga servern.
@@ -428,14 +428,32 @@ En partiell cache-miss inträffar vanligtvis när en användare avbryter en häm
 
 Behåll standardkonfigurationen för stora HTTP-plattformen, eftersom det minskar belastningen på din kund ursprungsservern och ökar då kunderna hämta ditt innehåll.
 
-På grund av det sätt som i vilken cache inställningar spåras den här funktionen kan inte associeras med följande matchar: Edge Cname, begär sidhuvud Literal, begär huvud med jokertecken, URL-frågan Literal och URL: en fråga med jokertecken.
-
 Värde|Resultat
 --|--
 Enabled|Återställer standardbeteendet. Standardinställningen är att tvinga POP för att initiera en bakgrundshämtning tillgångens från den ursprungliga servern. Efter som tillgången blir i lokalt cacheminne för den POP.
 Disabled|Förhindrar att en POP utför en bakgrundshämtning för tillgången. Resultatet är att nästa begäran om tillgången från den regionen orsakar en POP begära från den ursprungliga servern för kunden.
 
 **Standardbeteende:** aktiverat.
+
+#### <a name="compatibility"></a>Efterlevnad
+Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
+- SOM tal
+- IP-adress för klient
+- Cookie-Parameter
+- Cookie-parametern Regex
+- Land/region
+- Enhet
+- Edge Cname
+- Refererande domän
+- Begäran sidhuvud Literal
+- Begäran sidhuvud Regex
+- Begäran huvud med jokertecken
+- Metod för begäran
+- Schemat för begäran
+- URL-frågan Literal
+- URL-frågan Regex
+- URL: en fråga med jokertecken
+- Frågeparametern för URL
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
@@ -452,8 +470,8 @@ Internet-medietyp|Beskrivning
 Text/plain|Filer med oformaterad text
 text/html| HTML-filer
 text/css|Sammanhängande formatmallar (CSS)
-application/x-javascript|Javascript
-application/javascript|Javascript
+javascript-program/x|Javascript
+program eller javascript|Javascript
 Viktig information:
 
 - Ange flera Internet-medietyper genom att avgränsa dem med ett blanksteg. 
@@ -479,7 +497,7 @@ Format för att ange begärande- och svarshuvuden definieras enligt följande:
 Rubriktyp|Format|Exempel
 -|-|-
 Huvudet i begäran|%{[RequestHeader]()}[jag]() | % {Acceptera-Encoding} jag <br/> {Referent} jag <br/> % {Auktorisering} i
-Svarshuvud|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Svarshuvud|%{[ResponseHeader]()}[o]()| % {Ålder} o <br/> % {Content-Type} o <br/> % {Cookie} o
 
 Viktig information:
 
@@ -538,16 +556,28 @@ Viktig information:
     - Ange ett heltalsvärde och sedan välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.). Det här värdet definierar interna maximal ålder standardintervallet.
 
 - Anger tidsenheten till ”av” tilldelas en intern maximal ålder standardintervallet 7 dagar för begäranden som inte har tilldelats en maximal ålder indikation i sina `Cache-Control` eller `Expires` huvud.
-- Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Edge 
-    - CNAME-post
-    - Begäran sidhuvud Literal
-    - Begäran huvud med jokertecken
-    - Metod för begäran
-    - URL-frågan Literal
-    - URL: en fråga med jokertecken
 
 **Standardvärde:** 7 dagar
+
+#### <a name="compatibility"></a>Efterlevnad
+Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
+- SOM tal
+- IP-adress för klient
+- Cookie-Parameter
+- Cookie-parametern Regex
+- Land/region
+- Enhet
+- Edge Cname
+- Refererande domän
+- Begäran sidhuvud Literal
+- Begäran sidhuvud Regex
+- Begäran huvud med jokertecken
+- Metod för begäran
+- Schemat för begäran
+- URL-frågan Literal
+- URL-frågan Regex
+- URL: en fråga med jokertecken
+- Frågeparametern för URL
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
@@ -642,16 +672,28 @@ Viktig information:
     - Ange ett heltalsvärde och välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.). Det här värdet definierar begäran maximal ålder intervall.
 
 - Tidsenhet till ”av” inaktiveras den här funktionen. Ett internt maximal ålder intervall kommer inte att tilldela begärda tillgångar. Om det ursprungliga huvudet inte innehåller instruktioner för cachelagring, cachelagras tillgången enligt inställningen active i funktionen standard interna Max-ålder.
-- Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Edge 
-    - CNAME-post
-    - Begäran sidhuvud Literal
-    - Begäran huvud med jokertecken
-    - Metod för begäran
-    - URL-frågan Literal
-    - URL: en fråga med jokertecken
 
 **Standardbeteende:** ut
+
+#### <a name="compatibility"></a>Efterlevnad
+Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
+- SOM tal
+- IP-adress för klient
+- Cookie-Parameter
+- Cookie-parametern Regex
+- Land/region
+- Enhet
+- Edge Cname
+- Refererande domän
+- Begäran sidhuvud Literal
+- Begäran sidhuvud Regex
+- Begäran huvud med jokertecken
+- Metod för begäran
+- Schemat för begäran
+- URL-frågan Literal
+- URL-frågan Regex
+- URL: en fråga med jokertecken
+- Frågeparametern för URL
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
@@ -707,16 +749,28 @@ Viktig information:
 - Konfigurera den här funktionen genom att definiera en mellanslags-avgränsad lista över statuskoder som ovannämnda direktiv kommer att ignoreras.
 - Uppsättningen koder för giltig status för den här funktionen är: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, och 505.
 - Inaktivera funktionen genom att ange ett tomt värde.
-- Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Edge 
-    - CNAME-post
-    - Begäran sidhuvud Literal
-    - Begäran huvud med jokertecken
-    - Metod för begäran
-    - URL-frågan Literal
-    - URL: en fråga med jokertecken
 
 **Standardbeteende:** standardbeteendet är ta hänsyn till ovannämnda direktiv.
+
+#### <a name="compatibility"></a>Efterlevnad
+Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
+- SOM tal
+- IP-adress för klient
+- Cookie-Parameter
+- Cookie-parametern Regex
+- Land/region
+- Enhet
+- Edge Cname
+- Refererande domän
+- Begäran sidhuvud Literal
+- Begäran sidhuvud Regex
+- Begäran huvud med jokertecken
+- Metod för begäran
+- Schemat för begäran
+- URL-frågan Literal
+- URL-frågan Regex
+- URL: en fråga med jokertecken
+- Frågeparametern för URL
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
@@ -758,16 +812,28 @@ Viktig information:
     - Ange ett heltalsvärde och sedan välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.). Det här värdet anger den interna max aktuell som ska användas.
 
 - Tidsenhet till ”av” inaktiveras den här funktionen. En cachelagrad tillgång hanteras inte utöver dess normala förfallotid.
-- Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Edge 
-    - CNAME-post
-    - Begäran sidhuvud Literal
-    - Begäran huvud med jokertecken
-    - Metod för begäran
-    - URL-frågan Literal
-    - URL: en fråga med jokertecken
 
 **Standardbeteende:** två minuter
+
+#### <a name="compatibility"></a>Efterlevnad
+Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
+- SOM tal
+- IP-adress för klient
+- Cookie-Parameter
+- Cookie-parametern Regex
+- Land/region
+- Enhet
+- Edge Cname
+- Refererande domän
+- Begäran sidhuvud Literal
+- Begäran sidhuvud Regex
+- Begäran huvud med jokertecken
+- Metod för begäran
+- Schemat för begäran
+- URL-frågan Literal
+- URL-frågan Regex
+- URL: en fråga med jokertecken
+- Frågeparametern för URL
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
@@ -836,7 +902,7 @@ Viktig information:
     - värd
     - via
     - Varning
-    - x-forwarded-for
+    - x vidarebefordras för
     - Alla huvud-namn som börjar med ”x ec” är reserverade.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -869,16 +935,16 @@ Viktig information:
     - cachE-Control
 - Tar bort ett sidhuvud kan den vidarebefordras till beställaren.
 - Följande huvuden är reserverade och kan inte ändras av den här funktionen:
-    - accept-encoding
+    - Acceptera-kodning
     - ålder
     - anslutning
-    - content-encoding
-    - content-length
-    - content-range
+    - Innehållskodning
+    - innehållslängden
+    - innehåll-intervall
     - datum
     - server
     - släpvagn
-    - transfer-encoding
+    - Transfer-encoding
     - Uppgradera
     - variera
     - via
@@ -989,12 +1055,12 @@ Se till att angivna huvudets namn inte matchar något av följande namn:
 
 - Standard begäran sidhuvud namn. En lista över standard sidhuvud namn finns i [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Namn på reserverade huvud:
-    - forwarded-for
+    - vidarebefordras för
     - värd
     - variera
     - via
     - Varning
-    - x-forwarded-for
+    - x vidarebefordras för
     - Alla huvud-namn som börjar med ”x ec” är reserverade.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -1041,12 +1107,17 @@ Om Token-baserad autentisering är aktiverad hanteras endast begäranden som til
 
 Den krypteringsnyckel som används för att kryptera och dekryptera token värden bestäms av den primärnyckeln och alternativ för säkerhetskopiering nyckel på sidan Token Auth. Tänk på att krypteringsnycklarna är plattformsspecifika.
 
+**Standardbeteende:** inaktiverad.
+
+Den här funktionen åsidosätter de flesta funktioner med undantag av URL-omskrivning om funktionen.
+
 Värde | Resultat
 ------|---------
 Enabled | Skyddar det begärda innehållet med Token-baserad autentisering. Endast begäranden från klienter som anger en giltig token och uppfyller dess krav att användas. FTP-transaktioner är undantagna från Token-baserad autentisering.
 Disabled| Återställer standardbeteendet. Standardinställningen är att konfigurationen tokenbaserad autentisering att avgöra om en begäran ska skyddas.
 
-**Standardbeteende:** inaktiverad.
+#### <a name="compatibility"></a>Efterlevnad
+Använd inte Token Auth med ett alltid matchar villkoret. 
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
@@ -1056,8 +1127,6 @@ Disabled| Återställer standardbeteendet. Standardinställningen är att konfig
 ### <a name="token-auth-denial-code"></a>Token Auth DOS-kod
 **Syfte:** avgör vilken typ av svar som returneras till en användare när en begäran nekades på grund av token-baserad autentisering.
 
-Token Auth DOS-kod kan inte användas med en alltid matchar villkoret. Använd i stället den **anpassad DOS-hantering** i avsnittet den **Token Auth** sida av den **hantera** portal. Mer information finns i [skydda Azure CDN tillgångar med tokenautentisering](cdn-token-auth.md).
-
 I följande tabell visas tillgängliga svarskoder.
 
 Svarskod|Svaret namn|Beskrivning
@@ -1066,8 +1135,11 @@ Svarskod|Svaret namn|Beskrivning
 302|Hittad|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats. Den här statuskoden är branschstandard standardmetoden för att utföra en omdirigering.
 307|Tillfällig omdirigering|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats.
 401|Behörighet saknas|Kombinera den här statuskoden med de svar WWW-Authenticate-huvud kan du be en användare för autentisering.
-403|Förbjudna|Detta är standard 403 förbjuden statusmeddelandet som en obehörig användare kan se när du försöker komma åt skyddat innehåll.
+403|Förbjudna|Det här meddelandet är standard 403 förbjuden statusmeddelandet som en obehörig användare kan se när du försöker komma åt skyddat innehåll.
 404|Filen hittades inte|Den här statusen indikerar att HTTP-klienten kunde kommunicera med servern, men det gick inte att hitta det begärda innehållet.
+
+#### <a name="compatibility"></a>Efterlevnad
+Använd inte Token Auth DOS-kod med ett alltid matchar villkoret. Använd i stället den **anpassad DOS-hantering** i avsnittet den **Token Auth** sida av den **hantera** portal. Mer information finns i [skydda Azure CDN tillgångar med tokenautentisering](cdn-token-auth.md).
 
 #### <a name="url-redirection"></a>URL-omdirigering
 
@@ -1144,7 +1216,7 @@ Disabled|En token kan anges som ett odefinierat frågesträngparametern i begär
 </br>
 
 ---
-### <a name="url-redirect"></a>URL Redirect
+### <a name="url-redirect"></a>URL: en omdirigering
 **Syfte:** omdirigerar begäranden via plats-huvudet.
 
 Konfigurationen för den här funktionen kräver att ange följande alternativ:
@@ -1152,7 +1224,7 @@ Konfigurationen för den här funktionen kräver att ange följande alternativ:
 Alternativ|Beskrivning
 -|-
 Kod|Välj svarskoden returneras till beställaren.
-Källan & mönster| Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden kan omdirigeras. Omdirigeras endast begäranden vars URL uppfyller båda av följande kriterier: <br/> <br/> **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Detta är avsnittet ”/XXXX/” och namnet på slutpunkten. <br/> **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> -Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med några matchar villkoren för den här funktionen. <br/> -Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar.
+Källan & mönster| Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden kan omdirigeras. Omdirigeras endast begäranden vars URL uppfyller båda av följande kriterier: <br/> <br/> **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/> **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> -Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med några matchar villkoren för den här funktionen. <br/> -Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar.
 Mål| Definiera den URL som ovan begäranden ska omdirigeras. <br/> Konstruera dynamiskt med den här URL: <br/> -Ett mönster för reguljärt uttryck <br/>-HTTP variabler <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. <br/> 
 Vi rekommenderar starkt att använda en absolut URL. Användning av en relativ URL kan omdirigera CDN URL: er till en ogiltig sökväg.
 
@@ -1177,7 +1249,7 @@ Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./m
     - Exempelscenario #3: 
         - Exempel på begäran (kant CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - URL-begäran (efter omdirigering): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- Variabeln begära schemat (% {schema}) har utnyttjas i alternativet mål. Detta säkerställer att begäran schemat förblir oförändrad efter omdirigeringen.
+- Schemat för begäran (% {schema}) variabeln utnyttjas i alternativet mål, vilket garanterar att begäran schemat förblir oförändrad efter omdirigeringen.
 - URL-segment som har hämtats från begäran läggs till den nya URL via ”$1”.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -1194,9 +1266,9 @@ Viktig information:
 
 Alternativ|Beskrivning
 -|-
- Källan & mönster | Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden som kan skrivas. Kommer att skrivas om endast begäranden vars URL uppfyller båda av följande kriterier: <br/>     - **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Detta är avsnittet ”/XXXX/” och namnet på slutpunkten. <br/> - **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med något av matchar villkoren som har definierats för den här funktionen. Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar. 
+ Källan & mönster | Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden som kan skrivas. Kommer att skrivas om endast begäranden vars URL uppfyller båda av följande kriterier: <br/>     - **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/> - **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med något av matchar villkoren som har definierats för den här funktionen. Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar. 
  Mål  |Definiera relativ URL som ovan begäranden ska skrivas med: <br/>    1. Att välja en innehålls åtkomstpunkt som identifierar en ursprungsservern. <br/>    2. Definiera en relativ sökväg med hjälp av: <br/>        -Ett mönster för reguljärt uttryck <br/>        -HTTP variabler <br/> <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. 
- Den här funktionen gör POP att skriva om URL: en utan att utföra en traditionell omdirigering. Detta innebär att beställaren får samma svarskoden som om omskrivet URL: en hade begärts.
+ Den här funktionen gör POP att skriva om URL: en utan att utföra en traditionell omdirigering. Det vill säga beställaren tar emot samma svarskoden som om omskrivet URL: en hade begärts.
 
 **Exempelscenario 1**
 
@@ -1220,7 +1292,6 @@ Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./m
 - URL-segment som har hämtats från begäran läggs till den nya URL via ”$1”.
 
 #### <a name="compatibility"></a>Efterlevnad
-
 Den här funktionen innehåller matchar villkoren som måste uppfyllas innan den kan tillämpas på en begäran. Den här funktionen är inte kompatibel med följande matchar villkor för att förhindra att ställa in motstridiga matchningsvillkor:
 
 - SOM tal

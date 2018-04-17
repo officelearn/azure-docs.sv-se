@@ -1,11 +1,11 @@
 ---
-title: "Auktorisera developer konton med hjälp av Azure Active Directory - Azure API Management | Microsoft Docs"
-description: "Lär dig mer om att auktorisera användare med hjälp av Azure Active Directory i API-hantering."
+title: Auktorisera developer konton med hjälp av Azure Active Directory - Azure API Management | Microsoft Docs
+description: Lär dig mer om att auktorisera användare med hjälp av Azure Active Directory i API-hantering.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera developer konton med hjälp av Azure Active Directory i Azure API Management
 
@@ -55,7 +55,7 @@ Den här artikeln visar hur du aktiverar åtkomst till developer-portalen för a
 13. Typen **active**. Den **Azure Active Directory** visas.
 14. Välj **Azure Active Directory**.
 15. Under **hantera**väljer **App registreringar**.
-16. Välj **nya appregistrering**.
+16. Välj **Ny programregistrering**.
 
     ![Alternativ för att skapa en ny appregistrering](./media/api-management-howto-aad/api-management-with-aad002.png)
 

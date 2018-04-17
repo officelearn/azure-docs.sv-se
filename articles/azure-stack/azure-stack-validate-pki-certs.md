@@ -1,6 +1,6 @@
 ---
 title: Certifikatsverifiering Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs
-description: Beskriver hur du verifierar Azure Stack PKI-certifikat för Azure-stacken integrerat system.
+description: Beskriver hur du verifierar Azure Stack PKI-certifikat för Azure-stacken integrerat system. Beskriver med verktyget Azure Stack certifikat layout.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,171 +11,164 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd917165804314f6ee4ee006e3f29263d8d4b4c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Verifiera Azure Stack PKI-certifikat
 
-Verktyget Azure Stack certifikat layout som beskrivs i den här artikeln tillhandahålls av OEM-tillverkaren som ingår i filen deploymentdata.json för att kontrollera att den [genereras PKI-certifikat](azure-stack-get-pki-certs.md) är lämpliga för distributionen. Certifikat verifieras med tillräckligt med tid för att testa och få certifikat igen om det behövs.
+Verktyget Azure Stack beredskap för installation som beskrivs i den här artikeln finns [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Du kan använda verktyget för att kontrollera att den [genereras PKI-certifikat](azure-stack-get-pki-certs.md) är lämpliga för distributionen. Du bör verifiera certifikat genom att låta tillräckligt med tid för att testa och återutfärda certifikat om det behövs.
 
-Verktyget certifikat Checker (Certchecker) utför följande kontroller:
+Verktyget beredskap Checker utför följande verifieringar för certifikat:
 
-- **Läsa PFX**. Söker efter giltiga PFX-filen, lösenordet och varnar om offentlig information inte skyddas av lösenordet. 
-- **Signaturalgoritm**. Kontrollerar signaturalgoritmen inte är SHA1.
-- **Privat nyckel**. Kontrollerar den privata nyckeln finns och har exporterats med attributet lokal dator. 
-- **Kedja**. Kontrollerar kedja av intakta inklusive för självsignerade certifikat. 
-- **DNS-namn**. Kontrollerar SAN innehåller relevant DNS-namn för varje slutpunkt eller om en stöder jokertecken är tillgänglig. 
-- **Nyckelanvändning**. Kontrollerar nyckelanvändning innehåller digitala signatur och nyckelchiffrering och förbättrad nyckelanvändning innehåller serverautentisering och klientautentisering.
-- **Nyckelstorlek**. Kontrollerar nyckelstorlek är 2048 eller större.
-- **Kedja ordning**. Kontrollerar ordningen för de certifikat som gör kedjan är korrekt.
-- **Andra certifikat**. Se till att inga andra certifikat har paketerats i PFX än relevanta lövcertifikatet och kedjan.
-- **Ingen profil**. Kontrollerar att en ny användare kan läsa in PFX data utan en användarprofil som har lästs in, frihandsbilden beteendet för gMSA konton under behandlingen av certifikat.
+- **Läsa PFX**  
+    Söker efter giltiga PFX-fil rätt lösenord, och varnar om offentlig information inte skyddas av lösenordet. 
+- **Signaturalgoritm**  
+    Kontrollerar att signaturalgoritmen inte är SHA1.
+- **Privat nyckel**  
+    Kontrollerar att den privata nyckeln finns och har exporterats med attributet lokal dator. 
+- **Kedja**  
+    Kontrollerar certifikatkedjan är intakt inklusive en kontroll för självsignerade certifikat.
+- **DNS-namn**  
+    Kontrollerar SAN innehåller relevant DNS-namn för varje slutpunkt eller om en stöder jokertecken är tillgänglig.
+- **Nyckelanvändning**  
+    Kontrollerar om nyckelanvändningen innehåller digitala signatur och nyckelchiffrering och utökad nyckelanvändning innehåller serverautentisering och klientautentisering.
+- **Nyckelstorleken**  
+    Kontrollerar om nyckelstorleken 2048 eller större.
+- **Kedjans ordning**  
+    Kontrollerar ordningen för de certifikat som verifierar att ordningen är korrekt.
+- **Andra certifikat**  
+    Se till att inga andra certifikat har paketerats i PFX än relevanta lövcertifikatet och kedjan.
 
 > [!IMPORTANT]  
-> PFX-filen för PKI-certifikat och lösenord ska behandlas som känslig information.
+> PKI-certifikat är en PFX-fil och lösenord ska behandlas som känslig information.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Systemet bör uppfyller följande krav innan du verifierar PKI-certifikat för distribution av Azure Stack:
-- CertChecker (i **PartnerToolKit** under **\utils\certchecker**)
+
+Systemet bör uppfyller följande krav innan du verifierar PKI-certifikat för distribution av en Azure-Stack:
+
+- Microsoft Azure-stacken beredskap layout
 - SSL-certifikat exporteras efter den [förberedelseinstruktionerna](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 eller Windows Server 2016
 
 ## <a name="perform-certificate-validation"></a>Utföra certifikatsverifiering
 
-Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat: 
+Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat:
 
-1. Extrahera innehållet i <partnerToolkit>\utils\certchecker till en ny katalog, till exempel **c:\certchecker**.
+1. Installera AzsReadinessChecker från en PowerShell-kommandotolk (5.1 eller senare) genom att köra följande cmdlet:
 
-2. Öppna PowerShell som administratör och ändra katalogen till mappen certchecker:
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker 
+    ````
 
-  ```powershell
-  cd c:\certchecker
-  ```
- 
-3. Skapa en katalogstruktur för certifikat genom att köra följande PowerShell-kommandon:
+2. Skapa katalogstrukturen certifikat. I exemplet nedan kan du ändra `<c:\certificates>` till en ny sökväg som du väljer.
 
-  ```powershell 
-  $directories = "ACS","ADFS","Admin Portal","ARM Admin","ARM Public","Graph","KeyVault","KeyVaultInternal","Public Portal" 
-  $destination = '.\certs' 
-  $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
-  ```
+    ````PowerShell  
+    New-Item C:\Certificates -ItemType Directory
 
-  >  [!NOTE]
-  >  Om identitetsleverantören för distributionen av Azure-stacken är Azure AD, ta bort den **ADFS** och **diagram** kataloger. 
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
 
-4. Placera ditt certifikat i lämplig kataloger skapade i föregående steg, till exempel: 
-  - c:\certchecker\Certs\ACS\CustomerCertificate.pfx,  
-  - c:\certchecker\Certs\Admin Portal\CustomerCertificate.pfx  
-  - c:\certchecker\Certs\ARM Admin\CustomerCertificate.pfx  
-  - och så vidare... 
+    $destination = 'c:\certificates' 
 
-5. Kopiera **deploymentdata.json** till den **c:\certchecker** directory.
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    ````
 
-6. Kör följande kommandon i PowerShell-fönstret: 
+ - Placera ditt certifikat i rätt kataloger skapade i föregående steg. Exempel:  
+    - c:\certificates\ACSBlob\CustomerCertificate.pfx 
+    - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
+    - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
+    - och så vidare... 
 
-  ```powershell
-  $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-  .\CertChecker.ps1 -CertificatePath .\Certs\ -pfxPassword $password -deploymentDataJSONPath .\DeploymentData.json  
-  ```
+3. I PowerShell-fönstret som kör:
 
-7. Resultatet bör innehålla OK för alla certifikat och alla attribut som kontrolleras: 
+    ````PowerShell  
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 
-  ```powershell
-  Starting Azure Stack Certificate Validation 1.1802.221.1
-  Testing: ADFS\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: KeyVaultInternal\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: ACS\ContosoSSL.pfx
-  WARNING: Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further informat
-  ion.
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Detailed log can be found C:\CertChecker\CertChecker.log 
-  ```
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    ````
 
-### <a name="known-issues"></a>Kända problem 
-**Symtom**: Certchecker avslutas för tidigt och följande felmeddelande: 
-> Misslyckad
+4. Granska utdata för att kontrollera att alla certifikat har överförts testerna. Exempel:
 
-> Information: Det här kommandot kan inte köras på grund av felet: katalognamnet är ogiltigt. 
+    ````PowerShell
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Validation
 
-**Orsak**: kör certchecker.ps1 från en begränsad mapp, till exempel, c:\temp eller % temp % 
+    Starting Azure Stack Certificate Validation 1.1803.405.3
+    Testing: ARM Public\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: ACSBlob\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-**Lösning**: flytta verktyget certchecker till ny katalog, till exempel C:\CertChecker 
+    Finished Certificate Validation
 
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Completed
+    ````
 
-**Symtom**: Certchecker ger en varning om att använda Pre 1803 (som i exemplet ovan från steg 7):
-
-> [!WARNING]
-> Pre-1803 Certifikatstrukturen. Mappen struktur för Azure-stacken 1803 och senare: ACSBlob, ACSQueue, ACSTable i stället för ACS-mappen. Mer information finns i dokumentationen.
-
-**Orsak**: CertChecker identifierat användning av en enda ACS-mapp detta stämmer för distributioner innan 1803. Azure-stacken version 1803 för och senare distributioner ändras mappstrukturen till ACSTable, ACSQueue, ACSBlob. Certchecker har redan uppdateras för att stödja den här funktionen.
-
-**Lösning**: om distribuerar 1802 ingen åtgärd krävs. Om distribution av 1803 och ovan, Ersätt ACS med ACSTable, ACSQueue, ACSBlob och kopiera ACS-certifikat till mapparna.
+### <a name="known-issues"></a>Kända problem
 
 **Symtom**: tester hoppas över
 
-**Orsak**: CertChecker hoppar över vissa undersökningar om ett beroende inte är uppfyllt:
-- Andra certifikat hoppas över om certifikatkedja misslyckas.
-- Ingen profil hoppas över om:
-  - Det finns en säkerhetsprincip för att begränsa möjligheten att skapa en tillfällig användare och köra powershell som användaren.
-  - Det går inte att kontrollera privat nyckel.
+**Orsak**: AzsReadinessChecker hoppar över vissa undersökningar om ett beroende inte är uppfyllt:
 
-**Lösning**: följer du anvisningarna i informationsavsnittet under varje certifikat uppsättning tester verktyg.
+ - Andra certifikat hoppas över om certifikatkedja misslyckas.
 
+    ````PowerShell  
+    Testing: ACSBlob\singlewildcard.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: Fail
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: Skipped
+    Details:
+    The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
+    The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-## <a name="prepare-deployment-script-certificates"></a>Förbereda distribution skript certifikat 
-Alla certifikat som du har förberett måste placeras i lämplig kataloger på värden för distribution som ett sista steg. Skapa en mapp med namnet på din värd för distribution. Certifikat ** och placera det exporterade certifikatet filer i motsvarande undermappar som anges i den [obligatoriska certifikat](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates) avsnitt:
+    Finished Certificate Validation
 
-```
-\Certificates
-\ACS\ssl.pfx
-\Admin Portal\ssl.pfx
-\ARM Admin\ssl.pfx
-\ARM Public\ssl.pfx
-\KeyVault\ssl.pfx
-\KeyVaultInternal\ssl.pfx
-\Public Portal\ssl.pfx
-\ADFS\ssl.pfx*
-\Graph\ssl.pfx*
-```
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
 
-<sup>*</sup> Certifikat som är markerade med en asterisk * behövs bara när AD FS används som identitet Arkiv.
+**Lösning**: Följ verktygets riktlinjerna i informationsavsnittet under varje uppsättning med tester för varje certifikat.
 
+## <a name="using-validated-certificates"></a>Med validerade certifikat
+
+När dina certifikat har godkänts av AzsReadinessChecker, är du redo att använda dem i Azure-stacken distributionen eller för Azure-stacken hemliga rotation. 
+
+ - För distribution, på ett säkert sätt överföra ditt certifikat till distribution-tekniker så att de kan kopiera dem till värden som anges i distribution av [Azure Stack PKI krav dokumentationen](azure-stack-pki-certs.md).
+ - För hemliga rotation du använda certifikat för att uppdatera gammalt certifikat för infrastruktur för offentliga slutpunkter för din Azure Stack-miljö genom att följa den [Azure Stack hemlighet Rotation dokumentationen](azure-stack-rotate-secrets.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Datacenter identitetsintegrering](azure-stack-integrate-identity.md)

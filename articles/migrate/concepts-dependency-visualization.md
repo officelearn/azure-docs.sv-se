@@ -1,16 +1,16 @@
 ---
 title: Beroende visualisering i Azure migrera | Microsoft Docs
-description: "En översikt över assessment beräkningar i tjänsten Azure migrera."
+description: En översikt över assessment beräkningar i tjänsten Azure migrera.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -24,7 +24,7 @@ Beroende visualisering i Azure migrera kan du skapa grupper för migrering utvä
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
 Azure migrera använder den [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) lösning i [logganalys](../log-analytics/log-analytics-overview.md) för beroende visualiseringen.
-- När du skapar ett projekt för Azure-migrering, skapas en OMS logganalys-arbetsytan i din prenumeration.
+- När du skapar ett projekt för migrering av Azure har logganalys-arbetsytan skapats i din prenumeration.
 - Arbetsytans namn är namnet du anger för projektet migrering med prefixet **migrera-**, och eventuellt suffixet med en siffra. 
 - Navigera till logganalys-arbetsytan från den **Essentials** avsnitt i projektet **översikt** sidan.
 - Arbetsytan skapade är märkta med nyckeln **MigrateProject**, och värdet **projektnamn**. Du kan använda dessa för att söka i Azure-portalen.  

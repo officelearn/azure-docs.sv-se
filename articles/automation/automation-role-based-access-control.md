@@ -1,7 +1,7 @@
 ---
-title: "Rollbaserad åtkomstkontroll i Azure Automation"
-description: "Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Den här artikeln beskriver hur du konfigurerar RBAC i Azure Automation."
-keywords: "automation rbac, rollbaserad åtkomstkontroll, azure rbac"
+title: Rollbaserad åtkomstkontroll i Azure Automation
+description: Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Den här artikeln beskriver hur du konfigurerar RBAC i Azure Automation.
+keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.service: automation
 author: georgewallace
@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
-Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med hjälp av [RBAC](../active-directory/role-based-access-control-configure.md), du kan särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete. Rollbaserad åtkomst kan beviljas till användare som använder Azure Portal, Azure-kommandoradsverktygen eller Azure Management-API:er.
+Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med hjälp av [RBAC](../role-based-access-control/role-assignments-portal.md), du kan särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete. Rollbaserad åtkomst kan beviljas till användare som använder Azure Portal, Azure-kommandoradsverktygen eller Azure Management-API:er.
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
 I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till användare, grupper och program i Automation-kontoomfånget. Följande är de inbyggda roller som stöds av ett Automation-konto:
@@ -130,7 +130,7 @@ Log Analytics deltagare kan läsa alla övervakningsdata och redigera inställni
 |Microsoft.Compute/virtualMachines/extensions/*|Skapa och hantera klassiska virtuella datortillägg.|
 |Microsoft.Insights/alertRules/*|Läs/Skriv/ta bort Varningsregler.|
 |Microsoft.Insights/diagnosticSettings/*|Diagnostikinställningar för Läs/Skriv/ta bort.|
-|Microsoft.OperationalInsights/*|Manage Log Analytics.|
+|Microsoft.OperationalInsights/*|Hantera logganalys.|
 |Microsoft.OperationsManagement/*|Hantera lösningar i arbetsytor.|
 |Microsoft.Resources/deployments/*|Skapa och hantera distributionen av resursgrupper.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Skapa och hantera distributionen av resursgrupper.|
@@ -175,7 +175,7 @@ En Log Analytics läsare kan visa och söka efter alla övervakningsdata och vis
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lista nycklar för logganalys-arbetsytan.|
 |Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Hantera logganalys insight lagringskonfigurationer.|
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
-|Microsoft.WorkloadMonitor/workloads/*|Manage Workloads.|
+|Microsoft.WorkloadMonitor/workloads/*|Hantera arbetsbelastningar.|
 
 ### <a name="monitoring-reader"></a>Övervaka läsare
 
@@ -307,7 +307,7 @@ Den här användaren kan inte heller visa webhooks som är associerade med en ru
 ![Ingen åtkomst till webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Konfigurera RBAC för ditt Automation-konto med hjälp av Azure PowerShell
-Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md):
+Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda det här kommandot tillsammans med egenskapen **Namn** för att visa en lista över alla de åtgärder som kan vidtas av en viss roll.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 I föregående exempel ersätta **inloggning Id**, **prenumerations-Id**, **resursgruppens namn**, och **Automation kontonamn** med din kontoinformation. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort rolltilldelningen för användaren.   
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om hur du kan konfigurera RBAC på olika sätt med Azure Automation finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+* Information om hur du kan konfigurera RBAC på olika sätt med Azure Automation finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Mer information om hur du kan starta en runbook på olika sätt finns i [Starta en runbook](automation-starting-a-runbook.md)
 * Information om olika runbook-typer finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
 

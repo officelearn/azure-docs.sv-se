@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8b5869e44e22fab1e996fcd58b4258849603a711
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
 
@@ -132,7 +132,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
     ```
 
    > [!TIP]
-   > Många Azure Backup-cmdletar kräver Recovery Services-valvet objekt som indata. Därför är det praktiskt att lagra säkerhetskopian Recovery Services-valvet objekt i en variabel.
+   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel.
    >
    >
 
@@ -157,14 +157,14 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Skydda dina virtuella datorer med hjälp av Recovery Services-valvet. Innan du installerar skyddet ange valvet kontext (vilken typ av data som skyddas i valvet) och kontrollera protection-principen. Protection-principen är schemat när säkerhetskopieringsjobben kör och hur länge varje ögonblicksbild av säkerhetskopian ska sparas.
 
 ### <a name="set-vault-context"></a>Ange valvet kontext
-Innan du aktiverar skyddet på en virtuell dator använda **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** ange kontexten valvet. När kontexten valvet har angetts gäller alla efterföljande cmdletar. I följande exempel anger valvet kontext för valvet, *testvault*.
+Innan du aktiverar skyddet på en virtuell dator använda **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** ange kontexten valvet. När valvet sammanhang är inställt gäller det alla efterkommande cmdletar. I följande exempel anger valvet kontext för valvet, *testvault*.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 ### <a name="create-a-protection-policy"></a>Skapa en skyddsprincip för
-När du skapar ett Recovery Services-valv kommer med standardskydd och bevarandeprinciper. Standardprincipen för protection utlöser en säkerhetskopiering varje dag vid en viss tidpunkt. Bevarandeprincip standard behåller den dagliga återställningspunkten för 30 dagar. Du kan använda standardprincipen för att snabbt skydda den virtuella datorn och redigerar principen senare med annan information.
+När du skapar ett Recovery Services-valv medföljer standardskydd och principer för kvarhållning. Principen för standardskydd utlöser ett säkerhetsjobb varje dag vid en viss tidpunkt. Principen för standardskydd håller kvar den dagliga återställningspunkten i 30 dagar. Du kan använda standardprincipen för att snabbt skydda den virtuella datorn och redigerar principen senare med annan information.
 
 Använd **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** visa protection-principer i valvet. Du kan använda denna cmdlet för att hämta en specifik princip eller visa principerna som associeras med en Arbetsbelastningstyp. I följande exempel hämtar principer för Arbetsbelastningstyp, AzureVM.
 
@@ -362,7 +362,7 @@ När du har återställt diskarna, gå till nästa avsnitt för att skapa den vi
 När du har återställt diskarna, Följ dessa steg för att skapa och konfigurera den virtuella datorn från disken.
 
 > [!NOTE]
-> Om du vill skapa krypterade virtuella datorer från återställda diskar din Azure roll måste ha behörighet att utföra åtgärden, **Microsoft.KeyVault/vaults/deploy/action**. Om din roll inte har denna behörighet kan du skapa en anpassad roll med den här åtgärden. Mer information finns i [anpassade roller i Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> Om du vill skapa krypterade virtuella datorer från återställda diskar din Azure roll måste ha behörighet att utföra åtgärden, **Microsoft.KeyVault/vaults/deploy/action**. Om din roll inte har denna behörighet kan du skapa en anpassad roll med den här åtgärden. Mer information finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
 

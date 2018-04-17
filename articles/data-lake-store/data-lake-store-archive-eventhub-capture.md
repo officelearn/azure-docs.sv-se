@@ -1,8 +1,8 @@
 ---
-title: "Samla in data från Händelsehubbar i Azure Data Lake Store | Microsoft Docs"
-description: "Använd Azure Data Lake Store att samla in data från Händelsehubbar"
+title: Samla in data från Händelsehubbar i Azure Data Lake Store | Microsoft Docs
+description: Använd Azure Data Lake Store att samla in data från Händelsehubbar
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Använd Azure Data Lake Store att samla in data från Händelsehubbar
 
@@ -27,7 +27,7 @@ Lär dig hur du använder Azure Data Lake Store att samla in data som tagits emo
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Ett Azure Data Lake Store-konto**. Anvisningar om hur du skapar en finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Ett Azure Data Lake Store-konto**. Mer information om hur du skapar ett finns i [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
 *  **Ett namnområde för Händelsehubbar**. Instruktioner finns i [skapa ett namnområde för Händelsehubbar](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Kontrollera att Data Lake Store-konto och namnområdet Händelsehubbar finns i samma Azure-prenumerationen.
 
@@ -58,9 +58,12 @@ I det här avsnittet skapar du en mapp i kontot där du vill samla in data från
 
     c. Under **tilldela behörigheter**, klickar du på **Välj behörigheter**. Ange **behörigheter** till **köra**. Ange **lägga till** till **den här mappen och alla underordnade**. Ange **lägga till som** till **en behörighetspost för åtkomst och en standard behörighetspost**.
 
-    ![Tilldela behörigheter för Data Lake Store roten](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "tilldela behörigheter för Data Lake Store-rot")
+> [!IMPORTANT]
+> När du skapar en ny mapp hierarkin för insamling av data som tagits emot av Händelsehubbar i Azure, är detta ett enkelt sätt att kontrollera åtkomst till målmappen.  Dock kan lägger till behörigheter till alla underordnade till en mapp på översta nivån med många underordnade filer och mappar ta lång tid.  Om din rotmapp innehåller ett stort antal filer och mappar, kan det vara snabbare att lägga till **kör** behörigheter för `Microsoft.EventHubs` individuellt till varje mappen i sökvägen till mappen slutdestinationen. 
 
-    Klicka på **OK**.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Tilldela behörigheter för mappen under Data Lake Store-konto där du vill samla in data.
 

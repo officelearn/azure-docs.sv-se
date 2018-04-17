@@ -1,13 +1,13 @@
 ---
-title: "Självbetjäning för återställning av lösenord vanliga frågor och svar – Azure Active Directory"
-description: "Vanliga frågor och svar om Azure AD-lösenordet för självbetjäning återställa"
+title: Självbetjäning för återställning av lösenord vanliga frågor och svar – Azure Active Directory
+description: Vanliga frågor och svar om Azure AD-lösenordet för självbetjäning återställa
 services: active-directory
-keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning"
-documentationcenter: 
+keywords: Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d30e3f099f497f35938b702d5fbb3ca38565f7c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -105,7 +105,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
     >Om du inte har fått meddelandet inom den här tiden:
         > * Kontrollera mappen för skräppost.
         > * Kontrollera att det antal eller e-post som kontaktas är den som du förväntar dig.
-        > * Kontrollera att autentiseringsdata i katalogen är korrekt formaterad, t.ex, + 1 4255551234 eller  *user@contoso.com* . 
+        > * Kontrollera att autentiseringsdata i katalogen är korrekt formaterad, t.ex, + 1 4255551234 eller *user@contoso.com*. 
   >
   >
 * **F: på vilka språk som stöds av lösenordsåterställning?**
@@ -190,7 +190,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
   >
 * **F: kan jag blockera användare från att återställa sina lösenord?**
 
-  > **S:** Ja, om du använder en grupp för att aktivera SSPR, du kan ta bort en användare från gruppen som användarna kan återställa sina lösenord.
+  > **S:** Ja, om du använder en grupp för att aktivera SSPR, du kan ta bort en användare från gruppen som användarna kan återställa sina lösenord. Om användaren är en Global administratör de behåller möjligheten att återställa sina lösenord och det går inte att inaktivera.
   >
   >
 

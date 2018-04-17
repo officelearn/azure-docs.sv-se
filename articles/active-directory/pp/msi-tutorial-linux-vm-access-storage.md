@@ -1,8 +1,8 @@
 ---
-title: "Använda en användare som tilldelats MSI på en Linux-VM för åtkomst till Azure Storage"
-description: "En självstudiekurs som vägleder dig genom processen att använda en användaren tilldelas hanterade tjänsten identitet (MSI) på en Linux-VM för att komma åt Azure Storage."
+title: Använda en användare som tilldelats MSI på en Linux-VM för åtkomst till Azure Storage
+description: En självstudiekurs som vägleder dig genom processen att använda en användaren tilldelas hanterade tjänsten identitet (MSI) på en Linux-VM för att komma åt Azure Storage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dd82f1757d9c5a5fc8fb110cc36ec9f4bbd73e8a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Använd en Användartilldelad hanteras Service identitet (MSI) på en Linux-VM för att få åtkomst till Azure Storage
 
@@ -45,7 +45,7 @@ Om du vill köra CLI skript exemplen i den här kursen har du två alternativ:
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 
@@ -189,7 +189,7 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
 4. Nu använda åtkomsttoken att få åtkomst till Azure Storage, till exempel för att läsa innehållet i exempelfilen som du tidigare har överförts till behållaren. Ersätt värdena för `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, och `<FILE NAME>` med de värden du angav tidigare, och `<ACCESS TOKEN>` med den token som returneras i föregående steg.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Svaret innehåller innehållet i filen:

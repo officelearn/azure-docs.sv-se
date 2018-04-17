@@ -4,7 +4,7 @@ description: Läs mer om SQL .NET API- och SDK inklusive frisläppningsdatum, ti
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 662a1d1d0f13b64cc87ab6eb0eee6af94cd97c54
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e4d33fc513b3a2aaa70a3402a42b31efe63c62dd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: hämta och viktig information
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/30/2018
 ### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
 
 * Fast KeyNotFoundException för mellan partition order by-frågor i specialfall.
-* Fast bugg där JsonPropery attribut i select-satsen för LINQ-frågor inte som lösts in.
+* Fast bugg där JsonProperty attribut i select-satsen för LINQ-frågor inte som lösts in.
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 

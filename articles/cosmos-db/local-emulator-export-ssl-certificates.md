@@ -1,12 +1,12 @@
 ---
 title: Exportera Azure Cosmos DB emulatorn certifikat | Microsoft Docs
-description: "När du utvecklar i språk och körningar som inte använder Windows certifikatarkiv måste du exportera och hantera SSL-certifikat. Den här posten ger steg för steg-instruktioner."
+description: När du utvecklar i språk och körningar som inte använder Windows certifikatarkiv måste du exportera och hantera SSL-certifikat. Den här posten ger steg för steg-instruktioner.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Azure Cosmos DB-emulatorn
 author: voellm
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorn certifikat för användning med Java, Python och Node.js
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 Azure-emulatorn Cosmos DB tillhandahåller en lokal miljö som emulerar Azure DB som Cosmos-tjänsten för utveckling, inklusive dess användning av SSL-anslutningar. Det här exemplet visar hur du exportera SSL-certifikat för användning i språk och körningar som inte integreras med Windows certifikatarkiv, till exempel Java som använder sin egen [certifikatarkiv](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) och Python som använder [socket omslutningar](https://docs.python.org/2/library/ssl.html) och Node.js som använder [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Du kan läsa mer om emulatorn i [Använd Azure Cosmos DB-emulatorn för utveckling och testning](./local-emulator.md).
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Rotera certifikat
@@ -95,7 +95,7 @@ Som standard den [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Roterade certifikat

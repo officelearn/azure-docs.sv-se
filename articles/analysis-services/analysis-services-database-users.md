@@ -1,25 +1,18 @@
 ---
-title: "Hantera databasroller och användare i Azure Analysis Services | Microsoft Docs"
-description: "Lär dig hur du hanterar databasroller och användare på en Analysis Services-server i Azure."
-services: analysis-services
-documentationcenter: 
+title: Hantera databasroller och användare i Azure Analysis Services | Microsoft Docs
+description: Lär dig hur du hanterar databasroller och användare på en Analysis Services-server i Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
 
@@ -51,7 +44,7 @@ När du skapar en tabellmodell-projekt kan du skapa roller och Lägg till använ
     |**Ingen**|Medlemmar kan inte ändra modellschemat och det går inte att fråga efter data.|  
     |**Läsa**|Medlemmar kan fråga efter data (baserat på radfilter) men det går inte att ändra modellschemat.|  
     |**Läs- och processen**|Medlemmar kan fråga data (baserat på radnivå filter) och kör processen och bearbeta alla åtgärder, men det går inte att ändra modellschemat.|  
-    |**Process**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
+    |**Processen**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
     |**Administratören**|Medlemmar kan ändra modellschemat och läsa alla data.|   
   
 5.  Om rollen som du skapar har läs- eller Läs- och processen behörighet, du kan lägga till radfilter med hjälp av en DAX-formel. Klicka på den **radfilter** , och sedan markera en tabell och klicka sedan på den **DAX-Filter** fältet och skriv sedan en DAX-formel.
@@ -123,8 +116,8 @@ Den [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) modulen inneh�
   
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
+|[Lägg till RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
+|[Ta bort RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett skript för TMSL.|
 
 ## <a name="row-filters"></a>Radfilter  
@@ -140,7 +133,7 @@ Radfilter gäller för de angivna raderna och relaterade rader. När en tabell h
 |-----------|--------------------|  
 |Region|= Region [Land] = ”USA”|  
 |Produktkategori|= Produktkategori [Name] = ”cyklar”|  
-|Transaktioner|=Transactions[Year]=2016|  
+|Transaktioner|= Transaktioner [år] = 2016|  
   
  Net effekten är att medlemmar kan fråga datarader där kunden finns i USA, produktkategorin cyklar och året 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte cyklar eller transaktioner inte 2016 såvida de inte är medlem i en annan roll som ger dessa behörigheter.
   

@@ -1,28 +1,26 @@
 ---
-title: "Hantera loggfiler för ett HDInsight-kluster - Azure HDInsight | Microsoft Docs"
-description: "Fastställa typer, storlek och bevarandeprinciper för HDInsight aktivitet loggfiler."
+title: Hantera loggfiler för ett HDInsight-kluster - Azure HDInsight | Microsoft Docs
+description: Fastställa typer, storlek och bevarandeprinciper för HDInsight aktivitet loggfiler.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: a161a5c639ff02e1e8a2ea987d9f913ff41c5618
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggfiler för ett HDInsight-kluster
+# <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
 Ett HDInsight-kluster ger en mängd olika loggfilerna. Till exempel ger Apache Hadoop och relaterade tjänster, till exempel Apache Spark körningsloggar för detaljerad jobbet. Hantering av loggfilen är en del av underhållet ett felfritt HDInsight-kluster. Det kan också finnas krav för arkivering av loggen.  På grund av antalet och storleken för loggfiler optimera lagra loggen och arkivering hjälper dig med tjänsthantering kostnaden.
 
@@ -179,8 +177,8 @@ Du kan använda .NET SDK för Hadoop för att undersöka loggfiler som genererat
 
 Ange följande egenskaper för att kontrollera storlek och antal loggfiler som lagras i `RollingFileAppender`:
 
-* `maxFileSize`är kritiska storleken på filen som filen återställs. Standardvärdet är 10 MB.
-* `maxBackupIndex`Anger hur många säkerhetskopior som ska skapas standardvärdet 1.
+* `maxFileSize` är kritiska storleken på filen som filen återställs. Standardvärdet är 10 MB.
+* `maxBackupIndex` Anger hur många säkerhetskopior som ska skapas standardvärdet 1.
 
 ### <a name="other-log-management-techniques"></a>Andra tekniker för hantering av logg
 

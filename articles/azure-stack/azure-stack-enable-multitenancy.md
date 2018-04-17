@@ -1,11 +1,11 @@
 ---
 title: Aktivera flera innehavare i Azure-stacken | Microsoft Docs
-description: "Lär dig hur du stöd för flera Azure Active Directory-kataloger i Azure-stacken"
+description: Lär dig hur du stöd för flera Azure Active Directory-kataloger i Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Aktivera flera innehavare i Azure-stacken
 
@@ -91,7 +91,7 @@ Register-AzSWithMyDirectoryTenant `
 ## <a name="direct-users-to-sign-in"></a>Dirigera användarna att logga in
 Nu när du och Mary har slutfört stegen för att publicera Mary directory, direkt Mary Fabrikam användare att logga in.  Fabrikam-användare (det vill säga användare med suffixet fabrikam.onmicrosoft.com) logga in genom att besöka https://portal.local.azurestack.external.  
 
-Mary kommer att dirigera alla [externa säkerhetsobjekt](../active-directory/active-directory-understanding-resource-access.md) i katalogen Fabrikam (det vill säga användare i katalogen Fabrikam utan suffixet fabrikam.onmicrosoft.com) att logga in med https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Om de inte använder denna URL skickas till deras standardkatalogen (Fabrikam) och ett felmeddelande som säger att deras admin inte har godkänt.
+Mary kommer att dirigera alla [externa säkerhetsobjekt](../role-based-access-control/rbac-and-directory-admin-roles.md) i katalogen Fabrikam (det vill säga användare i katalogen Fabrikam utan suffixet fabrikam.onmicrosoft.com) att logga in med https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Om de inte använder denna URL skickas till deras standardkatalogen (Fabrikam) och ett felmeddelande som säger att deras admin inte har godkänt.
 
 ## <a name="next-steps"></a>Nästa steg
 

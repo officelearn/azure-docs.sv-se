@@ -1,11 +1,11 @@
 ---
-title: "Åtkomst till Azure Media Services API med Azure Active Directory-autentisering | Microsoft Docs"
-description: "Lär dig mer om koncept och steg för att använda Azure Active Directory (Azure AD) för att autentisera åtkomst till Azure Media Services API."
+title: Åtkomst till Azure Media Services API med Azure Active Directory-autentisering | Microsoft Docs
+description: Lär dig mer om koncept och steg för att använda Azure Active Directory (Azure AD) för att autentisera åtkomst till Azure Media Services API.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering
  
 Azure Media Services API är en RESTful-API. Du kan använda den för att utföra åtgärder på media resurser med hjälp av REST-API eller genom att använda tillgängliga klient-SDK:. Azure Media Services erbjuder en klient för Media Services SDK för Microsoft .NET. Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. 
 
-Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../active-directory/active-directory-whatis.md). Azure Media REST-tjänsten kräver att användaren eller programmet som gör REST API-begäranden har antingen den **deltagare** eller **ägare** roll åtkomst till resurser. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-what-is.md).  
+Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../active-directory/active-directory-whatis.md). Azure Media REST-tjänsten kräver att användaren eller programmet som gör REST API-begäranden har antingen den **deltagare** eller **ägare** roll åtkomst till resurser. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
-> Media Services stöder för närvarande Azure Access Control service autentisering modellen. Access Control tillstånd att bli inaktuell på den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentisering så snart som möjligt.
+> Media Services stöder för närvarande Azure Access Control service autentisering modellen. Access Control tillstånd att bli inaktuell på den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
 
 Det här dokumentet ger en översikt över hur åtkomst till Media Services-API med hjälp av REST- eller .NET-API: er.
 
@@ -75,13 +75,13 @@ I föregående diagram representerar siffrorna flödet av begäranden i kronolog
         Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
     * Media Services resurs-URI. 
 
-        Den här URI är samma för Media Services-konton som är i samma Azure-miljön (till exempel https://rest.media.azure.net).
+        Den här URI: N är samma för Media Services-konton som är i samma Azure-miljön (till exempel https://rest.media.azure.net).
 
     * Media Services (ursprunglig) programmet klient-ID.
     * Media Services (intern)-programmet omdirigerings-URI.
     * Resurs-URI för REST Media Services.
         
-        URI som representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
+        URI representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
 
     Värden för dessa parametrar finns [Använd Azure-portalen för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med alternativet användare för autentisering.
 
@@ -117,11 +117,11 @@ I föregående bild representerar siffrorna flödet av begäranden i kronologisk
         Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
     * Media Services resurs-URI. 
 
-        Den här URI är samma för Media Services-konton som finns i samma Azure-miljön (till exempel https://rest.media.azure.net).
+        Den här URI: N är samma för Media Services-konton som finns i samma Azure-miljön (till exempel https://rest.media.azure.net).
 
     * Resurs-URI för REST Media Services.
 
-        URI som representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
+        URI representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
 
     * Azure AD application värden: klient-ID och klienthemlighet.
     
@@ -147,7 +147,7 @@ I följande artiklar finns översikter över begrepp för Azure AD-autentisering
 
 - [Autentiseringsscenarier åtgärdas av Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Lägga till, uppdatera eller ta bort ett program i Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
-- [Konfigurera och hantera rollbaserad åtkomstkontroll med hjälp av PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Konfigurera och hantera rollbaserad åtkomstkontroll med hjälp av PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

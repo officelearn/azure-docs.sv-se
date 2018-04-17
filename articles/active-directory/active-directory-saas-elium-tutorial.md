@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Självstudier: Azure Active Directory-integrering med Elium
 
@@ -32,7 +32,7 @@ Integrera Elium med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Elium, behöver du följande:
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textruta Skriv en URL med följande mönster: ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Du får dessa värden från den **SP metadatafil** laddas ner `https://<platform-domain>/login/saml2/metadata`, som beskrivs senare i den här kursen.
+    > Dessa värden är inte verkliga. Du får dessa värden från den **SP metadatafil** laddas ner `https://<platform-domain>.elium.com/login/saml2/metadata`, som beskrivs senare i den här kursen.
 
 5. Programmet Elium förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till anpassade attributmappning konfigurationen för SAML-token attribut. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet.
 
@@ -128,10 +128,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Attributnamn | Attributvärde |   
     | ---------------| ----------------|
     | e-post   |User.Mail |
-    | first_name| user.givenname |
-    | last_name| User.surname|
-    | job_title| user.jobtitle|
-    | Företag| user.companyname|
+    | Förnamn| User.givenName |
+    | Efternamn| User.surname|
+    | befattning| User.jobtitle|
+    | Företag| User.CompanyName|
     
     > [!NOTE]
     > Det här är standard-anspråk. **Endast e-anspråk krävs**. Anspråk är obligatoriskt för JIT också etablering endast e-post. Andra anpassade anspråk kan variera från en kund plattform för en annan kund-plattformen.

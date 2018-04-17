@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3784cb6f713c5ce476ab980122ee6ec9fa3ebc59
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="performance-metrics"></a>Prestandamått
 
@@ -30,10 +30,10 @@ Mått ska samlas in för att förstå prestanda för klustret, samt de program s
 
 | Räknaren kategori | Räknarens namn |
 | --- | --- |
-| Fysisk disk (per Disk) | Avg. Läs diskkölängd |
-| Fysisk disk (per Disk) | Avg. Diskkölängd för skrivning |
-| Fysisk disk (per Disk) | Avg. Disk sek/läsning |
-| Fysisk disk (per Disk) | Avg. Disk sek/skrivning |
+| Fysisk disk (per Disk) | Genomsn. Läs diskkölängd |
+| Fysisk disk (per Disk) | Genomsn. Diskkölängd för skrivning |
+| Fysisk disk (per Disk) | Genomsn. Disk sek/läsning |
+| Fysisk disk (per Disk) | Genomsn. Disk sek/skrivning |
 | Fysisk disk (per Disk) | Diskläsningar/sek |
 | Fysisk disk (per Disk) | Disk – lästa byte/sek |
 | Fysisk disk (per Disk) | Diskskrivningar/sek |
@@ -42,7 +42,7 @@ Mått ska samlas in för att förstå prestanda för klustret, samt de program s
 | Växling fil | % Användning |
 | Processor(total) | % Processortid |
 | Processen (per service) | % Processortid |
-| Processen (per service) | ID Process |
+| Processen (per service) | Process-ID |
 | Processen (per service) | Privata byte |
 | Processen (per service) | Antal trådar |
 | Processen (per service) | Virtuell storlek-byte |
@@ -75,7 +75,7 @@ Service Fabric genererar en stor mängd anpassade prestandaräknare. Om du har i
 
 I program som du distribuerar till ditt kluster om du använder Reliable Actors, lägga till countes från `Service Fabric Actor` och `Service Fabric Actor Method` kategorier (se [Service Fabric tillförlitliga aktörer diagnostik](service-fabric-reliable-actors-diagnostics.md)).
 
-Om du använder Reliable Services på samma sätt har vi `Service Fabric Service` och `Service Fabric Service Method` räknaren kategorier som du bör samla in prestandaräknare från. 
+Om du använder tjänsten fjärrkommunikation på liknande sätt har vi `Service Fabric Service` och `Service Fabric Service Method` räknaren kategorier som du bör samla in prestandaräknare från. 
 
 Om du använder tillförlitliga samlingar, rekommenderar vi att lägga till den `Avg. Transaction ms/Commit` från den `Service Fabric Transactional Replicator` att samla in den genomsnittliga commit svarstiden per transaktion mått.
 

@@ -4,9 +4,8 @@ description: Med TTL tillhandahåller Microsoft Azure Cosmos DB möjligheten att
 services: cosmos-db
 documentationcenter: ''
 keywords: Time to live-
-author: arramac
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: arramac
-ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Data i Azure Cosmos DB samlingar automatiskt med time to live-att gälla
 Program kan skapa och lagra stora mängder data. Vissa av dessa data, t.ex. datorn genereras data, loggar och användaren händelsesessionen information är bara användbara för en bestämd tidsperiod. När data blir överflödiga enligt behov av programmet som det är säkert att rensa data och minska lagringsbehov för ett program.
@@ -155,7 +154,7 @@ Lägga till eller ändra inställningen TTL-värde på en samling ändrar underl
 
 Om du behöver exakt data som returneras, ändras inte TTL-värdet när indexering läget är inställt på lazy. Helst bör du valt konsekvent index för att säkerställa konsekvent frågeresultat. 
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 **Vad TTL kostar mig?**
 
 Det finns utan extra kostnad för att ange ett TTL-värde i ett dokument.

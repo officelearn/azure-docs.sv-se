@@ -1,12 +1,12 @@
 ---
-title: "Ordlista för Azure - Azure ordlistan | Microsoft Docs"
-description: "Använd Azure ordlista för att förstå molnet terminologi för Azure-plattformen. Den här korta Azure ordlistan innehåller definitioner för vanliga molnet villkoren för Azure."
+title: Ordlista för Azure - Azure ordlistan | Microsoft Docs
+description: Använd Azure ordlista för att förstå molnet terminologi för Azure-plattformen. Den här korta Azure ordlistan innehåller definitioner för vanliga molnet villkoren för Azure.
 keywords: Azure ordlista, molnet terminologi, Azure ordlista, termer, molnet villkor
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: en ordlista med molnet terminologi för Azure-plattformen
 
@@ -59,7 +59,7 @@ En av två [distributionsmodeller](resource-manager-deployment-model.md) använd
 Samlingen av virtuella datorer i en tillgänglighetsuppsättning som eventuellt kan misslyckas på samma gång. Ett exempel är en grupp datorer i ett rack som delar en gemensam käll- och strömbrytare. I Azure separeras de virtuella datorerna i en tillgänglighetsuppsättning automatiskt över flera feldomäner.  
 Se [hantera tillgängligheten för virtuella Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
-## <a name="geo"></a>geo
+## <a name="geo"></a>GEO-replikering
 En definierad gräns för data land som innehåller vanligtvis två eller flera regioner. Gränser kan göras inom eller utanför gränser och påverkas av skatt förordning. Varje geo har minst en region. Asien/Stillahavsområdet och Japan är exempel på regioner. Kallas även *geografi*.  
 Se [Azure-regioner](best-practices-availability-paired-regions.md)
 
@@ -111,7 +111,7 @@ Se [översikt över Azure Resource Manager](azure-resource-manager/resource-grou
 
 ## <a name="role"></a>roll
 Ett sätt för att styra åtkomsten som kan tilldelas användare, grupper och tjänster. Roller kan utföra åtgärder som att skapa, hantera, och läsas på Azure-resurser.  
-Se [RBAC: inbyggda roller](active-directory/role-based-access-built-in-roles.md)
+Se [RBAC: inbyggda roller](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>servicenivåavtal (SLA)
 Avtalet som beskriver Microsofts åtaganden för drifttid och anslutningar. Varje Azure-tjänsten har en specifik SLA.  
@@ -120,7 +120,7 @@ Se [serviceavtal](https://azure.microsoft.com/support/legal/sla/)
 ## <a name="sas"></a>Signatur för delad åtkomst (SAS)
 En signatur som gör att du kan bevilja begränsad åtkomst till en resurs, utan att utsätta din kontonyckel. Till exempel [Azure Storage använder SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) att ge klientåtkomst till objekt, till exempel BLOB. [IoT-hubb använder SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) att bevilja behörighet att skicka telemetri för enheter.
 
-## <a name="storage-account"></a>lagringskonto
+## <a name="storage-account"></a>storage account
 Ett konto som ger dig åtkomst till Azure Blob, kön, tabell och filen tjänster i Azure Storage. Lagringskontonamnet definierar den unika namnrymden för Azure Storage-dataobjekt.  
 Se [om Azure storage-konton](storage/common/storage-create-storage-account.md)
 

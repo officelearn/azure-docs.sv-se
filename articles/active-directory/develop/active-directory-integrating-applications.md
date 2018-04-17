@@ -1,8 +1,8 @@
 ---
 title: Integrera program med Azure Active Directory
-description: "Så här lägger du till, uppdatera eller ta bort ett program i Azure Active Directory (AD Azure)."
+description: Så här lägger du till, uppdatera eller ta bort ett program i Azure Active Directory (AD Azure).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin
@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -47,7 +47,7 @@ Alla program som du vill använda funktionerna i Azure AD måste först registre
     - Välj ”inbyggd” för [klientprogram](active-directory-dev-glossary.md#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth offentliga [interna klienter](active-directory-dev-glossary.md#native-client).
     - Välj ”webbapp / API” för [klientprogram](active-directory-dev-glossary.md#client-application) och [resurs-API-program](active-directory-dev-glossary.md#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth konfidentiell [web klienter](active-directory-dev-glossary.md#web-client) och offentliga [användaren-agent-baserade klienter](active-directory-dev-glossary.md#user-agent-based-client). Samma program kan också visa både klient- och resurs-API.
   - **Inloggnings-URL:** för ”webbapp / API” program, ange den grundläggande Webbadressen för din app. Till exempel `http://localhost:31544` kan vara URL för ett webbprogram som körs på den lokala datorn. Användare använder den här URL: en för att logga in på ett webbprogram för klienten. 
-  - **Omdirigerings-URI:** för ”interna” program, anger du den URI som används av Azure AD för att returnera token svar. Ange ett värde som är specifika för ditt program, till exempel`http://MyFirstAADApp`
+  - **Omdirigerings-URI:** för ”interna” program, anger du den URI som används av Azure AD för att returnera token svar. Ange ett värde som är specifika för ditt program, till exempel `http://MyFirstAADApp`
 
    ![Registrera ett nytt program – skapa](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -101,7 +101,7 @@ Följande steg visar hur samtycke uppleva fungerar för både programutvecklaren
   > Bevilja uttryckligt medgivande med hjälp av den **bevilja med** knappen krävs för närvarande för enstaka sida program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Konfigurera ett klientprogram att komma åt web API: er
-För ett webbprogram konfidentiell klientprogram för att kunna delta i ett tillstånd bevilja flöde som kräver autentisering (och få en åtkomsttoken), måste den upprätta säkra referenser. Standardmetoden för autentisering som stöds av Azure portal är klient-ID + hemlig nyckel. Det här avsnittet beskriver de konfigurationssteg som krävs för att ange den hemliga nyckeln för din klient autentiseringsuppgifter.
+För ett webbprogram konfidentiell klientprogram för att kunna delta i ett tillstånd bevilja flöde som kräver autentisering (och få en åtkomsttoken), måste den upprätta säkra referenser. Standardmetoden för autentisering som stöds av Azure portal är klient-ID + hemlig nyckel. Det här avsnittet beskriver konfigurationssteg som krävs för att ange den hemliga nyckeln med autentiseringsuppgifter för din klient.
 
 Dessutom innan en klient kan komma åt ett webb-API som exponeras av en resursprogram (till exempel Microsoft Graph API), medgivande framework garanterar klienten hämtar behörighet beviljande krävs, baserat på de behörigheter som begärdes. Som standard kan alla program välja behörigheter från ”Windows Azure Active Directory” (Graph API) och ”Windows Azure Service Management API”. Den [Graph API ”logga in och Läs användarprofil” behörighet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) också är markerad som standard. Om klienten registreras i en klient som har konton som prenumererar på Office 365, kan webb-API: er och behörigheter för SharePoint och Exchange Online välja. Du kan välja mellan [två typer av behörigheter](active-directory-dev-glossary.md#permissions) för varje önskad webb-API:
 
@@ -129,7 +129,7 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av en resurspr
 
 5. Att lägga till behörigheter för åtkomst till resursen API: er från din klient
   - Klicka på den **nödvändiga behörigheter** avsnitt på den **inställningar** sidan. 
-  - Klicka på den **Lägg till** knappen.
+  - Klicka på knappen **Lägg till**.
   - Klicka på **väljer en API** att välja vilken typ av resurser som du vill välja från.
   - Bläddra igenom listan över tillgängliga API: er eller Använd sökrutan Om du vill välja från tillgänglig resurs för program i din katalog som exponerar ett webb-API. Klicka på den resurs som du är intresserad av och klickar sedan **Välj**.
   - Du förflyttas till den **Aktivera åtkomst** sidan. Välj behörigheter för program och/eller delegerade behörigheter som programmet behöver få åtkomst till API: et.
@@ -162,7 +162,7 @@ Följande avsnitt visar hur du exponera åtkomstscope, genom att ändra resursen
 
 4. Du kommer till programmets huvudsakliga registreringssidan, vilket öppnar den **inställningar** sidan för programmet. Växla till den **redigera manifestet** sidan genom att klicka på **Manifest** från programmets registreringssidan. En webbaserad manifestet editor öppnas, så att du kan **redigera** manifestet i portalen. Alternativt kan du klicka på **hämta** och redigera lokalt och sedan använda **överför** på nytt till programmet.
 
-5. I det här exemplet ska vi visa ett nytt scope som kallas `Employees.Read.All` på vår resurs/API, genom att lägga till följande JSON-elementet så att den `oauth2Permissions` samling. Den befintliga `user_impersonation` scope som standard under registreringen. `user_impersonation`tillåter ett klientprogram att begära tillstånd att få åtkomst till resursen under identiteten för den inloggade användaren. Se till att lägga till Kommat efter den befintliga `user_impersonation` omfång element och ändra egenskapsvärden så att de passar din resursbehov. 
+5. I det här exemplet ska vi visa ett nytt scope som kallas `Employees.Read.All` på vår resurs/API, genom att lägga till följande JSON-elementet så att den `oauth2Permissions` samling. Den befintliga `user_impersonation` scope som standard under registreringen. `user_impersonation` tillåter ett klientprogram att begära tillstånd att få åtkomst till resursen under identiteten för den inloggade användaren. Se till att lägga till Kommat efter den befintliga `user_impersonation` omfång element och ändra egenskapsvärden så att de passar din resursbehov. 
 
   ```json
   {
@@ -233,7 +233,7 @@ Gör ett program med flera innehavare kräver båda programändringar registreri
 Om du skriver ett program som du vill göra tillgängliga för dina kunder eller partners utanför din organisation, måste du uppdatera programmets definition i Azure-portalen.
 
 > [!IMPORTANT]
-> Azure AD kräver App-ID-URI för program med flera klienter ska vara globalt unika. URI för App-ID är ett sätt som ett program har identifierats i protokollmeddelanden. Den är tillräcklig för URI: N App-ID är unikt i den klienten för en enskild klient-program. För ett program med flera innehavare, måste den vara globalt unika så att Azure AD kan hitta programmet på alla klienter. Globala unika tillämpas genom att kräva att App-ID-URI har ett värdnamn som matchar en verifierad domän till Azure AD-klient. Till exempel om namnet på din klient är contoso.onmicrosoft.com är sedan en giltig URI för App-ID https://contoso.onmicrosoft.com/myapp. Om din klient har en verifierad domän contoso.com, skulle en giltig URI för App-ID också att vara https://contoso.com/myapp. Om App-ID-URI inte följer detta mönster, ange ett program som misslyckas av flera innehavare.
+> Azure AD kräver App-ID-URI för program med flera klienter ska vara globalt unika. URI för App-ID är ett sätt som ett program har identifierats i protokollmeddelanden. Den är tillräcklig för URI: N App-ID är unikt i den klienten för en enskild klient-program. För ett program med flera innehavare, måste den vara globalt unika så att Azure AD kan hitta programmet på alla klienter. Globala unika tillämpas genom att kräva att App-ID-URI har ett värdnamn som matchar en verifierad domän till Azure AD-klient. Till exempel om namnet på din klient är contoso.onmicrosoft.com en giltig URI för App-ID är https://contoso.onmicrosoft.com/myapp. Om din klient har en verifierad domän contoso.com och sedan en giltig URI för App-ID kan även vara https://contoso.com/myapp. Om App-ID-URI inte följer detta mönster, ange ett program som misslyckas av flera innehavare.
 > 
 
 Så här ger externa användare möjlighet att komma åt ditt program: 

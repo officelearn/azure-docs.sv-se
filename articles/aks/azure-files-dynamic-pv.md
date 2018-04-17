@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ab118cd43f1e3e57627d940072e50405cd85ca58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Beständiga volymer med Azure-filer
 
-En beständig volym representerar en typ av lagring som har etablerats för användning i ett Kubernetes kluster. En beständig volym kan användas av en eller flera skida och kan etableras statiskt eller dynamiskt. Det här dokumentet beskriver dynamisk etablering av en Azure-filresurs som Kubernetes beständiga volymer i ett AKS kluster. 
+En beständig volym representerar en typ av lagring som har etablerats för användning i ett Kubernetes kluster. En beständig volym kan användas av en eller flera skida och kan etableras statiskt eller dynamiskt. Det här dokumentet beskriver dynamisk etablering av en Azure-filresurs som Kubernetes beständiga volymer i ett AKS kluster.
 
 Mer information om Kubernetes beständiga volymer finns [Kubernetes beständiga volymer][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-När dynamiskt etablerar en Azure-filresurs som en Kubernetes volym, kan storage-konto användas som den finns i samma resursgrupp som klustret AKS. Om det behövs kan du skapa ett lagringskonto i samma resursgrupp som klustret AKS. 
+När dynamiskt etablerar en Azure-filresurs som en Kubernetes volym, kan storage-konto användas som den finns i samma resursgrupp som klustret AKS. Om det behövs kan du skapa ett lagringskonto i samma resursgrupp som klustret AKS.
 
 Använd för att identifiera rätt resursgruppen den [az grupplistan] [ az-group-list] kommando.
 
@@ -40,7 +40,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Använd den [az storage-konto skapar] [ az-storage-account-create] kommando för att skapa lagringskontot. 
+Använd den [az storage-konto skapar] [ az-storage-account-create] kommando för att skapa lagringskontot.
 
 Med det här exemplet kan uppdatera `--resource-group` med namnet på resursgruppen och `--name` till ett valfritt namn.
 
@@ -74,7 +74,7 @@ kubectl create -f azure-file-sc.yaml
 
 ## <a name="create-persistent-volume-claim"></a>Skapa beständiga volym anspråk
 
-Beständiga volym-anspråk (PVC) använder klassen lagringsobjektet att dynamiskt etablera ett Azure-filresursen. 
+Beständiga volym-anspråk (PVC) använder klassen lagringsobjektet att dynamiskt etablera ett Azure-filresursen.
 
 Följande Manifestet kan användas för att skapa en beständig volym anspråk `5GB` i storlek med `ReadWriteOnce` åtkomst.
 
@@ -132,22 +132,22 @@ Skapa baljor med den [kubectl skapa] [ kubectl-create] kommando.
 kubectl create -f azure-pvc-files.yaml
 ```
 
-Nu har du en körs baljor med din Azure-disken monterat i den `/mnt/azure` directory. Du kan se volymen montera vid inspektion av din baljor via `kubectl describe pod mypod`.
+Nu har du en körs baljor med din Azure-disken monterat i den `/mnt/azure` directory. Den här konfigurationen kan visas vid inspektion av din baljor via `kubectl describe pod mypod`.
 
 ## <a name="mount-options"></a>Monteringsalternativ
- 
+
 Standardvärden för fileMode och dirMode skiljer sig åt mellan Kubernetes versioner som beskrivs i följande tabell.
- 
+
 | version | värde |
 | ---- | ---- |
 | V1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
+| V1.8.0 v1.8.5 | 0700 |
 | V1.8.6 eller senare | 0755 |
 | V1.9.0 | 0700 |
 | V1.9.1 eller senare | 0755 |
- 
+
 Om du använder ett kluster av version 1.8.5 eller högre, monteringspunkter som alternativ kan anges för klass lagringsobjektet. Följande exempel anger `0777`.
- 
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -162,7 +162,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
 ```
- 
+
 Om du använder ett kluster av version 1.8.0 - 1.8.4, en säkerhetskontext kan anges med den `runAsUser` värdet `0`. Mer information om baljor säkerhetskontext finns [konfigurera en säkerhetskontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
 title: Skydda DNS-zoner och poster | Microsoft Docs
-description: "Hur du skyddar DNS-zoner och postuppsättningar i Microsoft Azure DNS."
+description: Hur du skyddar DNS-zoner och postuppsättningar i Microsoft Azure DNS.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a23f5fa296be6d883229d3810e0387224b6708ff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Så här skyddar du DNS-zoner och poster
 
 DNS-zoner och poster är viktiga resurser. Ta bort en DNS-zon eller bara en DNS-post kan resultera i en totala avbrott.  Det är därför viktigt att kritiska DNS-zoner och poster skyddas mot obehörig eller oavsiktliga ändringar.
 
-Den här artikeln förklarar hur Azure DNS kan du skydda DNS-zoner och poster mot sådana ändringar.  Det använda två kraftfulla säkerhetsfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) och [resurslås](../azure-resource-manager/resource-group-lock-resources.md).
+Den här artikeln förklarar hur Azure DNS kan du skydda DNS-zoner och poster mot sådana ändringar.  Det använda två kraftfulla säkerhetsfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) och [resurslås](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Azure rollbaserad åtkomstkontroll (RBAC) Aktivera detaljerad åtkomsthantering för Azure-användare, grupper och resurser. Med RBAC kan bevilja du exakt åtkomstnivå som användare måste utföra sitt arbete. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns [vad är rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md).
+Azure rollbaserad åtkomstkontroll (RBAC) Aktivera detaljerad åtkomsthantering för Azure-användare, grupper och resurser. Med RBAC kan bevilja du exakt åtkomstnivå som användare måste utföra sitt arbete. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns [vad är rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
 ### <a name="the-dns-zone-contributor-role"></a>Rollen DNS-zonen-deltagare
 
@@ -35,18 +35,18 @@ DNS-zonen-deltagare roll är en inbyggd roll som tillhandahålls av Azure för a
 
 Anta exempelvis att resurs grupp 'myzones' innehåller fem zoner för Contoso Corporation. Tilldela DNS-administratören DNS-zonen-deltagare behörigheter till resursgruppen kan fullständig kontroll över dessa DNS-zoner. Den förhindrar tillståndsbeviljande onödiga, till exempel DNS-administratören inte kan skapa eller stoppa virtuella datorer.
 
-Det enklaste sättet att tilldela behörigheter för RBAC [via Azure portal](../active-directory/role-based-access-control-configure.md).  Öppna 'Åtkomstkontroll (IAM)'-bladet för resursgruppen på ”Lägg till' och sedan Markera rollen DNS-zonen-deltagare och välj nödvändiga användare eller grupper för att bevilja behörighet.
+Det enklaste sättet att tilldela behörigheter för RBAC [via Azure portal](../role-based-access-control/role-assignments-portal.md).  Öppna 'Åtkomstkontroll (IAM)'-bladet för resursgruppen på ”Lägg till' och sedan Markera rollen DNS-zonen-deltagare och välj nödvändiga användare eller grupper för att bevilja behörighet.
 
 ![Resursgruppsnivå RBAC via Azure portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
-Behörigheter kan också vara [beviljas med hjälp av Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Behörigheter kan också vara [beviljas med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
-Kommandot motsvarande är också [tillgängliga via Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+Kommandot motsvarande är också [tillgängliga via Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
@@ -63,14 +63,14 @@ Zonen RBAC-behörighet kan beviljas via Azure portal.  Öppna bladet 'Åtkomstko
 
 ![DNS-zonen nivå RBAC via Azure portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
-Behörigheter kan också vara [beviljas med hjälp av Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Behörigheter kan också vara [beviljas med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
-Kommandot motsvarande är också [tillgängliga via Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+Kommandot motsvarande är också [tillgängliga via Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -85,14 +85,14 @@ Postuppsättningen behörighet på användarnivå RBAC kan konfigureras via Azur
 
 ![Postuppsättning nivå RBAC via Azure portal](./media/dns-protect-zones-recordsets/rbac3.png)
 
-Postuppsättningen behörighet på användarnivå RBAC kan också vara [beviljas med hjälp av Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Postuppsättningen behörighet på användarnivå RBAC kan också vara [beviljas med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant permissions to a specific record set
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
-Kommandot motsvarande är också [tillgängliga via Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+Kommandot motsvarande är också [tillgängliga via Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant permissions to a specific record set
@@ -133,10 +133,10 @@ I följande exempel visas en anpassad rolldefinition för att hantera CNAME-post
 
 Egenskapen åtgärder definierar följande DNS-specifika behörigheter:
 
-* `Microsoft.Network/dnsZones/CNAME/*`ger fullständig kontroll över CNAME-poster
-* `Microsoft.Network/dnsZones/read`ger behörighet att läsa DNS-zoner, men inte ändra dem, så att du ser zonen där CNAME håller på att skapas.
+* `Microsoft.Network/dnsZones/CNAME/*` ger fullständig kontroll över CNAME-poster
+* `Microsoft.Network/dnsZones/read` ger behörighet att läsa DNS-zoner, men inte ändra dem, så att du ser zonen där CNAME håller på att skapas.
 
-De återstående åtgärderna kopieras från den [DNS-zonen inbyggda deltagarrollen](../active-directory/role-based-access-built-in-roles.md#dns-zone-contributor).
+De återstående åtgärderna kopieras från den [DNS-zonen inbyggda deltagarrollen](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
 > Använda en anpassad RBAC-roll för att förhindra att ta bort postuppsättningar fortfarande så att de kan uppdateras inte är en effektiv kontroll. Det förhindrar postuppsättningar tas bort, men den förhindrar inte dem som ska ändras.  Tillåtna ändringar lägga till och ta bort poster från uppsättningen av poster, inklusive ta bort alla poster om du vill lämna en 'empty-postuppsättning. Detta har samma effekt som tar bort posten från en DNS-matchning synvinkel.
@@ -157,7 +157,7 @@ azure role create -inputfile <file path>
 
 Rollen kan sedan tilldelas på samma sätt som inbyggda roller, enligt beskrivningen tidigare i den här artikeln.
 
-Mer information om hur du skapa, hantera och tilldela anpassade roller finns [anpassade roller i Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+Mer information om hur du skapa, hantera och tilldela anpassade roller finns [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
 
 ## <a name="resource-locks"></a>Resurslås
 
@@ -198,7 +198,7 @@ New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -Resourc
 
 ### <a name="protecting-against-zone-deletion"></a>Skydd mot zon borttagning
 
-När en zon tas bort i Azure DNS, raderas även alla uppsättningar av poster i zonen.  Den här åtgärden kan inte ångras.  Oavsiktlig borttagning av en kritisk zon har möjlighet att ha en betydande marknadsfördelar.  Därför är det mycket viktigt att skydda mot oavsiktlig zonen borttagning.
+När en zon tas bort i Azure DNS, raderas även alla uppsättningar av poster i zonen.  Du kan inte ångra den här åtgärden.  Oavsiktlig borttagning av en kritisk zon har möjlighet att ha en betydande marknadsfördelar.  Därför är det mycket viktigt att skydda mot oavsiktlig zonen borttagning.
 
 Tillämpa DoNotDelete lås på en zon förhindrar att zonen tas bort.  Men eftersom Lås ärvs av underordnade resurser den förhindrar också att alla uppsättningar av poster i zonen tas bort, vilket kan vara önskvärt.  Dessutom enligt beskrivningen i noteringen ovan, är det också ineffektiv eftersom poster fortfarande kan tas bort från de befintliga postuppsättningar.
 
@@ -219,6 +219,6 @@ Det är möjligt att använda båda metoderna - resurslås och anpassade roller 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du arbetar med RBAC [Kom igång med åtkomsthantering i Azure portal](../active-directory/role-based-access-control-what-is.md).
+* Läs mer om hur du arbetar med RBAC [Kom igång med åtkomsthantering i Azure portal](../role-based-access-control/overview.md).
 * Mer information om hur du arbetar med resurslås finns [låsa resurser med Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 

@@ -1,8 +1,8 @@
 ---
-title: "Använda ScaleR och SparkR med Azure HDInsight | Microsoft Docs"
-description: "Använda ScaleR och SparkR med R Server och HDInsight"
+title: Använda ScaleR och SparkR med Azure HDInsight | Microsoft Docs
+description: Använda ScaleR och SparkR med R Server och HDInsight
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -10,37 +10,37 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera ScaleR och SparkR i HDInsight
 
-Den här artikeln visar hur du förutsäga svarta ankomst fördröjningar med hjälp av en **ScaleR** logistic regressionsmodell från data på svarta fördröjningar och väder kopplas till **SparkR**. Detta scenario beskrivs funktionerna i ScaleR för datamanipulering på Spark som används med Microsoft R Server för analys. Kombinationen av dessa tekniker kan du använda de senaste funktionerna i distribuerad databehandling.
+Det här dokumentet beskrivs hur du förutsäga svarta ankomst fördröjningar med hjälp av en **ScaleR** logistic regressionsmodell. I exemplet används svarta fördröjning och väder data med hjälp av **SparkR**.
 
 Även om båda paketen körs på Hadoops motorn för körning av Spark, blockeras de från InMemory-Datadelning eftersom de varje kräver sin egen respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av R-Server, är lösningen att upprätthålla icke-överlappande Spark sessioner och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
 
-Vi använder ett exempel här ursprungligen delas i en prata med skikt 2016 av Mario Inchiosa och Roni Burd som även är tillgängliga via webbseminariet [skapa en skalbar datavetenskap plattform med R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). I exemplet används SparkR för att ansluta till datauppsättningen välkända flygbolagen ankomst fördröjning med väder data vid utgångspunkten och ankomst flygplatser. Data ansluten används sedan som indata till en ScaleR logistic regressionsmodell för att förutsäga svarta ankomst fördröjning.
+Det här exemplet har ursprungligen delas i en prata med skikt 2016 av Mario Inchiosa och Roni Burd. Du hittar den här prata på [skapa en skalbar datavetenskap plattform med R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-Kod vi genomgången ursprungligen skrevs för R Server körs på Spark i HDInsight-kluster i Azure. Men begreppet blanda användningen av SparkR och ScaleR i ett skript också är giltig i kontexten för lokala miljöer. I följande kan vi förutsätter att en mellanliggande nivå av R och är den [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek med R Server. Vi introducerar också användning av [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) när via det här scenariot.
+Koden skrevs ursprungligen för R Server körs på Spark i HDInsight-kluster i Azure. Men begreppet blanda användningen av SparkR och ScaleR i ett skript också är giltig i kontexten för lokala miljöer. 
+
+Stegen i det här dokumentet förutsätter att du har en mellanliggande nivå av R och är den [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek med R Server. Du introduceras [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) när via det här scenariot.
 
 ## <a name="the-airline-and-weather-datasets"></a>Flygbolag och väder datauppsättningar
 
-Den **AirOnTime08to12CSV** flygbolagen offentliga datauppsättningen innehåller information om ankomst och avvikelse flyginformation för alla kommersiella flygplan inom USA från oktober 1987 till December 2012. Det här är en stor datauppsättning: det finns poster som nästan 150 miljoner totalt. Det är bara under 4 GB ska packas upp. Den är tillgänglig från den [US government Arkiv](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Bekvämare, den är tillgänglig som en zip-fil (AirOnTimeCSV.zip) som innehåller en uppsättning 303 separata månatliga CSV-filer från de [Revolution Analytics dataset-databasen](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
+Den svarta data är tillgängliga från den [US government Arkiv](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Det är också tillgängliga som en zip från [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Om du vill se effekterna av väder på svarta fördröjning måste vi också väder data på var och en av flygplatserna. Dessa data kan hämtas som zip-filer i obearbetat format efter månad från den [nationella oceaniskt och luften Administration databasen](http://www.ncdc.noaa.gov/orders/qclcd/). Vid tillämpningen av det här exemplet, vi hämtar väder data från maj 2007 – December 2012 och används timvis datafiler i var och en av de månatliga 68 komprimerade. Månatliga zip-filer kan du också innehålla en mappning (YYYYMMstation.txt) mellan väder station ID (WBAN), flygplats att den är associerad med (CallSign) och den flygplats tidszon förskjutning från UTC (tidszonen). All den här informationen behövs när du ansluter med flygbolag fördröjning och väder data.
+Väder-data som kan laddas ned som zip-filer i obearbetat format efter månad från den [nationella oceaniskt och luften Administration databasen](http://www.ncdc.noaa.gov/orders/qclcd/). Hämta data för maj 2007 – December 2012 i det här exemplet. Använda timvis datafiler och `YYYYMMMstation.txt` fil i var och en av komprimerade. 
 
 ## <a name="setting-up-the-spark-environment"></a>Att skapa Spark-miljö
 
-Det första steget är att konfigurera Spark-miljö. Vi börjar med pekar på den katalog som innehåller våra indata kataloger, skapa en kontext för beräkning av Spark och skapa en loggningen för informativt loggning till konsolen:
+Använd följande kod för att konfigurera Spark-miljö:
 
 ```
 workDir        <- '~'  
@@ -85,7 +85,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Nästa vi lägga till ”Spark_Home” sökvägen för R-paket så att vi kan använda SparkR och initiera en SparkR session:
+Lägg till `Spark_Home` till sökvägen för R-paket. Lägga till den i sökvägen kan du använda SparkR och initiera en SparkR session:
 
 ```
 #..setup for use of SparkR  
@@ -108,7 +108,7 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>Förbereder väder-data
 
-Förbereda väder-data vi delmängd kolumnerna krävdes för modellering: 
+Om du vill förbereda väder data delmängd kolumnerna krävdes för modellering: 
 
 - ”Synlighet”
 - ”DryBulbCelsius”
@@ -117,17 +117,9 @@ Förbereda väder-data vi delmängd kolumnerna krävdes för modellering:
 - ”Vindhastigheten”
 - ”Altimeter”
 
-Sedan vi lägga till en flygplats kod som är associerade med stationen som väder och konvertera måtten från lokal tid till UTC.
+Sedan lägger du till en flygplats kod som är associerade med stationen som väder och konvertera måtten från lokal tid till UTC.
 
-Vi börjar med att skapa en fil för att mappa informationen som väder station (WBAN) till en flygplats-kod. Vi gick att hämta den här korrelation från mappningsfilen medföljer väder-data. Genom att mappa den *CallSign* (till exempel LAX) i datafilen väder till *ursprung* i flygbolag data. Men vi just har hänt med har en annan mappning till hands som mappar *WBAN* till *AirportID* (till exempel 12892 för LAX) och innehåller *tidszonen* som har sparats till en CSV-fil fil som heter ”wban-till-en flygplats-id-tz. CSV-fil ”som vi kan använda. Exempel:
-
-| AirportID | WBAN | Tidszon
-|-----------|------|---------
-| 10685 | 54831 | -6
-| 14871 | 24232 | -8
-| .. | .. | ..
-
-Följande kod läser timvis rådata väder data filer, delmängder till kolumner vi behöver, sammanfogar mappningsfilen väder station, justerar datum mätningar UTC och skriver sedan ut en ny version av filen:
+Börja med att skapa en fil för att mappa informationen som väder station (WBAN) till en flygplats-kod. Följande kod läser timvis rådata väder data filer, delmängder till kolumner vi behöver, sammanfogar mappningsfilen väder station, justerar datum mätningar UTC och skriver sedan ut en ny version av filen:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time

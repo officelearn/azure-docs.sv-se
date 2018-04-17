@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page app logga in med hjälp av implicita flödet för OAuth 2.0
-
-> [!NOTE]
-> Den här funktionen är i förhandsgranskningen.
-> 
 
 Många moderna appar innehåller en enda sida app-klientdel som främst är skriven i JavaScript. Ofta skrivs appen med hjälp av ett ramverk som AngularJS, Ember.js eller Durandal. En sida appar och andra JavaScript-appar som körs i första hand i en webbläsare har några ytterligare utmaningar för autentisering:
 
@@ -93,10 +89,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |Krävs |Måste innehålla `id_token` för OpenID Connect inloggning. Det kan också innehålla svarstypen `token`. Om du använder `token`, din app kan omedelbart ta emot en åtkomst-token från slutpunkten för auktorisering, utan att göra en andra begäran till slutpunkten för auktorisering.  Om du använder den `token` svarstyp den `scope` parameter måste innehålla en omfattning som anger vilken resurs för att utfärda token för. |
 | redirect_uri |Rekommenderas |Omdirigerings-URI för din app, där autentisering svar kan skickas och tas emot av din app. Den måste matcha en omdirigerings-URI: er som du har registrerat i portalen, förutom att det måste vara URL-kodade. |
 | response_mode |Rekommenderas |Anger metoden du använder för att skicka den resulterande token tillbaka till din app.  Implicit flöden, Använd `fragment`. |
-| Omfång |Krävs |En blankstegsavgränsad lista över scope. Ett enda scope-värde som anger till Azure AD båda de behörigheter som krävs. Den `openid` omfång anger behörighet att logga in användaren och hämta data om användaren i form av ID-token. (Du lär dig om detta mer senare i artikeln.) Den `offline_access` scope är valfritt för webbprogram. Det innebär att din app måste en uppdateringstoken för långlivade åtkomst till resurser. |
+| omfång |Krävs |En blankstegsavgränsad lista över scope. Ett enda scope-värde som anger till Azure AD båda de behörigheter som krävs. Den `openid` omfång anger behörighet att logga in användaren och hämta data om användaren i form av ID-token. (Du lär dig om detta mer senare i artikeln.) Den `offline_access` scope är valfritt för webbprogram. Det innebär att din app måste en uppdateringstoken för långlivade åtkomst till resurser. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran som också returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis används ett slumpmässigt genererat, unikt värde för att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade som de var på sidan. |
 | temporärt ID |Krävs |Ett värde som ingår i denna begäran (genereras av appen) som ingår i den resulterande ID-token som ett anspråk. Appen kan sedan kontrollera värdet för att minimera token replay-attacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
-| p |Krävs |Principen för att köra. Det är namnet på en princip som skapas i din Azure AD B2C-klient. Princip för namn-värde ska inledas med **b2c\_1\_**. Mer information finns i [Azure AD B2C inbyggda principer](active-directory-b2c-reference-policies.md). |
+| P |Krävs |Principen för att köra. Det är namnet på en princip som skapas i din Azure AD B2C-klient. Princip för namn-värde ska inledas med **b2c\_1\_**. Mer information finns i [Azure AD B2C inbyggda principer](active-directory-b2c-reference-policies.md). |
 | kommandotolk |Valfri |Typ av användarinteraktion som krävs. Det enda giltiga värdet är för närvarande `login`. Detta gör att användarna anger sina autentiseringsuppgifter på begäran. Enkel inloggning börjar inte gälla. |
 
 Nu uppmanas användaren att slutföra arbetsflödet för den principen. Detta kan handla om användaren att ange sina användarnamn och lösenord, logga in med en sociala identitet registrerar sig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur principen har definierats.
@@ -121,7 +117,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | access_token |Åtkomsttoken som appen har begärt.  Åtkomst-token ska inte avkodas eller annars kontrolleras. Den kan hanteras som en täckande sträng. |
 | token_type |Tokentypen-värde. Den enda typen som har stöd för Azure AD är ägar. |
 | expires_in |Hur lång tid som den åtkomst-token är giltig (i sekunder). |
-| Omfång |Scope som gäller för token. Du kan också använda omfång cache-tokens för senare användning. |
+| omfång |Scope som gäller för token. Du kan också använda omfång cache-tokens för senare användning. |
 | id_token |ID-token som appen har begärt. Du kan använda ID-token för att verifiera användarens identitet och starta en session med användaren. Mer information om ID-token och deras innehåll finns i [Azure AD B2C tokenreferens](active-directory-b2c-reference-tokens.md). |
 | state |Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i förfrågan och svar är identiska. |
 
@@ -203,7 +199,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Krävs |Det program-ID som har tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
 | response_type |Krävs |Måste innehålla `id_token` för OpenID Connect inloggning.  Det kan även innehålla svarstypen `token`. Om du använder `token` här appen kan omedelbart ta emot en åtkomst-token från slutpunkten för auktorisering, utan att göra en andra begäran till slutpunkten för auktorisering. Om du använder den `token` svarstyp den `scope` parameter måste innehålla en omfattning som anger vilken resurs för att utfärda token för. |
 | redirect_uri |Rekommenderas |Omdirigerings-URI för din app, där autentisering svar kan skickas och tas emot av din app. Den måste matcha en omdirigerings-URI: er som du har registrerat i portalen, förutom att det måste vara URL-kodade. |
-| Omfång |Krävs |En blankstegsavgränsad lista över scope.  För att hämta token med alla omfattningar som du behöver för den avsedda resursen. |
+| omfång |Krävs |En blankstegsavgränsad lista över scope.  För att hämta token med alla omfattningar som du behöver för den avsedda resursen. |
 | response_mode |Rekommenderas |Anger den metod som används för att skicka den resulterande token tillbaka till din app.  Kan vara `query`, `form_post`, eller `fragment`. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran som returneras i token svaret.  Det kan vara en sträng med innehåll som du vill använda.  Vanligtvis används ett slumpmässigt genererat, unikt värde för att förhindra attacker med förfalskning av begäran.  Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Sidan eller vyn kunde till exempel användaren på. |
 | temporärt ID |Krävs |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan kontrollera värdet för att minimera token replay-attacker. Värdet är vanligtvis en slumpmässig, unik sträng som identifierar begäran ursprung. |
@@ -231,7 +227,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Tokentypen kommer alltid att innehavaren. |
 | state |Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i förfrågan och svar är identiska. |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
-| Omfång |Scope som gäller för åtkomst-token. |
+| omfång |Scope som gäller för åtkomst-token. |
 
 ### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till omdirigerings-URI så att appen kan hantera dem på lämpligt sätt.  För `prompt=none`, ett förväntade fel ser ut så här:
@@ -265,7 +261,7 @@ p=b2c_1_sign_in
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| p |Krävs |Principen som ska använda för att signera användare utanför tillämpningsprogrammet. |
+| P |Krävs |Principen som ska använda för att signera användare utanför tillämpningsprogrammet. |
 | post_logout_redirect_uri |Rekommenderas |Den URL som användaren ska omdirigeras till efter lyckad utloggning. Om det inte är inkluderad visar ett allmänt meddelande för användaren i Azure AD B2C. |
 
 > [!NOTE]

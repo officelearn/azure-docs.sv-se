@@ -4,7 +4,7 @@ description: Lär dig använda Migreringsverktyg för öppen källkod Azure Cosm
 keywords: CSV-fil för json Migreringsverktyg för databasen, konvertera csv till json
 services: cosmos-db
 author: andrewhoh
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -53,7 +53,7 @@ Verktyget datamigrering är en öppen källkod som importerar data till Azure Co
 * CSV-filer
 * Azure Table Storage
 * Amazon DynamoDB
-* Hbase
+* HBase
 * Azure DB Cosmos-samlingar
 
 Medan Importverktyget innehåller ett grafiskt användargränssnitt (dtui.exe), kan den också drivas från kommandoraden (dt.exe). Faktum är är ett alternativ till utdata associerat kommando när du har installerat en import via Användargränssnittet. Tabell källdata (t.ex. SQL Server- eller CSV-filer) kan omvandlas så att hierarkiska relationer (underdokument) kan skapas under importen. Vill du fortsätta läsa vill lära dig mer om alternativ för exempel på kommandorader för att importera från varje källa och mål alternativ visning importera resultat.
@@ -75,7 +75,7 @@ När du har installerat verktyget är det dags att importera dina data. Vilken t
 * [CSV-filer](#CSV)
 * [Azure Table Storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [Blob](#BlobImport)
+* [BLOB](#BlobImport)
 * [Azure DB Cosmos-samlingar](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure DB Cosmos-massimport](#SQLBulkImport)
@@ -165,7 +165,7 @@ Formatet för anslutningssträngen är standard SQL connection-strängformat.
 
 Egenskapen kapslade avgränsare används för att skapa hierarkiska relationer (underordnade dokument) under importen. Överväg följande SQL-fråga:
 
-*select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'*
+*Välj OMVANDLINGEN (BusinessEntityID AS varchar) som Id, namn, adresstyp som [Address.AddressType], AddressLine1 som [Address.AddressLine1], ort som [Address.Location.City], StateProvinceName som [Address.Location.StateProvinceName], postnummer som [ Address.PostalCode] CountryRegionName som [Address.CountryRegionName] från Sales.vStoreWithAddresses där adresstyp = 'Huvudkontoret'*
 
 Som returnerar följande resultat (den partiella):
 

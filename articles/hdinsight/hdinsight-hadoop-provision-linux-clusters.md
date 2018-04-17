@@ -1,9 +1,9 @@
 ---
-title: "Installationsprogrammet för Hadoop, Spark, Kafka, HBase eller R - Server i Azure HDInsight-kluster | Microsoft Docs"
-description: "Konfigurera Hadoop, Kafka, Spark, HBase, R Server eller Storm-kluster för HDInsight från en webbläsare, Azure CLI, Azure PowerShell, REST eller SDK."
-keywords: "konfiguration av hadoop, kafka kluster installationsprogrammet, spark-kluster installationsprogrammet vad är i hadoop-kluster"
+title: Installationsprogrammet för Hadoop, Spark, Kafka, HBase eller R - Server i Azure HDInsight-kluster | Microsoft Docs
+description: Konfigurera Hadoop, Kafka, Spark, HBase, R Server eller Storm-kluster för HDInsight från en webbläsare, Azure CLI, Azure PowerShell, REST eller SDK.
+keywords: konfiguration av hadoop, kafka kluster installationsprogrammet, spark-kluster installationsprogrammet vad är i hadoop-kluster
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,14 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer
 
@@ -40,7 +38,7 @@ I följande tabell visas de olika metoder som du kan använda för att ställa i
 
 | Kluster som skapas med | Webbläsare | Kommandorad | REST-API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure-portalen](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI (version 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -68,7 +66,7 @@ Följ anvisningarna på skärmen för att göra en grundläggande konfiguration.
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) hjälper dig att arbeta med resurserna i ditt program som en grupp som kallas en Azure-resursgrupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser i programmet i en enda, samordnad åtgärd.
 
-## <a name="cluster-types">Klustertyper och konfiguration</a>
+## <a name="cluster-types"></a> Klustertyper och konfiguration
 Azure HDInsight innehåller för närvarande följande typer av klustret, var och en med en uppsättning komponenter att tillhandahålla vissa funktioner.
 
 > [!IMPORTANT]
@@ -228,16 +226,16 @@ Vissa inbyggda Java-komponenter som Mahout och kaskad, kan köras i klustret som
 Ibland kan vill du konfigurera följande konfigurationsfilerna under skapandeprocessen:
 
 * clusterIdentity.xml
-* core-site.xml
-* gateway.xml
-* hbase-env.xml
+* Core-site.xml
+* gateway.XML
+* hbase env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-site
+* mapred-plats
 * oozie-site.xml
-* oozie-env.xml
+* oozie env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

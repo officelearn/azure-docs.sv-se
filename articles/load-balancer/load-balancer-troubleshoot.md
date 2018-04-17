@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsöka Azure belastningsutjämnare
 
@@ -103,9 +103,7 @@ Om en virtuell dator inte svarar på data-trafik, kan det vara eftersom målport
 
 Om en eller flera nätverkssäkerhetsgrupper konfigurerad på undernätet eller på den virtuella datorn, blockerar käll-IP och port, och sedan på den virtuella datorn kan inte svara.
 
-* Lista över nätverket säkerhetsgrupperna som konfigureras på serverdelen VM. Mer information finns i:
-    -  [Hantera säkerhetsgrupper i nätverket med hjälp av portalen](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Hantera nätverkssäkerhetsgrupper med hjälp av PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* Lista över nätverket säkerhetsgrupperna som konfigureras på serverdelen VM. Mer information finns i [hantera nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md).
 * Kontrollera om listan över nätverkssäkerhetsgrupper och:
     - inkommande eller utgående trafik på port data har störningar. 
     - en **neka alla** grupp säkerhetsregeln nätverkskortet för den virtuella datorn eller det undernät som har högre prioritet som Standardregeln som tillåter belastningsutjämnaren avsökningar för nätverk och trafik (nätverkssäkerhetsgrupper måste tillåta belastningen belastningsutjämnaren IP 168.63.129.16 som är avsökningsport) 

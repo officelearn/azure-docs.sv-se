@@ -1,13 +1,13 @@
 ---
-title: "Felsök vanliga fel i Azure-distribution | Microsoft Docs"
-description: "Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager."
+title: Felsök vanliga fel i Azure-distribution | Microsoft Docs
+description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "distributionsfel för azure-distribution distribuera till azure"
+keywords: distributionsfel för azure-distribution distribuera till azure
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
@@ -31,9 +31,9 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Följ namngivningsbegränsningar för lagringskonton. | [Lös lagringskontonamnet](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kontrollera tillgängligt lagringsutrymme kontoegenskaperna. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Det kluster eller den region har inte resurser som är tillgänglig eller har inte stöd för den begärda VM-storleken. Försöka senare eller be en annan VM-storlek. | [Problem med etablering och fördelningen för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) och [problem med etablering och fördelningen för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| AllocationFailed | Det kluster eller den region har inte resurser som är tillgänglig eller har inte stöd för den begärda VM-storleken. Försöka senare eller be en annan VM-storlek. | [Problem med etablering och fördelningen för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problem med etablering och fördelningen för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [felsöka Tilldelningsfel](../virtual-machines/windows/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
-| AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto hör till rollen och dess behörighet för omfånget för distributionen. | [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md) |
+| AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto hör till rollen och dess behörighet för omfånget för distributionen. | [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-templates-resources.md#location) |
 | Konflikt | Du begär en åtgärd som inte tillåts i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på diskar endast när du skapar en virtuell dator eller när den virtuella datorn har frigjorts. | |
 | DeploymentActive | Vänta tills samtidiga distributionen till den här resursgruppen ska slutföras. | |

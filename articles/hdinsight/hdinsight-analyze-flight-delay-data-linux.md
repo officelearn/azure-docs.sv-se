@@ -1,26 +1,24 @@
 ---
-title: "Analysera svarta fördröjning data med Hive i HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du använder Hive för att analysera data rör sig på Linux-baserade HDInsight och sedan exportera data till SQL-databas med hjälp av Sqoop."
+title: Analysera svarta fördröjning data med Hive i HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du använder Hive för att analysera data rör sig på Linux-baserade HDInsight och sedan exportera data till SQL-databas med hjälp av Sqoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive på Linux-baserat HDInsight
 
@@ -47,7 +45,7 @@ Lär dig hur du analyserar svarta fördröjning data med hjälp av Hive på Linu
    | --- | --- |
    | Filtrera år |2013 |
    | Filtrera Period |Januari |
-   | Fält |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Fält |År, FlightDate, UniqueCarrier, operatör, FlightNum, OriginAirportID, ursprung, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Avmarkera alla andra fält. 
 
 3. Välj **hämta**.

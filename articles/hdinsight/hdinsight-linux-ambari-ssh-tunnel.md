@@ -1,8 +1,8 @@
 ---
-title: "Använda SSH-tunnlar för att komma åt Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder en SSH-tunnel att på ett säkert sätt Bläddra webbresurser finns på Linux-baserat HDInsight-noder."
+title: Använda SSH-tunnlar för att komma åt Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder en SSH-tunnel att på ett säkert sätt Bläddra webbresurser finns på Linux-baserat HDInsight-noder.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, jobbhistorik, NameNode, Oozie och andra webb-användargränssnitt
 
@@ -75,7 +73,7 @@ Detta kommando skapar en anslutning som dirigerar trafik till lokal port 9876 ti
 * **2** -force SSH försöka protocol version 2.
 * **q** -tyst läge.
 * **T** -inaktivera pseudokolumner tty-allokering, eftersom du bara vidarebefordrar en port.
-* **n**-Förhindra läsningen av STDIN, eftersom du bara vidarebefordrar en port.
+* **n** -förhindra läsningen av STDIN, eftersom du bara vidarebefordrar en port.
 * **N** -inte köra fjärrkommandon, eftersom du bara vidarebefordrar en port.
 * **f** -köras i bakgrunden.
 
@@ -115,16 +113,16 @@ När kommandot har slutförts dirigeras trafik som skickas till port 9876 på de
    > [!NOTE]
    > Att välja **fjärr-DNS** löser Domain Name System (DNS)-begäranden med hjälp av HDInsight-klustret. Den här inställningen löser DNS med hjälp av huvudnod i klustret.
 
-2. Kontrollera att tunneln fungerar genom att gå till en plats som [http://www.whatismyip.com/](http://www.whatismyip.com/). Den returnerade IP-Adressen ska vara en används av Microsoft Azure-datacenter.
+2. Kontrollera att tunneln fungerar genom att gå till en plats som [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Den returnerade IP-Adressen ska vara en används av Microsoft Azure-datacenter.
 
 ## <a name="verify-with-ambari-web-ui"></a>Kontrollera med Ambari-webbgränssnittet
 
 När klustret har upprättats kan du använda följande steg för att verifiera att du kan komma åt tjänsten web användargränssnitt från Ambari Web:
 
-1. Gå till http://headnodehost:8080 i din webbläsare. Den `headnodehost` adress skickas via tunneln till klustret och Lös om du vill headnode som Ambari körs på. När du uppmanas ange administratörsanvändarnamnet (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så fall, ange informationen.
+1. I din webbläsare går du till http://headnodehost:8080. Den `headnodehost` adress skickas via tunneln till klustret och Lös om du vill headnode som Ambari körs på. När du uppmanas ange administratörsanvändarnamnet (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så fall, ange informationen.
 
    > [!NOTE]
-   > När du använder http://headnodehost:8080 adress för att ansluta till klustret måste ansluter du via tunneln. Kommunikationen säkras med SSH-tunnel i stället för HTTPS. För att ansluta via internet med hjälp av HTTPS, använder du https://CLUSTERNAME.azurehdinsight.net, där **KLUSTERNAMN** är namnet på klustret.
+   > När du använder den http://headnodehost:8080 adress för att ansluta till klustret, du ansluter via tunneln. Kommunikationen säkras med SSH-tunnel i stället för HTTPS. Om du vill ansluta via internet med hjälp av HTTPS https://CLUSTERNAME.azurehdinsight.net, där **KLUSTERNAMN** är namnet på klustret.
 
 2. Välj HDFS i listan till vänster på sidan Ambari-Webbgränssnittet.
 
@@ -144,7 +142,7 @@ När klustret har upprättats kan du använda följande steg för att verifiera 
     ![Bild av Gränssnittet NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > Lägg märke till URL: en för den här sidan. Det bör likna **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/kluster**. URI: N använder interna fullständigt kvalificerade domännamnet (FQDN) för noden och är bara tillgänglig när du använder en SSH-tunnel.
+   > Lägg märke till URL: en för den här sidan. Det bör likna **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. URI: N använder interna fullständigt kvalificerade domännamnet (FQDN) för noden och är bara tillgänglig när du använder en SSH-tunnel.
 
 ## <a name="next-steps"></a>Nästa steg
 

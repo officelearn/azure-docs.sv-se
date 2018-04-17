@@ -1,11 +1,11 @@
 ---
-title: "Använda CLI 2.0 för att skapa en Azure AD-app och konfigurera den för att komma åt Azure Media Services API | Microsoft Docs"
-description: "Det här avsnittet visar hur du använder CLI 2.0 för att skapa en Azure AD-app och konfigurera den för att komma åt Azure Media Services API."
+title: Använda CLI 2.0 för att skapa en Azure AD-app och konfigurera den för att komma åt Azure Media Services API | Microsoft Docs
+description: Det här avsnittet visar hur du använder CLI 2.0 för att skapa en Azure AD-app och konfigurera den för att komma åt Azure Media Services API.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Använda CLI 2.0 för att skapa en AAD-app och konfigurera den för att komma åt Azure Media Services API
 
@@ -61,7 +61,7 @@ Det kan till exempel vara något av följande nivåer:
 
 Mer information finns i [skapa en Azure tjänstens huvudnamn med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Se även [Manage Role-Based åtkomstkontroll med kommandoradsgränssnittet i Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Se även [Manage Role-Based åtkomstkontroll med kommandoradsgränssnittet i Azure](../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

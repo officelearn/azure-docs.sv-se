@@ -1,6 +1,6 @@
 ---
-title: "Kör ett verifieringstest i Azure-stacken | Microsoft Docs"
-description: "Hur du samlar in loggfiler för diagnostik i Azure-stacken"
+title: Kör ett verifieringstest i Azure-stacken | Microsoft Docs
+description: Hur du samlar in loggfiler för diagnostik i Azure-stacken
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Kör ett verifieringstest för Azure-Stack
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/08/2018
  
 Du kan verifiera statusen för din Azure-stacken. När du har ett problem kontaktar du Microsoft Support Services. Stöd för uppmanas du att köra testet AzureStack från management-nod. Verifieringstest isolerar felet. Stöd kan sedan analysera detaljerade loggar fokusera på området där felet uppstod och arbeta med dig för att lösa problemet.
 
-## <a name="run-test-azurestack"></a>Run Test-AzureStack
+## <a name="run-test-azurestack"></a>Kör Test-AzureStack
 
 När du har ett problem kontaktar Microsoft Support Services och kör sedan **kör Test-AzureStack**.
 
@@ -33,7 +33,8 @@ När du har ett problem kontaktar Microsoft Support Services och kör sedan **k�
 2. Kontakta Microsoft Customer Services Support.
 3. Kör **Test AzureStack** från den privilegierade slutpunkten.
     1. Komma åt den privilegierade slutpunkten. Instruktioner finns i [med Privilegierade slutpunkten i Azure-stacken](azure-stack-privileged-endpoint.md). 
-    2. Logga in som **AzureStack\CloudAdmin** på management-värden.
+    2. På ASDK, logga in på management-värden som **AzureStack\CloudAdmin**.  
+    På ett integrerat system behöver du använda IP-adressen för privilegierad--slutpunkt för hantering som du fått av din maskinvaruleverantör för OEM.
     3. Öppna PowerShell som administratör.
     4. Kör: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Kör: `Test-AzureStack`
@@ -151,7 +152,7 @@ I följande tabell sammanfattas verifieringstesterna kör genom att testa AzureS
 | Namn                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Azure-stacken av molnbaserade värdtjänster infrastruktur sammanfattning                                                                                  |
-| Azure Stack Storage Services Summary                                                                                              |
+| Sammanfattning för Azure-stacken Storage-tjänster                                                                                              |
 | Azure-stacken infrastruktur Rollsammanfattning instans                                                                                  |
 | Azure-stacken av molnbaserade värdtjänster infrastruktur för användning                                                                              |
 | Azure-stacken infrastrukturkapacitet                                                                                               |
@@ -160,7 +161,7 @@ I följande tabell sammanfattas verifieringstesterna kör genom att testa AzureS
 | Infrastruktur för baskort, nätverksstyrenheten, Storage-tjänster och Privilegierade endpoint Infrastrukturroller          |
 | Infrastruktur för baskort, nätverksstyrenheten, Storage-tjänster och Privilegierade endpoint infrastruktur Rollinstanser |
 | Azure-stacken infrastruktur Rollsammanfattning                                                                                           |
-| Azure Stack Cloud Service Fabric Services                                                                                         |
+| Azure-stacken molntjänster Service Fabric                                                                                         |
 | Azure-stacken infrastruktur rollen instans prestanda                                                                              |
 | Prestanda för Azure-stacken molnet värden                                                                                        |
 | Sammanfattning av Azure Stack tjänst resurs förbrukning                                                                                  |

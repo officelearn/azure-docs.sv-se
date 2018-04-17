@@ -1,33 +1,31 @@
 ---
-title: "Lär dig använda Hadoop-sandbox - emulatorn – Azure HDInsight | Microsoft Docs"
-description: "Om du vill börja lära dig om att använda Hadoop-ekosystemet, kan du ställa in en Hadoop sandbox från Hortonworks på en virtuell Azure-dator. "
+title: Lär dig använda Hadoop-sandbox - emulatorn – Azure HDInsight | Microsoft Docs
+description: 'Om du vill börja lära dig om att använda Hadoop-ekosystemet, kan du ställa in en Hadoop sandbox från Hortonworks på en virtuell Azure-dator. '
 keywords: hadoop-emulatorn hadoop sandbox
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d7df18a80470beb8dc25cf6add6b7a61f45dcfe7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med Hadoop-sandbox, en emulator på en virtuell dator
 
 Lär dig hur du installerar sandlådan Hadoop från Hortonworks på en virtuell dator om du vill veta mer om Hadoop-ekosystemet. Sandbox tillhandahåller en lokal utvecklingsmiljö mer information om Hadoop, Hadoop Distributed File System (HDFS) och skicka jobbet. När du är bekant med Hadoop, kan du börja använda Hadoop i Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns [Kom igång med Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Oracle VirtualBox](https://www.virtualbox.org/). Hämta och installera den från [här](https://www.virtualbox.org/wiki/Downloads).
 
 
@@ -59,7 +57,7 @@ Om du vill hämta en äldre HDP version sandbox Expandera arkivet:
 1. Från den **Kom igång** steg på sidan Hortonworks Sandbox väljer **visa avancerade alternativ**. Använd informationen på den här sidan för att logga in till sandbox via SSH. Använd namn och lösenord angavs.
    
    > [!NOTE]
-   > Om du inte har en SSH-klienten installerad kan du använda den webbaserade SSH som anges i av den virtuella datorn på **http://localhost:4200 /**.
+   > Om du inte har en SSH-klienten installerad kan du använda den webbaserade SSH som anges i av den virtuella datorn på **http://localhost:4200/**.
    > 
    
     Första gången du ansluter med SSH, uppmanas du att ändra lösenordet för rotkontot. Ange ett nytt lösenord som du använder när du loggar in via SSH.

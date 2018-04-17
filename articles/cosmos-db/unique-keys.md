@@ -4,7 +4,7 @@ description: Lär dig använda unika nycklar i Azure DB som Cosmos-databasen.
 services: cosmos-db
 keywords: Unik nyckel begränsning, överträdelse av unique key-begränsningen
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a00e61cc30f9e500df6c2c4336f0ed78d9988f68
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 

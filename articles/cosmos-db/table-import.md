@@ -1,10 +1,10 @@
 ---
-title: "Importera data för användning med Azure Cosmos DB tabell API | Microsoft Docs"
-description: "Lär dig hur importerar data som ska användas med Azure Cosmos DB tabell API."
+title: Importera data för användning med Azure Cosmos DB tabell API | Microsoft Docs
+description: Lär dig hur importerar data som ska användas med Azure Cosmos DB tabell API.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: mimig
-ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sngun
+ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importera data för användning med Azure Cosmos DB tabell API
 
 Den här självstudiekursen innehåller instruktioner om hur du importerar data för användning med Azure Cosmos DB [tabell API](table-introduction.md). Om du har data som lagras i Azure Table storage kan använda du antingen Datamigreringsverktyg eller AzCopy för att importera dina data. Om du har data som lagras i en Azure Cosmos DB tabell API (förhandsgranskning), måste du använda Migreringsverktyget för Data för att migrera data. När du har importerat data kommer du att kunna dra nytta av funktioner för premium Azure Cosmos DB erbjudanden, till exempel NYCKELFÄRDIGT global distributionsplatsen, dedikerad genomströmning, en siffra millisekunders latens vid den 99th percentilen garanteras hög tillgänglighet och automatisk sekundära indexering.
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Importera data med verktyget datamigrering

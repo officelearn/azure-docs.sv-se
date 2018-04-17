@@ -1,5 +1,5 @@
 ---
-title: Använda tjänsten Azure Database migrering för att migrera SQL Server till Azure SQL-hanterade databasinstans | Microsoft Docs
+title: Använd DMS för att migrera till Azure SQL-hanterade databasinstans | Microsoft Docs
 description: Lär dig hur du migrerar från SQL Server lokalt till hanterade Azure SQL Database-instans med hjälp av tjänsten Azure Database migrering.
 services: dms
 author: edmacauley
@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: 8abf3bae3a2274ed5514a5c621675b4c9ec27ae2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 04/10/2018
+ms.openlocfilehash: f78a68704f1670b4670384931a07d9651cd646e3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>Migrera SQLServer till Azure SQL-hanterade databasinstans
-Du kan använda tjänsten Azure Database migrering för att migrera databaser från en lokal SQL Server-instans till Azure SQL Database. I kursen får du migrerar den **Adventureworks2012** databasen från en lokal instans av SQL Server till en Azure SQL Database med hjälp av tjänsten Azure Database migrering.
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrera SQL Server till Azure SQL Database hanteras-instans med DMS
+Du kan använda tjänsten Azure Database migrering för att migrera databaser från en lokal SQL Server-instans till en [Azure SQL-hanterade databasinstans](../sql-database/sql-database-managed-instance.md) med nära noll avbrottstid. Ytterligare metoder som kräver vissa avbrott, se [SQL Server-instansen migrering till Azure SQL-hanterade databasinstans](../sql-database/sql-database-managed-instance-migrate.md).
 
-I den här guiden får du lära dig hur man:
+I kursen får du migrerar den **Adventureworks2012** databasen från en lokal instans av SQL Server till en Azure SQL Database med hjälp av tjänsten Azure Database migrering.
+
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Skapa en instans av tjänsten Azure Database migrering.
+> * Skapa en Azure-databas migrering Service-instans.
 > * Skapa ett migreringsprojekt genom att använda tjänsten Azure Database migrering.
 > * Kör migreringen.
 > * Övervaka migreringen.
@@ -36,7 +38,7 @@ Den här kursen behöver du:
 - Öppna Windows-brandväggen så att tjänsten Azure databas migrering att få åtkomst till källan SQL Server som är TCP-port 1433 som standard.
 - Om du använder flera namngivna SQL Server-instanser som använder dynamiska portar, kan du aktivera tjänsten SQL Browser och ge åtkomst till UDP-port 1434 genom dina brandväggar så att tjänsten Azure Database migrering kan ansluta till en namngiven instans på datakällan Server.
 - Om du använder en brandväggsinstallation framför källdatabaser som du kan behöva lägga till brandväggsregler som tillåter tjänsten Azure Database migrering till databaserna källa för migrering samt filer med hjälp av SMB-port 445.
-- Skapa en instans av hanterade Azure SQL Database-instans genom att följa detaljerat i artikeln [skapa en Azure SQL Database hanteras instans i Azure portal](https://aka.ms/sqldbmi).
+- Skapa en Azure SQL Database hanteras-instans genom att följa detaljerat i artikeln [skapa en Azure SQL Database hanteras instans i Azure portal](https://aka.ms/sqldbmi).
 - Kontrollera att de inloggningar som används för att ansluta källan SQL Server och hanterade målinstans är medlemmar i serverrollen sysadmin.
 - Skapa en nätverksresurs som tjänsten Azure Database migrering kan använda för att säkerhetskopiera källdatabasen.
 - Kontrollera att tjänstkontot som kör SQL Server-instansen källa har skrivbehörighet för den nätverksresurs som du skapade.
@@ -54,7 +56,7 @@ Den här kursen behöver du:
 1.  Sök för migreringen och sedan till höger om **Microsoft.DataMigration**väljer **registrera**.
 ![registerresursleverantören](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)    
 
-## <a name="create-an-instance"></a>Skapa en instans
+## <a name="create-an-azure-database-migration-service-instance"></a>Skapa en Azure-databas migrering Service-instans
 
 1.  I Azure portal, väljer **+ skapa en resurs**, söka efter **Azure databastjänsten migrering**, och välj sedan **Azure migrering databastjänsten** från listrutan lista.
 
@@ -145,3 +147,9 @@ När tjänsten har skapats kan hitta den i Azure-portalen och öppna den.
 
     ![Övervaka migreringen](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration.png)
 
+## <a name="next-steps"></a>Nästa steg
+
+- En självstudiekurs visar hur du migrerar en databas till en hanterad instans med T-SQL RESTORE-kommandot finns [återställa en säkerhetskopia till en hanterad instans med kommandot restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Information om hur du importerar en databas från en BACPAC fil finns [importera en BACPAC-fil till en ny Azure SQL Database](../sql-database/sql-database-import.md).
+- Information om hanterade instansen finns [vad är en hanterad instans](../sql-database/sql-database-managed-instance.md).
+- Information om hur du ansluter appar till en hanterad finns [ansluta program](../sql-database/sql-database-managed-instance-connect-app.md).

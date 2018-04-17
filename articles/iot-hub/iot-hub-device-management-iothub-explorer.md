@@ -3,7 +3,7 @@ title: Azure IoT-enhetshantering med iothub explorer | Microsoft Docs
 description: Verktyget iothub explorer CLI för Azure IoT Hub-enhetshantering med direkta metoder och de två alternativ för egenskaper.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: Azure iot enhetshantering, azure iot-hubb enhetshantering, device management iot, enhetshantering för iot-hubb
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
-ms.author: xshi
-ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 26e08c3d6b1c96e2d508c87f188118aec02bab6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Använda iothub explorer för hantering av Azure IoT Hub-enheter
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Hanteringsalternativ          | Uppgift                                                                                                                            |
+| Hanteringsalternativ          | Aktivitet                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Direkta metoder             | Gör en enhet som agerar som startar eller stoppar skickar meddelanden eller starta om enheten.                                        |
 | Dubbla önskade egenskaper    | Lägga till en enhet i vissa tillstånd, till exempel ange en Indikator till grönt eller inställningen telemetri skicka intervall till 30 minuter.         |

@@ -1,8 +1,8 @@
 ---
 title: Samla in Nagios och Zabbix aviseringar i OMS Log Analytics | Microsoft Docs
-description: "Nagios och Zabbix är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från dessa verktyg till Log Analytics för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar OMS-Agent för Linux för att samla in varningar från dessa system."
+description: Nagios och Zabbix är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från dessa verktyg till Log Analytics för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar OMS-Agent för Linux för att samla in varningar från dessa system.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Samla in aviseringar från Nagios och Zabbix i logganalys från OMS-Agent för Linux 
-[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg.  Du kan samla in aviseringar från dessa verktyg till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](log-analytics-alerts.md).  Den här artikeln beskriver hur du konfigurerar OMS-Agent för Linux för att samla in varningar från dessa system.
+[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från dessa verktyg till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](log-analytics-alerts.md).  Den här artikeln beskriver hur du konfigurerar OMS-Agent för Linux för att samla in varningar från dessa system.
  
+## <a name="prerequisites"></a>Förutsättningar
+OMS-Agent för Linux har stöd för att samla in aviseringar från Nagios upp till version 4.2.x och Zabbix upp till version 2.x.
+
 ## <a name="configure-alert-collection"></a>Konfigurera varningssamlingen
 
 ### <a name="configuring-nagios-alert-collection"></a>Konfigurera Nagios varningssamlingen
-Utför följande steg på Nagios-servern för att samla in aviseringar.
+Utför följande steg för att samla in aviseringar på Nagios-servern.
 
-1. Bevilja användaren **omsagent** läsbehörighet till loggfilen Nagios (d.v.s. `/var/log/nagios/nagios.log`). Under förutsättning att filen nagios.log ägs av gruppen `nagios`, du kan lägga till användaren **omsagent** till den **nagios** grupp. 
+1. Bevilja användaren **omsagent** läsbehörighet till loggfilen Nagios `/var/log/nagios/nagios.log`. Under förutsättning att filen nagios.log ägs av gruppen `nagios`, du kan lägga till användaren **omsagent** till den **nagios** grupp. 
 
     sudo usermod - a -G nagios omsagent
 
-2.  Ändra konfigurationsfilen på (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Kontrollera att följande poster finns och inte kommenterad ut:  
+2.  Ändra konfigurationsfilen på `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Kontrollera att följande poster finns och inte kommenterad ut:  
 
         <source>  
           type tail  
@@ -53,11 +56,11 @@ Utför följande steg på Nagios-servern för att samla in aviseringar.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Konfigurera Zabbix varningssamlingen
-Om du vill samla in aviseringar från en Zabbix-server, måste du ange en användare och lösenord i *klartext*. Detta är inte idealiskt, men vi rekommenderar att du skapar användaren och bevilja behörighet för att övervaka onlu.
+Om du vill samla in aviseringar från en Zabbix-server, måste du ange en användare och lösenord i *klartext*.  Även om inte den bästa lösningen, rekommenderar vi att du skapar användaren och bevilja behörighet för att övervaka onlu.
 
-Utför följande steg på Nagios-servern för att samla in aviseringar.
+Utför följande steg för att samla in aviseringar på Nagios-servern.
 
-1. Ändra konfigurationsfilen på (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Kontrollera att följande poster finns och inte kommenterad ut.  Ändra det användarnamn och lösenord till värden för Zabbix-miljö.
+1. Ändra konfigurationsfilen på `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Kontrollera att följande poster finns och inte kommenterad ut.  Ändra det användarnamn och lösenord till värden för Zabbix-miljö.
 
         <source>
          type zabbix_alerts
@@ -86,7 +89,7 @@ Varna poster som samlas in av Nagios har en **typen** av **avisering** och en **
 | SourceSystem |*Nagios* |
 | AlertName |Namnet på aviseringen. |
 | AlertDescription | Beskrivning av aviseringen. |
-| In AlertState | Status för tjänsten eller värden.<br><br>OKEJ<br>VARNING<br>KONFIGURERA<br>NED |
+| In AlertState | Status för tjänsten eller värden.<br><br>Ok<br>VARNING<br>KONFIGURERA<br>NED |
 | Värdnamn | Namnet på den värd som skapade aviseringen. |
 | PriorityNumber | Prioritetsnivån för aviseringen. |
 | StateType | Typ av tillstånd.<br><br>SOFT - problem som inte kontrolleras igen.<br>HÅRDDISK - problem som har ett angivet antal gånger begäran igen.  |
@@ -101,7 +104,7 @@ Varna poster som samlas in av Zabbix har en **typen** av **avisering** och en **
 | Typ |*Varning* |
 | SourceSystem |*Zabbix* |
 | AlertName | Namnet på aviseringen. |
-| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte har klassificerats<br>Information<br>Varning<br>Genomsnittlig<br>Hög<br>katastrofåterställning  |
+| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte har klassificerats<br>information<br>Varning<br>medel<br>Hög<br>katastrofåterställning  |
 | In AlertState | Status för aviseringen.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.  |
 | AlertTypeNumber | Anger om avisering kan skapa flera problem händelser.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.    |
 | Kommentarer | Ytterligare kommentarer för aviseringen. |

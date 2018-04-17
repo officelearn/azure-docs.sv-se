@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om Azure-stacken nätverk infrastruktur som hjälper dig att bestämma hur du ska integrera Azure Stack bäst i din befintliga nätverksmiljö. 
@@ -40,7 +40,7 @@ I följande tabell visas de logiska nätverken och associerade IPv4-undernät om
 
 | Logiskt nätverk | Beskrivning | Storlek | 
 | -------- | ------------- | ------------ | 
-| Offentliga VIP | Offentliga IP-adresser för en liten uppsättning Azure Stack-tjänster med resten används av virtuella datorer. Infrastrukturen i Azure-stacken använder 32-adresser från det här nätverket. Om du planerar att använda App Service och SQL-resursprovidrar används 7 flera adresser. | / 26 (62 värdar) - /22 (1022 värdar)<br><br>Rekommenderat = /24 (254 värdar) | 
+| Offentliga VIP | Azure-stacken använder Totalt 32-adresser från det här nätverket. Åtta offentliga IP-adresser som används för en liten uppsättning Azure Stack-tjänster och resten används av virtuella datorer. Om du planerar att använda App Service och SQL-resursprovidrar används 7 flera adresser. | / 26 (62 värdar) - /22 (1022 värdar)<br><br>Rekommenderat = /24 (254 värdar) | 
 | Växeln-infrastruktur | Point-to-Point IP-adresser för routning, dedikerad växla hanteringsgränssnitt och loopback-adresser som är tilldelad till växeln. | /26 | 
 | Infrastruktur | Används för Azure-stacken interna komponenter för att kommunicera. | /24 |
 | Privat | Används för lagringsnätverk och privata virtuella IP-adresser. | /24 | 
@@ -70,7 +70,7 @@ Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att
 Detta/27 nätverket är liten mellan Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registrering till Azure och infrastruktur säkerhetskopieringar. ERCS VM ska vara dirigerbara till nätverket för felsökning.
 
 ### <a name="public-vip-network"></a>Offentligt VIP-nätverk
-Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Infrastrukturen i Azure-stacken använder minst 8 adresser från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
+Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Infrastrukturen i Azure-stacken använder 8 adresser från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
 
 ### <a name="switch-infrastructure-network"></a>Växeln infrastrukturnätverk
 Detta/26 nätverk är det undernät som innehåller dirigerbara point-to-point IP /30 (2 värd-IP) undernät och loopbacks vilket är dedikerade/32 undernät för in-band-växla hanterings- och BGP-router-ID. Detta intervall med IP-adresser måste vara dirigerbara externt av Azure Stack-lösningen för att ditt datacenter, kan de vara privat eller offentlig IP-adresser.

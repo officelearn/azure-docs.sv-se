@@ -1,11 +1,11 @@
 ---
-title: "Azure DevTest Labs vanliga frågor och svar | Microsoft Docs"
-description: "Få svar på vanliga frågor om Azure DevTest Labs."
+title: Azure DevTest Labs vanliga frågor och svar | Microsoft Docs
+description: Få svar på vanliga frågor om Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 133a2978ce2b359366d3c5d0639b613977a723fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -55,7 +55,7 @@ DevTest Labs är en kostnadsfri. Skapa labs och konfigurera principer, mallar oc
 
 **Säkerhet**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Vilka är de olika säkerhetsnivåerna i DevTest Labs?
-Säkerhetsåtkomst bestäms av [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-built-in-roles.md). Om du vill veta hur åtkomst fungerar, hjälper det att kunna skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
+Säkerhetsåtkomst bestäms av [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/built-in-roles.md). Om du vill veta hur åtkomst fungerar, hjälper det att kunna skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
 
 * **Behörighet**: behörigheter är en definierad åtkomst till en specifik åtgärd. En behörighet kan till exempel vara läsbehörighet till alla virtuella datorer.
 * **Rollen**: en roll är en uppsättning behörigheter som kan grupperas och tilldelats till en användare. Till exempel har en användare med en prenumeration ägarrollen åtkomst till alla resurser inom en prenumeration.

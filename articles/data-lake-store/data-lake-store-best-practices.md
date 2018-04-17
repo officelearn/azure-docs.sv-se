@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Metodtips för Azure Data Lake Store
 I den här artikeln får information du om metodtips och överväganden för att arbeta med Azure Data Lake Store. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Store. Arbeta med verkligen stordata i tjänster som Azure HDInsight var krånglig innan Data Lake Store. Var du tvungen att fragmentera data över flera Blob storage-konton så att petabyte lagring och optimala prestanda som kan byggas ut kan uppnås. De flesta av de hårda gränsvärdena för storlek och prestanda tas bort med Data Lake Store. Det finns dock fortfarande vissa aspekter som den här artikeln täcker så att du kan få bästa möjliga prestanda med Data Lake Store. 
@@ -26,11 +26,13 @@ I den här artikeln får information du om metodtips och överväganden för att
 
 Azure Data Lake Store ger POSIX åtkomst styr och detaljerad granskning för Azure Active Directory (AD Azure) användare, grupper och tjänstens huvudnamn. Dessa åtkomstkontroller kan anges till befintliga filer och mappar. Åtkomstkontroller kan också användas för att skapa standardvärden som kan tillämpas på nya filer eller mappar. När behörigheter har angetts till befintliga mappar och underordnade objekt behöver behörigheterna spridda rekursivt på varje objekt. Om många filer, sprider behörigheter kan det ta lång tid. Den tid det tar kan variera mellan 30 50 objekt som behandlas per sekund. Planera därför mappen struktur och användargrupper på lämpligt sätt. Annars kan orsaka oväntade fördröjningar och problem när du arbetar med dina data. 
 
-Anta att du har en mapp med 100 000 underordnade objekt. Om du tar den undre gränsen för 30 objekt som behandlas per sekund kan för att uppdatera behörighet för hela mappen ta en timme. Mer information om Data Lake Store-ACL: er är tillgängliga på [åtkomstkontroll i Azure Data Lake Store](data-lake-store-access-control.md). Du kan använda Azure Data Lake-kommandoradsverktyget för bättre prestanda om hur du tilldelar ACL: er rekursivt. Verktyget skapar flera trådar och rekursiva navigering logik för att snabbt använda ACL: er till miljoner filer. Verktyget är tillgängligt för Linux och Windows, och [dokumentationen](https://github.com/Azure/data-lake-adlstool) och [hämtar](http://aka.ms/adlstool-download) för det här verktyget finns på GitHub.
+Anta att du har en mapp med 100 000 underordnade objekt. Om du tar den undre gränsen för 30 objekt som behandlas per sekund kan för att uppdatera behörighet för hela mappen ta en timme. Mer information om Data Lake Store-ACL: er är tillgängliga på [åtkomstkontroll i Azure Data Lake Store](data-lake-store-access-control.md). Du kan använda Azure Data Lake-kommandoradsverktyget för bättre prestanda om hur du tilldelar ACL: er rekursivt. Verktyget skapar flera trådar och rekursiva navigering logik för att snabbt använda ACL: er till miljoner filer. Verktyget är tillgängligt för Linux och Windows, och [dokumentationen](https://github.com/Azure/data-lake-adlstool) och [hämtar](http://aka.ms/adlstool-download) för det här verktyget finns på GitHub. Dessa samma prestandaförbättringar kan aktiveras med dina egna verktyg som skrivits med Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) och [Java](data-lake-store-get-started-java-sdk.md) SDK: er.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Använda säkerhetsgrupper jämfört med enskilda användare 
 
-När du arbetar med stordata i Data Lake Store troligen används en tjänst som för att tillåta tjänster, till exempel Azure HDInsight för att arbeta med data. Det kan dock finnas fall där enskilda användare behöver åtkomst till data samt. I sådana fall måste du använda Azure Active Directory-säkerhetsgrupper i stället för att enskilda användare mappar och filer. När en säkerhetsgrupp tilldelas behörigheter att lägga till eller ta bort användare från gruppen kräver inte några uppdateringar till Data Lake Store. 
+När du arbetar med stordata i Data Lake Store troligen används en tjänst som för att tillåta tjänster, till exempel Azure HDInsight för att arbeta med data. Det kan dock finnas fall där enskilda användare behöver åtkomst till data samt. I sådana fall måste du använda Azure Active Directory [säkerhetsgrupper](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) i stället för att enskilda användare mappar och filer. 
+
+När en säkerhetsgrupp tilldelas behörigheter att lägga till eller ta bort användare från gruppen kräver inte några uppdateringar till Data Lake Store. Detta hjälper också se till att du inte överskrider gränsen på [32 åtkomst och standard-ACL: er](../azure-subscription-service-limits.md#data-lake-store-limits) (Detta omfattar fyra POSIX-typ ACL: erna som alltid är associerade med varje fil och mapp: [ägande användaren](data-lake-store-access-control.md#the-owning-user), [gruppen ägande](data-lake-store-access-control.md#the-owning-group), [masken](data-lake-store-access-control.md#the-mask-and-effective-permissions), och andra).
 
 ### <a name="security-for-groups"></a>Säkerhet för grupper 
 
@@ -102,7 +104,7 @@ Nedan visas de översta tre rekommenderade alternativ för samordna replikering 
 |**Stöder kopiera går**     |   Ja      | Nej         | Nej         |
 |**Inbyggda orchestration**     |  Nej (Använd Oozie luftflödet eller cron)       | Ja        | Nej (Använd Azure Automation eller Schemaläggaren i Windows)         |
 |**Filsystem som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Ett stort antal, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL WASB till ADL (endast samma region)        |
-|**OS-stöd**     |Någon OS kör Hadoop         | Saknas          | Windows 10         |
+|**OS-stöd**     |Någon OS kör Hadoop         | Gäller inte          | Windows 10         |
    
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Använd Distcp för flytt av data mellan två platser 

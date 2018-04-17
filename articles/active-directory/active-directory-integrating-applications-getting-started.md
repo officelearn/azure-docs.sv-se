@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med att integrera Azure AD med appar | Microsoft Docs"
-description: "Den här artikeln är en Kom igång-guide för att integrera Azure Active Directory (AD) med lokala program och molnprogram."
+title: Komma igång med att integrera Azure AD med appar | Microsoft Docs
+description: Den här artikeln är en Kom igång-guide för att integrera Azure Active Directory (AD) med lokala program och molnprogram.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrera Azure Active Directory med program komma igång
 ## <a name="overview"></a>Översikt
@@ -51,7 +51,7 @@ Det är viktigt att veta var du är och där du vill gå innan du hoppa i att in
 * Du måste rensa användare/grupp databaser före integrera?  (Detta är ett ganska viktig fråga. Skräpinsamling i skräp ut).
 
 ### <a name="access-management-inventory"></a>Access management inventering
-* Hur hanterar du användaråtkomst till program just nu? Behöver som ändrar?  Har du funderat andra sätt att hantera åtkomst, som med [RBAC](role-based-access-control-configure.md) till exempel?
+* Hur hanterar du användaråtkomst till program just nu? Behöver som ändrar?  Har du funderat andra sätt att hantera åtkomst, som med [RBAC](../role-based-access-control/role-assignments-portal.md) till exempel?
 * Som behöver åtkomst till vad?
 
 Kanske du har inte svaren på alla frågor direkt, men det är OK.  Den här guiden hjälper dig besvara vissa av dessa frågor och göra vissa välgrundade beslut.

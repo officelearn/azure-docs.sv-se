@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -51,7 +51,7 @@ I följande tabell visas en lista över operativsystem som stöds:
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdatera bedömningar         |
-|Windows Server 2008 R2 SP1 och senare     |.NET framework 4.5 och WMF 5.0 eller senare krävs för Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4.0 eller senare krävs ([hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) rekommenderas för ökad tillförlitlighet.         |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -252,7 +252,7 @@ Om det uppstår problem när du försöker integrera lösningen eller en virtuel
 | Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---><br>System.Net.WebException: Den underliggande anslutningen<br>stängdes: Ett oväntat fel<br>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:<br>Klienten och servern kan inte kommunicera<br>eftersom de inte har en gemensam algoritm. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
 | Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
 | Certifikatet som presenterades av tjänsten <wsid>.oms.opinsights.azure.com<br>utfärdades inte av en certifikatutfärdare<br>som används för Microsoft-tjänster. Kontakt<br>nätverksadministratören för att se om de kör en proxy som hindrar<br>TLS/SSL-kommunikation. |Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
-| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Det gick inte att skapa ett självsignerat certifikat. ---><br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har<br>läsbehörighet till mappen:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Det gick inte att skapa ett självsignerat certifikat. ---><br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har<br>läsbehörighet till mappen:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA **|
 
 ## <a name="next-steps"></a>Nästa steg
 

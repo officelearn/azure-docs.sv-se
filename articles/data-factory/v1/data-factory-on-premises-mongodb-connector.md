@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 086cc528e500a55bba73796e5fc7b17c561de8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Du kan kopiera data från ett lokalt MongoDB-dataarkiv till alla stöds sink-dat
 ## <a name="prerequisites"></a>Förutsättningar
 För Azure Data Factory-tjänsten för att kunna ansluta till din lokala MongoDB-databas måste du installera följande komponenter:
 
-- MongoDB-versioner som stöds är: 2.4, 2.6, 3.0 och 3.2.
+- MongoDB-versioner som stöds är: 2.4, 2.6, 3.0, 3.2, 3.4 och 3,6.
 - Data Management Gateway på samma dator som värd för databasen eller på en separat dator att undvika konkurrerar om resurser med databasen. Data Management Gateway är en programvara som ansluter lokala datakällor till molntjänster i en säker och hanterad sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln för information om Data Management Gateway. Se [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner om hur du konfigurerar gatewayen som en pipeline för data att flytta data.
 
     När du installerar gateway installeras automatiskt en Microsoft MongoDB ODBC-drivrutinen används för att ansluta till MongoDB.
@@ -295,7 +295,7 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 
 | MongoDB-typ | .NET framework-typ |
 | --- | --- |
-| Binär |Byte[] |
+| Binär |byte] |
 | Boolesk |Boolesk |
 | Date |DateTime |
 | NumberDouble |Dubbel |

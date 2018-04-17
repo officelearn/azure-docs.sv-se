@@ -1,8 +1,8 @@
 ---
-title: "Åtgärder i Azure Active Directory Connect Health"
-description: "Den här artikeln beskriver ytterligare åtgärder som kan utföras när du har distribuerat Azure AD Connect Health."
+title: Åtgärder i Azure Active Directory Connect Health
+description: Den här artikeln beskriver ytterligare åtgärder som kan utföras när du har distribuerat Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Åtgärder i Azure Active Directory Connect Health
 Det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (AD Azure) Connect Health.
@@ -91,9 +91,9 @@ När du tar bort en instans av tjänsten, Tänk på följande:
 4. Klicka på **Ta bort**.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (Start av RBAC avsnitt)
 ## <a name="manage-access-with-role-based-access-control"></a>Hantera åtkomst med rollbaserad åtkomstkontroll
-[Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control-configure.md) för Azure AD Connect Health tillhandahåller åtkomst till användare och grupper än globala administratörer. RBAC tilldelar roller till de avsedda användarna och grupper och tillhandahåller en mekanism för att begränsa de globala administratörerna i din katalog.
+[Rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) för Azure AD Connect Health tillhandahåller åtkomst till användare och grupper än globala administratörer. RBAC tilldelar roller till de avsedda användarna och grupper och tillhandahåller en mekanism för att begränsa de globala administratörerna i din katalog.
 
 ### <a name="roles"></a>Roller
 Azure AD Connect Health stöder följande inbyggda roller:
@@ -153,7 +153,7 @@ Nu visas användare och grupper har åtkomst till, enligt deras tilldelade rolle
 Du kan ta bort en användare eller grupp läggs till Azure AD Connect Health RBAC. Bara högerklicka på användaren eller gruppen och välj **ta bort**.<br>
 ![Skärmbild av Azure AD Connect Health RBAC användare fönster med ta bort markerat](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (Slutet av RBAC avsnitt)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

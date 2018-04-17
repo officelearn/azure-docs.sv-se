@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modellen Management web service-förbrukningen | Microsoft Docs"
-description: "Det här dokumentet beskriver stegen och begrepp som är involverad i förbrukar distribueras med modellhantering av i Azure Machine Learning-webbtjänster."
+title: Azure Machine Learning modellen Management web service-förbrukningen | Microsoft Docs
+description: Det här dokumentet beskriver stegen och begrepp som är involverad i förbrukar distribueras med modellhantering av i Azure Machine Learning-webbtjänster.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0976e2dca909781ade76c742cc99746e1123307d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="consuming-web-services"></a>Konsumera webbtjänster
 När du distribuerar en modell som en webbtjänst i realtid kan du skicka data och få förutsägelser från en mängd olika plattformar och program. Webbtjänsten realtid visar ett REST-API för att hämta förutsägelser. Du kan skicka data till webbtjänsten i formatet en eller flera rader för att hämta en eller flera förutsägelser i taget.
@@ -162,6 +162,6 @@ url = 'http://<service ip address>:80/api/v1/service/<service name>/score'
 api_key = 'your service key' 
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-resp = requests.post(url, data, headers=headers)
+resp = requests.post(url, body, headers=headers)
 resp.text
 ```

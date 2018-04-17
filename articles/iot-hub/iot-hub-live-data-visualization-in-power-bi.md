@@ -1,11 +1,11 @@
 ---
-title: "Realtidsdata visualisering av sensordata från Azure IoT-hubb – Power BI | Microsoft Docs"
-description: "Använd Power BI om du vill visualisera temperatur- och fuktighetskonsekvens data som samlas in från sensorn och skickas till din Azure IoT-hubb."
+title: Realtidsdata visualisering av sensordata från Azure IoT-hubb – Power BI | Microsoft Docs
+description: Använd Power BI om du vill visualisera temperatur- och fuktighetskonsekvens data som samlas in från sensorn och skickas till din Azure IoT-hubb.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: realtid datavisualisering, realtidsdata visualiseringen sensor datavisualisering
 ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
 ms.service: iot-hub
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: xshi
-ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 12ac0596d70ae068ba17713d1251fbf117824f67
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera sensordata i realtid från Azure IoT-hubb med Power BI
 

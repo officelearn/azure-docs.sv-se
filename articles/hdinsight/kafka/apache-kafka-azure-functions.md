@@ -1,24 +1,24 @@
 ---
-title: "Använd Azure Functions för att skicka data till Kafka på HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder en Azure-funktion för att skriva data till Kafka på HDInsight."
+title: Använd Azure Functions för att skicka data till Kafka på HDInsight | Microsoft Docs
+description: Lär dig hur du använder en Azure-funktion för att skriva data till Kafka på HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Använda Kafka på HDInsight från en funktionsapp i Azure
 
@@ -70,7 +70,7 @@ Informationen i det här avsnittet förbereder Kafka klustret att acceptera data
 
 Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter. Den här konfigurationen fungerar inte utan en DNS-server som klienten (Azure Functions) det går inte att matcha namn för det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
 
-1. Använd en webbläsare och gå till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
+1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
 
     När du uppmanas, använda HTTPS-användarnamn och lösenord för klustret. Ambari-Webbgränssnittet för klustret visas.
 

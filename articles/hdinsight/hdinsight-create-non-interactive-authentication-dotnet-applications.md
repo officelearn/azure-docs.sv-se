@@ -1,26 +1,24 @@
 ---
 title: Skapa icke-interaktiv autentisering .NET-program i Azure HDInsight | Microsoft Docs
-description: "Lär dig hur du skapar icke-interaktiv autentisering Microsoft .NET-program i Azure HDInsight."
+description: Lär dig hur du skapar icke-interaktiv autentisering Microsoft .NET-program i Azure HDInsight.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra programmet Microsoft .NET Azure HDInsight under programmets egen identitet (icke-interaktiv) eller under identiteten för den inloggade användaren för programmet (Interaktiv). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program finns i [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -35,7 +33,7 @@ Från ditt icke-interaktiv .NET-program behöver du:
 * Ett HDInsight-kluster. Finns det [komma igång-självstudiekurs](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Tilldela en roll till Azure AD-program
-Tilldela Azure AD-program en [rollen](../active-directory/role-based-access-built-in-roles.md), för att bevilja behörighet för att utföra åtgärder. Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. (Till exempel lägga till ett program rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I kursen får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../active-directory/role-based-access-control-configure.md).
+Tilldela Azure AD-program en [rollen](../role-based-access-control/built-in-roles.md), för att bevilja behörighet för att utföra åtgärder. Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. (Till exempel lägga till ett program rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I kursen får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
 
 **Att lägga till rollen som ägare till Azure AD-program**
 
@@ -127,4 +125,4 @@ Tilldela Azure AD-program en [rollen](../active-directory/role-based-access-buil
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa ett Azure Active Directory huvudnamn för program och tjänster i Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Lär dig hur du [autentisera ett huvudnamn för tjänsten med Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-* Lär dig mer om [Azure rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md).
+* Lär dig mer om [Azure rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md).

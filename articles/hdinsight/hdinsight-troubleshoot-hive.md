@@ -1,25 +1,23 @@
 ---
-title: "Felsöka Hive med Azure HDInsight | Microsoft Docs"
-description: "Få svar på vanliga frågor om hur du arbetar med Apache Hive och Azure HDInsight."
-keywords: "Azure HDInsight Hive, vanliga frågor och svar, felsökningsguide för vanliga frågor"
+title: Felsöka Hive med Azure HDInsight | Microsoft Docs
+description: Få svar på vanliga frågor om hur du arbetar med Apache Hive och Azure HDInsight.
+keywords: Azure HDInsight Hive, vanliga frågor och svar, felsökningsguide för vanliga frågor
 services: Azure HDInsight
 documentationcenter: na
 author: dharmeshkakadia
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d397552285466dc038fe580a084e2d1d0d69bfe2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Felsöka Hive med Azure HDInsight
 
@@ -29,7 +27,7 @@ Läs mer om de vanligaste frågorna och sina lösningar när du arbetar med Apac
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hur gör exportera en Hive metastore och importera det till ett annat kluster?
 
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Ansluta till HDInsight-kluster med hjälp av en klient med SSH (Secure Shell). Mer information finns i [ytterligare resurser](#additional-reading-end).
 
@@ -56,7 +54,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hur jag för att hitta Hive loggar på ett kluster?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Anslut till HDInsight-kluster med hjälp av SSH. Mer information finns i **ytterligare resurser**.
 
@@ -85,7 +83,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hur jag för att starta Hive-gränssnittet med specifika konfigurationer i ett kluster?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Ange ett nyckel / värde-par för konfiguration när du startar Hive-gränssnittet. Mer information finns i [ytterligare resurser](#additional-reading-end).
 
@@ -113,7 +111,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 ## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera Tez DAG data på ett kluster kritiska?
 
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
  
 1. Anslut till HDInsight-kluster med hjälp av SSH för att analysera en Apache Tez riktat acykliskt diagram (DAG) i ett kluster-kritiskt diagram. Mer information finns i [ytterligare resurser](#additional-reading-end).
 
@@ -153,7 +151,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hur hämta Tez DAG data från ett kluster?
 
 
-#### <a name="resolution-steps"></a>Lösningssteg
+#### <a name="resolution-steps"></a>Lösningsanvisningar
 
 Det finns två sätt att samla in data för Tez DAG:
 

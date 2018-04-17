@@ -1,26 +1,26 @@
 ---
-title: "Bädda in en rapport i Azure Power BI arbetsytan samlingar | Microsoft Docs"
-description: "Lär dig mer om att bädda in en rapport som är i Power BI arbetsytan samlingar till programmet."
+title: Bädda in en rapport i Azure Power BI arbetsytan samlingar | Microsoft Docs
+description: Lär dig mer om att bädda in en rapport som är i Power BI arbetsytan samlingar till programmet.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 56e7ca90132527c0ef9d4bd478e99b75ca055272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: b6fa46b1cf3a251d6116e7de6ef41a9e6d265c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Bädda in en rapport i Power BI arbetsytan samlingar
 
@@ -148,7 +148,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 Rapporten bäddas automatiskt baserat på storleken på dess behållare. Om du vill åsidosätta standardstorleken för det inbäddade objektet lägger du till en CSS-klassen attribut eller infogade-format för bredd och höjd.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Komma igång med exemplet](get-started-sample.md)  
 [Autentisering och auktorisering i Power BI-arbetsytesamlingar](app-token-flow.md)  

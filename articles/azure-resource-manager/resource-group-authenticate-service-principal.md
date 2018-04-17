@@ -1,6 +1,6 @@
 ---
-title: "Skapa en identitet för Azure-app med PowerShell | Microsoft Docs"
-description: "Beskriver hur du använder Azure PowerShell för att skapa ett Azure Active Directory-program och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Den visar hur du autentiserar program med ett certifikat."
+title: Skapa en identitet för Azure-app med PowerShell | Microsoft Docs
+description: Beskriver hur du använder Azure PowerShell för att skapa ett Azure Active Directory-program och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Den visar hur du autentiserar program med ett certifikat.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3b14d148669457a47eecda11cf6a8c85b5361677
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Skapa ett huvudnamn för tjänsten med ett certifikat med hjälp av Azure PowerShell
 
@@ -40,7 +40,7 @@ Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är 
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa tjänstens huvudnamn med självsignerade certifikat
 
-I följande exempel innehåller ett enkelt scenario. Den använder [ny AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) att skapa ett huvudnamn för tjänsten med ett självsignerat certifikat och använder [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) att tilldela den [deltagare](../active-directory/role-based-access-built-in-roles.md#contributor)rollen till tjänstens huvudnamn. Rolltilldelningen är begränsad till din valda Azure-prenumeration. Välj en annan prenumeration genom att använda [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+I följande exempel innehåller ett enkelt scenario. Den använder [ny AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) att skapa ett huvudnamn för tjänsten med ett självsignerat certifikat och använder [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) att tilldela den [deltagare](../role-based-access-control/built-in-roles.md#contributor)rollen till tjänstens huvudnamn. Rolltilldelningen är begränsad till din valda Azure-prenumeration. Välj en annan prenumeration genom att använda [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -170,7 +170,7 @@ Använd om du behöver hämta program-ID:
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Skapa tjänstens huvudnamn med certifikat från certifikatutfärdare
 
-I följande exempel används ett certifikat som utfärdats från en certifikatutfärdare för att skapa tjänstens huvudnamn. Tilldelningen begränsas till angivna Azure-prenumerationen. Huvudnamn för tjänsten läggs den [deltagare](../active-directory/role-based-access-built-in-roles.md#contributor) roll. Om ett fel inträffar under rolltilldelningen återförsök tilldelningen.
+I följande exempel används ett certifikat som utfärdats från en certifikatutfärdare för att skapa tjänstens huvudnamn. Tilldelningen begränsas till angivna Azure-prenumerationen. Huvudnamn för tjänsten läggs den [deltagare](../role-based-access-control/built-in-roles.md#contributor) roll. Om ett fel inträffar under rolltilldelningen återförsök tilldelningen.
 
 ```powershell
 Param (

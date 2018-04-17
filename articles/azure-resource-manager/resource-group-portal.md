@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure-portalen för att hantera Azure-resurser | Microsoft Docs"
-description: "Använd Azure-portalen och Azure Resource Manager för att hantera dina resurser. Visar hur du arbetar med instrumentpaneler för att övervaka resurser."
+title: Använda Azure-portalen för att hantera Azure-resurser | Microsoft Docs
+description: Använd Azure-portalen och Azure Resource Manager för att hantera dina resurser. Visar hur du arbetar med instrumentpaneler för att övervaka resurser.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Hantera Azure-resurser via portalen
 
@@ -127,6 +127,6 @@ Tar bort en resursgrupp alla resurser som ingår i den. Du kan också ta bort en
 * Om du vill visa aktivitetsloggar finns [granskningsåtgärder med Resource Manager](resource-group-audit.md).
 * Om du vill visa information om en distribution finns [visa distributionsåtgärder](resource-manager-deployment-operations.md).
 * För att distribuera resurser via portalen finns [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
-* För att hantera åtkomst till resurser, se [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../active-directory/role-based-access-control-configure.md).
+* För att hantera åtkomst till resurser, se [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](resource-manager-subscription-governance.md).
 

@@ -1,20 +1,21 @@
 ---
-title: "Installerar och använder maskininlärning CLI för viktiga Azure Machine Learning-aktiviteter"
-description: "Lär dig hur du installerar och använder CLI för de vanligaste uppgifterna i Azure Machine Learning för maskininlärning."
+title: Installera och använda CLI för viktiga aktiviteter - Azure Machine Learning
+description: Lär dig hur du installerar och använder CLI för de vanligaste uppgifterna i Azure Machine Learning för maskininlärning.
 services: machine-learning
 author: haining
 ms.author: haining
-manager: mwinkler
+manager: cgronlun
 ms.reviewer: mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: f34c247728c854c47f486925d440eee0dc5b1945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 33a1665c8f09efae88c831172199fca3e0b7634d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Installerar och använder maskininlärning CLI för viktiga aktiviteter i Azure Machine Learning
 
@@ -32,7 +33,11 @@ Den här artikeln beskriver några av de mest användbara CLI-kommandona för di
 
 ![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
 
->[!NOTE]
+## <a name="what-you-need-to-get-started"></a>Vad du behöver att komma igång
+
+Du behöver deltagarbehörighet åtkomst till en Azure-prenumeration eller resursgrupp där du kan distribuera modeller. Du måste också installera Azure Machine Learning-arbetsstationen för att kunna köra CLI. 
+
+>[!IMPORTANT]
 >CLI med Azure Machine Learning tjänster skiljer sig från den [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), som används för att hantera Azure-resurser.
 
 ## <a name="get-and-start-cli"></a>Hämta och starta CLI

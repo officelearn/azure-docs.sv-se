@@ -1,8 +1,8 @@
 ---
-title: "Använd Apache Kafka dataströmmar API - Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder API: et för Apache Kafka dataströmmar med Kafka på HDInsight. Detta API kan du utföra bearbetar mellan ämnen i Kafka."
+title: Använd Apache Kafka dataströmmar API - Azure HDInsight | Microsoft Docs
+description: 'Lär dig hur du använder API: et för Apache Kafka dataströmmar med Kafka på HDInsight. Detta API kan du utföra bearbetar mellan ämnen i Kafka.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 36d67cdb99871f3948db1f6497b1a4638df4f3f1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka dataströmmar API
 
@@ -45,7 +45,7 @@ Det här exemplet kräver Kafka på HDInsight 3,6. Information om hur du skapar 
 
 Använd följande steg för att skapa och distribuera projektet till din Kafka på HDInsight-kluster.
 
-1. Ladda ned exempel från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Hämta exempel från [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Ändra sökvägen till den `Streaming` katalogen och Använd sedan följande kommando för att skapa ett jar-paket:
 
@@ -114,14 +114,14 @@ Använd följande steg för att skapa och distribuera projektet till din Kafka p
 
     Det här kommandot delar SSH visningen i tre delar:
 
-    * Den vänstra sidan kör konsolen konsumenter, vilka läser meddelanden från den `wordcounts` avsnittet:`/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
+    * Den vänstra sidan kör konsolen konsumenter, vilka läser meddelanden från den `wordcounts` avsnittet: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
 
         > [!NOTE]
         > Den `--property` parametrar berätta konsolen konsumenten att skriva ut nyckel (word) tillsammans med antalet (värde). Den här parametern konfigurerar även funktionen för avserialisering ska användas vid läsning av dessa värden från Kafka.
 
-    * Den övre högra delen körs dataströmmar API-lösningen:`java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
+    * Den övre högra delen körs dataströmmar API-lösningen: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
 
-    * Det nedre högra avsnittet kör konsolen producenten och väntar på att ange meddelanden ska skickas till den `test` avsnittet:`/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
+    * Det nedre högra avsnittet kör konsolen producenten och väntar på att ange meddelanden ska skickas till den `test` avsnittet: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
  
 6. Efter den `tmux` kommandot delar visningen, markören är i det nedre högra avsnittet. Börja registrera meningar. Det vänstra fönstret uppdateras efter varje mening för att visa antalet unika ord. De utdata som genereras liknar följande text:
    

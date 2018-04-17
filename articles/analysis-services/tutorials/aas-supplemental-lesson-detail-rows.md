@@ -1,25 +1,18 @@
 ---
-title: "Kompletterande lektion i Azure Analysis Services-självstudiekurs: Detaljrader | Microsoft Docs"
-description: "Beskriver hur du skapar uttryck för rader med detaljerad information i Azure Analysis Services-självstudiekursen."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Kompletterande lektion i Azure Analysis Services-självstudiekurs: Detaljrader | Microsoft Docs'
+description: Beskriver hur du skapar uttryck för rader med detaljerad information i Azure Analysis Services-självstudiekursen.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Kompletterande lektion – Detaljrader
 
@@ -31,19 +24,19 @@ Uppskattad tidsåtgång för den här lektionen: **10 minuter**
 Den här kompletterande lektionen ingår i en självstudiekurs om tabellmodeller. Innan du utför uppgifterna i den här kompletterande lektionen måste du ha slutfört alla föregående lektioner eller ha ett slutfört Adventure Works Internet Sales-exempelmodellprojekt.  
   
 ## <a name="whats-the-issue"></a>Vad är problemet?
-Låt oss titta på informationen för vårt InternetTotalSales-mått innan vi lägger till ett uttryck för rader med detaljerad information.
+Nu ska vi titta på information om måttet InternetTotalSales innan du lägger till ett uttryck för information om rader.
 
 1.  Klicka på menyn **Modell** > **Analysera i Excel** i SSDT för att öppna Excel och skapa en tom pivottabell.
   
-2.  I **Pivottabellfält** lägger du till måttet **InternetTotalSales** från tabellen FactInternetSales till **Values**, **CalendarYear** från tabellen DimDate till **Columns** och **EnglishCountryRegionName** till **Rows**. Pivottabellen ger oss nu aggregerade resultat från måttet InternetTotalSales per region och år. 
+2.  I **Pivottabellfält** lägger du till måttet **InternetTotalSales** från tabellen FactInternetSales till **Values**, **CalendarYear** från tabellen DimDate till **Columns** och **EnglishCountryRegionName** till **Rows**. Pivottabellen kan nu en sammanlagda resultat från InternetTotalSales måttet av regioner och år. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Dubbelklicka på ett aggregerat värde för ett år och ett regionnamn i pivottabellen. Här dubbelklickade vi på värdet för Australien år 2014. Ett nytt blad öppnas som innehåller data, men inte användbara data.
+3. Dubbelklicka på ett aggregerat värde för ett år och ett regionnamn i pivottabellen. Värdet för Australien och år 2014. Ett nytt blad öppnas som innehåller data, men inte användbara data.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Det vi vill se här är en tabell med kolumner och rader med data som bidrar till det aggregerade resultatet av vårt InternetTotalSales-mått. Det ordnar vi genom att lägga till ett uttryck för rader med detaljerad information som en egenskap för måttet.
+Avsikten är en tabell som innehåller kolumner och rader med data som bidrar till aggregerade resultatet av måttet InternetTotalSales. För att göra det lägger du till ett uttryck för information om rader som en egenskap för måttet.
 
 ## <a name="add-a-detail-rows-expression"></a>Lägga till ett uttryck för rader med detaljerad information
 
@@ -79,7 +72,9 @@ Det vi vill se här är en tabell med kolumner och rader med data som bidrar til
 5. Distribuera om din modell.
 
   
-## <a name="see-also"></a>Se även  
-[Funktionen SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
-[Kompletterande lektion – Dynamisk säkerhet](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Kompletterande lektion – Ojämna hierarkier](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+## <a name="see-also"></a>Se också  
+
+[Funktionen SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Kompletterande lektionen - dynamiska säkerhet](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Kompletterande lektion – Ojämna hierarkier](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

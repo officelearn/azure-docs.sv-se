@@ -1,11 +1,11 @@
 ---
-title: "Azure AD-Java-kommandoraden komma igång | Microsoft Docs"
-description: "Hur du skapar en Java-kommandoradsapp som loggar användarna in för att få åtkomst till en API."
+title: Azure AD-Java-kommandoraden komma igång | Microsoft Docs
+description: Hur du skapar en Java-kommandoradsapp som loggar användarna in för att få åtkomst till en API.
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0e12711e4a7e67861d61ae4575c4956531cf841
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Använder appen för Java-kommandoraden för att komma åt ett API med Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -258,7 +258,7 @@ Du bör nu ha en `adal4jsample.war` filen i din `/targets` directory. Du kan dis
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> Det är mycket enkelt att distribuera en WAR-fil med de senaste Tomcat-servrarna. Helt enkelt navigera till `http://localhost:8080/manager/` och följ instruktionerna på Överför din '' adal4jsample.war-filen. Det kommer autodeploy du med korrekt slutpunkt.
+> Det är mycket enkelt att distribuera en WAR-fil med de senaste Tomcat-servrarna. Bara gå till `http://localhost:8080/manager/` och följ instruktionerna på Överför din `adal4jsample.war` fil. Det kommer autodeploy du med korrekt slutpunkt.
 > 
 > 
 

@@ -1,8 +1,8 @@
 ---
-title: "Använda Apache Kafka med Storm på HDInsight - Azure | Microsoft Docs"
-description: "Apache Kafka har installerats med Apache Storm på HDInsight. Lär dig mer om att skriva till Kafka och läses sedan från den, använder de KafkaBolt och KafkaSpout med Storm. Också lära dig hur du använder som framework att definiera och skicka Storm-topologier."
+title: Använda Apache Kafka med Storm på HDInsight - Azure | Microsoft Docs
+description: Apache Kafka har installerats med Apache Storm på HDInsight. Lär dig mer om att skriva till Kafka och läses sedan från den, använder de KafkaBolt och KafkaSpout med Storm. Också lära dig hur du använder som framework att definiera och skicka Storm-topologier.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: be62705ce0217235b75ec5ad220ad6f32dfd3c10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Använda Apache Kafka med Storm på HDInsight
 
@@ -32,7 +30,7 @@ Lär dig hur du använder Apache Storm att läsa från och skriva till Apache Ka
 
 ## <a name="get-the-code"></a>Hämta koden
 
-Koden för exemplet i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+Koden för exemplet i det här dokumentet finns på [ https://github.com/Azure-Samples/hdinsight-storm-java-kafka ](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
 För att kompilera det här projektet, behöver du följande konfiguration för din utvecklingsmiljö:
 
@@ -119,7 +117,7 @@ Det här projektet innehåller två topologier:
 * **KafkaReader**: definieras av den **reader.yaml** filen, den här topologin läser data från Kafka med KafkaSpout med Apache Storm och sedan loggar data STDOUT.
 
     Den här topologin använder Storm-HdfsBolt för att skriva data till standardlagring för Storm-kluster.
-### <a name="flux"></a>Flux
+### <a name="flux"></a>Som
 
 Topologierna definieras med hjälp av [som](https://storm.apache.org/releases/1.1.2/flux.html). Som introducerades i Storm-0.10.x och du kan avgränsa topologi konfigurationen från koden. Topologier som använder ramverket som definieras topologin i en YAML-fil. YAML-filen kan vara ingår i topologin. Det kan också vara en fristående fil som används när du skickar in topologin. Som stöder också variabeln ersättning vid körning, som används i det här exemplet.
 
@@ -131,11 +129,11 @@ Följande parametrar anges vid körning för dessa topologier:
 
 * `${kafka.zookeeper.hosts}`: De värdar som Zookeeper körs på i Kafka-klustret.
 
-Mer information om topologier som finns [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Mer information om topologier som finns [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Hämta och kompileras projektet
 
-1. Hämta projektet från på din utvecklingsmiljö [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), öppna en kommandorad och ändra kataloger till platsen som du hämtade projektet.
+1. Hämta projektet från på din utvecklingsmiljö [ https://github.com/Azure-Samples/hdinsight-storm-java-kafka ](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), öppna en kommandorad och ändra kataloger till platsen som du hämtade projektet.
 
 2. Från den **hdinsight-storm-java-kafka** directory, Använd följande kommando för att kompilera projektet och skapa ett paket för distribution:
 

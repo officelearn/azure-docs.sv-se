@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b91b1f902b2d769823067ea66bf7d00bd17a5160
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Övervaka ett Azure Container Service-kluster med logganalys
 
@@ -30,8 +30,8 @@ Du kan testa om du har den `az` installerat genom att köra verktyget:
 $ az --version
 ```
 
-Om du inte har den `az` verktyget är installerat, det finns instruktioner [här](https://github.com/azure/azure-cli#installation).  
-Du kan också använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som har den `az` Azure cli och `kubectl` verktyg som redan har installerat för du.  
+Om du inte har den `az` verktyget är installerat, det finns instruktioner [här](https://github.com/azure/azure-cli#installation).
+Du kan också använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som har den `az` Azure cli och `kubectl` verktyg som redan har installerat för du.
 
 Du kan testa om du har den `kubectl` installerat genom att köra verktyget:
 
@@ -67,40 +67,40 @@ Mer information om behållaren lösning hittar du den [behållare lösning logga
 ## <a name="installing-log-analytics-on-kubernetes"></a>Installera logganalys på Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Hämta ditt arbetsyte-ID och nyckel
-Agenten tala med tjänsten den måste konfigureras med en arbetsyte-id och en arbetsyta för OMS. Få arbetsyte-id och nyckel måste du skapa ett konto på <https://mms.microsoft.com>.
-Följ stegen för att skapa ett konto. När du är klar att skapa kontot, måste du skaffa din id och nyckel genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
+Agenten tala med tjänsten den måste konfigureras med en arbetsyte-ID och en arbetsyta för Log Analytics. Få arbetsyte-ID och nyckel måste du skapa ett konto på <https://mms.microsoft.com>.
+Följ stegen för att skapa ett konto. När du är klar att skapa kontot, måste du skaffa din ID och nyckel genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-oms-agent-using-a-daemonset"></a>Installera OMS-agenten med hjälp av en DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Installera agenten Log Analytics med hjälp av en DaemonSet
 DaemonSets som används av Kubernetes för att köra en instans av en behållare på varje värd i klustret.
 Det är perfekt för att köra övervakningsagenter.
 
-Här är den [DaemonSet YAML filen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Spara den på en fil med namnet `oms-daemonset.yaml` och ersätter värdena platshållare för `WSID` och `KEY` med ditt arbetsyte-id och nyckel i filen.
+Här är den [DaemonSet YAML filen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Spara den på en fil med namnet `oms-daemonset.yaml` och ersätter värdena platshållare för `WSID` och `KEY` med ditt arbetsyte-ID och nyckel i filen.
 
-När du har lagt till ditt arbetsyte-ID och nyckel DaemonSet konfigurationen kan du kan installera OMS-agenten på klustret med det `kubectl` kommandoradsverktyget:
+När du har lagt till ditt arbetsyte-ID och nyckel DaemonSet konfigurationen kan du kan installera logganalys-agenten på klustret med det `kubectl` kommandoradsverktyget:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Installerar OMS-agenten med hjälp av en Kubernetes hemlighet
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installerar agenten Log Analytics med hjälp av en Kubernetes hemlighet
 Du kan använda Kubernetes hemlighet som en del av DaemonSet YAML-filen för att skydda ditt logganalys arbetsyte-ID och nyckel.
 
- - Kopiera skriptet, hemliga mallfilen och DaemonSet YAML-filen (från [databasen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) och kontrollera att de finns i samma katalog. 
+ - Kopiera skriptet och hemliga mallfilen DaemonSet YAML-filen (från [databasen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) och kontrollera att de finns i samma katalog.
       - Hemligt genererar skript - hemlighet gen.sh
       - Hemlig mall - hemlighet template.yaml
    - Filen DaemonSet YAML - omsagent-ds-secrets.yaml
- - Kör skriptet. Skriptet begär Log Analytics arbetsyte-ID och primärnyckel. In sätt som och skriptet skapar en hemlig yaml-fil så att du kan köra den.   
+ - Kör skriptet. Skriptet begär Log Analytics arbetsyte-ID och primärnyckel. Infoga som och skriptet skapar en hemlig yaml-fil så att du kan köra den.
    ```
-   #> sudo bash ./secret-gen.sh 
+   #> sudo bash ./secret-gen.sh
    ```
 
    - Skapa hemligheter baljor genom att köra följande: ``` kubectl create -f omsagentsecret.yaml ```
- 
-   - Om du vill kontrollera, kör du följande: 
 
-   ``` 
+   - Om du vill kontrollera, kör du följande:
+
+   ```
    root@ubuntu16-13db:~# kubectl get secrets
    NAME                  TYPE                                  DATA      AGE
    default-token-gvl91   kubernetes.io/service-account-token   3         50d
@@ -116,10 +116,10 @@ Du kan använda Kubernetes hemlighet som en del av DaemonSet YAML-filen för att
    Data
    ====
    WSID:   36 bytes
-   KEY:    88 bytes 
+   KEY:    88 bytes
    ```
- 
+
   - Skapa din omsagent daemon set genom att köra ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Sammanfattning
-Klart! Efter några minuter, bör du kunna se data som flödar till OMS-instrumentpanelen.
+Klart! Du ska kunna se data som flödar till instrumentpanelen logganalys efter några minuter.

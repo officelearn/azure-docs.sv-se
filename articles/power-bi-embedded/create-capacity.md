@@ -1,24 +1,24 @@
 ---
 title: Skapa Power BI Embedded kapacitet i Azure portal | Microsoft Docs
-description: "Den här artikeln beskrivs hur du skapar en Power BI Embedded kapacitet i Microsoft Azure."
+description: Den här artikeln beskrivs hur du skapar en Power BI Embedded kapacitet i Microsoft Azure.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Skapa Power BI Embedded kapacitet i Azure-portalen
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Följande krävs för att slutföra den här snabbstarten:
 
 * **Azure-prenumeration:** finns [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/) att skapa ett konto.
-* **Azure Active Directory:** din prenumeration måste vara kopplad till en Azure Active Directory (AAD)-klient. Och, ***måste du vara inloggad i Azure med ett konto i den klienten***. Microsoft-konton stöds inte. Mer information finns i autentisering och användarbehörigheter.
+* **Azure Active Directory:** din prenumeration måste vara kopplad till en Azure Active Directory (AAD)-klient. Och, ***måste du vara inloggad i Azure med ett konto i den klienten***. Microsoft-konton stöds inte. Mer information finns i [Autentisering och användarbehörigheter](../analysis-services/analysis-services-manage-users.md).
 * **Power BI-klient:** minst ett konto i AAD-klienten måste ha registrerat dig för Power BI.
 * **Resursgrupp:** använder en resursgrupp som du redan har eller [skapa en ny](../azure-resource-manager/resource-group-overview.md).
 

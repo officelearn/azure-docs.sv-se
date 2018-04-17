@@ -1,26 +1,24 @@
 ---
-title: "Arkitektur för Hadoop - Azure HDInsight | Microsoft Docs"
+title: Arkitektur för Hadoop - Azure HDInsight | Microsoft Docs
 description: Beskriver bearbetning och lagring av Hadoop i HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 5ec5f1f24d3bf953115bfa5023faf81df132f510
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>Hadoop-arkitektur i HDInsight
 
@@ -35,7 +33,7 @@ Den här artikeln beskriver YARN och hur den samordnar körningen av program på
 
 YARN styr och samordnar databehandling i Hadoop. YARN har två grundläggande tjänster som körs som processer på noder i klustret: 
 
-* ResourceManager 
+* Resurshanteraren 
 * NodeManager
 
 Resurshanteraren beviljar klustret beräkningsresurser till program som MapReduce-jobb. Resurshanteraren ger dessa resurser som behållare, där varje behållare består av en allokering av CPU-kärnor och RAM-minne. Om du kombineras alla resurser som är tillgängliga i ett kluster och sedan distribueras dem i block om ett visst antal kärnor och minne, är en behållare i varje block på resurser. Varje nod i klustret har kapacitet för antal behållare och därför klustret har en fast gräns för antalet behållare som är tillgängliga. Tilldelning av resurser i en behållare kan konfigureras. 

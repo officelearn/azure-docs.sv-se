@@ -1,24 +1,22 @@
 ---
 title: Optimera klusterkonfigurationer med Ambari - Azure HDInsight | Microsoft Docs
-description: "Använda Ambari-webbgränssnittet för att konfigurera och optimera HDInsight-kluster."
-documentationcenter: 
+description: Använda Ambari-webbgränssnittet för att konfigurera och optimera HDInsight-kluster.
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använda Ambari och optimera klusterkonfigurationer för HDInsight
 
@@ -183,7 +181,7 @@ Av tillgängliga komprimeringstyper är:
 
 | Format | Verktyget | Algoritmen | Filnamnstillägg | Delbara? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Nej |
+| Gzip | Gzip | DEFLATE | .GZ | Nej |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, om indexerade |
 | snygga | Gäller inte | snygga | snygga | Nej |
@@ -286,7 +284,7 @@ Ytterligare rekommendationer för optimering av motorn för körning av Hive:
 
 | Inställning | Rekommenderas | HDInsight standard |
 | -- | -- | -- |
-| `hive.mapjoin.hybridgrace.hashtable` | SANT = säkrare, långsammare; = FALSE snabbare | falskt |
+| `hive.mapjoin.hybridgrace.hashtable` | SANT = säkrare, långsammare; = FALSE snabbare | false |
 | `tez.am.resource.memory.mb` | 4 GB övre gränsen för de flesta | Automatiskt justerade |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |

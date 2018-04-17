@@ -1,8 +1,8 @@
 ---
-title: "Övervaka och hantera Hadoop med Ambari REST API - Azure HDInsight | Microsoft Docs"
-description: "Lär dig använda Ambari och övervaka och hantera Hadoop-kluster i Azure HDInsight. I det här dokumentet får du lära dig hur du använder Ambari REST API som ingår i HDInsight-kluster."
+title: Övervaka och hantera Hadoop med Ambari REST API - Azure HDInsight | Microsoft Docs
+description: Lär dig använda Ambari och övervaka och hantera Hadoop-kluster i Azure HDInsight. I det här dokumentet får du lära dig hur du använder Ambari REST API som ingår i HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6d82e67e546c8c2079d1feced6e10954fe67a83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Hantera HDInsight-kluster med Ambari REST API
 
@@ -82,7 +80,7 @@ curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$C
 > Bash exemplen i det här dokumentet gör följande antaganden:
 >
 > * Inloggningsnamn för klustret som är standardvärdet för `admin`.
-> * `$CLUSTERNAME`innehåller namnet på klustret. Du kan ange ett värde med hjälp av`set CLUSTERNAME='clustername'`
+> * `$CLUSTERNAME` innehåller namnet på klustret. Du kan ange ett värde med hjälp av `set CLUSTERNAME='clustername'`
 > * När du uppmanas, anger du lösenordet för klusterinloggning (admin).
 
 ```powershell
@@ -94,8 +92,8 @@ $resp.Content
 > [!IMPORTANT]
 > PowerShell-exemplen i det här dokumentet gör följande antaganden:
 >
-> * `$creds`är ett autentiseringsuppgiftobjekt som innehåller admin inloggningsnamn och lösenord för klustret. Du kan ange ett värde med hjälp av `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` och anger autentiseringsuppgifter när du tillfrågas.
-> * `$clusterName`är en sträng som innehåller namnet på klustret. Du kan ange ett värde med hjälp av `$clusterName="clustername"`.
+> * `$creds` är ett autentiseringsuppgiftobjekt som innehåller admin inloggningsnamn och lösenord för klustret. Du kan ange ett värde med hjälp av `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` och anger autentiseringsuppgifter när du tillfrågas.
+> * `$clusterName` är en sträng som innehåller namnet på klustret. Du kan ange ett värde med hjälp av `$clusterName="clustername"`.
 
 Båda exempel returnera ett JSON-dokument som börjar med information som liknar följande exempel:
 
@@ -259,9 +257,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 Returvärdet liknar följande exempel:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Det här värdet anger att klustret använder ett Azure Storage-konto för standardlagring. Den `ACCOUNTNAME` värde är namnet på lagringskontot. Den `CONTAINER` delen är namnet på blob-behållaren i storage-konto. Behållaren är roten till HDFS kompatibel lagringsutrymme för klustret.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Det här värdet anger att klustret använder ett Azure Storage-konto för standardlagring. Den `ACCOUNTNAME` värde är namnet på lagringskontot. Den `CONTAINER` delen är namnet på blob-behållaren i storage-konto. Behållaren är roten till HDFS kompatibel lagringsutrymme för klustret.
 
-* `adl://home`-Det här värdet anger att klustret använder en Azure Data Lake Store för standardlagring.
+* `adl://home` -Det här värdet anger att klustret använder en Azure Data Lake Store för standardlagring.
 
     Använd följande exempel för att hitta namnet på Data Lake Store-kontot:
 

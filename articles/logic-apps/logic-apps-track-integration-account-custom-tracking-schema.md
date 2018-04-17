@@ -1,11 +1,11 @@
 ---
-title: "Spårning av anpassade scheman för övervakning av B2B - Azure Logic Apps | Microsoft Docs"
-description: "Skapa anpassade spårning scheman för att övervaka B2B-meddelanden från transaktioner i ditt Azure-konto för integrering."
+title: Spårning av anpassade scheman för övervakning av B2B - Azure Logic Apps | Microsoft Docs
+description: Skapa anpassade spårning scheman för att övervaka B2B-meddelanden från transaktioner i ditt Azure-konto för integrering.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.service: logic-apps
 ms.workload: integration
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Aktivera spårning att övervaka hela arbetsflödet, slutpunkt-till-slutpunkt
 Det finns inbyggda spåra att du kan aktivera för olika delar av ditt företag att arbetsflödet, till exempel uppföljning AS2 eller X12 meddelanden. När omfattar du skapar arbetsflöden som en logikapp, BizTalk Server, SQL Server eller något annat lager kan du aktivera anpassade spårning loggar händelser från början till slutet av arbetsflödet. 
 
 Det här avsnittet innehåller anpassad kod som du kan använda i lagren utanför din logikapp. 
 
-## <a name="custom-tracking-schema"></a>Spårning av anpassade schemat
+## <a name="custom-tracking-schema"></a>Anpassat spårningsschema
 ````java
 
         {
@@ -76,7 +76,7 @@ Det här avsnittet innehåller anpassad kod som du kan använda i lagren utanfö
 | EventLevel |   | Nivå av händelsen. (Obligatoriskt) |
 | EventTime |   | Tid för händelse, i UTC-format åååå-MM-DDTHH:MM:SS.00000Z. (Obligatoriskt) |
 | RecordType |   | Typ av post spåra. Tillåtna värde är **anpassade**. (Obligatoriskt) |
-| Post |   | Anpassad posttyp. Tillåtna format är JToken. (Obligatoriskt) |
+| post |   | Anpassad posttyp. Tillåtna format är JToken. (Obligatoriskt) |
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B-protokollet spårning scheman
 Information om spårning av scheman B2B-protokollet finns i:
@@ -85,5 +85,5 @@ Information om spårning av scheman B2B-protokollet finns i:
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [övervakning B2B-meddelanden](logic-apps-monitor-b2b-message.md).   
-* Lär dig mer om [spåra B2B-meddelanden i Operations Management Suite-portalen](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Lär dig mer om [spåra B2B-meddelanden i logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Lär dig mer om den [Enterprise-Integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md).

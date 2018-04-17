@@ -1,25 +1,18 @@
 ---
 title: Anslut till Azure Analysis Services | Microsoft Docs
-description: "Lär dig mer om att ansluta till och hämta data från en Analysis Services-server i Azure."
-services: analysis-services
-documentationcenter: 
+description: Lär dig mer om att ansluta till och hämta data från en Analysis Services-server i Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: b37f70a0-9166-4173-932d-935d769539d1
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: e93544902d7ef435fb1b94e83700ae4fcd6f91f2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 8493ff1e2b9be48fc8eec1e727684fe09f6af72c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>Ansluta till en Azure Analysis Services-server
 

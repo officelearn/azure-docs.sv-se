@@ -1,8 +1,8 @@
 ---
-title: "Använda Pig med Hadoop med fjärrskrivbord i HDInsight - Azure | Microsoft Docs"
-description: "Lär dig använda Pig-kommando för att köra Pig Latin instruktioner från en fjärrskrivbordsanslutning till en Windows-baserade Hadoop-kluster i HDInsight."
+title: Använda Pig med Hadoop med fjärrskrivbord i HDInsight - Azure | Microsoft Docs
+description: Lär dig använda Pig-kommando för att köra Pig Latin instruktioner från en fjärrskrivbordsanslutning till en Windows-baserade Hadoop-kluster i HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b5e8e7f400a4494549c997e969a46ca90eb0ba5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Köra Pig-jobb från en fjärrskrivbordsanslutning
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -64,7 +62,7 @@ Aktivera Fjärrskrivbord för HDInsight-klustret och sedan ansluta till den geno
 
     <table>
     <tr>
-    <th>Instruktionen</th><th>Vad verktyget gör</th>
+    <th>Meddelande</th><th>Vad läget gör</th>
     </tr>
     <tr>
     <td>FILTEREDLEVELS = FILTER nivåer av LOGLEVEL inte är null.</td><td>Tar bort rader som innehåller ett null-värde för loggningsnivån och lagrar resultatet i FILTEREDLEVELS.</td>
@@ -79,7 +77,7 @@ Aktivera Fjärrskrivbord för HDInsight-klustret och sedan ansluta till den geno
     <td>RESULTATET = order frekvenser av antal desc;</td><td>Sorterar loggningsnivåerna efter antal (fallande) och lagras i resultatet</td>
     </tr>
     </table>
-6.Du kan också spara resultaten av en omvandling med hjälp av den `STORE` instruktionen. Till exempel följande kommando sparar den `RESULT` till den **/example/data/pigout** katalog i standardbehållaren för lagring för klustret:
+6. Du kan också spara resultaten av en omvandling med hjälp av den `STORE` instruktionen. Till exempel följande kommando sparar den `RESULT` till den **/example/data/pigout** katalog i standardbehållaren för lagring för klustret:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 

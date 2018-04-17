@@ -1,27 +1,25 @@
 ---
-title: "Att läsa och skriva data i HBase - Azure HDInsight Spark | Microsoft Docs"
-description: "Använda Spark HBase-anslutningen för att läsa och skriva data från ett Spark-kluster till ett HBase-kluster."
+title: Att läsa och skriva data i HBase - Azure HDInsight Spark | Microsoft Docs
+description: Använda Spark HBase-anslutningen för att läsa och skriva data från ett Spark-kluster till ett HBase-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: ccbcd1d9cb45da7076d73f71a2ed692e71816650
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Använda Spark att läsa och skriva data i HBase
+# <a name="use-spark-to-read-and-write-hbase-data"></a>Använda Spark för att läsa och skriva HBase-data
 
 Apache HBase efterfrågas vanligtvis med dess lågnivå API (sökningar, hämtar och placeringar) eller med en SQL-syntaxen med Phoenix. Apache ger också Spark HBase Connector, som är ett praktiskt och performant alternativ för att fråga och ändra data som lagras av HBase.
 

@@ -1,11 +1,11 @@
 ---
-title: "Skapa en Azure AD-app för att komma åt Azure Media Services-API med hjälp av PowerShell | Microsoft Docs"
-description: "Lär dig hur du använder PowerShell för att skapa en app i Azure Active Directory (Azure AD) och konfigurera det åtkomst till Azure Media Services API."
+title: Skapa en Azure AD-app för att komma åt Azure Media Services-API med hjälp av PowerShell | Microsoft Docs
+description: Lär dig hur du använder PowerShell för att skapa en app i Azure Active Directory (Azure AD) och konfigurera det åtkomst till Azure Media Services API.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: eea0f3a03dd77ce56484f32b192299bd97c05300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 575e8a050a344cf3abb8adcda40b1f66fd9dcf59
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Använda PowerShell för att skapa en Azure AD app ska använda med Azure Media Services-API
 
 Lär dig hur du använder ett PowerShell-skript för att skapa ett Azure Active Directory (Azure AD)-program och tjänstens huvudnamn för att komma åt resurser i Azure Media Services.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har ett konto, börja med en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services-konto i Azure portal](media-services-portal-create-account.md).
@@ -55,7 +55,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 Mer information finns i följande artiklar:
 
 - [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-- [Hantera rollbaserad åtkomstkontroll med hjälp av Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Hantera rollbaserad åtkomstkontroll med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Hur du manuellt konfigurerar daemon appar med hjälp av certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
 ## <a name="next-steps"></a>Nästa steg

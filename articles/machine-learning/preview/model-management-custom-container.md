@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 858c8933565aeeb22dc1b685082dab2c6481737b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f56b651c40187e42361ac12f0cbf4e509385e0d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Anpassa den behållare bild som används för Azure ML-modeller
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du anpassar en behållare avbildning för Azure 
 ## <a name="how-to-customize-the-docker-image"></a>Hur du anpassar Docker-bild
 Anpassa Docker-avbildningen som Azure ML distribuerar med:
 
-1. En depenencies.yml-fil: hantera beroenden som kan installeras från [PyPi]( https://pypi.python.org/pypi), du kan använda filen conda_dependencies.yml från arbetsstationen projektet eller skapa egna. Det här är en rekommenderad metod för att installera Python-beroenden som kan installeras med pip.
+1. En `dependencies.yml` fil: hantera beroenden som kan installeras från [PyPi]( https://pypi.python.org/pypi), du kan använda den `conda_dependencies.yml` filen från projektet arbetsstationen eller skapa egna. Det här är en rekommenderad metod för att installera Python-beroenden som kan installeras med pip.
 
    Exempel CLI-kommando:
    ```azurecli
@@ -47,7 +47,7 @@ Anpassa Docker-avbildningen som Azure ML distribuerar med:
 
    Filen bör innehålla Docker installationssteg som en DockerFile. Följande kommandon är tillåtna i filen: 
 
-    RUN, ENV, ARG, LABEL, EXPOSE
+    KÖR EXPONERA ENV, %D{ARG/, ETIKETT,
 
    Exempel CLI-kommando:
    ```azurecli

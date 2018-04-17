@@ -1,22 +1,22 @@
 ---
-title: "Hur du gör bevis tillgång för X.509-certifikat med Azure IoT Hub etablering av tjänst | Microsoft Docs"
-description: "Så här kontrollerar du X.509-certifikat med din DP-tjänst"
+title: Hur du gör bevis tillgång för X.509-certifikat med Azure IoT Hub etablering av tjänst | Microsoft Docs
+description: Så här kontrollerar du X.509-certifikat med din DP-tjänst
 services: iot-dps
-keywords: 
-author: JimacoMS
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 07fe5f975e59c10fcd716db6585e2ae0fefc90e4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hur du gör bevis tillgång för X.509-certifikat med din enhet etablering av tjänst
 
@@ -70,7 +70,7 @@ PowerShell och Bash-skript som finns i dokumentationen och SDK: er som förlitar
 
 1. Ladda upp den resulterande signaturen som ett verifieringscertifikat till etablering tjänsten i portalen. I **certifikatinformation** på Azure-portalen använder den _Utforskaren_ ikonen bredvid den **verifieringscertifikat .pem eller .cer-fil** fältet överför den signerade verifieringscertifikat från systemet.
 
-2. När certifikatet har laddats upp, klickar du på **Kontrollera**. Den **STATUS** av ändringarna certifikat  **_verifierad_**  i den **certifikat Explorer** lista. Klicka på **uppdatera** om den inte uppdateras automatiskt.
+2. När certifikatet har laddats upp, klickar du på **Kontrollera**. Den **STATUS** av ändringarna certifikat **_verifierad_** i den **certifikat Explorer** lista. Klicka på **uppdatera** om den inte uppdateras automatiskt.
 
    ![Överför certifikatverifiering](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

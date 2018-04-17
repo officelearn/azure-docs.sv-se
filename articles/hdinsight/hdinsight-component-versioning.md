@@ -1,27 +1,25 @@
 ---
 title: Hadoop-komponenter och versioner - Azure HDInsight | Microsoft Docs
-description: "Lär dig om komponenterna i Hadoop och versioner i HDInsight och servicenivåer som är tillgängliga i molnet vid distribution av Hortonworks Data Platform."
+description: Lär dig om komponenterna i Hadoop och versioner i HDInsight och servicenivåer som är tillgängliga i molnet vid distribution av Hortonworks Data Platform.
 keywords: hadoop-versioner, komponenterna i hadoop-ekosystemet, hadoop-komponenter, hur du kontrollerar hadoop-version
 services: hdinsight
 editor: cgronlun
 manager: asadk
 author: bprakash
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 813b05c5be4378ea6e57cb0b14fd8110e2772998
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -109,7 +107,7 @@ I följande tabell visas de versioner av HDInsight **inte** tillgängliga i Azur
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise säkerhetspaketet för HDInsight
 
-Azure HDInsight är ett valfritt paket som du kan lägga till på ditt HDInsight-kluster som en del av arbetsflödet för skapa klustret. Säkerhetspaketet Enterprise stöder:
+Enterprise-säkerhet är ett valfritt paket som du kan lägga till på ditt HDInsight-kluster som en del av arbetsflödet för skapa klustret. Säkerhetspaketet Enterprise stöder:
 
 - Integrering med Active Directory för autentisering.
 
@@ -236,26 +234,26 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 
   | Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Huvud: standard VM-storlek |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
-  | Huvud: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: standard VM-storlek |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Worker: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Huvud: standard VM-storlek |D3 v2 |D3 v2 | D13 D14 |A3 |D12 v2 |D12 v2 |
+  | Huvud: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Worker: standard VM-storlek |D3 v2 |D3 v2  | D13 D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Worker: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
   | ZooKeeper: standard VM-storlek | |A3 | |A2 | | |
   | ZooKeeper: rekommenderade storlekar på VM | |A3, A4, A5 | | A2, A3, A4 | | |
   | Kant: standard VM-storlek | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: rekommenderas VM-storlek | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Edge: rekommenderas VM-storlek | | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Södra och västra Japan endast (ingen v2-storlekar):
 
   | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Huvud: standard VM-storlek |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | Huvud: rekommenderade storlekar på VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Worker: standard VM-storlek |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker: rekommenderade storlekar på VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Huvud: standard VM-storlek |D3 |D3  | D13 D14 |A3 |D12 |D12 |
+  | Huvud: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12  | D13 D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Worker: standard VM-storlek |D3 |D3  | D13 D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Worker: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12  | D13 D14 |D3 D4, D12 |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |
   | ZooKeeper: standard VM-storlek | |A2 | | A2 | | |
   | ZooKeeper: rekommenderade storlekar på VM | |A2, A3, A4 | |A2, A3, A4 | | |
   | Kant: standard VM-storlekar | | | | | |Windows: D12; Linux: D4 |
-  | Edge: rekommenderade storlekar på VM | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Edge: rekommenderade storlekar på VM | | | | | |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |
 
 > [!NOTE]
 > - HEAD kallas *Nimbus* för Storm-kluster typen.

@@ -1,8 +1,8 @@
 ---
-title: "Använd Apache Kafka producenten och konsumenten API: er – Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder Apache Kafka producenten och konsumenten API: er med Kafka på HDInsight. Dessa API: er kan du utveckla program som kan skriva till och läsa från Apache Kafka."
+title: 'Använd Apache Kafka producenten och konsumenten API: er – Azure HDInsight | Microsoft Docs'
+description: 'Lär dig hur du använder Apache Kafka producenten och konsumenten API: er med Kafka på HDInsight. Dessa API: er kan du utveckla program som kan skriva till och läsa från Apache Kafka.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>Apache Kafka producenten och konsumenten API: er
 
@@ -43,7 +43,7 @@ Det här exemplet kräver Kafka på HDInsight 3,6. Information om hur du skapar 
 
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
-1. Ladda ned exempel från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Hämta exempel från [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Ändra kataloger till platsen för den `Producer-Consumer` katalogen och Använd följande kommando:
 
@@ -61,7 +61,7 @@ Det här exemplet kräver Kafka på HDInsight 3,6. Information om hur du skapar 
    
     Ersätt **SSHUSER** med SSH-användare för klustret och ersätt **CLUSTERNAME** med namnet på klustret. Ange lösenordet för SSH-användaren när du uppmanas till det.
 
-## <a id="run"></a>Kör exemplet
+## <a id="run"></a> Kör exemplet
 
 1. Om du vill öppna en SSH-anslutning till klustret använder du följande kommando:
 
@@ -144,9 +144,9 @@ I det här dokumentet beskrivs hur du använder Kafka producenten och konsumente
 
 * [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
 * [Replikera data mellan Kafka-kluster](apache-kafka-mirroring.md)
-* [Kafka dataströmmar API med HDInsight](apache-kafka-streams-api.md)
+* [Kafka Streams-API med HDInsight](apache-kafka-streams-api.md)
 * [Använda Apache Spark-strömning (DStream) med Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Använda Apache Spark Structured Streaming med Kafka på HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Använda Apache Spark strukturerade strömning för att flytta data från Kafka på HDInsight Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Använda Apache Spark Structured Streaming för att flytta data från Kafka på HDInsight till Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Använda Apache Storm med Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Ansluta till Kafka via ett trådlöst Azure-nätverk](apache-kafka-connect-vpn-gateway.md)

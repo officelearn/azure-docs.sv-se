@@ -9,16 +9,16 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a373ef5cc71d5ae69c83555dc71525aa2188233e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka på HDInsight
 
@@ -64,9 +64,9 @@ Steg för att aktivera Log Analytics för HDInsight är samma för alla HDInsigh
 
     | Loggtyp | Beskrivning |
     | ---- | ---- |
-    | log\_kafkaserver\_CL | Kafka broker server.log |
-    | log\_kafkacontroller\_CL | Kafka broker controller.log |
-    | metrics\_kafka\_CL | Kafka JMX metrics |
+    | loggen\_kafkaserver\_CL | Kafka broker server.log |
+    | loggen\_kafkacontroller\_CL | Kafka broker controller.log |
+    | mått\_kafka\_CL | Kafka JMX mått |
 
     ![Bild av sökningen för CPU-användning](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  

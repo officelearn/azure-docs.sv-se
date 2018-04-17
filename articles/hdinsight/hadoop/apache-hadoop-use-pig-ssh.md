@@ -1,8 +1,8 @@
 ---
-title: "Använda Hadoop Pig med SSH på ett HDInsight-kluster - Azure | Microsoft Docs"
-description: "Lär dig hur ansluter till ett Linux-baserade Hadoop-kluster med SSH, och sedan använda kommandot Pig köras interaktivt Pig Latin-instruktioner eller som ett batchjobb."
+title: Använda Hadoop Pig med SSH på ett HDInsight-kluster - Azure | Microsoft Docs
+description: Lär dig hur ansluter till ett Linux-baserade Hadoop-kluster med SSH, och sedan använda kommandot Pig köras interaktivt Pig Latin-instruktioner eller som ett batchjobb.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 8f80b8c3b067496b4387ca31161d2e24f1c19da6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c296e01096480b85aea52ace69f25aff39e3bd2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Köra Pig-jobb på en Linux-baserade kluster med kommandot Pig (SSH)
 

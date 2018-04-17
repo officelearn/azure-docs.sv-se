@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -112,7 +112,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Apptjänst-appar (webbprogram) - finns [Apptjänst begränsningar](#app-service-limitations)
 * App Service Certificate
 * Application Insights
-* Automatisering
+* Automation
 * Azure Cosmos DB
 * Batch
 * Bing-kartor
@@ -125,7 +125,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* Event Hubs
+* Händelsehubbar
 * HDInsight-kluster - finns [HDInsight begränsningar](#hdinsight-limitations)
 * IoT-hubbar
 * Key Vault
@@ -134,18 +134,18 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Machine Learning - Machine Learning Studio webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra resurser i Machine Learning kan flyttas mellan prenumerationer.
 * Media Services
 * Mobile Engagement
-* Meddelandehubbar
+* Notification Hubs
 * Åtgärdsinformation
 * Operations Management
 * Power BI
 * Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
-* Redis-cache
+* Redis Cache
 * Scheduler
-* Sökning
+* Search
 * Serverhantering
 * Service Bus
 * Service Fabric
-* Storage
+* Lagring
 * Storage (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics-jobb inte kan flyttas när du kör i läget.
 * SQL Database-server - databasen och servern måste finnas i samma resursgrupp. När du flyttar en SQLServer, flyttas även alla databaser.
@@ -160,12 +160,12 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 
 De tjänster som för närvarande inte aktiverar flytta en resurs är:
 
-* AD Domain Services
+* AD DS
 * AD-Hybrid-tjänsten för hälsotillstånd
-* Programgateway
+* Application Gateway
 * BizTalk Services
-* Behållartjänst
-* ExpressRoute
+* Container Service
+* Express Route
 * DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
 * Dynamics LCS
 * Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
@@ -193,6 +193,8 @@ Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny r
 
 ## <a name="virtual-networks-limitations"></a>Begränsningar för virtuella nätverk
 
+När du flyttar ett virtuellt nätverk, måste du även flytta dess beroende resurser. Till exempel måste du flytta gateways med det virtuella nätverket.
+
 Om du vill flytta peered virtuella nätverk måste du först inaktivera peering virtuellt nätverk. När inaktiverat, kan du flytta det virtuella nätverket. Återaktivera efter överflyttningen, virtuella nätverk peering.
 
 Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med resursnavigeringslänkar. Om en resurs för Redis-Cache har distribuerats i ett undernät har som undernät en resurslänk för navigering.
@@ -218,10 +220,10 @@ Följ dessa steg om du vill flytta SSL-certifikat med webbprogrammet:
 När du flyttar en Webbapp _över prenumerationer_, gäller följande begränsningar:
 
 - Mål resursgruppens namn får inte ha några befintliga resurser i Apptjänst. Apptjänst resurser inkluderar:
-    - Webbappar
+    - Web Apps
     - App Service-planer
     - Överförda eller importerade SSL-certifikat
-    - App Service Environment
+    - Apptjänstmiljöer
 - Alla Apptjänst resurser i resursgruppen måste flyttas tillsammans.
 - Apptjänst resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service-resursen är inte längre i dess ursprungliga resursgrupp, det måste flyttas tillbaka till den ursprungliga resursgruppen först och sedan den flyttas över prenumerationer. 
 

@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera Backup-valvet till Recovery Services-valv för Azure Backup | Microsoft Docs"
-description: "Uppgradera Backup-valvet till Recovery Services-valvet få nya funktioner som säkerhetskopiering av hanteraren för virtuella datorer, förbättrad säkerhet, VMware VM säkerhetskopiering och säkerhetskopian av systemtillstånd för Windows-servrar"
+title: Uppgradera Backup-valvet till Recovery Services-valv för Azure Backup | Microsoft Docs
+description: Uppgradera Backup-valvet till Recovery Services-valvet få nya funktioner som säkerhetskopiering av hanteraren för virtuella datorer, förbättrad säkerhet, VMware VM säkerhetskopiering och säkerhetskopian av systemtillstånd för Windows-servrar
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Säkerhetskopieringsvalvet uppgraderas till Recovery Services-valvet
 Den här artikeln innehåller en översikt över vilka Recovery Services-valvet tillhandahåller, vanliga frågor och svar om hur du uppgraderar en befintlig säkerhetskopia valvet Recovery Services-valvet och åtgärder efter uppgradering. Recovery Services-valvet motsvarar Azure Resource Manager ett säkerhetskopieringsvalv som innehåller dina säkerhetskopierade data. Data är om vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer, lokalt eller i Azure.
@@ -32,9 +32,9 @@ Recovery Services-valv baseras på Azure Resource Manager-modell för Azure-säk
 
 - **Förbättrade funktioner för att säkra säkerhetskopierade data**: med Recovery Services-valv, Azure Backup tillhandahåller säkerhetsfunktioner för att skydda molnet säkerhetskopieringar. Dessa funktioner Se till att du kan skydda dina säkerhetskopieringar och på ett säkert sätt återställa data från molnet säkerhetskopior, även om produktions- och backup-servrar som har angripits. [Läs mer](backup-azure-security-feature.md)
 
-- **Central övervakning av din IT-miljö för hybrid**: med Recovery Services-valv kan du övervaka inte bara din [Azure IaaS-VM](backup-azure-manage-vms.md) utan även din [lokala tillgångar](backup-azure-manage-windows-server.md#manage-backup-items) från en central portalen. [Läs mer](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Central övervakning av din IT-miljö för hybrid**: med Recovery Services-valv kan du övervaka inte bara din [Azure IaaS-VM](backup-azure-manage-vms.md) utan även din [lokala tillgångar](backup-azure-manage-windows-server.md#manage-backup-items) från en central portal. [Läs mer](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Rollbaserad åtkomstkontroll (RBAC)**: RBAC ger detaljerade management åtkomstkontroll i Azure. [Azure tillhandahåller olika inbyggda roller](../active-directory/role-based-access-built-in-roles.md), och Azure Backup har tre [inbyggda roller för att hantera återställningspunkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med RBAC som begränsar säkerhetskopia och återställa åtkomst till en definierad uppsättning användarroller. [Läs mer](backup-rbac-rs-vault.md)
+- **Rollbaserad åtkomstkontroll (RBAC)**: RBAC ger detaljerade management åtkomstkontroll i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md), och Azure Backup har tre [inbyggda roller för att hantera återställningspunkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med RBAC som begränsar säkerhetskopia och återställa åtkomst till en definierad uppsättning användarroller. [Läs mer](backup-rbac-rs-vault.md)
 
 - **Skydda alla konfigurationer av virtuella datorer i Azure**: Recovery Services-valv skydda Resource Manager-baserade virtuella datorer inklusive Premiumdiskar, hanterade diskar och krypterade virtuella datorer. Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet ger dig möjlighet att uppgradera din Service Manager-baserade virtuella datorer till Resource Manager-baserade virtuella datorer. Du kan behålla dina återställningspunkter för Service Manager-baserade Virtuella och konfigurera skydd för uppgraderade (Resource Manager-aktiverat) virtuella datorer under uppgraderingen valvet. [Läs mer](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

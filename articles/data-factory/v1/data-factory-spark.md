@@ -1,11 +1,11 @@
 ---
-title: "Anropa Spark-program från Azure Data Factory | Microsoft Docs"
-description: "Lär dig mer om att anropa Spark-program från ett Azure data factory genom att använda MapReduce activity."
+title: Anropa Spark-program från Azure Data Factory | Microsoft Docs
+description: Lär dig mer om att anropa Spark-program från ett Azure data factory genom att använda MapReduce activity.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory pipelines
 
@@ -59,7 +59,7 @@ Här följer vanliga stegen för att skapa ett data factory-pipelinen med Spark 
 
 2. Skapa ett Spark-kluster i HDInsight genom att följa anvisningarna i kursen [skapar ett Spark-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associera storage-konto som du skapade i steg 1 till det här klustret.
 
-3. Hämta och granska skriptfilen Python **test.py** på [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Hämta och granska skriptfilen Python **test.py** på [ https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py ](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Överför **test.py** till den **pyFiles** mapp i den **adfspark** behållare i blob storage. Skapa behållaren och mappen om de inte redan finns.
 
@@ -84,7 +84,7 @@ Gör så här för att skapa en datafabrik:
 7. Välj **Skapa**.
 
    > [!IMPORTANT]
-   > Om du vill skapa Data Factory-instanser måste du vara medlem i [rollen Deltagare för Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) på prenumerations-/resursgruppnivå.
+   > Om du vill skapa Data Factory-instanser måste du vara medlem i [rollen Deltagare för Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) på prenumerations-/resursgruppnivå.
 
 8. Du kan se datafabriken när den har skapats på instrumentpanelen i Azure-portalen.
 

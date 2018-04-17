@@ -2,9 +2,8 @@
 title: Partitionering och teckenbredden i Azure Cosmos DB | Microsoft Docs
 description: Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitions-nycklar och hur du väljer rätt Partitionsnyckeln för ditt program.
 services: cosmos-db
-author: arramac
+author: SnehaGunda
 manager: kfile
-editor: monicar
 documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: arramac
+ms.date: 04/10/2018
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fcb33dff131106fd801b72a0bfaafd528d9f1af9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -83,12 +82,12 @@ Vänster bild visar resultatet av en felaktig partitionsnyckel och den högra bi
 
 För fysiska partitioner för att automatiskt dela upp i **p1** och **p2** enligt beskrivningen i [hur fungerar partitionering arbete](#how-does-partitioning-work), behållaren måste skapas med en genomströmning på 1 000 RU/s eller mer , och en partitionsnyckel som måste anges. När du skapar en behållare i Azure portal väljer den **obegränsad** kapacitet lagringsalternativ dra nytta av partitionering och automatisk skalning. 
 
-Om du har skapat en behållare i Azure-portalen eller programmässigt och inledande kapaciteten var 1 000 RU/s eller mer, och data innehåller en partitionsnyckel, du kan dra nytta av partitionering utan ändringar av din behållaren - detta inkluderar **fast ** storlek behållare, så länge den första behållaren har skapats med minst 1 000 RU/s i througput och en partitionsnyckel finns i data.
+Om du har skapat en behållare i Azure-portalen eller programmässigt och inledande kapaciteten var 1 000 RU/s eller mer, och data innehåller en partitionsnyckel, du kan dra nytta av partitionering utan ändringar av din behållaren - detta inkluderar **fast**  storlek behållare, så länge den första behållaren har skapats med minst 1 000 RU/s i througput och en partitionsnyckel finns i data.
 
 Om du har skapat en **fast** storlek behållare med någon partition nyckel eller skapat ett **fast** storlek behållare med genomflödet som är mindre än 1 000 RU/s, behållaren kan inte automatiskt-dela enligt beskrivningen i den här artikeln. Om du vill migrera data från behållaren så här till ett obegränsat antal behållare (en med minst 1 000 RU/s genomströmning och en partitionsnyckel), måste du använda den [datamigreringsverktyget](import-data.md) eller [ändra Feed biblioteket](change-feed.md) till Migrera ändringarna. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partitionering och etablerat dataflöde
-Azure Cosmos-DB är utformad för förutsägbar prestanda. När du skapar en behållare kan du reservera genomflöde i * [programbegäran](request-units.md) (RU) per sekund*. Varje begäran har tilldelats ett RU-tillägg som är proportionell mot mängden systemresurser som CPU, minne och i/o som används av åtgärden. En läsning av ett 1-KB-dokument med sessionskonsekvens förbrukar 1 RU. Läs är 1 RU oavsett hur många objekt som lagras eller antalet samtidiga begäranden som körs på samma gång. Större objekt kräver högre RUs beroende på storleken. Om du vet storleken på dina enheter och antalet läsningar som du behöver stöd för ditt program kan etablera du den exakta mängden dataflödet som krävs för ditt program är behöver läsa. 
+Azure Cosmos-DB är utformad för förutsägbar prestanda. När du skapar en behållare kan du reservera genomflöde i  *[programbegäran](request-units.md) (RU) per sekund*. Varje begäran har tilldelats ett RU-tillägg som är proportionell mot mängden systemresurser som CPU, minne och i/o som används av åtgärden. En läsning av ett 1-KB-dokument med sessionskonsekvens förbrukar 1 RU. Läs är 1 RU oavsett hur många objekt som lagras eller antalet samtidiga begäranden som körs på samma gång. Större objekt kräver högre RUs beroende på storleken. Om du vet storleken på dina enheter och antalet läsningar som du behöver stöd för ditt program kan etablera du den exakta mängden dataflödet som krävs för ditt program är behöver läsa. 
 
 > [!NOTE]
 > Du måste välja en partitionsnyckel som gör det möjligt att fördela begäranden mellan vissa distinkta partitionsnyckelvärden för att uppnå det totala genomflödet i behållaren.
@@ -99,8 +98,8 @@ Azure Cosmos-DB är utformad för förutsägbar prestanda. När du skapar en beh
 ## <a name="work-with-the-azure-cosmos-db-apis"></a>Arbeta med Azure Cosmos DB-API: er
 Du kan använda Azure-portalen eller Azure CLI för att skapa behållare och skala dem när som helst. Det här avsnittet visar hur du skapar behållare och ange definitionen av genomflöde och partition i var och en API som stöds.
 
-### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB API
-I följande exempel visas hur du skapar en behållare (insamling) med hjälp av Azure Cosmos DB API. 
+### <a name="sql-api"></a>API för SQL
+I följande exempel visas hur du skapar en behållare (insamling) med hjälp av Azure Cosmos DB SQL API. 
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -124,6 +123,8 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
+
+Mer information finns i [partitionering i Azure Cosmos-databasen med SQL-API](sql-api-partition-data.md).
 
 ### <a name="mongodb-api"></a>MongoDB-API
 Du kan skapa ett delat samling via din favorit-verktyget, drivrutiner och SDK med MongoDB-API. I det här exemplet använder vi Mongo-gränssnittet för att skapa samlingen.
@@ -186,7 +187,7 @@ Du kan referera en kant med hjälp av Partitionsnyckeln och Radnyckeln.
 g.E(['USA', 'I5'])
 ```
 
-Mer information finns i [Gremlin stöd för Azure Cosmos DB](gremlin-support.md).
+Mer information finns i [använder ett partitionerat diagram i Azure Cosmos DB](graph-partitioning.md).
 
 
 <a name="designing-for-partitioning"></a>

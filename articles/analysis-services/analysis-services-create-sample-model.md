@@ -1,25 +1,18 @@
 ---
-title: "Lägg till en exempel-tabellmodell för Azure Analysis Services-server | Microsoft Docs"
-description: "Lär dig hur du lägger till en exempel-modell i Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Lägg till en exempel-tabellmodell för Azure Analysis Services-server | Microsoft Docs
+description: Lär dig hur du lägger till en exempel-modell i Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.reviewer: minewiskan
+ms.openlocfilehash: 27353ff8c05f44b76304279e09a8a8d817041d78
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-sample-model"></a>Självstudier: Lägga till en exempel-modell
 
@@ -29,7 +22,7 @@ I kursen får du lägga till en modell för Adventure Works exempel till servern
 
 För att slutföra den här kursen behöver du:
 
-- An Azure Analysis Services server
+- En Azure Analysis Services-server
 - Administratörsbehörighet för servern
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal

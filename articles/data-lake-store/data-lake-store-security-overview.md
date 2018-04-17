@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Säkerhet i Azure Data Lake Store
 Många företag att utnyttja analyser av stordata för affärsinsikter hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras säkrare, med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Store är utformat för att uppfylla dessa säkerhetskrav. I den här artikeln lär dig mer om säkerhetsfunktioner för Data Lake Store, inklusive:
@@ -42,7 +42,7 @@ Varje Azure-prenumeration kan associeras med en instans av Azure Active Director
 ## <a name="authorization-and-access-control"></a>Auktorisering och åtkomstkontroll
 När en användare autentiseras av Azure Active Directory så att användaren kan komma åt Azure Data Lake Store, auktorisering kontroller behörighet att komma åt Data Lake Store. Data Lake Store avgränsar auktorisering för konto-relaterade och data som är relaterade aktiviteter på följande sätt:
 
-* [Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md) (RBAC) tillhandahålls av Azure för kontohantering
+* [Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) tillhandahålls av Azure för kontohantering
 * POSIX ACL för åtkomst till data i arkivet
 
 ### <a name="rbac-for-account-management"></a>RBAC för kontohantering

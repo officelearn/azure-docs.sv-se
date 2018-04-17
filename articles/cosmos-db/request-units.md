@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: sngun
-ms.openlocfilehash: ab85591ce4ffadeba4c1336efea0bd6945d46ec3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.author: rimman
+ms.openlocfilehash: 182f9fcfd03d736f66dd8ca11720c88c9f5b36fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
-[Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är Microsofts globalt distribuerad flera modellen databas. Du behöver inte hyra ut virtuella datorer, distribuera programvara eller övervaka databaser med Azure Cosmos DB. Azure Cosmos-DB drivs och övervakas kontinuerligt av Microsoft översta tekniker för att leverera world klassen tillgänglighet, prestanda och data protection. Du kan komma åt dina data med hjälp av API: er som du själv väljer, till exempel den [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tabell API](table-introduction.md), och Gremlin via den [Graph API](graph-introduction.md) - alla stöds. Azure Cosmos DB valuta är begära enhet (RU). Med RUs behöver du inte reserverad kapacitet för läsning och skrivning eller etablera CPU, minne och IOPS.
+[Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är Microsofts globalt distribuerad flera modellen databas. Du behöver inte hyra ut virtuella datorer, distribuera programvara eller övervaka databaser med Azure Cosmos DB. Azure Cosmos-DB drivs och övervakas kontinuerligt av Microsoft översta tekniker för att leverera world klassen tillgänglighet, prestanda och data protection. Du kan komma åt dina data med hjälp av API: er som du själv väljer, till exempel den [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tabell API](table-introduction.md), och ett diagram över den [Gremlin API](graph-introduction.md) - alla stöds. 
 
-Azure Cosmos-DB stöder ett antal API: er med olika åtgärder, från enkla läser och skriver till diagrammet komplexa frågor. Eftersom inte alla begäranden som är lika med de tilldelas en normaliserade mängd **programbegäran** baserat på mängden beräkning som är nödvändiga för att utföra begäran. Antalet enheter för begäran för en åtgärd är deterministisk och kan du spåra antalet begäran enheter som används av alla åtgärder i Azure Cosmos DB via en Svarsrubrik. 
+Azure Cosmos DB valuta är den **begära enhet (RU)**. Med RUs behöver du inte reserverad kapacitet för läsning och skrivning eller etablera CPU, minne och IOPS. Azure Cosmos-DB stöder ett antal API: er med olika åtgärder, från enkla läser och skriver till diagrammet komplexa frågor. Eftersom inte alla begäranden som är lika med de tilldelas en normaliserade mängd **programbegäran** baserat på mängden beräkning som är nödvändiga för att utföra begäran. Antalet enheter för begäran för en åtgärd är deterministisk och kan du spåra antalet begäran enheter som används av alla åtgärder i Azure Cosmos DB via en Svarsrubrik. 
 
 För att ge förutsägbar prestanda, måste du reservera dataflöde i enheter av 100 RU per sekund. Du kan [beräkna din genomströmning måste](request-units.md#estimating-throughput-needs) med hjälp av Azure Cosmos DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
 
@@ -31,12 +31,12 @@ För att ge förutsägbar prestanda, måste du reservera dataflöde i enheter av
 
 När du har läst den här artikeln kommer du att kunna svara på följande frågor:  
 
-* Vad är programbegäran och begära avgifter?
-* Hur jag för att ange begäran enhet kapacitet för en behållare?
+* Vad är frågeenheter och begäran tillägg i Azure Cosmos DB?
+* Hur ange begäran enhet kapacitet för en behållare i Azure Cosmos DB?
 * Hur jag beräkna måste mitt program begäran enhet?
-* Vad händer om jag överskrider begäran enhet kapacitet för en behållare?
+* Vad händer om jag överskrider begäran enhet kapacitet för en behållare i Azure Cosmos DB?
 
-Eftersom Azure Cosmos DB är en databas med flera olika modeller, är det viktigt att Observera att den här artikeln refererar till en samling/dokument för ett dokument API, diagram/nod för graph API och tabellen/entiteten för tabell-API. Den här artikeln handlar om begreppet samling, diagram eller tabell som en behållare och en en dokument, en nod eller en entitet som ett objekt.
+Eftersom Azure Cosmos DB är en flera modellen databas. Det är viktigt att notera att den här artikeln gäller för alla datamodeller och API: er i Azure Cosmos DB. Den här artikeln använder allmänna villkor som *behållare* och en *objektet* att referera till en samling, diagram, eller en tabell och ett dokument, en nod eller en entitet Allmänt respektive.
 
 ## <a name="request-units-and-request-charges"></a>Frågeenheter och kostnader för begäran
 Azure Cosmos-DB ger snabb och förutsägbar prestanda av *reservera* resurser för att uppfylla genomströmning för ditt program måste.  Eftersom program läsa in och komma åt mönster ändras över tiden, kan du enkelt öka eller minska mängden reserverat dataflöde som är tillgängliga för ditt program i Azure Cosmos DB.
@@ -70,7 +70,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure Cosmos-DB fungerar på en modell för reservation på genomflöde. Det vill säga du debiteras mängden genomströmning *reserverade*, oavsett hur mycket av den genomströmningen är aktivt *används*. Som programmet har belastning, data och användning mönster ändring som du kan enkelt skala uppåt och nedåt mängden, som reserverats RUs via SDK eller med hjälp av den [Azure Portal](https://portal.azure.com).
+Azure Cosmos-DB fungerar på en modell för reservation för genomströmning. Det vill säga du debiteras mängden genomströmning *reserverade*, oavsett hur mycket av den genomströmningen är aktivt *används*. Som programmet har belastning, data och användning mönster ändring som du kan enkelt skala uppåt och nedåt mängden, som reserverats RUs via SDK eller med hjälp av den [Azure Portal](https://portal.azure.com).
 
 Varje behållare är mappad till en `Offer` resurs i Azure Cosmos DB som innehåller metadata om etablerat dataflöde. Du kan ändra det allokerade genomflödet genom att leta upp motsvarande erbjudande resurs för en behållare och sedan uppdateras med det nya värdet för genomströmning. Här är ett kodfragment för att ändra genomflödet av en behållare till 5 000 frågeenheter per andra med .NET SDK:
 
@@ -92,28 +92,28 @@ Det finns ingen inverkan på tillgängligheten för din behållaren när du änd
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Genomströmning isolering i globalt distribuerade databaser
 
-När du har replikerats databasen till flera regioner, tillhandahåller Azure Cosmos DB genomströmning isolering för att säkerställa att RU användning i en region inte påverkar RU användning i en annan region. Till exempel om du skriva data till en region och läsa data från en annan region, börjar RUs som används för att utföra åtgärden i en region inte bort från RUs som används för läsning i region B. RUs inte delas mellan regioner där du har distribuerat. Varje region där databasen replikeras har fullständig mängden RUs etableras. Mer information om globala replikering finns [hur du distribuerar data globalt med Azure Cosmos DB](distribute-data-globally.md).
+När du har replikerats databasen till flera regioner, tillhandahåller Azure Cosmos DB genomströmning isolering för att säkerställa att RU användning i en region inte påverkar RU användning i en annan region. Till exempel om du skriva data till en region och läsa data från en annan region, RUs används för att utföra åtgärden i regionen *A* inte ta bort från RUs som används för läsning i regionen *B*. RUs delas inte mellan regioner där du har distribuerat. Varje region där databasen replikeras har fullständig mängden RUs etableras. Mer information om globala replikering finns [hur du distribuerar data globalt med Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Överväganden för begäran-enhet
-När du uppskattar antalet begäran enheter att reservera för Azure DB som Cosmos-behållare, är det viktigt att beakta följande variabler:
+När du uppskattar antalet begäran enheter att etablera för Azure DB som Cosmos-behållare, är det viktigt att beakta följande variabler:
 
-* **Objektet storlek**. Eftersom de enheter som används för att läsa eller skriva data ökar också ökar storleken.
+* **Objektet storlek**. När du ökar antalet ökar även frågeenheter som används för att läsa eller skriva data.
 * **Objektet antal egenskaper**. Under förutsättning att standard indexering av alla egenskaper för de enheter som används för att skriva en entitet-dokumentet/nod ökad när egenskapen Antal ökar.
-* **Datakonsekvens**. När du använder data konsekvensnivåer av starka eller begränsas föråldrad förbrukas ytterligare enheter om du vill läsa objekt.
+* **Datakonsekvens**. När du använder konsekvenskontroll datamodeller, till exempel starka eller begränsas föråldrad förbrukas ytterligare frågeenheter för att läsa objekt.
 * **Indexerade egenskaper**. En princip för index varje behållare avgör vilka egenskaper som indexeras som standard. Du kan minska konsumtion din begäran enheten genom att begränsa antalet indexerade egenskaper eller genom att aktivera lazy indexering.
-* **Dokumentindexering**. Som standard indexeras automatiskt varje objekt. Du kan använda färre frågeenheter om du inte väljer att indexera vissa av dina artiklar.
-* **Fråga mönster**. Komplexiteten i en fråga påverkar hur många enheter som begär förbrukas för en åtgärd. Antalet predikat, uppbyggnad predikat, projektioner, antalet UDF: er och storleken på alla källa datauppsättningen påverkar kostnaden för frågor.
+* **Dokumentindexering**. Som standard indexeras automatiskt varje objekt. Du kan använda färre frågeenheter om du väljer att inte indexera vissa av dina artiklar.
+* **Fråga mönster**. Komplexiteten i en fråga påverkar hur många enheter som begäran används för en åtgärd. Antalet predikat, uppbyggnad predikat, projektioner, antalet UDF: er och storleken på datakällan - påverkar alla kostnaden för frågor.
 * **Script användning**.  Precis som med frågor, lagrade procedurer och utlösare kan du använda frågeenheter baserat på komplexiteten i åtgärder som utförs. När du utvecklar programmet inspektera kostnad begärandehuvudet för att bättre förstå hur varje åtgärd förbrukar begäran enhet kapacitet.
 
 ## <a name="estimating-throughput-needs"></a>Uppskattning behov för genomströmning
 En begäran-enhet är ett normaliserat mått på kostnaden för begäranden. En enskild begäran enhet representerar bearbetningskapacitet som krävs för att läsa en enda 1 KB artikel bestående av 10 unika värden (exklusive Systemegenskaper) (via self länk eller id). En begäran om att skapa (insert), ersätta eller ta bort samma artikel förbrukar mer bearbetning från tjänsten och därmed mer frågeenheter.   
 
 > [!NOTE]
-> Baslinje för begäran om 1 enhet för en 1-KB-artikel motsvarar en enkel GET av self länk eller id för objektet.
+> Baslinje för begäran om 1 enhet för en 1 KB motsvarar objekt på enkel GET av self länk eller id för objektet.
 > 
 > 
 
-Här är till exempel en tabell som visar hur många enheter som begäran ska etablera på tre olika objekt-storlekar (1 KB 4 KB och 64 KB) och två olika prestandanivåer (500 läsningar per sekund + 100 skrivningar per sekund och 500 läsningar per sekund + 500 skrivningar per sekund). Dataintegriteten konfigurerades på sessionen och indexprincip som har angetts till None.
+Här är till exempel en tabell som visar hur många enheter som begäran ska etablera för artiklar med tre olika storlekar (1 KB 4 KB och 64 KB) och två olika prestandanivåer (500 läsningar per sekund + 100 skrivningar per sekund och 500 läsningar per sekund + 500 skrivningar per sekund). Dataintegriteten har konfigurerats med *Session*, och indexprincip har värdet *ingen*.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -174,11 +174,11 @@ Verktyget omfattar också stöd för att uppskatta lagringsbehov baserat på exe
 
 Med hjälp av verktyget är enkel:
 
-1. Ladda upp en eller flera representativa objekt.
+1. Ladda upp en eller flera representativa objekt (t.ex. ett exempel JSON-dokument).
    
     ![Skicka objekt till begäran enhet Kalkylatorn][2]
-2. Ange det totala antalet objekt som du förväntar dig att lagra för att beräkna krav för datalagring.
-3. Ange antalet objekt skapa, läsa, uppdatera och delete-åtgärder som du behöver (på grundval av per sekund). Överför en kopia av exemplet objekt från steg 1 ovan som innehåller fältuppdateringar för vanliga om du vill beräkna begäran enhet avgifterna för objektet uppdateringsåtgärder.  Till exempel om objektet uppdateringar ändrar vanligtvis två egenskaper med namnet lastLogin och userVisits, sedan bara kopiera det exemplet, uppdatera värdena för dessa två egenskaper och ladda upp det kopierade objektet.
+2. Om du vill beräkna krav för datalagring, ange det totala antalet objekt (t.ex. dokument, tabeller och diagram) du förväntar dig att lagra.
+3. Ange antalet skapa, läsa, uppdatera och delete-åtgärder som du behöver (på grundval av per sekund). Överför en kopia av exemplet objekt från steg 1 ovan som innehåller fältuppdateringar för vanliga om du vill beräkna begäran enhet avgifterna för objektet uppdateringsåtgärder.  Till exempel om objektet uppdateringar vanligtvis ändra två egenskaper med namnet *lastLogin* och *userVisits*, sedan enkelt kopiera en exempel-objekt, uppdatera värdena för dessa två egenskaper och ladda upp det kopierade objektet.
    
     ![Ange krav för genomflöde i begäran enhet Kalkylatorn][3]
 4. Klicka på Beräkna och granska resultatet.
@@ -191,9 +191,9 @@ Med hjälp av verktyget är enkel:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Använd Azure Cosmos DB begäran kostnad-svarshuvud
-Varje svaret från tjänsten Azure Cosmos DB innehåller en anpassad rubrik (`x-ms-request-charge`) som innehåller frågeenheter som används för begäran. Det här sidhuvudet är också tillgängligt via Azure Cosmos DB SDK. I .NET-SDK är RequestCharge en egenskap i objektet ResourceResponse.  För frågor ger Azure Cosmos DB Data Explorer i Azure portal begäran kostnad information för utförda frågor.
+Varje svaret från tjänsten Azure Cosmos DB innehåller en anpassad rubrik (`x-ms-request-charge`) som innehåller frågeenheter som används för en viss begäran. Det här sidhuvudet är också tillgängligt via Azure Cosmos DB SDK. I SDK för .NET `RequestCharge` är en egenskap hos den `ResourceResponse` objekt.  För frågor ger Azure Cosmos DB Data Explorer i Azure portal begäran kostnad information för utförda frågor.
 
-Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med körs vanliga åtgärder mot ett representativt objekt som används av ditt program och sedan uppskatta antal åtgärder som du vill utföra varje sekund.  Se till att mäta och innehåller vanliga frågor och Azure Cosmos DB skript samt användning.
+Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med vanliga åtgärder som körs mot ett representativt objekt som används av ditt program och sedan beräkna den antal åtgärder som du vill utföra varje sekund.  Se till att mäta och innehåller vanliga frågor och Azure Cosmos DB skript samt användning.
 
 > [!NOTE]
 > Om du har objekttyper som skiljer sig avsevärt när det gäller storlek och antalet indexerade egenskaper som är associerade med varje tillämplig åtgärden begäran enhet kostnad registrera *typen* för vanliga objekt.
@@ -209,8 +209,8 @@ Exempel:
 5. Registrera begäran enhet tillägget för alla anpassade skript (lagrade procedurer, utlösare, användardefinierade funktioner) kan användas av programmet
 6. Beräkna de nödvändiga frågeenheter anges uppskattade antal åtgärder som du vill köra varje sekund.
 
-## <a id="GetLastRequestStatistics"></a>Använd API för Mongodb's GetLastRequestStatistics kommando
-MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran kostnad för angivna åtgärder.
+## <a id="GetLastRequestStatistics"></a>Använd MongoDB API GetLastRequestStatistics kommando
+MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran avgifterna för en viss åtgärd.
 
 Till exempel köra åtgärden som du vill kontrollera begäran kostnad för i Mongo-gränssnittet.
 ```
@@ -229,7 +229,7 @@ Kör sedan kommandot *getLastRequestStatistics*.
 }
 ```
 
-Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med körs vanliga åtgärder mot ett representativt objekt som används av ditt program och sedan uppskatta antal åtgärder som du vill utföra varje sekund.
+Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med vanliga åtgärder som körs mot ett representativt objekt som används av ditt program och sedan beräkna den antal åtgärder som du vill utföra varje sekund.
 
 > [!NOTE]
 > Om du har objekttyper som varierar kraftigt när det gäller storlek och antalet indexerade egenskaper som är associerade med varje tillämplig åtgärden begäran enhet kostnad registrera *typen* för vanliga objekt.
@@ -241,7 +241,7 @@ Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter f
 
 ![Portalen MongoDB API-mått][6]
 
-## <a name="a-request-unit-estimation-example"></a>Exempel på beräkning av en begäran
+## <a name="a-request-unit-estimate-example"></a>Ett exempel på begäran uppskattning
 Överväg följande ~ 1 KB dokument:
 
 ```json
@@ -299,11 +299,11 @@ Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter f
 > 
 > 
 
-I följande tabell visas ungefärlig begäran enhet kostnader för vanliga åtgärder på det här objektet (ungefärliga begäran enhet kostnad förutsätter att konsekvensnivå konto har angetts till ”Session” och att alla objekt som indexeras automatiskt):
+I följande tabell visas ungefärlig begäran enhet kostnader för vanliga åtgärder på det här objektet (ungefärliga begäran enhet kostnad förutsätter att konsekvensnivå konto har angetts till *Session* och att alla objekt är automatiskt indexerade):
 
 | Åtgärd | Begäran enhet kostnad |
 | --- | --- |
-| Skapa objekt |~15 RU |
+| Skapa objekt |~ 15 RU |
 | Läs objekt |~ 1 RU |
 | Frågan objekt-ID: t |~2.5 RU |
 
@@ -313,11 +313,11 @@ Den här tabellen visas dessutom ungefärliga begäran enhet avgifter för vanli
 | --- | --- | --- |
 | Välj mat-ID: t |~2.5 RU |1 |
 | Välj livsmedel per tillverkare |~ 7 RU |7 |
-| Välj av mat gruppen och ordning baserat på vikt |~70 RU |100 |
-| Välj översta 10 livsmedel i en Matgrupp |~10 RU |10 |
+| Välj av mat gruppen och ordning baserat på vikt |~ 70 RU |100 |
+| Välj översta 10 livsmedel i en Matgrupp |~ 10 RU |10 |
 
 > [!NOTE]
-> RU avgifter variera beroende på antalet objekt som returneras.
+> RU avgifter varierar beroende på antalet objekt som returneras.
 > 
 > 
 
@@ -334,18 +334,18 @@ Med den här informationen kan du beräkna RU kraven för det här programmet f�
 I detta fall kan du förvänta dig en genomsnittlig genomströmning krav på 1,275 RU/s.  Avrundas till närmaste 100, skulle du etablera 1 300 RU/s för behållare i det här programmet.
 
 ## <a id="RequestRateTooLarge"></a> Reserverat dataflöde överskreds i Azure Cosmos DB
-Kom ihåg att konsumtion av begäran enheten utvärderas som en sats per sekund om budget är tom. Begäranden om att behållaren har begränsats förrän frekvensen sjunker under nivån reserverade för program som överskrider etablerade begärandehastighet enhet för en behållare. När en begränsning inträffar servern förebyggande syfte slutar begäran med RequestRateTooLargeException (HTTP-statuskod 429) och returnerar x-ms-retry-efter-ms-huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök i begäran.
+Kom ihåg att begäran enhet förbrukning utvärderas med en hastighet per sekund. För program som överskrider den etablerade begäran enhet hastigheten har begäranden begränsad hastighet tills frekvensen sjunker under nivån dataflöde. När en begäran hämtar begränsad hastighet, servern förebyggande syfte avslutas på begäran med `RequestRateTooLargeException` (HTTP-statuskod 429) och returnerar det `x-ms-retry-after-ms` huvud som anger hur lång tid i millisekunder som användaren måste vänta innan du försöker begäran.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
 
-Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall måste du aldrig hantera detta undantag som den aktuella versionen av .NET-klient-SDK fångar implicit svaret respekterar server angetts försök igen efter rubriken och försöker den begäran. Om ditt konto används samtidigt av flera klienter, lyckas nästa försök.
+Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall måste du aldrig hantera detta undantag som den aktuella versionen av .NET-klient-SDK fångar implicit svaret respekterar server angetts försök igen efter rubriken och försöker den begäran om automatiskt. Om ditt konto används samtidigt av flera klienter, lyckas nästa försök.
 
-Om du har mer än en klient kumulativt drift ovan förfrågningar, försök standardbeteendet finns tillräckligt inte och klienten genereras en DocumentClientException med statuskoden 429 till programmet. I sådana fall, kan du hantera försök beteende och logik i ditt program fel hantering rutiner eller att öka reserverat dataflöde för behållaren.
+Om du har mer än ett klientoperativsystem kumulativt högre begärandehastighet, försök standardbeteendet inte finns tillräckligt och klienten genereras en `DocumentClientException` med statusen code 429 till programmet. I detta fall kanske du vill överväga hantering försök beteende och logiken i ditt program felhantering rutiner eller öka dataflöde för behållaren.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
-Program som överskrider de etablerade frågeenheter för en behållare kommer att begränsas förrän frekvensen sjunker under nivån reserverade. När en begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en *16500* felkoden - *för många begäranden*. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en *för många begäranden* felkoden. Om du tar emot många *för många begäranden* felkoder, kan du antingen lägga till försök beteende i ditt program felhantering rutiner eller [öka reserverat dataflöde för behållaren](set-throughput.md).
+Program som överskrider det tillhandahållna dataflödet för en behållare kommer att vara begränsad hastighet förrän åtgången sjunker under dataflöde hastighet. När en hastighet-begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en `16500` felkoden - `Too Many Requests`. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du tar emot många `Too Many Requests` felkoder du bör du överväga att lägga till en logik i ditt program felhantering rutiner eller [öka etablerat dataflöde för behållaren](set-throughput.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Utforska gärna dessa resurser om du vill veta mer om reserverat dataflöde med Azure Cosmos DB databaser kan:

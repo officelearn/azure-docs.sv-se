@@ -1,11 +1,11 @@
 ---
-title: "Vad du gör vid en Azure-tjänst avbrott som påverkar Azure Key Vault | Microsoft Docs"
-description: "Lär dig vad du ska göra om ett avbrott i Azure-tjänsten som påverkar Azure Key Vault."
+title: Vad du gör vid en Azure-tjänst avbrott som påverkar Azure Key Vault | Microsoft Docs
+description: Lär dig vad du ska göra om ett avbrott i Azure-tjänsten som påverkar Azure Key Vault.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: adamglick
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: sumedhb;aglick
-ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: aglick
+ms.openlocfilehash: 11c2fe5d4b84f99c3b0e303d1abeea73442f57aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault tillgänglighet och redundans
 Azure Key Vault har flera lager för redundans för att se till att dina nycklar och hemligheter förblir tillgängliga för ditt program även om enskilda komponenter i tjänsten misslyckas.
@@ -40,11 +40,11 @@ Det finns några varningar att vara medveten om:
   * Lista nycklar
   * Hämta nycklar (egenskaperna för)
   * Kryptera
-  * Dekryptera
+  * Avkryptera
   * Omsluta
   * Packa upp
   * Verifiera
   * Signera
-  * Säkerhetskopiering
+  * Backup
 * Efter en redundansväxling har misslyckats tillbaka, alla typer av begäranden (inklusive Läs *och* skrivåtgärder) är tillgängliga.
 

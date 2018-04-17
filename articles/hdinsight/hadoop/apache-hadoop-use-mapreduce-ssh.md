@@ -1,26 +1,26 @@
 ---
 title: MapReduce och SSH-anslutning med Hadoop i HDInsight - Azure | Microsoft Docs
-description: "Lär dig hur du använder SSH för att köra jobb för MapReduce med Hadoop i HDInsight."
+description: Lär dig hur du använder SSH för att köra jobb för MapReduce med Hadoop i HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlunb
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 08c67168cde60c1b7551806da8542c98dcb82f55
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Använda MapReduce med Hadoop i HDInsight med SSH
 
@@ -42,16 +42,16 @@ Lär dig mer om att skicka MapReduce-jobb från en SSH (Secure Shell)-anslutning
 
 ## <a id="ssh"></a>Ansluta med SSH
 
-Ansluta till klustret med SSH. Till exempel följande kommando ansluter till ett kluster med namnet **myhdinsight**:
+Ansluta till klustret med SSH. Till exempel följande kommando ansluter till ett kluster med namnet **myhdinsight** som den **sshuser** konto:
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Om du använder en nyckel för certifikat för SSH-autentisering**, du kan behöva ange platsen för den privata nyckeln i klientsystemet, till exempel:
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Om du använder ett lösenord för SSH-autentisering**, måste du ange lösenordet när du tillfrågas.

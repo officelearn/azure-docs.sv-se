@@ -1,33 +1,31 @@
 ---
-title: "Använda Tez-Gränssnittet med Windows-baserade HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du använder Tez-UI för att felsöka Tez-jobb på Windows-baserade HDInsight HDInsight."
+title: Använda Tez-Gränssnittet med Windows-baserade HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du använder Tez-UI för att felsöka Tez-jobb på Windows-baserade HDInsight HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32f6a12544c05dbf4ac65dd386cd9dea18ca79b3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4201fb76ef9b0e711fd48972db86c356d72e6671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Använd Tez-UI för att felsöka Tez-jobb på Windows-baserade HDInsight
-Tez UI är en webbsida som kan användas för att förstå och felsöka jobb som använder Tez som motorn för körning på Windows-baserade HDInsight-kluster. Tez UI kan du visualisera jobbet som ett diagram över anslutna objekt, detaljer om varje objekt, och hämta statistik och loggningsinformation.
+Tez UI kan användas för att felsöka Hive-jobb som använder Tez som motorn för körning. Tez UI visualizes jobbet som ett diagram över anslutna objekt kan detaljer om varje objekt och hämta statistik och loggningsinformation.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Windows. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Ett Windows-baserade HDInsight-kluster. Anvisningar om hur du skapar ett nytt kluster finns [komma igång med Windows-baserade HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
@@ -37,22 +35,22 @@ Tez UI är en webbsida som kan användas för att förstå och felsöka jobb som
 * En Windows-baserade fjärrskrivbordsklienten.
 
 ## <a name="understanding-tez"></a>Förstå Tez
-Tez är ett utökningsbart ramverk för databearbetning i Hadoop och som ger högre hastigheter än traditionella MapReduce-bearbetning. För Windows-baserade HDInsight-kluster är det en valfri motor som du kan aktivera för Hive med hjälp av följande kommando som en del av Hive-fråga:
+Tez är ett utökningsbart ramverk för databearbetning i Hadoop och ger högre hastigheter än traditionella MapReduce-bearbetning. Du kan aktivera Tez genom att inkludera följande text som en del av en Hive-fråga:
 
     set hive.execution.engine=tez;
 
-När arbetet skickas till Tez skapar en dirigeras acykliska diagram (DAG) som beskriver ordningen för körningen av åtgärder som krävs av jobbet. Enskilda åtgärder kallas formhörnen och köra en del av en övergripande jobbet. Faktiska körningen av det arbete som beskrivs av en nod kallas för en aktivitet och kan distribueras över flera noder i klustret.
+Tez skapar en dirigeras acykliska diagram (DAG) som beskriver ordningen för körningen av åtgärder som krävs av jobbet. Enskilda åtgärder kallas formhörnen och köra en del av en övergripande jobbet. Faktiska körningen av det arbete som beskrivs av en nod kallas för en aktivitet och kan distribueras över flera noder i klustret.
 
 ### <a name="understanding-the-tez-ui"></a>Förstå Tez-Gränssnittet
-Tez UI är en webbsida ger information om processer som körs eller har kördes tidigare med Tez. Du kan visa den DAG som genererats av Tez, hur den distribueras till kluster, räknare, till exempel minne som används av uppgifter och formhörnen och information om felet. Den kan erbjuda användbar information i följande scenarier:
+Tez UI är en webbsida innehåller information om processer som använder Tez. Den kan erbjuda användbar information i följande scenarier:
 
 * Övervakning tidskrävande processer, visa förloppet för kartan och minska uppgifter.
 * Analysera historiska data för lyckade eller misslyckade processer att lära dig hur bearbetning kan förbättras eller orsaken till felet.
 
 ## <a name="generate-a-dag"></a>Generera en DAG
-Tez UI innehåller bara data om ett jobb som använder Tez-motorn körs eller har körts tidigare. Enkel Hive-frågor kan vanligtvis lösas utan att använda Tez, men mer komplexa frågor som gör filtrering, gruppering, sortering, kopplingar, etc. kräver vanligtvis Tez.
+Tez UI innehåller data om ett jobb som använder Tez-motorn körs eller har körts tidigare. Enkel Hive-frågor kan vanligtvis lösas utan att använda Tez. Mer komplexa frågor som gör filtrering, gruppering, sortering, kopplingar, etc. kräver Tez.
 
-Använd följande steg för att köra en Hive-fråga som ska köras med hjälp av Tez.
+Använd följande steg för att köra en Hive-fråga som använder Tez.
 
 1. I en webbläsare, navigerar du till https://CLUSTERNAME.azurehdinsight.net, där **KLUSTERNAMN** är namnet på ditt HDInsight-kluster.
 2. På menyn överst på sidan, Välj den **Hive-redigeraren**. En sida med följande exempelfråga visas.
@@ -63,7 +61,7 @@ Använd följande steg för att köra en Hive-fråga som ska köras med hjälp a
 
         set hive.execution.engine=tez;
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
-3. Välj den **skicka** knappen. Den **jobbet Session** avsnittet längst ned på sidan visar statusen för frågan. När statusen ändras till **slutförd**, Välj den **visa information** länken om du vill visa resultatet. Den **Jobbutdata** bör likna följande:
+3. Välj den **skicka** knappen. Den **jobbet Session** avsnittet längst ned på sidan visar status för frågan. När statusen ändras till **slutförd**, Välj den **visa information** länken om du vill visa resultatet. Den **Jobbutdata** bör likna följande:
 
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
@@ -75,7 +73,7 @@ Använd följande steg för att köra en Hive-fråga som ska köras med hjälp a
 >
 >
 
-1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt HDInsight-kluster. Upp i bladet HDInsight, Välj den **fjärrskrivbord** ikon. Detta visar bladet remote desktop
+1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt HDInsight-kluster. Upp i bladet HDInsight, Välj den **fjärrskrivbord** ikon. Den här länken visar bladet remote desktop
 
     ![Ikon för Remote desktop](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. Remote Desktop-bladet välj **Anslut** att ansluta till klustrets huvudnod. Vid uppmaning används klustret Remote Desktop-användarnamn och lösenord för att autentisera anslutningen.
@@ -88,14 +86,14 @@ Använd följande steg för att köra en Hive-fråga som ska köras med hjälp a
    >
 3. När du är ansluten, öppna Internet Explorer på fjärrskrivbordet, väljer du kugghjulsikonen i övre högra hörnet i webbläsaren och välj sedan **Kompatibilitetsvyinställningarna**.
 4. Längst ned i **Kompatibilitetsvyinställningarna**, avmarkerar du kryssrutan för **visa intranätplatser i Kompatibilitetsvy** och **Använd Microsoft kompatibilitetslista**, och välj sedan **Stäng**.
-5. I Internet Explorer, bläddra till #-http://headnodehost:8188/tezui /. Detta visar Tez UI
+5. I Internet Explorer, bläddra till http://headnodehost:8188/tezui/#/. Detta visar Tez UI
 
     ![Tez-Gränssnittet](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    När Tez UI läses in, visas en lista över dag som för närvarande körs eller har körts på klustret. Standardvyn innehåller Dag Name, -Id, runtimenamn, Skickat, Status, starttid, sluttid, varaktighet, program-ID och kön. Fler kolumner läggas till med hjälp av växeln-ikonen längst till höger på sidan.
+    När Tez UI läses in, visas en lista över dag som för närvarande körs eller har körts på klustret. Standardvyn innehåller DAG Name, -Id, runtimenamn, Skickat, Status, starttid, sluttid, varaktighet, program-ID och kön. Fler kolumner läggas till med hjälp av växeln-ikonen längst till höger på sidan.
 
-    Om du har en enda post blir det för den fråga som du körde i föregående avsnitt. Om du har flera poster kan du söka genom att ange sökvillkor i fälten i dag och sedan klicka på **RETUR**.
-6. Välj den **Dag Name** för den senaste DAG-posten. Information om DAG och alternativet för att hämta en zip JSON-filer som innehåller information om gruppen för Databastillgänglighet visas.
+    Om du har en enda post, gäller den fråga som du körde i föregående avsnitt. Om du har flera poster kan du söka genom att ange sökvillkor i fälten i dag och sedan klicka på **RETUR**.
+6. Välj den **Dag Name** för den senaste DAG-posten. Den här länken visar information om DAG och alternativet för att hämta en zip JSON-filer som innehåller information om DAG.
 
     ![DAG-information](./media/hdinsight-debug-tez-ui/dagdetails.png)
 7. Ovanför den **DAG information** är flera länkar som kan användas för att visa information om DAG.
@@ -115,7 +113,7 @@ Använd följande steg för att köra en Hive-fråga som ska köras med hjälp a
 8. Välj **grafisk vy**. Visar en grafisk representation av gruppen för Databastillgänglighet. Du kan placera muspekaren över varje nod i vyn för att visa information om den.
 
     ![Grafisk vy](./media/hdinsight-debug-tez-ui/dagdiagram.png)
-9. Klicka på en nod att läsa in den **Vertex information** för objektet. Klicka på den **kartan 1** vertex att visa detaljer för det här objektet. Välj **Bekräfta** bekräfta navigeringen.
+9. Klicka på en brytpunkt läser in den **Vertex information** för objektet. Klicka på den **kartan 1** vertex att visa detaljer för det här objektet. Välj **Bekräfta** bekräfta navigeringen.
 
     ![Vertex information](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Observera att du nu har länkarna överst på sidan som är relaterade till formhörnen och uppgifter.
@@ -134,7 +132,7 @@ Använd följande steg för att köra en Hive-fråga som ska köras med hjälp a
       > Med den föregående menyn rulla som Visa kolumnen för aktiviteter, aktivitet försök källor och Sinks__ visa länkar till mer information för varje objekt.
       >
       >
-11. Välj **uppgifter**, och välj sedan de objekt med namnet **00_000000**. Detta visar **aktivitetsinformation** för den här uppgiften. Du kan visa från den här skärmen **aktivitet räknare** och **aktivitet försök**.
+11. Välj **uppgifter**, och välj sedan de objekt med namnet **00_000000**. Den här länken visar **aktivitetsinformation** för den här uppgiften. Du kan visa från den här skärmen **aktivitet räknare** och **aktivitet försök**.
 
     ![Uppgiftsinformation](./media/hdinsight-debug-tez-ui/taskdetails.png)
 

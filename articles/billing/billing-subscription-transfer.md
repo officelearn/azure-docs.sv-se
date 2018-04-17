@@ -1,12 +1,12 @@
 ---
-title: "Överföra ägarskap för Azure-prenumeration till ett annat konto | Microsoft Docs"
-description: "Beskriver hur du överför en Azure-prenumeration till en annan användare och några vanliga frågor (FAQ) om processen"
-keywords: "överföra prenumerationen för överföring av azure-prenumeration, azure, gå azure-prenumeration till ett annat konto, azure ändra prenumerationen ägare och överföra azure-prenumeration till ett annat konto"
-services: 
-documentationcenter: 
+title: Överföra ägarskap för Azure-prenumeration till ett annat konto | Microsoft Docs
+description: Beskriver hur du överför en Azure-prenumeration till en annan användare och några vanliga frågor (FAQ) om processen
+keywords: överföra prenumerationen för överföring av azure-prenumeration, azure, gå azure-prenumeration till ett annat konto, azure ändra prenumerationen ägare och överföra azure-prenumeration till ett annat konto
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överför ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/02/2018
 
 > [!IMPORTANT]
 > 
-> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
+> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Överför ägarskapet för en Azure-prenumeration
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/02/2018
 
    > [!IMPORTANT]
    > 
-   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
+   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
 
    ![Överföra prenumerationen dialogrutan](./media/billing-subscription-transfer/image2.PNG)
 
@@ -115,7 +115,7 @@ Kontoadministratören är den person som registrerade sig för eller har köpt A
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Överförs allt? Inklusive resursgrupper, virtuella datorer, diskar och andra tjänster som körs?
 
-Alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) principer som du har konfigurerat överför inte i olika kataloger. Dessutom [app registreringar](../active-directory//develop/active-directory-integrating-applications.md) och andra tjänster för klient-specifika inte överföra längs.
+Alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) principer som du har konfigurerat överför inte i olika kataloger. Dessutom [app registreringar](../active-directory//develop/active-directory-integrating-applications.md) och andra tjänster för klient-specifika inte överföra längs.
 
 ### <a id="no-button"></a> Varför visas inte knappen ”överföra prenumerationen”?
 

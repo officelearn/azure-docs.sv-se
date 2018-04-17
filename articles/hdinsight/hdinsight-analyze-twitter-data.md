@@ -1,25 +1,23 @@
 ---
 title: Analysera Twitter-data med Hadoop i HDInsight - Azure | Microsoft Docs
-description: "Lär dig hur du använder Hive för att analysera Twitter-data med Hadoop i HDInsight för att hitta frekvensen för användning av ett visst ord."
+description: Lär dig hur du använder Hive för att analysera Twitter-data med Hadoop i HDInsight för att hitta frekvensen för användning av ett visst ord.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1d3f00658c836eaba41b7ab3d1c065991a2c12a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analysera Twitter-data med Hive i HDInsight
 Sociala webbplatser är en av större Drivande faktorer för stordata införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en användbar datakälla för att analysera och förstå populära trender.
@@ -28,7 +26,7 @@ I den här självstudiekursen kommer du få tweets med hjälp av en Twitter stre
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Åtgärder som är specifika för ett Linux-baserade kluster, se [analysera Twitter-data med hjälp av Hive i HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En arbetsstation** med Azure PowerShell installeras och konfigureras.
@@ -77,7 +75,7 @@ Det första steget att använda OAuth är att skapa ett nytt program på webbpla
 
 **Skapa ett Twitter-program**
 
-1. Logga in på [https://apps.twitter.com/](https://apps.twitter.com/). Klicka på den **registrera nu** länk om du inte har ett Twitter-konto.
+1. Logga in på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrera nu** länk om du inte har ett Twitter-konto.
 2. Klicka på **Skapa ny App**.
 3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fältet. I följande tabell visas några exempelvärden som ska användas:
 

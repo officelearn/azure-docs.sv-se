@@ -1,26 +1,24 @@
 ---
 title: Python UDF med Apache Hive och svin - Azure HDInsight | Microsoft Docs
-description: "Lär dig hur du använder Python användaren definierat funktioner (UDF) från Hive och Pig i HDInsight Hadoop-teknikstacken på Azure."
+description: Lär dig hur du använder Python användaren definierat funktioner (UDF) från Hive och Pig i HDInsight Hadoop-teknikstacken på Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c508ffcdd5cccaad5c7b0717d33e2ea1449ab522
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Använd användardefinierade Python funktioner (UDF) med Hive och Pig i HDInsight
 
@@ -380,8 +378,8 @@ Information om felet (STDERR) och resultatet av jobbet (STDOUT) loggas också i 
 
 | För det här jobbet... | Titta på de här filerna i blob-behållaren |
 | --- | --- |
-| Hive |/HivePython/stderr<p>/HivePython/stdout |
-| Pig |/PigPython/stderr<p>/PigPython/stdout |
+| Hive |/ HivePython/stderr<p>/ HivePython/stdout |
+| Pig |/PigPython/stderr<p>/ PigPython/stdout |
 
 ## <a name="next"></a>Nästa steg
 

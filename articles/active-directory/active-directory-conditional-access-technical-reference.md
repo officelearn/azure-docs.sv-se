@@ -1,8 +1,8 @@
 ---
-title: "Inställningsreferens för villkorlig åtkomst till Azure Active Directory | Microsoft Docs"
-description: "Få en översikt över inställningar som stöds i en villkorlig åtkomstprincip för Azure Active Directory."
+title: Inställningsreferens för villkorlig åtkomst till Azure Active Directory | Microsoft Docs
+description: Få en översikt över inställningar som stöds i en villkorlig åtkomstprincip för Azure Active Directory.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2018
+ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -123,17 +123,17 @@ Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en
 
 | Operativsystem                     | Webbläsare                            | Support     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Markera][1] |
+| Windows 10             | Internet Explorer, gräns, Chrome     | ![Markera][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Markera][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Markera][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Markera][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Markera][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Markera][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Markera][1] |
+| Windows Phone          | Internet Explorer, kant             | ![Markera][1] |
+| Windows Server 2016    | Internet Explorer, kant             | ![Markera][1] |
 | Windows Server 2016    | Chrome                              | Kommer snart |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Markera][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Markera][1] |
-| macOS                  | Chrome, Safari                      | ![Markera][1] |
+| macOS                  | Chrome Safari                      | ![Markera][1] |
 
 
 
@@ -147,7 +147,7 @@ Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 |--- | ---|
 |Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Namn | 1 |
-|Typ | REG_SZ (String) |
+|Typ | REG_SZ (sträng) |
 |Data | {”mönstret” ”:https://device.login.microsoftonline.com” ”, filter”: {”UTFÄRDAREN”: {”CN”: ”MS-organisation-åtkomst”}}}|
 
 Dessa webbläsare stöder enhetsautentisering att enheten kan identifieras och verifieras mot en princip. Det går inte att enheten kontrollen om webbläsaren körs i privat läge. 
@@ -164,24 +164,24 @@ Du kan välja i principen för villkorlig åtkomst **mobilappar och skrivbordskl
 Den här inställningen påverkar åtkomstförsök från följande mobila appar och skrivbord klienter: 
 
 
-| Klientappar| Måltjänsten| Plattform |
-| --- | --- | --- |
-| Azure RemoteApp| Azure RemoteApp-tjänsten| Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
-| Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS och Android|
-| Användare-e-post/kalender appen, Outlook 2016 Outlook 2013 (med modern autentisering)| Office 365 Exchange Online| Windows 10|
-| Principen för MFA och plats för appar. Principer för enheter som är baserade stöds inte.| Alla Mina appar apptjänst| Android och iOS|
-| Microsoft Team Services - detta styr alla tjänster som stöder Microsoft Teams och alla dess Klientappar - Windows-skrivbordet, iOS, Android, WP och Webbklient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS|
-| Appar för Office 2016, Office 2013 (med modern autentisering), OneDrive synkronisera klienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Appar för Office 2016, Universal Office-appar, Office 2013 (med modern autentisering), OneDrive synkroniseringsklient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), stöd för Office-grupper är planerad för framtiden, stöd för SharePoint-appen är planerad i framtiden| Office 365 SharePoint Online| Windows 10|
-| Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för Business support planerad i framtiden| Office 365 SharePoint Online| Mac OS X|
-| Office-mobilappar| Office 365 SharePoint Online| Android, iOS|
-| Office Yammer-appen| Office 365 Yammer| Windows 10, iOS, Android|
-| Outlook 2016 (Office för macOS)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016 Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Mobila Outlook-appen| Office 365 Exchange Online| Android, iOS|
-| PowerBI-appen| PowerBI service| Windows 10, Windows 8.1, Windows 7, Android och iOS|
-| Skype för företag| Office 365 Exchange Online| Android, IOS|
-| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS och Android|
+|Klientappar|Måltjänsten|Plattform|
+|---|---|---|
+|Azure RemoteApp|Azure RemoteApp-tjänsten|Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
+|Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, iOS och Android|
+|Användare-e-post/kalender appen, Outlook 2016 Outlook 2013 (med modern autentisering)|Office 365 Exchange Online|Windows 10|
+|Principen för MFA och plats för appar. Principer för enheter som är baserade stöds inte. |Alla Mina appar apptjänst|Android och iOS|
+|Microsoft Team Services - detta styr alla tjänster som stöder Microsoft Teams och alla dess Klientappar - Windows-skrivbordet, iOS, Android, WP och Webbklient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS |
+|Appar för Office 2016, Office 2013 (med modern autentisering), OneDrive synkronisera klienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Appar för Office 2016, Universal Office-appar, Office 2013 (med modern autentisering), OneDrive synkroniseringsklient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), stöd för Office-grupper är planerad för framtiden, stöd för SharePoint-appen är planerad i framtiden|Office 365 SharePoint Online|Windows 10|
+|Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för Business support planerad i framtiden|Office 365 SharePoint Online|Mac OS X|
+|Office-mobilappar|Office 365 SharePoint Online|Android, iOS|
+|Office Yammer-appen|Office 365 Yammer|Windows 10-, iOS, Android|
+|Outlook 2016 (Office för macOS)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016 Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Mobila Outlook-appen|Office 365 Exchange Online|Android, iOS|
+|PowerBI-appen|PowerBI service|Windows 10, Windows 8.1, Windows 7, Android och iOS|
+|Skype för företag|Office 365 Exchange Online|Android IOS |
+|Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS och Android|
 
 
 
@@ -197,7 +197,7 @@ Den här inställningen gäller för följande klientappar:
 - Microsoft Intune Managed Browser
 - Microsoft PowerBI
 - Microsoft fakturering
-- Microsoft Launcher
+- Microsoft starta
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

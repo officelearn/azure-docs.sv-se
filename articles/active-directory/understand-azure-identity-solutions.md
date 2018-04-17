@@ -1,23 +1,23 @@
 ---
-title: "Förstå Azure Identity | Microsoft Docs"
-description: "Hämta en grundläggande förståelse för Microsoft Azure identitet lösning villkoren, begrepp och rekommendationer att göra det bästa identity styrning beslutet för din organisation."
-keywords: 
+title: Förstå Azure Identity | Microsoft Docs
+description: Hämta en grundläggande förståelse för Microsoft Azure identitet lösning villkoren, begrepp och rekommendationer att göra det bästa identity styrning beslutet för din organisation.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
 Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
@@ -37,12 +37,12 @@ Innan du kan välja i en Azure identity-lösningen för din organisation, behöv
 |Azure-prenumeration |Prenumerationer som används för att betala för Azure-molntjänster och är vanligtvis kopplad till ett kreditkort. Du kan ha flera prenumerationer, men det kan vara svårt att dela resurser mellan prenumerationer.|
 |Azure-klient | En Azure AD-klient är av en enda organisation. Det är en dedikerad, betrodda instans av Azure AD som skapas automatiskt när en organisation registrerar sig för en Microsoft cloud service-prenumeration som Azure, Intune och Office 365. Klienter kan få åtkomst till tjänster antingen i en dedikerad miljö (enstaka klient) eller i en miljö med delad med andra organisationer (multitenant).|
 |Azure AD-katalog | Varje Azure-klient har en dedikerad, betrodda Azure AD-katalog som innehåller klientens användare, grupper och program. Den används för att utföra identitet och åtkomst till hanteringsfunktioner för klientresurser. Eftersom en unik Azure AD-katalog etableras automatiskt för att representera organisationen när du registrerar dig för en Microsoft-molntjänst som Azure, Microsoft Intune eller Office 365, ser du ibland villkoren *klient*,  *Azure AD*, och *Azure AD-katalog* utbytbara. |
-|Egen domän | När du först registrerar dig för en prenumeration på Microsoft cloud tjänster, din klient (organisation) använder en *. onmicrosoft.com* domännamn. Dock de flesta organisationer har en eller flera domännamn som används för att göra företag och som slutanvändare använder för åtkomst till företagsresurser. Du kan lägga till ditt domännamn till Azure AD så att domännamnet är dina användare som  *alice@contoso.com*  i stället för  *alice@contoso.onmicrosoft.com* . |
+|Egen domän | När du först registrerar dig för en prenumeration på Microsoft cloud tjänster, din klient (organisation) använder en *. onmicrosoft.com* domännamn. Dock de flesta organisationer har en eller flera domännamn som används för att göra företag och som slutanvändare använder för åtkomst till företagsresurser. Du kan lägga till ditt domännamn till Azure AD så att domännamnet är dina användare som *alice@contoso.com* i stället för *alice@contoso.onmicrosoft.com*. |
 |Azure AD-konto | Dessa är identiteter som skapas med hjälp av Azure AD eller en annan Microsoft-molntjänst som Office 365. De är lagrade i Azure AD och tillgänglig för alla prenumerationer på molntjänster i organisationen. |
 |Administratör för Azure-prenumeration| Kontoadministratören är den person som registrerade sig för eller har köpt Azure-prenumerationen. De kan använda den [Kontocenter](https://account.azure.com/Subscriptions) för att utföra olika hanteringsuppgifter som att skapa prenumerationer avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra den tjänstadministratör. |
 |Global administratör för Azure AD | Azure AD globala administratörer har fullständig åtkomst till alla administrativa funktioner i Azure AD. En global administratör blir den person som registrerar sig för en prenumeration på Microsoft molnet service automatiskt som standard. Du kan ha fler än en global administratör, men endast globala administratörer kan tilldela någon av [andra administratörsroller](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) till användare. |
 |Microsoft-konto | Microsoft-konton (som skapats av du för personligt bruk) ger åtkomst till konsumentinriktade Microsoft-produkter och molntjänster, t.ex. Outlook (Hotmail), OneDrive, Xbox LIVE eller Office 365. Dessa identiteter skapas och lagras i Microsoft-konto konsumentidentitetssystemet som körs av Microsoft.|
-|Arbets-eller skolkonton | Arbets- eller skolkonto konton (som utfärdats av en administratör för företag/academic) ger åtkomst till företagets affärsnivå Microsofts molntjänster, till exempel Azure, Intune och Office 365.|
+|Arbets- eller skolkonton | Arbets- eller skolkonto konton (som utfärdats av en administratör för företag/academic) ger åtkomst till företagets affärsnivå Microsofts molntjänster, till exempel Azure, Intune och Office 365.|
 
 
 ## <a name="concepts-to-understand"></a>Begrepp att förstå
@@ -53,7 +53,7 @@ Nu när du vet villkoren grundläggande Azure identitet, bör du läsa mer om de
 |-----|-----|
 |[Hur Azure-prenumerationer är associerade med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-katalog för att autentisera användare, tjänster och enheter. *Flera prenumerationer kan lita på samma Azure AD-katalog, men en prenumeration litar bara på en enda Azure AD-katalog*. Den här förtroenderelationen skiljer sig från relationen som en prenumeration har med andra Azure-resurser (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration upphör att gälla sedan stoppas åtkomst till resurser som är associerade med prenumerationen än Azure AD också. Dock fortfarande Azure AD-katalog i Azure, så att du kan associera en annan prenumeration med katalogen och fortsätta att hantera klientresurser.|
 |[Hur Azure AD-licensiering fungerar](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | När du köper eller aktiverar Enterprise Mobility Suite, Azure AD Premium eller Azure AD Basic uppdateras katalogen med prenumeration, inklusive dess giltighetstid och förbetalda licenser. När prenumerationen är aktiv, tjänsten hanteras av Azure AD globala administratörer och används av licensierade användare. Din prenumerationsinformation antalet tilldelade eller tillgängliga licenser är tillgängliga i Azure-portalen från den **Azure Active Directory** > **licenser** bladet. Detta är det enklast att hantera din licens.|
-|[Rollbaserad åtkomstkontroll i Azure-portalen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure rollbaserad åtkomstkontroll (RBAC) ger detaljerad åtkomsthantering för Azure-resurser. För många behörigheter kan exponera och konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Med RBAC kan du ge anställda exakt behörigheter de behöver baserat på tre grundläggande roller som gäller för alla resursgrupper: ägare, deltagare och läsare. Du kan också skapa upp till 2 000 egen [anpassade RBAC-roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) dina specifika behov. |
+|[Rollbaserad åtkomstkontroll i Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/overview)|Azure rollbaserad åtkomstkontroll (RBAC) ger detaljerad åtkomsthantering för Azure-resurser. För många behörigheter kan exponera och konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Med RBAC kan du ge anställda exakt behörigheter de behöver baserat på tre grundläggande roller som gäller för alla resursgrupper: ägare, deltagare och läsare. Du kan också skapa upp till 2 000 egen [anpassade RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) dina specifika behov. |
 |[Hybrididentitet](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|Hybrididentitet uppnås genom att integrera dina lokala Windows Server Active Directory (AD DS) med Azure AD med hjälp av [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). På så sätt kan du ange en gemensam identitet för dina användare för Office 365, Azure, och lokala appar eller SaaS-program som är integrerade med Azure AD. Med hybrid identity utöka du effektivt din lokala miljö till molnet för identitets- och.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Skillnaden mellan Windows Server AD DS och AD Azure

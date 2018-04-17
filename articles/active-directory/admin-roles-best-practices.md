@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -154,9 +154,9 @@ Om du inte redan har gjort det, kan du skapa separata konton för användare att
 
 Kontrollera att alla användare har loggat in på sina administrativa konton och ändra sina lösenord på minst en gång under de senaste 90 dagarna. Kontrollera också som en delad konton i vilken flera användare känner till lösenordet har fått sina lösenord nyligen ändrats.
 
-#### <a name="turn-on-password-synchronization"></a>Aktivera Lösenordssynkronisering
+#### <a name="turn-on-password-hash-synchronization"></a>Aktivera synkronisering av lösenords-hash
 
-Lösenordssynkronisering är en funktion som används för att synkronisera hash-värden för användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans. Även om du väljer att använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du konfigurera Lösenordssynkronisering som en säkerhetskopia i fall din lokala infrastruktur, till exempel AD eller AD FS-servrar misslyckas eller så blir inte tillgänglig för tillfället. Användare kan logga in till tjänsten med samma lösenord som de använder för att logga in på sina lokala AD-instans. Dessutom kan identitetsskydd att identifiera avslöjade autentiseringsuppgifter genom att jämföra de lösenordshashvärden med kända äventyras, om en användare har utnyttjas sina samma e-postadress och lösenord på andra tjänster som inte är ansluten till Azure AD-lösenord.  Mer information finns i [implementera Lösenordssynkronisering med Azure AD Connect-synkronisering med hash-](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Synkronisering av lösenords-hash är en funktion som används för att synkronisera hash-värden för användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans. Även om du väljer att använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du ställa in synkronisering av lösenords-hash som en säkerhetskopia i fall din lokala infrastruktur, till exempel AD eller ADFS-servrar misslyckas eller så blir inte tillgänglig för tillfället. Användare kan logga in till tjänsten med samma lösenord som de använder för att logga in på sina lokala AD-instans. Dessutom kan identitetsskydd att identifiera avslöjade autentiseringsuppgifter genom att jämföra de lösenordshashvärden med kända äventyras, om en användare har utnyttjas sina samma e-postadress och lösenord på andra tjänster som inte är ansluten till Azure AD-lösenord.  Mer information finns i [implementera Lösenordssynkronisering med Azure AD Connect-synkronisering med hash-](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Kräv Multi-Factor authentication (MFA) för användare i alla Privilegierade roller samt exponerade användare
 
@@ -282,11 +282,11 @@ Den [Azure Security Center](../security-center/security-center-intro.md) ger int
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Inventera dina Privilegierade konton värdbaserade virtuella datorer
 
-I de flesta fall behöver du inte ge användare obegränsad behörighet till alla Azure-prenumerationer eller resurser. Du kan använda Azure AD-administratörsroller för att särskilja uppgifter i din organisation och ge bara mängden åtkomst till användare som behöver utföra särskilda jobb. Till exempel använda Azure AD-administratörsroller så att en administratör som hanterar endast virtuella datorer i en prenumeration medan en annan kan hantera SQL-databaser inom samma prenumeration. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](role-based-access-control-what-is.md).
+I de flesta fall behöver du inte ge användare obegränsad behörighet till alla Azure-prenumerationer eller resurser. Du kan använda Azure AD-administratörsroller för att särskilja uppgifter i din organisation och ge bara mängden åtkomst till användare som behöver utföra särskilda jobb. Till exempel använda Azure AD-administratörsroller så att en administratör som hanterar endast virtuella datorer i en prenumeration medan en annan kan hantera SQL-databaser inom samma prenumeration. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implementera PIM för Azure AD-administratörsroller
 
-Använda Privileged identity Management med administratörsroller i Azure AD för att hantera, styr och övervaka åtkomst till Azure-resurser. Med hjälp av PIM skyddar Privilegierade konton från cyber attacker genom att minska exponeringstid privilegier och öka din insyn i deras användning via rapporter och aviseringar. Mer information finns i [hantera RBAC åtkomst till Azure-resurser med Privileged Identity Management](pim-azure-resource.md).
+Använda Privileged identity Management med administratörsroller i Azure AD för att hantera, styr och övervaka åtkomst till Azure-resurser. Med hjälp av PIM skyddar Privilegierade konton från cyber attacker genom att minska exponeringstid privilegier och öka din insyn i deras användning via rapporter och aviseringar. Mer information finns i [hantera RBAC åtkomst till Azure-resurser med Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Använda Azure logganalys-integrering för att skicka relevanta Azure loggar till din SIEM-system 
 

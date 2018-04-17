@@ -12,15 +12,13 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0074486d3d7fb58bc6e3adcbe4245ec53e7e4cde
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -41,7 +39,7 @@ När du har installerat förutsättningarna kan du installera Azure HDInsight-ve
 
 **Installera Azure HDInsight-verktyg**
 
-1. Öppna Visual Studio-koden.
+1. Öppna Visual Studio Code.
 
 2. I den vänstra rutan, Välj **tillägg**. I sökrutan anger **HDInsight**.
 

@@ -1,26 +1,24 @@
 ---
 title: Installera publicerade program - Datameer - Azure HDInsight | Microsoft Docs
-description: "Installera och använda Hadoop-programmet Datameer från tredje part."
+description: Installera och använda Hadoop-programmet Datameer från tredje part.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8a898b4f82cf2d7e05e8c3895e5eddd8cf02b173
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---datameer"></a>Installera programmet - Datameer
 
@@ -62,7 +60,7 @@ Följande steg visar en demonstration ”Hello World”.
 
 1. [Hämta exempel CSV](https://datameer.box.com/s/wzzw27za3agic4yjj8zrn6vfrph0ppnf).
 
-2. Klicka på den  **+**  loggar ovanpå Datameer instrumentpanelen och klickar på **filöverföring**.
+2. Klicka på den **+** loggar ovanpå Datameer instrumentpanelen och klickar på **filöverföring**.
 
     ![Filuppladdning](./media/hdinsight-apps-install-datameer/upload.png)
 
@@ -74,7 +72,7 @@ Följande steg visar en demonstration ”Hello World”.
 
     ![Spara](./media/hdinsight-apps-install-datameer/save.png)
 
-5. Klicka på den  **+**  logga in en gång och välja **arbetsboken** att skapa en ny arbetsbok för data.
+5. Klicka på den **+** logga in en gång och välja **arbetsboken** att skapa en ny arbetsbok för data.
 
     ![Lägg till arbetsboken](./media/hdinsight-apps-install-datameer/add-workbook.png)
 
@@ -96,7 +94,7 @@ Följande steg visar en demonstration ”Hello World”.
 
     ![Spara arbetsboken](./media/hdinsight-apps-install-datameer/save-workbook.png)
 
-11. Datameer innehåller kraftfulla visualiseringsverktyg. Skapa en Infographic för att visa data. Välj den  **+**  logga ovanpå instrumentpanelen och välj sedan **Infographic**.
+11. Datameer innehåller kraftfulla visualiseringsverktyg. Skapa en Infographic för att visa data. Välj den **+** logga ovanpå instrumentpanelen och välj sedan **Infographic**.
 
     ![Lägg till Infographic](./media/hdinsight-apps-install-datameer/infographic-button.png)
 

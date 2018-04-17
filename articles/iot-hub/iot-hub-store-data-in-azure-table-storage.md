@@ -1,25 +1,25 @@
 ---
 title: Spara dina IoT hub-meddelanden i Azure datalagring | Microsoft Docs
-description: "Använd IoT-hubb meddelanderoutning för att spara din IoT-hubb-meddelanden till Azure blob storage. IoT-hubb meddelanden innehåller information, till exempel sensordata som skickas från IoT-enhet."
+description: Använd IoT-hubb meddelanderoutning för att spara din IoT-hubb-meddelanden till Azure blob storage. IoT-hubb meddelanden innehåller information, till exempel sensordata som skickas från IoT-enhet.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "IOT-datalagring, datalagring för iot-temperatursensor"
+tags: ''
+keywords: IOT-datalagring, datalagring för iot-temperatursensor
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Spara IoT hub-meddelanden som innehåller sensordata till Azure blob storage
 
@@ -61,7 +61,7 @@ Du lär dig hur du skapar ett Azure storage-konto och ett Azure funktionsapp att
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Förbered din IoT-hubb för att vidarebefordra meddelanden till lagring
 
-IoT-hubben har inbyggt stöd för vidarebefordra meddelanden till Azure-lagring som blobar.
+IoT-hubben har inbyggt stöd för vidarebefordra meddelanden till Azure-lagring som blobar. Om du vill veta mer om Azure IoT Hub anpassade slutpunkter som du kan referera till [lista över inbyggda IoT-hubbslutpunkter](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints).
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>Lägga till lagringsenheter som en anpassad slutpunkt
 

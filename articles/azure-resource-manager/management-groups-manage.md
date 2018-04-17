@@ -1,10 +1,10 @@
 ---
-title: "Ändra, ta bort eller hantera dina hanteringsgrupper - Azure | Microsoft Docs"
-description: "Lär dig mer om att underhålla och uppdatera din grupphierarki för hantering."
+title: Ändra, ta bort eller hantera dina hanteringsgrupper - Azure | Microsoft Docs
+description: Lär dig mer om att underhålla och uppdatera din grupphierarki för hantering.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera resurser med av hanteringsgrupper 
-Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera dessa behållare för hierarkier som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad åtkomst kontroller (RBAC)](../active-directory/role-based-access-control-what-is.md). Läs mer om av hanteringsgrupper i [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md).
+Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera dessa behållare för hierarkier som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad åtkomst kontroller (RBAC)](../role-based-access-control/overview.md). Läs mer om av hanteringsgrupper i [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md).
 
 Funktionen för hantering av grupp finns i en förhandsversion. Börja använda hantering av grupper, logga in på den [Azure-portalen](https://portal.azure.com) eller så kan du använda [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), eller [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) till hantera dina hanteringsgrupper.
 
-Om du vill ändra en hanteringsgrupp måste du ha en ägare eller deltagare roll på hanteringsgruppen. För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information om RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../active-directory/role-based-access-control-what-is.md).
+Om du vill ändra en hanteringsgrupp måste du ha en ägare eller deltagare roll på hanteringsgruppen. För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information om RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../role-based-access-control/overview.md).
 
 ## <a name="change-the-name-of-a-management-group"></a>Ändra namnet på en hanteringsgrupp 
 Du kan ändra namnet på hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CLI.
@@ -64,7 +64,7 @@ Om du vill ta bort en hanteringsgrupp, måste följande krav uppfyllas:
 1. Det finns inga hanteringsgrupper för underordnade eller prenumerationer under hanteringsgruppen. 
     - Om du vill flytta en prenumeration utanför en hanteringsgrupp finns [flytta prenumerationen till en annan managemnt](#Move-subscriptions-in-the-hierarchy). 
     - Om du vill flytta en hanteringsgrupp till en annan hanteringsgrupp finns [flytta hanteringsgrupper i hierarkin](#Move-management-groups-in-the-hierarchy). 
-2. Du har skrivbehörighet för hantering av gruppen ägare eller deltagare rollen i hanteringsgruppen. För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information på RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../active-directory/role-based-access-control-what-is.md).  
+2. Du har skrivbehörighet för hantering av gruppen ägare eller deltagare rollen i hanteringsgruppen. För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information på RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Ta bort i portalen
 
@@ -139,7 +139,7 @@ Om du vill flytta prenumerationen finns några behörigheter måste du ha:
 - ”Ägare”-rollen på underordnade prenumerationen.
 - Rollen ”ägare” eller ”bidragsgivare” på den nya överordnade hanteringsgruppen. 
 - Rollen ”ägare” eller ”bidragsgivare” på den gamla överordnade hanteringsgruppen.
-För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information på RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../active-directory/role-based-access-control-what-is.md). 
+För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj sedan **IAM**. Mer information på RBAC-roller finns [hantera åtkomst och behörighet med RBAC](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Flytta prenumerationer i portalen
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/12/2018
 ms.author: dukek
-ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 ## <a name="overview"></a>Översikt ##
@@ -26,10 +26,10 @@ Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-port
 
 Du kan konfigurera en lista med åtgärder med åtgärdsgrupper. Dessa grupper kan sedan användas av varje avisering som du definierar, se till att samma åtgärder vidtas för varje gång en avisering utlöses.
 
-En grupp kan ha upp till 10 för varje åtgärdstyp av. Varje åtgärd består av följande egenskaper:
+Varje åtgärd består av följande egenskaper:
 
 * **Namnet**: en unik identifierare inom åtgärdsgruppen.  
-* **Åtgärdstyp**: skicka ett vanligt telefonsamtal eller SMS, skicka ett e-postmeddelande, anropa en webhook, skicka data till ett ITSM verktyg, anropa en Azure-app eller kör en Automation-runbook.
+* **Åtgärdstyp**: skicka ett vanligt telefonsamtal eller SMS, skicka ett e-postmeddelande, anropa en webhook, skicka data till ett ITSM verktyg, anropa en Logikapp, skickar push-meddelanden till appen Azure eller köra en Automation-runbook.
 * **Information om**: motsvarande phone nummer, e-postadress, webhook URI eller ITSM anslutningsinformation.
 
 Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns [åtgärd grupp Resource Manager-mallar](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,14 +56,45 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
     a. **Namnet**: Ange en unik identifierare för den här åtgärden.
 
-    b. **Åtgärdstyp**: Välj e-post/SMS/Push/röst Webhook, ITSM eller Automation-Runbook.
+    b. **Åtgärdstyp**: Välj e-post/SMS/Push/röst Logikapp, Webhook, ITSM eller Automation-Runbook.
 
     c. **Information om**: baserat på typen av Ange telefonnummer, e-postadress, webhook URI, Azure-app, ITSM anslutning eller Automation-runbook. Ange dessutom för ITSM åtgärd **arbetsobjekt** och andra fält ITSM-verktyget kräver.
 
-   > [!NOTE]
-   > ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM anslutning](../log-analytics/log-analytics-itsmc-overview.md). 
-
 8. Välj **OK** att skapa åtgärdsgruppen.
+
+## <a name="action-specific-information"></a>Information om specifika
+<dl>
+<dt>Azure-app Push</dt>
+<dd>Du kan ha upp till 10 Azure-program-åtgärder i en grupp.</dd>
+<dd>Åtgärden Azure-program stöder endast ServiceHealth aviseringar just nu. Andra avisering tid kommer att ignoreras. Se [konfigurera aviseringar när ett meddelande om tjänstens hälsa är bokförd](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
+
+<dt>E-post</dt>
+<dd>Du kan ha upp till 50 e-post-åtgärder i en grupp</dd>
+<dd>Finns det [hastighet begränsa information](./monitoring-alerts-rate-limiting.md) artikel</dd>
+
+<dt>ITSM</dt>
+<dd>Du kan ha upp till 10 ITSM åtgärder i en grupp</dd>
+<dd>ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM anslutning](../log-analytics/log-analytics-itsmc-overview.md).</dd>
+
+<dt>Logikapp</dt>
+<dd>Du kan ha upp till 10 Logikapp åtgärder i en grupp</dd>
+
+<dt>runbook</dt>
+<dd>Du kan ha upp till 10 Runbook-åtgärder i en grupp</dd>
+
+<dt>SMS</dt>
+<dd>Du kan ha upp till 10 SMS-åtgärder i en grupp</dd>
+<dd>Finns det [hastighet begränsa information](./monitoring-alerts-rate-limiting.md) artikel</dd>
+<dd>Finns det [SMS Varna beteende](monitoring-sms-alert-behavior.md) artikel</dd>
+
+<dt>röst</dt>
+<dd>Du kan ha upp till 10 röst åtgärder i en grupp</dd>
+<dd>Finns det [hastighet begränsa information](./monitoring-alerts-rate-limiting.md) artikel</dd>
+
+<dt>Webhook</dt>
+<dd>Du kan ha upp till 10 Webhook-åtgärder i en grupp
+<dd>Försök logic - webhook-anropet kommer att ett nytt försök högst 3 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504</dd>
+</dl>
 
 ## <a name="manage-your-action-groups"></a>Hantera åtgärdsgrupper ##
 När du skapar en grupp, är det visas i den **åtgärdsgrupper** avsnitt i den **övervakaren** bladet. Välj den grupp du vill hantera att:

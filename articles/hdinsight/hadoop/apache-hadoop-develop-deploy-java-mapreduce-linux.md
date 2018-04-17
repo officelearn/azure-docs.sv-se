@@ -1,26 +1,24 @@
 ---
-title: "Skapa Java MapReduce för Hadoop - Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder Apache Maven för att skapa ett Java-baserad MapReduce-program och sedan köra den med Hadoop på Azure HDInsight."
+title: Skapa Java MapReduce för Hadoop - Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder Apache Maven för att skapa ett Java-baserad MapReduce-program och sedan köra den med Hadoop på Azure HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 16cb62c95784d7c8b284e03f0759028038af7f0a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 05b41f90b9508088c32923469b6c437b74ee5333
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Utveckla Java-MapReduce-program för Hadoop i HDInsight
 
@@ -42,13 +40,13 @@ Lär dig hur du använder Apache Maven för att skapa ett Java-baserad MapReduce
 
 Följande miljövariabler kan anges när du installerar Java och JDK. Dock bör du kontrollera att de finns och att de innehåller rätt värden för ditt system.
 
-* `JAVA_HOME`-måste peka på den katalog där med Java runtime environment (JRE) har installerats. På en OS X-, Unix- eller Linux-system, bör det till exempel ha ett värde som liknar `/usr/lib/jvm/java-7-oracle`. I Windows, skulle det ha ett värde som liknar`c:\Program Files (x86)\Java\jre1.7`
+* `JAVA_HOME` -måste peka på den katalog där med Java runtime environment (JRE) har installerats. På en OS X-, Unix- eller Linux-system, bör det till exempel ha ett värde som liknar `/usr/lib/jvm/java-7-oracle`. I Windows, skulle det ha ett värde som liknar `c:\Program Files (x86)\Java\jre1.7`
 
-* `PATH`-bör innehålla följande sökvägar:
+* `PATH` -bör innehålla följande sökvägar:
   
-  * `JAVA_HOME`(eller motsvarande sökväg)
+  * `JAVA_HOME` (eller motsvarande sökväg)
 
-  * `JAVA_HOME\bin`(eller motsvarande sökväg)
+  * `JAVA_HOME\bin` (eller motsvarande sökväg)
 
   * Katalogen där Maven är installerat
 
@@ -69,9 +67,9 @@ Följande miljövariabler kan anges när du installerar Java och JDK. Dock bör 
 
     Det här kommandot skapar en katalog med det namn som anges av den `artifactID` parameter (**wordcountjava** i det här exemplet.) Den här katalogen innehåller följande:
 
-   * `pom.xml`- [Projekt Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) som innehåller information och konfiguration information som används för att skapa projektet.
+   * `pom.xml` - [Projekt Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) som innehåller information och konfiguration information som används för att skapa projektet.
 
-   * `src`-Katalogen som innehåller programmet.
+   * `src` -Katalogen som innehåller programmet.
 
 3. Ta bort den `src/test/java/org/apache/hadoop/examples/apptest.java` filen. Den används inte i det här exemplet.
 

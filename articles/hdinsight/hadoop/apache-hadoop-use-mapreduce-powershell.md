@@ -1,8 +1,8 @@
 ---
-title: "Använda MapReduce och PowerShell med Hadoop - Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder PowerShell fjärrköra MapReduce-jobb med Hadoop i HDInsight."
+title: Använda MapReduce och PowerShell med Hadoop - Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder PowerShell fjärrköra MapReduce-jobb med Hadoop i HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6e68b4c93e6385367b5aab01bebe1d29b7b9d13
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Kör jobb för MapReduce med Hadoop i HDInsight med hjälp av PowerShell
 

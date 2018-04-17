@@ -1,20 +1,20 @@
 ---
 title: Aktivera Azure-prenumerationer och konton | Microsoft Docs
-description: "Aktivera åtkomst med hjälp av Azure Resource Manager API: erna för nya och befintliga konton och lösa vanliga problem med kontot."
+description: 'Aktivera åtkomst med hjälp av Azure Resource Manager API: erna för nya och befintliga konton och lösa vanliga problem med kontot.'
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktivera Azure-prenumerationer och konton med Azure kostnaden Management
 
@@ -29,7 +29,7 @@ Specifika behörigheter som krävs för att slutföra procedurerna i den här ar
 - Behörighet att registrera CloudynCollector program med Azure AD-klienten.
 - Möjligheten att tilldela program till en roll i Azure-prenumerationer.
 
-I din Azure-prenumerationer, dina konton måste ha `Microsoft.Authorization/*/Write` åtkomst till tilldela CloudynCollector program. Den här åtgärden beviljas genom den [ägare](../active-directory/role-based-access-built-in-roles.md#owner) roll eller [administratör för användaråtkomst](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) roll.
+I din Azure-prenumerationer, dina konton måste ha `Microsoft.Authorization/*/Write` åtkomst till tilldela CloudynCollector program. Den här åtgärden beviljas genom den [ägare](../role-based-access-control/built-in-roles.md#owner) roll eller [administratör för användaråtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) roll.
 
 Om ditt konto har tilldelats den **deltagare** roll, du har inte tillräcklig behörighet för att tilldela programmet. Du får ett fel vid försök att tilldela CloudynCollector program till din Azure-prenumeration.
 
@@ -61,8 +61,8 @@ När du lägger till en uppdatering av en prenumeration kan bevilja du Azure kos
 2. Ange om det behövs, klient-ID. Om du inte vet klient-ID, använder du följande steg för att hitta den:
     1. Logga in på den [Azure-portalen](https://portal.azure.com).
     2. Välj i Azure-portalen **Azure Active Directory**.
-    3. Om du vill hämta klient-ID, Välj **egenskaper** för din Azure AD-klient.
-    4. Kopiera katalog-ID-GUID. Det här värdet är klient-ID.
+    3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
+    4. Kopiera katalog-ID-GUID. Det här värdet är ditt klientorganisations-ID.
     Mer information finns i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 3. Om det behövs Välj hastighet-ID. Om du inte vet hastighet-ID, använder du följande steg för att hitta den.
     1. I det övre högra på Azure-portalen klickar du på din användarinformation och klicka sedan på **Visa min faktura**.

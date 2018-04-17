@@ -1,8 +1,8 @@
 ---
-title: "MapReduce och Fjärrskrivbord med Hadoop i HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du använder Fjärrskrivbord för att ansluta till Hadoop i HDInsight och kör MapReduce-jobb."
+title: MapReduce och Fjärrskrivbord med Hadoop i HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du använder Fjärrskrivbord för att ansluta till Hadoop i HDInsight och kör MapReduce-jobb.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 9d3a7b34-7def-4c2e-bb6c-52682d30dee8
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: e0dd2c0c0eeeedda00d73f697897582a48d0fc04
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: eb59a510085a9f08e63f17cec1de2044905f914a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Använda MapReduce i Hadoop i HDInsight med fjärrskrivbord
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

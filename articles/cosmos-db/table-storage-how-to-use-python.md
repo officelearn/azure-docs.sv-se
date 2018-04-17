@@ -1,24 +1,23 @@
 ---
-title: "Kom igång med Azure Table storage med hjälp av Python | Microsoft Docs"
-description: "Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas."
+title: Kom igång med Azure Table storage med hjälp av Python | Microsoft Docs
+description: Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas.
 services: cosmos-db
 documentationcenter: python
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/08/2018
-ms.author: mimig
-ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Kom igång med Azure Table storage med hjälp av Python
 
@@ -45,22 +44,14 @@ Du behöver följande för att slutföra den här kursen:
 - [Azure Cosmos DB tabell SDK för Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK ansluter med både Azure Table storage och Azure Cosmos DB tabell API.
 - [Azure Storage-konto](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) eller [Azure DB som Cosmos-konto](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Skapa ett konto i Azure-tjänst
-
-Du kan arbeta med tabeller med hjälp av Azure Table storage eller Azure Cosmos DB. Mer information om skillnaderna mellan tjänsterna genom att läsa [tabell erbjudanden](table-introduction.md#table-offerings). Du behöver skapa ett konto för tjänsten som du ska använda. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
-Det enklaste sättet att skapa ditt första Azure-lagringskonto är genom att använda [Azure Portal](https://portal.azure.com). Läs mer i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-
-Du kan också skapa ett Azure storage-konto med hjälp av [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) eller [Azure CLI](../storage/common/storage-azure-cli.md).
-
-Om du föredrar att inte skapa ett lagringskonto just nu så kan du också använda Azure-lagringsemulatorn för att köra och testa din kod i en lokal miljö. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB tabell API-konto
-
-Anvisningar om hur du skapar ett konto i Azure Cosmos DB tabell API finns [skapa ett tabell-API-konto](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Installera Azure Cosmos-databastabellen SDK för Python
 

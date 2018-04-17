@@ -1,23 +1,23 @@
 ---
 title: Lambda-arkitektur med Azure Cosmos DB och HDInsight (Apache Spark) | Microsoft Docs
-description: "Den här artikeln beskriver hur du implementerar en lambda-arkitektur med hjälp av Azure Cosmos DB och HDInsight Spark"
-keywords: lambda-architecture
+description: Den här artikeln beskriver hur du implementerar en lambda-arkitektur med hjälp av Azure Cosmos DB och HDInsight Spark
+keywords: Lambda-arkitektur
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: dennyglee
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: denlee
-ms.openlocfilehash: f88f3fb05495b0f3330d5a4cde7718fe89b2f694
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9c1a8c212fbacde9fbf69fdf9bf72ed2393786db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementera ett lambda-arkitektur på Azure-plattformen 
 
@@ -41,9 +41,9 @@ En lambda-arkitektur är generisk, skalbara och feltoleranta data arkitektur til
 
 ![Diagram över en lambda-arkitektur](./media/lambda-architecture/lambda-architecture-intro.png)
 
-Source: http://lambda-architecture.net/
+Källa: http://lambda-architecture.net/
 
-De grundläggande principerna för lambda-arkitekturen beskrivs i föregående diagram enligt [https://lambda-architecture.net](http://lambda-architecture.net/).
+De grundläggande principerna för lambda-arkitekturen beskrivs i föregående diagram enligt [ https://lambda-architecture.net ](http://lambda-architecture.net/).
 
  1. Alla **data** flyttas *både* den *batch layer* och *hastighet layer*.
  2. Den **batch layer** har en master dataset (ändras, Lägg endast uppsättning rådata) och före beräknar batch-vyer.

@@ -1,6 +1,6 @@
 ---
-title: "Scenarier och exempel för prenumerationen styrningen | Microsoft Docs"
-description: "Ger exempel på hur du implementerar styrning av Azure-prenumeration för vanliga scenarier."
+title: Scenarier och exempel för prenumerationen styrningen | Microsoft Docs
+description: Ger exempel på hur du implementerar styrning av Azure-prenumeration för vanliga scenarier.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exempel på att implementera kodskelett Azure enterprise
 Det här avsnittet innehåller exempel på hur ett företag kan implementera rekommendationer för en [Azure enterprise kodskelett](resource-manager-subscription-governance.md). Fiktiva företaget Contoso används för att illustrera Metodtips för vanliga scenarier.
@@ -54,12 +54,12 @@ När du har skapat sin prenumeration vill Dave se till att rätt team och progra
 
 Dave tilldelar följande roller för prenumerationen:
 
-| Roll | Tilldelad till | Beskrivning |
+| Roll | Tilldelat till | Beskrivning |
 | --- | --- | --- |
-| [Ägare](../active-directory/role-based-access-built-in-roles.md#owner) |Hanterade ID från Contosos AD |Detta ID kontrolleras med precis tid JIT-åtkomst via Contosos Identitetshantering verktyg och säkerställer att granskas fullständigt prenumeration ägare åtkomst |
-| [Säkerhetshantering](../active-directory/role-based-access-built-in-roles.md#security-manager) |Avdelningen för informationssäkerhet och riskhantering management |Den här rollen kan du titta i Azure Security Center och status för resurser |
-| [Nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Nätverk-teamet |Den här rollen kan Contosos nätverksteam för att hantera plats-till-plats-VPN och virtuella nätverk |
-| *Anpassad roll* |Programmet ägare |Dave skapar en roll som ger möjlighet att ändra resurser i resursgruppen. Mer information finns i [anpassade roller i Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) |
+| [Ägare](../role-based-access-control/built-in-roles.md#owner) |Hanterade ID från Contosos AD |Detta ID kontrolleras med precis tid JIT-åtkomst via Contosos Identitetshantering verktyg och säkerställer att granskas fullständigt prenumeration ägare åtkomst |
+| [Säkerhetshantering](../role-based-access-control/built-in-roles.md#security-manager) |Avdelningen för informationssäkerhet och riskhantering management |Den här rollen kan du titta i Azure Security Center och status för resurser |
+| [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) |Nätverk-teamet |Den här rollen kan Contosos nätverksteam för att hantera plats-till-plats-VPN och virtuella nätverk |
+| *Anpassad roll* |Programmet ägare |Dave skapar en roll som ger möjlighet att ändra resurser i resursgruppen. Mer information finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>Principer
 Dave har följande krav för att hantera resurser i prenumerationen:
@@ -86,7 +86,7 @@ Han lägger till följande [taggar](resource-group-using-tags.md) till resursgru
 | Taggnamn | Taggvärdet |
 | --- | --- |
 | ApplicationOwner |Namnet på den person som hanterar det här programmet |
-| CostCenter |Kostnadsställe på gruppen som betalar för Azure-förbrukningen |
+| Kostnadsställe |Kostnadsställe på gruppen som betalar för Azure-förbrukningen |
 | Affärsenheten |**ETS** (affärsenhet som är associerade med prenumerationen) |
 
 ### <a name="core-network"></a>Kärnnätverket

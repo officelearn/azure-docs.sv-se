@@ -1,23 +1,21 @@
 ---
-title: "Ansluta HDInsight till ditt lokala nätverk – Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du skapar ett HDInsight-kluster i en Azure-nätverk och anslut den till ditt lokala nätverk. Lär dig mer om att konfigurera namnmatchning mellan HDInsight och ditt lokala nätverk med hjälp av en anpassad DNS-server."
-documentationcenter: 
+title: Ansluta HDInsight till ditt lokala nätverk – Azure HDInsight | Microsoft Docs
+description: Lär dig hur du skapar ett HDInsight-kluster i en Azure-nätverk och anslut den till ditt lokala nätverk. Lär dig mer om att konfigurera namnmatchning mellan HDInsight och ditt lokala nätverk med hjälp av en anpassad DNS-server.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Anslut HDInsight till lokalt nätverk
 
@@ -74,7 +72,7 @@ Så här skapar du en Linux VM som använder den [binda](https://www.isc.org/dow
 > * [Skapa VM – Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [Skapa VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
-1. Från den [Azure-portalen](https://portal.azure.com)väljer  __+__ , __Compute__, och __Ubuntu Server 16.04 LTS__.
+1. Från den [Azure-portalen](https://portal.azure.com)väljer __+__, __Compute__, och __Ubuntu Server 16.04 LTS__.
 
     ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
@@ -123,7 +121,7 @@ Så här skapar du en Linux VM som använder den [binda](https://www.isc.org/dow
     > [!NOTE]
     > Det finns flera olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
     >
-    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
+    > * [Azure-molnet Shell](../cloud-shell/quickstart.md)
     > * [Bash på Ubuntu på Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)

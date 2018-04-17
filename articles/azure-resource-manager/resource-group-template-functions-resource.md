@@ -1,12 +1,12 @@
 ---
 title: Mallfunktioner Azure Resource Manager - resurser | Microsoft Docs
-description: "Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser."
+description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
 Hanteraren för filserverresurser innehåller följande funktioner för att hämta resurs värden:
 
-* [listKeys och lista {Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [lista *](#list)
 * [providers](#providers)
-* [referens](#reference)
+* [Referens](#reference)
 * [resourceGroup](#resourcegroup)
-* [resourceId](#resourceid)
+* [Resurs-ID](#resourceid)
 * [prenumeration](#subscription)
 
 Om du vill hämta värden från parametrar, variabler eller den aktuella distributionen finns [distribution värdet funktioner](resource-group-template-functions-deployment.md).
@@ -36,12 +38,14 @@ Om du vill hämta värden från parametrar, variabler eller den aktuella distrib
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys och lista {Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys listSecrets och listan *
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Returnerar värden för någon resurstyp av som har stöd för listan igen. Den vanligaste användningen är `listKeys`. 
+Returnerar värden för någon resurstyp av som har stöd för listan igen. De vanligaste användningarna är `listKeys` och `listSecrets`. 
 
 ### <a name="parameters"></a>Parametrar
 
@@ -654,10 +658,10 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| sameRGOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Sträng | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| nestedResourceOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 

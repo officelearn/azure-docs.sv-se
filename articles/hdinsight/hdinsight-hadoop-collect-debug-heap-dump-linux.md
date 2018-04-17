@@ -1,8 +1,8 @@
 ---
-title: "Aktivera heap Dumpar för Hadoop på HDInsight - Azure-tjänster | Microsoft Docs"
-description: "Aktivera heap Dumpar Hadoop från Linux-baserade HDInsight-kluster för felsökning och analys-tjänster."
+title: Aktivera heap Dumpar för Hadoop på HDInsight - Azure-tjänster | Microsoft Docs
+description: Aktivera heap Dumpar Hadoop från Linux-baserade HDInsight-kluster för felsökning och analys-tjänster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap Dumpar för Hadoop-tjänster på Linux-baserat HDInsight
 
@@ -51,8 +49,8 @@ I varje skript är en export för  **\* \_OPTS**, som innehåller de alternativ 
 
 Mappa och minska processer är något annorlunda, eftersom dessa åtgärder är en underordnad process för MapReduce-tjänsten. Varje mappa eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativ. Både i **mapred site.xml**:
 
-* **mapreduce.admin.map.child.java.opts**
-* **mapreduce.admin.reduce.child.java.opts**
+* **mapreduce.Admin.Map.child.Java.opts**
+* **mapreduce.Admin.Reduce.child.Java.opts**
 
 > [!NOTE]
 > Vi rekommenderar att du använder Ambari för att ändra inställningar för både skript och mapred site.xml, som Ambari referens replikera ändringar på noder i klustret. Finns det [med Ambari](#using-ambari) avsnittet specifika anvisningar.
@@ -63,7 +61,7 @@ Följande alternativ kan heap minnesdumpar när en OutOfMemoryError inträffar:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-Den  **+**  anger att det här alternativet är aktiverat. Standardvärdet är inaktiverad.
+Den **+** anger att det här alternativet är aktiverat. Standardvärdet är inaktiverad.
 
 > [!WARNING]
 > Heap Dumpar har inte aktiverats för Hadoop-tjänster på HDInsight standard dumpfiler kan vara stora. Om du aktiverar dem för felsökning kan du komma ihåg att inaktivera dem när du har försökt återskapa problemet och samlat in dumpfiler.
@@ -91,7 +89,7 @@ Du kan även utlösa ett skript när en **OutOfMemoryError** inträffar. Till ex
 
 Om du vill ändra konfigurationen för en tjänst använder du följande steg:
 
-1. Öppna Ambari webbgränssnittet för klustret. The URL is https://YOURCLUSTERNAME.azurehdinsight.net.
+1. Öppna Ambari webbgränssnittet för klustret. URL-Adressen är https://YOURCLUSTERNAME.azurehdinsight.net.
 
     När du uppmanas, autentisera till platsen med HTTP-kontonamnet (standard: admin) och lösenord för klustret.
 

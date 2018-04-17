@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Använd profiler för API-version för PowerShell i Azure-stacken
 
@@ -34,15 +34,10 @@ Den **AzureRM.Bootstrapper** modul som finns tillgängliga via PowerShell-galler
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-Modulen AzureRM.Bootstrapper är en förhandsversion; detaljer och funktioner kan ändras. Om du vill hämta och installera den senaste versionen av den här modulen från PowerShell-galleriet, kör du följande cmdlet:
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
 
 ## <a name="install-a-profile"></a>Installera en profil
 
-Använd den **installera AzureRmProfile** med den **2017-03-09-profil** API-version profilen för att installera AzureRM moduler som krävs av Azure-stacken. Observera att Azure-stacken operatorn moduler inte har installerats med den här profilen för API-version och de måste installeras separat som anges i steg3 i den [installera PowerShell för Azure-stacken](azure-stack-powershell-install.md) artikel.
+Använd den **installera AzureRmProfile** med den **2017-03-09-profil** API-version profilen för att installera AzureRM moduler som krävs av Azure-stacken. Azure-stacken operatorn moduler installeras inte med den här profilen för API-version. De måste installeras separat som anges i steg3 i den [installera PowerShell för Azure-stacken](azure-stack-powershell-install.md) artikel.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile

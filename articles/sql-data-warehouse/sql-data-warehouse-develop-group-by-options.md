@@ -1,28 +1,27 @@
 ---
-title: Gruppera efter alternativ i SQL Data Warehouse | Microsoft Docs
-description: "Tips för gruppen av alternativen i Azure SQL Data Warehouse för utveckling av lösningar."
+title: Med hjälp av grupp med alternativen i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för gruppen av alternativen i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 98d2ecfd2f38d086e50f3103b8598b1dccc9323b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Gruppera efter alternativ i SQL Data Warehouse
-Den [GROUP BY] [ GROUP BY] satsen används för att samla in data till en sammanfattande uppsättning rader. Det finns även några alternativ utökar dess funktioner som behöver bearbetas runt eftersom de inte direkt stöds av Azure SQL Data Warehouse.
+Tips för gruppen av alternativen i Azure SQL Data Warehouse för utveckling av lösningar.
+
+## <a name="what-does-group-by-do"></a>Vad är GROUP BY?
+
+Den [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-satsen samlar in data till en sammanfattande uppsättning rader. GRUPPEN har vissa alternativ som inte har stöd för SQL Data Warehouse. Dessa alternativ har olika lösningar.
 
 Dessa alternativ är
 
@@ -31,10 +30,9 @@ Dessa alternativ är
 * GROUP BY med kub
 
 ## <a name="rollup-and-grouping-sets-options"></a>Anger alternativ för insamling och gruppering
-Det enklaste alternativet är att använda `UNION ALL` i stället för samlade i stället för att förlita dig på explicit syntax. Resultatet är exakt samma
+Det enklaste alternativet är att använda UNION ALL i stället för att utföra samlade i stället för att förlita dig på explicit syntax. Resultatet är exakt samma
 
-Nedan visas ett exempel på en grupp med hjälp av instruktionen den `ROLLUP` alternativ:
-
+I följande exempel med GROUP BY-instruktionen med alternativet samlad:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -48,13 +46,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Vi har begärt följande aggregeringar med hjälp av samlad:
+Med hjälp av insamling av begäranden i föregående exempel följande aggregeringar:
 
 * Land och Region
 * Land/region
 * Totalsumma
 
-Ersätt detta behöver du använda `UNION ALL`; ange aggregeringar måste uttryckligen returnera samma resultat:
+Du kan använda UNION ALL och uttryckligen ange aggregeringar krävs om du vill ersätta samlad och ger samma resultat:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,10 +79,10 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-För GROUPING SETS alla vi behöver göra är antar samma huvudkonto men bara skapa UNION ALL avsnitt för aggregering nivåerna vi vill se
+Om du vill ersätta GROUPING SETS gäller exempel principen. Behöver du bara skapa UNION ALL avsnitt för aggregering-nivåer som du vill se.
 
 ## <a name="cube-options"></a>Kubalternativ för
-Det är möjligt att skapa en grupp av med kub med hjälp av UNION ALL-metoden. Problemet är att koden kan snabbt bli besvärlig och svårhanterliga. Om du vill undvika detta kan du använda den mer avancerade metod.
+Det är möjligt att skapa en grupp av med kub med hjälp av UNION ALL-metoden. Problemet är att koden kan snabbt bli besvärlig och svårhanterliga. Om du vill åtgärda det, kan du använda den mer avancerade metod.
 
 Nu ska vi använda exemplet ovan.
 
@@ -119,9 +117,9 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Resultaten av CTAS visas nedan:
+Nedan visas resultatet av CTAS:
 
-![][1]
+![Gruppera efter kuben](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 Det andra steget är att ange en måltabell för att lagra tillfälliga resultat:
 
@@ -170,7 +168,7 @@ BEGIN
 END
 ```
 
-Till sist kan vi returnera resultat genom att bara läsa från den temporära tabellen #Results
+Till sist ska du gå tillbaka resultaten genom att bara läsa från den temporära tabellen #Results
 
 ```sql
 SELECT *
@@ -179,19 +177,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Genom att dela koden upp i avsnitt och genererar en slinga konstruktion blir koden mer användarvänlig och hanterbar.
+Genom att dela koden upp i avsnitt och genererar en slinga konstruktion, blir koden mer användarvänlig och hanterbar.
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt][development overview].
+För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-
-<!--Other Web references-->

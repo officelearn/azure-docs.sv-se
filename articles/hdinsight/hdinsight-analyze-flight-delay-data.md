@@ -1,25 +1,23 @@
 ---
-title: "Analysera svarta fördröjning data med Hadoop i HDInsight - Azure | Microsoft Docs"
-description: "Lär dig hur du använder en Windows PowerShell-skript för att skapa ett HDInsight-kluster, kör en Hive-jobb, köra ett Sqoop jobb och tar bort klustret."
+title: Analysera svarta fördröjning data med Hadoop i HDInsight - Azure | Microsoft Docs
+description: Lär dig hur du använder en Windows PowerShell-skript för att skapa ett HDInsight-kluster, kör en Hive-jobb, köra ett Sqoop jobb och tar bort klustret.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6e42cfa666ad6b6523043f4412a321789adad9a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive i HDInsight
 Hive ger dig möjlighet att köra Hadoop MapReduce jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan användas mot sammanfattning, fråga och analys av stora mängder data.
@@ -51,7 +49,7 @@ I bilagorna hittar du instruktionerna för överföringen svarta fördröjning d
 > [!NOTE]
 > Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Åtgärder för att arbeta med ett Linux-baserade kluster, se [analysera svarta fördröjning data med Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här självstudiekursen behöver du följande:
 
 * **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -259,9 +257,9 @@ Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver 
     <tr><th>Namn</th><th>Värde</th></tr>
     <tr><td>Filtrera år</td><td>2013 </td></tr>
     <tr><td>Filtrera Period</td><td>Januari</td></tr>
-    <tr><td>Fält</td><td>*År*, *FlightDate*, *UniqueCarrier*, *operatör*, *FlightNum*, *OriginAirportID*, *ursprung*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*,  *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (rensa alla andra fält)</td></tr>
+    <tr><td>Fält</td><td>*År*, *FlightDate*, *UniqueCarrier*, *operatör*, *FlightNum*, *OriginAirportID*, *Ursprung*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (rensa alla andra fält)</td></tr>
     </table>
-3.Klicka på **hämta**.
+3. Klicka på **hämta**.
 4. Packa upp filen till den **C:\Tutorials\FlightDelay\2013Data** mapp. Varje fil är en CSV-fil och är ungefär 60GB i storlek.
 5. Byt namn på filen till namnet på den månad som den innehåller data för. Till exempel den fil som innehåller data januari namnet *January.csv*.
 6. Upprepa steg 2 och 5 för att hämta en fil för varje månad i 2013. Du behöver minst en fil för att köra guiden.
@@ -383,8 +381,10 @@ En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Languag
     <tr><td>$storageAccountName</td><td>Azure Storage-konto där du vill överföra HiveQL-skript till.</td></tr>
     <tr><td>$blobContainerName</td><td>Blob-behållaren där du vill överföra HiveQL-skript till.</td></tr>
     </table>
-2. Öppna Azure PowerShell ISE.
-3. Kopiera och klistra in följande skript i skriptfönstret:
+    
+2. Öppna Azure PowerShell ISE.  
+
+3. Kopiera och klistra in följande skript i skriptfönstret:  
 
     ```powershell
     [CmdletBinding()]
@@ -573,8 +573,10 @@ En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Languag
     <tr><td>$sqlDatabaseLocation</td><td>Det här värdet används endast när du skapar en ny Azure databasserver.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>SQL-databas som används för att skapa tabellen AvgDelays Sqoop jobbet. Lämna det tomt skapar en databas som heter HDISqoop. Tabellnamnet Sqoop utdata för jobbet är AvgDelays. </td></tr>
     </table>
+    
 2. Öppna Azure PowerShell ISE.
-3. Kopiera och klistra in följande skript i skriptfönstret:
+
+3. Kopiera och klistra in följande skript i skriptfönstret:  
 
     ```powershell
     [CmdletBinding()]
@@ -699,7 +701,7 @@ En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Languag
     ```
 
    > [!NOTE]
-   > Skriptet använder en representational transfer (REST) tillståndstjänsten, http://bot.whatismyipaddress.com, för att hämta extern IP-adress. IP-adressen används för att skapa en brandväggsregel för SQL-databasservern.
+   > Skriptet använder en representational tillstånd transfer (REST)-tjänst http://bot.whatismyipaddress.com, för att hämta extern IP-adress. IP-adressen används för att skapa en brandväggsregel för SQL-databasservern.
 
     Här följer några variabler som används i skriptet:
 

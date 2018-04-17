@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Du kan kopiera data från MongoDB-databas till alla stöds sink-datalagret. En l
 
 Mer specifikt stöder den här MongoDB-anslutningen:
 
-- MongoDB **version 2.4, 2.6, 3.0 och 3.2**.
+- MongoDB **version 2.4, 2.6, 3.0, 3.2, 3.4 och 3,6**.
 - Kopiera data med hjälp av **grundläggande** eller **anonym** autentisering.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -63,6 +63,8 @@ Följande egenskaper stöds för MongoDB länkade tjänsten:
 | användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
 | lösenord |Lösenord för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databas som du vill använda för att kontrollera autentiseringsuppgifterna för autentisering. |Nej. Standardvärdet är att använda administratörskontot och databasen som anges med egenskapen databaseName för grundläggande autentisering. |
+| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat från servern. Standardvärdet är false.  | Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -116,7 +118,7 @@ Ange typegenskapen för dataset för att kopiera data från MongoDB, **MongoDbCo
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -177,7 +179,7 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 
 | Datatypen för MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Binär |Byte[] |
+| Binär |byte] |
 | Boolesk |Boolesk |
 | Date |DateTime |
 | NumberDouble |Dubbel |

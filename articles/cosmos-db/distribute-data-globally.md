@@ -3,7 +3,7 @@ title: Distribuera data globalt med Azure Cosmos DB | Microsoft Docs
 description: Läs mer om planeten skala geo-replikering, redundans och data återställning med hjälp av globala databaser från Azure Cosmos DB, ett globalt distribuerade kommer mutli-modell database-tjänsten.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: SnehaGunda
 manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
-ms.author: arramac
-ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 54eac2f3a95ecd37af357c933ba03f6c59bb241f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Hur du distribuerar data globalt med Azure Cosmos DB
 Azure är allt vanligare - den har en global storleken över 30 + geografiska regioner och kontinuerligt växer. Med dess världen är en av de olika funktionerna som Azure erbjuder sina utvecklare möjlighet att skapa, distribuera och hantera enkelt globalt distribuerade program. 
@@ -230,10 +230,10 @@ Azure Cosmos-DB exponerar transparent mått genomflöde, svarstid, konsekvens oc
 ## <a id="References"></a>Referenser
 1. Eric Brewer. [Mot Robust distribuerade system](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
 2. Eric Brewer. [CAP tolv år senare – hur reglerna har ändrats](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf)
-3. Gilbert, Lynch. - [Brewer&#39;s antaganden och möjligheten att konsekvent, tillgänglig Partition feltoleranta webbtjänster](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
+3. Bo Lynch. - [Brewer&#39;s antaganden och möjligheten att konsekvent, tillgänglig Partition feltoleranta webbtjänster](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
 4. Mikael Abadi. [Konsekvenskontroll kompromisser i Modern distribuerade system databasstruktur](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
 5. Ek Kleppmann. [Stoppa anropar databaser CP eller Asien](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html)
 6. Peter Bailis m.fl. [Probabilistic avgränsas föråldrad (PBS) för praktiska partiella beslutsförhet](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor och ull. [Läs in, kapacitet och tillgänglighet i kvorum system](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy och öljande. [Lineralizability: En är korrekt villkor för samtidiga objekt](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+9. [SERVICENIVÅAVTAL för Azure Cosmos-DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/)

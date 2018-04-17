@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-dns-faq"></a>Azure DNS vanliga frågor och svar
 
@@ -46,6 +46,7 @@ Mer information finns i [Azure-serviceavtalet för DNS-sidan](https://azure.micr
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Vad är en DNS-zon? Är det detsamma som en DNS-domän? 
 
 En domän är ett unikt namn i domain name system, till exempel ”contoso.com”.
+
 
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen ”contoso.com” kan till exempel innehålla flera DNS-poster, till exempel ”mail.contoso.com” (för en e-postserver) och ”www.contoso.com” (för en webbplats). Dessa poster finns i DNS-zonen ”contoso.com”.
 
@@ -90,6 +91,14 @@ Nej. Azure DNS stöder för närvarande inte zonöverföringar. DNS-zoner kan va
 Nej. URL: en omdirigering tjänster är inte faktiskt en DNS-tjänst - de fungerar med HTTP-nivå, i stället för DNS-nivå. Vissa DNS-leverantörer att paketera en URL omdirigera tjänsten som en del av deras övergripande erbjudande. Detta stöds inte för närvarande av Azure DNS.
 
 Omdirigerings-URL: en funktion spåras på Azure DNS eftersläpning. Du kan använda feedbackwebbplats till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Stöder Azure DNS utökad ASCII kodning (8-bitars) ange för TXT-postuppsättning?
+
+Ja. Azure DNS stöder den utökade ASCII-kodning för TXT-postuppsättningar om du använder den senaste versionen av Azure REST API: er, SDK: er, PowerShell och CLI (versioner som är äldre än 2017-10-01 eller SDK 2.1 gör inte hantera utökad ASCII). Till exempel om användaren anger en sträng som värde för en TXT-post som har utökade ASCII-tecken \128 (t.ex: ”abcd\128efgh”), Azure DNS använder byte-värde för det här tecknet (vilket är 128) i intern representation. Vid tidpunkten för DNS-matchning returneras samt byte-värde i svaret. Observera också att ”abc” och ”\097\098\099” är utbytbara upplösning fråga. 
+
+Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zonen filen master format escape-regler för TXT-poster. Till exempel ' \' nu faktiskt hoppas allt per RFC. Om du anger ”A\B” som värde för TXT-posten representeras och Lös som bara ”AB”. Om du verkligen TXT-posten har ”A\B” med upplösning behöver du undanta den ”\" igen, dvs Ange som ”A\\B”. 
+
+Observera att detta stöd inte är tillgängligt för TXT-poster som skapats från Azure-portalen. 
 
 ## <a name="using-azure-dns"></a>Med hjälp av Azure DNS
 
@@ -169,7 +178,7 @@ Nej. Privat zoner fungerar tillsammans med virtuella nätverk och informera kund
 Ja. Kunder kan koppla upp till 10 upplösning virtuella nätverk med en privat zon.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Kan läggas ett virtuellt nätverk som tillhör en annan prenumeration som ett virtuellt nätverk lösning till en zon för privat? 
-Ja, så länge användaren har behörighet att skriva igen på både virtuella nätverk samt privata DNS-zonen. Observera att skrivbehörighet kan tilldelas flera RBAC-roller. Till exempel har rollen klassiska Network-deltagare RBAC skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md)
+Ja, så länge användaren har behörighet att skriva igen på både virtuella nätverk samt privata DNS-zonen. Observera att skrivbehörighet kan tilldelas flera RBAC-roller. Till exempel har rollen klassiska Network-deltagare RBAC skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Automatiskt registrerade virtuella DNS-poster i en privat zon raderas automatiskt när de virtuella datorerna tas bort av kunden?
 Ja. Vi tar automatiskt bort DNS-poster som har registrerats i zonen på grund av den här ett virtuellt nätverk för registrering om du tar bort en virtuell dator inom ett virtuellt nätverk för registrering. 

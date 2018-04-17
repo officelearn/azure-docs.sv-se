@@ -1,28 +1,26 @@
 ---
-title: "Installera Presto på Azure HDInsight Linux-kluster | Microsoft Docs"
-description: "Lär dig hur du installerar Presto och Airpal på Linux-baserade HDInsight Hadoop-kluster med hjälp av skriptåtgärder."
+title: Installera Presto på Azure HDInsight Linux-kluster | Microsoft Docs
+description: Lär dig hur du installerar Presto och Airpal på Linux-baserade HDInsight Hadoop-kluster med hjälp av skriptåtgärder.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1e6f1e1ee37592d974cab01ca229995c4ff6b70e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 32b7925b7414f00dfdd7d5c8a45b3601bf58942e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Installera och använda Presto på HDInsight Hadoop-kluster
 
-Lär dig hur du installerar Presto på HDInsight Hadoop-kluster med hjälp av skriptåtgärder i det här avsnittet. Du också lära dig hur du installerar Airpal på ett befintligt Presto HDInsight-kluster.
+Lär dig hur du installerar Presto på HDInsight Hadoop-kluster med hjälp av skriptåtgärder i det här dokumentet. Du också lära dig hur du installerar Airpal på ett befintligt Presto HDInsight-kluster.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver en **HDInsight 3.5 Hadoop-kluster** som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-versioner](hdinsight-component-versioning.md).
@@ -33,7 +31,7 @@ Lär dig hur du installerar Presto på HDInsight Hadoop-kluster med hjälp av sk
 > [!WARNING]
 > Komponenter som ingår i HDInsight-kluster stöds fullt ut och Microsoft-supporten hjälper att isolera och lösa problem relaterade till komponenterna.
 > 
-> Anpassade komponenter, till exempel Presto kan få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache-projekt har också project-webbplatser [http://apache.org](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter, till exempel Presto kan få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache-projekt har också project-webbplatser [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
 > 
 > 
 
@@ -42,15 +40,15 @@ Lär dig hur du installerar Presto på HDInsight Hadoop-kluster med hjälp av sk
 
 Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet när du skapar ett nytt kluster med hjälp av Azure portal. 
 
-1. Börja etablera ett kluster med hjälp av stegen i [etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md). Se till att du skapar klustret med den **anpassad** klustret skapas flödet. Du måste se till att du skapar klustret uppfyller följande krav.
+1. Börja etablera ett kluster med hjälp av stegen i [etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md). Se till att du skapar klustret med den **anpassad** klustret skapas flödet. Klustret måste uppfylla följande krav.
 
-    a. Det måste vara ett Hadoop-kluster med HDInsight version 3.5.
+    * Det måste vara ett Hadoop-kluster med HDInsight version 3.5.
 
-    b. Den måste använda Azure Storage som dataarkiv. Med Presto på ett kluster som använder Azure Data Lake Store som lagringsalternativet stöds inte ännu. 
+    * Den måste använda Azure Storage som dataarkiv. Med Presto på ett kluster som använder Azure Data Lake Store som lagringsalternativet stöds inte ännu. 
 
     ![HDInsight-kluster med anpassade alternativ](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. På den **avancerade inställningar** bladet väljer **skriptåtgärder**, och ange informationen nedan:
+2. På den **avancerade inställningar** väljer **skriptåtgärder**, och ange informationen nedan:
    
    * **NAMNET**: Ange ett eget namn för skriptåtgärden.
    * **Bash-skript-URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
@@ -60,7 +58,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
    * **PARAMETRARNA**: lämna fältet tomt
 
 
-3. Längst ned i den **skriptåtgärder** bladet, klickar du på den **Välj** för att spara konfigurationen. Klicka slutligen på den **Välj** knappen längst ned i den **avancerade inställningar** bladet för att spara konfigurationsinformationen.
+3. Längst ned i den **skriptåtgärder** området klickar du på den **Välj** för att spara konfigurationen. Klicka slutligen på den **Välj** knappen längst ned i den **avancerade inställningar** område för att spara konfigurationsinformationen.
 
 4. Fortsätta etablering klustret enligt beskrivningen i [etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -71,7 +69,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
 ## <a name="use-presto-with-hdinsight"></a>Använda Presto med HDInsight
 
-Utför följande steg för att använda Presto i ett HDInsight-kluster när du har installerat den med hjälp av stegen som beskrivs ovan.
+Om du vill arbeta med Presto i ett HDInsight-kluster, använder du följande steg:
 
 1. Anslut till HDInsight-klustret med hjälp av SSH:
    
@@ -90,13 +88,13 @@ Utför följande steg för att använda Presto i ett HDInsight-kluster när du h
    
     Som standard [Hive](https://prestodb.io/docs/current/connector/hive.html) och [TPCH](https://prestodb.io/docs/current/connector/tpch.html) kopplingar för Presto har redan konfigurerats. Hive-anslutningen är konfigurerad för att använda installerat Hive standardinstallationen, så alla tabeller från Hive visas automatiskt i Presto.
 
-    En detaljerad beskrivning av hur du kan använda Presto finns [Presto dokumentationen](https://prestodb.io/docs/current/index.html).
+    Mer information finns i [Presto dokumentationen](https://prestodb.io/docs/current/index.html).
 
 ## <a name="use-airpal-with-presto"></a>Använda Airpal med Presto
 
 [Airpal](https://github.com/airbnb/airpal#airpal) är ett gränssnitt för öppen källkod webbaserade frågan för Presto. Mer information om Airpal finns [Airpal dokumentationen](https://github.com/airbnb/airpal#airpal).
 
-I det här avsnittet ska vi titta på hur du **installera Airpal på edgenode** i ett HDInsight Hadoop-kluster där det redan finns Presto installerad. Detta säkerställer att Airpal frågan webbgränssnittet är tillgänglig via Internet.
+Använd följande steg för att installera Airpal på kantnoden:
 
 1. Med SSH, Anslut till headnode i HDInsight-kluster som har installerat Presto:
    
@@ -108,7 +106,7 @@ I det här avsnittet ska vi titta på hur du **installera Airpal på edgenode** 
 
         sudo slider registry  --name presto1 --getexp presto 
    
-    Du bör se utdata som liknar följande:
+    Du kan se utdata som liknar följande JSON:
 
         {
             "coordinator_address" : [ {
@@ -117,9 +115,9 @@ I det här avsnittet ska vi titta på hur du **installera Airpal på edgenode** 
                 "updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
         } ]
 
-3. Anteckna värdet för utdata i **värdet** egenskapen. Du behöver detta när du installerar Airpal på edgenode för klustret. Från resultatet ovan är det värde som du behöver **10.0.0.12:9090**.
+3. Anteckna värdet för utdata i **värdet** egenskapen. Du behöver det här värdet när du installerar Airpal på edgenode för klustret. Från resultatet ovan är det värde som du behöver **10.0.0.12:9090**.
 
-4. Använd mallen  **[här](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)**  att skapa ett HDInsight-kluster edgenode och ange värden som visas i följande skärmbild.
+4. Använd mallen **[här](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** att skapa ett HDInsight-kluster edgenode och ange värden som visas i följande skärmbild.
 
     ![Installera HDInsight Airpal på Presto klustret](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
@@ -127,19 +125,19 @@ I det här avsnittet ska vi titta på hur du **installera Airpal på edgenode** 
 
 6. När ändringarna tillämpas på klusterkonfigurationen, du kan komma åt webbgränssnittet Airpal med hjälp av följande steg.
 
-    a. Klusterbladet klickar du på **program**.
+    1. I dialogrutan klustret klickar du på **program**.
 
-    ![HDInsight systemstart Airpal Presto kluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
+        ![HDInsight systemstart Airpal Presto kluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    b. Från den **installerade appar** bladet, klickar du på **Portal** mot airpal.
+    2. Från den **installerade appar** området klickar du på **Portal** mot airpal.
 
-    ![HDInsight systemstart Airpal Presto kluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
+        ![HDInsight systemstart Airpal Presto kluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    c. När du uppmanas ange administratörsautentiseringsuppgifter som du angav när du skapar HDInsight Hadoop-kluster.
+    3. När du uppmanas ange administratörsautentiseringsuppgifter som du angav när du skapar HDInsight Hadoop-kluster.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>Anpassa en Presto installation på HDInsight-kluster
 
-När du har installerat Presto på ett HDInsight Hadoop-kluster kan anpassa du installationen om du vill göra ändringar som uppdatera minnesinställningarna, ändra kopplingar, osv. Utför följande steg för att göra det.
+Om du vill anpassa installationen använder du följande steg:
 
 1. Med SSH, Anslut till headnode i HDInsight-kluster som har installerat Presto:
    
@@ -165,12 +163,12 @@ När du har installerat Presto på ett HDInsight Hadoop-kluster kan anpassa du i
 
 ## <a name="generate-benchmark-data-for-hdinsight-clusters-that-run-presto"></a>Generera benchmark-data för HDInsight-kluster som kör Presto
 
-TPC DS är branschstandard för mätning av prestanda i många beslut support-system, inklusive system för stordata. Du kan använda Presto på HDInsight-kluster att generera data och utvärdera hur jämförs med dina egna HDInsight benchmark-data. Mer information finns i [här](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
+TPC DS är branschstandard för mätning av prestanda i många beslut support-system, inklusive system för stordata. Du kan använda Presto att generera data och utvärdera hur jämförs med dina egna HDInsight benchmark-data. Mer information finns i [här](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
 
 
 
 ## <a name="see-also"></a>Se också
-* [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md). Hue är ett webbgränssnitt som gör det enkelt att skapa, köra och spara Pig och Hive-jobb, samt bläddra standardlagring för din HDInsight-kluster.
+* [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md). Hue är ett webbgränssnitt som gör det enkelt att skapa, köra, och spara Pig och Hive-jobb.
 
 * [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd anpassning av klustret för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra bearbetning med hjälp av Hadoop och kan användas med Azure HDInsight.
 

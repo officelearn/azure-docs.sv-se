@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -81,7 +81,7 @@ Du måste skapa en (eller flera) instanser av SQL Server och/eller ge åtkomst t
 
     - En enda certifikatfil kan finnas i katalogen som anges av parametern DependencyFilesLocalPath.
 
-    - Filnamnet får inte innehålla specialtecken.
+    - Filnamnet får inte innehålla några specialtecken eller blanksteg.
 
 
 5. Öppna en **nya** utökade (administratör) PowerShell-konsolen och ändra till katalogen där du extraherade filerna. Använd ett nytt fönster för att undvika problem som kan uppstå från felaktig PowerShell-moduler som har redan lästs in i systemet.
@@ -231,7 +231,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
  ```
 
-### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
+### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parametrar
 Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon parameter valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna.
 
 | Parameternamn | Beskrivning | Kommentar eller standardvärde |

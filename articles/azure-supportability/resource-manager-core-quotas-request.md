@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager vCPU kvot öka begäranden | Microsoft Docs"
-description: "Azure Resource Manager vCPU kvot öka begäranden"
+title: Azure Resource Manager vCPU kvot öka begäranden | Microsoft Docs
+description: Azure Resource Manager vCPU kvot öka begäranden
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Hanteraren för filserverresurser vCPU kvot öka begäranden
 
@@ -19,7 +19,7 @@ Kvoter för hanteraren för filserverresurser vCPU tillämpas på den regionsniv
 Mer information om hur kvoter tillämpas på den [Azure-prenumeration och tjänstbegränsningarna](http://aka.ms/quotalimits) sidan.
 Om du vill veta mer om SKU familjer, du kan jämföra kostnader och prestanda på den [prissättning för Virtual Machines](http://aka.ms/pricingcompute) sidan.
 
-Skapa ett supportärende för kvot för vCPUs i Azure-portalen om du vill begära en [https://portal.azure.com](https://portal.azure.com).
+Skapa ett supportärende för kvot för vCPUs i Azure-portalen om du vill begära en [ https://portal.azure.com ](https://portal.azure.com).
 
 > [!NOTE]
 > Lär dig hur du [skapa en supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) i Azure-portalen

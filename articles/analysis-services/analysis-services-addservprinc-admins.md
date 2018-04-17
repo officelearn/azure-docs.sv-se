@@ -1,24 +1,18 @@
 ---
-title: "Lägga till en princip för tjänsten i Azure Analysis Services-serverrollen admin | Microsoft Docs"
-description: "Lär dig hur du lägger till en princip för automation-tjänsten till rollen Administratör"
-services: analysis-services
-documentationcenter: 
+title: Lägga till en princip för tjänsten i Azure Analysis Services-serverrollen admin | Microsoft Docs
+description: Lär dig hur du lägger till en princip för automation-tjänsten till rollen Administratör
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8e51b80e184b2b1ff24b1051b55088fbc54c271c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>Lägga till en princip för tjänsten server-administratör 
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 03/08/2018
 Innan du slutför den här uppgiften, måste du ha en princip för tjänsten som registrerats i Azure Active Directory.
 
 [Skapa service - principen i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Skapa princip för service - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 För att slutföra den här uppgiften, måste du ha [serveradministratören](analysis-services-server-admins.md) behörigheter på Azure AS-servern. 
@@ -47,7 +41,7 @@ För att slutföra den här uppgiften, måste du ha [serveradministratören](ana
 
 
 > [!NOTE]
-> För servern med hjälp av AzureRm cmdlets, service-princip med Schemaläggaren måste också tillhöra den **ägare** roll för resursen i [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+> För servern med hjälp av AzureRm cmdlets, service-princip med Schemaläggaren måste också tillhöra den **ägare** roll för resursen i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Relaterad information
 

@@ -1,25 +1,18 @@
 ---
 title: Lokala datagateway | Microsoft Docs
 description: En lokal gateway är nödvändigt om Analysis Services-server i Azure ansluter till lokala datakällor.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ansluter till lokala datakällor med Azure-lokala Data Gateway
 Lokala datagateway fungerar som en brygga som tillhandahåller säker dataöverföring mellan lokala datakällor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region fungerar även den senaste versionen av gatewayen med Azure Logikappar, Power BI, Power appar och Microsoft Flow. Du kan associera flera tjänster i samma region med en enda gateway. 
@@ -39,7 +32,7 @@ Om du vill komma igång nu direkt, se [installera och konfigurera lokala datagat
 ## <a name="how-it-works"> </a>Så här fungerar det
 Den gateway som du installerar på en dator i din organisation körs som en windowstjänst **lokala datagateway**. Den här lokal tjänst har registrerats med Gateway-Molntjänsten via Azure Service Bus. Du kan sedan skapa en gateway-resurs Gateway Cloud Service för din Azure-prenumeration. Azure Analysis Services-servrar är nu ansluten till din gateway-resurs. När modeller på servern behöver ansluta till dina lokala data källor för frågor eller bearbetning, passerar fråga och dataflöde gatewayresursen, Azure Service Bus, lokala lokala data gateway-tjänsten och dina datakällor. 
 
-![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Hur det fungerar](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Frågor och dataflöde:
 
@@ -71,14 +64,14 @@ Följande är fullständigt kvalificerat domännamn som används av gateway.
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP används för att hämta installationsprogrammet. |
 | *.powerbi.com |443 |HTTPS |
-| *.analysis.windows.net |443 |HTTPS |
+| *. analysis.windows.net |443 |HTTPS |
 | *.login.windows.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Avancerade Message Queuing-protokollet (AMQP) |
 | *.servicebus.windows.net |443, 9350-9354 |Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Används för att testa internet-anslutningen om denna gateway inte kan nås av Power BI-tjänsten. |
+| *. msftncsi.com |443 |Används för att testa internet-anslutningen om denna gateway inte kan nås av Power BI-tjänsten. |
 | *.microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
 
 ### <a name="force-https"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
@@ -158,7 +151,7 @@ Du kan också titta på Verktyg som datakällan har för spårning frågor. Du k
 
 Många problem kan ansluta när gateway-versionen blir inaktuella. Kontrollera att du använder den senaste versionen som allmän bra. Om du inte har uppdaterat en gateway för en månad eller längre, kan du du överväga att installera den senaste versionen av gatewayen och se om du kan återskapa problemet.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService användare)
 
 Du kan få detta fel om du försöker installera gatewayen på en domänkontrollant, vilket inte stöds. Se till att du distribuerar gatewayen på en dator som inte är en domänkontrollant.
 

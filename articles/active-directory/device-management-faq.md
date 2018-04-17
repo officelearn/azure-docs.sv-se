@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory-enhetshantering vanliga frågor och svar | Microsoft Docs"
-description: "Azure Active Directory enhetshantering vanliga frågor och svar."
+title: Azure Active Directory-enhetshantering vanliga frågor och svar | Microsoft Docs
+description: Azure Active Directory enhetshantering vanliga frågor och svar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **F: jag registrerade nyligen enheten. Varför ser inte enheten under Mina användarinformation i Azure portal?**
 
-**S:** Windows 10-enheter som är ansluten till domänen med automatisk enhetsregistrering visas inte under användarinformation.
+**S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
 Du måste använda PowerShell för att se alla enheter. 
 
-Följande enheter visas under informationen som användaren:
+Följande enheter visas under användarenheterna:
 
-- Alla personliga enheter som inte är ansluten enterprise 
-- Alla icke - Windows 10 / Windows Server 2016 
+- Alla personliga enheter som inte är Azure AD-hybridlösning ansluten. 
+- Alla icke - Windows 10 / Windows Server 2016-enheter.
 - Alla Windows-enheter 
 
 ---
 
 **F: Varför kan jag inte se alla enheter som har registrerats i Azure Active Directory i Azure portal?** 
 
-**S:** för närvarande, det går inte att visa alla registrerade enheter i Azure-portalen. Du kan använda Azure PowerShell för att hitta alla enheter. Mer information finns i [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+**S:** nu kan du se dem under Azure AD-katalog -> menyn för alla enheter. Du kan också använda Azure PowerShell för att hitta alla enheter. Mer information finns i [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 --- 
 
 **F: hur vet jag Enhetsstatus för registrering av klienten är?**
 
-**S:** registreringstillstånd enhet beror på:
+**S:** kör dsregcmd.exe/status för Windows 10 och Windows Server 2016 eller senare enheter.
 
-- Vad enheten är
-- Hur den har registrerats 
-- Alla information som rör den. 
- 
+Kör ”%programFiles%\Microsoft arbetsplats Join\autoworkplace.exe” för äldre OS-versioner
 
 ---
 
 **F: Varför är en enhet som jag har tagits bort i Azure-portalen eller med Windows PowerShell fortfarande listad som har registrerats?**
 
-**S:** detta är avsiktligt. Enheten har inte åtkomst till resurser i molnet. Om du vill ta bort enheten och registrera igen måste vara en manuell åtgärd som ska vidtas på enheten. 
+**S:** detta är avsiktligt. Enheten har inte åtkomst till resurser i molnet. Om du vill registrera igen måste vara en manuell åtgärd som ska vidtas på enheten. 
 
-För Windows 10 och Windows Server 2016 som är lokala AD-domänansluten:
+Ta bort anslutningstillståndet från Windows 10 och Windows Server 2016 som är lokala AD-domänansluten:
 
 1.  Öppna Kommandotolken som administratör.
 
-2.  Typ`dsregcmd.exe /debug /leave`
+2.  Typ `dsregcmd.exe /debug /leave`
 
-3.  Logga ut och logga in att utlösa den schemalagda aktiviteten som registrerar enheten igen. 
+3.  Logga ut och logga in att utlösa den schemalagda aktiviteten som registrerar enheten med Azure AD igen. 
 
-För andra Windows-plattformar som är lokala AD-domänansluten:
+För äldre Windows OS-versioner som är lokala AD-domänansluten:
 
 1.  Öppna Kommandotolken som administratör.
 2.  Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
@@ -91,15 +88,15 @@ För andra Windows-plattformar som är lokala AD-domänansluten:
 
 **F: Varför visas dubblettenhet poster i Azure-portalen?**
 
-**A:**
+**S:**
 
--   För Windows 10 och Windows Server 2016, om de är upprepade försök att koppla från och ansluta igen samma enhet, kan det finnas dubbla poster. 
+-   För Windows 10 och Windows Server 2016, om det finns upprepade försök att koppla från och ansluta igen samma enhet, kan det finnas dubbla poster. 
 
 -   Om du har använt Lägg till arbets- eller Skolkonto, skapas en ny enhetspost med samma enhetsnamn varje windowsanvändare som använder Lägg till arbets- eller Skolkonto.
 
--   Andra Windows-plattformar som är lokala AD som ingår i domänen med hjälp av automatisk registrering skapar en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
+-   För äldre Windows OS-versioner som är lokala skapar AD som ingår i domänen med hjälp av automatisk registrering en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
 
--   En AADJ-dator som har rensats, installeras igen och ansluten igen med samma namn kommer att visas som en annan post med samma enhetsnamn.
+-   En domänansluten dator i Azure AD som har rensats, installeras igen och ansluten igen med samma namn kommer att visas som en annan post med samma enhetsnamn.
 
 ---
 
@@ -108,21 +105,21 @@ För andra Windows-plattformar som är lokala AD-domänansluten:
 **S:** det kan ta upp till en timme innan en återkalla som ska användas.
 
 >[!Note] 
->För förlorade enheter rekommenderar vi att rensa enheten så att användare inte tillgång till enheten. Mer information finns i [registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>För registrerade enheter rekommenderar vi att rensa enheten så att användarna inte kommer åt resurserna. Mer information finns i [registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **F: Varför Mina användare ser inte ”du kan hämta det här”?**
 
-**S:** om du har konfigurerat vissa regler för villkorlig åtkomst för att kräva tillstånd för en specifik enhet och enheten inte uppfyller kriterierna som användare blockeras och detta meddelande. Utvärdera reglerna och se till att enheten kan uppfyller kriterierna för att undvika det här meddelandet.
+**S:** om du har konfigurerat vissa regler för villkorlig åtkomst för att kräva tillstånd för en specifik enhet och enheten inte uppfyller kriterierna som användare blockeras och detta meddelande. Utvärdera principregler villkorlig åtkomst och se till att enheten kan uppfyller kriterierna för att undvika det här meddelandet.
 
 ---
 
 
 **F: jag finns enheten under användarinformation i Azure-portalen och kan se status som har registrerats på klienten. Kan jag in korrekt för att använda villkorlig åtkomst?**
 
-**S:** enhetspost (deviceID) och tillståndet på Azure-portalen måste matcha klienten och utvärdering kriterier för villkorlig åtkomst. Mer information finns i [Kom igång med Azure Active Directory Device Registration](active-directory-device-registration.md).
+**S:** anslutningstillståndet enheten speglas av deviceID, måste matcha med Azure AD och utvärdering kriterier för villkorlig åtkomst. Mer information finns i [Kom igång med Azure Active Directory Device Registration](active-directory-device-registration.md).
 
 ---
 
@@ -140,9 +137,9 @@ För andra Windows-plattformar som är lokala AD-domänansluten:
 
 ---
 
-**F: Varför visas den ”Oops... Det uppstod ett fel”! dialogrutan när jag försöker Anslut min dator?**
+**F: Varför visas den ”Oops... Det uppstod ett fel”! dialogrutan när jag försöker göra Azure AD join min dator?**
 
-**S:** detta beror på hur du konfigurerar Azure Active Directory-registrering med Intune. Mer information finns i [konfigurera enhetshantering för Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**S:** detta beror på hur du konfigurerar Azure Active Directory-registrering med Intune. Kontrollera att användaren försöker göra Azure AD-anslutning har rätt Intune-licens. Mer information finns i [konfigurera enhetshantering för Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 

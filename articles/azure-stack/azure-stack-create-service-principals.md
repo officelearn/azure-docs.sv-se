@@ -1,6 +1,6 @@
 ---
-title: "Skapa ett huvudnamn för tjänsten för Azure-Stack | Microsoft Docs"
-description: "Beskriver hur du skapar ett nytt huvudnamn för tjänsten som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser."
+title: Skapa ett huvudnamn för tjänsten för Azure-Stack | Microsoft Docs
+description: Beskriver hur du skapar ett nytt huvudnamn för tjänsten som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 833efa7f24d01346525af3dd9ca37012ab0ba3c4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ange program åtkomst till Azure-stacken
 
@@ -46,25 +46,25 @@ I det här avsnittet skapar du ett program (tjänstens huvudnamn) i Azure AD som
 
 1. Logga in på ditt Azure-konto via den [Azure-portalen](https://portal.azure.com).
 2. Välj **Azure Active Directory** > **App registreringar** > **Lägg till**   
-3. Ange ett namn och URL: en för programmet. Välj antingen **webbapp / API** eller **interna** för typ av program som du vill skapa. När du har angett värden, Välj **skapa**.
+3. Ange ett namn och en URL för programmet. Välj antingen **webbapp / API** eller **interna** för typ av program som du vill skapa. När du har angett värden, Välj **skapa**.
 
 Du har skapat ett huvudnamn för tjänsten för ditt program.
 
 ### <a name="get-credentials"></a>Hämta autentiseringsuppgifter
-När programmässigt inloggningen du använda ID: T för programmet och för en webbapp / API, en autentiseringsnyckel. Använd följande steg för att få dessa värden:
+När programmässigt inloggningen du använda ID: T för programmet och för en webbapp / API, en autentiseringsnyckel. Hämta dessa värden med följande steg:
 
 1. Från **App registreringar** Markera programmet i Active Directory.
 
-2. Kopiera den **program-ID** och lagra den i din programkod. Program i den [programexempel](#sample-applications) avsnittet refererar till det här värdet som klient-ID.
+2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i den [programexempel](#sample-applications) avsnittet refererar till det här värdet som klient-ID.
 
      ![klient-ID](./media/azure-stack-create-service-principal/image12.png)
 3. Att generera en autentiseringsnyckel för en webbapp / API, Välj **inställningar** > **nycklar**. 
 
-4. Ange en beskrivning av nyckeln och varaktighet för nyckeln. När du är klar väljer **spara**.
+4. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
 
-När du har sparat nyckeln visas värdet för nyckeln. Kopiera det här värdet eftersom det inte går att hämta nyckeln senare. Du kan ange värdet för nyckeln med program-ID för att logga in som programmet. Lagra värdet för nyckeln där programmet kan hämta.
+När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet eftersom det inte går att hämta nyckeln senare. Du kan ange värdet för nyckeln med program-ID för att logga in som programmet. Lagra nyckelvärdet där programmet kan hämta det.
 
-![Spara nyckel](./media/azure-stack-create-service-principal/image15.png)
+![sparad nyckel](./media/azure-stack-create-service-principal/image15.png)
 
 
 När du är klar, Fortsätt till [tilldela en roll för ditt program](azure-stack-create-service-principals.md#assign-role-to-service-principal).
@@ -136,7 +136,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>Tilldela roll till tjänstens huvudnamn
-Om du vill komma åt resurser i din prenumeration måste du tilldela program till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Mer information om tillgängliga roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
+Om du vill komma åt resurser i din prenumeration måste du tilldela program till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Mer information om tillgängliga roller, se [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
 
 Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. Till exempel innebär lägga till ett program rollen Läsare för en resursgrupp att den kan läsa resursgruppen och alla resurser som den innehåller.
 

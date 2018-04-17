@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera Batch tjänstelösningar med Active Directory
 
@@ -139,7 +139,7 @@ För att autentisera med en tjänstens huvudnamn, måste du tilldela en RBAC-rol
 1. Navigera till Batch-kontot som används av ditt program i Azure-portalen.
 2. I den **inställningar** bladet för Batch-kontot väljer **Access Control (IAM)**.
 3. Klicka på knappen **Lägg till**. 
-4. Från den **rollen** listrutan och välj någon av _deltagare_ eller _Reader_ roll för ditt program. Mer information om dessa roller finns [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-what-is.md).  
+4. Från den **rollen** listrutan och välj någon av _deltagare_ eller _Reader_ roll för ditt program. Mer information om dessa roller finns [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../role-based-access-control/overview.md).  
 5. I den **Välj** anger du namnet på ditt program. Markera programmet i listan och klickar på **spara**.
 
 Ditt program bör nu visas i dina inställningar för åtkomstkontroll med en RBAC-roll som tilldelats. 

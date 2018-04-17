@@ -1,26 +1,24 @@
 ---
-title: "Installera publicerade program - H2O mousserande vattenstämplar - Azure HDInsight | Microsoft Docs"
-description: "Installera och använda Hadoop-programmet H2O mousserande vattenstämplar från tredje part."
+title: Installera publicerade program - H2O mousserande vattenstämplar - Azure HDInsight | Microsoft Docs
+description: Installera och använda Hadoop-programmet H2O mousserande vattenstämplar från tredje part.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installera programmet - H2O mousserande vattenstämplar
 
@@ -73,7 +71,7 @@ Stegvisa instruktioner om hur du installerar det här och andra tillgängliga IS
 
     ![Starta klustret](./media/hdinsight-apps-install-h2o/start-cluster.png)
 
-5. När klustret H2O är igång, öppna H2O flöda genom att gå till  **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`** .
+5. När klustret H2O är igång, öppna H2O flöda genom att gå till **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
     > [!NOTE]
     > Om det inte går att öppna H2O flöda kan du prova att rensa webbläsarens cacheminne. Om du fortfarande inte nå den, du förmodligen inte har tillräckligt med resurser på ditt kluster. Försök att öka antalet arbetarnoder under den **kluster** alternativet i klustret-fönstret.
@@ -84,7 +82,7 @@ Stegvisa instruktioner om hur du installerar det här och andra tillgängliga IS
 
     ![Välj Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Den sökväg som innehåller **milsongs-cls-train.csv.gz**, och Ersätt hela sökvägen med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz** .
+7. Den sökväg som innehåller **milsongs-cls-train.csv.gz**, och Ersätt hela sökvägen med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
 8. Den sökväg som innehåller **milsongs-cls-test.csv.gz** och Ersätt den med **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 

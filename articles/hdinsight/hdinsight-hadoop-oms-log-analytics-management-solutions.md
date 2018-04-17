@@ -9,17 +9,15 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ab959d2cdaf840a1a88a71a0b8f29d84a8979330
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: caa10682f8419cfbc0837e5069357e02ee1e5f64
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Lägg till lösningar för hantering av HDInsight-klustret till logganalys
 
@@ -27,7 +25,7 @@ HDInsight tillhandahåller klusterspecifika hanteringslösningar som du kan läg
 
 I den här artikeln lär du dig att lägga till klusterspecifika hanteringslösningar logganalys-arbetsytan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure logganalys. Instruktioner finns i [Använd Azure logganalys med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -45,9 +43,9 @@ I det här avsnittet kan du lägga till en hanteringslösning för HBase-kluster
 
 2. Klicka på något av följande ikoner i galleriet lösningar:
 
-    - HDInsight Hadoop Monitoring
+    - HDInsight Hadoop övervakning
     - HDInsight HBase övervakning (förhandsgranskning)
-    - HDInsight Kafka Monitoring
+    - HDInsight Kafka övervakning
     - HDInsight Storm övervakning
     - HDInsight Spark övervakning
 

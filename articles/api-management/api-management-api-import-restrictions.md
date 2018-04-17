@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-begränsningar för import och kända problem
 ## <a name="about-this-list"></a>Om den här listan
@@ -34,16 +34,16 @@ Om felmeddelanden importera dokumentet öppna API: et, se till att du har valide
 * Anpassade tillägg ignoreras för import och sparas eller bevaras för export.
 
 > [!IMPORTANT]
-> Se den här [dokument](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) viktig information och tips som rör OpenAPI import.
+> Det här [dokumentet](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) innehåller viktig information och tips om OpenAPI-import.
 
 ## <a name="wsdl"> </a>WSDL
 WSDL-filer används för att generera API: er för SOAP-direkt eller fungera som serverdelen av ett SOAP-REST-API.
-
-* **WSDL: import** -APIM stöder för närvarande inte API: er med det här attributet. Kunder bör samman importerade element till ett dokument.
-* **Meddelanden med flera delar** APIM stöder för närvarande inte dessa typer av meddelanden.
-* **WCF-wsHttpBinding** SOAP-tjänster som skapats med Windows Communication Foundation ska använda basicHttpBinding - wsHttpBinding stöds inte.
-* **MTOM** tjänster som använder MTOM <em>kan</em> fungerar. Officiell stöd erbjuds inte just nu.
-* **Rekursion** typer som är definierade rekursivt (till exempel finns i en matris med själva) stöds inte av APIM.
+* **SOAP-bindningar** -endast SOAP-bindningar i formatet ”dokument” och ”literal”-kodning stöds. Det finns inget stöd för ”rpc”-format eller SOAP-kodning.
+* **WSDL: import** -attributet stöds inte. Kunder bör samman importen till ett dokument.
+* **Meddelanden med flera delar** -dessa typer av meddelanden stöds inte.
+* **WCF-wsHttpBinding** -SOAP-tjänster som skapats med Windows Communication Foundation ska använda basicHttpBinding - wsHttpBinding stöds inte.
+* **MTOM** - tjänster med hjälp av MTOM <em>kan</em> fungerar. Officiell stöd erbjuds inte just nu.
+* **Rekursion** -typer som är definierade rekursivt (till exempel finns i en matris med själva) stöds inte av APIM.
 
 ## <a name="wadl"> </a>WADL
 Det finns inga kända problem i WADL import.

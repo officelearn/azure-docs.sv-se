@@ -3,22 +3,21 @@ title: Hur du använder tabelltjänsten för Azure Storage eller Azure Cosmos DB
 description: Lär dig hur du använder tabellen service API från PHP för att skapa och ta bort en tabell, infoga, ta bort och fråga tabellen.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Hur du använder Azure-Lagringstabellen service eller Cosmos DB tabell API från PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 04/06/2018
 ## <a name="overview"></a>Översikt
 Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure-Lagringstabellen tjänsten och Azure Cosmos DB tabell API. Exemplen är skrivna i PHP och Använd den [klientbiblioteket för Azure Storage tabell PHP][download]. Scenarier som tas upp inkluderar **skapa och ta bort en tabell**, och **lägga till, ta bort och frågar entiteter i en tabell**. Mer information om Azure Table-tjänsten finns i [nästa steg](#next-steps) avsnitt.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>Skapa ett konto i Azure-tjänst
 
-Du kan arbeta med tabeller med hjälp av Azure Table storage eller Azure Cosmos DB tabell API. Mer information om skillnaderna mellan tjänsterna genom att läsa [tabell erbjudanden](table-introduction.md#table-offerings). Du behöver skapa ett konto för tjänsten som du ska använda. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
+### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 
-Det enklaste sättet att skapa ditt första Storage-konto är med hjälp av den [Azure-portalen](https://portal.azure.com). Läs mer i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-Du kan också skapa ett lagringskonto med hjälp av [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) eller [Azure CLI](../storage/common/storage-azure-cli.md).
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB tabell API-konto
 
-Om du inte vill skapa ett lagringskonto just nu, kan du också använda Azure Storage-emulatorn att köra och testa din kod i en lokal miljö. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
-
-### <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
-
-Anvisningar om hur du skapar ett konto i Azure Cosmos DB finns [skapa ett tabell-API-konto](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>Skapa en PHP-program
 

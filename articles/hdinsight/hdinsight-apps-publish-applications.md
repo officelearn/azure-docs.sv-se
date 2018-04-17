@@ -1,8 +1,8 @@
 ---
 title: Publicera program med Azure HDInsight | Microsoft Docs
-description: "Lär dig hur du skapar ett HDInsight-program och publicera den i Azure Marketplace."
+description: Lär dig hur du skapar ett HDInsight-program och publicera den i Azure Marketplace.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aef54782c200ad0be261959705b9b10cd0ebb064
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program i Azure Marketplace
 Du kan installera ett Azure HDInsight-program på en Linux-baserade HDInsight-kluster. I den här artikeln lär du dig hur du publicerar ett HDInsight-program i Azure Marketplace. Allmän information om hur du publicerar i Azure Marketplace finns [publicera ett erbjudande på Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -99,8 +97,8 @@ För att publicera ett HDInsight-program:
 3. Ange en rubrik och välj sedan **skapa en ny lösningsmall**.
 4. Om du inte redan har registrerat din organisation, Välj **skapa Dev Center-konto och Anslut till Azure programmet**.  Mer information finns i [skapa ett konto på Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 5. Välj **ange några topologier för att komma igång**. En lösningsmall är en ”överordnad” alla dess topologier. Du kan definiera flera topologier i en mall för lösning eller erbjudandet. När ett erbjudande pushas till mellanlagring pushas den med alla sina topologier. 
-6. Ange ett namn på topologin och välj sedan  **+** .
-7. Ange en ny version och markera sedan  **+** .
+6. Ange ett namn på topologin och välj sedan **+**.
+7. Ange en ny version och markera sedan **+**.
 8. Ladda upp ZIP-filen som du skapade när du [paketeras programmet](#package-application).  
 9. Välj **begär certifiering**. Microsofts certifieringsteam granskar filerna och certifierar topologin.
 

@@ -1,6 +1,6 @@
 ---
-title: "Använd Azure med AKS"
-description: "Använda Azure-diskarna med AKS"
+title: Använd Azure med AKS
+description: Använda Azure-diskarna med AKS
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,17 +8,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Beständiga volymer med Azure-diskar
 
 En beständig volym representerar en typ av lagring som har etablerats för användning med Kubernetes skida. En beständig volym kan användas av en eller flera skida och kan etableras statiskt eller dynamiskt. Mer information om Kubernetes beständiga volymer finns [Kubernetes beständiga volymer][kubernetes-volumes].
 
 Det här dokumentet beskriver beständiga volymer med Azure-diskar i ett kluster med Azure Container Service (AKS).
+
+> [!NOTE]
+> En Azure-disken kan endast monteras med åtkomst läge typen ReadWriteOnce, vilket gör den tillgänglig att endast en AKS nod. Om du behöver att dela en beständig volym över flera noder, kan du använda [Azure Files][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Inbyggda lagringsklasser
 
@@ -40,7 +43,7 @@ Beständiga volym-anspråk (PVC) används för att automatiskt etablera lagring 
 
 Skapa en fil med namnet `azure-premimum.yaml`, och kopiera följande manifestet.
 
-Notera som den `managed-premium` lagringsklass har angetts i anteckningen och anspråket begär en disk `5GB` i storlek med `ReadWriteOnce` åtkomst. 
+Notera som den `managed-premium` lagringsklass har angetts i anteckningen och anspråket begär en disk `5GB` i storlek med `ReadWriteOnce` åtkomst.
 
 ```yaml
 apiVersion: v1
@@ -63,12 +66,9 @@ Skapa beständiga volym anspråk med den [kubectl skapa] [ kubectl-create] komma
 kubectl create -f azure-premimum.yaml
 ```
 
-> [!NOTE]
-> En Azure-disken kan endast monteras med åtkomst läge typen ReadWriteOnce, vilket gör den tillgänglig att endast en AKS nod. Om du behöver att dela en beständig volym över flera noder, kan du använda [Azure Files][azure-files-pvc].
-
 ## <a name="using-the-persistent-volume"></a>Med hjälp av beständiga volymens
 
-När anspråket beständiga volymen har skapats och den disk som etablerats, en baljor kan skapas med åtkomst till disken. Följande manifestet skapar en baljor som använder beständiga volym anspråket `azure-managed-disk` Azure disken på den `/mnt/azure` sökväg. 
+När anspråket beständiga volymen har skapats och den disk som etablerats, en baljor kan skapas med åtkomst till disken. Följande manifestet skapar en baljor som använder beständiga volym anspråket `azure-managed-disk` Azure disken på den `/mnt/azure` sökväg.
 
 Skapa en fil med namnet `azure-pvc-disk.yaml`, och kopiera följande manifestet.
 
@@ -96,7 +96,7 @@ Skapa baljor med den [kubectl skapa] [ kubectl-create] kommando.
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-Nu har du en körs baljor med din Azure-disken monterat i den `/mnt/azure` directory. Du kan se volymen montera vid inspektion av din baljor via `kubectl describe pod mypod`.
+Nu har du en körs baljor med din Azure-disken monterat i den `/mnt/azure` directory. Den här konfigurationen kan visas vid inspektion av din baljor via `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Nästa steg
 

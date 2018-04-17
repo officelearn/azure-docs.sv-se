@@ -1,44 +1,43 @@
 ---
-title: Testa frågor i Azure Stream Analytics
-description: Den här artikeln beskriver hur du testar frågor med exempeldatafiler i Stream Analytics-jobb.
+title: Testa Azure Stream Analytics-jobbet med exempeldata | Microsoft Docs
+description: Hur du testar dina frågor i Stream Analytics-jobb.
+keywords: testa ett jobb, ange provtagning, överför exempel datum
+documentationcenter: ''
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: fb7d936dfdc543c208ce98c588f5ad83704ff5dc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.workload: data-services
+ms.date: 03/18/2018
+ms.author: sngun
+ms.openlocfilehash: c026a91fff5b8ef5774993b335f8d61877aa5d39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Testa Azure Stream Analytics-frågor i Azure-portalen
+# <a name="test-your-stream-analytics-query-with-sample-data"></a>Testa din Stream Analytics-fråga med exempeldata
 
-Med Azure Stream Analytics kan du testa frågor i Azure portal utan att behöva starta eller stoppa ett jobb.
+Du kan överföra data och testa exempelfrågor i portalen utan att starta eller stoppa ett jobb med hjälp av Azure Stream Analytics.
 
-## <a name="test-the-input"></a>Testa indata
+## <a name="upload-sample-data-and-test-the-query"></a>Ladda upp exempeldata och testa frågan
 
-1. Högerklicka på någon av dina inmatningar för att testa med exempeldata i indata, och välj sedan **ladda upp exempeldata från filen**. För närvarande kan du överföra endast JSON-formaterade data. Om dina data är i ett annat format, till exempel CSV, bör du konvertera den till JSON innan du laddar upp. Du kan använda alla opensource konverteringsverktyget som [CSV-fil för JSON-konverteraren](http://www.convertcsv.com/csv-to-json.htm) konvertera data till JSON.
+1. Navigera till en befintlig Stream Analytics-jobbet > klickar du på **frågan** att öppna frågeredigerarens fönster. 
+
+2. Högerklicka på någon av dina inmatningar för att testa frågan med exempeldata i indata, och välj sedan **ladda upp exempeldata från filen**. För närvarande kan du överföra endast JSON-formaterade data. Om dina data är i ett annat format, till exempel CSV, bör du konvertera den till JSON innan du laddar upp. Du kan använda alla opensource konverteringsverktyget som [CSV-fil för JSON-konverteraren](http://www.convertcsv.com/csv-to-json.htm) konvertera data till JSON.
 
     ![Stream analytics query editor Testa fråga](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-2. När överföringen är klar klickar du på **testa** att testa den här frågan mot exempeldata som du har angett.
+3. När överföringen är klar klickar du på **testa** att testa den här frågan mot exempeldata som du har angett.
 
     ![Stream analytics fråga editor test exempeldata](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-Utdata från frågan visas i webbläsaren med nedladdningslänk resultat bör du vill spara testet av utdata för senare användning. Du kan nu enkelt och upprepade gånger ändra din fråga och testa det flera gånger för att se hur utdata ändras.
+4. Om du vill spara testet utdata för senare användning visas utdata från frågan i webbläsaren med en länk till nedladdningsresultaten. Du kan nu enkelt och upprepade gånger ändra din fråga och testa det flera gånger för att se hur utdata ändras.
 
-![Stream Analytics query editor exempel på utdata](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+   ![Stream Analytics query editor exempel på utdata](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-Du kan se resultaten för båda utdata separat och växla mellan dem med flera utdata som används i en fråga.
-
-När du är nöjd med resultaten visas i webbläsaren kan du spara frågan, starta jobbet och låta bearbeta händelser utan fel.
-
-## <a name="get-help"></a>Få hjälp
-
+Du kan se resultaten för varje utdata separat och växla mellan dem när du använder flera utdata i en fråga. När du har kontrollerat resultatet ska visas i webbläsaren, kan du spara din fråga starta jobbet och kan bearbeta händelser utan fel.
 För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg

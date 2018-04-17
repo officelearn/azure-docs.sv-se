@@ -1,11 +1,11 @@
 ---
-title: "Lägg till ägare och användare i Azure DevTest Labs | Microsoft Docs"
-description: "Lägg till ägare och användare i Azure DevTest Labs med Azure-portalen eller PowerShell"
+title: Lägg till ägare och användare i Azure DevTest Labs | Microsoft Docs
+description: Lägg till ägare och användare i Azure DevTest Labs med Azure-portalen eller PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
 ms.service: devtest-lab
 ms.workload: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d0fdd8441143e2d2eb49399a10dc12d38fbf6823
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Åtkomst i Azure DevTest Labs styrs av [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md). Med RBAC kan du särskilja uppgifter i din grupp i *roller* där du beviljar bara mängden åtkomst för användare att utföra sitt arbete. Tre av dessa RBAC-roller är *ägare*, *DevTest Labs användaren*, och *deltagare*. I den här artikeln får du lära dig vilka åtgärder kan utföras i var och en av de tre huvudsakliga RBAC-rollerna. Därifrån kan dig du hur du lägger till användare i ett labb - både via portalen och via ett PowerShell-skript och hur du lägger till användare på prenumerationsnivån.
+Åtkomst i Azure DevTest Labs styrs av [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md). Med RBAC kan du särskilja uppgifter i din grupp i *roller* där du beviljar bara mängden åtkomst för användare att utföra sitt arbete. Tre av dessa RBAC-roller är *ägare*, *DevTest Labs användaren*, och *deltagare*. I den här artikeln får du lära dig vilka åtgärder kan utföras i var och en av de tre huvudsakliga RBAC-rollerna. Därifrån kan dig du hur du lägger till användare i ett labb - både via portalen och via ett PowerShell-skript och hur du lägger till användare på prenumerationsnivån.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Åtgärder som kan utföras i varje roll
 Det finns tre huvudsakliga roller som du kan tilldela en användare:

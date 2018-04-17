@@ -1,8 +1,8 @@
 ---
-title: "Skapa på begäran Hadoop-kluster med hjälp av Data Factory - Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du skapar på begäran Hadoop-kluster i HDInsight med hjälp av Azure Data Factory."
+title: Skapa på begäran Hadoop-kluster med hjälp av Data Factory - Azure HDInsight | Microsoft Docs
+description: Lär dig hur du skapar på begäran Hadoop-kluster i HDInsight med hjälp av Azure Data Factory.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 213f1122dc9f616474005070ae3aefa45641fecc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Skapa på begäran Hadoop-kluster i HDInsight med hjälp av Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -66,7 +64,7 @@ En lista över Data Factory data transformation aktiviteter utöver Hive aktivit
 > [!NOTE]
 > För närvarande kan du bara skapa HDInsight-kluster av version 3.2 från Azure Data Factory.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar med instruktionerna i den här artikeln måste du ha följande:
 
 * [Azure-prenumeration](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -85,7 +83,7 @@ För att förenkla kursen, använder du ett lagringskonto för att de tre syften
 
 1. Logga in på Azure.
 2. Skapa en Azure-resursgrupp.
-3. Skapa ett Azure Storage-konto.
+3. skapa ett Azure Storage-konto
 4. Skapa en blobbbehållare i storage-konto
 5. Kopiera följande två filer till Blob-behållare:
 
@@ -189,7 +187,7 @@ Om du behöver hjälp med PowerShell-skript finns [med hjälp av Azure PowerShel
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>Skapa en datafabrik med hjälp av Resource Manager-mall
 När lagringskontot indata och HiveQL-skript som har förberetts, är du redo att skapa ett Azure data factory. Det finns flera metoder för att skapa datafabriken. I kursen får skapa du en datafabrik genom att distribuera en Azure Resource Manager-mallen med hjälp av Azure-portalen. Du kan också distribuera en Resource Manager-mall med hjälp av [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) och [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Andra data factory-metoder, se [Självstudier: skapa din första data factory](../data-factory/quickstart-create-data-factory-dot-net.md).
 
-1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal. Mallen finns i https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Finns det [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template) finns detaljerad information om enheter som definierats i mallen. 
+1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal. Den här mallen finns på https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Finns det [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template) finns detaljerad information om enheter som definierats i mallen. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Välj **Använd befintliga** för den **resursgruppen** inställningen och välj namnet på resursgruppen som du skapade i föregående steg (med PowerShell-skript).

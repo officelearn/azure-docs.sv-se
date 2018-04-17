@@ -1,27 +1,20 @@
 ---
 title: Hantera Azure Analysis Services | Microsoft Docs
-description: "Lär dig hur du hanterar en Analysis Services-server i Azure."
-services: analysis-services
-documentationcenter: 
+description: Lär dig hur du hanterar en Analysis Services-server i Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="manage-analysis-services"></a>Manage Analysis Services
+# <a name="manage-analysis-services"></a>Hantera Analysis Services
 När du har skapat en Analysis Services-server i Azure kan finnas det vissa administrations- och uppgifter som du behöver utföra direkt eller senare ned väg. Till exempel bearbetning för att uppdatera data, styra vem som kan komma åt modeller på servern eller övervaka ditt Servertillstånd. Vissa hanteringsuppgifter kan endast utföras i Azure-portalen andra i SQL Server Management Studio (SSMS), och vissa aktiviteter kan göras antingen i.
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -47,13 +40,18 @@ För att få de senaste funktionerna och erfarenhet som jämnaste vid anslutning
    
     ![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. I SSMS > **Object Explorer**, klickar du på **Anslut** > **Analysis Services**.
-3. I den **Anslut till Server** klistra in i namnet på server och sedan i dialogrutan **autentisering**, väljer du något av följande autentiseringstyper av:
-   
+3. I den **Anslut till Server** klistra in i namnet på server och sedan i dialogrutan **autentisering**, väljer du något av följande autentiseringstyper av:   
+    > [!NOTE]
+    > Autentiseringstyp, **Active Directory - Universal med stöd för MFA**, rekommenderas.
+
+    > [!NOTE]
+    > Lämna lösenordsfältet tomt om du loggar in med ett Account, Live ID, Yanoo, Gmail osv. Du uppmanas att ange ett lösenord när du klickar på Anslut.
+
     **Windows-autentisering** att använda dina Windows-autentiseringsuppgifter domän\användarnamn och lösenord.
 
     **Active Directory-lösenordsautentisering** att använda ett organisationskonto. När ansluter från en icke-domän exempelvis anslutna datorn.
 
-    **Active Directory Universal autentisering** att använda [icke-interaktiv eller Multi-Factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal med stöd för MFA** att använda [icke-interaktiv eller Multi-Factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Ansluta i SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

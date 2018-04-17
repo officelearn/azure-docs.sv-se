@@ -1,11 +1,11 @@
 ---
 title: Konfigurera Azure AD Privileged Identity Management | Microsoft Docs
-description: "Ett avsnitt som förklarar vad Azure AD Privileged Identity Management är och hur du förbättrar säkerheten för molnet med hjälp av PIM."
+description: Ett avsnitt som förklarar vad Azure AD Privileged Identity Management är och hur du förbättrar säkerheten för molnet med hjälp av PIM.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -72,7 +72,7 @@ Endast en prenumeration administratör, en resursägare eller administratör fö
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Översikt över Privileged Identity Management (startpunkt)
 
-Azure AD Privileged Identity Management stöder administration av Azure AD directory roller och roller för Azure-resurser (förhandsversion). Funktionen för roller för Azure-resurser skiljer sig från administrativa roller i Azure AD. Azure-resursroller ger detaljerade behörigheter för resursen som de är tilldelade och alla underordnade resurser i hierarkin resurs (kallas även arv). [Lär dig mer om hur RBAC, resurs hierarkin och arv](role-based-access-control-configure.md). PIM för både Azure AD directory roller och resurser i Azure (förhandsversion) kan du administrera genom att öppna länken under avsnittet Hantera för PIM översikt post punkt vänstra navigeringsmenyn.
+Azure AD Privileged Identity Management stöder administration av Azure AD directory roller och roller för Azure-resurser (förhandsversion). Funktionen för roller för Azure-resurser skiljer sig från administrativa roller i Azure AD. Azure-resursroller ger detaljerade behörigheter för resursen som de är tilldelade och alla underordnade resurser i hierarkin resurs (kallas även arv). [Lär dig mer om hur RBAC, resurs hierarkin och arv](../role-based-access-control/role-assignments-portal.md). PIM för både Azure AD directory roller och resurser i Azure (förhandsversion) kan du administrera genom att öppna länken under avsnittet Hantera för PIM översikt post punkt vänstra navigeringsmenyn.
 
 PIM ger åtkomst till Aktivera roller, visa väntande aktiveringar/begäranden väntande godkännanden (för Azure AD directory roller) och granskar väntar på ditt svar från avsnittet uppgifter i den vänstra navigeringsmenyn.
 

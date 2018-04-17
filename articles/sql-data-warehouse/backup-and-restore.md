@@ -1,23 +1,23 @@
 ---
 title: Azure SQL Data Warehouse säkerhetskopiering och återställning - ögonblicksbilder, geo-redundant | Microsoft Docs
-description: Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopieringar för att återställa ditt datalager till en återställningspunkt i den primära regionen, eller geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region.
+description: Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopior som ska återställas ditt data warehouse till en återställningspunkt i den primära regionen. Använd geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region.
 services: sql-data-warehouse
 author: ronortloff
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 21708f51d09d640721af196d2ffa91aede97ffb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
-Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopieringar för att återställa ditt datalager till en återställningspunkt i den primära regionen, eller geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region. 
+Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopior som ska återställas ditt data warehouse till en återställningspunkt i den primära regionen. Använd geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region. 
 
 ## <a name="what-is-backup-and-restore"></a>Vad är säkerhetskopiering och återställning?
 En *säkerhetskopiering av data warehouse* är en kopia av databasen som du kan använda för att återställa ett datalager.  Eftersom SQL Data Warehouse är ett distribuerat system, består en data warehouse-säkerhetskopia av många filer som finns i Azure-lagring. En säkerhetskopiering av data warehouse innehåller både lokalt databasögonblicksbilder och geo-säkerhetskopior av alla databaser och filer som är associerade med ett datalager. 

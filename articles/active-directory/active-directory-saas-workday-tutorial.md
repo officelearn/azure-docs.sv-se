@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Workday | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workday."
+title: 'Självstudier: Azure Active Directory-integrering med Workday | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workday.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Självstudier: Azure Active Directory-integrering med Workday
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Arbetsdagar domän och URL: er med enkel inloggning information](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. I den **identifierare** textruta, ange ett URL-Adressen:`http://www.workday.com`
+    b. I den **identifierare** textruta, ange ett URL-Adressen: `http://www.workday.com`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utföra följande steg:
 
     ![Arbetsdagar domän och URL: er med enkel inloggning information](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
 
-    I den **Reply URL** textruta Skriv en URL med följande mönster:`https://impl.workday.com/<tenant>/login-saml.htmld`
+    I den **Reply URL** textruta Skriv en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
     > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska inloggnings-URL och Reply-URL. Svars-URL: en måste ha en underdomän till exempel: www wd2, wd3, wd3 impl, wd5, wd5 impl). Med hjälp av något som liknar ”*http://www.myworkday.com*” fungerar men ”*http://myworkday.com*” finns inte. Kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta dessa värden.  
@@ -153,7 +153,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     >[!NOTE]
     > Värdet för attributet miljön är knutna till värdet för klient-URL:  
-    >-Om domännamnet för Workday-klient-URL börjar med impl till exempel: *https://impl.workday.com/\<klient\>/login-saml2.htmld*), **miljö** attributet måste anges till implementering.  
+    >-Om domännamnet för Workday-klient-URL börjar med impl till exempel:  *https://impl.workday.com/ \<klient\>/login-saml2.htmld*), **miljö** attributet måste anges -implementeringen.  
     >-Om domännamnet startas med ett annat, måste du kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta det matchande **miljö** värde.
 
 11. I den **SAML installationsprogrammet** avsnittet, utför följande steg:
@@ -172,9 +172,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     b. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **SAML enhets-ID** värdet och klistrar in det i den **utfärdaren** textruta.
 
-    ![SAML identitetsleverantörer](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML identitetsleverantörer")
+    ![SAML identitetsleverantörer](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML identitetsleverantörer")
    
-    c. Välj **aktivera arbetsdagar initierade logga ut**.
+    c. Välj **aktivera idp initierade logga ut**.
    
     d. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **Sign-Out URL** värdet och klistrar in det i den **logga ut svars-URL** textruta.
 
@@ -226,9 +226,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. Klicka på **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -309,7 +306,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

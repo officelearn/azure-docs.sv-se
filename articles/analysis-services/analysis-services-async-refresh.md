@@ -1,25 +1,18 @@
 ---
-title: "Asynkron uppdatering för Azure Analysis Services-modeller | Microsoft Docs"
-description: "Lär dig hur du kodar asynkron uppdatering med hjälp av REST API."
-services: analysis-services
-documentationcenter: 
+title: Asynkron uppdatering för Azure Analysis Services-modeller | Microsoft Docs
+description: Lär dig hur du kodar asynkron uppdatering med hjälp av REST API.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 Genom att använda alla programmeringsspråk som har stöd för REST-anrop kan utföra du datauppdatering asynkrona åtgärder på Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågan skalbar. 
@@ -169,7 +162,7 @@ Om du vill hämta en lista över historiska uppdateringsåtgärder för en model
 
 Om du vill avbryta en pågående uppdatering använder du ta bort verbet på Uppdatera-ID.
 
-## <a name="post-sync"></a>POST /sync
+## <a name="post-sync"></a>POST/Sync
 
 Utföra av uppdateringsåtgärder vara det nödvändigt att synkronisera nya data med repliker för frågan skalbar. Om du vill utföra en synkronisering för en modell, använder du verbet POST för/Sync-funktionen. Plats-huvudet i svaret innehåller sync åtgärds-ID.
 

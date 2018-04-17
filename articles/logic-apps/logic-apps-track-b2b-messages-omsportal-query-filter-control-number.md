@@ -1,11 +1,11 @@
 ---
-title: "Frågan för B2B-meddelanden i Operations Management Suite - Azure Logic Apps | Microsoft Docs"
-description: "Skapa frågor för att spåra AS2-, X 12- och EDIFACT-meddelanden i Operations Management Suite"
+title: Frågan för B2B-meddelanden i logganalys - Azure Logic Apps | Microsoft Docs
+description: Skapa frågor för att spåra AS2-, X 12- och EDIFACT-meddelanden i logganalys
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Fråga efter AS2-, X 12- och EDIFACT-meddelanden i Microsoft Operations Management Suite (OMS)
+# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Fråga efter AS2-, X 12- och EDIFACT-meddelanden i logganalys
 
-Om du vill hitta AS2 X12 eller EDIFACT meddelanden som du spårar med [Azure logganalys](../log-analytics/log-analytics-overview.md) i den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), du kan skapa frågor som filtrerar åtgärder baserat på specifika villkor. Du kan till exempel hitta meddelanden baserat på specifika interchange kontroll.
+Om du vill hitta AS2 X12 eller EDIFACT meddelanden som du spårar med [Azure logganalys](../log-analytics/log-analytics-overview.md), du kan skapa frågor som filtrerar åtgärder baserat på specifika villkor. Du kan till exempel hitta meddelanden baserat på specifika interchange kontroll.
 
 ## <a name="requirements"></a>Krav
 
@@ -30,41 +30,41 @@ Om du vill hitta AS2 X12 eller EDIFACT meddelanden som du spårar med [Azure log
 
 * Ett integration-konto som har konfigurerats med övervakning och loggning. Läs [hur du skapar ett konto för integrering](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Om du inte redan har gjort [publicera diagnostikdata till logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) och [konfigurera meddelandespårning i OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Om du inte redan har gjort [publicera diagnostikdata till logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) och [konfigurera meddelandespårning i logganalys](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> När du har uppfyllt kraven tidigare, bör du ha en arbetsyta den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Du bör använda samma OMS-arbetsyta för att spåra dina B2B-kommunikation i OMS. 
+> När du har uppfyllt kraven tidigare, bör du ha en arbetsyta i logganalys. Du bör använda samma arbetsyta för att spåra dina B2B-kommunikation i logganalys. 
 >  
-> Lär dig mer om du inte har en OMS-arbetsyta [hur du skapar en OMS-arbetsyta](../log-analytics/log-analytics-get-started.md).
+> Lär dig mer om du inte har en logganalys-arbetsytan [hur du skapar en logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Skapa frågor med filter i Operations Management Suite-portalen
+## <a name="create-message-queries-with-filters-in-log-analytics"></a>Skapa frågor med filter i logganalys
 
 Det här exemplet visar hur du kan hitta meddelanden baserat på deras interchange kontrollnummer.
 
 > [!TIP] 
-> Om du vet OMS arbetsytans namn, gå till startsidan arbetsytan (`https://{your-workspace-name}.portal.mms.microsoft.com`), och starta i steg 4. Annars starta i steg 1.
+> Om du vet ditt namn för logganalys-arbetsytan, gå till startsidan arbetsytan (`https://{your-workspace-name}.portal.mms.microsoft.com`), och starta i steg 4. Annars starta i steg 1.
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
-   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+   ![Hitta logganalys](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Under **logganalys**, söka efter och välj din OMS-arbetsyta.
+2. Under **logganalys**, söka efter och välj logganalys-arbetsytan.
 
-   ![Välj din OMS-arbetsyta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Välj logganalys-arbetsytan](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. Under **Management**, Välj **OMS-portalen**.
 
    ![Välj OMS-portalen](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
-4. Välj på startsidan OMS **loggen Sök**.
+4. På startsidan, Välj **loggen Sök**.
 
-   ![På startsidan OMS väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![På startsidan, väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    ELLER
 
-   ![På menyn OMS väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![På menyn, väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva in visas OMS möjliga matchningar och åtgärder som du kan använda. Lär dig mer om [hitta data i logganalys](../log-analytics/log-analytics-log-searches.md).
+5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva in visas logganalys möjliga matchningar och åtgärder som du kan använda. Lär dig mer om [hitta data i logganalys](../log-analytics/log-analytics-log-searches.md).
 
    Det här exemplet söker efter händelser med **typ = AzureDiagnostics**.
 
@@ -106,15 +106,15 @@ Det här exemplet visar hur du kan hitta meddelanden baserat på deras interchan
 
    ![Välj din fråga](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Hitta och köra sparade frågor i Operations Management Suite-portalen
+## <a name="find-and-run-saved-queries-in-log-analytics"></a>Hitta och köra sparade frågor i logganalys
 
-1. Öppna startsidan för OMS-arbetsytan (`https://{your-workspace-name}.portal.mms.microsoft.com`), och välj **loggen Sök**.
+1. Öppna startsidan för logganalys-arbetsytan (`https://{your-workspace-name}.portal.mms.microsoft.com`), och välj **loggen Sök**.
 
-   ![På startsidan OMS väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![På startsidan logganalys väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    ELLER
 
-   ![På menyn OMS väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![På menyn, väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 2. På den **loggen Sök** startsidan, Välj **Favoriter**.
 

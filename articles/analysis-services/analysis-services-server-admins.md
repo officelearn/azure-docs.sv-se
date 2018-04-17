@@ -1,25 +1,18 @@
 ---
-title: "Hantera server-administratörer i Azure Analysis Services | Microsoft Docs"
-description: "Lär dig hur du hanterar server-administratörer för en Analysis Services-server i Azure."
-services: analysis-services
-documentationcenter: 
+title: Hantera server-administratörer i Azure Analysis Services | Microsoft Docs
+description: Lär dig hur du hanterar server-administratörer för en Analysis Services-server i Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Hantera server-administratörer
 Server-administratörer måste vara en giltig användare eller grupp i Azure Active Directory (Azure AD) för klienten som servern finns. Du kan använda **Analysis Services-administratörer** för servern i Azure-portalen eller serveregenskaper i SSMS att hantera serveradministratörer. 
@@ -41,5 +34,5 @@ Server-administratörer måste vara en giltig användare eller grupp i Azure Act
 ## <a name="next-steps"></a>Nästa steg 
 [Autentisering och användarbehörigheter](analysis-services-manage-users.md)  
 [Hantera databasroller och användare](analysis-services-database-users.md)  
-[Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md)  
+[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)  
 

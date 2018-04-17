@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärd skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärder för HDInsight. Information om hur du använder skriptåtgärd skript finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster, se [utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -141,10 +139,10 @@ Här följer hjälpmetoder som tillhandahålls av skriptet:
 | Hjälpmetod | Beskrivning |
 | --- | --- |
 | **Spara HDIFile** |Hämta en fil från den angivna identifieraren URI (Uniform Resource) till en plats på den lokala disken som associeras med den Virtuella Azure-noden som är tilldelade till klustret. |
-| **Expand-HDIZippedFile** |Packa upp ZIP. |
-| **Invoke-HDICmdScript** |Köra ett skript från cmd.exe. |
+| **Expandera HDIZippedFile** |Packa upp ZIP. |
+| **Anropa HDICmdScript** |Köra ett skript från cmd.exe. |
 | **Skriv HDILog** |Skriva utdata från skriptet som används för en skriptåtgärd. |
-| **Get-Services** |Hämta en lista över tjänster som körs på datorn där skriptet körs. |
+| **Get-tjänster** |Hämta en lista över tjänster som körs på datorn där skriptet körs. |
 | **Get-Service** |Med specifika tjänstnamnet som indata, får du detaljerad information för en specifik tjänst (namn på tjänst, process-ID, tillstånd, etc.) på datorn där skriptet körs. |
 | **Get-HDIServices** |Hämta en lista över HDInsight-tjänster som körs på datorn där skriptet körs. |
 | **Get-HDIService** |Med specifika HDInsight tjänstnamnet som indata, får du detaljerad information för en specifik tjänst (namn på tjänst, process-ID, tillstånd, etc.) på datorn där skriptet körs. |
@@ -178,7 +176,7 @@ Finns flera bästa praxis att tänka på när du utvecklar ett anpassat skript f
 
     HDInsight har ett aktivt-passivt arkitektur för hög tillgänglighet som en huvudnod är i aktivt läge (där HDInsight-tjänsterna körs) och andra Huvudnoden är i vänteläge (i vilken HDInsight tjänster inte körs). Noderna växla mellan lägena aktiva och passiva om HDInsight tjänster avbryts. Om en skriptåtgärd används för att installera tjänster på båda huvudnoderna för hög tillgänglighet, Observera att mekanismen för HDInsight-redundans inte kan automatiskt växla över dessa användare installerade tjänster. Så användaren installerade tjänster på HDInsight huvudnoderna som förväntas ha hög tillgänglighet måste antingen ha sina egna mekanism för växling vid fel om i aktivt-passivt läge eller vara i läget för aktiv-aktiv.
 
-    Ett HDInsight-skriptåtgärder kommando som körs på båda huvudnoderna när rollen head-noden har angetts som ett värde i den *ClusterRoleCollection* parameter. Så när du skapar ett anpassat skript, se till att skriptet är medveten om den här installationen. Du bör inte köra problem där samma tjänster är installerade och igång på både huvudnoderna och hamnar konkurrerar med varandra. Tänk också på att data går förlorade vid återställning av avbildning, så att programvaran via skriptåtgärd måste vara motståndskraftiga mot sådana händelser. Program bör utformas för att arbeta med hög tillgänglighet data som distribueras över flera noder. Observera att du kan avbildade upp till 1/5 noder i ett kluster på samma gång.
+    Ett HDInsight-skriptåtgärder kommando som körs på båda huvudnoderna när rollen head-noden har angetts som ett värde i den *ClusterRoleCollection* parameter. Så när du skapar ett anpassat skript, se till att skriptet är medveten om den här installationen. Du bör inte köra problem där samma tjänster är installerade och igång på både huvudnoderna och hamnar konkurrerar med varandra. Tänk också på att data går förlorade vid återställning av avbildning, så att programvaran via skriptåtgärd måste vara motståndskraftiga mot sådana händelser. Program bör utformas för att arbeta med hög tillgänglighet data som distribueras över flera noder. Upp till 1/5 noder i ett kluster kan vara avbildade på samma gång.
 * Konfigurera anpassade komponenter om du vill använda Azure Blob storage
 
     De anpassade komponenter som installeras på klusternoderna kan ha en standardkonfiguration lagringsmedier Hadoop Distributed File System (HDFS). Du bör ändra konfigurationen för att använda Azure Blob storage i stället. På ett kluster avbildningsåterställning HDFS hämtar filsystemet och du skulle förlora alla data som lagras där. Azure Blob storage i stället garanterar att dina data bevaras.
@@ -192,14 +190,14 @@ I skriptutveckling, kan du ofta anser att behöva ange miljövariabler. Exempelv
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Den här instruktionen anger miljövariabeln **MDS_RUNNER_CUSTOM_CLUSTER** med värdet 'true' och även anger omfånget för den här variabeln ska vara datoromfattande. Ibland är det viktigt att miljövariablerna anges på en lämplig omfattning – dator eller användare. Se [här] [ 1] för mer information om hur du anger miljövariabler.
+Den här instruktionen anger miljövariabeln **MDS_RUNNER_CUSTOM_CLUSTER** med värdet 'true' och även anger omfånget för den här variabeln ska vara datoromfattande. Det är viktigt att miljövariablerna anges på en lämplig omfattning – dator eller användare. Se [här] [ 1] för mer information om hur du anger miljövariabler.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Åtkomst till platser där anpassade skript lagras
-Skript som används för att anpassa ett kluster måste antingen vara i standardkontot för lagring för klustret eller i en offentlig skrivskyddad behållare för andra storage-konto. Om skriptet har åtkomst till resurser som finns någon annanstans dessa måste vara en offentligt tillgänglig (minst offentliga skrivskyddad). Du kanske exempelvis vill komma åt en fil och spara den med hjälp av kommandot SaveFile HDI.
+Skript som används för att anpassa ett kluster måste antingen vara i standardkontot för lagring för klustret eller i en offentlig skrivskyddad behållare för andra storage-konto. Om skriptet har åtkomst till resurser som finns någon annanstans måste resurser läsas offentligt. Du kanske exempelvis vill komma åt en fil och spara den med hjälp av kommandot SaveFile HDI.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-I det här exemplet måste du kontrollera att behållaren somecontainer om du i storage-konto 'somestorageaccount' är allmänt tillgänglig. Annars genereras ett undantag 'Gick inte att hitta' skriptet och misslyckas.
+I det här exemplet måste du säkerställa att behållaren `somecontainer` i lagringskonto `somestorageaccount` är allmänt tillgänglig. Annars genereras ett undantag 'Gick inte att hitta' skriptet och misslyckas.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Skicka parametrar för cmdleten Add-AzureRmHDInsightScriptAction
 Om du vill lägga till flera parametrar för cmdleten Add-AzureRmHDInsightScriptAction, måste du formatera strängvärde så att den innehåller alla parametrar för skriptet. Exempel:
@@ -238,9 +236,9 @@ Här följer de steg som vi har tagit när du förbereder att distribuera dessa 
 
 1. Placera de filer som innehåller anpassade skript på en plats som kan nås av klusternoder under distributionen. Detta kan vara någon av standard eller ytterligare lagringskonton som anges vid tidpunkten för distribution eller andra offentligt tillgänglig lagringsbehållaren.
 2. Lägga till kontroller i skript för att se till att de kör idempotently, så att skriptet kan köras flera gånger på samma nod.
-3. Använd den **Write-Output** Azure PowerShell-cmdlet för att skriva ut till STDOUT och STDERR. Använd inte **Write-Host**.
-4. Använda en tillfällig mapp, till exempel $env: TEMP att hålla den hämta filen som används av skripten och sedan rensa dem efter skript har körts.
-5. Installera anpassade programvara på D:\ eller C:\apps. Andra platser på enhet C: ska inte användas som de är reserverade. Observera att installera filer på enhet C: utanför mappen C:\apps kan resultera i installationsfel under reimages för noden.
+3. Använd den `Write-Output` Azure PowerShell-cmdlet för att skriva ut till STDOUT och STDERR. Använd inte `Write-Host`.
+4. Använda en tillfällig mapp, till exempel `$env:TEMP`, för att hålla den hämta filen som används av skripten och sedan rensa dem efter skript har körts.
+5. Installera anpassade programvara på D:\ eller C:\apps. Andra platser på enhet C: ska inte användas som de är reserverade. Installation av filer på enhet C: utanför mappen C:\apps kan resultera i installationsfel under reimages för noden.
 6. I händelse av att inställningarna för OS-nivå eller Hadoop service configuration-filer har ändrats, kan du vill starta om HDInsight-tjänster så att de kan hämta OS-nivå inställningar, till exempel miljövariabler som anges i skripten.
 
 ## <a name="debug-custom-scripts"></a>Felsöka anpassade skript

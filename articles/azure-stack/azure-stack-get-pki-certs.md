@@ -1,6 +1,6 @@
 ---
 title: Generera Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs
-description: Beskriver Azure Stack PKI-certifikat distribution processfor Azure Stack integrerad-system.
+description: Beskriver Azure Stack PKI-certifikat distributionsprocessen för Azure-stacken integrerat system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,67 +12,104 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generera PKI-certifikat för distribution av Azure-stacken
-Nu när du vet [PKI-certifikatkrav](azure-stack-pki-certs.md) för Azure-stacken distributioner måste du hämta dessa certifikat från den certifikatutfärdare (CA) du väljer. 
+# <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack certifikat signering begäran generation
 
-## <a name="request-certificates-using-an-inf-file"></a>Begär certifikat med hjälp av en INF-fil
-Ett sätt att begära certifikat från en offentlig Certifikatutfärdare eller en intern Certifikatutfärdare är med hjälp av en INF-fil. Inbyggda certreq.exe för Windows kan använda en INF-fil som anger certifikat information för att generera en begärandefil som beskrivs i det här avsnittet. 
+Verktyget Azure Stack beredskap för installation som beskrivs i den här artikeln finns [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Verktyget skapar signering certifikatbegäranden (kundtjänstrepresentanter) lämpar sig för en Azure-Stack-distribution. Certifikat bör begärs, skapas och verifieras med tillräckligt med tid för att testa före distributionen. 
 
-### <a name="sample-inf-file"></a>Exempel INF-fil 
-Exempel certifikatet begäran INF-filen kan användas för att skapa en fil med offline certifikatbegäran för överföring till en CA (intern eller offentlig). INF-filen innehåller alla nödvändiga slutpunkter (inklusive de valfria PaaS-tjänsterna) i ett enda jokerteckencertifikat. 
+Verktyget Azure Stack beredskap Checker (AzsReadinessChecker) utför följande certifikatbegäranden:
 
-Inf-exempelfilen förutsätter att regionen är lika med **sea** och externa FQDN-värdet är **sea&#46;contoso&#46;com**. Ändra dessa värden för att matcha din miljö innan du genererar en. INF-fil för din distribution. 
+ - **Standard certifikatbegäranden**  
+    Begära enligt [generera PKI-certifikat för distribution av Azure-stacken](azure-stack-get-pki-certs.md). 
+ - **Typ av begäran**  
+    Begära flera jokertecken SAN, flera Domäncertifikat enda jokerteckencertifikat begäranden.
+ - **Plattform som en tjänst**  
+    Du kan också begära plattform som en tjänst (PaaS) namn på certifikat som anges i [Azure Stack infrastruktur för offentliga nycklar certifikatkrav - valfria PaaS certifikat](azure-stack-pki-certs.md#optional-paas-certificates).
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## <a name="prerequisites"></a>Förutsättningar
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+Datorn måste uppfylla följande krav innan du genererar CSR(s) för PKI-certifikat för distribution av en Azure-stacken:
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Microsoft Azure-stacken beredskap layout
+ - Attribut för certifikat:
+    - Regionnamn
+    - Externa fullständigt kvalificerade domännamnet (FQDN)
+    - Ämne
+ - Windows 10 eller Windows Server 2016
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## <a name="generate-certificate-signing-requests"></a>Generera begäranden om Certifikatsignering
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat: 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  Installera AzsReadinessChecker från en PowerShell-kommandotolk (5.1 eller senare) genom att köra följande cmdlet:
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## <a name="generate-and-submit-request-to-the-ca"></a>Generera och skicka begäran till Certifikatutfärdaren
-Följande arbetsflöde beskrivs hur du kan anpassa och använda exempel INF-fil som skapats tidigare för att begära ett certifikat från en Certifikatutfärdare:
+2.  Deklarera den **ämne** som en ordnad ordlista. Exempel: 
 
-1. **Redigera och spara INF-fil**. Kopiera exemplet tillhandahålls och spara den till en ny textfil. Ersätta ämnesnamn och externa FQDN med värden som matchar din distribution och spara filen som en. INF-fil.
-2. **Skapa en begäran utifrån certreq**. Med hjälp av en Windows-dator, starta en kommandotolk som administratör och kör följande kommando för att generera en (.req)-begärandefil: `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. **Skicka till CA**. Skicka den. REQ filen genereras till Certifikatutfärdaren (kan vara intern eller offentlig).
-4. **Importera. CER**. CA: N returnerar en. CER-fil. Använder samma Windows-dator som du genererade förfrågningsfilen, importera den. CER-fil som returneras till datorn/personal-arkivet. 
-5. **Exportera och kopiera. PFX till distributionsmappar**. Exportera certifikatet (inklusive den privata nyckeln) som en. PFX-filen och kopiera den. PFX-fil som distributionsmappar som beskrivs i [Azure Stack PKI distributionskrav](azure-stack-pki-certs.md).
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > Om ett nätverksnamn (CN) anges detta kommer att skrivas över med det första DNS-namnet för certifikatbegäran.
+
+3.  Deklarera en målkatalogen som redan finns:
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. Deklarera **regionnamn** och en **externa FQDN** avsedda för Azure Stack-distributionen.
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > `<regionName>.<externalFQDN>` utgör grunden som alla externa DNS-namn i Azure-stacken skapas i det här exemplet, portalen att `portal.east.azurestack.contoso.com`.
+
+5. Generera en enda certifikatbegäran med flera Alternativt ämnesnamn inklusive de som krävs för PaaS-tjänster:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. Att skapa enskilda certifikatsigneringsbegäran för varje DNS-namn utan PaaS-tjänster:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
+
+7. Granska utdata:
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  Skicka den **. REQ** fil som har skapats för din CA (intern eller offentlig).  Den angivna katalogen för **Start AzsReadinessChecker** innehåller CSR(s) krävs för att skicka den till en certifikatutfärdare.  Den innehåller också en underordnad katalog som innehåller INF-filer som används under Certifikatgenereringen begäran som referens. Se till att Certifikatutfärdaren genererar certifikat med hjälp av din begäran som skapats som uppfyller den [kraven för Azure-stacken PKI](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Förbered Azure Stack PKI-certifikat](azure-stack-prepare-pki-certs.md)

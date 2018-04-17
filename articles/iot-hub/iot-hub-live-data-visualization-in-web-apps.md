@@ -1,11 +1,11 @@
 ---
-title: "Realtidsdata visualisering av sensordata från din Azure IoT-hubb – Web Apps | Microsoft Docs"
-description: "Använd funktionen Web Apps i Microsoft Azure App Service visualisera temperatur- och fuktighetskonsekvens data som samlas in från sensorn och skickas till din Iot-hubb."
+title: Realtidsdata visualisering av sensordata från din Azure IoT-hubb – Web Apps | Microsoft Docs
+description: Använd funktionen Web Apps i Microsoft Azure App Service visualisera temperatur- och fuktighetskonsekvens data som samlas in från sensorn och skickas till din Iot-hubb.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: realtid datavisualisering, realtidsdata visualiseringen sensor datavisualisering
 ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
 ms.service: iot-hub
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 0edf72595f67dd9f6b33f9bfeaf4cd98405dc3ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualisera sensordata i realtid från Azure IoT-hubben med hjälp av funktionen Web Apps i Azure App Service
 

@@ -1,25 +1,23 @@
 ---
-title: "Lägg till ytterligare Azure storage-konton till HDInsight | Microsoft Docs"
-description: "Lär dig hur du lägger till ytterligare Azure storage-konton till ett befintligt HDInsight-kluster."
+title: Lägg till ytterligare Azure storage-konton till HDInsight | Microsoft Docs
+description: Lär dig hur du lägger till ytterligare Azure storage-konton till ett befintligt HDInsight-kluster.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton i HDInsight
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Ange `$PASSWORD` kontolösenord för kluster-inloggning (admin). Ange `$CLUSTERNAME` till namnet på HDInsight-klustret. Ange `$STORAGEACCOUNTNAME` till namnet på lagringskontot.
 >
-> Det här exemplet används [curl (http://curl.haxx.se/)](http://curl.haxx.se/) och [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) att hämta och tolka JSON-data.
+> Det här exemplet används [curl (http://curl.haxx.se/) ](http://curl.haxx.se/) och [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) att hämta och tolka JSON-data.
 
 När det här kommandot ersätter __KLUSTERNAMN__ med namnet på HDInsight-klustret. Ersätt __lösenord__ med HTTP-inloggningslösenordet för klustret. Ersätt __STORAGEACCOUNT__ med namnet på lagringskontot läggs till med skriptåtgärder. Informationen som returneras från det här kommandot visas liknar följande:
 
@@ -116,7 +114,7 @@ Kör skriptet igen har __inte__ uppdatera nyckeln, som skriptet kontrollerar om 
 
 Om du vill undvika det här problemet måste du ta bort den befintliga posten för lagringskontot. Använd följande steg för att ta bort den befintliga posten:
 
-1. Öppna Ambari-Webbgränssnittet för ditt HDInsight-kluster i en webbläsare. The URI is https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på klustret.
+1. Öppna Ambari-Webbgränssnittet för ditt HDInsight-kluster i en webbläsare. URI är https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på klustret.
 
     När du uppmanas du ange HTTP-inloggning och lösenord för klustret.
 

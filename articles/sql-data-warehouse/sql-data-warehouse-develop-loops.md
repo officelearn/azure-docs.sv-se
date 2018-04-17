@@ -1,11 +1,11 @@
 ---
-title: Utnyttja T-SQL-loopar i Azure SQL Data Warehouse | Microsoft Docs
-description: "Tips för Transact-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar."
+title: Med hjälp av T-SQL-loopar i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: f3384b81-b943-431b-bc73-90e47e4c195f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,19 +15,23 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e49a0de0e4a6aba6639f7f3100f41c8db254220
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="loops-in-sql-data-warehouse"></a>Slingor i SQL Data Warehouse
-SQL Data Warehouse stöder den [medan][medan] loop för att köra instruktionen block upprepade gånger. Detta fortsätter för förutsatt att de angivna villkoren är SANT eller tills koden specifikt avslutar en loop med hjälp av den `BREAK` nyckelord. Slingor är särskilt användbara för att ersätta markörer som definierats i SQL-kod. Lyckligtvis läses nästan alla markörer som har skrivits i SQL-kod för snabb framåtriktad endast olika. Därför [medan] slingor är ett bra alternativ om du själv behöva ersätta någon.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Använda slingor för T-SQL i SQL Data Warehouse
+Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.
 
-## <a name="leveraging-loops-and-replacing-cursors-in-sql-data-warehouse"></a>Utnyttja slingor och ersätta markörer i SQL Data Warehouse
-Men innan du dyker i huvudet först bör du fråga dig själv följande fråga: ”kunde markören nytt skrivas till använda uppsättning baserad operations”?. I många fall svaret blir Ja och är ofta det bästa sättet. En uppsättning baserad åtgärd ofta utför mycket snabbare än en iterativ, rad för rad-metod.
+## <a name="purpose-of-while-loops"></a>Syftet med WHILE-slingor
 
-Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med en slinga konstruktion. Nedan visas ett enkelt exempel. Det här kodexemplet Uppdaterar statistiken för alla tabeller i databasen. Genom att gå över tabeller i en slinga kommer du att köra varje kommando i sekvensen.
+SQL Data Warehouse stöder den [medan](/sql/t-sql/language-elements/while-transact-sql) loop för att köra instruktionen block upprepade gånger. Denna loop STUND fortsätter för förutsatt att de angivna villkoren är SANT eller tills koden särskilt avbryter loopen med hjälp av nyckelordet BREAK. Slingor är användbara för att ersätta markörer som definierats i SQL-kod. Nästan alla markörer som har skrivits i SQL-kod är lyckligtvis sortens snabba framåtriktade, skrivskyddade. Därför [medan] slingor är ett bra alternativ för att ersätta markörer.
+
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>Ersätta markörer i SQL Data Warehouse
+Men innan du dyker i huvudet först bör du fråga dig själv följande fråga ”: den här pekaren skrivas för att använda set-baserade operations?”. I många fall svaret är Ja och ofta är det bästa sättet. En set-baserade åtgärden ofta utförs snabbare än en iterativ, rad för rad-metod.
+
+Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med en slinga konstruktion. Följande är ett enkelt exempel. Det här kodexemplet Uppdaterar statistiken för alla tabeller i databasen. Genom att gå över tabeller i en slinga kör varje kommando i sekvensen.
 
 Börja med att skapa en tillfällig tabell som innehåller ett unikt radnummer som används för att identifiera de enskilda rapporterna:
 
@@ -69,19 +73,6 @@ Slutligen släppa den temporära tabellen skapas i det första steget
 DROP TABLE #tbl;
 ```
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt][development overview].
+För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[medan]: https://msdn.microsoft.com/library/ms178642.aspx
-
-
-<!--Other Web references-->

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 82aea8b13fd4bad777fd3120fa811fa1ab284ac1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Mer specifikt stöder den här Azure SQL Database-anslutningen:
 > [!IMPORTANT]
 > Om du kopierar data med hjälp av Azure Integration Runtime, konfigurera [Azure SQL Server-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) till [ge Azure-tjänster åtkomst till servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Om du kopierar data med hjälp av Self-hosted integrering Runtime, konfigurera Azure SQL Server-brandväggen så att rätt IP-adressintervall, inklusive den datorns IP-adress som används för att ansluta till Azure SQL Database.
 
-## <a name="getting-started"></a>Komma i gång
+## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -96,9 +96,9 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
 
 1. **[Skapa ett Azure Active Directory-program från Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Anteckna namnet på programmet och följande värden som du använder för att definiera den länkade tjänsten:
 
-    - Program-ID
+    - Program-ID:t
     - Nyckeln för programmet
-    - Klientorganisations-ID
+    - Klient-ID:t
 
 2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören måste vara en AAD-användare eller grupp för AAD, men kan inte vara en tjänstens huvudnamn. Det här steget gör du så att i senare steg kan du använda en AAD-identitet för att skapa en innesluten databasanvändare för tjänsten huvudnamn.
 
@@ -127,7 +127,7 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
@@ -570,35 +570,35 @@ När du kopierar data från/till Azure SQL Database, används följande mappning
 | Azure SQL Database-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| Binär |Byte[] |
+| Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |byte] |
 | flyttal |Dubbel |
-| Bild |Byte[] |
+| Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Ogift |
-| rowversion |Byte[] |
+| Verklig |Enkel |
+| ROWVERSION |byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
-| tid |TimeSpan |
-| tidsstämpel |Byte[] |
+| time |TimeSpan |
+| tidsstämpel |byte] |
 | tinyint |Mottagna byte |
-| uniqueidentifier |GUID |
-| varbinary |Byte[] |
+| Unik identifierare |GUID |
+| varbinary |byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

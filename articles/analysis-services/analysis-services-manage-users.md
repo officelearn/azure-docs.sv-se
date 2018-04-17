@@ -1,25 +1,18 @@
 ---
-title: "Autentisering och användarbehörigheter i Azure Analysis Services | Microsoft Docs"
-description: "Lär dig mer om autentisering och användare i Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Autentisering och användarbehörigheter i Azure Analysis Services | Microsoft Docs
+description: Lär dig mer om autentisering och användare i Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 Azure Analysis Services använder Azure Active Directory (Azure AD) för identity management- och användarautentisering. Alla användare att skapa, hantera eller ansluta till en Azure Analysis Services server måste ha ett giltigt användar-ID i ett [Azure AD-klient](../active-directory/active-directory-administer.md) i samma prenumeration.
@@ -69,7 +62,7 @@ Excel-användare kan ansluta till en server med hjälp av ett Windows-konto, en 
 
 ![Åtkomstkontroll i Azure-portalen](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roller på den här nivån gälla för användare och konton som behöver för att utföra uppgifter som kan utföras i portalen eller med hjälp av Azure Resource Manager-mallar. Läs mer i [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md). 
+Roller på den här nivån gälla för användare och konton som behöver för att utföra uppgifter som kan utföras i portalen eller med hjälp av Azure Resource Manager-mallar. Läs mer i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Databasroller
@@ -85,4 +78,4 @@ Roller på den här nivån gälla för användare och konton som behöver för a
 [Hantera åtkomst till resurser med Azure Active Directory-grupper](../active-directory/active-directory-manage-groups.md)   
 [Hantera databasroller och användare](analysis-services-database-users.md)  
 [Hantera serveradministratörer](analysis-services-server-admins.md)  
-[Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md)  
+[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)  

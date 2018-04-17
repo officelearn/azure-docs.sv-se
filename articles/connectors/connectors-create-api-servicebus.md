@@ -1,11 +1,11 @@
 ---
-title: "Ställ in med Azure Service Bus-meddelanden för Logikappar i Azure | Microsoft Docs"
-description: "Skicka och ta emot meddelanden med logic apps med hjälp av Azure Service Bus"
+title: Ställ in med Azure Service Bus-meddelanden för Logikappar i Azure | Microsoft Docs
+description: Skicka och ta emot meddelanden med logic apps med hjälp av Azure Service Bus
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Skicka och ta emot meddelanden med Azure Service Bus-koppling
 
@@ -65,12 +65,17 @@ En [ *utlösaren* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) är
 
    ![Välj Service Bus-utlösare](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Vissa utlöser returnerade en eller meddelanden, som den *Service Bus - när en eller flera meddelanden tas emot i en kö (automatisk komplettering)* utlösare.
+   > När dessa utlösare eller de returnera mellan ett och antalet meddelanden som anges av utlösarens **maximalt meddelandet antal** egenskapen.
+
    1. Om du inte redan har en anslutning till Service Bus-namnrymd, uppmanas du att skapa den här anslutningen nu. Namnge din anslutning och välj Service Bus-namnområde som du vill använda.
 
       ![Skapa Service Bus-anslutning](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       Om du vill ange anslutningssträngen manuellt välja **manuellt ange anslutningsinformationen**. 
       Läs [så att hitta anslutningssträngen](#permissions-connection-string).
+      
 
    2. Nu väljer Service Bus-principen för att använda, och välj **skapa**.
 
@@ -79,6 +84,11 @@ En [ *utlösaren* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) är
 4. Välj Service Bus-kö för att använda och ställa in intervall och frekvens för när du vill söka i kön.
 
    ![Välj Service Bus-kö, konfigurera avsökningsintervall](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Alla Service Bus-utlösare **lång avsökning** utlösare, vilket innebär att när en utlösare utlöses utlösaren bearbetar alla meddelanden och väntar sedan på 30 sekunder för fler meddelanden i kö eller ett ämne prenumerationen.
+   > Om inga meddelanden tas emot i 30 sekunder ignoreras utlösare för körning. Annars fortsätter utlösaren läsa meddelanden tills kö eller ett ämne prenumerationen är tom.
+   > Nästa utlösaren omröstningen baseras på Upprepningsintervall som angetts i egenskaperna för den utlösaren.
 
 5. Spara din logikapp. Välj **Spara** i designerverktygsfältet.
 

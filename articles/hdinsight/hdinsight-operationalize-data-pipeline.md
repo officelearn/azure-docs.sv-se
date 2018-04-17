@@ -1,27 +1,25 @@
 ---
 title: Operationalisera en data analytics pipeline - Azure | Microsoft Docs
-description: "Ställ in och kör ett exempel data pipeline som utlöses av nya data och ger kortare resultat."
+description: Ställ in och kör ett exempel data pipeline som utlöses av nya data och ger kortare resultat.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för analys av data
+# <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
 *Data pipelines* underly många lösningar för dataanalys. Som namnet antyder en data-pipeline använder rådata, rensar omformas den efter behov och sedan genomför normalt beräkningar eller aggregeringar innan de lagras bearbetade data. Bearbetade data används av klienter, rapporter eller API: er. En data-pipeline måste ange repeterbara resultat om enligt ett schema eller när den utlöses av nya data.
 
@@ -29,10 +27,10 @@ Den här artikeln beskriver hur du operationalisera dina data rörledningar för
 
 I följande scenario är indata en flat-fil som innehåller en uppsättning data rör sig i en månad. Den här svarta data omfattar information som ursprung och destination flygplats, miles leds, utgångspunkten och ankomst gånger och så vidare. Målet med denna pipeline är att sammanfatta dagliga flygbolag prestanda, där varje flygbolag som innehåller en rad för varje dag med de genomsnittliga utgångspunkten och ankomst fördröjningar i minuter, och de totala miles leds den dagen.
 
-| ÅR | MÅNAD | DAY_OF_MONTH | CARRIER |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| ÅR | MÅNAD | DAY_OF_MONTH | OPERATÖR |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
+| 2017 | 1 | 3 | SOM | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
 Exempel pipeline väntar tills en ny tidsperiod svarta data anländer och lagrar den detaljerade flyginformation i datalagret Hive för långsiktig analys. Pipelinen skapar även en mycket mindre dataset som sammanfattar bara de dagliga svarta data. Den här dagliga svarta sammanfattningsdata skickas till en SQL-databas och tillhandahåller rapporter, såsom för en webbplats.
@@ -137,7 +135,7 @@ Din Azure SQL-databas är nu klar.
 
        ![HDInsight Metastore inställningar](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Välj **nästa**.
+12. Välj **Nästa**.
 13. På den **sammanfattning** väljer **skapa** att distribuera klustret.
 
 ### <a name="verify-ssh-tunneling-setup"></a>Kontrollera SSH tunnlar installationen
@@ -181,7 +179,7 @@ Du kan kopiera filen med SCP i din `bash` shell session.
 
 Exempeldata är nu tillgänglig. Pipelinen kräver dock två Hive-tabeller för bearbetning, en för inkommande data (`rawFlights`) och en för sammanfattningsdata (`flights`). Skapa dessa tabeller i Ambari på följande sätt.
 
-1. Logga in på Ambari genom att gå till [http://headnodehost:8080](http://headnodehost:8080).
+1. Logga in på Ambari genom att gå till [ http://headnodehost:8080 ](http://headnodehost:8080).
 2. Välj i listan över tjänster **Hive**.
 
     ![Att välja Hive i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -421,10 +419,10 @@ I följande tabell sammanfattas varje egenskap och anger var du hittar värdena 
 | --- | --- |
 | NameNode | Den fullständiga sökvägen till Azure Storage-behållare som är kopplad till ditt HDInsight-kluster. |
 | jobTracker | Internt värdnamnet för ditt active kluster YARN head nod. På startsidan Ambari Välj YARN från listan över tjänster och sedan Active Resource Manager. Värdnamnet URI visas överst på sidan. Lägg till port 8050. |
-| queueName | Namnet på den YARN-kö som används vid schemaläggning av Hive-åtgärder. Lämna som standard. |
-| oozie.use.system.libpath | Lämna som SANT. |
-| appBase | Sökvägen till undermappen i Azure Storage där du distribuerar Oozie arbetsflödet och stödfiler. |
-| oozie.wf.application.path | Platsen för Oozie-arbetsflödet `workflow.xml` ska köras. |
+| Könamn | Namnet på den YARN-kö som används vid schemaläggning av Hive-åtgärder. Lämna som standard. |
+| oozie.Use.system.libpath | Lämna som SANT. |
+| programbasen | Sökvägen till undermappen i Azure Storage där du distribuerar Oozie arbetsflödet och stödfiler. |
+| oozie.WF.Application.PATH | Platsen för Oozie-arbetsflödet `workflow.xml` ska köras. |
 | hiveScriptLoadPartition | I Azure Storage sökvägen till filen Hive `hive-load-flights-partition.hql`. |
 | hiveScriptCreateDailyTable | I Azure Storage sökvägen till filen Hive `hive-create-daily-summary-table.hql`. |
 | hiveDailyTableName | Det dynamiskt genererade namnet för mellanlagringstabellen. |
@@ -612,7 +610,7 @@ Endast nya egenskaper som introducerades i detta `job.properties` filen är:
 
 | Egenskap | Värdekälla |
 | --- | --- |
-| oozie.coord.application.path | Anger platsen för den `coordinator.xml` -fil som innehåller Oozie-koordinator för att köra. |
+| oozie.coord.Application.PATH | Anger platsen för den `coordinator.xml` -fil som innehåller Oozie-koordinator för att köra. |
 | hiveDailyTableNamePrefix | Ett prefix för att dynamiskt skapa tabellnamnet för mellanlagringstabellen. |
 | hiveDataFolderPrefix | Prefix för sökvägen där alla mellanlagringstabellerna ska lagras. |
 

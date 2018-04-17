@@ -1,8 +1,8 @@
 ---
-title: "Resurser, roller och åtkomst kontroll i Azure Application Insights | Microsoft Docs"
-description: "Ägare, deltagare och läsare av din organisations insikter."
+title: Resurser, roller och åtkomst kontroll i Azure Application Insights | Microsoft Docs
+description: Ägare, deltagare och läsare av din organisations insikter.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bb6c33c083e1be690b70b63ca087c923d43f3ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomstkontroll i Application Insights
-Du kan styra vem som har läs- och uppdatera åtkomst till dina data i Azure [Programinsikter][start], med hjälp av [rollbaserad åtkomstkontroll i Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+Du kan styra vem som har läs- och uppdatera åtkomst till dina data i Azure [Programinsikter][start], med hjälp av [rollbaserad åtkomstkontroll i Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Tilldela åtkomst till användare i den **resursgrupp eller prenumeration** som programmet resurs tillhör - inte i resursen sig själv. Tilldela den **Application Insights component contributor** roll. Detta säkerställer enhetlig kontroll över åtkomsten till webbtester och aviseringar tillsammans med din programresurs. [Läs mer](#access).
@@ -45,7 +45,7 @@ Första vissa definitioner:
 * [**Prenumerationen** ](https://portal.azure.com) - om du vill använda Application Insights eller andra Azure-resurser som du loggar in på en Azure-prenumeration. Varje resursgrupp som hör till en Azure-prenumeration där du väljer pris-paketet och, om det är en organisation prenumeration, Välj medlemmar och deras behörigheter för åtkomst.
 * [**Microsoft-konto** ] [ account] -användarnamn och lösenord som du använder för att logga in på Microsoft Azure-prenumerationer, XBox Live, Outlook.com och andra Microsoft-tjänster.
 
-## <a name="access"></a>Kontrollera åtkomst i resursgruppen
+## <a name="access"></a> Kontrollera åtkomst i resursgruppen
 Det är viktigt att förstå att förutom den resurs du skapat för ditt program, finns också separat dolda resurser för aviseringar och webbtester. De är kopplade till samma [resursgruppen](#resource-group) som ditt program. Du kan också har placerat andra Azure-tjänster i det finns till exempel webbplatser eller lagring.
 
 ![Resurser i Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -91,7 +91,7 @@ Om användaren inte är i katalogen, kan du bjuda in vem som helst med ett Micro
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-* [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md)
+* [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

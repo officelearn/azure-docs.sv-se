@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervakning av användning och de uppskattade kostnaderna
 
@@ -59,14 +59,18 @@ Här visas en annan uppsättning mätare – mätare som motsvarar nya priserna.
 1. Insikt och Analytics\Overage per nod
 2. Insikt och Analytics\Included per nod
 3. Överförbrukning programdata för Insights\Basic
-4. Application Insights\Included Data
+4. Insights\Included programdata
 
-kombineras till en ny gemensamma data införandet mätare kallas **delade Services\Data införandet** eftersom nya priserna saknar nod-baserade inkluderade data allokeringar.
+kombineras till en ny gemensamma data införandet mätare kallas **delade Services\Data införandet** eftersom nya priserna inte har rättigheter för per nod-ingår data.
 
 En annan ändring som visas är den data som inhämtas i logganalys eller Application Insights i områden med högre kostnader visas med de nya nationella mätare korrekt efter detta, exempelvis **”Datapåfyllning (USA, västra centrala)**.
 
 > [!NOTE]
-> Om du har en Operations Management Suite (OMS)-prenumeration får du logganalys och Application Insights data införandet allokeringar för varje nod som har köpt. Eftersom detta tillämpas på kontonivå (inte på prenumerationen) kan inte denna uppskattning visa effekten av dessa allokeringar. Kontakta din kontorepresentant för en mer detaljerad beskrivning av nya priserna i det här fallet.
+> Per prenumeration-uppskattade kostnaderna inte factor till kontot nivå per nod rättigheter för prenumerationen Operations Management Suite (OMS). Kontakta din kontorepresentant för en mer detaljerad beskrivning av nya priserna i det här fallet.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nya priser modell och rättigheter för Operations Management Suite-prenumeration
+
+Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigad till per nod data införandet rättigheter för [logganalys](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) och [Programinsikter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Ta emot dessa rättigheter för Log Analytics arbetsytor eller Application Insights-resurser i en viss prenumeration att prenumerationen Prismodell måste vara i pre-April 2018 prisnivå modell var logganalys ”Per nod (OMS)” prisnivån och Application Insights ”Enterprise” priser plan är tillgängliga. Beroende på antalet noder i sviten som din organisation har köpt flytta några nya priserna prenumerationer kan fortfarande vara fördelaktigt, men detta kräver noggrant övervägande. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Ändringar när du flyttar till en ny prissättningsmodell
 

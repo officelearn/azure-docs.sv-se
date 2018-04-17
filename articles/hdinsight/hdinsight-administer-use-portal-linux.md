@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -63,7 +61,7 @@ När du skapar ett HDInsight-kluster måste du ange en Azure-prenumeration. Klus
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Klicka på **prenumeration** i den vänstra menyn. Den har en gul nyckelikonen. Du bör se en lista över prenumerationer.
     3. Klicka på den prenumeration som du använder för att skapa kluster. 
-    4. Klicka på **min behörighet**.  Det visar dina [rollen](../active-directory/role-based-access-control-what-is.md#built-in-roles) för prenumerationen. Du behöver minst deltagare behörighet att skapa HDInsight-kluster.
+    4. Klicka på **min behörighet**.  Det visar dina [rollen](../role-based-access-control/overview.md#built-in-roles) för prenumerationen. Du behöver minst deltagare behörighet att skapa HDInsight-kluster.
 
 - Använda en befintlig resursgrupp:
 
@@ -89,7 +87,7 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
 
     **Vänstra menyn:**
     * **Aktivitetsloggar**: visa och fråga aktivitetsloggar.
-    * **Åtkomstkontroll (IAM)**: Använd rolltilldelningar.  Se [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../active-directory/role-based-access-control-configure.md).
+    * **Åtkomstkontroll (IAM)**: Använd rolltilldelningar.  Se [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
     * **Taggar**: Om du vill ange nyckel/värde-par för att definiera en anpassad taxonomi av dina molntjänster. Du kan till exempel skapa en nyckel som heter **projekt**, och sedan använda ett värde som är gemensamma för alla tjänster som är associerad med ett visst projekt.
     * **Diagnostisera och lösa problem**: visa felsökningsinformation.
     * **Låser**: lägga till ett lås för att förhindra att klustret som ändras eller tas bort.
@@ -158,7 +156,7 @@ Effekten av att ändra antalet datanoder som varierar för varje typ av kluster 
     Sömlöst kan du öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller körs jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras korrekt så att klustret alltid kvar i ett fungerande tillstånd.
 
     När ett Hadoop-kluster skalas ned genom att minska antalet datanoder som, en del av tjänsterna i klustret har startats om. Detta medför alla körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
-* Hbase
+* HBase
 
     Du kan sömlöst Lägg till eller ta bort noder till HBase-kluster, medan den körs. Regional servrar balanseras automatiskt inom några minuter för att slutföra åtgärden. skalning. Du kan också manuellt balansera regionala servrar genom att logga in på headnode i klustret och köra följande kommandon från en kommandotolk:
 
@@ -237,7 +235,7 @@ Ambari innehåller en intuitiv är enkelt att använda Hadoop management webbgr�
 
 1. Ange klustret användarnamn och lösenord.  Klustret Standardanvändarnamnet är _admin_. Ambari web UI ser ut:
 
-    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+    ![HDInsight Hadoop Ambari-Webbgränssnittet](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
 
 Mer information finns i [hantera HDInsight-kluster med Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md).
 
@@ -281,7 +279,7 @@ Ambari och ändrar lösenordet på alla noder i klustret.
 
    | Fält | Värde |
    | --- | --- |
-   | namn |Ändra ssh lösenord |
+   | Namn |Ändra ssh lösenord |
    | Bash-skript-URI |URI: N till filen changepassword.sh |
    | Noder (Head, Worker, Nimbus, chef, Zookeeper osv.) |✓ för alla nodtyper som anges |
    | Parametrar |Ange SSH-användarnamn och det nya lösenordet. Det bör finnas ett blanksteg mellan användarnamnet och lösenordet. |

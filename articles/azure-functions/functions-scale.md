@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions skala och vara värd för | Microsoft Docs"
-description: "Lär dig mer om att välja mellan Azure Functions förbrukning plan och App Service-plan."
+title: Azure Functions skala och vara värd för | Microsoft Docs
+description: Lär dig mer om att välja mellan Azure Functions förbrukning plan och App Service-plan.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funktioner, funktioner, förbrukning plan, apptjänstplan, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: Azure funktioner, funktioner, förbrukning plan, apptjänstplan, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
 
@@ -74,7 +74,7 @@ Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du v�
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-###Always On
+### Always On
 
 Om du kör på en apptjänstplan, bör du aktivera den **alltid på** inställningen så att funktionen appen körs korrekt. På en apptjänstplan går functions-runtime inaktiv efter några minuter av inaktivitet, så att endast HTTP-utlösare kommer ”väcka” dina funktioner. Detta liknar hur WebJobs måste ha alltid aktiverat. 
 
@@ -86,7 +86,7 @@ På en plan för användning eller i en apptjänstplan kräver en funktionsapp e
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Läs mer om lagringskontotyper i [introduktion till Azure Storage-tjänster](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Läs mer om lagringskontotyper i [introduktion till Azure Storage-tjänster](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Så här fungerar förbrukning planen
 

@@ -1,25 +1,23 @@
 ---
-title: "Lägga till Hive-bibliotek under HDInsight - kluster: Azure | Microsoft Docs"
-description: "Lär dig hur du lägger till Hive-bibliotek (jar-filer) till ett HDInsight-kluster när klustret skapas."
+title: 'Lägga till Hive-bibliotek under HDInsight - kluster: Azure | Microsoft Docs'
+description: Lär dig hur du lägger till Hive-bibliotek (jar-filer) till ett HDInsight-kluster när klustret skapas.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägg till anpassade Hive-bibliotek när du skapar ditt HDInsight-kluster
 
@@ -56,7 +54,7 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
 * Storage-konto som innehåller bibliotek med jar-filer **måste** länkas till HDInsight-klustret när du skapar. Det måste antingen vara standardkontot för lagring eller ett konto som har lagts till via __valfri konfiguration__.
 
-* WASB-sökvägen till behållaren måste anges som en parameter för skriptåtgärden. Om exempelvis burkar lagras i en behållare med namnet **libs** på ett lagringskonto med namnet **mystorage**, parametern skulle vara  **wasb://libs@mystorage.blob.core.windows.net/** .
+* WASB-sökvägen till behållaren måste anges som en parameter för skriptåtgärden. Om exempelvis burkar lagras i en behållare med namnet **libs** på ett lagringskonto med namnet **mystorage**, parametern skulle vara **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
   > Det här dokumentet förutsätts att du har redan skapat ett lagringskonto, blob-behållare, och överföra filer till den.
@@ -76,7 +74,7 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
    * **NAMNET**: Ange ett eget namn för skriptåtgärden.
 
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**: Markera det här alternativet.
 
@@ -84,7 +82,7 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
    * **ZOOKEEPER**: lämnar fältet tomt.
 
-   * **PARAMETRARNA**: Ange WASB-adressen för kontot för behållaren och lagring som innehåller burkar. Till exempel  **wasb://libs@mystorage.blob.core.windows.net/** .
+   * **PARAMETRARNA**: Ange WASB-adressen för kontot för behållaren och lagring som innehåller burkar. Till exempel **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. Längst ned i den **skriptåtgärder**, använda den **Välj** för att spara konfigurationen.
 

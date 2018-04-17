@@ -5,19 +5,19 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 4c911937226591124404c95b73b82b78e76649ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Etablera en djup Learning virtuell dator på Azure 
 
@@ -46,7 +46,7 @@ Här följer stegen för att skapa en instans av djup Learning virtuell dator:
 > [!NOTE]
 > Eftersom DLVM har etablerats på Azure NC-serien GPU VM-instanser måste du välja någon av platser i Azure som har GPU-kort. För närvarande platser som har GPU virtuella datorer är: **östra USA, norra centrala USA, södra centrala USA, västra USA 2, Nordeuropa, Västeuropa**. Den senaste listan Kontrollera den [Azure produkter efter Region sidan](https://azure.microsoft.com/en-us/regions/services/) och leta efter **NC-serien** under **Compute**. 
 
-   2. **Inställningar för**: Välj en storlek för NC-serien GPU virtuell dator som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Inställningar för**: Välj en storlek för NC-serien GPU virtuell dator som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
    
    3. **Sammanfattning**: Kontrollera att all information du angett är korrekt.
    5. **Köpa**: Klicka på **köpa** att starta etableringen. En länk som villkoren i transaktionen. Den virtuella datorn inte har några ytterligare kostnader utöver beräkning för server-storlek som du har valt i den **storlek** steg. 

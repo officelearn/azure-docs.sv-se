@@ -1,25 +1,25 @@
 ---
-title: "Ansluta till Kafka med virtuella nätverk - Azure HDInsight | Microsoft Docs"
-description: "Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtual Network. Lär dig hur du ansluter till Kafka från utveckling klienter med en VPN-gateway eller från klienter i det lokala nätverket med hjälp av en VPN-gateway-enhet."
+title: Ansluta till Kafka med virtuella nätverk - Azure HDInsight | Microsoft Docs
+description: Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtual Network. Lär dig hur du ansluter till Kafka från utveckling klienter med en VPN-gateway eller från klienter i det lokala nätverket med hjälp av en VPN-gateway-enhet.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
+ms.devlang: ''
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53502257d85c88195a40b7bda033483bd97ff3f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight via Azure-nätverk
 
@@ -62,7 +62,7 @@ HDInsight kan inte direkt anslutning till Kafka via det offentliga internet. Anv
 
 Mer information om hur du använder HDInsight i ett virtuellt nätverk finns [utöka HDInsight med hjälp av Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a>Ansluta till Kafka från ett lokalt nätverk
+## <a id="on-premises"></a> Ansluta till Kafka från ett lokalt nätverk
 
 Om du vill skapa ett Kafka-kluster som kommunicerar med ditt lokala nätverk, följer du stegen i den [ansluta HDInsight till ditt lokala nätverk](./../connect-on-premises-network.md) dokumentet.
 
@@ -78,7 +78,7 @@ Dessa steg skapar följande konfiguration:
 
 Om du vill verifiera att en Kafka-klient kan ansluta till klustret från lokala, Följ stegen i den [exempel: Python klienten](#python-client) avsnitt.
 
-## <a id="vpnclient"></a>Anslut till Kafka med en VPN-klient
+## <a id="vpnclient"></a> Anslut till Kafka med en VPN-klient
 
 Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
@@ -244,7 +244,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
 Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter. Den här konfigurationen fungerar inte med VPN-klienten för programvara som den inte kan använda namnmatchning för entiteter i det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
 
-1. Använd en webbläsare och gå till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
+1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
 
     När du uppmanas, använda HTTPS-användarnamn och lösenord för klustret. Ambari-Webbgränssnittet för klustret visas.
 
@@ -292,7 +292,7 @@ Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter
 
 Om du vill ansluta till VPN-gateway den __Anslut till Azure__ avsnitt i den [konfigurerar en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) dokumentet.
 
-## <a id="python-client"></a>Exempel: Python-klient
+## <a id="python-client"></a> Exempel: Python-klient
 
 Använd följande steg för att verifiera anslutningarna till Kafka, skapa och köra en Python producenten och konsumenten:
 

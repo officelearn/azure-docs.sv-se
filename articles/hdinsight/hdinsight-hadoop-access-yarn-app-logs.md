@@ -1,36 +1,34 @@
 ---
-title: "Åtkomst Hadoop YARN programloggar programmässigt - Azure | Microsoft Docs"
-description: "Programmet Access loggar programmässigt på ett Hadoop-kluster i HDInsight."
+title: Åtkomst Hadoop YARN programloggar programmässigt - Azure | Microsoft Docs
+description: Programmet Access loggar programmässigt på ett Hadoop-kluster i HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90323af4a1f4526ab9b26811c8679337076112d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Åtkomst programloggar YARN på Windows-baserade HDInsight
-Det här avsnittet beskriver hur du kommer åt loggarna för YARN (ännu en annan resurs förhandlare)-program som har gått ut på en Windows-baserade Hadoop-kluster i Azure HDInsight
+Det här dokumentet förklarar hur du kommer åt loggarna för YARN-program som har gått ut på en Windows-baserade Hadoop-kluster i Azure HDInsight
 
 > [!IMPORTANT]
 > Informationen i det här dokumentet gäller endast för Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). För information om hur du använder YARN loggar på Linux-baserade HDInsight-kluster, se [åtkomst YARN programloggar på Linux-baserade Hadoop i HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Ett Windows-baserade HDInsight-kluster.  Se [skapa Windows-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN tidslinjen Server
@@ -46,17 +44,22 @@ Allmän information om program innehåller följande typer av data:
 * Information om försök görs att slutföra programmet
 * De behållare som används av ett visst program försök
 
-I HDInsight-kluster lagras informationen i Azure Resource Manager till en butik historik i standardbehållaren för ditt Azure Storage-standardkonto. Allmänna data på slutförda program kan hämtas via ett REST-API:
+Den här informationen lagras i HDInsight-kluster i Azure Resource Manager. Informationen sparas i historiken arkivet i standardlagring för klustret. Allmänna data på slutförda program kan hämtas via ett REST-API:
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
 
 ## <a name="yarn-applications-and-logs"></a>YARN program och loggfiler
-YARN stöder flera programmeringsmodeller (MapReduce är en av dem) genom Frikoppling resurshantering från schemaläggning/programövervakning. Detta görs via en global *ResourceManager* (RM) per arbetsnoden *NodeManagers* (NMs), och programspecifika *ApplicationMasters* (AMs). Programspecifika AM förhandlar resurser (processor, minne, disk, nätverk) för att köra programmet med RM. RM fungerar med NMs att bevilja dessa resurser, som beviljas som *behållare*. AM ansvarar för att spåra förloppet för de behållare som tilldelats av RM. Ett program kan kräva många behållare beroende på typ av programmet.
+YARN stöder flera programmeringsmodeller genom Frikoppling resurshantering från schemaläggning/programövervakning. YARN använder en global *ResourceManager* (RM) per arbetsnoden *NodeManagers* (NMs), och programspecifika *ApplicationMasters* (AMs). Programspecifika AM förhandlar resurser (processor, minne, disk, nätverk) för att köra programmet med RM. RM fungerar med NMs att bevilja dessa resurser, som beviljas som *behållare*. AM ansvarar för att spåra förloppet för de behållare som tilldelats av RM. Ett program kan kräva många behållare beroende på typ av programmet.
 
-Dessutom kan varje program kan bestå av flera *program försöker* för att avsluta med krascher eller på grund av förlust av kommunikation mellan en AM och en RM. Därför måste beviljas behållare till en specifik försök av ett program. En behållare ger kontext för grundläggande enheten för arbete som utförs av en YARN-program i en mening och allt arbete som utförs inom ramen för en behållare utförs på enskild worker-nod där behållaren har tilldelats. Se [YARN begrepp] [ YARN-concepts] ytterligare referens.
+* Varje program kan bestå av flera *program försöker*. 
+* Behållare beviljas till en specifik försök av ett program. 
+* En behållare innehåller kontexten för en grundläggande arbetsenhet. 
+* Arbete som utförs inom ramen för en behållare har utförts på enskild arbetsnoden som behållaren har tilldelats. 
 
-Programloggarna (och associerade behållaren loggar) är kritiska felsöka problematiska Hadoop-program. YARN tillhandahåller ett bra ramverk för att samla in, sammanställa och lagra programloggarna med den [loggen aggregering] [ log-aggregation] funktion. Funktionen Log aggregering gör att nå programloggarna mer deterministisk aggregerar loggar över alla behållare på en arbetsnod och lagrar dem som en sammansatt loggfil per arbetsnoden på filsystemet när ett program har slutförts. Programmet kan använda hundratals eller tusentals behållare, men loggar för alla behållare som körs på en enda arbetsnod kommer alltid att slås samman till en fil, vilket resulterar i en loggfil per arbetsnoden som används av ditt program. Aggregering av loggen är aktiverad som standard i HDInsight-kluster (version 3.0 och senare), och aggregerade loggar finns i standardbehållaren på klustret på följande plats:
+Mer information finns i [YARN begrepp][YARN-concepts].
+
+Programloggarna (och associerade behållaren loggar) är kritiska felsöka problematiska Hadoop-program. YARN tillhandahåller ett bra ramverk för att samla in, sammanställa och lagra programloggarna med den [loggen aggregering] [ log-aggregation] funktion. Funktionen Log aggregering gör att nå programloggarna mer deterministisk aggregerar loggar över alla behållare på en arbetsnod och lagrar dem som en sammansatt loggfil per arbetsnoden på filsystemet när ett program har slutförts. Programmet kan använda hundratals eller tusentals behållare, men loggar för alla behållare som körs på en enda arbetsnod sammanställs till en fil, vilket resulterar i en fil per arbetsnoden som används av ditt program. Aggregering av loggen är aktiverad som standard i HDInsight-kluster (version 3.0 och senare), och aggregerade loggar finns i standardbehållaren på klustret på följande plats:
 
     wasb:///app-logs/<user>/logs/<applicationId>
 
@@ -73,7 +76,7 @@ YARN ResourceManager-Användargränssnittet körs på klustret headnode och kan 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på den vänstra menyn **Bläddra**, klickar du på **HDInsight-kluster**, klickar du på ett Windows-baserade kluster som du vill komma åt programmet YARN-loggarna.
-3. Klicka på den översta menyn **instrumentpanelen**. Du ser en sida öppnas på en ny webbläsare flik med namnet **HDInsight frågan konsolen**.
+3. Klicka på den översta menyn **instrumentpanelen**. En sida öppnas på en ny webbläsare flik med namnet **HDInsight frågan konsolen**.
 4. Från **HDInsight frågan konsolen**, klickar du på **Yarn-Användargränssnittet**.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html

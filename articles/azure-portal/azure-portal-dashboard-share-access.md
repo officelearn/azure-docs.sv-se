@@ -1,8 +1,8 @@
 ---
-title: "Dela instrumentpaneler med Azure portal genom att använda RBAC | Microsoft Docs"
-description: "Den här artikeln beskriver hur du delar en instrumentpanel i Azure-portalen med hjälp av rollbaserad åtkomstkontroll."
+title: Dela instrumentpaneler med Azure portal genom att använda RBAC | Microsoft Docs
+description: Den här artikeln beskriver hur du delar en instrumentpanel i Azure-portalen med hjälp av rollbaserad åtkomstkontroll.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 33ddfef1e23a6ff0c2cb8e359d408d2c42cbcf3a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 75f06e49aa317fc887831a9e04861d9a7989bdb2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
-När du har konfigurerat en instrumentpanel kan du publicera den och dela den med andra användare i din organisation. Du att andra ska kunna visa instrumentpanelen med hjälp av Azure [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md). Du tilldelar en användare eller grupp av användare till en roll och rollen definierar om dessa användare kan visa eller ändra publicerade instrumentpanelen. 
+När du har konfigurerat en instrumentpanel kan du publicera den och dela den med andra användare i din organisation. Du att andra ska kunna visa instrumentpanelen med hjälp av Azure [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Du tilldelar en användare eller grupp av användare till en roll och rollen definierar om dessa användare kan visa eller ändra publicerade instrumentpanelen. 
 
 Alla publicerade instrumentpaneler implementeras som Azure-resurser, vilket innebär att de finns som hanterbara objekt inom din prenumeration och ingår i en resursgrupp.  Ur ett access control skiljer instrumentpaneler sig vissa resurser, till exempel en virtuell dator eller ett lagringskonto.
 
@@ -43,7 +43,7 @@ Här är ett exempel.  Anta att du har en Azure-prenumeration och olika medlemma
 
 Du kan dock också tilldela behörigheter till den resursgrupp som innehåller flera instrumentpaneler eller till en enskild instrumentpanel. Du kan till exempel bestämma att en grupp användare bör ha begränsad behörighet över prenumerationen men större åtkomst till en viss instrumentpanel. Du tilldelar dessa användare till en roll för instrumentpanelen. 
 
-## <a name="publish-dashboard"></a>publicera instrumentpanelen
+## <a name="publish-dashboard"></a>Publicera instrumentpanel
 Anta att du har konfigurerat en instrumentpanel som du vill dela med en grupp användare i din prenumeration. Stegen nedan beskriver en anpassad grupp som heter Storage Manager, men du kan också namnge din grupp vad du vill. Information om hur du skapar en Active Directory-grupp och lägga till användare i gruppen finns [hantera grupper i Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. I instrumentpanelen, väljer **resursen**.
@@ -74,6 +74,6 @@ Instrumentpanelen publiceras nu. Om de behörigheter som ärvts från prenumerat
      ![tilldelade roller](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* En lista över roller finns [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
+* En lista över roller finns [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
 * Läs om hur du hanterar resurser i [hantera Azure-resurser via portalen](resource-group-portal.md).
 

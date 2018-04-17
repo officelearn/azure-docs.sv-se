@@ -1,31 +1,26 @@
 ---
-title: "Elastisk frågan begrepp med Azure SQL Data Warehouse | Microsoft Docs"
-description: "Elastisk frågan begrepp med Azure SQL Data Warehouse"
+title: Elastisk fråga - access-data i Azure SQL Data Warehouse från Azure SQL Database | Microsoft Docs
+description: Läs om bästa praxis för att använda med elastisk fråga att komma åt data i Azure SQL Data Warehouse från Azure SQL Database.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
-ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.reviewer: jrj
+ms.openlocfilehash: 909271792b73b5fdc517847db7cfd6c8cf2092bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Hur du använder elastisk fråga med SQL Data Warehouse
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Metodtips för elastiska frågan i Azure SQL Database att komma åt data i Azure SQL Data Warehouse
+Läs om metodtips för elastiska fråga att komma åt data i Azure SQL Data Warehouse från Azure SQL-databas. 
 
-
-
-Elastisk frågan med Azure SQL Data Warehouse kan du skriva Transact-SQL i en SQL-databas som skickas via en fjärranslutning till en Azure SQL Data Warehouse-instans genom att använda externa tabeller. Med den här funktionen ger lägre kostnader och mer performant arkitekturer, beroende på scenario.
+## <a name="what-is-an-elastic-query"></a>Vad är en elastisk fråga?
+En elastisk fråga kan du använda T-SQL och externa tabeller för att skriva en fråga i en Azure SQL-databas som skickas via en fjärranslutning till en Azure SQL data warehouse. Med den här funktionen ger lägre kostnader och mer performant arkitekturer, beroende på scenario.
 
 Den här funktionen kan två primära scenarier:
 
@@ -46,10 +41,7 @@ Elastisk frågan kan ge möjlighet att enkelt välja delmängder av SQL data war
 
 Elastisk fråga tillåter fjärråtkomst frågeexekvering på en instans av SQL data warehouse. En kan använda bäst för både SQL database och SQL data warehouse genom att avgränsa varm eller kall data mellan de två databaserna. Användare kan behålla nyare data i en SQL-databas, som kan hantera rapporter och stora mängder genomsnittlig företagsanvändare. När mer data eller beräkning krävs kan en användare avlasta delen av frågan till en SQL data warehouse-instans där stora mängder kan behandlas snabbare och effektivare.
 
-
-
-## <a name="elastic-query-overview"></a>Översikt över elastisk fråga
-
+## <a name="elastic-query-process"></a>Elastisk frågeprocessen
 En elastisk fråga kan användas för att tillhandahålla data som finns i en SQL data warehouse instanser av SQL-databasen. Elastisk frågan kan frågor från en SQL-databas som refererar till tabeller i en fjärransluten SQL data warehouse-instans. 
 
 Det första steget är att skapa en extern definitionen av datakällan som refererar till SQL data warehouse instansen, som använder befintliga användarautentiseringsuppgifter inom SQL data warehouse. Det krävs inga ändringar på fjärrinstansen för SQL data warehouse. 
@@ -58,13 +50,12 @@ Det första steget är att skapa en extern definitionen av datakällan som refer
 > 
 > Du måste ha behörigheten ALTER ANY extern DATAKÄLLA. Den här behörigheten har behörigheten ALTER DATABASE. ALTER ANY extern DATAKÄLLA behörighet att referera till fjärrdatakällor.
 
-Därefter skapar vi en fjärransluten externa tabelldefinitionen i en SQL-databasinstans som pekar på en fjärrtabell i SQL data warehouse. När du använder en fråga som använder en extern tabell skickas delen av en fråga som refererar till den externa tabellen till SQL data warehouse-instans som ska bearbetas. När frågan har slutförts skickas resultatet tillbaka till anropande SQL-databasinstansen. Ett kort för att skapa en elastisk fråga mellan SQL-databas och SQL data warehouse, finns det [konfigurera elastisk fråga med SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Skapa sedan en fjärransluten externa tabelldefinition i en SQL-databasinstans som pekar på en fjärrtabell i SQL data warehouse. När en fråga använder en extern tabell, skickas delen av frågan refererar till den externa tabellen till SQL data warehouse-instans som ska bearbetas. När frågan har slutförts skickas resultatet tillbaka till anropande SQL-databasinstansen. Ett kort för att skapa en elastisk fråga mellan SQL-databas och SQL data warehouse, finns det [konfigurera elastisk fråga med SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
 Mer information om elastisk fråga med SQL-databasen finns på [översikt över Azure SQL Database-elastisk frågan][Azure SQL Database elastic query overview].
 
-
-
 ## <a name="best-practices"></a>Bästa praxis
+Använd följande rekommenderade metoder för att använda elastisk frågan effektivt.
 
 ### <a name="general"></a>Allmänt
 
@@ -78,9 +69,9 @@ Mer information om elastisk fråga med SQL-databasen finns på [översikt över 
 
 ### <a name="elastic-querying"></a>Elastisk frågor
 
-- I många fall kan en vill hantera en typ av sträckta tabellen som var en del av tabellen finns i SQL-databasen som cachelagrade data för prestanda med resten av data som lagras i SQL Data Warehouse. Behöver du ha två objekt i SQL-databas: en extern tabell i SQL-databas som refererar till bastabellen i SQL Data Warehouse och ”cache-delen av tabell i SQL-databasen. Överväg att skapa en vy över den cachelagra delen av den externa tabellerna och vilka unioner både tabeller och tillämpar filter som avgränsar data materialiserad i SQL Database och SQL Data Warehouse-data som exponeras via externa tabeller.
+- I många fall kan en vill hantera en typ av sträckta tabellen som var en del av tabellen finns i SQL-databasen som cachelagrade data för prestanda med resten av data som lagras i SQL Data Warehouse. Du behöver två objekt i SQL-databas: en extern tabell i SQL-databas som refererar till bastabellen i SQL Data Warehouse och ”cache-delen av tabell i SQL-databasen. Överväg att skapa en vy över den cachelagra delen av den externa tabellerna och vilka unioner både tabeller och tillämpar filter som avgränsar data materialiserad i SQL Database och SQL Data Warehouse-data som exponeras via externa tabeller.
 
-  Anta att vi vill behålla det senaste år av data i en SQL-databasinstansen. Vi har två tabeller **externt Order**, som hänvisar till datalagret sorterar tabeller och **dbo. Order** som motsvarar den senaste år kan du se data i SQL-databasinstansen. I stället för att be användarna att bestämma om du vill fråga en tabell eller en annan skapa vi en vy över båda tabellerna på partitionen kopplingspunkt det senaste året.
+  Anta att du vill behålla det senaste år av data i en SQL-databasinstansen. Den **externt Order** tabellreferenser datalagret sorterar tabeller. Den **dbo. Order** representerar den senaste år kan du se data i SQL-databasinstansen. Skapa en vy över båda tabellerna på det senaste året partition kopplingspunkt i stället för att be användarna att bestämma om du vill fråga en tabell eller den andra.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -115,23 +106,21 @@ Mer information om elastisk fråga med SQL-databasen finns på [översikt över 
 ### <a name="moving-data"></a>Flytta data 
 
 - Om möjligt, behålla datahantering enklare och Lägg endast källtabellerna så att uppdateringar är enkelt hanterbar mellan data warehouse och databasen instanser.
-- Flytta data på nivån partition med tömning och fyll semantik att minska kostnaden för frågan på nivån data warehouse och mängden data som flyttas till kontinuerligt databasinstansen. 
+- Flytta data på nivån partition med tömma och fill semantik att minska kostnaden för fråga på data warehouse nivå och mängden data som flyttas till hålla databasinstansen uppdaterade. 
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>När du ska välja Azure Analysis Services eller SQL-databas
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+Använda Azure Analysis Services när:
 
 - Du tänker använda ditt cacheminne till ett BI-verktyg som överför stora mängder små frågor
 - Du behöver subsecond svarstid
 - Du har erfarenhet av att hantera/utveckla modeller för Analysis Services 
 
-#### <a name="sql-database"></a>SQL Database
+Använda Azure SQL-databas när:
 
 - Du vill fråga Cachedata med SQL
 - Du behöver fjärrkörning för vissa frågor
 - Du har större cache-krav
-
-
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
@@ -161,19 +150,11 @@ S: du kan lagra spatialtyper i SQL Data Warehouse som varbinary(max)-värden. N�
 
 ![spatialtyper](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->

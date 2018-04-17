@@ -1,31 +1,29 @@
 ---
-title: "Använda flera HDInsight-kluster med ett Azure Data Lake Store-konto - Azure | Microsoft Docs"
-description: "Lär dig hur du använder fler än ett HDInsight-kluster med ett enda Data Lake Store-konto"
-keywords: "hdinsight lagring, hdfs, strukturerade data, Ostrukturerade data, datasjölager"
+title: Använda flera HDInsight-kluster med ett Azure Data Lake Store-konto - Azure | Microsoft Docs
+description: Lär dig hur du använder fler än ett HDInsight-kluster med ett enda Data Lake Store-konto
+keywords: hdinsight lagring, hdfs, strukturerade data, Ostrukturerade data, datasjölager
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Store-konto
 
 Från och med HDInsight version 3.5 kan skapa du HDInsight-kluster med Azure Data Lake Store-konton som standard filsystemet.
-Data Lake Store stöder obegränsad lagring som gör det perfekta inte värd för stora mängder data. men även som värd för flera HDInsight-kluster som delar ett enda Data Lake Store-konto. Instructionson om hur du skapar ett HDInsight-kluster med Data Lake Store som lagring, finns [skapa HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store stöder obegränsad lagring som gör det perfekta inte värd för stora mängder data. men även som värd för flera HDInsight-kluster som delar ett enda Data Lake Store-konto. Anvisningar om hur du skapar ett HDInsight-kluster med Data Lake Store som lagring finns [skapa HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Den här artikeln innehåller rekommendationer för Data Lake lagra administratör för att konfigurera en enskild och delad lagring Datasjökontot som kan användas på flera **active** HDInsight-kluster. De här rekommendationerna gäller för värd för flera säkra som inte är säkra Hadoop-kluster på ett delade Data Lake store-konto.
 
@@ -63,7 +61,7 @@ Några viktiga saker att tänka på.
 
     |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngiven användarbehörighet | Namngiven grupp | Namngivna gruppbehörigheter |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/Clusters/finanace/fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
+    |/Clusters/finanace/fincluster01 | rwxr-x---  |Tjänstens huvudnamn |FINGRP  |- |-  |-   |-  | 
    
 
 
@@ -94,7 +92,7 @@ De här inställningarna är känt att påverkar en viss HDInsight användningsf
 Enligt informationen i YARN-JIRA länkade tidigare under lokaliseringen offentliga resurser validerar i localizer att de begärda resurserna verkligen offentliga genom att kontrollera deras behörigheter för fjärråtkomst-filsystemet. Alla LocalResource som inte uppfyller villkoret avvisas för lokalisering. Kontrollera behörigheter, inkluderar läsbehörighet till filen för ”andra”. Det här scenariot fungerar inte out box när värd HDInsight-kluster i Azure Data Lake eftersom Azure Data Lake nekar åtkomst till ”andra” på rotnivå för mappen.
 
 #### <a name="workaround"></a>Lösning
-Ange Läs-körningsbehörighet **andra** via hierarkin, till exempel på  **/** , **/kluster** och **/kluster/ekonomi** som visas i tabellen ovan.
+Ange Läs-körningsbehörighet **andra** via hierarkin, till exempel på **/**, **/kluster** och **/kluster/ekonomi** som visas i tabellen ovan.
 
 ## <a name="see-also"></a>Se också
 

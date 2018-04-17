@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 Den här artikeln beskrivs två sätt att ta över ett DNS-namn i en ohanterad katalog i Azure Active Directory (AD Azure). När en Självbetjäningsanvändare som registrerar sig för en molnbaserad tjänst som använder Azure AD, läggs de till en ohanterad Azure AD-katalog baserat på deras e-postdomän. Mer information om självbetjäning eller ”viral” registreringen för en tjänst finns [vad är självbetjäningsregistrering för Azure Active Directory?]()
@@ -83,14 +83,12 @@ När du verifiera ditt ägarskap till domännamnet Azure AD tar bort domännamne
 - Användare
 - Prenumerationer
 - Licenstilldelning
- 
-Den [ **ForceTakeover** alternativet](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) för externa domänadministratör för namnet övertag stöds bara två tjänster, Power BI och Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Stöd för externa administratören övertag
 Externa administratören övertag stöds av följande onlinetjänster:
 
 - Power BI
-- Tjänsten Azure Rights Management (RMS)
+- Azure Rights Management
 - exchange online
 
 Stöds serviceplaner inkluderar:
@@ -99,12 +97,19 @@ Stöds serviceplaner inkluderar:
 - Power BI Pro
 - PowerApps ledigt
 - PowerFlow ledigt
-- Azure Rights Management-tjänsten Basic (RMS)
-- Azure Rights Management-tjänsten Enterprise (RMS)
+- RMS för enskilda användare
 - Microsoft Stream
 - Dynamics 365 kostnadsfri utvärderingsversion
 
-Exernal admin övertag stöds inte för alla tjänster som har serviceplaner som innehåller SharePoint, OneDrive eller Skype för företag; till exempel genom en kostnadsfri prenumeration Office eller Office grundläggande SKU: N.
+Externa administratören övertag stöds inte för alla tjänster som har serviceplaner som innehåller SharePoint, OneDrive eller Skype för företag; till exempel genom en kostnadsfri prenumeration Office eller Office grundläggande SKU: N. Du kan eventuellt använda den [ **ForceTakeover** alternativet](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) för att ta bort domännamnet från ohanterad-klient och verifiera den önskade innehavaren. Det här alternativet om ForceTakeover kommer inte flytta över användare eller få åtkomst till prenumerationen. I stället flyttas det här alternativet endast domännamnet. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Mer information om RMS för enskilda användare
+
+För [RMS för enskilda användare](/information-protection/understand-explore/rms-for-individuals)när ohanterad innehavaren är i samma region som innehavare för att du äger, den automatiskt skapade [klientnyckel för Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) och [standard skydd mallar](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) dessutom flyttas över domänens namn. 
+
+Nyckeln och mallar flyttas inte när ohanterad klient finns i en annan region. Ohanterad-klient är till exempel i Europa och den klient som du äger är i Nordamerika. 
+
+Även om RMS för enskilda användare är utformat för att stödja Azure AD-autentisering för att öppna skyddat innehåll, det inte förhindra att användare också skydda innehåll. Om användarna skydda innehåll med den prenumeration på RMS för enskilda användare och nyckeln och mallar inte har flyttats, kommer innehållet inte att komma åt efter domän övertag.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdlets för alternativet ForceTakeover
 Du kan se dessa cmdlets som används i [exempel PowerShell](#powershell-example).
@@ -118,7 +123,7 @@ Cmdlet: | Användning
 `get-msoldomain` | Domännamnet ingår nu i listan över domännamn som är associerade med din hanterade klient, men visas som **Ej verifierat**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Innehåller information för att lägga till nya DNS TXT-post för domänen (MS = xxxxx). Kontrollen kan inte hända omedelbart eftersom tar det lite tid för TXT-posten ska spridas, så Vänta några minuter innan den **- ForceTakeover** alternativet. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Om domännamnet inte är fortfarande kontrolleras, du kan fortsätta med den **- ForceTakeover** alternativet. Verifierar att TXT-posten har skapats och systemtillstånd aktiveras gäller processen.<li>Den **- ForceTakeover** alternativet ska läggas till cmdleten endast när tvinga en extern administratör övertag, till exempel när ohanterad-klient har Office 365-tjänster som blockerar övertag.
-`get-msoldomain` | Listan innehåller nu det domännamn som **verifierad**.
+`get-msoldomain` | Listan innehåller nu domännamnet som **verifierad**.
 
 ### <a name="powershell-example"></a>PowerShell-exempel
 

@@ -1,11 +1,11 @@
 ---
-title: "Lägga till eller ändra Azure-prenumeration för administratörsroller | Microsoft Docs"
-description: "Beskriver hur du lägger till eller ändrar Medadministratör för Azure, tjänstadministratören och kontoadministratör"
-services: 
-documentationcenter: 
+title: Lägga till eller ändra Azure-prenumeration för administratörsroller | Microsoft Docs
+description: Beskriver hur du lägger till eller ändrar Medadministratör för Azure, tjänstadministratören och kontoadministratör
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
-Azure klassiska prenumerationsadministratörer och Azure [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) är två system för att hantera åtkomst till Azure-resurser:
+Azure klassiska prenumerationsadministratörer och Azure [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) är två system för att hantera åtkomst till Azure-resurser:
 
 * Klassiska prenumerationer administratörsroller erbjuder grundläggande hantering och inkludera kontoadministratör tjänstadministratören och Medadministratörer.
     * När du registrerar dig för en ny Azure-prenumeration, har ditt konto angetts som både kontoadministratör och tjänstadministratör som standard.
@@ -41,10 +41,12 @@ Om du vill lägga till en person som administratör för Azure-prenumeration tj�
 
 1. Besök [ **prenumerationer** i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Välj den prenumeration som du vill ge åtkomst.
-3. Välj **åtkomstkontroll (IAM)** på menyn.
-4. I den **rollen** väljer **ägare**. 
-5. I den **bevilja åtkomst till** väljer **Azure AD-användare, grupp eller programmet**. 
-6. I den **Välj** Skriv e-postadressen för den användare som du vill lägga till som ägare. Välj användaren och välj sedan **spara**.
+3. Välj **Lägg till**  
+   (Om knappen Lägg till saknas kan du inte har behörighet att lägga till behörigheter.)
+4. Välj **åtkomstkontroll (IAM)** på menyn.
+5. I den **rollen** väljer **ägare**. 
+6. I den **bevilja åtkomst till** väljer **Azure AD-användare, grupp eller programmet**. 
+7. I den **Välj** Skriv e-postadressen för den användare som du vill lägga till som ägare. Välj användaren och välj sedan **spara**.
 
     ![Skärmbild som visar ägarrollen som valts](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -111,7 +113,7 @@ Kontoadministratören är den användare som ursprungligen registrerat dig för 
  Kontoadministratör tjänstadministratören och medadministratör finns tre typer av klassiska prenumerationer administratörsroller i Azure. Det konto som används för att registrera dig för Azure anges automatiskt som både kontoadministratör och tjänstadministratör. Sedan kan ytterligare Medadministratörer läggas till. I följande tabell beskrivs exakt skillnaderna mellan dessa administrativa roller. 
 
 > [!TIP]
-> För bättre kontroll och detaljerad åtkomsthantering bör du använda Azure rollbaserad åtkomstkontroll (RBAC), vilket gör att användare som ska läggas till flera roller. Läs mer i [Azure Active Directory-rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-what-is.md).
+> För bättre kontroll och detaljerad åtkomsthantering bör du använda Azure rollbaserad åtkomstkontroll (RBAC), vilket gör att användare som ska läggas till flera roller. Läs mer i [Azure Active Directory-rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
 | Klassisk prenumerationsadministratör | Gräns | Beskrivning |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ Kontoadministratören är den användare som ursprungligen registrerat dig för 
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Mer information om åtkomstkontroll till resurser och Active Directory
 
-* Läs mer om hur resursåtkomsten hanteras i Microsoft Azure i [förstå resursåtkomst i Azure](../active-directory/active-directory-understanding-resource-access.md).
+* Läs mer om hur resursåtkomsten hanteras i Microsoft Azure i [förstå resursåtkomst i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Läs mer om Azure Active Directory [hur Azure-prenumerationer är associerade med Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) och [Tilldela administratörsroller i Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.

@@ -1,6 +1,6 @@
 ---
-title: "Hanteraren för filserverresurser Mallfunktioner | Microsoft Docs"
-description: "Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden, arbeta med strängar och siffror, och hämta information om distribution."
+title: Hanteraren för filserverresurser Mallfunktioner | Microsoft Docs
+description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden, arbeta med strängar och siffror, och hämta information om distribution.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager Mallfunktioner
 Den här artikeln beskrivs de funktioner som du kan använda i en Azure Resource Manager-mall.
@@ -56,17 +56,17 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser och -
 * [Innehåller](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [tom](resource-group-template-functions-array.md#empty)
-* [first](resource-group-template-functions-array.md#first)
+* [första](resource-group-template-functions-array.md#first)
 * [skärningspunkten](resource-group-template-functions-array.md#intersection)
-* [json](resource-group-template-functions-array.md#json)
-* [last](resource-group-template-functions-array.md#last)
+* [JSON](resource-group-template-functions-array.md#json)
+* [senaste](resource-group-template-functions-array.md#last)
 * [Längd](resource-group-template-functions-array.md#length)
-* [min](resource-group-template-functions-array.md#min)
+* [Min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [intervallet](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
-* [take](resource-group-template-functions-array.md#take)
-* [union](resource-group-template-functions-array.md#union)
+* [ta](resource-group-template-functions-array.md#take)
+* [Union](resource-group-template-functions-array.md#union)
 
 <a id="equals" />
 <a id="less" />
@@ -80,7 +80,7 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 * [är lika med](resource-group-template-functions-comparison.md#equals)
 * [mindre](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [greater](resource-group-template-functions-comparison.md#greater)
+* [större](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" />
@@ -105,8 +105,8 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 
 * [Och](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
+* [Om](resource-group-template-functions-logical.md#if)
+* [inte](resource-group-template-functions-logical.md#not)
 * [Eller](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
@@ -123,16 +123,16 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 ## <a name="numeric-functions"></a>Numeriska funktioner
 Hanteraren för filserverresurser innehåller följande funktioner för att arbeta med heltal:
 
-* [add](resource-group-template-functions-numeric.md#add)
+* [Lägg till](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
 * [flyttal](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [min](resource-group-template-functions-numeric.md#min)
+* [Min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [MOD](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
-* [sub](resource-group-template-functions-numeric.md#sub)
+* [Sub](resource-group-template-functions-numeric.md#sub)
 
 <a id="listkeys" />
 <a id="list" />
@@ -145,11 +145,13 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 ## <a name="resource-functions"></a>Resursfunktioner
 Hanteraren för filserverresurser innehåller följande funktioner för att hämta resurs värden:
 
-* [listKeys och lista {Value}](resource-group-template-functions-resource.md#listkeys)
+* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [listSecrets](resource-group-template-functions-resource.md#list)
+* [lista *](resource-group-template-functions-resource.md#list)
 * [providers](resource-group-template-functions-resource.md#providers)
 * [Referens](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [resourceId](resource-group-template-functions-resource.md#resourceid)
+* [Resurs-ID](resource-group-template-functions-resource.md#resourceid)
 * [prenumeration](resource-group-template-functions-resource.md#subscription)
 
 <a id="base64" />
@@ -186,7 +188,7 @@ Hanteraren för filserverresurser innehåller följande funktioner för att häm
 ## <a name="string-functions"></a>Strängfunktioner
 Hanteraren för filserverresurser innehåller följande funktioner för att arbeta med strängar:
 
-* [base64](resource-group-template-functions-string.md#base64)
+* [Base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
@@ -195,25 +197,25 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
 * [tom](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
-* [first](resource-group-template-functions-string.md#first)
+* [första](resource-group-template-functions-string.md#first)
 * [GUID](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
-* [last](resource-group-template-functions-string.md#last)
+* [senaste](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [Längd](resource-group-template-functions-string.md#length)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [Ersätt](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
+* [StartsWith](resource-group-template-functions-string.md#startswith)
 * [Sträng](resource-group-template-functions-string.md#string)
 * [delsträngen](resource-group-template-functions-string.md#substring)
-* [take](resource-group-template-functions-string.md#take)
+* [ta](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [trim](resource-group-template-functions-string.md#trim)
+* [Rensa](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [uri](resource-group-template-functions-string.md#uri)
+* [URI: N](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 

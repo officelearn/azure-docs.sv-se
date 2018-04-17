@@ -1,24 +1,25 @@
 ---
-title: "Etablera en Geo artificiell Intelligence virtuell dator på Azure - Azure | Microsoft Docs"
-description: "Hur du etablerar en Geo AI virtuell dator på Azure."
+title: Etablera en Geo artificiell Intelligence virtuell dator på Azure - Azure | Microsoft Docs
+description: Hur du etablerar en Geo AI virtuell dator på Azure.
 keywords: Djup learning AI datavetenskap verktyg, datavetenskap virtuell dator, geospatiala analytics
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2994ef858e960640d98ab2f7d02a401b11aa9e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell Intelligence virtuell dator på Azure 
 
@@ -39,7 +40,7 @@ Här är hur du skapar en instans av Geo AI datavetenskap VM:
 
 1. Navigera till den virtuella datorn visas i en lista på [Azure-portalen](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Välj den **skapa** längst ned till tas med i en guide.
-![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![Skapa-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. Guiden som används för att skapa Geo-DSVM kräver **indata** för var och en av de **fyra steg** räknas upp till höger på denna bild. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
 
 
@@ -78,11 +79,11 @@ När den virtuella datorn har skapats är du redo att börja använda verktygen 
 
 Geo-DSVM har redan ArcGIS Pro desktop förinstallerat och förkonfigurerade för att fungera med alla verktyg i DSVM miljön. När du startar ArcGIS uppmanar dig för en inloggning till ArcGIS-konto. Du kan använda din befintliga autentiseringsuppgifter om du redan har ett konto för ArcGIS och har licenser för programvaran.  
 
-![Arc-GIS-Logon](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
+![Båge-GIS-inloggning](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
 I annat fall du kan registrera dig för nya ArcGIS konto och licens eller hämta en [kostnadsfri utvärderingsversion](https://www.arcgis.com/features/free-trial.html). 
 
-![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
+![ArcGIS kostnadsfri utvärderingsversion](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
 När du har registreringen för antingen en betald eller ett kostnadsfritt utvärderingskonto ArcGIS kan du tillåta ArcGIS Pro för ditt konto genom att följa anvisningarna i den [komma igång med ArcGIS Pro dokumentationen](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 

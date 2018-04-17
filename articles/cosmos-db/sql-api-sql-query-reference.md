@@ -3,8 +3,7 @@ title: 'Azure Cosmos DB: Referens SQL-syntax fråga | Microsoft Docs'
 description: I referensdokumentationen för Azure Cosmos-Databasens SQL-frågespråket.
 services: cosmos-db
 author: LalithaMV
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 ms.assetid: ''
 ms.service: cosmos-db
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referens för Azure Cosmos-Databasens SQL-syntax
 
@@ -171,11 +170,11 @@ Anger en datakälla med eller utan ett alias. Om alias inte anges kommer den hä
   
 -   Om uttrycket är `<collection_expression>`, och sedan property_name sedan property_name kommer att användas som ett alias. Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
   
-AS `input_alias`  
+SOM `input_alias`  
   
 Anger att den `input_alias` är en uppsättning värden som returneras av underliggande samlingsuttrycket.  
  
-`input_alias` IN  
+`input_alias` I  
   
 Anger att den `input_alias` bör vara en uppsättning värden som hämtas av iterera över alla matriselement i varje matrisen som returneras av underliggande samlingsuttrycket. Alla värden som returneras av underliggande samling uttryck som inte är en objektmatris ignoreras.  
   
@@ -279,7 +278,7 @@ Nu ska vi titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> J
   
     (input_alias1, input_alias2, input_alias3):  
   
-    (A, 1, 100), (A, 1, 200), (B, 3, 300)  
+    A-, 1, 100 (A, 1, 200), (B, 3, 300)  
   
 > [!NOTE]
 > Avsaknad av tupplar för andra `input_alias1`, `input_alias2`, för vilka den `<from_source3>` returnerade inte några värden.  
@@ -484,8 +483,8 @@ ORDER BY <sort_specification>
 |-|-|  
 |**Aritmetiska**|Operatorn förväntar input(s) vara nummer. Utdata är också ett tal. Om någon av indata är **Odefinierad** eller annan typ än antalet sedan resultatet är **Odefinierad**.|  
 |**Binärt**|Operatorn förväntar input(s) vara 32-bitars heltal nummer. Utdata är också 32-bitars heltal nummer.<br /><br /> Att kommer avrundas valfritt heltal. Ett positivt värde avrundas nedåt, negativa värden avrunda uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal konverteras med sista 32-bitar för dess två visas.<br /><br /> Om någon av indata är **Odefinierad** eller annan typ än siffra, och sedan resultatet är **Odefinierad**.<br /><br /> **Obs:** beteendet ovan är kompatibel med JavaScript binär operator-beteende.|  
-|**logical**|Operatorn förväntar input(s) ska Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **Odefinierad** eller annan typ än Boolean, och sedan resultatet blir **Odefinierad**.|  
-|**comparison**|Operatorn förväntar input(s) har samma typ och inte vara odefinierat. Utdata är ett booleskt värde.<br /><br /> Om någon av indata är **Odefinierad** eller indata har olika typer och sedan resultatet är **Odefinierad**.<br /><br /> Se **ordning med värden för jämförelse** tabellen för värdet ordning information.|  
+|**Logiska**|Operatorn förväntar input(s) ska Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **Odefinierad** eller annan typ än Boolean, och sedan resultatet blir **Odefinierad**.|  
+|**Jämförelse**|Operatorn förväntar input(s) har samma typ och inte vara odefinierat. Utdata är ett booleskt värde.<br /><br /> Om någon av indata är **Odefinierad** eller indata har olika typer och sedan resultatet är **Odefinierad**.<br /><br /> Se **ordning med värden för jämförelse** tabellen för värdet ordning information.|  
 |**Sträng**|Operatorn förväntar input(s) ska strängarna. Utdata är också en sträng.<br />Om någon av indata är **Odefinierad** eller annan typ än sträng sedan resultatet är **Odefinierad**.|  
   
  **Unära operatorer:**  
@@ -502,8 +501,8 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**Aritmetiska**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Tillägg.<br /><br /> Subtraktion.<br /><br /> Multiplikation.<br /><br /> Division.<br /><br /> Modulering.|  
 |**Binärt**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Logiskt eller.<br /><br /> Binär och.<br /><br /> Bitvis XOR.<br /><br /> Vänsterskift.<br /><br /> Högerskift.<br /><br /> Noll fill högerskift.|  
-|**logical**|**OCH**<br /><br /> **OR**|Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.|  
-|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Lika med. Returnerar **SANT** om argument är lika returnerar **FALSKT** annars.<br /><br /> Är inte lika med. Returnerar **SANT** om argumenten inte är lika, returnerar **FALSKT** annars.<br /><br /> Större än. Returnerar **SANT** om det första argumentet är större än det andra returnerar **FALSKT** annars.<br /><br /> Större än eller lika med. Returnerar **SANT** om första argument är större än eller lika med det andra, returnera **FALSKT** annars.<br /><br /> Mindre än. Returnerar **SANT** om första argumentet är mindre än en sekund, returnera **FALSKT** annars.<br /><br /> Mindre än eller lika med. Returnerar **SANT** om det första argumentet är mindre än eller lika med det andra, returnerar **FALSKT** annars.<br /><br /> Slå samman. Returnerar det andra argumentet om det första argumentet är en **Odefinierad** värde.|  
+|**Logiska**|**OCH**<br /><br /> **ELLER**|Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk konjunktion. Returnerar **SANT** om båda argument är **SANT**, returnerar **FALSKT** annars.|  
+|**Jämförelse**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Lika med. Returnerar **SANT** om argument är lika returnerar **FALSKT** annars.<br /><br /> Är inte lika med. Returnerar **SANT** om argumenten inte är lika, returnerar **FALSKT** annars.<br /><br /> Större än. Returnerar **SANT** om det första argumentet är större än det andra returnerar **FALSKT** annars.<br /><br /> Större än eller lika med. Returnerar **SANT** om första argument är större än eller lika med det andra, returnera **FALSKT** annars.<br /><br /> Mindre än. Returnerar **SANT** om första argumentet är mindre än en sekund, returnera **FALSKT** annars.<br /><br /> Mindre än eller lika med. Returnerar **SANT** om det första argumentet är mindre än eller lika med det andra, returnerar **FALSKT** annars.<br /><br /> Slå samman. Returnerar det andra argumentet om det första argumentet är en **Odefinierad** värde.|  
 |**Sträng**|**&#124;&#124;**|Sammanfogning. Returnerar en sammansättning av båda argumenten.|  
   
  **Ternär operator:**  
@@ -629,14 +628,14 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apostrof (')|U+0027|  
 |\\"|citattecken (”)|U+0022|  
-|\\\|omvänd solidus (\\)|U+005C|  
-|\\/|solidus (/)|U+002F|  
-|\b|BACKSTEG|U+0008|  
-|\f|formuläret feed|U+000C|  
-|\n|radmatning|U+000A|  
-|\r|vagnretur|U+000D|  
-|\t|tabb|U+0009|  
-|\uXXXX|En Unicode-tecken som definieras av 4 hexadecimala siffror.|U+XXXX|  
+|\\\|omvänd solidus (\\)|U + 005C|  
+|\\/|solidus (/)|U + 002F|  
+|\b|BACKSTEG|U + 0008|  
+|\f|formuläret feed|U + 000C|  
+|\n|radmatning|U + 000A|  
+|\r|vagnretur|U + 000D|  
+|\t|tabb|U + 0009|  
+|\uXXXX|En Unicode-tecken som definieras av 4 hexadecimala siffror.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Riktlinjer för frågan prestanda  
  Det bör använda filter som kan hanteras via ett eller flera index för en fråga som ska köras effektivt för en stor samling.  
@@ -669,10 +668,10 @@ ORDER BY <sort_specification>
     |-|-|    
     |VERSALER|Skiftlägeskänsliga nyckelord.|  
     |gemener|Skiftlägeskänsligt nyckelord.|  
-    |\<nonterminal>|Öppen, som har definierats separat.|  
+    |\<nonterminal >|Öppen, som har definierats separat.|  
     |\<nonterminal >:: =|Syntax för definition av nonterminal.|  
     |other_terminal|Terminal (token), som beskrivs i detalj i ord.|  
-    |identifier|Identifierare. Gör följande endast tecken: a-z A-Z 0-9 _First tecknet får inte vara en siffra.|  
+    |Identifierare|Identifierare. Gör följande endast tecken: a-z A-Z 0-9 _First tecknet får inte vara en siffra.|  
     |”sträng”|Sträng inom citattecken. Gör att en giltig sträng. Se beskrivning av en string_literal.|  
     |'symbolen'|Literalen symbolen som är del av syntaxen.|  
     |&#124;(lodrätt streck)|Alternativ för syntax objekt. Du kan använda endast en av de angivna objekt.|  
@@ -696,13 +695,13 @@ ORDER BY <sort_specification>
   
 ||||  
 |-|-|-|  
-|[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
-|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[TAK](#bk_ceiling)|  
-|[COS](#bk_cos)|[BET](#bk_cot)|[DEGREES](#bk_degrees)|  
-|[EXP](#bk_exp)|[VÅNING](#bk_floor)|[LOG](#bk_log)|  
+|[ABS](#bk_abs)|[ACOS](#bk_acos)|[ARCSIN](#bk_asin)|  
+|[ARCTAN](#bk_atan)|[ATN2](#bk_atn2)|[TAK](#bk_ceiling)|  
+|[COS](#bk_cos)|[BET](#bk_cot)|[GRADER](#bk_degrees)|  
+|[EXP](#bk_exp)|[VÅNING](#bk_floor)|[LOGG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[AVRUNDA](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
+|[RADIANER](#bk_radians)|[AVRUNDA](#bk_round)|[SIN](#bk_sin)|  
+|[ROT](#bk_sqrt)|[RUTA](#bk_square)|[LOGGA](#bk_sign)|  
 |[TAN](#bk_tan)|[AVKORTA](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
@@ -738,7 +737,7 @@ SELECT ABS(-1), ABS(0), ABS(1)
 [{$1: 1, $2: 0, $3: 1}]  
 ```  
   
-####  <a name="bk_acos"></a> ACOS  
+####  <a name="bk_acos"></a> ARCCOS  
  Returnerar vinkeln i radianer, vars cosinus är det angivna numeriska uttrycket; kallas även cosinus.  
   
  **Syntax**  
@@ -771,7 +770,7 @@ SELECT ACOS(-1)
 [{"$1": 3.1415926535897931}]  
 ```  
   
-####  <a name="bk_asin"></a> ASIN  
+####  <a name="bk_asin"></a> ARCSIN  
  Returnerar vinkeln i radianer, vars sinus är ett uttryck. Detta kallas också arcsinus.  
   
  **Syntax**  
@@ -1324,7 +1323,7 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
   
-####  <a name="bk_sign"></a> SIGN  
+####  <a name="bk_sign"></a> LOGGA  
  Returnerar positivt (+ 1), noll (0) eller minustecken (-1) för det angivna numeriskt uttrycket.  
   
  **Syntax**  
@@ -1854,10 +1853,10 @@ SELECT
 |-|-|-|  
 |[CONCAT](#bk_concat)|[INNEHÅLLER](#bk_contains)|[ENDSWITH](#bk_endswith)|  
 |[INDEX_OF](#bk_index_of)|[VÄNSTER](#bk_left)|[LÄNGD](#bk_length)|  
-|[LÄGRE](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
-|[Replikera](#bk_replicate)|[REVERSE](#bk_reverse)|[HÖGER](#bk_right)|  
+|[LÄGRE](#bk_lower)|[LTRIM](#bk_ltrim)|[ERSÄTT](#bk_replace)|  
+|[Replikera](#bk_replicate)|[OMVÄND](#bk_reverse)|[HÖGER](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[DELSTRÄNGEN](#bk_substring)|  
-|[UPPER](#bk_upper)|||  
+|[ÖVRE](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returnerar en sträng som är resultatet av att sammanfoga två eller flera strängvärden.  

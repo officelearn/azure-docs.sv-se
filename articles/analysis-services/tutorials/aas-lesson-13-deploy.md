@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services självstudiekurs 13: Distribuera | Microsoft Docs"
-description: "Beskriver hur du distribuerar självstudieprojektet i Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services självstudiekurs 13: Distribuera | Microsoft Docs'
+description: Beskriver hur du distribuerar självstudieprojektet i Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 889cc4224e2ffe31e15590c04c3dbf4b656bc386
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy"></a>Distribuera
 
@@ -27,7 +20,7 @@ Under den här lektionen konfigurerar du distributionsegenskaper, anger en Analy
   
 Uppskattad tidsåtgång för den här lektionen: **5 minuter**  
   
-## <a name="prerequisites"></a>Nödvändiga komponenter  
+## <a name="prerequisites"></a>Förutsättningar  
 De här artikeln ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  

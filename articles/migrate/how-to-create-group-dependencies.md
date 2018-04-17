@@ -1,16 +1,16 @@
 ---
-title: "Förfina en bedömning grupp med Gruppmappning av beroende i Azure migrera | Microsoft Docs"
-description: "Beskriver hur du förfina bedömning med mappning av beroende i tjänsten Azure migrera."
+title: Förfina en bedömning grupp med Gruppmappning av beroende i Azure migrera | Microsoft Docs
+description: Beskriver hur du förfina bedömning med mappning av beroende i tjänsten Azure migrera.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupp med mappning av beroende
 
@@ -37,8 +37,8 @@ Installera agenten på en Windows-dator:
 1. Dubbelklicka på den hämta agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På den **licensvillkoren** klickar du på **jag accepterar** att acceptera licensvillkoren.
 3. I **målmappen**, behålla eller ändra standardinstallationsmappen > **nästa**. 
-4. I **installationsalternativ för Agent**väljer **Azure logganalys (OMS)** > **nästa**. 
-5. Klicka på **Lägg till** att lägga till en ny OMS-arbetsyta. Klistra in i arbetsyte-ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
+4. I **installationsalternativ för Agent**väljer **Azure logganalys** > **nästa**. 
+5. Klicka på **Lägg till** att lägga till en ny logganalys-arbetsyta. Klistra in i arbetsyte-ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 
 Installera agenten på en Linux-dator:

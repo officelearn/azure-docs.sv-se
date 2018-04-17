@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fbf50ac0807a3982385990871d9c4724bdaaad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -84,7 +84,7 @@ Att hämta listan över utgående IP-adresser för ditt webbprogram:
 
 Lista över utgående IP-adresser visas.
 
-Om din webbplats finns i Apptjänst-miljö för PowerApps, information om hur du hämtar din utgående IP-adress finns [utgående nätverksadresser](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Information om hur du hämtar utgående IP-adressen om din webbplats finns i en Apptjänst-miljö finns [utgående nätverksadresser](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Hur skaffar jag en reserverad eller dedikerade inkommande IP-adress för webbappen
 

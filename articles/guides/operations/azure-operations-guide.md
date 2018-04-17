@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduktion till molntjänster och Microsoft Azure
 
@@ -110,13 +110,13 @@ Tjänster för att lagra och hantera data:
 
 Tjänster för att skapa och använda program:
 
--   Azure Active Directory (Azure AD)
+-   Azure Active Directory (AD Azure)
 
 -   Azure Service Bus för att ansluta distribuerade system
 
 -   Azure HDInsight för bearbetning av stordata
 
--   Azure Scheduler
+-   Azure Schemaläggaren
 
 -   Azure Media Services
 
@@ -128,7 +128,7 @@ Tjänster för nätverk både i Azure och mellan Azure och lokala datacenter:
 
 -   Azure ExpressRoute
 
--   Azure-provided DNS
+-   Azure-tillhandahållna DNS
 
 -   Azure Traffic Manager
 
@@ -323,7 +323,7 @@ Här följer några exempel roller som är inbyggda i Azure:
 
 -   **Storage-konto deltagare**: en användare med den här rollen kan hantera storage-konton, men det går inte att hantera åtkomst till storage-konton.
 
-Mer information finns i [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../../active-directory/role-based-access-control-configure.md).
+Mer information finns i [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

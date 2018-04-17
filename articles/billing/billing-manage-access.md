@@ -1,11 +1,11 @@
 ---
-title: "Hantera åtkomst till Azure fakturering med roller | Microsoft Docs"
-description: 
-services: 
-documentationcenter: 
+title: Hantera åtkomst till Azure fakturering med roller | Microsoft Docs
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Hantera åtkomst till faktureringsinformation för Azure med hjälp av rollbaserad åtkomstkontroll
 
-Du kan ge åtkomst för Azure faktureringsinformation för medlemmar i gruppen genom att tilldela någon av följande användarroller till din prenumeration: kontoadministratör, administratör, medadministratör, ägare, deltagare, läsare och fakturering läsare. De skulle ha tillgång till faktureringsinformationen i den [Azure-portalen](https://portal.azure.com/), och de kan använda den [fakturerings-API: er](billing-usage-rate-card-overview.md) få programmässigt fakturor (en gång deltar i) och användningsinformation. Mer information om vem som kan ge roller, och vilka roller kan göra vad, se [roller i Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+Du kan ge åtkomst för Azure faktureringsinformation för medlemmar i gruppen genom att tilldela någon av följande användarroller till din prenumeration: kontoadministratör, administratör, medadministratör, ägare, deltagare, läsare och fakturering läsare. De skulle ha tillgång till faktureringsinformationen i den [Azure-portalen](https://portal.azure.com/), och de kan använda den [fakturerings-API: er](billing-usage-rate-card-overview.md) få programmässigt fakturor (en gång deltar i) och användningsinformation. Mer information om vem som kan ge roller, och vilka roller kan göra vad, se [roller i Azure RBAC](../role-based-access-control/built-in-roles.md).
 
-## <a name="opt-in"></a>Ytterligare användare att komma åt fakturor
+## <a name="opt-in"></a> Ytterligare användare att komma åt fakturor
 
 Kontoadministratören måste välja med hjälp av den [Azure-portalen](https://portal.azure.com/) Tillåt åtkomst till fakturor för andra användare och via API.
 

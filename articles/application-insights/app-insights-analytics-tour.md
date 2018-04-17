@@ -1,8 +1,8 @@
 ---
 title: En rundtur via analyser i Azure Application Insights | Microsoft Docs
-description: "Kort prover av alla huvudsakliga frågor i Analytics, kraftfullt sökverktyg av Application Insights."
+description: Kort prover av alla huvudsakliga frågor i Analytics, kraftfullt sökverktyg av Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>En genomgång av Analytics i Application Insights
 [Analytics](app-insights-analytics.md) är kraftfull sökfunktionen i [Programinsikter](app-insights-overview.md). Dessa sidor beskrivs Log Analytics-frågespråket.
@@ -69,7 +69,7 @@ Om du vill kombinera data från flera Application Insights-program kan använda 
 ```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[TOP](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) och [sortera](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
-`take`är användbar för att få en snabb exempel på ett resultat, men den visar rader från tabellen i bokstavsordning. För att få en ordnad vy kan du använda `top` (till exempel) eller `sort` (över hela tabellen).
+`take` är användbar för att få en snabb exempel på ett resultat, men den visar rader från tabellen i bokstavsordning. För att få en ordnad vy kan du använda `top` (till exempel) eller `sort` (över hela tabellen).
 
 Visa de första n raderna, sorterade efter en viss kolumn:
 
@@ -79,11 +79,11 @@ Visa de första n raderna, sorterade efter en viss kolumn:
 ```
 
 * *Syntax:* de flesta operatörer har nyckelordet parametrar som `by`.
-* `desc`= fallande ordning, `asc` = stigande.
+* `desc` = fallande ordning, `asc` = stigande.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...`är ett mer performant sätt att säga `sort ... | take...`. Vi kan skriva:
+`top...` är ett mer performant sätt att säga `sort ... | take...`. Vi kan skriva:
 
 ```AIQL
 
@@ -146,7 +146,7 @@ Som standard är dina frågor begränsade till den senaste 24 timmarna. Men du k
 
 Funktionen tid intervallet motsvarar en 'where'-sats läggas till efter varje uppgift om något av källtabellerna.
 
-`ago(3d)`innebär 'tre dagar sedan'. Andra tidsenheter inkludera timmar (`2h`, `2.5h`), minuter (`25m`), och sekunder (`10s`).
+`ago(3d)` innebär 'tre dagar sedan'. Andra tidsenheter inkludera timmar (`2h`, `2.5h`), minuter (`25m`), och sekunder (`10s`).
 
 Andra exempel:
 
@@ -170,7 +170,7 @@ Andra exempel:
 
 ```
 
-[Datum och tider referens](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Datum och tider referens](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projektet](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): Välj, byta namn på och bearbetning kolumner
@@ -199,10 +199,10 @@ Du kan också byta namn på kolumner och definiera nya:
 
 ![Resultat](./media/app-insights-analytics-tour/270.png)
 
-* Kolumnnamn kan innehålla blanksteg eller symboler om de omges så här: `['...']` eller`["..."]`
-* `%`är den vanliga modulo-operatorn.
-* `1d`(som är en siffra, en hade ”) är en literal timespan vilket innebär en dag. Här följer några fler timespan-litteraler: `12h`, `30m`, `10s`, `0.01s`.
-* `floor`(alias `bin`) Avrundar värdet nedåt till närmaste signifikanta grundläggande värdet du anger. Så `floor(aTime, 1s)` avrundas nedåt till närmaste andra gången.
+* Kolumnnamn kan innehålla blanksteg eller symboler om de omges så här: `['...']` eller `["..."]`
+* `%` är den vanliga modulo-operatorn.
+* `1d` (som är en siffra, en hade ”) är en literal timespan vilket innebär en dag. Här följer några fler timespan-litteraler: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (alias `bin`) Avrundar värdet nedåt till närmaste signifikanta grundläggande värdet du anger. Så `floor(aTime, 1s)` avrundas nedåt till närmaste andra gången.
 
 Uttryck kan innehålla alla vanliga operatorer (`+`, `-`,...), och det finns en uppsättning praktiska funktioner.
 
@@ -231,7 +231,7 @@ Tidsstämplar är alltid i UTC. Så om du är på oss Pacific kusten och det är
 
 
 ## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Sammanfatta](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): aggregera grupper av rader
-`Summarize`tillämpar en angiven *aggregeringsfunktionen* över grupper av rader.
+`Summarize` tillämpar en angiven *aggregeringsfunktionen* över grupper av rader.
 
 Till exempel överföringstiden för ditt webbprogram svara på en begäran rapporteras i fältet `duration`. Låt oss se genomsnittlig svarstid för alla begäranden:
 
@@ -241,13 +241,13 @@ Eller kan vi dela resultatet i förfrågningar av olika namn:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`samlar in datapunkter i dataströmmen i grupper som den `by` satsen utvärderar lika. Varje värde i den `by` uttryck - varje unik åtgärdsnamn i exemplet ovan - resulterar i en rad i resultattabellen.
+`Summarize` samlar in datapunkter i dataströmmen i grupper som den `by` satsen utvärderar lika. Varje värde i den `by` uttryck - varje unik åtgärdsnamn i exemplet ovan - resulterar i en rad i resultattabellen.
 
 Eller vi gick grupperar resultaten efter tid på dagen:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observera hur vi använder den `bin` funktionen (även kallat `floor`). Om vi använde `by timestamp`, varje inkommande rad skulle hamna i en egen liten grupp. För en kontinuerlig skalära som tidsvärden eller siffror som vi behöver Bryt kontinuerligt område i en hanterbar antal diskreta värden. `bin`-som är bara det gamla avrundas nedåt `floor` fungerar - är det enklaste sättet att göra detta.
+Observera hur vi använder den `bin` funktionen (även kallat `floor`). Om vi använde `by timestamp`, varje inkommande rad skulle hamna i en egen liten grupp. För en kontinuerlig skalära som tidsvärden eller siffror som vi behöver Bryt kontinuerligt område i en hanterbar antal diskreta värden. `bin` -som är bara det gamla avrundas nedåt `floor` fungerar - är det enklaste sättet att göra detta.
 
 Vi kan använda samma metod för att minska intervall i strängar:
 
@@ -256,7 +256,7 @@ Vi kan använda samma metod för att minska intervall i strängar:
 Observera att du kan använda `name=` att ange namnet på en resultatkolumn, antingen i mängduttryck eller av-satsen.
 
 ## <a name="counting-sampled-data"></a>Cyklisk exempeldata
-`sum(itemCount)`är aggregeringen rekommenderade att räkna händelser. I många fall itemCount == 1, så funktionen bara räknar antalet rader i gruppen. Men när [provtagning](app-insights-sampling.md) är i drift, bara en del av de ursprungliga händelserna behålls som datapunkter i Application Insights, så att det finns för varje datapunkt som du ser, `itemCount` händelser.
+`sum(itemCount)` är aggregeringen rekommenderade att räkna händelser. I många fall itemCount == 1, så funktionen bara räknar antalet rader i gruppen. Men när [provtagning](app-insights-sampling.md) är i drift, bara en del av de ursprungliga händelserna behålls som datapunkter i Application Insights, så att det finns för varje datapunkt som du ser, `itemCount` händelser.
 
 Till exempel om sampling ignorerar 75% av den ursprungliga händelser och sedan itemCount == 4 i kvarhållna poster -, för varje kvarhållna post det var fyra ursprungliga poster.
 
@@ -661,7 +661,7 @@ Delta i operation_Id för att hitta HTTP-begäran som din app hantering när und
 ![Ansluta till undantag med begäranden på operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
 ### <a name="browser-timings-table"></a>Webbläsaren tidsinställningar för tabellen
-`browserTimings`Visar sidan Läs in data som samlas in i användarnas webbläsare.
+`browserTimings` Visar sidan Läs in data som samlas in i användarnas webbläsare.
 
 [Konfigurera din app för klientsidan telemetri](app-insights-javascript.md) för att kunna se dessa mått.
 
@@ -672,7 +672,7 @@ Visa popularities på olika sidor och läsa in tider för varje sida:
 ![Sidinläsningstider i Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
 ### <a name="availability-results-table"></a>Tillgänglighet resultattabellen
-`availabilityResults`Visar resultatet av dina [webbtester](app-insights-monitor-web-app-availability.md). Varje körning av dina tester från varje test plats rapporteras separat.
+`availabilityResults` Visar resultatet av dina [webbtester](app-insights-monitor-web-app-availability.md). Varje körning av dina tester från varje test plats rapporteras separat.
 
 ![Sidinläsningstider i Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 

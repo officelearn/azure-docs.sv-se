@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB-emulatorn
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/03/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
+  <td>[Docker-hubb](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker-källa</strong></td>
@@ -103,7 +103,7 @@ Azure Cosmos-DB-emulatorn som standard körs på den lokala datorn (”localhost
 
 Azure-emulatorn Cosmos DB installeras som standard till den `C:\Program Files\Azure Cosmos DB Emulator` directory. Du kan också starta och stoppa emulator från kommandoraden. Se [kommandoradsverktyget referens](#command-line) för mer information.
 
-## <a name="start-data-explorer"></a>Start Data Explorer
+## <a name="start-data-explorer"></a>Starta Data Explorer
 
 När Azure DB som Cosmos-emulatorn startar visas automatiskt Azure Cosmos DB Data Explorer i webbläsaren. Adressen visas som [ https://localhost:8081/_explorer/index.html ](https://localhost:8081/_explorer/index.html). Om du stänger Utforskaren och vill öppna den igen senare, kan du öppna URL: en i webbläsaren eller starta från Azure Cosmos-DB-emulatorn i Windows-ikon som visas nedan.
 
@@ -189,7 +189,7 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
   <td></td>
 </tr>
 <tr>
-  <td>[Help]</td>
+  <td>[Hjälp]</td>
   <td>Visar lista med kommandoradsargument som stöds.</td>
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
@@ -202,13 +202,13 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
 <tr>
   <td>Avstängning</td>
   <td>Stänger ned Azure Cosmos DB-emulatorn.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
+  <td>CosmosDB.Emulator.exe Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>DataPath</td>
   <td>Anger den sökväg där du kan lagra filer. Standardvärdet är % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: en tillgänglig sökväg</td>
 </tr>
 <tr>
@@ -262,19 +262,19 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
 <tr>
   <td>PartitionCount</td>
   <td>Anger det maximala antalet partitionerade samlingar. Se [ändra antalet samlingar](#set-partitioncount) för mer information.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: maximalt antal tillåtna enskilda partitionssamlingar. Standardvärdet är 25. Högsta tillåtna är 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
   <td>Anger antalet partitioner för en partitionerad samling standard.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; standardvärdet är 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
   <td>Aktiverar åtkomst till emulatorn över ett nätverk. Du måste också ange/Key =&lt;key_string&gt; eller/KeyFile =&lt;file_name&gt; att aktivera nätverksåtkomst.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>eller<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>eller<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess/KeyFile =&lt;filnamn&gt;</td>
   <td></td>
 </tr>
 <tr>
@@ -292,7 +292,7 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
 <tr>
   <td>Konsekvens</td>
   <td>Ange standardnivån för konsekvens för kontot.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>CosmosDB.Emulator.exe /Consistency =&lt;konsekvenskontroll&gt;</td>
   <td>&lt;konsekvenskontroll&gt;: värdet måste vara något av följande [konsekvensnivåer](consistency-levels.md): Session starka, Eventual eller BoundedStaleness.  Standardvärdet är Session.</td>
 </tr>
 <tr>

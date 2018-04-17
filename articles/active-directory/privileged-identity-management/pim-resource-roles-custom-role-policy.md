@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 9ac14125b837f45634870941e72ea63e9921ca70
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6336d99df1bbdd71c66a9757af1d9fb356a91bf6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-custom-roles-to-target-pim-settings"></a>Använd anpassade roller till målet PIM-inställningar
 
@@ -26,7 +26,7 @@ Som administratör av en resurs kan du vill att anställda i din organisation ha
 
 ## <a name="create-the-custom-role"></a>Skapa den anpassade rollen
 
-[Använd den här guiden för att skapa en anpassad roll för en resurs](../role-based-access-control-custom-roles.md).
+[Använd den här guiden för att skapa en anpassad roll för en resurs](../../role-based-access-control/custom-roles.md).
 
 Innehåller ett beskrivande namn så att du lätt kan komma ihåg vilket inbyggd roll som du tänkt att duplicera.
 

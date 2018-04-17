@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med hjälp av Azure CLI
 
@@ -114,6 +114,10 @@ Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering
 
 Använd Azure CLI för att skapa en server med en geo-redundant säkerhetskopia `az mysql server georestore` kommando.
 
+> [!NOTE]
+> När en server först skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar för nödvändiga metadata fyllas.
+>
+
 Ange följande kommando för att återställa geo server Kommandotolken Azure CLI:
 
 ```azurecli-interactive
@@ -132,10 +136,10 @@ Den `az mysql server georestore` kommandot requies följande parametrar:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på resursgruppen den nya servern ska tillhöra.|
-|namn | mydemoserver-georestored | Namnet på den nya servern. |
+|namn | mydemoserver georestored | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundant säkerhetskopieringar används. |
-|plats | usaöstra | Platsen för den nya servern. |
-|sku-name| GP_Gen4_8 | Den här parametern anger prisnivå nivå, beräkning generation och antalet vCores på den nya servern. GP_Gen4_8 mappar till en generell Gen 4 server med 8 vCores.|
+|location | usaöstra | Platsen för den nya servern. |
+|SKU-namn| GP_Gen4_8 | Den här parametern anger prisnivå nivå, beräkning generation och antalet vCores på den nya servern. GP_Gen4_8 mappar till en generell Gen 4 server med 8 vCores.|
 
 
 >[!Important]

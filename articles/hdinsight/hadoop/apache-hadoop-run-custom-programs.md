@@ -1,25 +1,23 @@
 ---
-title: "Kör anpassade program för MapReduce - Azure HDInsight | Microsoft Docs"
-description: "När och hur du använder anpassade MapReduce-program i HDInsight."
+title: Kör anpassade program för MapReduce - Azure HDInsight | Microsoft Docs
+description: När och hur du använder anpassade MapReduce-program i HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 94d199642b409a2fd087ec1543651031a907d09f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-custom-mapreduce-programs"></a>Köra anpassade MapReduce-program
 

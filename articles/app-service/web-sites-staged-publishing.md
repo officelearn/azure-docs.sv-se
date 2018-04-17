@@ -1,8 +1,8 @@
 ---
-title: "Skapa mellanlagringsmiljöer för web apps i Azure App Service | Microsoft Docs"
-description: "Lär dig använda stegvis publicering för web apps i Azure App Service."
+title: Skapa mellanlagringsmiljöer för web apps i Azure App Service | Microsoft Docs
+description: Lär dig använda stegvis publicering för web apps i Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Skapa mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ När du distribuerar ditt webbprogram, webbprogram på Linux, mobila serverdel o
 * Först distribuera en app till en plats och växla till produktion säkerställer att alla instanser av facket varmkörts innan som ska växlas över till produktion. Detta eliminerar avbrott när du distribuerar din app. Trafik för omdirigering är sömlös och inga begäranden tas bort på grund av byte åtgärder. Hela arbetsflödet kan automatiseras genom att konfigurera [automatiskt växla](#Auto-Swap) när före växlingen verifiering inte behövs.
 * Efter en växling har på plats med tidigare mellanlagrade appen nu tidigare produktionsprogrammet. Om ändringarna växlas över till produktionsplatsen är inte som du förväntade dig, kan du utföra samma växlingen direkt för att få igång ”senaste kända fungerande webbplatsen” tillbaka.
 
-Varje nivå för App Service-plan stöder olika antal distributionsplatser. Ta reda på antalet platser har stöd för din app-nivå, se [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
+Varje nivå för App Service-plan stöder olika antal distributionsplatser. Ta reda på antalet platser har stöd för din app-nivå, se [App Tjänstbegränsningarna](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
 
 * När appen har flera platser, kan du inte ändra nivån.
 * Skalning är inte tillgänglig för icke-produktoionsplats.

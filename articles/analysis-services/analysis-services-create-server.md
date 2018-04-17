@@ -1,25 +1,18 @@
 ---
 title: Skapa en Analysis Services-server i Azure | Microsoft Docs
 description: Lär dig hur du skapar en Analysis Services-server-instans i Azure.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 9a80d7e6e9f24ccc730fe747fa0a71b91f22b7e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: minewiskan
+ms.openlocfilehash: c910416524f149c785aae299d576ca5c521abc6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Skapa en Azure Analysis Services-server i Azure-portalen
 Den här artikeln vägleder dig genom att skapa en resurs för Analysis Services-server i din Azure-prenumeration.

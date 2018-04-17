@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik analytics
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Om följande meddelande: ”1) analysera din NSG trafikflödet loggar för första gången. Den här processen kan ta 20 – 30 minuter att slutföra. Kontrollera igen efter en stund. 2) om steget ovan fungerar inte och din arbetsyta är under den kostnadsfria SKU: N och sedan kontrollera din användning av arbetsytan här för att verifiera över kvoten, eller Läs i vanliga frågor och svar för ytterligare information ”, hur löser jag det?
 
         Du får felet av följande skäl:
-        - Trafik analytics kan har nyligen ändrats och kan sammanställa tillräckligt med data att härleda insikter som beskrivande innan några rapporter kan genereras. I det här fallet, försök igen efter 30 minuter
+        - Trafik analytics kan har nyligen ändrats och kan inte ännu har sammanställd tillräckligt med data att härleda insikter som beskrivande.
         - Din OMS-arbetsyta är under den kostnadsfria SKU: N och det utsatts för intrång kvotgränserna. I det här fallet kan du behöva använda en arbetsyta i en SKU med större kapacitet.
     
         Om problem kvarstår höja frågor i den [röst användarforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).

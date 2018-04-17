@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a89c51ae5b4b0c9d58aed04515042ed8b08dcce6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Data undersökning och visuella verktyg på datavetenskap virtuell dator
 
@@ -52,7 +52,7 @@ Ett viktigt steg i datavetenskap är att förstå informationen. Visualisering o
 | Stöds DSVM versioner     | Windows, Linux     |
 | Vanliga användningsområden      | Allmänna UI Data Mining-verktyget för R    |
 | Hur du använder / kör den?      | UI-verktyget. Starta en kommandotolk i Windows, kan köra R, sedan i R kör `rattle()`. På Linux, ansluta med X2Go, starta en terminal, kör R, sedan i R kör `rattle()`. |
-| Länkar till exempel      | [Rattle](https://togaware.com/onepager/) |
+| Länkar till exempel      | [Spännen](https://togaware.com/onepager/) |
 | Relaterade verktyg på DSVM      |LightGBM Weka, Xgboost   |
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
@@ -62,5 +62,5 @@ Ett viktigt steg i datavetenskap är att förstå informationen. Visualisering o
 | Stöds DSVM versioner      | Windows  |
 | Vanliga användningsområden      |  Visualisering av data och skapa instrumentpaneler   |
 | Hur du använder / kör den?      | Genväg på skrivbordet (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code Juno      |
 

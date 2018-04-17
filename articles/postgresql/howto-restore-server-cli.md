@@ -10,18 +10,18 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med hjälp av Azure CLI
 
 ## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
 Azure-databas för PostgreSQL servrar säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare i tidpunkt, på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här instruktioner:
 - En [Azure-databas för PostgreSQL-server och databas](quickstart-create-server-database-azure-cli.md)
 
@@ -114,6 +114,10 @@ Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering
 
 Använd Azure CLI för att skapa en server med en geo-redundant säkerhetskopia `az postgres server georestore` kommando.
 
+> [!NOTE]
+> När en server först skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar för nödvändiga metadata fyllas.
+>
+
 Ange följande kommando för att återställa geo server Kommandotolken Azure CLI:
 
 ```azurecli-interactive
@@ -132,10 +136,10 @@ Den `az postgres server georestore` kommandot requies följande parametrar:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på resursgruppen den nya servern ska tillhöra.|
-|namn | mydemoserver-georestored | Namnet på den nya servern. |
+|namn | mydemoserver georestored | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundant säkerhetskopieringar används. |
-|plats | usaöstra | Platsen för den nya servern. |
-|sku-name| GP_Gen4_8 | Den här parametern anger prisnivå nivå, beräkning generation och antalet vCores på den nya servern. GP_Gen4_8 mappar till en generell Gen 4 server med 8 vCores.|
+|location | usaöstra | Platsen för den nya servern. |
+|SKU-namn| GP_Gen4_8 | Den här parametern anger prisnivå nivå, beräkning generation och antalet vCores på den nya servern. GP_Gen4_8 mappar till en generell Gen 4 server med 8 vCores.|
 
 
 >[!Important]

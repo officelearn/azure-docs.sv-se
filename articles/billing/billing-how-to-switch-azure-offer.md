@@ -1,11 +1,11 @@
 ---
-title: "Ändra Azure-prenumerationserbjudande | Microsoft Docs"
-description: "Lär dig mer om hur du ändrar din Azure-prenumeration och växla till ett annat erbjudande med hjälp av Azure Account Center"
-services: 
-documentationcenter: 
+title: Ändra Azure-prenumerationserbjudande | Microsoft Docs
+description: Lär dig mer om hur du ändrar din Azure-prenumeration och växla till ett annat erbjudande med hjälp av Azure Account Center
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Ändra din betala per användning för Azure-prenumeration till ett annat erbjudande
 
@@ -63,7 +63,7 @@ Som en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/
 1. Du kan byta namn på din prenumeration. Vi som standard den till ett nytt erbjudandenamn. Klicka på **växel erbjuder** att slutföra processen.
 
    ![Klicka på den gröna knappen](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. Klar Din prenumeration är nu växlas till nya erbjudandet.
+1. Lyckades! Din prenumeration är nu växlas till nya erbjudandet.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -105,7 +105,7 @@ På dag du växla, skapas en faktura för alla utestående avgifter. Sedan debit
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kan jag migrera från betala per användning för [leverantör](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) eller [Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Om du vill migrera till CSP finns [Azure Provideradresser-som-du-Go Prenumerationsmigrering till CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Om du vill migrera till CSP finns [Azure betala per användning Prenumerationsmigrering till CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Om du vill migrera till EA har registrering administratören lägga till ditt konto i Enterprise-avtalet. Följ anvisningarna i e-postinbjudan ha dina prenumerationer under EA registrering flyttas. Läs mer i [koppla ett befintligt konto](https://ea.azure.com/helpdocs/associateExistingAccount) i EA-portalen.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Kan jag migrera data och tjänster till en ny prenumeration?

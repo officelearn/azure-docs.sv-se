@@ -1,12 +1,12 @@
 ---
-title: "Azure-säkerhetskopiering: Förbereda för att säkerhetskopiera virtuella datorer | Microsoft Docs"
-description: "Kontrollera att din miljö har förberetts för att säkerhetskopiera virtuella datorer i Azure."
+title: 'Azure-säkerhetskopiering: Förbereda för att säkerhetskopiera virtuella datorer | Microsoft Docs'
+description: Kontrollera att din miljö har förberetts för att säkerhetskopiera virtuella datorer i Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "säkerhetskopiering. Säkerhetskopiera;"
+editor: ''
+keywords: säkerhetskopiering. Säkerhetskopiera;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -55,7 +55,7 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Säkerhetskopierade data innehåller monterade nätverksenheter kopplad till en virtuell dator.
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Återställningen misslyckas om du försöker återställa den virtuella datorn när den virtuella datorn finns.
 * Cross-region säkerhetskopiera och Återställ stöds inte.
-* Säkerhetskopiera och återställa virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk, stöds inte. 
+* Säkerhetskopiera och återställa virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk, stöds inte för kunder på den gamla säkerhetskopiering VM-stacken. 
 * När du konfigurerar tillbaka in, kontrollera att den **brandväggar och virtuella nätverk** storage-konto tillåter åtkomst från alla nätverk.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga områden av Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds.) Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
 * Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer i [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).

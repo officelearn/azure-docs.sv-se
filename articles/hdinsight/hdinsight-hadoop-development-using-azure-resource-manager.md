@@ -1,29 +1,27 @@
 ---
-title: "Migrera till Azure Resource Manager-verktyg för HDInsight | Microsoft Docs"
-description: "Hur du migrerar till Azure Resource Manager utvecklingsverktyg för HDInsight-kluster"
+title: Migrera till Azure Resource Manager-verktyg för HDInsight | Microsoft Docs
+description: Hur du migrerar till Azure Resource Manager utvecklingsverktyg för HDInsight-kluster
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ce1d6300731af5ae972675a08ef64f5c4ffa342
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a18d045815a65953aafd690674fb9b5ce129c825
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
 
-HDInsight sluta Azure Service Manager ASM-baserat verktyg för HDInsight. Om du har använt Azure PowerShell, Azure CLI eller HDInsight .NET SDK för att arbeta med HDInsight-kluster måste uppmuntras du att använda i Azure Resource Manager ARM-baserade versioner av PowerShell, CLI och .NET SDK framöver. Den här artikeln innehåller tips på hur du migrerar till den nya ARM-baserade metoden. Tillämpliga fall den här artikeln har även lärt dig skillnaderna mellan ASM och ARM metoder för HDInsight.
+HDInsight sluta Azure Service Manager ASM-baserat verktyg för HDInsight. Om du har använt Azure PowerShell, Azure CLI eller HDInsight .NET SDK för att arbeta med HDInsight-kluster måste uppmuntras du att använda Azure Resource Manager-versioner av PowerShell, CLI och .NET SDK framöver. Den här artikeln innehåller tips på hur du migrerar till den nya Resource Manager-baserade metoden. Tillämpliga fall visar skillnaderna mellan ASM och Resource Manager-metoder för HDInsight i det här dokumentet.
 
 > [!IMPORTANT]
 > Stöd för ASM baserat PowerShell, CLI och .NET SDK ska upphöra på **1 januari 2017**.
@@ -31,11 +29,11 @@ HDInsight sluta Azure Service Manager ASM-baserat verktyg för HDInsight. Om du 
 > 
 
 ## <a name="migrating-azure-cli-to-azure-resource-manager"></a>Migrera till Azure Resource Manager för Azure CLI
-Azure CLI nu som standard till Azure Resource Manager (ARM) läge, såvida du inte uppgraderar från en tidigare installation. i detta fall kan du behöva använda de `azure config mode arm` kommando för att växla till ARM-läge.
 
-Grundläggande kommandon som Azure CLI för att fungera med HDInsight med hjälp av Azure Service Management (ASM) är densamma när du använder ARM; men vissa parametrar och växlar kan ha nya namn och det finns många nya parametrar när du med hjälp av ARM. Exempelvis kan du kan nu använda `azure hdinsight cluster create` ange Azure-nätverk som ska skapas i ett kluster eller Hive och Oozie metastore information.
+> [!IMPORTANT]
+> Azure CLI 2.0 saknar stöd för att arbeta med HDInsight-kluster. Du kan fortfarande använda Azure CLI 1.0 med HDInsight, men Azure CLI 1.0 är föråldrad.
 
-Grundläggande kommandon för att arbeta med HDInsight via Azure Resource Manager är:
+Följande är de grundläggande kommandona för att arbeta med HDInsight via Azure CLI 1.0:
 
 * `azure hdinsight cluster create` -skapar ett nytt HDInsight-kluster
 * `azure hdinsight cluster delete` -tar bort ett befintligt HDInsight-kluster
@@ -54,7 +52,7 @@ Nya kommandon som är tillgängliga med Azure Resource Manager är:
 * `azure hdinsight config` -innehåller kommandon för att skapa en konfigurationsfil som kan användas med den `hdinsight cluster create` kommando för att ange konfigurationsinformation.
 
 ### <a name="deprecated-commands"></a>Föråldrade kommandon
-Om du använder den `azure hdinsight job` kommandon för att skicka jobb till ditt HDInsight-kluster dessa inte är tillgängliga via ARM-kommandon. Om du behöver programmässigt skicka jobb till HDInsight från skript, bör du använda REST API: er som tillhandahålls av HDInsight i stället. Mer information om att skicka jobb med hjälp av REST API: er finns i följande dokument.
+Om du använder den `azure hdinsight job` kommandon för att skicka jobb till ditt HDInsight-kluster kommandona inte är tillgängliga via Resource Manager-kommandon. Om du behöver programmässigt skicka jobb till HDInsight från skript, bör du använda REST API: er som tillhandahålls av HDInsight i stället. Mer information om att skicka jobb med hjälp av REST API: er finns i följande dokument.
 
 * [Kör jobb för MapReduce med Hadoop i HDInsight med cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Köra Hive-frågor med Hadoop i HDInsight med cURL](hadoop/apache-hadoop-use-hive-curl.md)
@@ -66,17 +64,17 @@ Information om andra sätt att köra MapReduce Hive, och svin interaktivt, se [a
 **Skapar ett kluster**
 
 * Gamla kommando (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Nytt kommando (ARM)- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Nytt kommando- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Tar bort ett kluster**
 
 * Gamla kommando (ASM)- `azure hdinsight cluster delete myhdicluster`
-* Nytt kommando (ARM)- `azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Nytt kommando- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Lista över kluster**
 
 * Gamla kommando (ASM)- `azure hdinsight cluster list`
-* Nytt kommando (ARM)- `azure hdinsight cluster list`
+* Nytt kommando- `azure hdinsight cluster list`
 
 > [!NOTE]
 > För kommandot listan anger du en resurs grupp med `-g` returnerar endast kluster i den angivna resursgruppen.
@@ -86,12 +84,12 @@ Information om andra sätt att köra MapReduce Hive, och svin interaktivt, se [a
 **Visa information om klustret**
 
 * Gamla kommando (ASM)- `azure hdinsight cluster show myhdicluster`
-* Nytt kommando (ARM)- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Nytt kommando- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrera till Azure Resource Manager för Azure PowerShell
-Allmän information om Azure PowerShell läget Azure Resource Manager (ARM) finns på [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Allmän information om Azure PowerShell i läget Azure Resource Manager finns på [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Azure PowerShell ARM-cmdlets kan vara installerade sida-vid-sida med ASM-cmdlets. Cmdlet: ar från de två lägena kan särskiljas genom deras namn.  ARM-läge har *AzureRmHDInsight* i cmdlet-namnen jämföra *AzureHDInsight* i ASM-läge.  Till exempel *ny AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parametrar och växlar som kan ha nyheter namn och det finns många nya parametrar när du med hjälp av ARM.  Till exempel flera cmdlets kräver en ny växel kallas *- ResourceGroupName*. 
+Resurshanteraren för Azure PowerShell-cmdlet: ar kan installeras bredvid ASM-cmdlets. Cmdlet: ar från de två lägena kan särskiljas genom deras namn.  Resource Manager-läget har *AzureRmHDInsight* i cmdlet-namnen jämföra *AzureHDInsight* i ASM-läge.  Till exempel *ny AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parametrar och växlar som kan ha nyheter namn och det finns många nya parametrar när du använder Resource Manager.  Till exempel flera cmdlets kräver en ny växel kallas *- ResourceGroupName*. 
 
 Innan du kan använda HDInsight-cmdlets, måste du ansluta till ditt Azure-konto och skapa en ny resursgrupp:
 
@@ -103,9 +101,9 @@ Listan HDInsight ASM-cmdlets i Windows PowerShell-konsol:
 
     help *azurermhdinsight*
 
-I följande tabell visas de ASM-cmdletarna och deras namn i ARM-läge:
+I följande tabell visas ASM-cmdlets och deras namn i Resource Manager-läge:
 
-| ASM-cmdlets | ARM-cmdlets |
+| ASM-cmdlets | Resource Manager-cmdletar |
 | --- | --- |
 | Add-AzureHDInsightConfigValues |[Add-AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
 | Add-AzureHDInsightMetastore |[Add-AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
@@ -136,9 +134,9 @@ I följande tabell visas de ASM-cmdletarna och deras namn i ARM-läge:
 | Wait-AzureHDInsightJob |[Wait-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
 
 ### <a name="new-cmdlets"></a>Nya cmdletar
-Följande är de nya cmdletarna som bara är tillgängliga i ARM-läge. 
+Följande är de nya cmdletarna som endast är tillgängliga i Resource Manager-läge. 
 
-**Skriptåtgärder relaterade cmdlets:**
+**Skriptet åtgärd-relaterade cmdlets:**
 
 * **Get-AzureRmHDInsightPersistedScriptAction**: hämtar beständiga skriptåtgärder för ett kluster och visar dem i kronologisk ordning eller hämtar information för en angiven beständiga skriptåtgärder. 
 * **Get-AzureRmHDInsightScriptActionHistory**: hämtar skriptåtgärdshistoriken för ett kluster och visas i omvänd kronologisk ordning eller hämtar information om en tidigare skriptåtgärder. 
@@ -148,12 +146,12 @@ Följande är de nya cmdletarna som bara är tillgängliga i ARM-läge.
 
 Av ytterligare användningsinformation finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
-**Clsuter identitet relaterade cmdlets:**
+**Klustret identity-relaterade cmdlets:**
 
 * **Lägg till AzureRmHDInsightClusterIdentity**: lägger till en kluster-identitet ett konfigurationsobjekt för klustret så att HDInsight-klustret kan komma åt Azure Data Lake butiker. Se [skapar ett HDInsight-kluster med Data Lake Store med hjälp av Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Exempel
-Skapa kluster
+**Skapa kluster**
 
 Gamla kommando (ASM): 
 
@@ -170,7 +168,7 @@ Gamla kommando (ASM):
         -Credential $httpCredential `
         -SshCredential $sshCredential
 
-Nytt kommando (ARM):
+Nytt kommando:
 
     New-AzureRmHDInsightCluster `
         -ClusterName $clusterName `
@@ -187,13 +185,13 @@ Nytt kommando (ARM):
         -SshCredential $sshCredentials
 
 
-Ta bort klustret
+**Ta bort klustret**
 
 Gamla kommando (ASM):
 
     Remove-AzureHDInsightCluster -name $clusterName 
 
-Nytt kommando (ARM):
+Nytt kommando:
 
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
 
@@ -203,7 +201,7 @@ Gamla kommando (ASM):
 
     Get-AzureHDInsightCluster
 
-Nytt kommando (ARM):
+Nytt kommando:
 
     Get-AzureRmHDInsightCluster 
 
@@ -213,7 +211,7 @@ Gamla kommando (ASM):
 
     Get-AzureHDInsightCluster -Name $clusterName
 
-Nytt kommando (ARM):
+Nytt kommando:
 
     Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
 
@@ -224,15 +222,15 @@ Nytt kommando (ARM):
 * [Skicka Pig-jobb](hadoop/apache-hadoop-use-pig-powershell.md)
 * [Skicka Sqoop jobb](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
-## <a name="migrating-to-the-arm-based-hdinsight-net-sdk"></a>Migrera till ARM-baserade HDInsight .NET SDK
-Azure Service Management-baserade [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) är nu föråldrad. Du uppmanas att använda Azure Resource Manager-baserade [(ARM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx). Används inte följande ASM-baserat HDInsight-paket.
+## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrera till nya HDInsight .NET SDK
+Azure Service Management-baserade [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) är nu föråldrad. Du uppmanas att använda Azure Resource Manager-baserade [Resource Manager-baserade HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx). Används inte följande ASM-baserat HDInsight-paket.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
 
-Det här avsnittet innehåller länkar till mer information om hur du utför vissa aktiviteter med hjälp av ARM-baserade SDK.
+Det här avsnittet innehåller länkar till mer information om hur du utför vissa aktiviteter med hjälp av Resource Manager-baserade SDK.
 
-| Så här... med hjälp av ARM-baserade HDInsight SDK | Länkar |
+| Så här... med Resource Manager-baserade HDInsight SDK | Länkar |
 | --- | --- |
 | Skapa HDInsight-kluster med .NET SDK |Se [skapa HDInsight-kluster med hjälp av .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Anpassa ett kluster med skriptåtgärder med .NET SDK |Se [anpassa HDInsight Linux-kluster med skriptåtgärder](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
@@ -249,19 +247,19 @@ Det här avsnittet innehåller länkar till mer information om hur du utför vis
 | Ta bort HDInsight-kluster med .NET SDK |Se [ta bort HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>Exempel
-Nedan följer några exempel på hur en åtgärd är utförs med hjälp av SDK ASM-baserade och motsvarande kodfragmentet för ARM-baserade SDK.
+Nedan följer några exempel på hur en åtgärd är utförs med hjälp av SDK ASM-baserade och motsvarande kodfragmentet för Resource Manager-baserade SDK.
 
 **Skapar ett kluster CRUD-klient**
 
 * Gamla kommando (ASM)
   
         //Certificate auth
-        //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager (ARM)
+        //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager
   
         const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
         var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
         var client = HDInsightClient.Connect(cred);
-* Nytt kommando (ARM) (Service principal auktorisering)
+* Nytt kommando (Service principal auktorisering)
   
         //Service principal auth
         //This will log the application in as itself, rather than on behalf of a specific user.
@@ -279,7 +277,7 @@ Nedan följer några exempel på hur en åtgärd är utförs med hjälp av SDK A
         var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
   
         _hdiManagementClient = new HDInsightManagementClient(creds);
-* Nytt kommando (ARM) (auktoriseringen av användare)
+* Nytt kommando (auktoriseringen av användare)
   
         //User auth
         //This will log the application in on behalf of the user.
@@ -317,7 +315,7 @@ Nedan följer några exempel på hur en åtgärd är utförs med hjälp av SDK A
                     };
         clusterInfo.CoreConfiguration.Add(new KeyValuePair<string, string>("config1", "value1"));
         client.CreateCluster(clusterInfo);
-* Nytt kommando (ARM)
+* Nytt kommando
   
         var clusterCreateParameters = new ClusterCreateParameters
             {
@@ -344,7 +342,7 @@ Nedan följer några exempel på hur en åtgärd är utförs med hjälp av SDK A
 * Gamla kommando (ASM)
   
         client.EnableHttp(dnsName, "West US", "admin", "*******");
-* Nytt kommando (ARM)
+* Nytt kommando
   
         var httpParams = new HttpSettingsParameters
         {
@@ -359,7 +357,7 @@ Nedan följer några exempel på hur en åtgärd är utförs med hjälp av SDK A
 * Gamla kommando (ASM)
   
         client.DeleteCluster(dnsName);
-* Nytt kommando (ARM)
+* Nytt kommando
   
         client.Clusters.Delete(resourceGroup, dnsname);
 

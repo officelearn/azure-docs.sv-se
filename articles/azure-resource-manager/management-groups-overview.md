@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna dina resurser med Azure-Hanteringsgrupper 
 
@@ -32,7 +32,7 @@ Du kan bygga en flexibel struktur för hanteringsgrupper och prenumerationer fö
 
 ![trädet](media/management-groups/MG_overview.png)
 
-Genom att skapa en hierarki som är grupperade efter avdelningar, du kan tilldela [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) roller som *ärver* till avdelningar under den hanteringsgruppen. Med hjälp av hanteringsgrupper kan minska din arbetsbelastning och minskar risken för fel genom att bara behöva tilldela rollen som en gång. 
+Genom att skapa en hierarki som är grupperade efter avdelningar, du kan tilldela [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) roller som *ärver* till avdelningar under den hanteringsgruppen. Med hjälp av hanteringsgrupper kan minska din arbetsbelastning och minskar risken för fel genom att bara behöva tilldela rollen som en gång. 
 
 ### <a name="important-facts-about-management-groups"></a>Viktiga fakta om hanteringsgrupper
 - 10 000 hanteringsgrupper kan användas i en katalog. 
@@ -55,7 +55,7 @@ Det här objektet utförs på och kommer att lösas innan Hanteringsgrupper anno
 
 ## <a name="root-management-group-for-each-directory"></a>Rot-hanteringsgruppen för varje katalog
 
-Varje katalog ges en översta hantering från en enda grupp med namnet ”rot” hanteringsgruppen. Denna management group rot är inbyggd i hierarkin har alla hanteringsgrupper och prenumerationer vika till den. Denna management group rot kan för globala principer och tilldelningar RBAC som ska användas på katalog-nivå. Den [Directory-administratör behöver höjer själva](../active-directory/role-based-access-control-tenant-admin-access.md) att vara ägare till den här rotgruppen från början. När administratören ägare av gruppen kan tilldela de alla RBAC-roller till andra directory-användare eller grupper för att hantera i hierarkin.  
+Varje katalog ges en översta hantering från en enda grupp med namnet ”rot” hanteringsgruppen. Denna management group rot är inbyggd i hierarkin har alla hanteringsgrupper och prenumerationer vika till den. Denna management group rot kan för globala principer och tilldelningar RBAC som ska användas på katalog-nivå. Den [Directory-administratör behöver höjer själva](../role-based-access-control/elevate-access-global-admin.md) att vara ägare till den här rotgruppen från början. När administratören ägare av gruppen kan tilldela de alla RBAC-roller till andra directory-användare eller grupper för att hantera i hierarkin.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Viktiga fakta om hanteringsgruppen rot
 - Rot-hanteringsgruppen namn och ID anges i Azure Active Directory-ID som standard. Visningsnamnet kan uppdateras när som helst för att visa olika i Azure-portalen. 
@@ -67,9 +67,9 @@ Varje katalog ges en översta hantering från en enda grupp med namnet ”rot”
   
 ## <a name="management-group-access"></a>Åtkomst till Hanteringsgruppen
 
-Har stöd för Azure Hanteringsgrupper [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) för alla resurs har åtkomst och rolldefinitioner. Dessa behörigheter ärvs till underordnade resurser som finns i hierarkin.   
+Har stöd för Azure Hanteringsgrupper [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) för alla resurs har åtkomst och rolldefinitioner. Dessa behörigheter ärvs till underordnade resurser som finns i hierarkin.   
 
-När någon [inbyggda RBAC rollen](../active-directory/role-based-access-control-what-is.md#built-in-roles) kan tilldelas till en hanteringsgrupp, det finns fyra roller som är vanliga: 
+När någon [inbyggda RBAC rollen](../role-based-access-control/overview.md#built-in-roles) kan tilldelas till en hanteringsgrupp, det finns fyra roller som är vanliga: 
 - **Ägare** har fullständig åtkomst till alla resurser som bland annat att delegera åtkomst till andra. 
 - **Deltagare** kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra.
 - **Resursen princip deltagare** kan skapa och hantera principer i katalogen på resurser.     

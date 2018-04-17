@@ -1,36 +1,32 @@
 ---
-title: "Hanterade tjänstidentiteten i Apptjänst och Azure Functions | Microsoft Docs"
-description: "Konceptuell referens- och guiden för hanterade tjänstidentiteten stöd i Azure App Service och Azure Functions"
+title: Hanterade tjänstidentiteten i Apptjänst och Azure Functions | Microsoft Docs
+description: Konceptuell referens- och guiden för hanterade tjänstidentiteten stöd i Azure App Service och Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
 > [!NOTE] 
-> Hanterade tjänstidentiteten för Apptjänst och Azure Functions är för närvarande under förhandsgranskning.
+> Hanterade tjänstidentiteten för Apptjänst och Azure Functions är för närvarande under förhandsgranskning. Apptjänst på Linux- och webbprogrammet för behållare stöds inte för närvarande.
 
 Det här avsnittet visar hur du skapar en hanterad app identitet för App Service och Azure Functions program och hur du använder den för att komma åt andra resurser. En hanterad tjänstidentitet från Azure Active Directory kan din app att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera alla hemligheter. Mer information om hanterade tjänstidentiteten finns i [hanterade tjänstidentiteten översikt](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Skapa en app med en identitet
 
 Skapa en app med en identitet kräver ytterligare en egenskap som ska anges för programmet.
-
-> [!NOTE] 
-> Den primära platsen för en plats får identitet. Hanterade tjänsteidentiteter för distribution av kortplatser inte stöds ännu.
-
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
@@ -48,11 +44,11 @@ Om du vill konfigurera en hanterade tjänstidentiteten i portalen ska du först 
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
-Om du vill ställa in en hanterad tjänstidentitet med hjälp av Azure CLI, behöver du använda den `az webapp assign-identity` kommandot mot ett befintligt program. Det finns tre alternativ för att köra exemplen i det här avsnittet:
+Om du vill ställa in en hanterad tjänstidentitet med hjälp av Azure CLI, behöver du använda den `az webapp identity assign` kommandot mot ett befintligt program. Det finns tre alternativ för att köra exemplen i det här avsnittet:
 
 - Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure-portalen.
 - Använd inbäddade Azure Cloud Shell via försök ”knappen”, finns i det övre högra hörnet av varje kodblock nedan.
-- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 eller senare) om du föredrar att använda den lokala CLI-konsolen. 
+- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda den lokala CLI-konsolen. 
 
 Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet med hjälp av CLI:
 
@@ -65,14 +61,14 @@ Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet 
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Kör den `assign-identity` kommando för att skapa identiteten för det här programmet:
+3. Kör den `identity assign` kommando för att skapa identiteten för det här programmet:
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Med en Azure Resource Manager-mall
@@ -162,7 +158,7 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. Om du vill 
 > |Parameternamn|i|Beskrivning|
 > |-----|-----|-----|
 > |resurs|Fråga|AAD-resurs-URI för resursen för som en token ska hämtas.|
-> |api-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
+> |API-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
 > |hemlighet|Sidhuvud|Värdet för miljövariabeln MSI_SECRET.|
 
 

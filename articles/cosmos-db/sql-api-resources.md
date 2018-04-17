@@ -1,11 +1,11 @@
 ---
 title: Azure DB Cosmos-resursmodell och begrepp | Microsoft Docs
 description: Läs mer om Azure Cosmos DB hierarkiska modell för databaser, samlingar, användardefinierad funktion (UDF), dokument, behörighet att hantera resurser och mycket mer.
-keywords: Hierarchical model, cosmosdb, azure, Microsoft azure
+keywords: Hierarkisk modellen cosmosdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarkisk Azure Cosmos DB-resursmodell och huvudkoncept
 
@@ -57,7 +57,7 @@ När du börjar arbeta med resurser, måste du [skapa ett databaskonto](create-s
 | Databaskonto |Ett databaskonto är associerad med en uppsättning databaser och en fast mängd blob-lagring för bifogade filer. Du kan skapa en eller flera databasen konton med hjälp av din Azure-prenumeration. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | Databas |En databas är en logisk behållare för dokumentlagring, partitionerad över samlingarna. Det är en användarbehållare. |
 | Användare |Det logiska namnområden scope behörigheter. |
-| Behörigheter |En autentiseringstoken som associeras med en användare för åtkomst till en viss resurs. |
+| Behörighet |En autentiseringstoken som associeras med en användare för åtkomst till en viss resurs. |
 | Samling |En samling är en behållare för JSON-dokument och associerad JavaScript-applogik. En samling är en fakturerbar enhet där [kostnaden](performance-levels.md) bestäms av samlingens prestandanivå. Samlingar kan omfatta en eller flera partitioner/servrar och skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde. |
 | Lagrad procedur |Programlogik skriven i JavaScript, som är registrerade med en samling och transaktionellt köras inom databasmotorn. |
 | Utlösare |Programlogik som skrivits i JavaScript utföras före eller efter antingen ett insert-, ersätta eller ta bort igen. |
@@ -78,7 +78,7 @@ Resurser, till exempel databasen konton, databaser, samlingar, användare, behö
         <tr>
             <td valign="top"><p><strong>Egenskap</strong></p></td>
             <td valign="top"><p><strong>Ange användar- eller genereras av systemet?</strong></p></td>
-            <td valign="top"><p><strong>Purpose</strong></p></td>
+            <td valign="top"><p><strong>Syfte</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>_rid</p></td>
@@ -117,14 +117,14 @@ Alla resurser är adresserbara URI. Värdet för den **_self** egenskap för en 
 | Värdet för _self | Beskrivning |
 | --- | --- |
 | /DBS |Feed med databaser under ett databaskonto |
-| /dbs/{dbName} |Databasen med id matchar värdet {dbName} |
+| /DBS/ {dbName} |Databasen med id matchar värdet {dbName} |
 | /DBS/ {dbName} /colls/ |Feeden av samlingar under en-databas |
-| /dbs/{dbName}/colls/{collName} |Samling med id matchar värdet {collName} |
+| /DBS/ {dbName} /colls/ {collName} |Samling med id matchar värdet {collName} |
 | /DBS/ {dbName} /colls/ {collName} / docs |Feeden dokument under en samling |
-| /dbs/{dbName}/colls/{collName}/docs/{docId} |Dokument med ett id som matchar värdet {doc} |
-| /dbs/{dbName}/users/ |Flöde för användare under en-databas |
-| /dbs/{dbName}/users/{userId} |Användare med ett id som matchar värdet {user} |
-| /dbs/{dbName}/users/{userId}/permissions |Feeden behörigheter under en användare |
+| /DBS/ {dbName} /colls/ {collName} /docs/ {docId} |Dokument med ett id som matchar värdet {doc} |
+| /DBS/ {dbName} /users/ |Flöde för användare under en-databas |
+| /DBS/ {dbName} /users/ {userId} |Användare med ett id som matchar värdet {user} |
+| /DBS/ {dbName} /users/ {userId} / behörigheter |Feeden behörigheter under en användare |
 | /dbs/{dbName}/users/{userId}/permissions/{permissionId} |Behörighet med id matchar värdet {behörighet} |
 
 Varje resurs har ett unikt användardefinierat namn som exponeras via id-egenskapen. Obs: för dokument, om användaren inte anger ett id SDK: erna automatiskt generera ett unikt id för dokumentet. ID: t är en användardefinierad sträng med upp till 256 tecken som är unikt inom ramen för en viss överordnade resurs. 
@@ -454,7 +454,7 @@ Oavsett specifika horisontell partitionering strategin du, kan du modellera fakt
 
 Precis som alla andra resurser, användare i Azure Cosmos DB kan skapas, ersätts, tas bort, läsa eller räkna upp enkelt använda REST API: er eller någon av klient-SDK:. Azure Cosmos-DB ger alltid stark konsekvens för läsning eller en fråga till metadata för en användarresurs. Det är värt pekar på att ta bort en användare automatiskt garanterar att du inte kan komma åt någon av de behörigheter som finns i den. Även om Azure Cosmos DB återtar kvoten av behörigheter som en del av den borttagna användaren i bakgrunden, borttagna behörigheter är tillgänglig direkt igen som du kan använda.  
 
-## <a name="permissions"></a>Behörighet
+## <a name="permissions"></a>Behörigheter
 Ur ett access control, resurser, till exempel databasen konton, databaser, användare och behörigheten anses *administrativa* resurser eftersom de kräver administratörsbehörighet. Å andra sidan resurser inklusive samlingarna, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er omfång under en viss databas och anses vara *programresurser*. Auktoriseringsmodellen som motsvarar de två typerna av resurser och de roller som kan komma åt dem (nämligen administratörer och användare) definierar två typer av *åtkomstnycklar*: *huvudnyckeln* och  *Resursnyckeln*. Huvudnyckeln är en del av kontot och har angetts för utvecklare (eller administratör) som etablerar databaskontot. Den här huvudnyckeln har administratören semantik i att den kan användas för att bevilja åtkomst till både administrativa och program. En Resursnyckeln är däremot ett detaljerade åtkomstnyckel som ger åtkomst till en *specifika* programresursen. Det innebär den samlar in relationen mellan användare av en databas och vilka behörigheter användaren har för en viss resurs (exempelvis samling dokument, bifogad fil, lagrade procedurer, utlösare eller UDF).   
 
 Det enda sättet att hämta en Resursnyckeln är genom att skapa en behörighet resurs under en viss användare. Observera att för att skapa eller hämta behörighet, en huvudnyckel måste vara angiven på authorization-huvud. En behörighet resurs kopplar samman resursen, dess åtkomst och användaren. När du har skapat en behörighet resurs behöver användaren bara finns nyckeln associerad resurs för att få åtkomst till den aktuella resursen. Därför kan en Resursnyckeln ses som en logisk och compact representation av resursen behörighet.  

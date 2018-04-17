@@ -1,8 +1,8 @@
 ---
 title: Skapa och dela instrumentpaneler med Azure portal | Microsoft Docs
-description: "Den här artikeln beskriver hur du skapar och redigerar instrumentpaneler i Azure-portalen."
+description: Den här artikeln beskriver hur du skapar och redigerar instrumentpaneler i Azure-portalen.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure-portalen
 Du kan skapa flera instrumentpaneler och dela dem med andra användare har åtkomst till dina Azure-prenumerationer.  Den här artikeln går igenom grunderna i att skapa, redigera, publicera och hantera åtkomst till instrumentpaneler.
@@ -75,7 +75,7 @@ Den är privat som standard, vilket innebär att du är den enda som kan se den 
 
 ![dela instrumentpanelen](./media/azure-portal-dashboards/share-dashboard.png)
 
-Du uppmanas att välja en prenumeration och resursgrupp för din instrumentpanel som ska publiceras. Om du vill integrera sömlöst instrumentpaneler i ekosystemet, har vi implementerat delade instrumentpaneler som Azure-resurser (så att du inte kan dela genom att skriva en e-postadress).  Åtkomst till den information som visas i de flesta paneler i portalen regleras av [Azure rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md). Ur ett access control skiljer delade instrumentpaneler sig inte från en virtuell dator eller ett lagringskonto.  
+Du uppmanas att välja en prenumeration och resursgrupp för din instrumentpanel som ska publiceras. Om du vill integrera sömlöst instrumentpaneler i ekosystemet, har vi implementerat delade instrumentpaneler som Azure-resurser (så att du inte kan dela genom att skriva en e-postadress).  Åtkomst till den information som visas i de flesta paneler i portalen regleras av [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Ur ett access control skiljer delade instrumentpaneler sig inte från en virtuell dator eller ett lagringskonto.  
 
 Anta att du har en Azure-prenumeration och gruppmedlemmarna har tilldelats rollerna i **ägare**, **deltagare**, eller **reader** för prenumerationen.  Användare som är ägare eller deltagare kan visa, visa, skapa, ändra eller ta bort instrumentpaneler i den prenumerationen.  Användare som är läsare kan inte kan listan och visa instrumentpaneler, men ändra eller ta bort dem.  Användare med reader åtkomst kan göra lokala redigeringar i en delad instrumentpanel, men det går inte att publicera ändringarna på servern.  De kan dock göra en privat kopia av instrumentpanelen för eget bruk.  Enskilda paneler på instrumentpanelen framtvinga som alltid sina egna regler för åtkomstkontroll baserat på de resurser som de motsvarar.  
 

@@ -1,8 +1,8 @@
 ---
-title: "Slutanvändarens autentisering: .NET SDK med Data Lake Store med Azure Active Directory | Microsoft Docs"
-description: "Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med .NET SDK"
+title: 'Slutanvändarens autentisering: .NET SDK med Data Lake Store med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med .NET SDK
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Slutanvändarens autentisering med Data Lake Store med hjälp av .NET SDK
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att göra s
    4. Stäng **NuGet Package Manager**.
 
 6. Öppna **Program.cs**
-7. Replease den med hjälp av rapporter med följande rader:
+7. Ersätt den med hjälp av rapporter med följande rader:
 
     ```csharp
     using System;

@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integration av Azure Stack datacenter - identitet
 Du kan distribuera Azure-stacken använder Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantörer. Innan du distribuerar Azure stacken måste du göra valet. Distribution med AD FS är kallas även distribuera Azure-stacken i frånkopplat läge.
@@ -108,7 +108,7 @@ Diagram tjänsten i Azure-stacken använder följande protokoll och portar för 
 |---------|---------|---------|
 |LDAP|389|TCP OCH UDP|
 |LDAP SSL|636|TCP|
-|LDAP GC|3268|TCP|
+|GLOBAL KATALOG LDAP|3268|TCP|
 |LDAP-GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Ställa in integration med AD FS genom att hämta federationsmetadata
@@ -262,6 +262,9 @@ Följ dessa steg om du vill köra kommandon manuellt:
    > Du måste använda AD FS MMC-snapin-modulen för att konfigurera auktoriseringsregler för utfärdande när du använder Windows Server 2012 eller 2012 R2 AD FS.
 
 4. När du använder Internet Explorer eller Edge-webbläsaren för att få åtkomst till Azure-stacken, måste du ignorera token bindningar. Annars misslyckas försöker logga in. Kör följande kommando på din AD FS-instans eller en medlem i gruppen:
+
+   > [!note]  
+   > Det här steget gäller inte när du använder Windows Server 2012 eller 2012 R2 AD FS. Det är säkert att hoppa över det här kommandot och fortsätter med integrationen.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

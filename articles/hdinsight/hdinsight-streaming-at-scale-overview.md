@@ -1,28 +1,26 @@
 ---
-title: "Strömning skalanpassat i Azure HDInsight | Microsoft Docs"
-description: "Hur du använder data strömning med skalbara HDInsight-kluster."
+title: Strömning skalanpassat i Azure HDInsight | Microsoft Docs
+description: Hur du använder data strömning med skalbara HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: raghavmohan
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: ramoha
-ms.openlocfilehash: 46b5723805ab5d8bc1cf5b5183d9501cd3e4e3a2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4f1a0873ccdffde7e3567d7e3c50336b20749116
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="streaming-at-scale-in-hdinsight"></a>Strömning i skala i HDInsight
+# <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
 Realtid stordatalösningar fungerar på data i rörelse. Dessa data är vanligtvis värdefullaste på dess ankomsttid. Om den inkommande dataströmmen blir större än vad som kan hanteras för tillfället kan behöva du begränsa resurser ner. Ett HDInsight-kluster kan du skala upp för att uppfylla din strömmande lösning genom att lägga till noder på begäran.
 

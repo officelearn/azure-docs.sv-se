@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -29,7 +29,8 @@ Den här artikeln innehåller felsökning som kan hjälpa dig att lösa Azure Ba
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agenten kunde inte kommunicera med Azure Backup
 
-Felmeddelande: ”VM-agenten kunde inte kommunicera med Azure Backup”
+Felmeddelande: ”VM-agenten kunde inte kommunicera med Azure Backup”<br>
+Felkod: ”UserErrorGuestAgentStatusUnavailable”
 
 När du registrerar och schemalägga en virtuell dator för Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med den Virtuella datoragenten att ta en ögonblicksbild i tidpunkt. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. När en ögonblicksbild inte utlöses, misslyckas säkerhetskopieringen. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:
 
@@ -41,7 +42,8 @@ När du registrerar och schemalägga en virtuell dator för Backup-tjänsten sta
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Ögonblicksbild åtgärden misslyckas eftersom den virtuella datorn inte är ansluten till nätverket
 
-Felmeddelande: ”ögonblicksbild misslyckades på grund av ingen nätverksanslutning på den virtuella datorn”
+Felmeddelande: ”ögonblicksbild misslyckades på grund av ingen nätverksanslutning på den virtuella datorn”<br>
+Felkod: ”ExtensionSnapshotFailedNoNetwork”
 
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:    
 **Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot misslyckas tillägget
 
-Felmeddelande: ”VMSnapshot tillägget misslyckades”
+Felmeddelande: ”VMSnapshot tillägget misslyckades”<br>
+Felkod: ”ExtentionOperationFailed”
 
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:  
 **Orsak 1: [går inte att hämta status för ögonblicksbild eller en ögonblicksbild kan inte utföras](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,7 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Det går inte att säkerhetskopiera eftersom VM-agenten inte svarar
 
-Fel messagae: ”Det går inte att utföra åtgärden eftersom den Virtuella Datoragenten inte svarar”
+Felmeddelande: ”Det går inte att utföra åtgärden eftersom den Virtuella Datoragenten inte svarar”
 
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:  
 **Orsak 1: [agenten är installerad på den virtuella datorn, men det är inte svarar (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -144,7 +147,7 @@ De flesta agent-relaterade tillägget-relaterade fel eller för Linux virtuella 
 
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log
-   * /var/log/azure/*
+   * / var/logga/azure / *
 
 Om vi behöver utförlig loggning för waagent gör du följande:
 
@@ -177,6 +180,8 @@ Så här avinstallerar tillägget:
 3. Välj **tillägg**.
 4. Välj **Vmsnapshot tillägget**.
 5. Välj **avinstallera**.
+
+För Linux VM, om tillägget VMSnapshot inte visas i Azure-portalen [uppdatera Azure Linux-agenten](../virtual-machines/linux/update-agent.md), och sedan köra säkerhetskopieringen. 
 
 Gör så här gör att tillägg installeras under nästa säkerhetskopiering.
 

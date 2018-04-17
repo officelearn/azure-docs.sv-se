@@ -1,8 +1,8 @@
 ---
 title: Apache Storm med Python comopnents - Azure HDInsight | Microsoft Docs
-description: "Lär dig hur du skapar ett Apache Storm-topologi som använder Python-komponenter."
+description: Lär dig hur du skapar ett Apache Storm-topologi som använder Python-komponenter.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ebfc9d5aa1c3a650a938c0a9f5fc3d047f90458d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm-topologier med Python i HDInsight
 
@@ -29,7 +27,7 @@ Lär dig hur du skapar ett Apache Storm-topologi som använder Python-komponente
 > [!IMPORTANT]
 > Informationen i det här dokumentet har testats med Storm på HDInsight 3,6. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Koden för det här projektet är tillgänglig på [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+Koden för det här projektet är tillgänglig på [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,7 +41,7 @@ Koden för det här projektet är tillgänglig på [https://github.com/Azure-Sam
 
 ## <a name="storm-multi-language-support"></a>Storm-stöd för flera språk
 
-Apache Storm har utformats för att arbeta med komponenter som skrivits med alla programmeringsspråk. Komponenterna som måste förstå hur du arbetar med den [Thrift-definition för Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). För Python, har en modul angetts som en del av Apache Storm-projekt där du kan enkelt gränssnitt med Storm. Du hittar den här modulen på [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm har utformats för att arbeta med komponenter som skrivits med alla programmeringsspråk. Komponenterna som måste förstå hur du arbetar med den [Thrift-definition för Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). För Python, har en modul angetts som en del av Apache Storm-projekt där du kan enkelt gränssnitt med Storm. Du hittar den här modulen på [ https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py ](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
 Storm är en Java-process som körs på Java Virtual Machine (JVM). Komponenter som skrivits i andra språk körs som delprocesser. Storm kommunicerar med dessa delprocesser som använder JSON-meddelanden som skickas över stdin/stdout. Mer information om kommunikation mellan komponenter finns i den [lang Multi Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) dokumentation.
 

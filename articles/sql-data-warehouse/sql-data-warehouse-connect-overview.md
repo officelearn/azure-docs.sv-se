@@ -1,31 +1,26 @@
 ---
 title: Anslut till Azure SQL Data Warehouse | Microsoft Docs
-description: "Så här hittar du servernamnet och anslutningssträngen för Azure SQL Data Warehouse"
+description: Anslut till Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a575bc4f57c3b1dbcf3846b1246b338621e4d720
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Anslut till Azure SQL Data Warehouse
-Artikeln visar hur du ansluter till SQL Data Warehouse för första gången.
+Anslut till Azure SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
-Det första steget när du ska ansluta till SQL Data Warehouse är att ta reda på servernamnet.  I följande exempel är servernamnet samplesvr.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
+Servernamnet i följande exempel är samplesvr.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
 
 1. Gå till [Azure Portal][Azure portal].
 2. Klicka på **SQL-informationslager**.
@@ -35,7 +30,7 @@ Det första steget när du ska ansluta till SQL Data Warehouse är att ta reda p
     ![Fullständigt servernamn][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
-Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. Klicka på någon av drivrutinerna ovan för att hitta den senaste versionen och dokumentation. Om du vill generera anslutningssträngen för den drivrutin som du använder från Azure-portalen, kan du klicka på **Visa databasanslutningssträngar** från föregående exempel.  Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
+Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. För att hitta den senaste versionen och dokumentation, klickar du på någon av de föregående drivrutinerna. För att automatiskt generera anslutningssträngen för den drivrutin som du använder från Azure portal, klicka på den **visa databasanslutningssträngar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
 > [!NOTE]
 > Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.

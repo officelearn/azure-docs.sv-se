@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Använd utkast med Azure Container Service (AKS)
 
@@ -21,7 +21,7 @@ Utkastet är ett verktyg med öppen källkod som hjälper till att innehålla oc
 
 Det här dokumentet beskriver med ett Kubernetes kluster på AKS utkast.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt finns i [AKS quickstart][aks-quickstart].
 
@@ -33,10 +33,10 @@ Slutligen måste du installera [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Installera utkast
 
-Utkast CLI är en klient som kör i utvecklingssystemet och tillåter att du snabbt distribuera kod i ett Kubernetes kluster. 
+Utkast CLI är en klient som kör i utvecklingssystemet och tillåter att du snabbt distribuera kod i ett Kubernetes kluster.
 
-> [!NOTE] 
-> Om du har installerat ett utkast till före version 0,12 måste du först bort utkast från klustret med hjälp av `helm delete --purge draft` och ta sedan bort den lokala konfigurationen genom att köra `rm -rf ~/.draft`. Om du är på MacOS, kan du köra `brew upgrade draft`.
+> [!NOTE]
+> Om du har installerat ett utkast till före version 0,12 måste du först bort utkast från klustret med hjälp av `helm delete --purge draft` och ta sedan bort den lokala konfigurationen genom att köra `rm -rf ~/.draft`. Om du är på MacOS köra `brew upgrade draft`.
 
 Så här installerar du utkast CLI på en Mac-Använd `brew`. Ytterligare installationsalternativ finns, [utkast installera guiden][install-draft].
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Det finns en förtroenderelation mellan AKS och ACR, aktivera användning av ACR från AKS-kluster i följande steg.
 1. Konfigurera utkast `registry` värde genom att köra `draft config set registry <registry name>.azurecr.io`, där _&lt;registrets&lt;_ är namnet på din ACR-registret.
-2. Logga in på ACR registret genom att köra `az acr login -n <registry name>`. 
+2. Logga in på ACR registret genom att köra `az acr login -n <registry name>`.
 
-Eftersom du är nu inloggad lokalt ACR och du har skapat en förtroenderelation med AKS och ACR, krävs inga lösenord eller hemligheter för att skicka till eller hämta från ACR till AKS. Autentisering sker på nivån Azure Resource Manager med Azure Active Directory. 
+Eftersom du är nu inloggad lokalt ACR och du har skapat en förtroenderelation med AKS och ACR, krävs inga lösenord eller hemligheter för att skicka till eller hämta från ACR till AKS. Autentisering sker på nivån Azure Resource Manager med Azure Active Directory.
 
 ## <a name="run-an-application"></a>Kör ett program
 
@@ -95,7 +95,7 @@ Använd den `draft create` kommando för att starta processen. Detta kommando sk
 draft create
 ```
 
-Utdata:
+Resultat:
 
 ```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
@@ -110,7 +110,7 @@ Första gången detta körs kan push-installation och dra behållaren avbildning
 draft up
 ```
 
-Utdata:
+Resultat:
 
 ```console
 Draft Up Started: 'example-java'
@@ -131,7 +131,7 @@ I vissa fall kan ta det några minuter för behållaren bilden som ska laddas ne
 draft connect
 ```
 
-Utdata:
+Resultat:
 
 ```console
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Nu kan du testa ditt program genom att bläddra till http://localhost:46143 (för i föregående exempel; porten kan vara olika). När du är klar att testa hur programmet `Control+C` att stoppa proxyanslutningen.
+Nu testa programmet genom att bläddra till http://localhost:46143 (för i föregående exempel; porten kan vara olika). När du är klar att testa hur programmet `Control+C` att stoppa proxyanslutningen.
 
 > [!NOTE]
 > Du kan också använda den `draft up --auto-connect` kommando för att skapa och distribuera programmet och ansluta direkt till den första körs behållaren att göra upprepning växla även snabbare.
@@ -211,7 +211,7 @@ Bläddra till den externa IP-adressen för att visa programmet.
 curl 52.175.224.118
 ```
 
-Utdata:
+Resultat:
 
 ```
 Hello World, I'm Java
@@ -247,7 +247,7 @@ Kör den `draft up --auto-connect` kommando för att distribuera programmet säk
 draft up --auto-connect
 ```
 
-Utdata
+Resultat
 
 ```
 Draft Up Started: 'example-java'
@@ -273,7 +273,7 @@ Slutligen visa programmet för att se uppdateringarna.
 curl 52.175.224.118
 ```
 
-Utdata:
+Resultat:
 
 ```
 Hello World, I'm Java in AKS!

@@ -1,43 +1,48 @@
 ---
-title: "Så här avetablera enheter som registrerats med Azure IoT-hubb Device etablering Service | Microsoft Docs"
-description: "Så här avetablera enheter som registrerats av DP-tjänsten i Azure Portal"
+title: Hur du ta bort etableringen av enheter som har etablerats med Azure IoT Hub-enhet etablering Service | Microsoft Docs
+description: Avetablering enheter som har etablerats med Azure IoT Hub etablering av tjänst
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 01/08/2018
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/06/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 1d057a4df43cf25e6817672d198207d9a50e462e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-unprovision-devices-enrolled-by-your-provisioning-service"></a>Så här avetablera enheter som registrerats av etablering tjänsten
+# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Hur du ta bort etableringen av enheter som tidigare har etablerats för automatisk 
 
-Du kan det vara nödvändigt att avetablera enheter som har etablerats via tjänsten etablering av enheten. Till exempel en enhet kan säljas eller flyttas till en annan IoT-hubb eller den kan tappas bort, blir stulen eller annat sätt äventyras. 
+Du kan det vara nödvändigt att avetablering enheter som fanns tidigare automatiskt etablerade via tjänsten etablering av enheten. Till exempel en enhet kan säljas eller flyttas till en annan IoT-hubb eller den kan tappas bort, blir stulen eller annat sätt äventyras. 
 
 I allmänhet avetablering en enhet i två steg:
 
-1. Återkalla åtkomst för enheten till din etablering tjänst. Beroende på om du vill återkalla åtkomst tillfälligt eller permanent eller, för mekanismen X.509 attestering på hierarkin för registrering av befintliga grupper, kanske du vill inaktivera eller ta bort en post för registrering. 
+1. Disenroll enheten från etablering tjänsten, för att förhindra framtida auto-etablering. Beroende på om du vill återkalla åtkomst tillfälligt eller permanent, kanske du vill inaktivera eller ta bort en post för registrering. För enheter som använder X.509 attestering, kanske du vill inaktivera/ta bort en post i hierarkin för din befintliga grupper för registrering.  
  
-   - Information om hur du återkalla Enhetsåtkomst med hjälp av portalen finns [återkalla Enhetsåtkomst](how-to-revoke-device-access-portal.md).
-   - Information om hur du återkalla Enhetsåtkomst programmässigt med någon av SDK: er för etablering tjänsten finns [hantera enhetsregistrering med tjänsten SDK](how-to-manage-enrollments-sdks.md).
+   - Information om hur du disenroll en enhet finns [så disenroll en enhet från Azure IoT-hubb Device etablering Service](how-to-revoke-device-access-portal.md).
+   - Information om hur du disenroll en enhet med en av SDK: er för etablering service programmässigt finns [hantera enhetsregistrering med tjänsten SDK](how-to-manage-enrollments-sdks.md).
 
-2. Inaktivera eller ta bort enhetens post i identitetsregistret för IoT-hubb där den etablerades. Läs mer i [Hantera identiteter för enheten](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) i Azure IoT Hub-dokumentationen. 
+2. Avregistrera enheten från din IoT-hubb för att förhindra framtida kommunikation och dataöverföringen. Igen, kan du tillfälligt inaktivera eller ta bort enhetens post i identitetsregistret för IoT-hubb där den etablerades permanent. Se [inaktivera enheter](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) lära dig mer om avstängning. Se ”Device Management / IoT-enheter” för din IoT-hubb-resurs i den [Azure-portalen](https://portal.azure.com).
 
-Hur du utför för att ta bort etableringen för en enhet beror på dess mekanism för attestering av och tillämpliga registrering posten med din etablering tjänst.
+Hur du utför för att ta bort etableringen av en enhet beror på dess mekanism för attestering av och tillämpliga registrering posten med din etablering tjänst. Följande avsnitt innehåller en översikt över processen, beroende på vilken typ av registrering och attestering.
 
 ## <a name="individual-enrollments"></a>Enskilda registreringar
 Enheter som använder TPM-nyckelattestering eller X.509 attestering med en lövcertifikatet tillhandahålls via en post i enskilda registrering. 
 
-Om du vill ta bort etableringen för en enhet har som en enskild registrering: 
-1. Ta bort enskilda registrering-post för att permanent återkalla enhetens åtkomst till tjänsten etablering eller inaktivera posten för att tillfälligt återkalla dess åtkomst för enheter som använder TPM-nyckelattestering. För enheter som använder X.509 attestering, kan du ta bort eller inaktivera posten. Tänk dock att om du tar bort ett enskilt registrering för en enhet som använder X.509 intyg och en aktiverad registrering gruppen finns för ett signeringscertifikat i att enhetens certifikatkedja enheten kan registrera igen. För sådana enheter kan det vara säkrare att inaktivera registrering av transaktionen. På så vis förhindra att enheten omregistreras, oavsett om en aktiverad registrering gruppen finns för en av dess certifikat för tokensignering.
+Om du vill ta bort etableringen av en enhet har som en enskild registrering: 
+
+1. Disenroll enheten från etablering tjänsten:
+
+   - Ta bort enskilda registrering post om du vill återkalla permanent enhetens åtkomst till tjänsten etablering för enheter som använder TPM-nyckelattestering, eller inaktivera posten för att tillfälligt återkalla dess åtkomst. 
+   - För enheter som använder X.509 attestering, kan du ta bort eller inaktivera posten. Tänk dock om du tar bort en enskild registrering för en enhet som använder X.509 och en aktiverad registrering gruppen finns för ett signeringscertifikat i att enhetens certifikatkedja enheten kan registrera igen. För sådana enheter kan det vara säkrare att inaktivera registrering av transaktionen. På så vis förhindra att enheten omregistreras, oavsett om en aktiverad registrering gruppen finns för en av dess certifikat för tokensignering.
+
 2. Inaktivera eller ta bort enheten i identitetsregistret för IoT-hubb som den etablerades till. 
 
 
@@ -55,11 +60,12 @@ Du kan visa gruppen registrering information om du vill se en lista över enhete
 
 Med registrering grupper finns det två scenarier att tänka på:
 
-- Att ta bort etableringen av de enheter som har etablerats genom en grupp för registrering:
+- Att ta bort etableringen av alla enheter som har etablerats genom en grupp för registrering:
   1. Inaktivera gruppen registrering för att svartlista dess signeringscertifikat. 
   2. Använd listan över etablerade enheter för registrering av gruppen inaktivera eller ta bort varje enhet från dess respektive IoT-hubb identitetsregistret. 
   3. Efter att inaktivera eller ta bort alla enheter från deras respektive IoT-hubbar kan du om du vill ta bort gruppen registrering. Tänk dock på att om du tar bort gruppen registreringen och det finns en grupp med aktiverad registrering för ett högre upp i certifikatkedjan signeringscertifikat av en eller flera av enheterna de enheterna kan registrera igen. 
-- Att avetablera en enhet från en grupp för registrering:
+
+- Att ta bort etableringen av en enskild enhet från en grupp för registrering:
   1. Skapa en inaktiverad enskilda registrering för dess lövcertifikatet (enhet). Detta återkallar åtkomst till tjänsten etablering för enheten och tillåter samtidigt åtkomst för andra enheter som har gruppen registrering signeringscertifikat i sina kedjan. Ta inte bort inaktiverad enskilda registreringen för enheten. På så sätt kan enheten registrera på nytt via gruppen registrering. 
   2. Använda listan över etablerade enheter för registrering av gruppen för att hitta IoT-hubb som enheten har etablerats till och inaktivera eller ta bort den från att hubben identitetsregistret. 
   

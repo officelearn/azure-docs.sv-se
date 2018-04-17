@@ -1,9 +1,9 @@
 ---
-title: "Använd Azure Toolkit för IntelliJ med Hortonworks Sandbox | Microsoft Docs"
-description: "Lär dig hur du använder HDInsight-verktyg i Azure Toolkit för IntelliJ med Hortonworks Sandbox."
-keywords: "hadoop-verktygen hive-fråga, intellij, hortonworks sandbox, azure toolkit för intellij"
+title: Använd Azure Toolkit för IntelliJ med Hortonworks Sandbox | Microsoft Docs
+description: Lär dig hur du använder HDInsight-verktyg i Azure Toolkit för IntelliJ med Hortonworks Sandbox.
+keywords: hadoop-verktygen hive-fråga, intellij, hortonworks sandbox, azure toolkit för intellij
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -12,16 +12,14 @@ ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c72fb17a53b9d373bbd141f76f01e6b029d1e8f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Använda HDInsight Tools för IntelliJ med Hortonworks Sandbox
 
@@ -64,7 +62,7 @@ I det här avsnittet Skapa en Scala exempelprojektet med IntelliJ IDEA. I nästa
 
    ![Dialogrutan Nytt projekt](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Välj **nästa**.
+2. Välj **Nästa**.
 3. I nästa **nytt projekt** dialogrutan rutan, gör du följande:
 
     1. I den **projektnamn** ange ett projektnamn.
@@ -79,7 +77,7 @@ I det här avsnittet Skapa en Scala exempelprojektet med IntelliJ IDEA. I nästa
 5. Om den **projekt** vyn inte är redan öppen genom att trycka på **Alt + 1** att öppna den.
 6. I **Projektutforskaren**, expandera projektet och välj sedan **src**.
 7. Högerklicka på **src**, peka på **ny**, och välj sedan **Scala klassen**.
-8. I den **namn** ange ett namn. I den **typ** väljer **objektet**. Markera **OK**.
+8. I den **namn** ange ett namn. I den **typ** väljer **objektet**. Välj **OK**.
 
     ![Dialogrutan Skapa ny Scala-klass](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -131,7 +129,7 @@ Länka till en emulator:
 1. Öppna projektet i IntelliJ.
 2. På den **visa** väljer du **verktyg Windows**, och välj sedan **Azure Explorer**.
 3. Expandera **Azure**, högerklicka på **HDInsight**, och välj sedan **länka en Emulator**.
-4. I den **länken en ny emulatorn** dialogrutan Ange lösenordet som du har angett för rotkontot i sandlådan Hortonworks. Ange värden som liknar de som används i följande skärmbild. Markera **OK**. 
+4. I den **länken en ny emulatorn** dialogrutan Ange lösenordet som du har angett för rotkontot i sandlådan Hortonworks. Ange värden som liknar de som används i följande skärmbild. Välj **OK**. 
 
    ![Länka en ny emulatorn dialogruta](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 

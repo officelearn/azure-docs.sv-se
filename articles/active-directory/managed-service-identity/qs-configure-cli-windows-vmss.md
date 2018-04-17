@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera MSI på en virtuell dator i Azure-skala med Azure CLI"
-description: "Steg för steg-instruktioner för hur du konfigurerar en hanterad tjänst identitet (MSI) på ett Azure Virtual Machine Scale Set, med hjälp av Azure CLI."
+title: Konfigurera MSI på en virtuell dator i Azure-skala med Azure CLI
+description: Steg för steg-instruktioner för hur du konfigurerar en hanterad tjänst identitet (MSI) på ett Azure Virtual Machine Scale Set, med hjälp av Azure CLI.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9cdf5225f2d87fffa2290e3edd09d4ae829aee21
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Konfigurera en virtuell dator skaluppsättning hanteras Service identitet (MSI) med hjälp av Azure CLI
 
@@ -71,10 +71,10 @@ Om du behöver aktivera MSI på en befintlig skaluppsättning för virtuell Azur
    az login
    ```
 
-2. Använd [az vmss tilldela-identitet](/cli/azure/vm/#az_vmss_assign_identity) med den `--assign-identity` parametern för att lägga till en MSI i en befintlig virtuell dator:
+2. Använd [az vmss identitet tilldela](/cli/azure/vmss/identity/#az_vmss_identity_assign) kommando för att lägga till en MSI i en befintlig virtuell dator:
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>Ta bort MSI från en skaluppsättning för virtuell Azure-dator
@@ -87,10 +87,10 @@ Om du har en skaluppsättning för virtuell dator som inte längre behöver en M
    az login
    ```
 
-2. Använd den `--identities` växel med [az vmss remove-identitet](/cli/azure/vmss/#az_vmss_remove_identity) att ta bort MSI:
+2. Använd [az vmss identitet ta bort](/cli/azure/vmss/identity/#az_vmss_remove_identity) för att ta bort MSI:
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## <a name="next-steps"></a>Nästa steg

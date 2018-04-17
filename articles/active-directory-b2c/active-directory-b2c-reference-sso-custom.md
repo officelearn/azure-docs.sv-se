@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Enkel inloggning (SSO) sessionshantering
 
@@ -47,6 +47,9 @@ Som namnet avgör ingenting den här providern. Den här providern kan användas
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Den här providern kan användas för att lagra anspråk i en session. Den här providern refereras vanligtvis i en teknisk profil som används för att hantera lokala konton. 
+
+> [!NOTE]
+> När du använder DefaultSSOSessionProvider för att lagra anspråk i en session, måste du se till att anspråk som måste återgått till att programmet eller används av villkor i efterföljande steg är lagras i en session eller förstärkta genom en läsning från profilen för användare i katalog. Detta säkerställer att din resa autentisering inte kan utföras på saknas anspråk.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

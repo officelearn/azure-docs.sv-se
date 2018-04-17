@@ -1,11 +1,11 @@
 ---
-title: "Bevilja användarbehörighet att principer för specifika labbet | Microsoft Docs"
-description: "Lär dig att ge användarbehörigheter principer för specifika labb i DevTest Labs baserat på varje användares behov"
+title: Bevilja användarbehörighet att principer för specifika labbet | Microsoft Docs
+description: Lär dig att ge användarbehörigheter principer för specifika labb i DevTest Labs baserat på varje användares behov
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
 ms.service: devtest-lab
 ms.workload: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
-ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e42d371e1f5244b61dc30823db43fefe549b00d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användarbehörighet att principer för specifika labbet
 ## <a name="overview"></a>Översikt
 Den här artikeln visar hur du använder PowerShell för att ge användare behörighet till en viss labb-princip. På så sätt kan kan behörigheter användas beroende på varje användares behov. Du kanske vill ge en viss användare möjlighet att ändra principinställningarna VM, men inte kostnaden principer.
 
 ## <a name="policies-as-resources"></a>Principer som resurser
-Enligt beskrivningen i den [Azure rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md) artikeln RBAC Aktivera detaljerad åtkomsthantering av resurser för Azure. Med RBAC kan du särskilja uppgifter inom DevOps-teamet och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete.
+Enligt beskrivningen i den [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) artikeln RBAC Aktivera detaljerad åtkomsthantering av resurser för Azure. Med RBAC kan du särskilja uppgifter inom DevOps-teamet och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete.
 
 I DevTest Labs är en princip för en resurstyp som aktiverar åtgärden RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Varje princip för labbet är en resurs i princip resurstypen och kan tilldelas som ett scope till ett RBAC-roll.
 
 Till exempel för att ge användare läs/skrivbehörighet till den **tillåtna storlekar på VM** princip, skulle du skapa en anpassad roll som fungerar med den **Microsoft.DevTestLab/labs/policySets/policies/*** åtgärd, och sedan tilldela rätt användare till den här anpassade rollen i omfånget för **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Mer information om anpassade roller i RBAC finns det [anpassade roller åtkomstkontroll](../active-directory/role-based-access-control-custom-roles.md).
+Mer information om anpassade roller i RBAC finns det [anpassade roller åtkomstkontroll](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Skapa en anpassad labb-roll med hjälp av PowerShell
 Du behöver läsa följande artikel som förklarar hur du installerar och konfigurerar du Azure PowerShell-cmdlets för att komma igång: [ https://azure.microsoft.com/blog/azps-1-0-pre ](https://azure.microsoft.com/blog/azps-1-0-pre).

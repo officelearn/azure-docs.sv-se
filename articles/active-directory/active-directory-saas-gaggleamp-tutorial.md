@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med GaggleAMP | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GaggleAMP."
+title: 'Självstudier: Azure Active Directory-integrering med GaggleAMP | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GaggleAMP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Självstudier: Azure Active Directory-integrering med GaggleAMP
 
@@ -31,12 +31,12 @@ Integrera GaggleAMP med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med GaggleAMP, behöver du följande:
 
 - En Azure AD-prenumeration
-- En GaggleAMP enkel inloggning på aktiverade prenumeration
+- En GaggleAMP enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -44,7 +44,7 @@ För att konfigurera Azure AD-integrering med GaggleAMP, behöver du följande:
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -106,44 +106,48 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![Konfigurera enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. På den **GaggleAMP domän och URL: er** avsnittet, utför följande steg:
+3. På den **GaggleAMP domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.gaggleamp.com`
+     I den **identifierare** textruta anger du URL: `https://accounts.gaggleamp.com/auth/saml/callback`
 
-    > [!NOTE] 
-    > Värdet är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL. Kontakta [GaggleAMP klienten supportteamet](mailto:sales@gaggleamp.com) värdet hämtas. 
+4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://gaggleamp.com/i/<customerid>`
+
+    > [!NOTE]
+    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [GaggleAMP klienten supportteamet](mailto:sales@gaggleamp.com) att hämta det här värdet.
  
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. Klicka på **spara** knappen.
+6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. På den **GaggleAMP Configuration** klickar du på **konfigurera GaggleAMP** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+7. På den **GaggleAMP Configuration** klickar du på **konfigurera GaggleAMP** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. I en annan webbläsare instans, gå till sidan SAML SSO som skapats för dig av Gaggle supportteam (till exempel: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+8. I en annan webbläsare instans, gå till sidan SAML SSO som skapats för dig av Gaggle supportteam (till exempel: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-8. På din **SAML SSO** utför följande steg:  
+9. På din **SAML SSO** utför följande steg:  
    
-    ![GaggleAMP enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. I den **identitet providern utfärdaren** textruta klistra in värdet för **utfärdar-URL** som du har kopierat från Azure-portalen. 
- 
-    b. I den **identitet providern enkel inloggnings-URL** textruta klistra in värdet för **inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen. 
+    ![GaggleAMP enkel inloggning](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. Klicka på **spara**      
-
-    d. Skicka den **certifikat (Base64)** certifikat till din [GaggleAMP supportteamet](mailto:sales@gaggleamp.com).
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Välj **andra** formuläret i **identitetsleverantör** listrutan.
+    
+    b. I den **identitet providern utfärdaren** textruta klistra in värdet för **utfärdar-URL** som du har kopierat från Azure-portalen.
+    
+    c. I den **identitet providern enkel inloggnings-URL** textruta klistra in värdet för **inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
+    
+    d. Öppna din hämtade **Certificate(Base64)** fil i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **X.509-certifikat** textruta.
+    
+    e. Klicka på **Spara**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -223,8 +227,6 @@ När du klickar på panelen GaggleAMP på åtkomstpanelen du bör få automatisk
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_01.png
@@ -238,4 +240,3 @@ När du klickar på panelen GaggleAMP på åtkomstpanelen du bör få automatisk
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

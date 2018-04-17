@@ -1,6 +1,6 @@
 ---
-title: "Autentisera med en Azure-behållaren registret"
-description: "Alternativ för autentisering för ett Azure-behållaren registret, inklusive Azure Active Directory-tjänsten säkerhetsobjekt direkt och via registret inloggningen."
+title: Autentisera med en Azure-behållaren registret
+description: Alternativ för autentisering för ett Azure-behållaren registret, inklusive Azure Active Directory-tjänsten säkerhetsobjekt direkt och via registret inloggningen.
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker behållare register
 
@@ -31,11 +31,11 @@ När du arbetar med registret direkt, till exempel dra bilder till och skicka bi
 az acr login --name <acrName>
 ```
 
-När du loggar in med `az acr login`, CLI använder den token som skapas när du körde `az login` att sömlöst autentisera sessionen med registret. När du har loggat in det här sättet kan dina autentiseringsuppgifter är cachelagrade och efterföljande `docker` kommandon inte kräver ett användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras. Med hjälp av `az acr login` med identiteter som Azure tillhandahåller [rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md).
+När du loggar in med `az acr login`, CLI använder den token som skapas när du körde `az login` att sömlöst autentisera sessionen med registret. När du har loggat in det här sättet kan dina autentiseringsuppgifter är cachelagrade och efterföljande `docker` kommandon inte kräver ett användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras. Med hjälp av `az acr login` med identiteter som Azure tillhandahåller [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
-Du kan tilldela en [tjänstens huvudnamn](../active-directory/develop/active-directory-application-objects.md) i registret och programmet eller tjänsten kan använda den för fjärradministrerade autentisering. Tjänstens huvudnamn Tillåt [rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md) registret, och du kan tilldela ett register flera tjänstens huvudnamn. Flera tjänstens huvudnamn kan du definiera olika åtkomst för olika program.
+Du kan tilldela en [tjänstens huvudnamn](../active-directory/develop/active-directory-application-objects.md) i registret och programmet eller tjänsten kan använda den för fjärradministrerade autentisering. Tjänstens huvudnamn Tillåt [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md) registret, och du kan tilldela ett register flera tjänstens huvudnamn. Flera tjänstens huvudnamn kan du definiera olika åtkomst för olika program.
 
 Tillgängliga roller är:
 

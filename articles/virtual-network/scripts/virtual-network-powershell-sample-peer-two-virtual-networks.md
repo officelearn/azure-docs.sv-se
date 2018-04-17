@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel Azure PowerShell - Peer två virtuella nätverk | Microsoft Docs
-description: Skriptexempel Azure PowerShell - Peer två virtuella nätverk
+title: Skriptexempel för Azure PowerShell – Peering i två virtuella nätverk | Microsoft Docs
+description: Skriptexempel för Azure PowerShell – Peering i två virtuella nätverk
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -10,22 +10,22 @@ tags: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: powershell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: c0efdf759a0bdb87de4dc8ff9566a8e817503c5e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 4e6f81e1663e55abbde50f73e3b3c8fa20e6b00c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="peer-two-virtual-networks"></a>Peer-två virtuella nätverk
+# <a name="peer-two-virtual-networks-script-sample"></a>Peer-skriptexempel två virtuella nätverk
 
-Det här skriptet skapar och ansluter två virtuella nätverk i samma region via Azure-nätverk. När du har kört skriptet skapar du en peering mellan två virtuella nätverk.
+Skriptexemplet skapar och ansluter två virtuella nätverk i samma region via Azures nätverk. När du har kört skriptet har du en peering mellan två virtuella nätverk.
 
-Du kan köra skriptet från Azure [moln Shell](https://shell.azure.com/powershell), eller från en lokal installation av PowerShell. Om du använder PowerShell lokalt skriptet kräver AzureRM PowerShell Modulversion 5.4.1 eller senare. Du hittar den installerade versionen genom att köra `Get-Module -ListAvailable AzureRM`. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershell), eller från en lokal installation av PowerShell. Om du använder PowerShell lokalt kräver det här skriptet version 5.4.1 eller senare av AzureRM PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ Du kan köra skriptet från Azure [moln Shell](https://shell.azure.com/powershel
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser:
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i följande tabell länkar till kommandot viss dokumentation:
+I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|
@@ -56,4 +56,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare virtuella nätverk PowerShell-skript-exempel finns i [virtuella nätverk PowerShell-exempel](../powershell-samples.md).
+Ytterligare PowerShell-skriptexempel för virtuella nätverk finns i [PowerShell-exempel för virtuella nätverk](../powershell-samples.md).

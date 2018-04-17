@@ -1,11 +1,11 @@
 ---
-title: "Felsöka Azure virtuell nätverksgateway och anslutningar - PowerShell | Microsoft Docs"
-description: "Den här sidan förklarar hur du använder Azure Nätverksbevakaren felsöka PowerShell-cmdlet"
+title: Felsöka Azure virtuell nätverksgateway och anslutningar - PowerShell | Microsoft Docs
+description: Den här sidan förklarar hur du använder Azure Nätverksbevakaren felsöka PowerShell-cmdlet
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: d7ae5599b3fa1876e2b5af79f56548cd17c1c8ed
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d0ee73ebb05999eed18e555a9b7a928e73c284e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka virtuella nätverksgateway och anslutningar med hjälp av Azure Network Watcher PowerShell
 
@@ -89,4 +89,4 @@ Anvisningar för att hämta filer från azure storage-konton, referera till [kom
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om inställningarna har ändrats som stoppa VPN-anslutning, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/virtual-network-manage-nsg-arm-portal.md) att spåra de grupp och säkerhet Nätverkssäkerhetsregler som kan vara i fråga.
+Om inställningarna har ändrats som stoppa VPN-anslutning, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de grupp och säkerhet Nätverkssäkerhetsregler som kan vara i fråga.

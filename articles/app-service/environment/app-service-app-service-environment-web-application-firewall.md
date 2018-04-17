@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera en brandvägg för webbaserade program (Brandvägg) för Apptjänst-miljö"
-description: "Lär dig hur du konfigurerar en brandvägg för webbaserade program framför din Apptjänst-miljö."
+title: Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
+description: Lär dig hur du konfigurerar en brandvägg för webbaserade program framför din App Service-miljö.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,95 +12,98 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (Brandvägg) för Apptjänst-miljö
+# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
-Web application brandväggar som den [Barracuda Brandvägg för Azure](https://www.barracuda.com/programs/azure) som är tillgänglig på den [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) skyddar dina webbprogram genom att kontrollera inkommande webbtrafik att blockera SQL injektionerna globala webbplatsskript, skadlig kod överföringar & DDoS-program och andra attacker. Den kontrollerar också svar från backend-webbservrar för Data går förlorade förebyggande (DLP). I kombination med isolering och ytterligare skalning som tillhandahålls av Apptjänstmiljöer, ger detta en perfekt miljö till värden kritiska web affärsprogram som måste klara skadliga begäranden och hög trafik.
+
+Brandväggar för webbaserade program (WAF) skyddar dina webbprogram genom att kontrollera ingående webbtrafik för att blockera SQL-inmatningar, skriptkörning över flera webbplatser, överföring av skadlig kod och program-DDoS och andra attacker. De kontrollerar även svar från backend-webbservrar för dataförlustskydd (DLP). I kombination med den isolering och ytterligare skalning som tillhandahålls av App Service-miljöerna är det här en perfekt miljö att ha affärskritiska webbprogram som måste klara av skadliga begäranden och hög trafik. Azure tillhandahåller en WAF-funktion med [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Du kan läsa om hur du integrerar din App Service-miljö med en Application Gateway i dokumentet [Integrera din ILB ASE med en Application Gateway](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+
+Det finns flera alternativ utöver Azure Application Gateway, till exempel [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure), på [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). I resten av dokumentet fokuserar vi på hur du integrerar din App Service-miljö med en Barracuda WAF-enhet.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Konfiguration
-För det här dokumentet konfigurerar vi Apptjänstmiljö bakom Utjämning av nätverksbelastning alla instanser av Barracuda Brandvägg så att endast trafik från Brandvägg kan nå Apptjänst-miljön och den inte är tillgänglig från DMZ: N. Vi har även Azure Traffic Manager framför Barracuda Brandvägg instanser kan belastningsutjämna mellan Azure-datacenter och regioner. Ett Översiktsdiagram över installationen ser ut som följande bild:
+I det här dokumentet konfigurerar vi App Service-miljön bakom flera belastningsutjämnade instanser av Barracuda WAF så att endast trafik från WAF kan nå App Service-miljön och att det inte går att komma åt miljön från DMZ. Vi har också Azure Traffic Manager framför Barracuda WAF-instanserna för att belastningsutjämna över Azure-datacenter och -regioner. Ett översiktsdiagram över hur konfigurationen skulle se ut:
 
 ![Arkitektur][Architecture] 
 
 > [!NOTE]
-> Med introduktionen av [ILB stöd för Apptjänst-miljö](app-service-environment-with-internal-load-balancer.md), kan du konfigurera ASE för att vara tillgänglig från Perimeternätverket och bara är tillgänglig för det privata nätverket. 
+> Med introduktionen av [ILB-stöd för App Service-miljön](app-service-environment-with-internal-load-balancer.md) kan du konfigurera ASE så att miljön inte kan nås från DMZ utan endast är tillgänglig för det privata nätverket. 
 > 
 > 
 
-## <a name="configuring-your-app-service-environment"></a>Konfigurera din Apptjänst-miljö
-Om du vill konfigurera en Apptjänst-miljö, referera till [vår dokumentation](app-service-web-how-to-create-an-app-service-environment.md) om ämnet. När du har en Apptjänst-miljö skapas kan du skapa Webbappar, API Apps och [Mobilappar](../../app-service-mobile/app-service-mobile-value-prop.md) i den här miljön kommer alla skyddas bakom en Brandvägg som konfigureras i nästa avsnitt.
+## <a name="configuring-your-app-service-environment"></a>Konfigurera App Service-miljön
+Information om hur du konfigurerar App Service-miljön finns i [vår dokumentation](app-service-web-how-to-create-an-app-service-environment.md). När du har skapat en App Service-miljö kan du skapa webbappar, API-appar och [mobilappar](../../app-service-mobile/app-service-mobile-value-prop.md) i den här miljön, så skyddas de bakom den brandvägg som vi konfigurerar i nästa avsnitt.
 
-## <a name="configuring-your-barracuda-waf-cloud-service"></a>Konfigurera Barracuda Brandvägg Molntjänsten
-Barracuda har en [detaljerad artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) om distribution av dess Brandvägg på en virtuell dator i Azure. Men eftersom vi vill redundans och inte inför en enskild felpunkt som du vill distribuera minst två Brandvägg instans virtuella datorer i samma molntjänst när följa dessa anvisningar.
+## <a name="configuring-your-barracuda-waf-cloud-service"></a>Konfigurera Barracuda WAF-molntjänsten
+Barracuda har en [detaljerad artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) om hur du distribuerar WAF på en virtuell dator i Azure. Men eftersom vi vill ha redundans och inte införa en felkritisk systemdel distribuerar du minst två WAF VM-instanser i samma molntjänst när du följer dessa instruktioner.
 
-### <a name="adding-endpoints-to-cloud-service"></a>Att lägga till slutpunkter molntjänst
-När du har 2 eller mer Brandvägg VM-instanser i Molntjänsten, kan du använda den [Azure-portalen](https://portal.azure.com/) att lägga till HTTP och HTTPS-slutpunkter som används av programmet som visas i följande bild:
+### <a name="adding-endpoints-to-cloud-service"></a>Lägga till slutpunkter i molntjänsten
+När du har två eller fler WAF VM-instanser i din molntjänst kan du använda [Azure Portal](https://portal.azure.com/) för att lägga till HTTP- och HTTPS-slutpunkter som används av ditt program enligt följande bild:
 
 ![Konfigurera slutpunkt][ConfigureEndpoint]
 
-Om dina program använder slutpunkter, se till att lägga till dem i listan samt. 
+Om du använder andra slutpunkter i dina program ser du till att lägga till dem också i den här listan. 
 
-### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Konfigurera Barracuda Brandvägg via dess hanteringsportalen
-Barracuda Brandvägg använder TCP-Port 8000 för konfigurationen med hjälp av dess hanteringsportalen. Om du har flera instanser av de virtuella datorerna Brandvägg kan behöva du upprepa de här stegen för varje VM-instans. 
+### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Konfigurera Barracuda WAF via dess hanteringsportal
+För Barracuda WAF används TCP-port 8000 för konfiguration via hanteringsportalen. Om du har flera WAF VM-instanser måste du upprepa dessa steg för varje VM-instans. 
 
 > [!NOTE]
-> När du är klar med konfigurationen av Brandvägg, kan du ta bort TCP/8000 slutpunkten från alla din Brandvägg virtuella datorer för att skydda din Brandvägg.
+> När du är klar med WAF-konfigurationen tar du bort TCP/8000-slutpunkten från alla WAF VM för att skydda WAF.
 > 
 > 
 
-Lägg till management-slutpunkt som visas i följande bild för att konfigurera din Brandvägg Barracuda.
+Lägg till hanteringsslutpunkten enligt följande bild för att konfigurera Barracuda WAF.
 
-![Lägg till slutpunkt för hantering][AddManagementEndpoint]
+![Lägga till hanteringsslutpunkt][AddManagementEndpoint]
 
-Använda en webbläsare för att bläddra till management-slutpunkten på Molntjänsten. Om din molntjänst anropas test.cloudapp.net, skulle du åtkomst till den här slutpunkten genom att bläddra till http://test.cloudapp.net:8000. Du bör se en inloggningssida som på följande bild som du kan logga in med autentiseringsuppgifterna som du angav i installationsfasen Brandvägg VM.
+Gå till hanteringsslutpunkten i din molntjänst via en webbläsare. Om din molntjänst till exempel heter test.cloudapp.net når du slutpunkten genom att gå till http://test.cloudapp.net:8000. Du bör se en inloggningssida som på bilden nedan så att du kan logga in med de autentiseringsuppgifter som du angav när du konfigurerade WAF VM.
 
-![Hantering av inloggningssidan][ManagementLoginPage]
+![Inloggningssida för hanteringspanel][ManagementLoginPage]
 
-Du bör se en instrumentpanel som det i följande bild som visar grundläggande statistik om Brandvägg skydd när du loggar in.
+När du har loggat in visas en instrumentpanel som ser ut som på bilden nedan. På instrumentpanelen visas grundläggande statistik om WAF-skyddet.
 
-![Instrumentpanel för hantering][ManagementDashboard]
+![Hanteringspanel][ManagementDashboard]
 
-Klicka på den **Services** fliken kan du konfigurera din Brandvägg för tjänster som skyddas. Mer information om hur du konfigurerar din Brandvägg Barracuda finns [deras dokumentation](https://techlib.barracuda.com/waf/getstarted1). I följande exempel visas har en Azure-Webbapp som betjänar trafik via HTTP och HTTPS konfigurerats.
+Om du klickar på fliken **Tjänster** kan du konfigurera WAF för de tjänster som skyddas av brandväggen. Mer information om hur du konfigurerar Barracuda WAF finns i [Barracudas dokumentation](https://techlib.barracuda.com/waf/getstarted1). I följande exempel visas en Azure-webbapp som har konfigurerats med trafik via HTTP och HTTPS.
 
-![Hantering av lägga till tjänster][ManagementAddServices]
+![Lägga till tjänster att hantera][ManagementAddServices]
 
 > [!NOTE]
-> Beroende på hur dina program är konfigurerade och vilka funktioner som används i din Apptjänst-miljö kan behöver du vidarebefordra trafik för TCP andra portar än 80 och 443, till exempel om du har IP SSL-inställningar för ett webbprogram. En lista över nätverksportar som används i Apptjänstmiljöer finns [kontroll för inkommande trafik dokumentationen](app-service-app-service-environment-control-inbound-traffic.md) nätverksportar avsnitt.
+> Beroende på hur dina program har konfigurerats och vilka funktioner som används i din App Service-miljö behöver du vidarebefordra trafik för andra TCP-portar än 80 och 443, till exempel om du använder IP SSL för en webbapp. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Konfigurera Microsoft Azure Traffic Manager (valfritt)
-Om ditt program är tillgängligt i flera områden, och du vill läsa in balansera dem bakom [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om du vill göra det, kan du lägga till en slutpunkt i den [Azure-portalen](https://portal.azure.com) med Molntjänsten namn för din Brandvägg i Traffic Manager-profilen som visas i följande bild. 
+Om ditt program är tillgängligt i flera regioner vill du balansutjämna dem bakom [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Det gör du genom att lägga till en slutpunkt i [Azure Portal](https://portal.azure.com) med molntjänstnamnet för din WAF i Traffic Manager-profilen (se bilden nedan). 
 
 ![Traffic Manager-slutpunkt][TrafficManagerEndpoint]
 
-Om ditt program kräver autentisering, se till att du har en resurs som inte kräver någon autentisering för Traffic Manager att pinga tillgängligheten för ditt program. Du kan konfigurera URL-Adressen på den **Configuration** sidan i den [Azure-portalen](https://portal.azure.com) som visas i följande bild:
+Om ditt program kräver autentisering måste du se till att du har några resurser som inte kräver autentisering som Traffic Manager kan pinga för att se om ditt program är tillgängligt. Du kan konfigurera URL:en på sidan **Konfiguration** i [Azure Portal](https://portal.azure.com) (se följande bild):
 
 ![Konfigurera Traffic Manager][ConfigureTrafficManager]
 
-För att vidarebefordra Traffic Manager-ping från din Brandvägg till ditt program, måste du konfigurera webbplatsen översättningar på din Brandvägg Barracuda att vidarebefordra trafik till tillämpningsprogrammet som visas i följande exempel:
+För att kunna vidarebefordra Traffic Manager-ping från WAF till ditt program måste du konfigurera Website Translations (webbplatsöversättningar) på Barracuda WAF för att vidarebefordra trafik till ditt program enligt följande exempel:
 
-![Webbplatsen översättningar][WebsiteTranslations]
+![Website Translations (webbplatsöversättningar)][WebsiteTranslations]
 
-## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Skydda trafik till Apptjänst-miljö med Nätverkssäkerhetsgrupper (NSG)
-Följ den [kontroll för inkommande trafik dokumentationen](app-service-app-service-environment-control-inbound-traffic.md) information om begränsar trafiken till din Apptjänst-miljö från Brandvägg med VIP-adressen för din tjänst i molnet. Här är ett exempel Powershell-kommando för att utföra den här aktiviteten för TCP-port 80.
+## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Skydda trafik till App Service-miljön med nätverkssäkerhetsgrupper
+I [dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md) finns information om hur du begränsar trafiken till din App Service-miljö från endast WAF med hjälp av VIP-adressen för din molntjänst. Här är ett Powershell-exempelkommando för att utföra detta för TCP-port 80.
 
     Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
 
-Ersätt SourceAddressPrefix med virtuella IP-adress (VIP) för din Brandvägg Molntjänsten.
+Ersätt SourceAddressPrefix med den virtuella IP-adressen (VIP) för molntjänsten för din WAF.
 
 > [!NOTE]
-> VIP-Adressen för din molntjänst ändras när du tar bort och återskapa Molntjänsten. Se till att uppdatera IP-adressen i nätverket resursgruppens namn när du gör. 
+> VIP för din molntjänst ändras när du tar bort och återskapar molntjänsten. Se till att uppdatera IP-adressen i nätverksresursgruppen när du har gjort det. 
 > 
 > 
 

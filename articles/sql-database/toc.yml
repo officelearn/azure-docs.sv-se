@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 – Utforma DB med hjälp av .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 – Migrera till SQL Server DB
+    - name: 2 – Migrera till SQL Server DB med DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 – Skydda din SQL-databas
       href: sql-database-security-tutorial.md
     - name: 4 – Implementera en geo-distribuerad databas
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 – Skapa Managed Instance
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 – Återställa en säkerhetskopia till en hanterad instans
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 – Migrera till en hanterad instans med DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL för analys
               href: saas-tenancy-tenant-analytics.md
+            - name: Haveriberedskap med hjälp av geo-återställning
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Haveriberedskap med hjälp av geo-replikering av databas
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Databas för flera klienter
           items:
             - name: Distribuera exempelapp

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3b21a3ae5940cd736fe23b76e7ede9dc0061b711
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  
@@ -37,7 +37,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
   * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
   * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april, eller i en prenumeration som är kopplad till en befintlig EA-registrering, har du möjlighet att välja mellan tre prisnivåer.  I den här snabbstarten ska du välja den kostnadsfria nivån.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april eller en prenumeration som var bunden till en befintlig EA-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
@@ -45,19 +45,12 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
->[!NOTE]
->När du skapar en ny arbetsyta som är kopplad till en ny prenumeration som skapats efter 2 april 2018 används prisplanen *PerGB2018* automatiskt.  Den här planen innehåller 5 GB data per månad utan kostnad för Application Insights- och Log Analytics-resurser. Mer information om prismodellen finns i [Prisinformation för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
->
-
 ## <a name="enable-the-log-analytics-vm-extension"></a>Aktivera Log Analytics-tillägget för virtuella datorer
 För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure installerar du Log Analytics-agenten med Log Analytics-tillägget för virtuella datorer.  Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
 
 >[!NOTE]
 >OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta. 
 
-Om du skapade en arbetsyta i Azure Government-molnet kanske du ser en banderoll överst på resurssidan för Log Analytics i portalen som uppmanar dig att uppgradera.  Uppgraderingen behövs inte för den här snabbstarten.<br>
-
-![Meddelande om uppgradering av Log Analytics i Azure Portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj *DefaultLAWorkspace* som du skapade tidigare i listan med Log Analytics-arbetsytor.
 3. Gå till menyn till vänster och klicka under Datakällor för arbetsyta på **Virtuella datorer**.  
@@ -93,10 +86,6 @@ Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning f�
 
 1. Gå till Azure Portal, navigera till Log Analytics och välj den arbetsyta du skapade tidigare.
 2. Klicka på panelen **Loggsökning** och i fönsterrutan Loggsökning skriver du sedan `Perf` i frågefältet och trycker på retur eller klickar på sökknappen till höger om fältet.<br> ![Exempel på loggsökningsfråga i Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >Om din arbetsyta skapades i Azure Government-molnet så använder du frågan `Type=Perf`.  
-   >
 
 Frågan i följande bild returnerar till exempel 78 000 prestandaposter.  Ditt resultatet blir mycket mindre.<br> ![Resultat av loggsökning i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

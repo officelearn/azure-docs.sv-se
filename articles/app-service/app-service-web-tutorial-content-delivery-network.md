@@ -1,6 +1,6 @@
 ---
-title: "Lägg till en CDN till en Azure App Service | Microsoft Docs"
-description: "Lägg till ett Content Delivery Network (CDN) i en Azure App Service för att cachelagra och leverera statiska filer från servrar nära dina kunder runtom i världen."
+title: Lägga till ett CDN i en Azure App Service | Microsoft Docs
+description: Lägg till ett Content Delivery Network (CDN) i en Azure App Service för att cachelagra och leverera statiska filer från servrar nära dina kunder runtom i världen.
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Lägg till ett Content Delivery Network (CDN) i en Azure App Service
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Självstudier: Lägga till ett Content Delivery Network (CDN) i en Azure App Service
 
 [Azure CDN (Content Delivery Network)](../cdn/cdn-overview.md) cachelagrar statiskt webbinnehåll på strategiskt placerade platser för att leverera innehåll till användarna med maximalt dataflöde. CDN minskar även serverbelastningen på din webbapp. I den här självstudiekursen får du veta hur du lägger till Azure CDN till en [webbapp i Azure App Service](app-service-web-overview.md). 
 
@@ -24,7 +24,7 @@ Här är startsidan för den statiska exempel-HTML-platsen som du kommer att arb
 
 ![Exempelstartsida för app](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-Vad du lära dig:
+Detta får du får lära dig:
 
 > [!div class="checklist"]
 > * Skapa en CDN-slutpunkt.
@@ -32,9 +32,9 @@ Vad du lära dig:
 > * Använda frågesträngar för att styra cachelagrade versioner.
 > * Använda en anpassad domän för CDN-slutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 - [Installera Git](https://git-scm.com/)
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -43,11 +43,11 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="create-the-web-app"></a>Skapa webbappen
 
-Så här skapar du den webbapp som du ska arbeta med den [statiska HTML-Snabbstart](app-service-web-get-started-html.md) via den **Bläddra till appen** steg.
+För att skapa webbappen som du ska arbeta med följer du [snabbstarten för statisk HTML](app-service-web-get-started-html.md) via steget **Bläddra till appen**.
 
 ### <a name="have-a-custom-domain-ready"></a>Ha ett anpassat domän redo
 
-För att slutföra steget anpassade domäner i den här kursen behöver du äger en anpassad domän och har åtkomst till DNS-registret för domänleverantören (till exempel GoDaddy). För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du ha tillgång till att konfigurera DNS-inställningarna för rotdomänen `contoso.com`.
+För att slutföra det anpassade domänsteget i den här självstudien måste du äga en anpassad domän och ha tillgång till DNS-registren för domänleverantören (till exempel GoDaddy). För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du ha tillgång till att konfigurera DNS-inställningarna för rotdomänen `contoso.com`.
 
 Om du inte redan har ett domännamn kan du följa [självstudien för App Service-domän](custom-dns-web-site-buydomains-web-app.md) för att köpa en domän med Azure Portal. 
 
@@ -71,8 +71,8 @@ På sidan **Azure Content Delivery Network** anger du inställningarna för**Ny 
 
 | Inställning | Föreslaget värde | Beskrivning |
 | ------- | --------------- | ----------- |
-| **CDN-profil** | myCDNProfile | Välj **Skapa nytt** att skapa CDN-profilen. En CDN-profil är en samling CDN-slutpunkter på samma prisnivå. |
-| **prisnivå** | Standard Akamai | [Prisnivån](../cdn/cdn-overview.md#azure-cdn-features) anger providern och funktioner som är tillgängliga. I den här kursen använder du Standard Akamai. |
+| **CDN-profil** | myCDNProfile | Välj **Skapa ny** för att skapa en CDN-profil. En CDN-profil är en samling CDN-slutpunkter på samma prisnivå. |
+| **prisnivå** | Standard Akamai | [Prisnivån](../cdn/cdn-overview.md#azure-cdn-features) anger providern och funktioner som är tillgängliga. I den här självstudien använder vi Standard Akamai. |
 | **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser i domänen *\<endpointname>.azureedge.net*.
 
 Välj **Skapa**.
@@ -95,7 +95,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-Gå en webbläsare till följande URL:
+Öppna en webbläsare och navigera till följande adress:
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -103,7 +103,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Exempelstartsida för app som hämtats från CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
- Du ser samma sida som du körde tidigare i en Azure-webbapp. Azure CDN har hämtats ursprung webbprogrammet tillgångar och används av dem från CDN-slutpunkten
+ Du ser samma sida som du körde tidigare i en Azure-webbapp. Azure CDN har hämtat den ursprungliga webbappens tillgångar och fungerar som värd för dem från CDN-slutpunkten
 
 Uppdatera sidan för att se till att den cachelagras i CDN. Ibland krävs två begäranden för samma tillgång för att CDN ska cachelagra det begärda innehållet.
 
@@ -194,7 +194,7 @@ Azure CDN erbjuder följande beteendealternativ för cachelagring:
 * Kringgå cachelagring för frågesträngar
 * Cachelagra varje unik URL 
 
-Först av dessa är standard, vilket innebär att endast en cachelagrad version av en tillgång oavsett frågesträngen i URL-Adressen. 
+Det första av dessa alternativ är standard, vilket innebär att det endast finns en cachelagrad version av en tillgång, oberoende av frågesträngen i webbadressen. 
 
 I det här avsnittet i självstudien kan du ändra beteendet för cachelagring för att cachelagra alla unika URL:er.
 
@@ -241,10 +241,10 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 ![V2 i rubriken i CDN, frågesträng 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
 
-Den här visas varje frågesträngen behandlas på olika sätt:
+Det här resultatet visar att varje frågesträng behandlas olika:
 
-* q = 1 användes innan, så cachelagrat innehåll returneras (V2).
-* q = 2 är nytt, så att de senaste web app innehållet hämtas och returnerade (V3).
+* q=1 användes innan, så cachelagrat innehåll returneras (V2).
+* q=2 är nytt, så det senaste webbappinnehållet hämtas och returneras (V3).
 
 Mer information finns i [Kontrollera cachelagringsbeteendet med frågesträngar](../cdn/cdn-query-string.md).
 
@@ -270,7 +270,7 @@ Gå till din domänregistrators webbplats och leta upp avsnittet för att skapa 
 
 Leta reda på avsnittet för att hantera CNAME. Du kan behöva gå till en sida med avancerade inställningar och leta efter orden CNAME, Alias eller Underdomäner.
 
-Skapa en CNAME-post som mappar dina valda underdomänen (till exempel **Statiska** eller **cdn**) till den **Endpoint värdnamn** visas tidigare i portalen. 
+Skapa en CNAME-post som matchar den valda underdomänen (till exempel **statisk** eller **cdn**) till det **Värdnamn för slutpunkt** som visades tidigare i portalen. 
 
 ### <a name="enter-the-custom-domain-in-azure"></a>Ange det anpassade domänet i Azure
 
@@ -278,7 +278,7 @@ Gå tillbaka till sidan **Lägg till en anpassad domän** och ange din anpassade
    
 Azure verifierar att domännamnet som du har angett har en CNAME-post. Om CNAME är korrekt verifieras din anpassade domän.
 
-Det kan ta tid för CNAME-posten att spridas till namnservrarna på Internet. Om din domän inte har verifierats omedelbart, vänta en stund och försök igen.
+Det kan ta tid för CNAME-posten att spridas till namnservrarna på Internet. Om domänen inte verifieras omedelbart väntar du en stund och försöker igen.
 
 ### <a name="test-the-custom-domain"></a>Testa den anpassade domänen
 
@@ -300,7 +300,7 @@ Vad du lärt dig:
 > * Använda frågesträngar för att styra cachelagrade versioner.
 > * Använda en anpassad domän för CDN-slutpunkten.
 
-Lär dig att optimera prestandan i CDN i följande artiklar:
+Lär dig hur du optimerar CDN-prestanda i följande artiklar:
 
 > [!div class="nextstepaction"]
 > [Förbättra prestandan genom att komprimera filer i Azure CDN](../cdn/cdn-improve-performance.md)

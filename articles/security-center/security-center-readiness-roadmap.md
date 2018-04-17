@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 88b95c28cd64afb97fb34d2bced09161c3aa9312
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Beredskapsöversikt för Azure Security Center
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -94,8 +94,9 @@ Virtuella Azure-datorer kan dra nytta av funktioner för avancerat molnskydd i S
 
 Använd följande resurser för att lära dig mer om hur du använder funktionerna i Security Center.
 
-Video   
+Videoklipp  
 * [Azure Security Center – Åtkomst till virtuella Just-in-Time-datorer](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center – Anpassningsbara programkontroller](https://youtu.be/wWWekI1Y9ck)
 
 Artiklar    
 * [Hantera åtkomsten till virtuella datorer med Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -105,6 +106,7 @@ Artiklar
 
 * [Praktiska övningar i Security Center](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Rekommendationsspelbok för brandvägg för webbaserade program (WAF) i Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+* [Spelbok om Azure Security Center: Säkerhetsaviseringar](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Dokumentationssidan om Security Center](https://docs.microsoft.com/azure/security-center/)
@@ -115,6 +117,7 @@ Artiklar
 * [Metodtips för nätverkssäkerhet](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS-rekommendationer](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Efterlevnad](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [Nu kan OMS-kunder använda Azure Security Center för att skydda sina hybridmolns arbetsbelastningar](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Community-resurser
 

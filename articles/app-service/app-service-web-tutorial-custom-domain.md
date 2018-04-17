@@ -1,12 +1,12 @@
 ---
 title: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps | Microsoft Docs
-description: "Lär dig hur du lägger till ett befintligt anpassat DNS-domännamn (anpassad domän) i en webbapp, mobilappserverdel eller API-app i Azure App Service."
+description: Lär dig hur du lägger till ett befintligt anpassat DNS-domännamn (anpassad domän) i en webbapp, mobilappserverdel eller API-app i Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Självstudie: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
 
 Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visar vi hur du mappar ett befintligt anpassat DNS-namn till Azure Web Apps.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Mappa en underdomän (till exempel `www.contoso.com`) med hjälp av en CNAME-post
@@ -45,7 +45,7 @@ Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service ka
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
 * Köp ett domännamn och se till att du har åtkomst till DNS-registret för din domänleverantör (till exempel GoDaddy).
@@ -292,7 +292,7 @@ Längst ned på sidan pekar den virtuella rotkatalogen `/` till `site\wwwroot` s
 
 ![Anpassa virtuell katalog](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-När åtgärden har slutförts ska din app returnera rätt sida på rotsökvägen (till exempel http://contoso.com).
+När åtgärden har slutförts ska din app returnera rätt sida på rotsökvägen (till exempel http://contoso.com)).
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

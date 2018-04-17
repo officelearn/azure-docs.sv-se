@@ -1,12 +1,12 @@
 ---
-title: "Översikt över identitet för Azure-stacken | Microsoft Docs"
-description: "Läs mer om identitetssystem som du kan använda med Azure-stacken."
+title: Översikt över identitet för Azure-stacken | Microsoft Docs
+description: Läs mer om identitetssystem som du kan använda med Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Översikt över identitet för Azure-stacken
 
@@ -52,12 +52,12 @@ Användarkonton (identiteter) är standardkonton som enskilda användare autenti
 Hur du skapar och hantera användare och grupper är beroende av identitetslösning som du använder. 
 
 I Azure-stacken, användarkonton: 
-- Skapas i den  *username@domain*  format. Även om AD FS mappar användarkonton till en instans av Active Directory, AD FS inte stöder användning av den  *\<domän >\<alias >* format. 
+- Skapas i den *username@domain* format. Även om AD FS mappar användarkonton till en instans av Active Directory, AD FS inte stöder användning av den  *\<domän >\<alias >* format. 
 - Kan ställas in att använda multifaktorautentisering. 
 - Är begränsade till den katalog där de först registrera, vilket är organisationens katalog.
 - Du kan importera från dina lokala kataloger. Mer information finns i [integrera dina lokala kataloger med Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect). 
 
-När du loggar in på klientportal för din organisation använder du den  *https://portal.local.azurestack.external*  URL. 
+När du loggar in på klientportal för din organisation använder du den *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Gästanvändare
 Gästanvändare är användarkonton från andra klienter i katalogen som har beviljats åtkomst till resurser i din katalog. Stöd för gästanvändare kan du använda Azure AD och aktivera stöd för flera innehavare. Du kan be gästanvändare åtkomst till resurser i din katalog-klient, som i sin tur aktiverar sina samarbete med externa organisationer när stöd är aktiverat. 
@@ -145,10 +145,10 @@ För program och användare beskrivs arkitekturen i Azure-stacken genom fyra lag
 
 ### <a name="authenticate-to-azure-resource-manager"></a>Autentisera till Azure Resource Manager
 För att autentisera med identitetsleverantören och ta emot en JSON Web Token, måste du ha följande information: 
-1.  **URL: en för identitetssystem (Authority)**: URL: en identitetsprovider går att nå. Till exempel  *https://login.windows.net* . 
+1.  **URL: en för identitetssystem (Authority)**: URL: en identitetsprovider går att nå. Till exempel *https://login.windows.net*. 
 2.  **App-ID-URI för Azure Resource Manager**: den unika identifieraren för Azure Resource Manager som har registrerats med din identitetsprovider. Det är unik för varje Azure Stack-installation.
 3.  **Autentiseringsuppgifter**: autentiseringsuppgifter som du använder att autentisera med identitetsleverantören. 
-4.  **URL för Azure Resource Manager**: URL: en är platsen för Azure Resource Manager-tjänsten. Till exempel  *https://management.azure.com*  eller  *https://management.local.azurestack.external* .
+4.  **URL för Azure Resource Manager**: URL: en är platsen för Azure Resource Manager-tjänsten. Till exempel *https://management.azure.com* eller *https://management.local.azurestack.external*.
 
 När en huvudansvarig (en klient, program eller användare) gör en autentiseringsbegäran till en resurs, måste begäran inkludera:
 - Måste huvudkontots autentiseringsuppgifter.
@@ -169,9 +169,9 @@ När du är klar med alla verifieringar Azure Resource Manager använder de *obj
 
 ### <a name="use-role-based-access-control"></a>Använda rollbaserad åtkomstkontroll  
 Rollbaserad åtkomstkontroll (RBAC) i Azure-stacken är konsekvent med implementeringen i Microsoft Azure. Du kan hantera åtkomst till resurser genom att tilldela rollen RBAC till användare, grupper och program. Information om hur du använder RBAC med Azure-stacken, finns i följande artiklar:
-- [Kom igång med rollbaserad åtkomstkontroll i Azure portal](/azure/active-directory/role-based-access-control-what-is).
-- [Använda rollbaserad åtkomstkontroll för att hantera åtkomst till resurserna i Azure-prenumeration](/azure/active-directory/role-based-access-control-configure).
-- [Skapa anpassade roller för rollbaserad åtkomstkontroll i](/azure/active-directory/role-based-access-control-custom-roles).
+- [Kom igång med rollbaserad åtkomstkontroll i Azure portal](/azure/role-based-access-control/overview).
+- [Använda rollbaserad åtkomstkontroll för att hantera åtkomst till resurserna i Azure-prenumeration](/azure/role-based-access-control/role-assignments-portal).
+- [Skapa anpassade roller för rollbaserad åtkomstkontroll i](/azure/role-based-access-control/custom-roles).
 - [Hantera rollbaserad åtkomstkontroll](azure-stack-manage-permissions.md) i Azure-stacken.
 
 

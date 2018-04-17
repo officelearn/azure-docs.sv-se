@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric-plugin-program för Eclipse | Microsoft Docs"
-description: "Kom igång med Service Fabric-plugin-programmet för Eclipse."
+title: Azure Service Fabric-plugin-program för Eclipse | Microsoft Docs
+description: Kom igång med Service Fabric-plugin-programmet för Eclipse.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,31 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: rapatchi
-ms.openlocfilehash: 291bbd35d6e3c89eb9568130ad144831452142ad
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: d415c3eb540056dc7ad6f1ab14fc8250903d6744
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-plugin-program för utveckling av Java-program i Eclipse
-Eclipse är en av de mest använda IDE:erna (Integrated Development Environment) för Java-utvecklare. I den här artikeln beskrivs hur du kan konfigurera din Eclipse-utvecklingsmiljö för att arbeta med Azure Service Fabric. Läs om hur du installerar Service Fabric-plugin-programmet, skapar ett Service Fabric-program och distribuerar Service Fabric-programmet till ett lokalt eller fjärranslutet Service Fabric-kluster i Eclipse Neon. 
+Eclipse är en av de mest använda IDE:erna (Integrated Development Environment) för Java-utvecklare. I den här artikeln beskrivs hur du kan konfigurera din Eclipse-utvecklingsmiljö för att arbeta med Azure Service Fabric. Läs om hur du installerar Service Fabric-plugin-programmet, skapar ett Service Fabric-program och distribuerar Service Fabric-programmet till ett lokalt eller fjärranslutet Service Fabric-kluster i Eclipse. 
 
 > [!NOTE]
 > Eclipse-pluginprogrammet stöds för närvarande inte av Windows. 
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Installera eller uppdatera Service Fabric-plugin-programmet i Eclipse Neon
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse"></a>Installera eller uppdatera Service Fabric-plugin-programmet i Eclipse
 Du kan installera ett Service Fabric-plugin-program i Eclipse. Plugin-programmet gör det enklare att skapa och distribuera Java-tjänster.
 
-1.  Kontrollera att du har installerat den senaste versionen av Eclipse Neon och den senaste versionen av Buildship (version 1.0.17 eller senare):
-    -   Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Help** > **Installation Details** (Hjälp > Installationsinformation) i Eclipse Neon.
-    -   Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update] (på engelska).
-    -   Om du vill söka efter och installera uppdateringar för Eclipse Neon kan du gå till **Help** > **Check for Updates** (Hjälp > Sök efter uppdateringar).
+> [!IMPORTANT]
+> Service Fabric plugin-programmet kräver Eclipse Neon eller en senare version. Efter den här anteckningen följer instruktioner om hur du kontrollerar din Eclipse-version. Om du har en tidigare version av Eclipse installerad kan du hämta nyare versioner från [Eclipse-webbplatsen](https://www.eclipse.org). Vi rekommenderar inte att du installerar en ny version av Eclipse ovanpå en befintlig version (skriver över). Du kan ta bort den gamla versionen innan du kör installationsprogrammet, eller så kan du installera den nya versionen i en annan katalog. 
+> 
+> I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. 
 
-2.  Om du vill installera Service Fabric-plugin-programmet går du till **Help** > **Install New Software** (Hjälp > Installera ny programvara) i Eclipse Neon.
-  1.    Ange **http://dl.microsoft.com/eclipse** i textrutan **Arbeta med**.
+1.  Kontrollera att du har Eclipse Neon och en senare version, och att senaste versionen av Buildship (version 1.0.17 eller senare) är installerad:
+    -   Du kan kontrollera vilka versioner du har av installerade komponenter genom att välja **Help** > **Installation Details** (Hjälp > Installationsinformation) i Eclipse Neon.
+    -   Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update] (på engelska).
+    -   Om du vill söka efter och installera uppdateringar för Eclipse kan du navigera till **Help** > **Check for Updates** (Hjälp > Sök efter uppdateringar).
+
+2.  Om du vill installera Service Fabric-plugin-programmet öppnar du **Help** > **Install New Software** (Hjälp > Installera ny programvara) i Eclipse.
+  1.    I rutan **Work with** (Arbeta med) skriver du **http://dl.microsoft.com/eclipse**.
   2.    Klicka på **Lägg till**.
 
-         ![Service Fabric-plugin-program för Eclipse Neon][sf-eclipse-plugin-install]
+         ![Service Fabric-plugin-program för Eclipse][sf-eclipse-plugin-install]
   3.    Välj Service Fabric-plugin-programmet och klicka sedan på **Next** (Nästa).
   4.    Slutför installationsstegen och acceptera licensvillkoren för programvara från Microsoft.
 
@@ -53,7 +58,7 @@ Om du redan har Service Fabric-plugin-programmet installerat kontrollerar du att
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Skapa ett Service Fabric-program i Eclipse
 
-1.  Gå till **File** > **New** > **Other** (Arkiv > Nytt > Annat) i Eclipse Neon. Välj **Service Fabric Project** (Service Fabric Project) och klicka sedan på **Next** (Nästa).
+1.  Öppna **File** > **New** > **Other** (Arkiv > Nytt > Annat) i Eclipse. Välj **Service Fabric Project** (Service Fabric Project) och klicka sedan på **Next** (Nästa).
 
     ![Service Fabric, ny projektsida 1][create-application/p1]
 
@@ -142,7 +147,7 @@ Anta att du har ett projekt som heter **App1** som du har skapat med Service Fab
 
 Gör ändringar i programmet och bygg sedan den ändrade tjänsten på nytt. Uppdatera manifestfilen (ServiceManifest.xml) för den ändrade tjänsten med de uppdaterade versionerna för tjänsten (samt kod, konfig eller data, om det behövs). Ändra också programmets manifest (ApplicationManifest.xml) med det uppdaterade versionsnumret för programmet och den ändrade tjänsten.  
 
-Om du vill uppgradera programmet med Eclipse Neon kan du skapa en duplicerad körningskonfigurationsprofil. Sedan kan du använda den för att uppgradera ditt program efter behov.
+Om du vill uppgradera programmet med Eclipse kan du skapa en duplicerad körningskonfigurationsprofil. Sedan kan du använda den för att uppgradera ditt program efter behov.
 
 1.  Välj **Run** > **Run Configurations** (Kör > Kör konfigurationer). Klicka på den lilla pilen till vänster om **Gradle Project** (Gradle-projekt) i den vänstra rutan.
 2.  Högerklicka på **ServiceFabricDeployer** och välj sedan **Duplicate** (Duplicera). Ange ett nytt namn för den här konfigurationen, till exempel **ServiceFabricUpgrader**.

@@ -6,8 +6,6 @@ items:
     items:
       - name: Om Azure Cosmos DB
         href: introduction.md
-      - name: Dokumentation om experiment
-        href: experiment.md
   - name: Snabbstarter
     expanded: true
     items:
@@ -185,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: SQL-spelplan
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Partitionering
+              - name: SQL-datapartitionering
                 href: sql-api-partition-data.md
               - name: 'Lagrade procedurer, utlösare och UDF:er'
                 href: programming.md
@@ -288,6 +286,8 @@ items:
             items:
               - name: Gremlin-support
                 href: gremlin-support.md
+              - name: Grafpartitionering
+                href: graph-partitioning.md
           - name: Tabell-API
             items:
               - name: Tabellutveckling
@@ -330,8 +330,6 @@ items:
             href: geospatial.md
           - name: Indexering
             href: indexing-policies.md
-          - name: Ansluten tjänst i Visual Studio
-            href: connected-service.md
       - name: Hantera
         items:
           - name: Kostnadseffektiva läsningar och skrivningar
@@ -396,7 +394,7 @@ items:
           - name: Utnyttja ODBC-drivrutinen för datavisualisering
             href: odbc-driver.md
           - name: 'Använd Spring Boot Starter med API:er för SQL'
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Referens
     items:
       - name: Kodexempel

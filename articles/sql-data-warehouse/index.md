@@ -1,26 +1,25 @@
 ---
-title: "Dokumentation om Azure SQL Data Warehouse – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du använder SQL Data Warehouse, som kombinerar SQL Server med massivt parallell bearbetning (MPP). Dokumentationen visar hur du läser in, analyserar, hanterar och exporterar data."
+title: Dokumentation om Azure SQL Data Warehouse – självstudier, begrepp | Microsoft Docs
+description: Lär dig hur du använder Azure SQL Data Warehouse, som kombinerar SQL-relationsdatabaser med massivt parallell bearbetning (Massively Parallel Processing, MPP). Självstudier och annan dokumentation visar dig hur du utformar, läser in, hanterar och analyserar data med hjälp av ett informationslager.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 42db87fd64bca58ee3e86589acdc85107e057665
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>Dokumentation om SQL Data Warehouse
 
-Lär dig hur du använder SQL Data Warehouse, som kombinerar relationsdatabasen i SQL Server med massivt parallell bearbetning (Massively Parallel Processing, MPP). Självstudiekurser och annan dokumentationen visar hur du läser in data i datalagret och sedan analyserar, hanterar och exporterar den.
+Lär dig hur du använder Azure SQL Data Warehouse, som kombinerar SQL-relationsdatabaser med massivt parallell bearbetning (Massively Parallel Processing, MPP). Självstudier och annan dokumentation visar dig hur du utformar, läser in, hanterar och analyserar data med hjälp av ett informationslager. 
 
 <ul class="panelContent cardsFTitle">
     <li>

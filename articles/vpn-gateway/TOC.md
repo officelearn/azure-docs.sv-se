@@ -25,32 +25,25 @@
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
-
 ## [Ladda ned konfigurationsskript för VPN-enheten](vpn-gateway-download-vpndevicescript.md)
-
 ## Konfigurera punkt-till-plats-anslutningar – ursprunglig Azure-certifikatautentisering
 ### Konfigurera ett virtuellt privat P2S-nätverk
 #### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-#### [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Skapa självsignerade certifikat
 #### [Azure PowerShell](vpn-gateway-certificates-point-to-site.md)
 #### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ### [Skapa och installera VPN-klientkonfigurationsfiler](point-to-site-vpn-client-configuration-azure-cert.md)
 ### [Installera klientcertifikat](point-to-site-how-to-vpn-client-install-azure-cert.md)
-
 ## Konfigurera punkt-till-plats-anslutningar – RADIUS-autentisering
 ### Konfigurera ett virtuellt privat P2S-nätverk
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Skapa och installera VPN-klientkonfigurationsfiler](point-to-site-vpn-client-configuration-radius.md)
 ### [Integrera P2S VPN RADIUS-autentisering med NPS-server](vpn-gateway-radiuis-mfa-nsp.md)
-
 ## Konfigurera anslutningar mellan virtuella nätverk
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-### [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -58,7 +51,6 @@
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurera flera plats-till-plats-anslutningar
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Azure PowerShell (klassisk)](vpn-gateway-multi-site.md)
 ## Ansluta flera principbaserade VPN-enheter
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## Konfigurera IPsec-/IKE-principer för anslutningar
@@ -70,7 +62,6 @@
 ### [Azure CLI](bgp-how-to-cli.md)
 ## Konfigurera tvingad tunneltrafik
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [Azure PowerShell (klassisk)](vpn-gateway-about-forced-tunneling.md)
 ## Ändra inställningar för lokal nätverksgateway
 ### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
@@ -80,13 +71,10 @@
 ## Ta bort en VPN-gateway
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Azure PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [Gateway-SKU:er (äldre)](vpn-gateway-about-skus-legacy.md)
 ## Konfigurera VPN-enheter från tredje part
 ### [Översikt och Azure-konfiguration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exempel: Cisco ASA-enhet (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
-## [Migrering från klassisk till Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## [Felsöka](vpn-gateway-troubleshoot.md)
 ### [Community-föreslaget VPN eller brandväggsinställningar för enhet](vpn-gateway-third-party-settings.md)
 ### [Konfigurera och verifiera VNet- eller VPN-anslutningar](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
@@ -98,6 +86,15 @@
 #### [Problem med plats-till-plats-anslutning](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
+## Artiklar om den klassiska distributionsmodellen
+### [Konfigurera en plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-classic-portal.md)
+### [Konfigurera en punkt-till-plats-anslutning](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Konfigurera en anslutning mellan virtuella nätverk](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [Konfigurera forcerade tunnlar](vpn-gateway-about-forced-tunneling.md)
+### [Ta bort en VPN-gateway](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+### [Konfigurera flera S2S-anslutningar](vpn-gateway-multi-site.md)
+### [Konfigurera en VPN-gateway](vpn-gateway-configure-vpn-gateway-mp.md)
+### [Migrering från klassisk till Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

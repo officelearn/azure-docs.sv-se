@@ -201,6 +201,8 @@
       items:
         - name: Klustersäkerhet
           href: service-fabric-cluster-security.md
+        - name: Skalning
+          href: service-fabric-cluster-scaling.md
         - name: Funktionsskillnader mellan Linux och Windows
           href: service-fabric-linux-windows-differences.md
         - name: Kluster i Azure
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Drivrutiner för volym och loggning
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Visa behållarloggar
+              href: service-fabric-containers-view-logs.md
             - name: Tjänster i behållare
               href: service-fabric-services-inside-containers.md
             - name: Nätverkslägen för behållare
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Ansluta till ett säkert kluster
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Korrigera klusternoder
+        - name: Korrigera klusternoder (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Korrigera klusternoder (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Övervaka och diagnostisera
       items:
         - name: Analysera med OMS

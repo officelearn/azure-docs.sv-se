@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Trattar
               href: usage-funnels.md
+            - name: Kohorter
+              href: app-insights-usage-cohorts.md
             - name: Påverkan
               href: app-insights-usage-impact.md
             - name: Kvarhållning

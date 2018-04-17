@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Kör SSIS-paket i Azure
       items:
+        - name: Anpassa konfiguration för Azure-SSIS Integration Runtime
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Etablera Enterprise Edition för Azure-SSIS Integration Runtime
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Hantera Azure SSIS Integration Runtime
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Schemalägga Azure SSIS Integration Runtime
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Utveckla licensierade komponenter för Azure-SSIS Integration Runtime
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Skapa utlösare
       items:
         - name: Skapa en schemautlösare

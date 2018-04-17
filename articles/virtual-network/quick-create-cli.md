@@ -1,47 +1,48 @@
 ---
-title: Skapa ett Azure-nätverk – Azure CLI | Microsoft Docs
-description: Snabbt lära dig skapa ett virtuellt nätverk med Azure CLI. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, privat kommunicera med varandra och med internet.
+title: Skapa ett virtuellt nätverk – snabbstart – Azure CLI | Microsoft Docs
+description: I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera privat med varandra och med internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: bb45b2b4ecd89187e94066bc81782174738fe3a9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med Azure CLI
+# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av Azure CLI
 
-Ett virtuellt nätverk kan Azure-resurser, till exempel virtuella datorer (VM), privat kommunicera med varandra och med Internet. I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk. När du skapar ett virtuellt nätverk kan distribuera du två virtuella datorer i det virtuella nätverket. Sedan ansluter till en virtuell dator från internet och kommunicera privat med andra VM.
+Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera privat med varandra och med internet. I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk. När du har skapat ett virtuellt nätverk distribuerar du två virtuella datorer i det virtuella nätverket. Sedan ansluter du till en virtuell dator från internet och kommunicerar privat med den andra virtuella datorn.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt i den här artikeln kräver att du använder Azure CLI version 2.0.28 eller senare. Du hittar den installerade versionen genom att köra `az --version`. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.28 eller senare under den här snabbstarten. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Innan du kan skapa ett virtuellt nätverk, måste du skapa en resursgrupp med det virtuella nätverket. Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska innehålla det virtuella nätverket. Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk för standard heter *myVirtualNetwork* med ett undernät med namnet *standard*:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* med ett undernät som heter *default*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +57,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Om SSH-nycklar inte redan finns en nyckel standardplatsen, skapar dem i kommandot. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Den `--no-wait` alternativet skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg. I följande exempel skapas en virtuell dator med namnet *myVm1*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Alternativet `--no-wait` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg. Följande exempel skapar en virtuell dator med namnet *myVm1*:
 
 ```azurecli-interactive 
 az vm create \
@@ -77,7 +78,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa den virtuella datorn. När du har skapat den virtuella datorn returnerar Azure CLI-utdata liknar följande exempel: 
+Det tar några minuter att skapa den virtuella datorn. När du har skapat den virtuella datorn returnerar Azure CLI utdata som liknar följande exempel: 
 
 ```azurecli 
 {
@@ -92,19 +93,19 @@ Det tar några minuter att skapa den virtuella datorn. När du har skapat den vi
 }
 ```
 
-Anteckna den **publicIpAddress**. Den här adressen används för att ansluta till den virtuella datorn från Internet i nästa steg.
+Anteckna **publicIpAddress**. Den här adressen används för att ansluta till den virtuella datorn från internet i nästa steg.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Anslut till en virtuell dator från internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
-Ersätt `<publicIpAddress>` med den offentliga IP-adressen för din *myVm2* VM i kommandot sätt, och ange sedan följande kommando:
+Ersätt `<publicIpAddress>` med den offentliga IP-adressen för din *myVm2* i kommandot som följer, och ange sedan följande kommando:
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-## <a name="communicate-privately-between-vms"></a>Privat kommunikation mellan virtuella datorer
+## <a name="communicate-between-vms"></a>Kommunicera mellan virtuella datorer
 
-Bekräfta privat kommunikation mellan de *myVm2* och *myVm1* virtuella datorer, anger du följande kommando:
+Om du vill bekräfta privat kommunikation mellan *myVm2* och *myVm1* anger du följande kommando:
 
 ```bash
 ping myVm1 -c 4
@@ -112,11 +113,11 @@ ping myVm1 -c 4
 
 Du får fyra svar från *10.0.0.4*.
 
-Avsluta SSH-session med den *myVm2* VM.
+Avsluta SSH-sessionen med *myVm2*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda [ta bort grupp az](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser som den innehåller:
+När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen och alla relaterade resurser den innehåller:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -124,9 +125,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får skapat du ett virtuellt standardnätverk och två virtuella datorer. Du ansluten till en virtuell dator från Internet och kommunicerade privat mellan den virtuella datorn och en annan virtuell dator. Läs mer om inställningar för virtuellt nätverk i [hantera ett virtuellt nätverk](manage-virtual-network.md). 
+I den här snabbstarten har du skapat ett virtuellt standardnätverk och två virtuella datorer. Du anslöt till en virtuell dator från internet och kommunicerade privat mellan den virtuella datorn och en annan virtuell dator. Läs mer om virtuella nätverksinställningar i [Hantera ett virtuellt nätverk](manage-virtual-network.md). 
 
-Standard Azure tillåter obegränsad privat kommunikation mellan virtuella datorer, men tillåter endast inkommande SSH-sessioner till Linux virtuella datorer från Internet. Om du vill lära dig mer om att tillåta eller begränsa olika typer av kommunikation till och från virtuella datorer, går du vidare till nästa kurs.
-
-> [!div class="nextstepaction"]
-> [Filtrera nätverkstrafik](tutorial-filter-network-traffic-cli.md)
+Som standard tillåter Azure obegränsad privat kommunikation mellan virtuella datorer, men tillåter endast anslutningar till fjärrskrivbord till virtuella Windows-datorer från internet. Om du vill lära dig mer om hur du tillåter eller begränsar olika typer av nätverkskommunikation till och från virtuella datorer fortsätter du till [Filtrera nätverkstrafik](tutorial-filter-network-traffic.md).

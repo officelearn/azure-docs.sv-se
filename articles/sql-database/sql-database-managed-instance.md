@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -49,7 +49,7 @@ Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarie
 
 I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du kan använda för att identifiera att programmet fungerar med hanterade instans och hämta viktiga egenskaper.
 
-|Egenskap|Värde|Kommentera|
+|Egenskap|Värde|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) Microsoft Corporation som 2018.|Det här värdet är densamma som SQL-databasen.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är densamma som SQL-databasen.|
@@ -74,7 +74,7 @@ I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du
 VCore-baserade inköpsmodell ger din flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. Modellen vCore också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara.
-- Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
+- Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
 - Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer.
 
 Tabellen nedan hjälper dig att förstå hur du väljer den bästa konfigurationen för beräkning, minne, lagring och i/o-resurserna.
@@ -115,7 +115,7 @@ Följande beskriver viktiga funktioner i tjänstnivån generella:
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 
 | Hanterade automatisk säkerhetskopiering | Ja |
-| HA | Baserat på Fjärrlagring och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HÖG TILLGÄNGLIGHET | Baserat på Fjärrlagring och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Inbyggda instans och databas övervakning och mått | Ja |
 | Automatisk programuppdatering | Ja |
 | VNet - Azure Resource Manager-distribution | Ja |
@@ -131,7 +131,7 @@ Följande beskriver viktiga funktioner i tjänstnivån generella:
 
 Hanterade instans isolera ytterligare säkerhet från andra klienter i Azure-molnet. Säkerhetsisolering innehåller: 
 
-- Implementering av interna virtuella nätverk och anslutning till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway 
+- [Intern implementering](sql-database-managed-instance-vnet-configuration.md) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway 
 - SQL-slutpunkten exponeras endast via en privat IP-adress som tillåter säker anslutning från privata Azure eller hybrid-nätverk
 - Stöd för en innehavare med dedikerad underliggande infrastruktur (beräkning, lagring)
 
@@ -185,7 +185,13 @@ Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats f�
 
 ### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
 
-Metod för migrering utnyttjar SQL-säkerhetskopiering till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instans. 
+Metod för migrering utnyttjar SQL-säkerhetskopiering till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instans. Om du vill återställa en befintlig SQL-databas till en hanterad instans kan du:
+
+- Använd [Data migrering Service (DMS)](/sql/dma/dma-overview). En självstudiekurs finns [migrera till en hanterad instans med Azure databas migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en säkerhetskopia av databasen
+- Använd den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - En självstudiekurs visar hur du återställer Wide World Importers - standarddatabasen säkerhetskopian finns [återställer en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md). Den här kursen visar du måste överföra en säkerhetskopia till Azure blogg lagring och skydda den med hjälp av en signatur (SAS) för delade åtkomstnyckeln.
+  - Information om återställning från URL finns [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importera från en BACPAC-fil](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>SQL-funktioner som stöds 
 
@@ -217,5 +223,6 @@ Hanterade instans aktivera systemadministratören att fokusera på vad gäller d
 ## <a name="next-steps"></a>Nästa steg
 
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
+- Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
 - En självstudiekurs som skapar en instans som hanteras och återställer en databas från en säkerhetskopia finns [skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).

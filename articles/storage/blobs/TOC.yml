@@ -30,7 +30,7 @@
       href: storage-quickstart-blobs-ruby.md
     - name: Arbeta med blobar – Node.js
       href: storage-quickstart-blobs-nodejs.md
-    - name: Arbeta med blobar – JavaScript/HTML
+    - name: Arbeta med blobar – JS/HTML
       href: storage-quickstart-blobs-javascript-client-libraries.md
     - name: Arbeta med blobar – PHP
       href: storage-quickstart-blobs-php.md

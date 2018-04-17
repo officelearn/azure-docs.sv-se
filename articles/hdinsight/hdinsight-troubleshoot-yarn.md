@@ -1,25 +1,23 @@
 ---
-title: "Felsöka YARN med Azure HDInsight | Microsoft Docs"
-description: "Få svar på vanliga frågor om hur du arbetar med Apache Hadoop YARN och Azure HDInsight."
-keywords: "Azure HDInsight, YARN, vanliga frågor och svar, felsökningsguide för vanliga frågor"
+title: Felsöka YARN med Azure HDInsight | Microsoft Docs
+description: Få svar på vanliga frågor om hur du arbetar med Apache Hadoop YARN och Azure HDInsight.
+keywords: Azure HDInsight, YARN, vanliga frågor och svar, felsökningsguide för vanliga frågor
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 338d678fb31a86046b8bc6424d0e8aac2de1a0c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Felsöka YARN med Azure HDInsight
 
@@ -28,7 +26,7 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Apac
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hur skapar jag en ny YARN-kö på ett kluster?
 
 
-### <a name="resolution-steps"></a>Lösningssteg 
+### <a name="resolution-steps"></a>Lösningsanvisningar 
 
 Använd följande steg i Ambari för att skapa en ny YARN-kö och balansera kapacitet fördelas mellan alla köer. 
 
@@ -73,7 +71,7 @@ Dessa ändringar visas omedelbart på YARN Scheduler-Användargränssnittet.
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hur hämta YARN-loggar från ett kluster?
 
 
-### <a name="resolution-steps"></a>Lösningssteg 
+### <a name="resolution-steps"></a>Lösningsanvisningar 
 
 1. Ansluta till HDInsight-kluster med hjälp av en klient med SSH (Secure Shell). Mer information finns i [ytterligare resurser](#additional-reading-2).
 

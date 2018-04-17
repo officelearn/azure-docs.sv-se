@@ -2,40 +2,38 @@
 
 # Översikt
 ## [Vad är Stream Analytics?](stream-analytics-introduction.md)
-## [Jämför Storm och Stream Analytics](stream-analytics-comparison-storm.md)
 
-# Kom igång
-## [Bearbeta IoT-strömningsdata](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Identifiering av bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md)
-## [Analysera data med Power BI](stream-analytics-power-bi-dashboard.md)
+# Snabbstarter
+## [Skapa ett jobb – Azure Portal](stream-analytics-quick-create-portal.md)
+## [Skapa ett jobb – PowerShell](stream-analytics-quick-create-powershell.md)
+
+# Självstudier
+## [1 – Skapa/hantera ett jobb](stream-analytics-manage-job.md)
+## [2 – Köra Azure Functions](stream-analytics-with-azure-functions.md)
+## [3 – Köra Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
 
 # Exempel
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Begrepp
-## Indatatyper för ett jobb
+## [Indatatyper för ett jobb](stream-analytics-add-inputs.md)
 ### [Inmatningar av strömmande data](stream-analytics-define-inputs.md)
 ### [Inmatningar av referensdata](stream-analytics-use-reference-data.md)
 ## [Utdatatyper för ett jobb](stream-analytics-define-outputs.md)
+### [Utdata till Cosmos DB](stream-analytics-documentdb-output.md)
 ## [Fönsterfunktioner](stream-analytics-window-functions.md)
 ## [Efterlevnadsnivå](stream-analytics-compatibility-level.md)
 ## [Vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md)
 ## [Överväganden för händelseordning](stream-analytics-out-of-order-and-late-events.md)
 
-
 # Anvisningsguider
-
-## Skapa jobb
-### [Testfrågor och exempel på inmatade data](stream-analytics-sample-data-input.md)
-### [Testfrågor](stream-analytics-test-query.md)
-### [Köra JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
-### [Utdata till Data Lake Store](stream-analytics-data-lake-output.md)
-### [Utdata till Cosmos DB](stream-analytics-documentdb-output.md)
-### [Konfigurera varningar](stream-analytics-set-up-alerts.md)
 
 ## Hantera
 ### [Uppdatera ett jobb](stream-analytics-job-reliability.md)
 ### [Uppdatera autentiseringsuppgifter](stream-analytics-login-credentials-inputs-outputs.md)
+### [Konfigurera varningar](stream-analytics-set-up-alerts.md)
+### [Testa ditt jobb](stream-analytics-test-query.md)
+### [Visa resultat på en instrumentpanel](stream-analytics-power-bi-dashboard.md)
 
 ## Skapa lösningar
 ### [Twitter-attitydanalys](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -44,11 +42,11 @@
 ### [Vägtull för sensordataanalys](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Köra JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Handel med hög frekvens](stream-analytics-high-frequency-trading.md)
-### [Köra Azure Functions](stream-analytics-with-azure-functions.md)
+### [Bearbeta IoT-strömningsdata](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## Övervaka
 
-### [Övervaka jobb– portalen](stream-analytics-monitoring.md)
+### [Övervaka jobb – Azure Portal](stream-analytics-monitoring.md)
 ### [Övervaka jobb– PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Övervaka jobb – Azure SDK för .Net](stream-analytics-monitor-jobs.md)
 
@@ -82,7 +80,6 @@
 ### [Avvikelseidentifiering](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Använda REST-API:er](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
-
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [Frågespråk](https://msdn.microsoft.com/library/azure/dn834998)
@@ -102,7 +99,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Kundfallstudier](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Händelsebearbetning i realtid](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Whitepaper-datablad – händelsebearbetning i realtid](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Jämför Storm och Stream Analytics](stream-analytics-comparison-storm.md)
 
 
 

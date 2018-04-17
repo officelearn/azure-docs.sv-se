@@ -1,11 +1,11 @@
 ---
 title: Hantera Azure-stacken storage-konton | Microsoft Docs
-description: "Lär dig att hitta, hantera, återställa och frigöra Stack för Azure storage-konton"
+description: Lär dig att hitta, hantera, återställa och frigöra Stack för Azure storage-konton
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera storage-konton i Azure-stacken
 Lär dig hur du hanterar storage-konton i Azure stackutrymme för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehov.
@@ -27,7 +27,7 @@ Lär dig hur du hanterar storage-konton i Azure stackutrymme för att hitta, åt
 ## <a name="find"></a>Hitta ett lagringskonto
 Lista med lagringskonton i region kan visas i Azure-stacken genom att:
 
-1. Navigera till https://adminportal.local.azurestack.external i en webbläsare.
+1. I en webbläsare, navigerar du till https://adminportal.local.azurestack.external.
 2. Logga in på Azure Stack-administrationsportalen som ett moln-operatorn (med de autentiseringsuppgifter du angav under distribution)
 3. Leta reda på standardinstrumentpanelen – den **Region management** listan och klicka på den region som du vill utforska, till exempel **(lokala**).
    
@@ -99,11 +99,11 @@ Det finns ett enkelt sätt att göra det i Azure Stack:
   Kontot du kanske inte visas i listan över användarkonton när kontot har redan skräpinsamlats. I detta fall kan återställas den inte. Se [frigöra kapacitet](#reclaim) i det här avsnittet.
 
 ## <a name="set-the-retention-period"></a>Ställa in kvarhållningsperioden
-Kvarhållning period inställningen kan en moln-operatorn för att ange en tidsperiod i dagar (mellan 0 och 9 999 dagar) under vilken alla kontot potentiellt kan återställas. Loggperioden har angetts till 15 dagar. Ange värdet till ”0” betyder att alla borttagna konton är omedelbart utanför kvarhållning och har markerats för periodiska skräpinsamling.
+Kvarhållning period inställningen kan en moln-operatorn för att ange en tidsperiod i dagar (mellan 0 och 9 999 dagar) under vilken alla kontot potentiellt kan återställas. Loggperioden har angetts till 0 dagar. Ange värdet till ”0” betyder att alla borttagna konton är omedelbart utanför kvarhållning och har markerats för periodiska skräpinsamling.
 
 **Ändra kvarhållningsperioden:**
 
-1. Navigera till https://adminportal.local.azurestack.external i en webbläsare.
+1. I en webbläsare, navigerar du till https://adminportal.local.azurestack.external.
 2. Logga in på Azure Stack-administrationsportalen som ett moln-operatorn (med de autentiseringsuppgifter du angav under distribution)
 3. Leta reda på standardinstrumentpanelen – den **Region management** listan och klicka på den region som du vill utforska – till exempel **(lokala**).
 4. Välj **lagring** från den **Resursproviders** lista.

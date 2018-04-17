@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Snabbstart: Skapa ett .NET Service Fabric-program i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -29,14 +29,14 @@ Den här snabbstarten visar hur du distribuerar ditt första .NET-program i Serv
 ![Skärmbild av programmet](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Med det här programmet får du lära dig att:
-> [!div class="checklist"]
-> * Skapa ett program med .NET och Service Fabric
-> * Använda ASP.NET Core som webbklient
-> * Lagra programdata i en tillståndskänslig tjänst
-> * Felsöka programmet lokalt
-> * Distribuera programmet till ett kluster i Azure
-> * Skala programmet över flera noder
-> * Utföra en löpande programuppgradering
+
+* Skapa ett program med .NET och Service Fabric
+* Använda ASP.NET Core som webbklient
+* Lagra programdata i en tillståndskänslig tjänst
+* Felsöka programmet lokalt
+* Distribuera programmet till ett kluster i Azure
+* Skala programmet över flera noder
+* Utföra en löpande programuppgradering
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här snabbstarten behöver du:
@@ -92,7 +92,7 @@ När du röstar i programmet händer följande:
 
 ## <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
 
-När du felsöker programmet i Visual Studio, använder du ett lokalt utvecklingskluster för Service Fabric. Du kan välja att anpassa felsökningen så att det passar ditt scenario. I det här programmet lagras data i serverdelstjänsten med hjälp av en tillförlitlig ordlista. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Voting** i Visual Studio.
+Programmet bör köras som det ska, men du kan använda felsökaren och se hur viktiga delar av programmet fungerar. När du felsöker programmet i Visual Studio, använder du ett lokalt utvecklingskluster för Service Fabric. Du kan välja att anpassa felsökningen så att det passar ditt scenario. I det här programmet lagras data i serverdelstjänsten med hjälp av en tillförlitlig ordlista. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Voting** i Visual Studio.
 
 Gör så här om du vill se vad som händer i koden:
 1. Öppna filen **/VotingWeb/Controllers/VotesController.cs** och konfigurera en brytpunkt i webb-API:ns metod **Put** (rad 69). Du kan söka efter filen i Solution Explorer i Visual Studio.
@@ -181,8 +181,8 @@ Du kan få en webbläsarvarning att platsen inte är betrodd. Det beror på att 
 
 Gör så här om du vill skala frontwebbtjänsten:
 
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. I trädvyn öppnar du **Applications**->**VotingType**->**fabric:/Voting** (Program > Rösttyp > fabric: /Röstning). Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -213,25 +213,26 @@ Gör så här om du vill uppgradera programmet:
 7. I dialogrutan för att **publicera Service Fabric-program** markerar du kryssrutan för att uppgradera programmet och klickar på **Publicera**.
 
     ![Dialogrutan Publicera, uppgradera inställning](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    Du kan fortfarande använda programmet när uppgraderingen körs. Eftersom du har två instanser av tjänsten som körs i klustret kan en del förfrågningar få en uppgraderad version av programmet, medan andra kan få den gamla versionen.
+
 8. Öppna webbläsaren och bläddra till klusteradressen på port 19080, t.ex. `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Klicka på noden **Program** i trädvyn och sedan **Pågående uppgraderingar** i det högra fönstret. Du kan se hur uppgraderingen går igenom uppgraderingsdomänerna i klustret och ser till att varje domän fungerar som den ska innan den går vidare till nästa. En uppgraderingsdomän i förloppsfältet visas som grön när domänens hälsotillstånd har verifierats.
     ![Uppgraderingsvy i Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric gör uppgraderingar på ett säkert sätt genom att vänta två minuter efter uppgradering av tjänsten på varje nod i klustret. Du kan förvänta dig att hela uppgraderingen tar cirka åtta minuter.
 
-10. Du kan fortfarande använda programmet när uppgraderingen körs. Eftersom du har två instanser av tjänsten som körs i klustret kan en del förfrågningar få en uppgraderad version av programmet, medan andra kan få den gamla versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten har du lärt dig att:
 
-> [!div class="checklist"]
-> * Skapa ett program med .NET och Service Fabric
-> * Använda ASP.NET Core som webbklient
-> * Lagra programdata i en tillståndskänslig tjänst
-> * Felsöka programmet lokalt
-> * Distribuera programmet till ett kluster i Azure
-> * Skala programmet över flera noder
-> * Utföra en löpande programuppgradering
+* Skapa ett program med .NET och Service Fabric
+* Använda ASP.NET Core som webbklient
+* Lagra programdata i en tillståndskänslig tjänst
+* Felsöka programmet lokalt
+* Distribuera programmet till ett kluster i Azure
+* Skala programmet över flera noder
+* Utföra en löpande programuppgradering
 
 Titta på den här självstudien om du vill veta mer om Service Fabric och .NET:
 > [!div class="nextstepaction"]

@@ -1,11 +1,11 @@
 ---
-title: "Planering- och bruksanvisning för Security Center | Microsoft Docs"
-description: "I det här avsnittet får du hjälp med att planera inför införandet av Azure Security Center och med vad du bör tänka på i det dagliga arbetet."
+title: Planering- och bruksanvisning för Security Center | Microsoft Docs
+description: I det här avsnittet får du hjälp med att planera inför införandet av Azure Security Center och med vad du bör tänka på i det dagliga arbetet.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e07e6792c74e1bdb5c5839e8c6bd9efbedf10170
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -138,7 +138,7 @@ Security Center skapar automatiskt en standardsäkerhetsprincip för var och en 
 Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säkerhetsrekommendationerna](https://docs.microsoft.com/azure/security-center/security-center-recommendations) och avgör om dessa principer passar dina olika prenumerationer och resursgrupper. Det är också viktigt att förstå vilka åtgärder som vidtas för att hantera säkerhetsrekommendationer och vem i din organisation är ansvarig för att övervaka nya rekommendationer och vidta nödvändiga åtgärder.
 
 ## <a name="data-collection-and-storage"></a>Datainsamling och datalagring
-Azure Security Center använder Microsoft Monitoring Agent (samma agent används av Operations Management Suite och Log Analytics-tjänsten) för att samla in säkerhetsdata från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i Log Analytics-arbetsytor.
+Azure Security Center använder Microsoft Monitoring Agent (samma agent används av Log Analytics-tjänsten) för att samla in säkerhetsdata från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i Log Analytics-arbetsytor.
 
 ### <a name="agent"></a>Agent
 

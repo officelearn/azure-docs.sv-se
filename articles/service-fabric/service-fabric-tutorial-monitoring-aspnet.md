@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Självstudiekurs: Övervaka och diagnostisera ett ASP.NET Core-program i Service Fabric
 Den här självstudien är del fyra i en serie. Den går igenom stegen för att konfigurera övervakning och diagnostik för ett ASP.NET Core-program som körs på ett Service Fabric-kluster med Application Insights. Vi samlar in telemetri från program som utvecklats i den första delen av självstudien [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md). 
@@ -89,8 +89,12 @@ Gör följande för att konfigurera NuGet:
 1. Högerklicka på **lösningen Röstning** överst i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen...**.
 2. Klicka på **Bläddra** på den översta navigeringsmenyn i fönstret ”NuGet - Solution” (NuGet – Lösning) och markera rutan för att **ta med förhandsversionen** bredvid sökfältet.
 3. Sök efter `Microsoft.ApplicationInsights.ServiceFabric.Native` och klicka på lämpligt NuGet-paket.
+
+>[!NOTE]
+>Du kan behöva installera paketet Microsoft.ServiceFabric.Diagnistics.Internal på liknande sätt, om det inte finns förinstallerat, innan du installerar Application Insights-paketet
+
 4. Till höger klickar du på kryssrutorna bredvid de två tjänsterna i programmet, **VotingWeb** och **VotingData**, samt på **Installera**.
-    ![AI-registreringen har slutförts](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Klicka på **OK** i dialogrutan *Granska ändringar* som öppnas och *godkänn licensen*. Du är nu klar med att lägga till NuGet till tjänsterna.
 6. Nu måste du konfigurera telemetriinitieraren i de två tjänsterna. Gör det genom att öppna *VotingWeb.cs* och *VotingData.cs*. Gör följande i båda två:
     1. Lägg till följande två *using*-instruktioner högst upp i varje *\<ServiceName >.cs*:
@@ -114,6 +118,7 @@ Gör följande för att konfigurera NuGet:
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ Gör följande för att konfigurera NuGet:
         .Build();
     ```
 
+Kontrollera att metoden `UseApplicationInsights()` anropas i båda filerna, som visas ovan. 
+
+>[!NOTE]
+>Det här exempelprogrammet använder http för tjänster för att kommunicera. Om du utvecklar ett program med Service Remoting V2 behöver du även lägga till följande kodrader på samma plats som ovan
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 Nu är du redo att distribuera programmet. Klicka på **Start** överst (eller **F5**). Visual Studio skapar och paketerar programmet, konfigurerar ditt lokala kluster och distribuerar programmet till det. 
 
 När programmet har distribuerats kan du gå till [localhost:8080](localhost:8080), där du ska kunna se sidan Röstning i exempelprogrammet. Rösta på några olika objekt för att skapa exempeldata och telemetri – jag valde efterrätter!
@@ -147,9 +165,7 @@ Du kan *ta bort* några av röstningsalternativen eller lägga till ett par rös
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>Visa telemetri och programkarta i Application Insights 
 
-Gå vidare till Application Insights-resursen i Azure-portalen. I det vänstra navigeringsfältet för resursen klickar du på **Förhandsversioner** under *Konfigurera*. Aktivera **På** i *programkartan för flera roller* i listan med tillgängliga förhandsversioner.
-
-![AI aktiverar AppMap](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Navigera till Application Insights-resursen i Azure-portalen.
 
 Klicka på **Översikt** för att gå tillbaka till startsidan för din resurs. Klicka sedan på **Sök** överst för att se spårningen. Det tar några minuter innan spårningarna visas i Application Insights. Om du inte ser några kan du vänta en minut och sedan trycka på knappen **Uppdatera** längst upp.
 ![AI ser spårningar](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ Du kan klicka på en av spårningarna för att se mer information om den. Det ä
 
 ![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Eftersom vi dessutom aktiverat programkartan på sidan *Översikt* kan du klicka på ikonen **Programkarta** för att se båda dina anslutna tjänster.
+Du kan också klicka på den vänstra menyn på översiktssidan för att visa *programkartan*, eller klicka på  **programkarteikonen**. Nu visas programkartan med de två kopplade tjänsterna.
 
-![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 Med programkartan blir det enklare att förstå programtopologin, särskilt när du börjar att lägga till flera olika tjänster som samverkar. Den ger dig även grundläggande data på begäran och kan hjälpa dig att felsöka misslyckade begäranden för att förstå vad som blev fel. Mer information om hur du använder programkartan finns i [Programkarta i Application Insights](../application-insights/app-insights-app-map.md).
 

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Snabbstart: Distribuera ett Windows-behållarprogram för Service Fabric i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -29,11 +29,11 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 ![IIS-standardwebbsidan][iis-default]
 
 I den här snabbstarten lär du dig att:
-> [!div class="checklist"]
-> * Paketera en Docker-avbildningsbehållare
-> * Konfigurera kommunikation
-> * Utveckla och distribuera ett Service Fabric-program
-> * Distribuera behållarprogrammet till Azure
+
+* Paketera en Docker-avbildningsbehållare
+* Konfigurera kommunikation
+* Utveckla och distribuera ett Service Fabric-program
+* Distribuera behållarprogrammet till Azure
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration (du kan skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
@@ -210,16 +210,16 @@ Här är de fullständiga tjänst- och programmanifesten som används i den här
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten har du lärt dig att:
-> [!div class="checklist"]
-> * Paketera en Docker-avbildningsbehållare
-> * Konfigurera kommunikation
-> * Utveckla och distribuera ett Service Fabric-program
-> * Distribuera behållarprogrammet till Azure
 
-* Mer information om hur du kör [behållare i Service Fabric](service-fabric-containers-overview.md).
-* Läs kursen [Distribuera ett .NET-program i en behållare](service-fabric-host-app-in-a-container.md).
-* Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
-* Se [kodexempel för Service Fabric-behållare](https://github.com/Azure-Samples/service-fabric-containers) på GitHub.
+* Paketera en Docker-avbildningsbehållare
+* Konfigurera kommunikation
+* Utveckla och distribuera ett Service Fabric-program
+* Distribuera behållarprogrammet till Azure
+
+Om du vill veta mer om att arbeta med Windows-behållare i Service Fabric, kan du fortsätta till självstudien för appar i Windows-behållaren.
+
+> [!div class="nextstepaction"]
+> [Skapa en app för Windows-behållare](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

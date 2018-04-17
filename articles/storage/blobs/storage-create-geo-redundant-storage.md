@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 86fb0ae7c9ee5a2856c81603a4e08ae7016b022f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge programdata hög tillgänglighet med Azure Storage
 
@@ -30,7 +30,7 @@ I del ett i den här serien lärde du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
  
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
@@ -45,6 +45,11 @@ För att slutföra den här kursen behöver du:
 * Installera [Python](https://www.python.org/downloads/)
 * Ladda ned och installera [Azure Storage SDK för Python](https://github.com/Azure/azure-storage-python)
 * (Valfritt) Ladda ned och installera [Fiddler](https://www.telerik.com/download/fiddler)
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+* Installera och konfigurera [Maven](http://maven.apache.org/download.cgi) så att det fungerar från kommandoraden
+* Installera och konfigurera [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
@@ -95,6 +100,13 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+[Hämta exempelprojektet](https://github.com/Azure-Samples/storage-java-ha-ra-grs) och extrahera filen storage-java-ragrs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Java-program.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
 ---
 
 
@@ -135,15 +147,20 @@ I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py
  
 Före nedladdningen definieras funktionerna [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) för objektet. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.  
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+Du kan köra programmet genom att öppna en terminal eller Kommandotolken begränsad till den nedladdade programmappen. Därifrån anger du `mvn compile exec:java` för att köra programmet. Programmet överför bilden **HelloWorld.png** från katalogen till ditt lagringskonto och kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. När kontrollen är slutförd börjar programmet ladda ned bilden upprepade gånger samtidigt som det rapporterar tillbaka till slutpunkten som nedladdningen görs från.
+
+Återförsöksfunktionen för lagringsobjektet är inställd på att använda en linjär återförsöksprincip. Återförsöksfunktionen bestämmer om det ska göras ett nytt försök med begäran och anger antalet sekunder som ska förflyta mellan varje nytt försök. Egenskapen **LocationMode** för **BlobRequestOptions** har angetts till **PRIMARY\_THEN\_SECONDARY**. Det gör att programmet automatiskt växlar till den sekundära platsen om det inte lyckas nå den primära platsen för att hämta **HelloWorld.png**.
+
 ---
 
-### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
+## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Händelsehanteraren `OperationContextRetrying` anropas när nedladdningen av bilden misslyckas och den är inställd på att göra nya försök. Om det maximala antalet återförsök som har definierats i programmet nås ändras [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned bilden från den sekundära slutpunkten. Med den här konfigurationen tar det kortare tid att begära bilden eftersom det inte görs oändliga försök att hämta den från den primära slutpunkten.
+### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
-I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs` för att ladda ned en bild från lagringskontot med hjälp av metoden [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Före nedladdningen definieras en [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Åtgärdskontexten definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
+Händelsehanteraren `OperationContextRetrying` anropas när nedladdningen av bilden misslyckas och den är inställd på att göra nya försök. Om det maximala antalet återförsök som har definierats i programmet nås ändras [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned bilden från den sekundära slutpunkten. Med den här konfigurationen tar det kortare tid att begära bilden eftersom det inte görs oändliga försök att hämta den från den primära slutpunkten.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -169,34 +186,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
-Händelsehanteraren `retry_callback` anropas när nedladdningen av bilden misslyckas och den är inställd på att göra nya försök. Om det maximala antalet återförsök som har definierats i programmet nås ändras [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) för begäran till `SECONDARY`. Den här inställningen tvingar programmet att försöka ladda ned bilden från den sekundära slutpunkten. Med den här konfigurationen tar det kortare tid att begära bilden eftersom det inte görs oändliga försök att hämta den från den primära slutpunkten.  
-
-```python
-def retry_callback(retry_context):
-    global retry_count
-    retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
-    sys.stdout.flush()
-
-    # Check if we have more than n-retries in which case switch to secondary
-    if retry_count >= retry_threshold:
-
-        # Check to see if we can fail over to secondary.
-        if blob_client.location_mode != LocationMode.SECONDARY:
-            blob_client.location_mode = LocationMode.SECONDARY
-            retry_count = 0
-        else:
-            raise Exception("Both primary and secondary are unreachable. "
-                            "Check your application's network connection.")
-```
-
----
-
-
 ### <a name="request-completed-event-handler"></a>Händelsehanterare för slutförd begäran
- 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
 Händelsehanteraren `OperationContextRequestCompleted` anropas när nedladdningen av bilden slutförs. Om programmet använder den sekundära slutpunkten fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger återställer programmet [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) till `PrimaryThenSecondary` och försöker på nytt med den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
  
@@ -219,6 +209,31 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
+### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
+
+Händelsehanteraren `retry_callback` anropas när nedladdningen av bilden misslyckas och den är inställd på att göra nya försök. Om det maximala antalet återförsök som har definierats i programmet nås ändras [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) för begäran till `SECONDARY`. Den här inställningen tvingar programmet att försöka ladda ned bilden från den sekundära slutpunkten. Med den här konfigurationen tar det kortare tid att begära bilden eftersom det inte görs oändliga försök att hämta den från den primära slutpunkten.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+### <a name="request-completed-event-handler"></a>Händelsehanterare för slutförd begäran
+
 Händelsehanteraren `response_callback` anropas när nedladdningen av bilden slutförs. Om programmet använder den sekundära slutpunkten fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger återställer programmet [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) till `PRIMARY` och försöker på nytt med den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
 
 ```python
@@ -234,7 +249,20 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+Med Java behöver du inte definiera återanropshanterare om egenskapen **LocationMode** för **BlobRequestOptions** är inställd på **PRIMARY\_THEN\_SECONDARY**. Det gör att programmet automatiskt växlar till den sekundära platsen om det inte lyckas nå den primära platsen för att hämta **HelloWorld.png**.
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
 ---
+
 
 ## <a name="next-steps"></a>Nästa steg
 

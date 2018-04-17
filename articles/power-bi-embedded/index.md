@@ -1,22 +1,22 @@
 ---
-title: "Dokumentation om Azure Power BI Embedded – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation."
+title: Dokumentation om Azure Power BI Embedded – Självstudier, API-referens | Microsoft Docs
+description: Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation.
 services: power-bi-embedded
-author: czeumault
-manager: carolz
+author: markingmyname
+manager: kfile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/28/2017
-ms.author: carolz
-ms.openlocfilehash: d8e1fafe9b3fecc9822ef6f25d8c527eebe586cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0ba30c72fd23526d4c4da964bcd3e37f3e507dea
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded-dokumentation
 
@@ -119,7 +119,7 @@ Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i app
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">Hämta .NET SDK</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/">Nedladdning av JavaScript SDK</a></p>
@@ -134,6 +134,7 @@ Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i app
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/en-us/rest/api/power-bi-embedded/">Referens för Azure Resource Manager REST API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">REST API-referens</a></p>
                     </div>
                 </div>

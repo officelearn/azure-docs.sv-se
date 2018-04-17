@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Instruktionsguider
   items:
-    - name: Hantera enhetsregistreringar
-      items:
-        - name: Hantera enhetsregistreringar med Azure Portal
-          href: how-to-manage-enrollments.md
-        - name: 'Hantera enhetsregistreringar med tjänst-SDK:er'
-          href: how-to-manage-enrollments-sdks.md
-    - name: Återkalla enhetsåtkomst
-      href: how-to-revoke-device-access-portal.md
-    - name: Avetablera enheter
-      href: how-to-unprovision-devices.md
-    - name: Utföra innehavarbevis med X.509 CA-v-certifikat
-      href: how-to-verify-certificates.md
-    - name: Använda HSM med SDK
-      href: use-hsm-with-sdk.md
-    - name: Styra åtkomsten till etableringstjänsten
-      href: how-to-control-access.md
-    - name: Använd Azure CLI för att hantera enhetsetableringstjänsten
-      href: how-to-manage-dps-with-cli.md
-    - name: Använd SDK-verktyg för att utveckla
-      href: how-to-use-sdk-tools.md
-    - name: Ansluta till MXChip IoT DevKit
+    - name: Ansluta MXChip IoT DevKit till IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Hantera konfiguration av enhetsetablering
+      items:
+        - name: Konfigurera verifierade CA-certifikat
+          href: how-to-verify-certificates.md
+        - name: Hantera avetablering
+          href: how-to-unprovision-devices.md
+        - name: Hantera avregistrering
+          href: how-to-revoke-device-access-portal.md
+        - name: Hantera registreringar – portal
+          href: how-to-manage-enrollments.md
+        - name: 'Hantera registreringar – tjänst-SDK:er'
+          href: how-to-manage-enrollments-sdks.md
+    - name: Hantera Device Provisioning Service
+      items:
+        - name: Konfigurera Device Provisioning Service med hjälp av Azure CLI
+          href: how-to-manage-dps-with-cli.md
+        - name: 'Kontrollera åtkomst till Provisioning Service-API:er'
+          href: how-to-control-access.md
+    - name: Använda attesteringsmekanismer med SDK
+      href: use-hsm-with-sdk.md
+    - name: Använda SDK-verktyg för utveckling
+      href: how-to-use-sdk-tools.md
 - name: Referens
   items:
     - name: REST

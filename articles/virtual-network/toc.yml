@@ -30,12 +30,12 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
-    - name: Trafikfiltrering
+    - name: Säkerhet
       href: security-overview.md
-    - name: Tjänstslutpunkter
-      href: virtual-network-service-endpoints-overview.md
     - name: Routning
       href: virtual-networks-udr-overview.md
+    - name: Tjänstslutpunkter
+      href: virtual-network-service-endpoints-overview.md
     - name: Peering
       href: virtual-network-peering-overview.md
     - name: Virtuellt nätverk för Azure-tjänster
@@ -72,12 +72,6 @@
               href: virtual-networks-create-nsg-arm-pportal.md
             - name: Mall
               href: virtual-networks-create-nsg-arm-template.md
-            - name: Klassisk
-              items:
-                - name: Azure PowerShell
-                  href: virtual-networks-create-nsg-classic-ps.md
-                - name: Azure CLI 1.0
-                  href: virtual-networks-create-nsg-classic-cli.md
         - name: Routningstabeller
           items:
             - name: Azure PowerShell
@@ -86,12 +80,6 @@
               href: tutorial-create-route-table-cli.md
             - name: Mall
               href: virtual-network-create-udr-arm-template.md
-            - name: Klassisk
-              items:
-                - name: Azure PowerShell
-                  href: virtual-network-create-udr-classic-ps.md
-                - name: Azure CLI
-                  href: virtual-network-create-udr-classic-cli.md
         - name: Tjänstslutpunkter
           items:
             - name: Azure PowerShell
@@ -124,10 +112,6 @@
                   href: virtual-network-deploy-static-pip-arm-cli.md
                 - name: Mall
                   href: virtual-network-deploy-static-pip-arm-template.md
-                - name: Klassisk
-                  items:
-                    - name: Azure PowerShell
-                      href: virtual-networks-reserved-public-ip.md
             - name: Skapa virtuell dator – statisk privat IP-adress
               items:
                 - name: Azure Portal
@@ -136,14 +120,6 @@
                   href: virtual-networks-static-private-ip-arm-ps.md
                 - name: Azure CLI
                   href: virtual-networks-static-private-ip-arm-cli.md
-                - name: Klassisk
-                  items:
-                    - name: Azure Portal
-                      href: virtual-networks-static-private-ip-classic-pportal.md
-                    - name: Azure PowerShell
-                      href: virtual-networks-static-private-ip-classic-ps.md
-                    - name: Azure CLI
-                      href: virtual-networks-static-private-ip-classic-cli.md
             - name: Skapa virtuell dator – flera nätverksgränssnitt
               items:
                 - name: Azure PowerShell
@@ -152,12 +128,6 @@
                   href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Mall
                   href: virtual-network-deploy-multinic-arm-template.md
-                - name: Klassisk
-                  items:
-                    - name: Azure PowerShell
-                      href: virtual-network-deploy-multinic-classic-ps.md
-                    - name: Azure CLI
-                      href: virtual-network-deploy-multinic-classic-cli.md
             - name: Skapa virtuell dator – flera IP-adresser
               items:
                 - name: Azure Portal
@@ -178,7 +148,7 @@
               href: virtual-machine-network-throughput.md
         - name: Scenarier för anslutning
           items:
-            - name: Virtuella nätverk (VNet) till VNet
+            - name: Virtuellt nätverk till virtuellt nätverk
               href: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VNet (Resource Manager) till VNet (klassisk)
               href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -194,34 +164,8 @@
               href: virtual-network-scenario-udr-gw-nva.md
             - name: DMZ mellan Azure och Internet
               href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-            - name: Säkerhet i molntjänst och nätverk
-              href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-              items:
-                - name: Skapa en DMZ med nätverkssäkerhetsgrupper
-                  href: virtual-networks-dmz-nsg.md
-                - name: Skapa en DMZ med nätverkssäkerhetsgrupper (klassisk)
-                  href: virtual-networks-dmz-nsg-asm.md
-                - name: Skapa en DMZ med brandvägg och nätverkssäkerhetsgrupper (klassisk)
-                  href: virtual-networks-dmz-nsg-fw-asm.md
-                - name: 'DMZ med brandvägg, UDR och nätverkssäkerhetsgrupper (klassisk)'
-                  href: virtual-networks-dmz-nsg-fw-udr-asm.md
-                - name: Exempelprogram
-                  href: virtual-networks-sample-app.md
-        - name: Klassisk
-          items:
-            - name: Virtuellt nätverk
-              href: create-virtual-network-classic.md
-              items:
-                - name: Azure Portal
-                  href: virtual-networks-create-vnet-classic-pportal.md
-                - name: Azure PowerShell
-                  href: virtual-networks-create-vnet-classic-netcfg-ps.md
-                - name: Azure CLI
-                  href: virtual-networks-create-vnet-classic-cli.md
-            - name: Ange DNS-inställningar i en virtuell nätverkskonfigurationsfil
-              href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
-            - name: Ange DNS-inställningar i en tjänstkonfigurationsfil
-              href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
+            - name: Skapa en DMZ med nätverkssäkerhetsgrupper
+              href: virtual-networks-dmz-nsg.md
     - name: Konfigurera
       items:
         - name: Virtuella datorer
@@ -230,30 +174,12 @@
               href: virtual-network-network-interface-vm.md
             - name: Namnmatchning för virtuella datorer och molntjänster
               href: virtual-networks-name-resolution-for-vms-and-role-instances.md
-            - name: Använda dynamisk DNS med din egen DNS-server
-              href: virtual-networks-name-resolution-ddns.md
-            - name: Optimera nätverkets dataflöde
-              href: virtual-network-optimize-network-bandwidth.md
-            - name: Visa och ändra värdnamn
-              href: virtual-networks-viewing-and-modifying-hostnames.md
-            - name: Klassisk
-              items:
-                - name: Statiska IP-adresser
-                  items:
-                    - name: Azure PowerShell
-                      href: virtual-networks-reserved-private-ip.md
-                    - name: Azure CLI
-                      href: virtual-networks-static-private-ip-classic-cli.md
-                - name: Offentlig IP-adress på instansnivå
-                  href: virtual-networks-instance-level-public-ip.md
-        - name: Klassisk
-          items:
-            - name: Listor för åtkomstkontroll
-              items:
-                - name: Azure Portal
-                  href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-                - name: Azure PowerShell
-                  href: virtual-networks-acl-powershell.md
+        - name: Använda dynamisk DNS med din egen DNS-server
+          href: virtual-networks-name-resolution-ddns.md
+        - name: Optimera nätverkets dataflöde
+          href: virtual-network-optimize-network-bandwidth.md
+        - name: Visa och ändra värdnamn
+          href: virtual-networks-viewing-and-modifying-hostnames.md
     - name: Hantera
       items:
         - name: Virtuella nätverk
@@ -269,20 +195,9 @@
                   href: ddos-protection-manage-portal.md
                 - name: Azure PowerShell
                   href: ddos-protection-manage-ps.md
-            - name: Klassisk
-              items:
-                - name: Nätverkskonfigurationsfil
-                  href: virtual-networks-using-network-configuration-file.md
-                - name: Migrera från en tillhörighetsgrupp till en region
-                  href: virtual-networks-migrate-to-regional-vnet.md
         - name: Nätverkssäkerhetsgrupper
+          href: manage-network-security-group.md
           items:
-            - name: Azure Portal
-              href: virtual-network-manage-nsg-arm-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-manage-nsg-arm-ps.md
-            - name: Azure CLI
-              href: virtual-network-manage-nsg-arm-cli.md
             - name: Logs
               href: virtual-network-nsg-manage-log.md
         - name: Routningstabeller
@@ -320,6 +235,78 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: Konfigurera PTR för SMTP-banderollskontroll
           href: create-ptr-for-smtp-service.md
+    - name: Klassisk
+      items:
+        - name: Skapa och hantera ett virtuellt nätverk
+          items:
+            - name: Skapa ett virtuellt nätverk
+              href: create-virtual-network-classic.md
+              items:
+                - name: Azure Portal
+                  href: virtual-networks-create-vnet-classic-pportal.md
+                - name: Azure PowerShell
+                  href: virtual-networks-create-vnet-classic-netcfg-ps.md
+                - name: Azure CLI
+                  href: virtual-networks-create-vnet-classic-cli.md
+            - name: Ange DNS-inställningar i en virtuell nätverkskonfigurationsfil
+              href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
+            - name: Ange DNS-inställningar i en tjänstkonfigurationsfil
+              href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
+            - name: Hantera
+              items:
+                - name: Nätverkskonfigurationsfil
+                  href: virtual-networks-using-network-configuration-file.md
+                - name: Migrera från en tillhörighetsgrupp till en region
+                  href: virtual-networks-migrate-to-regional-vnet.md
+        - name: Skapa en nätverkssäkerhetsgrupp
+          items:
+            - name: Azure PowerShell
+              href: virtual-networks-create-nsg-classic-ps.md
+            - name: Azure CLI 1.0
+              href: virtual-networks-create-nsg-classic-cli.md
+        - name: Skapa en routningstabell
+          items:
+            - name: Azure PowerShell
+              href: virtual-network-create-udr-classic-ps.md
+            - name: Azure CLI
+              href: virtual-network-create-udr-classic-cli.md
+        - name: Nätverk med virtuella datorer
+          items:
+            - name: Skapa virtuell dator – flera nätverksgränssnitt
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-deploy-multinic-classic-ps.md
+                - name: Azure CLI
+                  href: virtual-network-deploy-multinic-classic-cli.md
+            - name: Skapa virtuell dator – statisk privat IP-adress
+              href: virtual-networks-reserved-public-ip.md
+            - name: Hantera
+              items:
+                - name: Statiska IP-adresser
+                  items:
+                    - name: Azure PowerShell
+                      href: virtual-networks-reserved-private-ip.md
+                    - name: Azure CLI
+                      href: virtual-networks-static-private-ip-classic-cli.md
+                - name: Offentlig IP-adress på instansnivå
+                  href: virtual-networks-instance-level-public-ip.md
+                - name: Listor för åtkomstkontroll
+                  items:
+                    - name: Azure Portal
+                      href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                    - name: Azure PowerShell
+                      href: virtual-networks-acl-powershell.md
+        - name: Säkerhet i molntjänst och nätverk
+          href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+          items:
+            - name: Skapa en DMZ med nätverkssäkerhetsgrupper
+              href: virtual-networks-dmz-nsg-asm.md
+            - name: Skapa en DMZ med brandvägg och nätverkssäkerhetsgrupper
+              href: virtual-networks-dmz-nsg-fw-asm.md
+            - name: 'DMZ med brandvägg, UDR och NSG:er'
+              href: virtual-networks-dmz-nsg-fw-udr-asm.md
+            - name: Exempelprogram
+              href: virtual-networks-sample-app.md
 - name: Referens
   items:
     - name: Azure CLI

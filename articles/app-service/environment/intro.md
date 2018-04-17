@@ -1,6 +1,6 @@
 ---
-title: "Introduktion till Azure App Service-miljöer"
-description: "Kort översikt över Azure App Service-miljöer"
+title: Introduktion till Azure App Service-miljöer
+description: Kort översikt över Azure App Service-miljöer
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Introduktion till App Service-miljöer #
+# <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
  
 ## <a name="overview"></a>Översikt ##
 
-Azure App Service Environment är en funktion i Azure App Service som innehåller en fullständigt isolerad miljö särskilt avsedd för säker körning av högskaliga App Service-appar. Den här funktionen kan vara värd för dina webbappar, [mobilappar][mobileapps], API-appar och [funktioner][Functions].
+Azure App Service-miljön är en funktion i Azure App Service som ger en helt isolerad och dedikerad miljö där du kan köra App Service-appar säkert på hög nivå. Den här funktionen kan vara värd för dina webbappar, [mobilappar][mobileapps], API-appar och [funktioner][Functions].
 
 App Service-miljöer (ASE) är lämpliga för programarbetsbelastningar som kräver:
 
@@ -43,7 +43,7 @@ ASE-miljöer är isolerade så att de endast kör en enda kunds program och de d
 
 ## <a name="dedicated-environment"></a>Dedikerad miljö ##
 
-En ASE-miljö är exklusivt avsedd för en enda prenumeration och kan vara värd för 100 instanser. Omfånget kan sträcka sig över 100 instanser i en enda App Service-plan till 100 App Service-planer med varsin instans, och allt däremellan.
+En ASE är strikt reserverad för en prenumeration och kan innehålla 100 App Service-planer med varsin instans. Omfånget kan sträcka sig över 100 instanser i en enda App Service-plan till 100 App Service-planer med varsin instans, och allt däremellan.
 
 En ASE-miljö består av klientdelar och arbetare. Klientdelarna ansvarar för HTTP/HTTPS-avslutning och automatisk belastningsutjämning av appförfrågningar i en ASE-miljö. Klientdelarna läggs till automatiskt när App Service-planerna i ASE skalas ut.
 

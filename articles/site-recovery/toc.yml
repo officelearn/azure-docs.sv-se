@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: Övervaka och felsök
           items:
-            - name: Felsöka redundans till Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Felsöka Hyper-V-replikering
+              href: hyper-v-azure-troubleshoot.md
             - name: Övervaka Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V till sekundär plats

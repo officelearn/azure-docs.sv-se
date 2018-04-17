@@ -1,6 +1,14 @@
 - name: Hanterad tjänstidentitet
   href: overview.md
   items:
+    - name: Snabbstarter
+      items:
+        - name: Använda en virtuell MSI-dator för att få åtkomst till Azure Resource Manager
+          items:
+            - name: Virtuell Windows-dator
+              href: tutorial-windows-vm-access-arm.md
+            - name: Virtuell Linux-dator
+              href: tutorial-linux-vm-access-arm.md
     - name: Konfigurera MSI för en virtuell Azure-dator
       items:
         - name: Använda Azure Portal
@@ -41,8 +49,6 @@
       items:
         - name: Få åtkomst till Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
-        - name: Få åtkomst till Azure Resource Manager
-          href: tutorial-windows-vm-access-arm.md
         - name: Få åtkomst till Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: Få åtkomst till Azure Storage med en åtkomstnyckel
@@ -55,14 +61,14 @@
       items:
         - name: Få åtkomst till Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
-        - name: Få åtkomst till Azure Resource Manager
-          href: tutorial-linux-vm-access-arm.md
         - name: Få åtkomst till Azure Storage med en åtkomstnyckel
           href: tutorial-linux-vm-access-storage.md
         - name: Få åtkomst till Azure Storage med SAS
           href: tutorial-linux-vm-access-storage-sas.md
         - name: Få åtkomst till Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
+        - name: Få åtkomst till Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
     - name: Vanliga frågor och kända problem
       href: known-issues.md
     - name: Referens

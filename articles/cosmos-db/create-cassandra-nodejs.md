@@ -1,11 +1,10 @@
 ---
-title: "Snabbstart: Cassandra API med Node.js – Azure Cosmos DB | Microsoft Docs"
-description: "Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Node.js"
+title: 'Snabbstart: Cassandra API med Node.js – Azure Cosmos DB | Microsoft Docs'
+description: Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Node.js
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: govindk
-ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: sngun
+ms.openlocfilehash: e2f2064de5dc29ef290e6dc6dd7df6ae0a466f92
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Node.js och Azure Cosmos DB
 
@@ -27,7 +26,7 @@ Den här snabbstarten visar hur du använder [Cassandra-API](cassandra-introduct
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
@@ -153,7 +152,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
-    Använd ![knappen Kopiera](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
+    Använd ![Knappen Kopiera](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
 
     ![Visa och kopiera KONTAKTPUNKT, ANVÄNDARNAMN och LÖSENORD från Azure Portal, sidan med anslutningssträng](./media/create-cassandra-nodejs/keys.png)
 
@@ -181,7 +180,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     
 ## <a name="use-the-x509-certificate"></a>Använda X509-certifikatet 
 
-1. Om du behöver lägga till Baltimore CyberTrust Root har den serienummer 02:00:00:b9 och SHA1-fingeravtrycket d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Den kan hämtas från https://cacert.omniroot.com/bc2025.crt och sparas som en lokal fil med filtillägget .cer. 
+1. Om du behöver lägga till Baltimore CyberTrust Root har den serienummer 02:00:00:b9 och SHA1-fingeravtrycket d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Den kan laddas ner från https://cacert.omniroot.com/bc2025.crt och sparas som en lokal fil med filnamnstillägget .cer. 
 
 2. Öppna uprofile.js och ändra ”path\to\cert” så att det leder till det nya certifikatet. 
 

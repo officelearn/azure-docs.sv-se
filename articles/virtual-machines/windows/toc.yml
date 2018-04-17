@@ -83,6 +83,8 @@
           href: sizes-hpc.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
+        - name: Benchmark-poäng
+          href: compute-benchmark-scores.md
     - name: Underhåll och uppdateringar
       href: maintenance-and-updates.md
     - name: Disklagring
@@ -157,7 +159,7 @@
         - name: Använda WinRM
           href: winrm.md
         - name: Använda åtkomstkontroller
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Använda principer
           href: policy.md
         - name: Skapa en Key Vault-lösning

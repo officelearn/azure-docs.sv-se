@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera en lokal Docker-behållare och köra 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. Det tar en liten stund för klustret att starta. Du kan visa loggar med följande kommando eller gå till instrumentpanelen och visa klusterhälsotillståndet [http://localhost:19080](http://localhost:19080):
+5. Det tar en liten stund för klustret att starta. Du kan se loggar med följande kommando eller gå till instrumentpanelen och visa klusterhälsotillståndet [http://localhost:19080](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -187,9 +187,9 @@ När du har skapat ett Service Fabric-program så kan du distribuera det med [CL
 
 Installera [.NET Core 2.0 SDK för Mac](https://www.microsoft.com/net/core#macos) om du vill börja [skapa Service Fabric-program i C#](service-fabric-create-your-first-linux-application-with-csharp.md). Paket för .NET Core 2.0 Service Fabric-program finns på NuGet.org, som för närvarande finns som förhandsversion.
 
-## <a name="install-the-service-fabric-plug-in-for-eclipse-neon-on-your-mac"></a>Installera Service Fabric-plugin-programmet för Eclipse Neon på din Mac
+## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Installera plugin-programmet för Service Fabric till Eclipse på din Mac
 
-Azure Service Fabric har ett plugin-program för Eclipse Neon för Java IDE. Med det här plugin-programmet blir det enklare att skapa och distribuera Java-tjänster. Gör [så här](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) om du vill installera eller uppdatera Service Fabric plugin-programmet för Eclipse till den senaste versionen. De andra stegen i [Service Fabric för Eclipse-dokumentationen](service-fabric-get-started-eclipse.md) är också relevanta: skapa ett program, lägga till en tjänst i ett program, avinstallera ett program och så vidare.
+Azure Service Fabric har ett plugin-program för Eclipse Neon (eller senare) för Java IDE. Med det här plugin-programmet blir det enklare att skapa och distribuera Java-tjänster. Gör [så här](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse) om du vill installera eller uppdatera Service Fabric plugin-programmet för Eclipse till den senaste versionen. De andra stegen i [Service Fabric för Eclipse-dokumentationen](service-fabric-get-started-eclipse.md) är också relevanta: skapa ett program, lägga till en tjänst i ett program, avinstallera ett program och så vidare.
 
 Det sista steget är att skapa en instans av behållaren med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-behållaren på din Mac. Till exempel:
 

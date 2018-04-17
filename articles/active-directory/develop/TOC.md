@@ -7,9 +7,9 @@
 ### [Översikt](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows-skrivbordsversionen)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Webbappar
@@ -96,11 +96,16 @@
 ### Mobilappar och skrivbordsappar
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [Windows-skrivbord .NET](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows-skrivbordsversionen)](guidedsetups/active-directory-windesktop.md)
 ### Webbappar
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [ASP.NET-webbserver](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS-webbapp](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Appar med en sida
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### Webb-API:er
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Tjänst till tjänst
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guider
 ### [Registrera en app](active-directory-v2-app-registration.md)
 ## Referens
@@ -111,9 +116,9 @@
 #### [Implicit beviljande av OAuth 2.0](active-directory-v2-protocols-implicit.md)
 #### [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
 #### [On-Behalf-Of-flöde för OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Tokenreferens](active-directory-v2-tokens.md)
 #### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
-### [Scope](active-directory-v2-scopes.md)
+### [Token](active-directory-v2-tokens.md)
+### [Omfång och medgivande](active-directory-v2-scopes.md)
 # Resurser
 ## [Få hjälp](active-directory-develop-help-support.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)

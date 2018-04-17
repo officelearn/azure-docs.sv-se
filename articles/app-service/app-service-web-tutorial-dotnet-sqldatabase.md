@@ -1,11 +1,11 @@
 ---
 title: Skapa en ASP.NET-app i Azure med SQL Database | Microsoft Docs
-description: "Lär dig hur du får en ASP.NET-app att fungera i Azure, med anslutning till en SQL Database."
+description: Lär dig hur du får en ASP.NET-app att fungera i Azure, med anslutning till en SQL Database.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Skapa en ASP.NET-app i Azure med SQL Database
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här kursen visar hur du distribuerar en datadriven ASP.NET-webbapp i Azure och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en ASP.NET-app som körs i Azure och ansluten till SQL Database.
+Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här kursen visar hur du distribuerar en datadriven ASP.NET-webbapp i Azure och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en SQL Database-ansluten ASP.NET-app som körs i Azure.
 
 ![Publicerat ASP.NET-program i Azure webbapp](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
-> * Ansluta en ASP.NET-app till SQL Database
+> * ansluta en ASP.NET-app till SQL Database
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen
@@ -49,13 +49,15 @@ För att slutföra den här självstudien behöver du:
 
   ![ASP.NET och webbutveckling och Azure Development (under webb och moln)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
+Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
+
 ## <a name="download-the-sample"></a>Hämta exemplet
 
 [Ladda ned exempelprojektet](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
 
 Extrahera (zippa upp) filen *dotnet-sqldb-tutorial-master.zip*.
 
-Exempelprojektet innehåller en enkel [ASP.NET MVC](https://www.asp.net/mvc) CRUD-app (create-read-update-delete) med hjälp av [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+Exempelprojektet innehåller en enkel [ASP.NET MVC](https://www.asp.net/mvc) CRUD-app (create-read-update-delete) som använder [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### <a name="run-the-app"></a>Kör appen
 
@@ -170,7 +172,7 @@ Lägg till några att-göra-uppgifter.
 
 Grattis! Din datadrivna ASP.NET-app körs live i Azure App Service.
 
-## <a name="access-the-sql-database-locally"></a>Åtkomst till SQL Database lokalt
+## <a name="access-the-sql-database-locally"></a>Lokal åtkomst till SQL Database
 
 I Visual Studio kan du enkelt utforska och hantera din nya SQL Database i **SQL Server Object Explorer**.
 
@@ -184,7 +186,7 @@ Klicka högst upp i **SQL Server Object Explorer** på knappen **Add SQL Server*
 
 Visa noden **Azure** i dialogrutan **Connect** (Anslut). Alla dina SQL Database-instanser i Azure visas här.
 
-Välj den SQL Database som du skapade tidigare. Den anslutning som du skapade tidigare fylls automatiskt längst ned.
+Välj den SQL Database som du skapade tidigare. Den anslutning som du skapade tidigare fylls i automatiskt längst ned.
 
 Ange databasadministratörens lösenord som du skapade tidigare och klicka på **Connect** (Anslut).
 
@@ -339,7 +341,7 @@ Du kan strömma spårningsmeddelanden direkt från din Azure-webbapp till Visual
 
 Öppna _Controllers\TodosController.cs_.
 
-Varje åtgärd börjar med en `Trace.WriteLine()`-metod. Den här koden har lagts till visar hur du lägger till spårningsmeddelanden i din Azure webbapp.
+Varje åtgärd börjar med en `Trace.WriteLine()`-metod. Den här koden har lagts till för att visa hur du lägger till spårningsmeddelanden i din Azure-webbapp.
 
 ### <a name="open-server-explorer"></a>Öppna Server Explorer
 
@@ -359,7 +361,7 @@ Loggarna strömmas nu till fönstret **Output** (Utdata).
 
 ![Loggströmning i utdatafönstret](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-Men ser du inga spårningsmeddelanden ännu. Det beror på att när du väljer **View Streaming Logs** (Visa strömningsloggar) anges spårningsnivån i Azure-webbappen till `Error`, då endast felhändelser loggas (med `Trace.TraceError()`-metoden).
+Men än ser du inga spårningsmeddelanden. Det beror på att när du väljer **View Streaming Logs** (Visa strömningsloggar) anges spårningsnivån i Azure-webbappen till `Error`, då endast felhändelser loggas (med `Trace.TraceError()`-metoden).
 
 ### <a name="change-trace-levels"></a>Ändra spårningsnivåer
 
@@ -419,7 +421,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
-> * Ansluta en ASP.NET-app till SQL Database
+> * ansluta en ASP.NET-app till SQL Database
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen

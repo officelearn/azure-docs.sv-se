@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
@@ -109,7 +109,7 @@ Rapporten innehåller följande information:
 | Användar-ID |Visar användar-ID:t som användes. Det här värdet är vad användaren har angett, vilket i vissa fall är fel användar-ID. |
 | Misslyckade försök |Visar totalt antal misslyckade försök för det specifika användar-ID:t. Tabellen sorteras med flest antal misslyckade försök i fallande ordning. |
 | Senaste fel |Visar tidsstämpeln då det senaste felet uppstod. |
-| IP-adress för senaste fel |Visar klient-IP-adress från senaste felaktiga begäran. |
+| IP-adress för senaste fel |Visar klient-IP-adress från senaste felaktiga begäran. Om du ser flera IP-adresser i det här värdet kan det omfatta klientens IP-adress för vidarebefordran tillsammans med IP-adressen för användarens senaste begärandeförsök.  |
 
 > [!NOTE]
 > Den här rapporten uppdateras automatiskt var tolfte timme med den nya informationen som samlats in inom den tidsperioden. Därför kanske inloggningsförsök under de senaste 12 timmarna inte finns med i rapporten.
@@ -191,11 +191,14 @@ Aviseringströskelvärdet kan uppdateras i Tröskelinställningar. Systemet har 
 1. Varför ser jag privata IP-adressintervall i rapporten?  <br />
 Privata IP-adresser (<i>10.x.x.x, 172.x.x.x och 192.168.x.x</i>) och Exchange-IP-adresser är filtrerade och markeras som True i IP-vitlistan. Om du ser privata IP-adressintervall är det mycket troligt att en extern belastningsutjämnare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn.
 
-2. Hur gör jag för att blockera IP-adressen?  <br />
+2. Varför ser jag IP-adresser för belastningsutjämnare i rapporten?  <br />
+Om du ser IP-adresser för belastningsutjämnare är det mycket troligt att en extern belastningsutjämnare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn. Konfigurera belastningsutjämnaren korrekt för att vidarebefordra klientens IP-adress. 
+
+3. Hur gör jag för att blockera IP-adressen?  <br />
 Du bör lägga till identifierade skadliga IP-adresser i brandväggen eller blockera dem i Exchange.   <br />
 I AD FS 2016 + 1803.C+ QFE kan du blockera IP-adressen direkt i AD FS. 
 
-3. Varför visas inte några objekt i rapporten? <br />
+4. Varför visas inte några objekt i rapporten? <br />
    - De misslyckade inloggningsaktiviteterna överskrider inte tröskelinställningarna. 
    - Kontrollera att det inte finns någon aktiv varning om att ”Hälsotjänsten är inte uppdaterad” i din AD FS-serverlista.  Läs mer om [felsökning av den här aviseringen](active-directory-aadconnect-health-data-freshness.md).
    - Granskningar är inte aktiverade i AD FS-servergrupperna.

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD-åtkomstgranskningar| Microsoft Docs"
-description: "Du kan kontrollera gruppmedlemskap och programåtkomst så att du följer principer för förvaltning, riskhantering och regelefterlevnad i organisationen genom att använda Azure Active Directory-åtkomstgranskningar."
+title: Azure AD-åtkomstgranskningar| Microsoft Docs
+description: Du kan kontrollera gruppmedlemskap och programåtkomst så att du följer principer för förvaltning, riskhantering och regelefterlevnad i organisationen genom att använda Azure Active Directory-åtkomstgranskningar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c5d09b6f17fe8ae9be73d23d7aef6beae2ae43c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Azure AD-åtkomstgranskning (förhandsversion)
+# <a name="azure-ad-access-reviews"></a>Azure AD-åtkomstgranskningar
 
-Med hjälp Azure Active Directory (Azure AD)-åtkomstgranskningar kan organisationer effektivt hantera gruppmedlemskap och åtkomst till företagsprogram. 
+Med åtkomstgranskningar i Azure Active Directory (Azure AD) kan organisationer effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och priviligierade rolltilldelningar. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Vad kan du göra med åtkomstgranskningar?
    
@@ -30,6 +30,8 @@ Med hjälp Azure Active Directory (Azure AD)-åtkomstgranskningar kan organisati
 - Du kan certifiera om medarbetares åtkomst till program och gruppmedlemskap med åtkomstgranskningar.
    
 - Du kan samla in åtkomstgranskningskontroller i program som är relevanta för din organisation för att spåra granskningar för efterlevnad eller riskkänsliga program.
+
+- Du kan göra en ny certifiering av rolltilldelningen för administrativa användare som är tilldelade till Azure AD-roller, som exempelvis global administratör eller Azure-prenumerationsroller.  Den här funktionen ingår i Azure AD Privileged Identity Management.
     
 
 ## <a name="next-steps"></a>Nästa steg

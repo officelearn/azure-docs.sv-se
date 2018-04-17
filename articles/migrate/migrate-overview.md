@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8f6c2c54dd20b663eb43c716a2bd82310cf0256a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -30,7 +30,7 @@ Med Azure Migrate får du hjälp med att:
 
 - För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
 - Stöd för Hyper-V finns i vår översikt. Under tiden kan rekommendera att du planerar att migrera Hyper-V-arbetsbelastningar med [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc). 
-- Du kan identifiera upp till 1 000 virtuella datorer i en identifiering och upp till 1500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 400 virtuella datorer i en enda utvärdering. Om du behöver identifiera eller utvärdera mer kan du öka antalet identifieringar eller utvärderingar. [Läs mer](how-to-scale-assessment.md).
+- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
 - Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 

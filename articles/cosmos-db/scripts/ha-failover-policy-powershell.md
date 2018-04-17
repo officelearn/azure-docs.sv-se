@@ -1,13 +1,12 @@
 ---
-title: Azure PowerShell Script-skapa en Azure Cosmos DB redundansprincip | Microsoft Docs
-description: "Azure PowerShell-skript Sample - skapa en princip för Azure Cosmos DB växling vid fel"
+title: Azure PowerShell-skript – Skapa en redundansprincip för Azure Cosmos DB | Microsoft Docs
+description: Skriptexempel för Azure PowerShell – Skapa en redundansprincip för Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 94f1c958f6bb78d78d6b7da2416be06ff8d22065
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.author: sngun
+ms.openlocfilehash: 7434d2d3d0cfc1185c69adb9e6bf5e7af70d502d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Skapa en princip för Azure Cosmos DB redundanskluster för hög tillgänglighet med hjälp av PowerShell
+# <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Skapa en redundansprincip med hög tillgänglighet för Azure Cosmos DB med PowerShell
 
-PowerShell-exempelskriptet skapar en princip för växling vid fel för hög tillgänglighet för Azure Cosmos DB. 
+Det här skriptexemplet för PowerShell skapar en redundansprincip med hög tillgänglighet för Azure Cosmos DB. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -34,26 +33,26 @@ PowerShell-exempelskriptet skapar en princip för växling vid fel för hög til
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Följande kommando kan användas för att ta bort resursgruppen och alla resurser som är associerade med den efter skriptexempel har körts.
+När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Ny AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Ny AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
-| [Anropa AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Anropar en åtgärd på CosmosDB Azure-konto. |
-| [Ta bort AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
+| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
+| [Invoke-AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Anropar en åtgärd på Azure CosmosDB-kontot. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns [Azure PowerShell dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Cosmos DB PowerShell skriptexempel finns i den [Azure Cosmos DB PowerShell-skript](../powershell-samples.md).
+Fler skriptexempel för PowerShell i Azure Cosmos DB finns i [PowerShell-skript för Azure Cosmos DB](../powershell-samples.md).

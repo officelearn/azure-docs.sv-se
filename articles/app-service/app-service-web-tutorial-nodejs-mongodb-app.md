@@ -1,11 +1,11 @@
 ---
 title: Skapa en Node.js- och MongoDB-webbapp i Azure | Microsoft Docs
-description: "Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng."
+description: Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Skapa en Node.js- och MongoDB-webbapp i Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Självstudie: Skapa en Node.js- och MongoDB-webbapp i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-webbapp i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
@@ -45,7 +45,7 @@ Detta får du får lära dig:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera Node.js och NPM](https://nodejs.org/)
@@ -63,7 +63,7 @@ Kör `mongo` i terminalen för att ansluta till din lokala MongoDB-server.
 mongo
 ```
 
-Om anslutningen lyckas körs redan MongoDB-databasen. Om inte ska du kontrollera att din lokala MongoDB-databas startar genom att följa stegen i [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (Installera MongoDB Community Edition). Ofta installeras MongoDB, men du måste ändå starta det genom att köra `mongod`. 
+Om anslutningen lyckas körs redan MongoDB-databasen. Om inte ska du kontrollera att din lokala MongoDB-databas startar genom att följa stegen i [Installera MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Ofta installeras MongoDB, men du måste ändå starta det genom att köra `mongod`. 
 
 När du har testat MongoDB-databasen skriver du `Ctrl+C` i terminalen. 
 
@@ -107,13 +107,13 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Gå till `http://localhost:3000` i en webbläsare. Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en testanvändare. 
+Gå till `http://localhost:3000` i en webbläsare. Klicka på alternativet för att **registrera** på den översta menyn och skapa en testanvändare. 
 
 MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa en användare och logga in skriver appen data till den lokala MongoDB-databasen.
 
 ![MEAN.js ansluter till MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
+Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
 
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen. 
 
@@ -237,7 +237,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Gå till `http://localhost:8443` i en webbläsare. Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en testanvändare. Om du lyckas skapa en användare och logga in skriver appen data till Cosmos DB-databasen i Azure. 
+Gå till `http://localhost:8443` i en webbläsare. Klicka på alternativet för att **registrera** på den översta menyn och skapa en testanvändare. Om du lyckas skapa en användare och logga in skriver appen data till Cosmos DB-databasen i Azure. 
 
 I terminalen stoppar du Node.js genom att skriva `Ctrl+C`. 
 
@@ -320,13 +320,13 @@ Bläddra till den distribuerade webbappen via webbläsaren.
 http://<app_name>.azurewebsites.net 
 ``` 
 
-Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en låtsasanvändare. 
+Klicka på alternativet för att **registrera** på den översta menyn och skapa en låtsasanvändare. 
 
 Om du lyckas och appen loggar in automatiskt till den skapade användaren har din MEAN.jsapp i Azure anslutning till MongoDB- databasen (Cosmos DB). 
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar. 
+Välj **Administratör > Hantera artiklar** för att lägga till några artiklar. 
 
 **Grattis!** Du kör en datadriven Node.js-app i Azure App Service.
 
@@ -439,7 +439,7 @@ node server.js
 
 Gå till `http://localhost:8443` i en webbläsare och kontrollera att du är inloggad.
 
-Välj **Administratör > Manage Articles** (Hantera artiklar) och lägg sedan till en artikel genom att välja knappen **+**.
+Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+**.
 
 Nu ser du den nya textrutan `Comment`.
 

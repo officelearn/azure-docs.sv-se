@@ -89,6 +89,8 @@
           href: sizes-hpc.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
+        - name: Benchmark-poäng
+          href: compute-benchmark-scores.md
     - name: Godkända distributioner
       href: endorsed-distros.md
     - name: Underhåll och uppdateringar
@@ -145,7 +147,7 @@
         - name: Kryptera
           href: encrypt-disks.md
         - name: Använda åtkomstkontroller
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Använda principer
           href: policy.md
         - name: Skapa en Key Vault-lösning
@@ -400,6 +402,8 @@
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Tilldela offentligt DNS-namn
           href: portal-create-fqdn.md
+        - name: Hitta och ta bort ej anslutna nätverkskort
+          href: find-unattached-nics.md
         - name: DNS-upplösning
           href: azure-dns.md
           items:

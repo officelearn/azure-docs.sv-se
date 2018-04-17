@@ -1,23 +1,23 @@
 ---
-title: "Identifiera och utvärdera lokala virtuella VMware-datorer för migrering till Azure med Azure Migrate | Microsoft Docs"
-description: "Beskriver hur du identifierar och utvärderar lokala virtuella VMware-datorer för migrering till Azure med tjänsten Azure Migrate."
+title: Identifiera och utvärdera lokala virtuella VMware-datorer för migrering till Azure med Azure Migrate | Microsoft Docs
+description: Beskriver hur du identifierar och utvärderar lokala virtuella VMware-datorer för migrering till Azure med tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
 [Azure Migrate](migrate-overview.md)-tjänsterna utvärderar lokala arbetsbelastningar för migrering till Azure.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett konto som Azure Migrate ska använda till att identifiera de lokala virtuella datorerna
@@ -84,7 +84,15 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Den genererade hashen måste matcha nedanstående inställningar.
+    
+    För OVA-version 1.0.9.7
 
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+    
     För OVA-version 1.0.9.5
 
     **Algoritm** | **Hash-värde**

@@ -10,11 +10,11 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulera ett fel vid läsåtkomst till redundant lagring
 
@@ -179,9 +179,9 @@ I den andra delen i serien lärde du dig hur du simulerade ett fel i RA-GRS, til
 > * Simulerar ett fel med [Fiddler](#simulate-a-failure-with-fiddler) eller [en felaktig statisk väg](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simulerar en återställning av den primära slutpunkten
 
-Följ den här länken om du vill se inbyggda lagringsexempel.
+Läs följande artikel om du vill veta mer om hur RA-GRS-lagringen fungerar (och vilka risker det medför).
 
 > [!div class="nextstepaction"]
-> [Azure Storage-skriptexempel](storage-samples-blobs-cli.md)
+> [Designa HA-appar med RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

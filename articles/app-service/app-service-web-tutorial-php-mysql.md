@@ -1,11 +1,11 @@
 ---
 title: Skapa en PHP- och MySQL-webbapp i Azure | Microsoft Docs
-description: "Lär dig hur du får igång en PHP-app i Azure med anslutning till en MySQL-databas i Azure."
+description: Lär dig hur du får igång en PHP-app i Azure med anslutning till en MySQL-databas i Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 28c50aea9aaad1b9b18fb6b3034617d10beea7ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Skapa en PHP- och MySQL-webbapp i Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Självstudie: Skapa en PHP- och MySQL-webbapp i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en PHP- och MySQL-webbapp i Azure App Service på Linux](./containers/tutorial-php-mysql-app.md).
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/)
 * [Installera PHP 5.6.4 eller senare](http://php.net/downloads.php)
@@ -154,7 +154,7 @@ Om du vill stoppa PHP-servern skriver du `Ctrl + C` i terminalen.
 
 ## <a name="create-mysql-in-azure"></a>Skapa MySQL i Azure
 
-I det här steget skapar du en MySQL-databas i [Azure Database for MySQL (Preview)](/azure/mysql). Senare kommer du att konfigurera PHP-appen för att ansluta till den här databasen.
+I det här steget skapar du en MySQL-databas i [Azure Database for MySQL](/azure/mysql). Senare kommer du att konfigurera PHP-appen för att ansluta till den här databasen.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -162,7 +162,7 @@ I det här steget skapar du en MySQL-databas i [Azure Database for MySQL (Previe
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Skapa i Cloud Shell en server i Azure Database for MySQL (Preview) med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+I Cloud Shell skapar du en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 I följande kommando ersätter du MySQL-servernamnet i platshållaren _&lt;mysql_server_name>_ (giltiga tecken är `a-z`, `0-9` och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`) och den måste vara globalt unik.
 
@@ -199,7 +199,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> Azure Database for MySQL (Preview) begränsar för närvarande inte anslutningar till endast Azure-tjänster. Eftersom IP-adresser i Azure tilldelas dynamiskt är det bättre att aktivera alla IP-adresser. Tjänsten är en förhandsversion. Vi planerar att införa bättre metoder för att skydda databasen.
+> Azure Database for MySQL begränsar för närvarande inte anslutningar till endast Azure-tjänster. Eftersom IP-adresser i Azure tilldelas dynamiskt är det bättre att aktivera alla IP-adresser. Vi planerar att införa bättre metoder för att skydda databasen.
 >
 >
 
@@ -236,7 +236,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Ansluta appen till Azure MySQL
 
-I det här steget ansluter du PHP-appen till MySQL-databasen du skapade i Azure Database for MySQL (Preview).
+I det här steget ansluter du PHP-programmet till MySQL-databasen som du skapade i Azure Database for MySQL.
 
 <a name="devconfig"></a>
 
@@ -260,7 +260,7 @@ MYSQL_SSL=true
 Spara ändringarna.
 
 > [!TIP]
-> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL (Preview). När du använder miljövariabler behöver du inte *.env*-filen i App Service.
+> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL. När du använder miljövariabler behöver du inte *.env*-filen i App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>Konfigurera ett SSL-certifikat
@@ -283,7 +283,7 @@ I den här kursen finns certifikatet `BaltimoreCyberTrustRoot.crt.pem` på lagri
 
 ### <a name="test-the-application-locally"></a>Testa appen lokalt
 
-Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL (Preview). Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_.
+Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL. Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +305,7 @@ Navigera till `http://localhost:8000`. Om sidan läses in utan fel ansluter PHP-
 
 Lägg till några uppgifter på sidan.
 
-![PHP ansluter till Azure Database for MySQL (Preview)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP har anslutits till Azure Database for MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -431,7 +431,7 @@ Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
 ## <a name="update-model-locally-and-redeploy"></a>Uppdatera modellen lokalt och distribuera om
 
-I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen, och publicerar sedan uppdateringen till Azure.
+I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen och publicerar sedan uppdateringen till Azure.
 
 För uppgiftsscenariot ändrar du programmet så att du kan markera en uppgift som slutförd.
 

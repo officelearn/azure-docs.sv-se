@@ -56,6 +56,7 @@
 #### [E-postinbjudan](active-directory-b2b-invitation-email.md)
 #### [Inlösning av inbjudan](active-directory-b2b-redemption-experience.md)
 #### [Lägga till B2B-användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
+#### [Tillåta eller blockera inbjudningar](active-directory-b2b-allow-deny-list.md)
 #### [Villkorlig åtkomst för B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B-delningsprinciper](active-directory-b2b-delegate-invitations.md)
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
@@ -327,9 +328,6 @@
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)
-#### [Aktivera Windows Hello för företag](active-directory-azureadjoin-passport-deployment.md)
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

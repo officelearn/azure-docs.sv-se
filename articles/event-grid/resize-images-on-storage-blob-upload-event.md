@@ -1,10 +1,10 @@
 ---
-title: "Använda Azure Event Grid till att automatisera ändra storlek på uppladdade bilder | Microsoft Docs"
-description: "Azure Event Grid kan utlösas vid blob-överföringar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar."
+title: Använda Azure Event Grid till att automatisera ändra storlek på uppladdade bilder | Microsoft Docs
+description: Azure Event Grid kan utlösas vid blob-överföringar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatisera storleksändring av överförda bilder med Event Grid
 
@@ -28,7 +28,7 @@ Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen fö
 
 ![Publicerad webbapp i webbläsaren Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett allmänt Azure Storage-konto
@@ -37,7 +37,7 @@ I den här guiden får du lära dig hur man:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 + Du måste ha slutfört föregående Blob Storage-självstudie: [Överför bilddata i molnet med Azure Storage][previous-tutorial]. 
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 Nu kan du distribuera ett funktionskodprojekt till den här funktionsappen.
@@ -145,7 +145,7 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     | **Slutpunkt för prenumerant** | genereras automatiskt | Använd den slutpunktsadress som genereras åt dig. | 
     | **Prefixfilter** | /blobServices/default/containers/images/blobs/ | Filtrerar Storage-händelser till behållaren **images**.| 
 
-4. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser `imageresizerfunc` när en blob läggs till i behållaren *images*. Funktionen återställer avbildningarnas storlek och lägger till dem till behållaren *thumbs*.
+4. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser `imageresizerfunc` när en blob läggs till i behållaren *images*. Funktionen återställer bildstorleken och lägger till dem i behållaren med *miniatyrer*.
 
 Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen för storleksändring i exempelwebbappen. 
 
@@ -155,7 +155,7 @@ När du ska testa storleksändring i webbappen bläddrar du till URL-adressen f�
 
 Klicka på regionen **Upload photos** (Ladda upp foton) för att välja och ladda upp en fil. Du kan också dra ett foto till den här regionen. 
 
-Observera att en kopia av uppladdade bilden visas i karusellen **Generated thumbnails** (Genererade miniatyrer) när den uppladdade bilden försvinner. Den här bildens storlek ändrades av funktionen. Sedan lades den till i behållaren *thumbs* och laddades ned av webbklienten.
+Observera att en kopia av uppladdade bilden visas i karusellen **Generated thumbnails** (Genererade miniatyrer) när den uppladdade bilden försvinner. Den här bildens storlek ändrades av funktionen. Därefter lades den till i behållaren med *miniatyrer* och laddades ned av webbklienten.
 
 ![Publicerad webbapp i webbläsaren Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 

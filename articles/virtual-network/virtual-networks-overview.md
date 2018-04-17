@@ -1,86 +1,73 @@
 ---
-title: Virtuella Azure-nätverket | Microsoft Docs
-description: Läs mer om Azure Virtual Network koncept och funktioner.
+title: Azure Virtual Network | Microsoft Docs
+description: Läs mer om Azure Virtual Network-koncept och -funktioner.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/1/2018
+ms.date: 3/23/2018
 ms.author: jdial
-ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 072a4a483cb39a6f2827b6d5973ec544fd58d09c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
-Virtuella Azure-nätverket kan Azure-resurser kommunicera med varandra och internet. Ett virtuellt nätverk isolerar dina resurser från andra användares resurser i Azure-molnet. Du kan ansluta virtuella nätverk till andra virtuella nätverk eller till ditt lokala nätverk. 
+Azure Virtual Network gör att många typer av Azure-resurser, till exempel virtuella Azure-datorer (VM), kan kommunicera säkert med varandra, Internet och lokala nätverk. Azure Virtual Network innehåller följande viktiga funktioner: 
 
-Virtuella Azure-nätverket innehåller följande allmänna funktioner:
-- **[Isolering:](#isolation)**  virtuella nätverk är isolerade från varandra. Du kan skapa separata virtuella nätverk för utveckling, testning och produktion som använder samma CIDR (till exempel 10.0.0.0/0) adressen block. Däremot kan du skapa flera virtuella nätverk som använder olika CIDR-Adressblock och ansluta nätverken tillsammans. Du kan dela ett virtuellt nätverk i flera undernät. Azure erbjuder intern namnmatchning för resurser har distribuerats i ett virtuellt nätverk. Om det behövs kan du konfigurera ett virtuellt nätverk för att använda dina egna DNS-servrar i stället för intern namnmatchning för Azure.
-- **[Internet-kommunikation:](#internet)**  resurser, till exempel virtuella datorer distribueras i ett virtuellt nätverk har åtkomst till Internet, som standard. Du kan också aktivera inkommande åtkomst till specifika resurser efter behov.
-- **[Azure-resurs kommunikation:](#within-vnet)**  Azure resurser har distribuerats i ett virtuellt nätverk kan kommunicera med varandra med privata IP-adresser, även om resurserna som distribueras i olika undernät. Azure tillhandahåller standardroutning mellan undernät, anslutna virtuella nätverk och lokala nätverk, så du behöver att konfigurera och hantera vägar. Om du vill kan anpassa du Azures routning.
-- **[Virtuell nätverksanslutning:](#connect-vnets)**  virtuella nätverk kan vara anslutna till varandra, aktivera resurser i något virtuellt nätverk för att kommunicera med resurser i det virtuella nätverket.
-- **[Lokal anslutning:](#connect-on-premises)**  ett virtuellt nätverk kan vara ansluten till ett lokalt nätverk, aktivera resurser för att kommunicera med varandra.
-- **[Trafikfiltrering:](#filtering)**  kan du filtrera nätverkstrafik till och från resurser i ett virtuellt nätverk med källans IP-adress och port, mål-IP-adress och port och protokoll.
-- **[Routning:](#routing)**  Alternativt kan du åsidosätta Azures standard routning genom att konfigurera egna vägar eller genom att sprida border gateway protocol (BGP) vägar via en nätverksgateway.
+## <a name="isolation-and-segmentation"></a>Isolering och segmentering
 
-## <a name = "isolation"></a>Isolering av nätverk och segmentering
+Du kan implementera flera virtuella nätverk i varje Azure-[prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure-[region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Varje virtuellt nätverk är isolerat från andra virtuella nätverk. För varje virtuellt nätverk kan du:
+- Ange ett anpassat privat IP-adressutrymme med offentliga och privata adresser (RFC 1918). Azure tilldelar resurser i ett virtuellt nätverk en privat IP-adress från det adressutrymme som du tilldelar.
+- Segmentera det virtuella nätverket i ett eller flera undernät och allokera en del av det virtuella nätverkets adressutrymme till varje undernät.
+- Använda Azure-tillhandahållen namnmatchning, eller ange en egen DNS-server, för användning av resurser i ett virtuellt nätverk.
 
-Du kan implementera flera virtuella nätverk i varje Azure [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Varje virtuellt nätverk är isolerat från andra virtuella nätverk. För varje virtuellt nätverk kan du:
-- Ange en egen privata IP-adressutrymmet med hjälp av offentliga och privata (RFC 1918)-adresser. Azure tilldelar resurser i ett virtuellt nätverk en privat IP-adress från det adressutrymme som du tilldelar.
-- Segmentera det virtuella nätverket i en eller flera undernät och tilldela en del av det virtuella nätverkets adressutrymme till varje undernät.
-- Använd Azure-tillhandahållna namnmatchning eller ange egna DNS-server för användning av resurser i ett virtuellt nätverk. Mer information om namnmatchning i virtuella nätverk finns [namnmatchning för resurser i virtuella nätverk](virtual-networks-name-resolution-for-vms-and-role-instances.md).
+## <a name="communicate-with-the-internet"></a>Kommunicera med Internet
 
-## <a name = "internet"></a>Internet-kommunikation
-Alla resurser i ett virtuellt nätverk kan kommunicera utgående till Internet. Som standard är privata IP-adressen för resursen adress källnätverket översättas (SNAT) till en offentlig IP-adress som valts av Azure-infrastrukturen. Läs mer om utgående Internetanslutning i [förstå utgående anslutningar i Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du kan implementera anpassade vägar eller trafikfiltrering för att förhindra utgående Internetanslutning.
+Alla resurser i ett virtuellt nätverk kan som standard kommunicera utgående till Internet. Du kan kommunicera inkommande till en resurs genom att tilldela den en offentlig IP-adress. Läs mer i [Offentliga IP-adresser](virtual-network-public-ip-address.md).
 
-Att kommunicera inkommande Azure-resurser från Internet eller kommunicera utgående till Internet utan SNAT tilldelas en resurs en offentlig IP-adress. Läs mer om offentliga IP-adresser i [offentliga IP-adresser](virtual-network-public-ip-address.md).
+## <a name="communicate-between-azure-resources"></a>Kommunicera mellan Azure-resurser
 
-## <a name="within-vnet"></a>Säker kommunikation mellan Azure-resurser
+Azure-resurser kommunicerar säkert med varandra på något av följande sätt:
 
-Du kan distribuera virtuella datorer i ett virtuellt nätverk. Virtuella datorer kommunicerar med andra resurser i ett virtuellt nätverk via ett nätverksgränssnitt. Läs mer om nätverksgränssnitt i [nätverksgränssnitt](virtual-network-network-interface.md).
+- **Via ett virtuellt nätverk**: Du kan distribuera virtuella datorer och flera andra typer av Azure-resurser till ett virtuellt nätverk, till exempel Azure App Service-miljöer och 	skalningsuppsättningar för virtuella Azure-datorer. En fullständig lista över Azure-resurser som du kan distribuera till ett virtuellt nätverk finns i [Tjänstintegration för virtuella nätverk](virtual-network-for-azure-services.md). 
+- **Via en tjänstslutpunkt för virtuella nätverk**: Utöka det privata adressutrymmet för det virtuella nätverket och identiteten för det virtuella nätverket till Azure-tjänstresurser, till exempel Azure Storage-konton och Azure SQL-databaser, via en direkt anslutning. Med tjänstslutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast ett virtuellt nätverk. Läs mer i [Översikt över tjänstslutpunkter för virtuella nätverk](virtual-network-service-endpoints-overview.md).
+ 
+## <a name="communicate-with-on-premises-resources"></a>Kommunicera med lokala resurser
 
-Du kan också distribuera flera andra typer av Azure-resurser till ett virtuellt nätverk, till exempel Azure App Service-miljöer och Azure Skalningsuppsättningar i virtuella datorer. En fullständig lista över Azure-resurser du kan distribuera till ett virtuellt nätverk finns i [integrering för Azure-tjänster för virtuella nätverk tjänsten](virtual-network-for-azure-services.md).
+Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjälp av valfri kombination av följande alternativ:
 
-Vissa resurser kan inte distribueras till ett virtuellt nätverk, men du kan begränsa kommunikationen till resurser i ett virtuellt nätverk. Läs mer om hur du begränsar åtkomsten till resurser i [virtuella nätverksslutpunkter](virtual-network-service-endpoints-overview.md). 
+- **Punkt-till-plats-VPN (virtuellt privat nätverk):** Upprättas mellan ett virtuellt nätverk och en dator i ditt nätverk. Anslutningen måste konfigureras för varje dator som du vill ansluta till ett virtuellt nätverk. Den här anslutningstypen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs få eller inga ändringar i ditt befintliga nätverk. Kommunikationen mellan datorn och ett virtuellt nätverk skickas genom en krypterad tunnel via Internet. Läs mer i [Punkt-till-plats-VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S).
+- **Plats-till-plats-VPN:** Upprättas mellan den lokala VPN-enheten och en Azure VPN-gateway som distribueras i ett virtuellt nätverk. Med den här anslutningstypen kan alla lokala resurser som du ger behörighet få åtkomst till ett virtuellt nätverk. Kommunikationen mellan den lokala VPN-enheten och en Azure VPN-gateway skickas genom en krypterad tunnel via Internet. Läs mer i [Plats-till-plats-VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
+- **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken går inte via Internet. Läs mer i [ExpressRoute](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ExpressRoute).
 
-## <a name="connect-vnets"></a>Ansluta virtuella nätverk
+## <a name="filter-network-traffic"></a>Filtrera nätverkstrafik
+Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
+- **Nätverkssäkerhetsgrupper:** En nätverkssäkerhetsgrupp kan innehålla flera inkommande och utgående säkerhetsregler som gör det möjligt att filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Läs mer i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups).
+- **Virtuella nätverksinstallationer:** En virtuell nätverksinstallation är en virtuell dator som utför en nätverksfunktion, till exempel en brandvägg, WAN-optimering eller annan nätverksfunktion. En lista över tillgängliga virtuella nätverksinstallationer som du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-Du kan ansluta virtuella nätverk till varandra, aktivera resurser i antingen virtuella nätverk för att kommunicera med varandra med hjälp av virtuellt nätverk peering. Bandbredd och svarstiden för kommunikationen mellan resurser i olika virtuella nätverk är densamma som om resurserna som fanns i samma virtuella nätverk. Mer information om peering finns [virtuella nätverk peering](virtual-network-peering-overview.md).
+## <a name="route-network-traffic"></a>Dirigera nätverkstrafik
 
-## <a name="connect-on-premises"></a>Ansluta till ett lokalt nätverk
+Azure dirigerar trafik mellan undernät, anslutna virtuella nätverk, lokala nätverk och Internet, som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta de standardvägar som Azure skapar:
+- **Routningstabeller:** Du kan skapa anpassade routningstabeller med vägar som styr vart trafik dirigeras för varje undernät. Läs mer om [routningstabeller](virtual-networks-udr-overview.md#user-defined).
+- **BGP-vägar (Border Gateway Protocol):** Om du ansluter ditt virtuella nätverk till ditt lokala nätverk med hjälp av en Azure VPN Gateway- eller ExpressRoute-anslutning kan du sprida de lokala BGP-vägarna till de virtuella nätverken. Lär dig mer om hur du använder BGP med [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
-Du kan ansluta dina lokala nätverk till ett virtuellt nätverk med hjälp av följande alternativ:
-- **Punkt-till-plats virtuellt privat nätverk (VPN):** upprättas mellan ett virtuellt nätverk och en enda dator i nätverket. Varje dator som du vill upprätta en anslutning med ett virtuellt nätverk måste konfigurera sin anslutning oberoende av varandra. Den här anslutningen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs lite eller ingen ändringar i ditt befintliga nätverk. Anslutningen använder SSTP-protokollet för att tillhandahålla krypterad kommunikation via Internet mellan datorn och ett virtuellt nätverk. Svarstiden för en punkt-till-plats-VPN är oförutsägbart, eftersom trafiken färdas genom Internet.
-- **Plats-till-plats-VPN:** mellan din VPN-enhet och en Azure VPN-Gateway distribueras i ett virtuellt nätverk. Den här anslutningstypen gör att alla lokala resurser som du har behörighet att få åtkomst till ett virtuellt nätverk. Anslutningen är en IPSec/IKE-VPN som tillhandahåller krypterad kommunikation via Internet mellan din lokala enhet och Azure VPN-gatewayen. Svarstiden för en plats-till-plats-anslutning är oförutsägbart, eftersom trafiken färdas genom Internet.
-- **Azure ExpressRoute:** upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafik inte går över Internet. Svarstid för en ExpressRoute-anslutning är förutsägbar, eftersom trafiken inte sker via Internet.
+## <a name="connect-virtual-networks"></a>Ansluta virtuella nätverk
 
-Läs mer om alla tidigare anslutningsalternativ i [anslutning Topologidiagram](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
-
-## <a name="filtering"></a>Filtrera nätverkstrafik
-Du kan filtrera nätverkstrafiken mellan undernät med ett eller båda av följande alternativ:
-- **Nätverkssäkerhetsgrupper:** en nätverkssäkerhetsgrupp kan innehålla flera inkommande och utgående säkerhetsregler som gör det möjligt att filtrera trafik genom käll- och IP-adress, port och protokoll. Du kan använda en nätverkssäkerhetsgrupp för varje nätverksgränssnitt i en virtuell dator. Du kan också använda en nätverkssäkerhetsgrupp till undernätet för ett nätverksgränssnitt eller andra Azure-resurs i. Läs mer om nätverkssäkerhetsgrupper i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups).
-- **Nätverks-virtuella installationer:** en virtuell nätverksenhet är en virtuell dator som kör programvara som utför en funktion i nätverket, till exempel en brandvägg. Visa en lista över tillgängliga nätverk virtuella installationer i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Virtuella installationer i nätverket är också tillgängliga som har WAN-optimering och andra nätverksenheter trafik funktioner. Virtuella nätverksinstallationer används vanligtvis med användardefinierade eller BGP-vägar. Du kan också använda en virtuell nätverksenhet för att filtrera trafik mellan virtuella nätverk.
-
-## <a name="routing"></a>Dirigera nätverkstrafik
-
-Azure skapar routningstabeller som gör att resurser som är anslutna till alla undernät i alla virtuella nätverk för att kommunicera med varandra och Internet, som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta standardvägar Azure skapar:
-- **Routningstabeller:** kan du skapa anpassade routningstabeller med vägar som styr där trafik dirigeras till för varje undernät. Mer information om anpassade routning finns [anpassad routning](virtual-networks-udr-overview.md#user-defined).
-- **BGP-vägar:** om du ansluter det virtuella nätverket till ditt lokala nätverk med hjälp av en Azure VPN-Gateway eller ExpressRoute-anslutning du sprida BGP-vägar till ditt virtuella nätverk.
+Du kan ansluta virtuella nätverk till varandra, så att resurser i de virtuella nätverken kan kommunicera med varandra, med hjälp av peerkoppling av virtuella nätverk. De virtuella nätverken du ansluter kan finnas i samma, eller olika, Azure-regioner. Läs mer i [Peerkoppling av virtuella nätverk](virtual-network-peering-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du en översikt över Azure Virtual Network. Lär dig mer om att använda några av funktionerna i Azure-nätverk genom att skapa ett virtuellt nätverk och distribuera vissa Azure virtuella datorer till den.
-
-> [!div class="nextstepaction"]
-> [Skapa ett virtuellt nätverk](quick-create-portal.md)
+Nu har du en överblick av Azure Virtual Network. Kom igång med ett virtuellt nätverk genom att skapa ett, distribuera några virtuella datorer till det och kommunicera mellan de virtuella datorerna. Mer information finns i snabbstarten [Skapa ett virtuellt nätverk](quick-create-portal.md).

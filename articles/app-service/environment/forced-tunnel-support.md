@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
@@ -49,6 +49,8 @@ Om du vill aktivera att din ASE går direkt till Internet, även om ditt virtuel
 
 Om du gör dessa två ändringar kommer trafik med Internet som mål som kommer från undernätet i App Service Environment inte tvingas till ExpressRoute-anslutningen.
 
+Om nätverket redan dirigerar trafik lokalt måste du skapa det undernät som ska vara värd för ASE och konfigurera UDR för det innan du distribuerar ASE.  
+
 > [!IMPORTANT]
 > Vägarna som definieras i en UDR måste vara tillräckligt specifika för att få företräde framför eventuella vägar som annonseras av ExpressRoute-konfigurationen. Föregående exempel använder det breda adressintervallet 0.0.0.0/0. Det kan eventuellt åsidosättas av misstag av vägannonseringar som använder mer specifika adressintervall.
 >
@@ -56,13 +58,16 @@ Om du gör dessa två ändringar kommer trafik med Internet som mål som kommer 
 
 ![Direkt Internet-åtkomst][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Konfigurera din ASE med tjänstens slutpunkter
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Konfigurera din ASE med tjänstens slutpunkter ##
 
 Utför följande steg för att dirigera all utgående trafik från din ASE, förutom den som går till Azure SQL och Azure Storage:
 
 1. Skapa en routningstabell och tilldela den till ditt ASE-undernät. Hitta adresserna som matchar din region här [Hanteringsadresser för App Service Environment][management]. Skapa vägar för dessa adresser med ett nexthop för Internet. Detta är nödvändigt eftersom App Service Environments inkommande hanteringstrafik måste svara från samma adress den skickades till.   
 
-2. Aktivera tjänstens slutpunkter med Azure SQL och Azure Storage med ditt ASE-undernät
+2. Aktivera tjänstslutpunkter med Azure SQL och Azure Storage med ASE-undernätet.  När det här steget har slutförts kan du konfigurera ditt virtuella nätverk med tvingad tunneltrafik.
+
+Om du vill skapa ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera all trafik lokalt måste du skapa ASE med en Resource Manager-mall.  Det går inte att skapa en ASE med portalen i ett befintligt undernät.  När du distribuerar ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera utgående trafik lokalt måste du skapa ASE med en Resource Manager-mall, vilket gör att du kan ange ett undernät som redan finns. Mer information om hur du distribuerar ASE med en mall finns i [Skapa en App Service-miljö med en mall][template].
 
 Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slutpunkter i dokumentationen [Tjänstens slutpunkter för virtuella nätverk][serviceendpoints]. 
 
@@ -70,7 +75,7 @@ När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som sk
 
 När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-instans, måste alla Azure SQL-instanser som är anslutna från undernätet ha aktiverat tjänstens slutpunkter. Om du vill ha åtkomst till flera Azure SQL-instanser från samma undernät kan du inte aktivera tjänstens slutpunkter på en Azure SQL-instans och inte på en annan.  Azure Storage fungerar inte på samma sätt som Azure SQL.  När du aktiverar tjänstens slutpunkter med Azure Storage kan du låsa åtkomsten till resursen från undernätet, men du kan ändå använda andra Azure Storage-konton även om de inte har aktiverat tjänstens slutpunkter.  
 
-Om du konfigurerar tvingad tunneltrafik med ett nätverksfilter, bör du komma ihåg att ASE har ett antal beroenden utöver Azure SQL och Azure Storage. Du måste tillåta den trafiken för att ASE ska fungera korrekt.
+Om du konfigurerar tvingad tunneltrafik med en nätverksfilterinstallation måste du komma ihåg att ASE har ytterligare beroenden utöver Azure SQL och Azure Storage. Du måste tillåta trafik till dessa beroenden. Annars fungerar inte ASE korrekt.
 
 ![Tvingad tunneltrafik med tjänstens slutpunkter][2]
 
@@ -122,7 +127,7 @@ Dessa ändringar skickar trafik till Azure Storage direkt från ASE:n och tillå
 
 Om kommunikationen mellan ASE och dess beroenden är bruten, hamnar ASE:n i ett feltillstånd.  Om felet fortgår för länge inaktiveras ASE:n. Om du vill aktivera ASE:n igen följer du instruktionerna i ASE-portalen.
 
-Förutom att bryta kommunikationen kan du försämra din ASE genom att ha för lång svarstid. För lång svarstid kan uppstå om din ASE är för långt ifrån ditt lokala nätverk.  Det kan vara en ocean eller en kontinent mellan ASE:n och ditt lokala nätverk. Svarstid kan också påverkas vid överbelastning av intranätet eller utgående bandbreddsbegränsningar.
+Förutom att bryta kommunikationen kan du försämra din ASE genom att ha för lång svarstid. För lång svarstid kan uppstå om din ASE är för långt ifrån ditt lokala nätverk.  Avståndet är till exempel för långt om kommunikationen måste gå över ett hav eller en kontinent för att nå det lokala nätverket. Svarstid kan också påverkas vid överbelastning av intranätet eller utgående bandbreddsbegränsningar.
 
 
 <!--IMAGES-->

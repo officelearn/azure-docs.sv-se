@@ -1,6 +1,6 @@
 ---
 title: Skapa en Python- och PostgreSQL-webbapp i Azure | Microsoft Docs
-description: "Lär dig hur du får igång en Python-app som fungerar i Azure med anslutning till en PostgreSQL-databas."
+description: Lär dig hur du får igång en Python-app som fungerar i Azure med anslutning till en PostgreSQL-databas.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Skapa en Python- och PostgreSQL-webbapp i Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Självstudie: Skapa en Python- och PostgreSQL-webbapp i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Docker Python- och PostgreSQL-webbapp i Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -28,7 +28,7 @@ Med [Azure App Service](app-service-web-overview.md) får du en automatiskt uppd
 
 ![Python Flask-app i App Service i Linux](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure
@@ -43,7 +43,7 @@ Du kan följa stegen i den här självstudiekursen i macOS. Instruktionerna för
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera Python](https://www.python.org/downloads/)
@@ -345,7 +345,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Gå till http://localhost:5000 i webbläsaren för att visa ändringarna. Skapa en testregistrering.
+Gå till http://localhost:5000 i webbläsaren för att se ändringarna. Skapa en testregistrering.
 
 ![Python Flask-appen körs lokalt](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
 

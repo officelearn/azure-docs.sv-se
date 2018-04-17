@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
@@ -44,6 +44,8 @@ För att slutföra den här självstudien behöver du:
     - **Azure Development**
 
     ![ASP.NET och webbutveckling och Azure Development (under webb och moln)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 

@@ -1,12 +1,12 @@
 ---
 title: Skapa en Java- och MySQL-webbapp i Azure
-description: "Lär dig hur du får en Java-app som ansluter till databastjänsten Azure MySQL att fungera i Azure App Service."
+description: Lär dig hur du får en Java-app som ansluter till databastjänsten Azure MySQL att fungera i Azure App Service.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Skapa en Java- och MySQL-webbapp i Azure
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Självstudie: Skapa en Java- och MySQL-webbapp i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera till App Service på _Linux_, se artikeln om att [distribuera en Spring Boot-app i behållare till Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > * skapa en MySQL-databas i Azure
 > * ansluta en exempelapp till databasen
 > * distribuera appen till Azure
-> * uppdatera och distribuera om appen
+> * Uppdatera och distribuera om appen
 > * strömma diagnostikloggar från Azure
 > * övervaka appen i Azure Portal
 
@@ -137,7 +137,7 @@ Du kan visa vilka möjliga värden du kan använda för `--location` med kommand
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Skapa i Cloud Shell en server i Azure Database for MySQL (Preview) med kommandot [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Ange ditt unika MySQL-servernamn där du ser platshållaren `<mysql_server_name>`. Det här namnet är en del av MySQL-serverns värdnamn, `<mysql_server_name>.mysql.database.azure.com`, och det måste vara globalt unik. Ersätt även `<admin_user>` och `<admin_password>` med dina egna värden.
+I Cloud Shell skapar du en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Ange ditt unika MySQL-servernamn där du ser platshållaren `<mysql_server_name>`. Det här namnet är en del av MySQL-serverns värdnamn, `<mysql_server_name>.mysql.database.azure.com`, och det måste vara globalt unik. Ersätt även `<admin_user>` och `<admin_password>` med dina egna värden.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> För närvarande aktiveras inte anslutningar från Azure-tjänster automatiskt i Azure Database for MySQL (Preview). Eftersom IP-adresser tilldelas dynamiskt i Azure är det bättre att aktivera alla IP-adresser för tillfället. Alltmedan tjänsten fortsätter utvecklas förhandsversion kommer bättre metoder att bli tillgängliga för att skydda databasen.
+> För närvarande aktiveras inte anslutningar från Azure-tjänster automatiskt i Azure Database for MySQL. Eftersom IP-adresser tilldelas dynamiskt i Azure är det bättre att aktivera alla IP-adresser för tillfället. Det kommer att finnas bättre metoder för att skydda databasen.
 
 ## <a name="configure-the-azure-mysql-database"></a>Konfigurera Azure MySQL-databasen
 
@@ -437,12 +437,12 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
+> * skapa en MySQL-databas i Azure
 > * Ansluta en Java-exempelapp till MySQL
-> * Distribuera appen till Azure
+> * distribuera appen till Azure
 > * Uppdatera och distribuera om appen
-> * Strömma diagnostikloggar från Azure
-> * Hantera appen i Azure-portalen.
+> * strömma diagnostikloggar från Azure
+> * hantera appen i Azure-portalen.
 
 Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
 

@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0513dc73912b095c8045f37c7e1d9d06db3ab7e1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Java
 
@@ -46,11 +46,12 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 Det här kommandot klonar lagret till den lokala git-mappen. Öppna projektet genom att starta Eclipse och stänga välkomstskärmen. Välj **Arkiv** och sedan **Öppna projekt, under Filsystem...**. Kontrollera att alternativet för att **identifiera och konfigurera projektegenskaper** har markerats. Välj **Directory** (Katalog) och gå sedan till sidan där du har sparat det klonade lagret. Däri väljer du mappen **javaBlobsQuickstart**. Kontrollera att projektet **javaBlobsQuickstarts** visas som ett Eclipse-projekt och välj sedan **Finish** (Slutför).
 
 När projektet har importerats öppnar du **AzureApp.java** (finns i **blobQuickstart.blobAzureApp** inuti **src/main/java**) och ersätter `accountname` och `accountkey` inuti strängen `storageConnectionString`. Kör sedan programmet.
-     
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
     
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna filen **AzureApp.Java**. Hitta variabeln `storageConnectionString`. Ersätt värdena `AccountName` och `AccountKey` i anslutningssträngen med de värden du sparade från Azure-portalen. `storageConnectionString` bör se ut ungefär så här:
+Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna filen **AzureApp.Java**. Hitta variabeln `storageConnectionString` och klistra in anslutningssträngens värde som du kopierade i föregående avsnitt. Variabeln `storageConnectionString` bör se ut ungefär så här:
 
 ```java
 public static final String storageConnectionString =

@@ -1,11 +1,11 @@
 ---
 title: Migrering av Azure Security Center-plattformen | Microsoft Docs
-description: "I det här dokumentet beskrivs några ändringar av hur Azure Security Center-data samlas in."
+description: I det här dokumentet beskrivs några ändringar av hur Azure Security Center-data samlas in.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2e2e8d7213504ccd71df7048045925bf566c76d5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrering av Azure Security Center-plattformen
 
@@ -32,7 +32,7 @@ Från och med början av juni 2017 har det gjorts viktiga ändringar av hur säk
 
 Tidigare användes Azure Monitoring Agent till att samla in säkerhetsdata från dina virtuella datorer i Security Center. Det här är bland annat information om säkerhetskonfigurationer som används till att identifiera säkerhetsproblem, och säkerhetshändelser som används till att identifiera hot. Dessa data lagrades i dina lagringskonton i Azure.
 
-Från och med nu används Microsoft Monitoring Agent i Security Center (samma agent används av Operations Management Suite och Log Analytics-tjänsten). Data som samlas in från agenten lagras antingen i en befintlig *Log Analytics*-[arbetsyta](../log-analytics/log-analytics-manage-access.md) som är associerad med din Azure-prenumeration eller i en ny arbetsyta med hänsyn till den virtuella datorns geografiska plats.
+Från och med nu används Microsoft Monitoring Agent i Security Center (samma agent används av Log Analytics-tjänsten). Data som samlas in från agenten lagras antingen i en befintlig *Log Analytics*-[arbetsyta](../log-analytics/log-analytics-manage-access.md) som är associerad med din Azure-prenumeration eller i en ny arbetsyta med hänsyn till den virtuella datorns geografiska plats.
 
 ## <a name="agent"></a>Agent
 
@@ -62,9 +62,9 @@ För arbetsytor som skapats av Security Center sparas data i 30 dagar. För befi
 > [!NOTE]
 > Data som tidigare samlats in av Security Center ligger kvar i dina lagringskonton. När migreringen är klar kan du ta bort dessa lagringskonton.
 
-### <a name="oms-security-solution"></a>OMS-säkerhetslösning 
+### <a name="security-management-solution"></a>Säkerhetshanteringslösning 
 
-För befintliga kunder som inte har OMS-säkerhetslösningen installerad så installerar Microsoft den på arbetsytan, men endast med virtuella Azure-datorer som mål. Avinstallera inte den här lösningen, eftersom det inte finns något automatiskt sätt att åtgärda detta om du gör det från OMS-hanteringskonsolen.
+För befintliga kunder som inte har en säkerhetslösning installerad i Log Analytics så installerar Microsoft den på arbetsytan, men endast med virtuella Azure-datorer som mål. Avinstallera inte den här lösningen, eftersom det inte finns något automatiskt sätt att åtgärda detta om du gör det från hanteringskonsolen.
 
 
 ## <a name="other-updates"></a>Övriga uppdateringar

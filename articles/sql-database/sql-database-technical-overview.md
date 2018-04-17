@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
-SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade [enkla SQL-databaser](sql-database-servers-databases.md), hanterade SQL-databaser i en [elastisk pool](sql-database-elastic-pool.md) och hanterade SQL-instanser – som kallas [SQL Database Managed Instance](sql-database-managed-instance.md) (i allmänt tillgänglig förhandsversion). Ger [dynamiskt skalbar prestanda](sql-database-service-tiers.md) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
+SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade [enkla SQL-databaser](sql-database-servers-databases.md), hanterade SQL-databaser i en [elastisk pool](sql-database-elastic-pool.md) och [hanterade SQL-instanser](sql-database-managed-instance.md) (i allmänt tillgänglig förhandsversion). Ger [dynamiskt skalbar prestanda](sql-database-service-tiers.md) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
 
 SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. Mer information om nya funktioner efter hand som de tillkännages finns i:
 
@@ -41,9 +41,13 @@ Med SQL Database Managed Instance är varje instans isolerad från andra instans
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
 
-I SQL Database finns tre tjänstnivåer som ger stöd för allt från lätta till tunga arbetsbelastningar: Basic, Standard och Premium. Du kan skapa din första app på en liten, enkel databas för en låg månadskostnad och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+SQL Database erbjuds via en [DTU-baserad inköpsmodell](sql-database-service-tiers.md#dtu-based-purchasing-model) eller en [vCore-baserad inköpsmodell (förhandsversion)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). 
+- Den DTU-baserade inköpsmodellen erbjuder en blandning av beräknings-, minnes- och IO-resurser i tre tjänstnivåer (för lätta till tunga databasarbetsbelastningar): Basic, Standard och Premium. Det finns prestandanivåer inom varje nivå med en blandning av dessa resurser, och du kan lägga till ytterligare lagringsresurser till dessa.
+- Med den vCore-baserade inköpsmodellen kan du välja antal virtuella kärnor, hur mycket minne och hur mycket och snabbt lagringsutrymme du vill ha.
 
-   ![skalning](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+Du kan skapa din första app på en liten, enkel databas för en låg månadskostnad och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+
+   ![DTU-skalning](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 SQL Database Managed Instance finns i förhandsversion och erbjuder en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md)
 
@@ -64,7 +68,7 @@ Vilken väg du än väljer – enskilda databaser eller elastiska pooler – är
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>Omfattande övervakning och aviseringsfunktioner
 
-Men hur kan man jämföra den relativa prestandan för enskilda databaser och elastiska pooler? Hur vet man rätt värden när man reglerar upp eller ner? Du använder den [inbyggda prestandaövervakningen](sql-database-performance.md) och [aviserings](sql-database-insights-alerts-portal.md)verktyg, i kombination med prestandaklassificeringarna baserade på [databastransaktionsenheter (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för elastiska pooler](sql-database-what-is-a-dtu.md). Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Se [SQL Database, alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder](sql-database-service-tiers.md) för mer information.
+Men hur kan man jämföra den relativa prestandan för enskilda databaser och elastiska pooler? Hur vet man rätt värden när man reglerar upp eller ner? Du använder de inbyggda verktygen för [prestandaövervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md) i kombination med prestandaklassificering. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Se [SQL Database, alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder](sql-database-service-tiers.md) för mer information.
 
 Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
@@ -82,7 +86,7 @@ Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/le
 - **[Återställning vid tidpunkt](sql-database-recovery-using-backups.md)**: SQL-databasen har stöd för återställning till en valfri tidpunkt inom den automatiska kvarhållningsperioden för säkerhetskopiering.
 - **[Aktiv geo-replikering](sql-database-geo-replication-overview.md)**: Med SQL-databasen kan du konfigurera upp till fyra läsbara sekundära databaser i antingen samma eller globalt distribuerade Azure-datacenter.  Till exempel om du har ett SaaS-program med en katalog-databas som har ett stort antal samtidiga skrivskyddade transaktioner, använder aktiv geo-replikering för att aktivera global skrivskyddsskala och tar bort flaskhalsar på primärorsaken som beror på skrivskyddade arbetsbelastningar. 
 - **[Redundansgrupper](sql-database-geo-replication-overview.md)**: SQL-databasen kan du aktivera hög tillgänglighet och belastningsutjämning på global nivå, inklusive transparent geo-replikering och redundans för stora mängder databaser och elastiska pooler. Redundansgrupper och aktiv geo-replikering kan du skapa globalt distribuerade SaaS-program med minimala administrationsomkostnader, vilket lämnar all komplex övervakning, rutt, och felstyrning till SQL-databasen.
-- **[Zonredundanta databaser](sql-database-high-availability.md)**: Med SQL Database kan du etablera Premium-databaser eller elastiska Premium-pooler i flera tillgänglighetszoner. Eftersom Premium-databaser och elastiska Premium-pooler har flera redundanta repliker för hög tillgänglighet får du mer elasticitet om du placerar replikerna i flera tillgänglighetszoner. Du kan även återställa automatiskt från datacenters skalningsfel utan dataförlust. Den här funktionen är för närvarande en förhandsversion. 
+- **[Zonredundanta databaser](sql-database-high-availability.md)**: Med SQL Database kan du etablera Premium-databaser eller affärskritiska databaser (förhandsversion) eller elastiska pooler i flera tillgänglighetszoner. Eftersom dessa databaser och elastiska pooler har flera redundanta repliker för hög tillgänglighet får du mer elasticitet om du placerar replikerna i flera tillgänglighetszoner. Du kan även återställa automatiskt från datacenters skalningsfel utan dataförlust. Den här funktionen är för närvarande en förhandsversion. 
 
 ## <a name="built-in-intelligence"></a>Inbyggd intelligens
 
@@ -166,7 +170,7 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 
 - Se [Prissidan](https://azure.microsoft.com/pricing/details/sql-database/) för en kostnadsjämförelse och kostnadsberäknare för enskilda databaser och elastiska pooler.
 
-- Läs följande snabbstarter innan du börjar:
+- Läs följande snabbstartsguider innan du börjar:
 
   - [Skapa en SQL-databas i Azure Portal](sql-database-get-started-portal.md)  
   - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -194,11 +194,16 @@ Installera JDK 1.8 och Gradle för att köra build-uppgifter om du vill skapa Se
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>Installera Eclipse Neon-plugin-programmet (valfritt)
+## <a name="install-the-eclipse-plug-in-optional"></a>Installera plugin-programmet Eclipse (valfritt)
 
 Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse IDE för Java-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och behållarprogram utöver Service Fabric Java-program.
 
-1. Kontrollera att du har den senaste Eclipse Neon-versionen och den senaste Buildship-versionen (1.0.17 eller senare) installerat. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Installationsinformation**. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
+> [!IMPORTANT]
+> Plugin-programmet för Service Fabric kräver Eclipse Neon eller en senare version. Se instruktionerna efter den här anteckningen för hur du kontrollerar din version av Eclipse. Om du har en tidigare version av Eclipse installerat kan du hämta nyare versioner på [Eclipses webbplats](https://www.eclipse.org). Vi rekommenderar inte att du installerar ovanpå (skriver över) en befintlig installation av Eclipse. Du kan antingen ta bort den innan du kör installationsprogrammet, eller så kan du installera den nyare versionen i en annan katalog. 
+> 
+> I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. 
+
+1. Kontrollera att du har Eclipse Neon eller senare och den senaste Buildship-versionen (1.0.17 eller senare) installerat. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Installationsinformation**. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
 
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Hjälp** > **Installera ny programvara**.
 

@@ -55,11 +55,11 @@
         - name: Azure Stack PKI distributionskrav
           href: azure-stack-pki-certs.md
           items:
-            - name: Hämta Azure Stack PKI-certifikat
+            - name: Generera PKI-certifikat
               href: azure-stack-get-pki-certs.md
             - name: Förbered Azure Stack PKI-certifikat
               href: azure-stack-prepare-pki-certs.md
-            - name: Verifiera Azure Stack PKI-certifikat
+            - name: Validera PKI-certifikat
               href: azure-stack-validate-pki-certs.md
         - name: Identitetsintegrering
           href: azure-stack-integrate-identity.md
@@ -216,7 +216,7 @@
               href: azure-stack-app-service-deploy.md
             - name: Distribuera App Service offline
               href: azure-stack-app-service-deploy-offline.md
-            - name: Update App Service
+            - name: Uppdatera Apptjänst
               href: azure-stack-app-service-update.md
             - name: Uppdatera Apptjänst Offline
               href: azure-stack-app-service-update-offline.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Verifieringen av Azure-stacken
           href: azure-stack-diagnostic-test.md
-        - name: Distribuera om Azure Stack Development Kit
-          href: azure-stack-redeploy.md
 - name: Referens
   items:
     - name: Azure Stack PowerShell

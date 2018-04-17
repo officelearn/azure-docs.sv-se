@@ -83,6 +83,8 @@
           href: openfaas.md
         - name: Köra Spark-jobb på AKS
           href: spark-job.md
+        - name: Använda grafikprocessorer på AKS
+          href: gpu-cluster.md
     - name: Grundläggande om Kubernetes
       items:
         - name: Använda Kubernetes-instrumentpanelen

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Skydda åtkomsten till ett programs data i molnet
 
@@ -34,7 +34,7 @@ För att kunna utföra den här kursen måste du ha slutfört den föregående S
 
 ## <a name="set-container-public-access"></a>Ange offentlig åtkomst till behållare
 
-I den här delen av kursserien används SAS-token för att få åtkomst till miniatyrbilder. I det här steget anger du offentlig åtkomst för _thumbs_-behållaren till `off`.
+I den här delen av kursserien används SAS-token för att få åtkomst till miniatyrbilder. I det här steget anger du offentlig åtkomst för behållaren med _miniatyrer_ till `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -42,7 +42,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 

@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/23/2018
+ms.date: 04/05/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee94025a12a004fda806183c47d5a336b958478
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure Portal och Event Grid
 
@@ -118,25 +118,48 @@ Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet ti
 
 ## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne
 
-Först måste vi ta fram URL och nyckel för ämnet. Använd ditt ämnesnamn för `<topic_name>`.
+Du kan använda antingen Azure CLI eller PowerShell och skicka en testhändelse till det anpassade ämnet.
+
+I det första exemplet används Azure CLI. URL och nyckel för ämnet hämtas, och exempeldata för händelsen. Använd ditt ämnesnamn för `<topic_name>`. Använd `echo "$body"` om du vill se den fullständiga händelsen. Elementet `data` av JSON är händelsens nyttolast. All välformulerad JSON kan stå i det här fältet. Du kan också använda ämnesfältet för avancerad omdirigering och filtrering. CURL är ett verktyg som skickar HTTP-förfrågningar.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
-```
 
-I följande exempel används exempelhändelsedata:
-
-```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+
+curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Använd `echo "$body"` om du vill se den fullständiga händelsen. Elementet `data` av JSON är händelsens nyttolast. All välformulerad JSON kan stå i det här fältet. Du kan också använda ämnesfältet för avancerad omdirigering och filtrering.
+I det andra exemplet används PowerShell för att utföra liknande steg.
 
-CURL är ett verktyg som skickar HTTP-förfrågningar. I den här artikeln använder vi CURL för att skicka en händelse till det anpassade ämnet. 
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
-```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+$eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
+$eventDate = Get-Date -Format s
+
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
 Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Titta på loggarna om du vill se händelseinformationen.

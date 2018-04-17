@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrerar dina lokala kataloger med Azure Active Directory
 Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.
@@ -73,7 +73,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](http://go.mi
 |Efter installationen | [Bekräfta installationen och tilldela licenser ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
-Det är bra att vara förberedd om det skulle uppstå [driftproblem](active-directory-aadconnectsync-operations.md). Du kanske vill ha en reservserver så att du enkelt kan växla till den i händelse av ett [allvarligt fel](active-directory-aadconnectsync-operations.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode).
+Det är bra att vara förberedd om det skulle uppstå [driftproblem](active-directory-aadconnectsync-operations.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](active-directory-aadconnectsync-operations.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode).
 
 |Avsnitt |Länk|  
 | --- | --- |

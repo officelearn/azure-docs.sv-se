@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: Vanliga frågor och svar om att säkerhetskopiera Azure-filresurser
           href: backup-azure-files-faq.md
-        - name: Felsöka säkerhetskopiering av Azure-filresurser
-          href: troubleshoot-azure-files.md
     - name: Virtuella Azure-datorer
       items:
         - name: Förbereda den virtuella datorn
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Felsöka
       items:
-        - name: Problem med virtuella Azure-säkerhetskopieringar i Azure Portal
+        - name: Felmeddelanden för IaaS VM-säkerhetskopiering
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Fel vid säkerhetskopiering av virtuell Azure-dator: Det gick inte att kommunicera med VM-agenten för ögonblicksbildstatus – Tidsgränsen uppnåddes för underåtgärden för ögonblicksbilds-VM'
+        - name: Tidsgränsen uppnåddes för Azure Backup-agenten (MARS) eller VM-tillägget
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Långsam säkerhetskopiering av filer och mappar i Azure Backup
+        - name: Säkerhetskopieringen av filer och mappar går långsamt
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Felsöka Azure Backup Server
+        - name: Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
-        - name: Felsöka System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Felsöka Azure Backup Agent
+        - name: Azure Backup-agent (MARS)
           href: backup-azure-mars-troubleshoot.md
+        - name: Säkerhetskopiering av Azure-filresurser
+          href: troubleshoot-azure-files.md
 - name: Referens
   items:
     - name: Azure PowerShell

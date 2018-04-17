@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dc1f9cbc87e058d3c925763a9204392791429db8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b01ff98667523f498c06ba867e017f696059d120
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI 2.0
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
@@ -39,6 +39,10 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Skapa och konfigurera en virtuell källdator
+
+>[!NOTE]
+> Den här självstudien visar processen att skapa och använda en generaliserad VM-avbildning. Det går inte att skapa en skalningsuppsättning från en särskild VM-avbildning.
+
 Först skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create), därefter skapar du en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Den här virtuella datorn används sedan som källan för en anpassad virtuell datoravbildning. Följande exempel skapar en virtuell dator som heter *myVM* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli-interactive

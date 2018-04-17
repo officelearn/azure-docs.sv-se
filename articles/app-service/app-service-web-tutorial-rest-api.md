@@ -1,11 +1,11 @@
 ---
 title: RESTful-API med CORS i Azure App Service | Microsoft Docs
-description: "Lär dig hur Azure App Service hjälper dig att vara värd för dina RESTful-API:er med CORS-stöd."
+description: Lär dig hur Azure App Service hjälper dig att vara värd för dina RESTful-API:er med CORS-stöd.
 services: app-service\api
 documentationcenter: dotnet
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service
 ms.workload: web
@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Vara värd för en RESTful-API med CORS i Azure App Service
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Självstudie: Vara värd för en RESTful-API med CORS i Azure App Service
 
 Med [Azure App Service](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Dessutom har App Service ett inbyggt stöd för [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) för RESTful-API:er. Den här självstudien visar hur du distribuerar en ASP.NET Core API-app till App Service med CORS-stöd. Du konfigurerar appen med hjälp av kommandoradsverktyg och distribuerar appen med Git. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa App Service-resurser med Azure CLI
@@ -38,7 +38,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/).
 * [Installera .NET Core](https://www.microsoft.com/net/core/).
@@ -204,7 +204,7 @@ Vad du lärt dig:
 > * Distribuera en RESTful-API till Azure med Git
 > * Aktivera stöd för CORS i App Service
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
+Gå vidare till nästa självstudie för att lära dig att autentisera och auktorisera användare.
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt](app-service-web-tutorial-auth-aad.md)

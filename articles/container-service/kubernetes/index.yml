@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation om Azure Container Service med Kubernetes
 metadata:
   document_id: 
-  title: "Dokumentation om Azure Container Service med Kubernetes – självstudier, API-referens | Microsoft Docs"
+  title: Dokumentation om Azure Container Service med Kubernetes – självstudier, API-referens | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -14,18 +14,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: ed019936961b2dbec616c867a9752c096da9d2ed
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 93abd74e649577abff9ce27f68c6b8456258d9b9
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 04/16/2018
 abstract:
-  description: "Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-kluster. Lär dig hur du använder Azure Container Service med Kubernetes med de här snabbstarterna, självstudierna och exemplen."
+  description: Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-kluster. Lär dig hur du använder Azure Container Service med Kubernetes med de här snabbstarterna, självstudierna och exemplen.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Lär dig hur du distribuerar Kubernetes-kluster med Azure Container Service:"
+    text: 'Lär dig hur du distribuerar Kubernetes-kluster med Azure Container Service:'
   - type: list
     style: icon48
     items:
@@ -33,20 +33,20 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
       text: Skapa ett Kubernetes-kluster
       href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig hur du distribuerar, hanterar och uppdaterar program i ett Azure Container Service Kubernetes-kluster."
+    text: Lär dig hur du distribuerar, hanterar och uppdaterar program i ett Azure Container Service Kubernetes-kluster.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app\">Skapa behållaravbildningar från ett program (Create container images from an application)</a>"
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr\">Ladda upp behållaravbildningar till Azure Container Registry (Upload container images to the Azure Container Registry)</a>"
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Skapa behållaravbildningar från ett program (Create container images from an application)</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Ladda upp behållaravbildningar till Azure Container Registry (Upload container images to the Azure Container Registry)</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Distribuera ett Kubernetes-kluster i Azure Container Service (Deploy a Kubernetes cluster in Azure Container Service)</a>
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application\">Kör dina behållaravbildningar i Kubernetes (Run your container images in Kubernetes)</a>"
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Kör dina behållaravbildningar i Kubernetes (Run your container images in Kubernetes)</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Skala ett program och Kubernetes-infrastruktur (Scale an application and Kubernetes infrastructure)</a>
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update\">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>"
-    - html: "<a href=\"/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor\">Övervaka Kubernetes med OMS (Monitor Kubernetes with OMS)</a>"
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Övervaka Kubernetes med Log Analytics</a>
 - title: Exempel
   items:
   - type: list

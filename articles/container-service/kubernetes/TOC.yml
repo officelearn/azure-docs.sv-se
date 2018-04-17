@@ -23,7 +23,7 @@
       href: container-service-tutorial-kubernetes-scale.md
     - name: 6 – Uppdatera program
       href: container-service-tutorial-kubernetes-app-update.md
-    - name: 7 – Övervaka med OMS
+    - name: 7 – Övervaka med Log Analytics
       href: container-service-tutorial-kubernetes-monitor.md
 - name: Begrepp
   items:
@@ -45,7 +45,7 @@
       href: container-service-scale.md
     - name: Övervaka
       items:
-        - name: Övervaka med OMS
+        - name: Övervaka med Log Analytics
           href: container-service-kubernetes-oms.md
         - name: Övervaka med Datadog
           href: container-service-kubernetes-datadog.md

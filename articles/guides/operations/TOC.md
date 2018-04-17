@@ -24,7 +24,7 @@
 ###[Distribuera mallar med hjälp av Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Säkerhet (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Hantera resurser med hjälp av rolltilldelningar](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Hantera resurser med hjälp av rolltilldelningar](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Virtuella datorer](azure-operations-guide.md#azure-virtual-machines)
 ### [VM-storlekar för Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 

@@ -25,6 +25,8 @@
       href: frequently-asked-questions-genomics.md
     - name: Versionshistorik
       href: version-release-history-genomics.md
+    - name: Verksamhetskontinuitet
+      href: business-continuity-genomics.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Prissättning

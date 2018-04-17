@@ -7,18 +7,18 @@ metadata:
   description: Lär dig att använda Azure Cosmos DB för att skapa globalt distribuerade databaser för flera datamodeller. I självstudierna lär du dig att bygga upp databaser för datamodeller av typen frågedokument, nyckel/värde och graf.
   services: cosmos-db
   author: mimig1
-  manager: jhubbard
+  manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 684b0f00e85755b55aa0bfd9e8e6f68af3d38886
-  ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+  ms.openlocfilehash: 017130095fc8de6a83cbff075f47cbff9fd48089
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/05/2018
+  ms.lasthandoff: 04/16/2018
 abstract:
   description: Azure Cosmos DB är en globalt distribuerad databas för flera datamodeller. Använd dessa snabbstarter, självstudier och exempel för att utveckla dokument, nyckelvärden, breda kolumner och diagramdatabaser genom att använda populära API:er och programmeringsmodeller. Lär dig sedan att replikera data över flera Azure-regioner och skala dataflödet oberoende av lagringen, samtidigt som du drar nytta av omfattande serviceavtal.
   aside:

@@ -55,7 +55,7 @@
 
 # Relaterat
 ## [Azure Active Directory](/azure/active-directory/)
-## [Rollbaserad åtkomstkontroll](../role-based-access-control-what-is.md)
+## [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md)
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

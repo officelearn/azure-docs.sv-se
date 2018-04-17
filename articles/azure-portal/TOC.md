@@ -2,7 +2,7 @@
 ## [Om Azure Portal](../azure-portal-overview.md)
 # Självstudier
 ## [DevOps med Azure Portal](tutorial-azureportal-devops.md)
-# Koncept
+# Begrepp
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Kortkommandon](azure-portal-keyboard-shortcuts.md)
 ## [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)
@@ -16,7 +16,7 @@
 ## Hantera
 ### [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md)
 ### [Använd portalen för att hantera resurser](../azure-resource-manager/resource-group-portal.md)
-### [Hantera åtkomst med rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md)
+### [Hantera åtkomst med rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md)
 ### [Dela instrumentpaneler med rollbaserad åtkomstkontroll](azure-portal-dashboard-share-access.md)
 ### [Använd taggar för att organisera resurser](../azure-resource-manager/resource-group-using-tags.md)
 ### [Skala dina resurser](../monitoring-and-diagnostics/insights-how-to-scale.md)

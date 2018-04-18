@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center-snabbstart – Publicera Windows-datorer till Security Center | Microsoft Docs"
-description: "Den här snabbstarten visar hur du etablerar Microsoft Monitoring Agent på en Windows-dator."
+title: Azure Security Center-snabbstart – Publicera Windows-datorer till Security Center | Microsoft Docs
+description: Den här snabbstarten visar hur du etablerar Microsoft Monitoring Agent på en Windows-dator.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center for resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Microsoft Monitoring Agent.
@@ -62,7 +62,7 @@ Nu måste du installera den hämtade filen på måldatorn.
 2. På sidan **Välkommen** klickar du på **Nästa**.
 3. På sidan **Licensvillkor** läser du licensen och väljer **Jag accepterar**.
 4. På sidan **Målmapp** ändrar du eller behåller standardinstallationsmappen och väljer **Nästa**.
-5. På sidan **Installationsalternativ för agent** väljer du att ansluta agenten till Azure Log Analytics (OMS) och väljer **Nästa**.
+5. På sidan **Installationsalternativ för agent** väljer du att ansluta agenten till Azure Log Analytics och väljer **Nästa**.
 6. På sidan **Azure Log Analytics** klistrar du in **arbetsyte-ID** och **arbetsytenyckel (primär nyckel)** som du kopierade till Anteckningar i tidigare steg.
 7. Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du **Azure US Government** i listrutan **Azure Cloud**.  Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten väljer du **Avancerat** och anger URL och portnummer för proxyservern.
 8. Välj **Nästa** när du har gjort de konfigurationsinställningar som krävs.

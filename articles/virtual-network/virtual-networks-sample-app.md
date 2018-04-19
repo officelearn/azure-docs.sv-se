@@ -1,11 +1,11 @@
 ---
-title: "Azure-exempelprogram för användning med DMZs | Microsoft Docs"
-description: "Distribuera det här enkla webbprogrammet när du har skapat en DMZ att testa scenarier för flödet av trafik"
+title: Azure-exempelprogram för användning med DMZs | Microsoft Docs
+description: Distribuera det här enkla webbprogrammet när du har skapat ett perimeternätverk för att testa scenarier för flödet av trafik
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na

@@ -355,7 +355,7 @@ När mallen har körts kan ställa du in webbservern och app-servern med en enke
 
 * Distribuera det här exemplet
 * Skapa exempelprogrammet
-* Testa olika trafikflöden via den här DMZ
+* Testa olika trafikflöden via det här perimeternätverket
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-arm/example1design.png "Inkommande DMZ med NSG"

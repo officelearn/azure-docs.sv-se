@@ -31,7 +31,7 @@ I Azure IoT kant självstudier skapar du en distributionsmanifestet genom att g�
 
 ## <a name="create-a-deployment-manifest"></a>Skapa en distributionsmanifestet
 
-Distributionsmanifestet konfigurerar en modul dubbla egenskaper för IoT kant-moduler som har distribuerats på en IoT-enhet på en hög nivå. Två av dessa moduler finns alltid: Edge-agenten och kant-hubben.
+Distributionsmanifestet konfigurerar en modul dubbla egenskaper för IoT kant-moduler som har distribuerats på en IoT-enhet på en hög nivå. Två av dessa moduler finns alltid: Edge-agenten och Edge-hubben.
 
 Distributionsmanifestet som innehåller endast IoT kant körningen (agent och hubb) är giltig.
 

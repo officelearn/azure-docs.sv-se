@@ -1,11 +1,11 @@
 ---
-title: "DMZ exempel – skapa en DMZ skydda program med en brandvägg och NSG: er | Microsoft Docs"
-description: "Skapa en DMZ med en brandvägg och Nätverkssäkerhetsgrupper (NSG)"
+title: Perimeternätverksexempel – skapa ett program för perimeternätverksskydd med en brandvägg och NSG:er | Microsoft Docs
+description: Skapa en DMZ med en brandvägg och Nätverkssäkerhetsgrupper (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exempel 2 – Skapa en DMZ skydda program med en brandvägg och NSG: er
+# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exempel 2 – Skapa ett perimeternätverk för att skydda program med en brandvägg och NSG:er
 [Gå tillbaka till gränsen bästa praxis säkerhetssidan][HOME]
 
 Det här exemplet skapar en DMZ med en brandvägg, fyra windows-servrar och Nätverkssäkerhetsgrupper. Det hjälper även genom relevanta kommandon för att ge en bättre förståelse för varje steg. Det finns också ett trafik scenariot avsnitt för att ge en detaljerad steg för steg hur trafik fortsätter via lager i skyddsstrategierna i Perimeternätverket. Slutligen är avsnitt i hänvisning den fullständiga koden och anvisningarna för att skapa den här miljön för att testa och experimentera med olika scenarier. 
@@ -56,7 +56,7 @@ Att skapa miljön:
 När skriptet har körts vidtas efter skriptet följande steg:
 
 1. Konfigurera brandväggsregler detta beskrivs i avsnittet nedan: brandväggsregler.
-2. Du kan också är i referensavsnittet två skript för att konfigurera webbserver- och app-servern med en enkel webbapp för att testa med den här DMZ-konfigurationen.
+2. Du kan också är i referensavsnittet två skript för att konfigurera webbserver- och app-servern med en enkel webbapp för att testa med den här perimeternätverkskonfigurationen.
 
 I nästa avsnitt beskrivs de flesta av skript-instruktioner i förhållande till Nätverkssäkerhetsgrupper.
 
@@ -570,7 +570,7 @@ Spara XML-filen med uppdaterad plats och lägga till länken till den här filen
 Om du vill installera ett exempelprogram för det här och andra DMZ exempel något finns på följande länk: [exempelskript för programmet][SampleApp]
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Inkommande DMZ med NSG"
+[1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Inkommande perimeternätverk med NSG"
 [2]: ./media/virtual-networks-dmz-nsg-fw-asm/dstnaticon.png "Mål NAT-ikon"
 [3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Brandväggsregel"
 [4]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallruleactivate.png "Brandväggen regeln aktivering"

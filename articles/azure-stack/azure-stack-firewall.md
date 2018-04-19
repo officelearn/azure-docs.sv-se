@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack-brandväggen planera för Azure-stacken integrerat system | Microsoft Docs"
-description: "Beskriver Azure Stack brandväggen överväganden för flera noder Azure Stack Azure-anslutna distributioner."
+title: Azure Stack-brandväggen planera för Azure-stacken integrerat system | Microsoft Docs
+description: Beskriver Azure Stack brandväggen överväganden för flera noder Azure Stack Azure-anslutna distributioner.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -54,7 +54,7 @@ Normalt har offentligt dirigerbara IP-adresser angetts för den offentliga VIP-p
 I ett intranät eller perimeternätverk företagsdistribution bör distribueras Azure Stack på en multi-zonindelad brandvägg eller mellan gränsbrandväggen och interna, företagets nätverksbrandvägg. Sedan dess trafiken distribueras mellan säker, perimeternätverk (eller DMZ) och osäkra zoner som beskrivs nedan:
 
 - **Säker zon**: Detta är det interna nätverket som använder interna eller företagets dirigerbara IP-adresser. Säkra nätverk kan delas upp, har utgående Internetåtkomst via NAT i brandväggen och är vanligtvis nås från var som helst i ditt datacenter via det interna nätverket. Alla Azure-stacken nätverk ska placeras i zonen säker utom det externa nätverket offentliga VIP-pool.
-- **Perimeternätverk zonen**. Perimeternätverket är där externa eller program som webbservrar distribueras vanligtvis mot internet. Det är vanligtvis övervakas av en brandvägg för att undvika attacker som DDoS och för intrångsidentifiering (hackningsförsök) samtidigt som angivna inkommande trafik från internet. Endast en externt nätverk offentliga VIP-pool i Azure-stacken ska placeras i zonen DMZ.
+- **Perimeternätverk zonen**. Perimeternätverket är där externa eller program som webbservrar distribueras vanligtvis mot internet. Det är vanligtvis övervakas av en brandvägg för att undvika attacker som DDoS och för intrångsidentifiering (hackningsförsök) samtidigt som angivna inkommande trafik från internet. Endast en externt nätverk offentliga VIP-pool i Azure-stacken ska placeras i perimeterrnätverkszonen.
 - **Osäkra zonen**. Detta är det externa nätverket internet. Den **är inte** rekommenderas att distribuera Azure-stacken i zonen oskyddat.
 
 ![Azure Stack perimeter-nätverk, exempel](.\media\azure-stack-firewall\perimeter-network-scenario.png)

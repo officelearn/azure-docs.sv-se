@@ -160,7 +160,7 @@ Dave förstår att han måste ha specifik information för att identifiera rätt
 | EnvironmentType |**Produktion** (trots att prenumerationen innehåller **produktion** i namnet, inklusive den här taggen möjliggör enkel identifiering när du tittar på resurser i portalen eller på växeln) |
 
 ### <a name="core-networks"></a>Core nätverk
-Contoso ETS information informationssäkerhet och riskhantering ledningen granskar Daves föreslagna planen för att flytta programmet till Azure. De vill säkerställa att programmet kortet korrekt isoleras och skyddas i ett DMZ-nätverk.  För att uppfylla detta krav Dave och Alice att skapa ett externt virtuellt nätverk och en säkerhetsgrupp för nätverk för att isolera kortet program från företagsnätverket Contoso.  
+Contoso ETS information informationssäkerhet och riskhantering ledningen granskar Daves föreslagna planen för att flytta programmet till Azure. De vill säkerställa att programmet kortet korrekt isoleras och skyddas i ett perimeternätverk.  För att uppfylla detta krav Dave och Alice att skapa ett externt virtuellt nätverk och en säkerhetsgrupp för nätverk för att isolera kortet program från företagsnätverket Contoso.  
 
 För den **development prenumeration**, de skapar:
 

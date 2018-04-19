@@ -1,8 +1,8 @@
 ---
-title: "Utveckla moduler för Azure IoT kant | Microsoft Docs"
-description: "Lär dig hur du skapar anpassade moduler för Azure IoT kant"
+title: Utveckla moduler för Azure IoT kant | Microsoft Docs
+description: Lär dig hur du skapar anpassade moduler för Azure IoT kant
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -20,7 +20,7 @@ ms.lasthandoff: 11/15/2017
 Den här artikeln förklarar vilka funktioner är tillgängliga när du skriver program som körs som IoT kant och hur du drar nytta av dem.
 
 ## <a name="iot-edge-runtime-environment"></a>IoT-Edge-körningsmiljön
-IoT-Edge runtime tillhandahåller infrastrukturen som att integrera funktionerna i flera IoT kant-moduler och distribuera dem till IoT-gränsenheterna. På en hög nivå kan alla program paketeras som en IoT-Edge-modul. Om du vill dra full nytta av IoT kant kommunikation och hanteringsfunktioner, men ansluta ett program som körs i en modul till lokala IoT kant hubben, integrerade i IoT kant-körningsmiljön.
+IoT Edge-runtime tillhandahåller infrastrukturen som att integrera funktionerna i flera IoT Edge-moduler och distribuera dem till IoT Edge-enheterna.  På en hög nivå kan alla program paketeras som en IoT-Edge-modul. Om du vill dra full nytta av IoT kant kommunikation och hanteringsfunktioner, men ansluta ett program som körs i en modul till lokala IoT kant hubben, integrerade i IoT kant-körningsmiljön.
 
 ## <a name="using-the-iot-edge-hub"></a>Med hjälp av kant för IoT-hubb
 Gräns för IoT-hubb innehåller två huvudsakliga funktionerna: proxy till IoT-hubb och lokala kommunikation.

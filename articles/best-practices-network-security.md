@@ -1,11 +1,11 @@
 ---
-title: "Azure-nätverk säkerhetsmetoder | Microsoft Docs"
-description: "Lär dig några av de viktigaste funktionerna som är tillgängliga i Azure för att skapa säkra nätverksmiljöer"
+title: Azure-nätverk säkerhetsmetoder | Microsoft Docs
+description: Lär dig några av de viktigaste funktionerna som är tillgängliga i Azure för att skapa säkra nätverksmiljöer
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -530,14 +530,14 @@ Lägga till en privat ExpressRoute-Peering-nätverksanslutning utöka lokala nä
 [6]: ./media/best-practices-network-security/dmzhybrid.png "hybrid nätverk med tre säkerhetsgränser"
 [7]: ./media/best-practices-network-security/example1design.png "inkommande DMZ med NSG"
 [8]: ./media/best-practices-network-security/example2design.png "inkommande DMZ med NVA och NSG"
-[9]: ./media/best-practices-network-security/example3design.png "dubbelriktad DMZ med NVA, NSG och UDR"
+[9]: ./media/best-practices-network-security/example3design.png "dubbelriktat perimeternätverk med NVA, NSG och UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "logisk vy för brandväggsregler"
 [11]: ./media/best-practices-network-security/example3designoptions.png "DMZ med NVA som är anslutna Hybrid"
 [12]: ./media/best-practices-network-security/example4designs2s.png "DMZ med NVA som är anslutna via ett plats-till-plats-VPN"
 [13]: ./media/best-practices-network-security/example4networklogical.png "logiskt nätverk från NVA perspektiv"
 [14]: ./media/best-practices-network-security/example5designoptions.png "DMZ med Azure-Gateway som är anslutna plats-till-plats-Hybrid"
 [15]: ./media/best-practices-network-security/example5designs2s.png "DMZ med Azure med hjälp av plats-till-plats VPN-Gateway"
-[16]: ./media/best-practices-network-security/example6designoptions.png "ExpressRoute Hybrid är anslutna till DMZ med Azure-Gateway"
+[16]: ./media/best-practices-network-security/example6designoptions.png "ExpressRoute Hybrid är anslutna till perimeternätverket med Azure-Gateway"
 [17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ med Azure-Gateway med hjälp av en ExpressRoute-anslutning"
 
 <!--Link References-->

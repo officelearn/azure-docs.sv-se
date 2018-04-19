@@ -1,12 +1,12 @@
 ---
-title: "StorSimple regional tillgänglighet | Microsoft Docs"
-description: "Beskriver vilka Azure-regioner där olika StorSimple enhetsmodeller är tillgängliga."
+title: StorSimple regional tillgänglighet | Microsoft Docs
+description: Beskriver vilka Azure-regioner där olika StorSimple enhetsmodeller är tillgängliga.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -68,7 +68,7 @@ Om du använder en StorSimple-8100 eller 8600 fysisk enhet är enheten tillgäng
 
 | #  | Land/region        | #  | Land/region     | #  | Land/region      | #  | Land/region              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australien      | 16 | Hongkong   | 31 | Nya Zeeland  | 46 | Sydafrika         |
+| 1  | Australien      | 16 | Hongkong SAR   | 31 | Nya Zeeland  | 46 | Sydafrika         |
 | 2  | Österrike        | 17 | Ungern     | 32 | Nigeria      | 47 | Sydkorea          |
 | 3  | Bahrain        | 18 | Island     | 33 | Norge       | 48 | Spanien                |
 | 4  | Belgien        | 19 | Indien       | 34 | Peru         | 49 | Sri Lanka            |

@@ -1,6 +1,6 @@
 ---
-title: "Azure-nätverk säkerhetsmetoder | Microsoft Docs"
-description: "Den här artikeln innehåller en uppsättning av bästa praxis för säkerhet med inbyggda funktioner i Azure."
+title: Azure-nätverk säkerhetsmetoder | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning av bästa praxis för säkerhet med inbyggda funktioner i Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
 ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2017
 ---
@@ -116,7 +116,7 @@ En DMZ eller ”perimeternätverk” är en fysisk eller logisk nätverkssegment
 
 DMZs är användbara eftersom du kan fokusera åtkomstkontrollhantering ditt nätverk, övervakning, loggning och rapportering av enheterna i utkanten av det virtuella Azure-nätverket. Här skulle du vanligtvis aktivera DDoS förebyggande, intrång identifiering/intrångsskydd system (ID: N/IP-adresser), brandväggsregler och principer, webbfiltrering, nätverket program mot skadlig kod och mycket mer. Säkerhet nätverksenheter mellan Internet och det virtuella Azure-nätverket och har ett användargränssnitt på båda nätverken.
 
-Det här är den grundläggande utformningen av en DMZ, men det finns många olika DMZ-Designer som back-to-back tre-homed, multi-homed med mera.
+Det här är den grundläggande utformningen av ett perimeternätverk, men det finns många olika utformningar av perimeternätverk som back-to-back, tre-homed, multi-homed med mera.
 
 Vi rekommenderar för alla distributioner med hög säkerhet du överväga att distribuera en DMZ för att förbättra nivå av nätverkssäkerhet för Azure-resurser.
 

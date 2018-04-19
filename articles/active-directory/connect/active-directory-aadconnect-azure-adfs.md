@@ -1,12 +1,12 @@
 ---
 title: Active Directory Federation Services i Azure | Microsoft Docs
-description: "I det här dokumentet lär du dig hur du distribuerar AD FS i Azure för hög tillgänglighet."
+description: I det här dokumentet lär du dig hur du distribuerar AD FS i Azure för hög tillgänglighet.
 keywords: distribuera AD FS i azure, distribuera azure adfs, azure adfs, azure ad fs, distribuera adfs, distribuera ad fs, adfs i azure, distribuera adfs i azure, distribuera AD FS i azure, adfs azure, introduktion till AD FS, Azure, AD FS i Azure, iaas, ADFS, flytta adfs till azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -55,7 +55,7 @@ Som vi nämnt ovan kan du antingen skapa två undernät i ett enda virtuellt nä
 ![Skapa det virtuella nätverket](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 Välj alternativet för virtuella nätverk på Azure-portalen så kan du distribuera det virtuella nätverket och ett undernät direkt med ett enkelt klick. INT-undernätet definieras också och är nu redo att ta emot virtuella datorer.
-Nu ska du lägga till ett till undernät i nätverket, dvs. DMZ-undernätet. Så här skapar du DMZ-undernätet:
+Nu ska du lägga till ett till undernät i nätverket, dvs. undernätet till perimeternätverket. Så här skapar du undernätet till perimeternätverket:
 
 * Välj det nya nätverket.
 * Välj Undernät i egenskaperna.
@@ -77,7 +77,7 @@ När nätverkssäkerhetsgruppen skapas finns det inga regler för inkommande ell
 
 ![Initiera nätverkssäkerhetsgruppen](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
 
-När nätverkssäkerhetsgrupperna har skapats associerar du NSG_INT med INT-undernätet och NSG_DMZ med DMZ-undernätet. Här är ett skärmbildsexempel:
+När nätverkssäkerhetsgrupperna har skapats associerar du NSG_INT med INT-undernätet och NSG_DMZ med undernätet till perimeternätverket. Här är ett skärmbildsexempel:
 
 ![Konfigurera nätverkssäkerhetsgruppen](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
 

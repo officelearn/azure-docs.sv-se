@@ -44,7 +44,7 @@ Den här artikeln visar aktuella punkt förekomst (POP)-platser, sorterade efter
 | Södra Europa | Milano, Italien<br />Madrid, Spanien | Italien<br />Spanien |
 | Afrika | Johannesburg, Sydafrika | |
 | Mellanöstern | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar |
-| Asien | Hongkong<br />Bangalore, India<br />Chennai, Indien<br />Delhi i Indien<br />Mumbai, Indien<br />New Delhi i Indien<br />Batam, Indonesien<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, Sydkorea<br />Kaohsiung, Taiwan | Hongkong<br />Indien<br />Indonesien<br />Japan<br />Malaysia<br />Filippinerna<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
+| Asien | Hongkong SAR<br />Bangaluru (Bangalore), India<br />Chennai, Indien<br />Delhi i Indien<br />Mumbai, Indien<br />New Delhi i Indien<br />Batam, Indonesien<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, Sydkorea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indien<br />Indonesien<br />Japan<br />Malaysia<br />Filippinerna<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
 | Australien och Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
 
 

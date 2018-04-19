@@ -1,11 +1,11 @@
 ---
-title: "Skapa en användardefinierad väg väg trafik via en virtuell nätverksenhet - Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du skapar en användardefinierad väg för att åsidosätta standardvärdet för Azures routning av Routning av nätverkstrafik via en virtuell nätverksenhet."
+title: Skapa en användardefinierad väg väg trafik via en virtuell nätverksenhet - Azure-portalen | Microsoft Docs
+description: Lär dig hur du skapar en användardefinierad väg för att åsidosätta standardvärdet för Azures routning av Routning av nätverkstrafik via en virtuell nätverksenhet.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
@@ -28,7 +28,7 @@ När du skapar undernät i ett virtuellt nätverk, Azure skapar standard [system
 
 ![Standardvägar](./media/create-user-defined-route/default-routes.png)
 
-I de här självstudierna skapar du ett virtuellt nätverk med offentliga och privata DMZ undernät, som visas i bilden nedan. Vanligtvis webbservrar kan distribueras till en offentlig undernät och ett program eller en databasserver kan distribueras till ett privat undernät. Du skapar en virtuell dator ska fungera som en virtuell nätverksenhet i DMZ-undernät och du kan också skapa en virtuell dator i varje undernät som kommunicerar via nätverket virtuell installation. All trafik mellan de offentliga och privata undernäten dirigeras via installationen som visas i följande bild:
+I de här självstudierna skapar du ett virtuellt nätverk med offentliga och privata undernät till perimeternätverk, som visas i bilden nedan. Vanligtvis webbservrar kan distribueras till en offentlig undernät och ett program eller en databasserver kan distribueras till ett privat undernät. Du skapar en virtuell dator ska fungera som en virtuell nätverksenhet i DMZ-undernät och du kan också skapa en virtuell dator i varje undernät som kommunicerar via nätverket virtuell installation. All trafik mellan de offentliga och privata undernäten dirigeras via installationen som visas i följande bild:
 
 ![Användardefinierade vägar](./media/create-user-defined-route/user-defined-routes.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure DMZ exempel – skapa en enkel DMZ med NSG: er | Microsoft Docs'
-description: Skapa en DMZ med Nätverkssäkerhetsgrupper (NSG)
+description: Skapa ett perimeternätverrk med Nätverkssäkerhetsgrupper (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/05/2018
 
 Det här exemplet skapar en primitiv DMZ med fyra Nätverkssäkerhetsgrupper och Windows-servrar. Detta exempel beskrivs var och en av de relevanta PowerShell-kommandona för att ge en bättre förståelse för varje steg. Det finns också ett trafik scenariot avsnitt för att ge en detaljerad steg för steg hur trafik fortsätter via lager i skyddsstrategierna i Perimeternätverket. Slutligen är avsnitt i hänvisning den fullständiga koden och anvisningarna för att skapa den här miljön för att testa och experimentera med olika scenarier. 
 
-![Inkommande DMZ med NSG][1]
+![Inkommande perimeternätverk med NSG][1]
 
 ## <a name="environment-description"></a>Beskrivning av miljö
 I det här exemplet innehåller en prenumeration i följande resurser:
@@ -584,7 +584,7 @@ Om du vill installera ett exempelprogram för det här och andra DMZ exempel nå
 * Testa olika trafikflöden via den här DMZ
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Inkommande DMZ med NSG"
+[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Inkommande perimeternätverk med NSG"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

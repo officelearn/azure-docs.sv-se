@@ -1,12 +1,12 @@
 ---
-title: "Azure operativ säkerhet | Microsoft Docs"
-description: "Lär dig mer om Microsoft Operations Management Suite (OMS), dess tjänster och hur det fungerar."
+title: Azure operativ säkerhet | Microsoft Docs
+description: Lär dig mer om Microsoft Operations Management Suite (OMS), dess tjänster och hur det fungerar.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article

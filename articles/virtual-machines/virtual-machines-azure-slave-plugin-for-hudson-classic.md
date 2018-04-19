@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder den Azure underordnade plugin-program med Hudson kontinuerlig Integration | Microsoft Docs"
-description: "Beskriver hur du använder den Azure underordnade plugin-program med Hudson kontinuerlig Integration."
+title: Hur du använder den Azure underordnade plugin-program med Hudson kontinuerlig Integration | Microsoft Docs
+description: Beskriver hur du använder den Azure underordnade plugin-program med Hudson kontinuerlig Integration.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -23,7 +23,7 @@ ms.lasthandoff: 01/08/2018
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hur du använder den Azure underordnade plugin-program med Hudson kontinuerlig Integration
 Den Azure underordnade plugin-program för Hudson kan du etablera underordnade noder i Azure när distribuerade versioner.
 
-## <a name="install-the-azure-slave-plug-in"></a>Installera Azure-slavserver plugin-program
+## <a name="install-the-azure-slave-plug-in"></a>Installera Azure underordnad server plugin-programmet
 1. I instrumentpanelen Hudson klickar du på **hantera Hudson**.
 2. I den **hantera Hudson** klickar du på **hantera plugin-program**.
 3. Klicka på den **tillgänglig** fliken.

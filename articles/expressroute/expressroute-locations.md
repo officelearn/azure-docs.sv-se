@@ -44,7 +44,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Nordamerika** |Östra USA, västra USA, östra USA 2, västra USA 2, centrala USA, södra centrala USA, norra centrala USA, västra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **Sydamerika** |Södra Brasilien |Sao Paulo |
 | **Europa** |Norra Europa, Västra Europa, Västra Storbritannien, Södra Storbritannien |Amsterdam, Dublin, London, Newport (Wales), Paris |
-| **Asien** |Östra Asien, Sydostasien |Hongkong, Singapore, Singapore2 |
+| **Asien** |Östra Asien, Sydostasien |Hongkong SAR, Singapore, Singapore2 |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
@@ -71,14 +71,14 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Airtel](http://www.airtel.in/business/connexion)** | Stöds | Stöds | Chennai, Mumbai |
-| **[Aryaka Networks](http://www.aryaka.com/)** |Stöds |Stöds |Amsterdam, Dallas, Hongkong, Silicon Valley, Singapore, Tokyo, Washington DC |
+| **[Aryaka Networks](http://www.aryaka.com/)** |Stöds |Stöds |Amsterdam, Dallas, Hongkong SAR, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://ascenty.com/solucoes/conectividade-e-interconexoes/Microsoft-express-route/)** |Kommer snart |Kommer snart |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Stöds |Stöds |Montreal, Toronto, Quebec City |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Stöds |Stöds |Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Stöds |Stöds |Amsterdam, Hong Kong SAR, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[C3ntro](https://c3ntro.com/)** |Kommer snart |Kommer snart |Miami |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Stöds |Stöds |New York, San Antonio, Tokyo, Toronto |
-| **China Telecom Global** |Stöds |Stöds inte |Hongkong |
+| **China Telecom Global** |Stöds |Stöds inte |Hongkong SAR |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Stöds |Stöds |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds |Amsterdam, Dublin, London, Paris, Tokyo |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
@@ -108,15 +108,15 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Stöds |Stöds |Amsterdam, Hongkong, London, Los Angeles, Osaka, Singapore, Sydney, Tokyo, Washington DC |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Stöds |Stöds |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Stöds |Stöds |Melbourne+ , Sydney |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Hongkong, London, Paris+, Silicon Valley, Singapore, Sydney, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Hongkong SAR, London, Paris+, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Stöds |Stöds |Chicago, Silicon Valley |
-| **PCCW Global Limited** |Stöds |Stöds |Hongkong |
+| **PCCW Global Limited** |Stöds |Stöds |Hongkong SAR |
 | **Sejong Telecom** |Stöds |Stöds |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Stöds |Stöds |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Stöds |Stöds |Singapore, Singapore2 |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Stöds |Stöds |Osaka, Tokyo |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Stöds |Stöds |Washington DC |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Stöds |Stöds |Amsterdam, Chennai, Hong Kong, London, Mumbai, Silicon Valley, Singapore, Washington DC |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Stöds |Stöds |Amsterdam, Chennai, Hong Kong SAR, London, Mumbai, Silicon Valley, Singapore, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Stöds |Stöds |Amsterdam, Dublin, London |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Stöds |Stöds |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Stöds |Stöds |London |

@@ -1,14 +1,14 @@
 ---
-title: "Geokodning täckning i Azure-plats-baserade tjänster | Microsoft Docs"
-description: "Lär dig mer om Geokodning täckning i Azure-plats-baserade tjänster"
+title: Geokodning täckning i Azure-plats-baserade tjänster | Microsoft Docs
+description: Lär dig mer om Geokodning täckning i Azure-plats-baserade tjänster
 services: location-based-services
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
@@ -97,7 +97,7 @@ Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för 
 | Fiji |                 |                |              |      ✓     |          ✓         |
 | Franska Polynesien                                    |                 |                |              |      ✓     |          ✓         |
 | Heardön och McDonaldöarna                   |                 |                |              |      ✓     |          ✓         |
-| Hongkong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hongkong SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
@@ -120,15 +120,15 @@ Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för 
 | Paracel i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
 | Filippinerna                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Senkaku i Oceanien och Västindien                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Samoaöarna                                               |                 |                |              |      ✓     |          ✓         |
+| Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Salomonöarna                                     |                 |                |              |      ✓     |          ✓         |
 | Sydkorea                                         |                 |                |              |      ✓     |          ✓         |
 | Södra Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Spratly i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
+| Spratlyöarna i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
-| Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Taiwan SAR                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thailand                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelauöarna                                             |                 |                |              |      ✓     |          ✓         |
 | Tonga                                               |                 |                |              |      ✓     |          ✓         |
@@ -160,7 +160,7 @@ Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för 
 | Tyskland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibralter                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grekland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Grönland                                           |                 |                |              |      ✓     |          ✓         |
+| Grönland (Danmark)                                           |                 |                |              |      ✓     |          ✓         |
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ungern                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Island                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -259,7 +259,7 @@ Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för 
 | Qatar                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Réunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Helena                                        |                 |                |              |      ✓     |          ✓         |
+| Sankta Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Saudiarabien                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Seychellerna                                          |                 |                |       ✓      |      ✓     |          ✓         |

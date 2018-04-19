@@ -1,12 +1,12 @@
 ---
-title: "Skydda en flera nivåer SAP NetWeaver programdistribution med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du kan skydda SAP NetWeaver distribution av program med hjälp av Azure Site Recovery."
+title: Skydda en flera nivåer SAP NetWeaver programdistribution med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du kan skydda SAP NetWeaver distribution av program med hjälp av Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
@@ -89,7 +89,7 @@ Följande diagram visar Site Recovery Azure till Azure-katastrofåterställning:
 
 ![Diagram över ett scenario för Azure-Azure-replikering](./media/site-recovery-sap/sap-replication-scenario.png)
 
-* Det primära datacentret är i Singapore (Azure sydöstra Asien). Disaster recovery datacenter är i Hongkong (Azure Östasien). I det här scenariot tillhandahålls lokal hög tillgänglighet av två virtuella datorer som kör SQL Server AlwaysOn i synkront läge i Singapore.
+* Det primära datacentret är i Singapore (Azure sydöstra Asien). Disaster recovery datacenter är i Hongkong SAR (Azure Östasien). I det här scenariot tillhandahålls lokal hög tillgänglighet av två virtuella datorer som kör SQL Server AlwaysOn i synkront läge i Singapore.
 * Filresursen SAP ASCS ger hög tillgänglighet för de SAP enskilda felpunkter. Filresursen ASCS kräver inte en delad klusterdisk. Program som SIOS inte behövs.
 * Disaster recovery-skydd för DBMS-lagret uppnås med hjälp av asynkron replikering.
 * Det här scenariot visar ”symmetrisk katastrofåterställning”. Den här termen beskriver en lösning för katastrofåterställning som är en exakt replik av produktion. SQL Server-lösning för katastrofåterställning har lokal hög tillgänglighet. Symmetrisk katastrofåterställning är inte obligatoriska för databas-lagret. Många kunder kan utnyttja flexibiliteten hos molndistributioner snabbt skapa en lokal hög tillgänglighet nod efter en disaster recovery-händelse.

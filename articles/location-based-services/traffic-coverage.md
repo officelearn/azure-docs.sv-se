@@ -1,14 +1,14 @@
 ---
-title: "Trafik täckning i Azure-plats-baserade tjänster | Microsoft Docs"
-description: "Lär dig mer om trafik täckning i Azure-plats-baserade tjänster"
+title: Trafik täckning i Azure-plats-baserade tjänster | Microsoft Docs
+description: Lär dig mer om trafik täckning i Azure-plats-baserade tjänster
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
@@ -45,7 +45,7 @@ Azure plats baserat tjänster (PUND) ger omfattande trafikinformation i form av 
 |+Monaco     |✓         |✓         |
 |Tyskland     |✓         |✓         |
 |Grekland     |✓         |✓         |
-|Hongkong     |✓         |✓         |
+|Hongkong SAR     |✓         |✓         |
 |Ungern     |✓         |✓         |
 |Island     |         |✓         |
 |Indonesien     |✓         |✓         |
@@ -58,7 +58,7 @@ Azure plats baserat tjänster (PUND) ger omfattande trafikinformation i form av 
 |Lesotho     |✓         |✓         |
 |Litauen     |         |✓         |
 |Luxemburg     |✓         |✓         |
-|Macao     |         |✓         |
+|Macao SAR     |         |✓         |
 |Malaysia     |✓         |✓         |
 |Malta     |✓         |✓         |
 |Mexiko     |✓         |✓         |

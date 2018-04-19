@@ -1,12 +1,12 @@
 ---
-title: "Land/Region hierarki som används av Azure Traffic Manager geografiska Routning | Microsoft Docs"
-description: "Den här artikeln innehåller Land/Region hierarki som används av Azure Traffic Manager geografiska Routning"
+title: Land/Region hierarki som används av Azure Traffic Manager geografiska Routning | Microsoft Docs
+description: Den här artikeln innehåller Land/Region hierarki som används av Azure Traffic Manager geografiska Routning
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -484,7 +484,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - CG(Congo)
 
-        - CI (Elfenbenskusten)
+        - Côte d’Ivoire
 
         - CM(Cameroon)
 
@@ -688,7 +688,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - Windows-Brandväggen (Wallis och Futunaöarna)
 
-        - WS(Samoa)
+        - WS(Samoaöarna)
 
 ## <a name="next-steps"></a>Nästa steg
 

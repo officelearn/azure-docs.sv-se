@@ -61,7 +61,7 @@ Du kan visa gruppen registrering information om du vill se en lista över enhete
 Med registrering grupper finns det två scenarier att tänka på:
 
 - Att ta bort etableringen av alla enheter som har etablerats genom en grupp för registrering:
-  1. Inaktivera gruppen registrering för att svartlista dess signeringscertifikat. 
+  1. Inaktivera gruppen registrering för att blockeringslista dess signeringscertifikat. 
   2. Använd listan över etablerade enheter för registrering av gruppen inaktivera eller ta bort varje enhet från dess respektive IoT-hubb identitetsregistret. 
   3. Efter att inaktivera eller ta bort alla enheter från deras respektive IoT-hubbar kan du om du vill ta bort gruppen registrering. Tänk dock på att om du tar bort gruppen registreringen och det finns en grupp med aktiverad registrering för ett högre upp i certifikatkedjan signeringscertifikat av en eller flera av enheterna de enheterna kan registrera igen. 
 

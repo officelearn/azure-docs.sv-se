@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure MFA Server med AD FS 2.0 | Microsoft Docs"
-description: "Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS 2.0."
+title: Använda Azure MFA Server med AD FS 2.0 | Microsoft Docs
+description: Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS 2.0.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
@@ -81,7 +81,7 @@ Du har aktiverat IIS-autentisering, men för att kunna utföra förautentisering
 3. Om användare anger sina användarnamn i ”domän\användarnamn”-format måste servern kunna extrahera domänen från användarnamnet när LDAP-frågan skapas. Detta kan göras via en registerinställning.
 4. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor på en 64-bitarsserver. Om du arbetar på en 32-bitarsserver utelämnar du ”Wow6432Node” i sökvägen. Skapa en DWORD-registernyckel med namnet ”UsernameCxz_stripPrefixDomain” och ange värdet till 1. Nu skyddas AD FS-proxyn av Azure Multi-Factor Authentication.
 
-Se till att användarna har importerats från Active Directory till servern. Se avsnittet [Tillförlitliga IP-adresser](#trusted-ips) om du vill vitlista interna IP-adresser så att tvåstegsverifiering inte krävs vid inloggning till webbplatsen från dessa platser.
+Se till att användarna har importerats från Active Directory till servern. Se avsnittet [Tillförlitliga IP-adresser](#trusted-ips) om du vill lista godkända interna IP-adresser så att tvåstegsverifiering inte krävs vid inloggning till webbplatsen från
 
 <center>![Installation](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -104,7 +104,7 @@ Du kan skydda AD FS när AD FS-proxy inte används. Installera Azure Multi-Facto
 
 Nu skyddas AD FS av Azure Multi-Factor Authentication.
 
-Se till att användarna har importerats från Active Directory till servern. Se avsnittet Tillförlitliga IP-adresser om du vill vitlista interna IP-adresser så att tvåstegsverifiering inte krävs vid inloggning till webbplatsen från dessa platser.
+Se till att användarna har importerats från Active Directory till servern. Se avsnittet Tillförlitliga IP-adresser om du vill lista godkända interna IP-adresser så att tvåstegsverifiering inte krävs vid inloggning till webbplatsen från
 
 ## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
 Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authentication för webbplatsförfrågningar som kommer från specifika IP-adresser eller undernät. Du vill kanske till exempel undanta användare från tvåstegsverifiering när de loggar in från kontoret. För att göra det anger du kontorets undernät som en tillförlitlig IP-adress.

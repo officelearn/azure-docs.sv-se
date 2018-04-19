@@ -1,14 +1,14 @@
 ---
-title: "Återge täckning i Azure plats-baserade tjänster | Microsoft Docs"
-description: "Lär dig mer om Render täckning i Azure-plats-baserade tjänster"
+title: Återge täckning i Azure plats-baserade tjänster | Microsoft Docs
+description: Lär dig mer om Render täckning i Azure-plats-baserade tjänster
 services: location-based-services
-keywords: 
+keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 3/6/2018
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
@@ -97,7 +97,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Australien|✓ |
 |Brunei|✓ |
 |Guam|✓ |
-|Hongkong|✓ |
+|Hongkong SAR|✓ |
 |Indonesien|✓ |
 |Macao|✓ |
 |Malaysia|✓ |
@@ -135,7 +135,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Liechtenstein|✓ |
 |Litauen|✓ |
 |Luxemburg|✓ |
-|Makedonien|✓ |
+|Republiken Makedonien|✓ |
 |Malta|✓ |
 |Moldavien|✓ |
 |Monaco|✓ |
@@ -260,7 +260,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Dominica|✓|
 |Dominikanska republiken|✓|
 |Ecuador|✓|
-|Falklandsöarna (Malvinasöarna)|✓|
+|Falklandsöarna|✓|
 |Franska Guyana|✓|
 |Grenada|✓|
 |Guadeloupe|✓|
@@ -307,7 +307,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Kina|Ø|
 |Demokratiska folkrepubliken Korea|Ø|
 |Dokdo och Takeshima|Ø|
-|Hongkong|✓|
+|Hongkong SAR|✓|
 |Indonesien|✓|
 |Iran|Ø|
 |Japan|Ø|
@@ -323,7 +323,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Pakistan|Ø|
 |Filippinerna|✓|
 |Sydkorea|Ø|
-|Senkaku i Oceanien och Västindien|✓|
+|Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien|✓|
 |Singapore|✓|
 |Sri Lanka|Ø|
 |Arabrepubliken Syrien|Ø|
@@ -350,7 +350,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Tjeckien|✓|
 |Danmark|✓|
 |Estland|✓|
-|Färöarna|Ø|
+|Färöarna (Danmark)|Ø|
 |Finland|✓|
 |Frankrike|✓|
 |Georgien|Ø|
@@ -370,7 +370,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Liechtenstein|✓|
 |Litauen|✓|
 |Luxemburg|✓|
-|Makedonien|✓|
+|Republiken Makedonien|✓|
 |Malta|✓|
 |Moldavien|✓|
 |Monaco|✓|
@@ -426,7 +426,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 |Palau|Ø|
 |Papua Nya Guinea|Ø|
 |Pitcairn|Ø|
-|Samoa|Ø|
+|Samoaöarna|Ø|
 |Salomonöarna|Ø|
 |Tokelauöarna|Ø|
 |Tonga|Ø|

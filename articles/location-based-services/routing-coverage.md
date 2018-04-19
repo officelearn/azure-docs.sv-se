@@ -1,14 +1,14 @@
 ---
-title: "Routning täckning i Azure-plats-baserade tjänster | Microsoft Docs"
-description: "Lär dig mer om routning täckning i Azure-plats-baserade tjänster"
+title: Routning täckning i Azure-plats-baserade tjänster | Microsoft Docs
+description: Lär dig mer om routning täckning i Azure-plats-baserade tjänster
 services: location-based-services
-keywords: 
+keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 3/6/2018
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
@@ -95,7 +95,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 | Australien                      |        ✓       |
 | Brunei                         |        ✓       |
 | Guam                           |        ✓       |
-| Hongkong                      |        ✓       |
+| Hongkong SAR                      |        ✓       |
 | Indonesien                      |        ✓       |
 | Macao                          |        ✓       |
 | Malaysia                       |        ✓       |
@@ -133,7 +133,7 @@ Följande tabell innehåller information om täckning för Azure plats baserat S
 | Liechtenstein                  |        ✓       |
 | Litauen                      |        ✓       |
 | Luxemburg                     |        ✓       |
-| Makedonien                      |        ✓       |
+| Republiken Makedonien                      |        ✓       |
 | Malta                          |        ✓       |
 | Moldavien                        |        ✓       |
 | Monaco                         |        ✓       |

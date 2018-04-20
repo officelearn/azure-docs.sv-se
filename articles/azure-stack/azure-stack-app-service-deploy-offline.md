@@ -1,12 +1,12 @@
 ---
-title: "Distribuera App Service i en frånkopplad miljö i Azure-stacken | Microsoft Docs"
-description: "Detaljerad information om hur du distribuerar Apptjänst i en frånkopplad miljö för Azure-stacken skyddas av AD FS."
+title: Distribuera App Service i en frånkopplad miljö i Azure-stacken | Microsoft Docs
+description: Detaljerad information om hur du distribuerar Apptjänst i en frånkopplad miljö för Azure-stacken skyddas av AD FS.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägg till en Apptjänst-resursprovidern i en frånkopplad miljö för Azure-stacken skyddas av AD FS
 
@@ -49,11 +49,11 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
 2. Klicka på **Avancerat** > **Skapa offline installationspaketet**.
 
-    ![App Service Installer][1]
+    ![Installationsprogrammet för App Service][1]
 
 3. Installationsprogrammet för App Service skapar ett installationspaket för offline och visar sökvägen till den. Du kan klicka på **öppna mappen** att öppna mappen i din Utforskaren.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy-offline/image02.png)
+    ![Installationsprogrammet för App Service](media/azure-stack-app-service-deploy-offline/image02.png)
 
 4. Kopiera installationsprogrammet (AppService.exe) och offline installationspaketet till din Azure Stack-värddatorn.
 
@@ -63,11 +63,11 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
 2. Klicka på **Avancerat** > **offline installationen**.
 
-    ![App Service Installer][2]
+    ![Installationsprogrammet för App Service][2]
 
 3. Bläddra till platsen för det offline installationspaket som du skapade tidigare och klicka sedan på **nästa**.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy-offline/image04.png)
+    ![Installationsprogrammet för App Service](media/azure-stack-app-service-deploy-offline/image04.png)
 
 4. Granska och acceptera licensvillkoren för programvara från Microsoft och klicka sedan på **nästa**.
 
@@ -75,7 +75,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
 6. Kontrollera att konfigurationsinformationen Apptjänst molnet är korrekt. Du kan acceptera standardvärdena här om du använder standardinställningarna under distributionen av Azure-stacken Development Kit. Om du har anpassat alternativen när du har distribuerat Azure Stack eller distribuerar på ett integrerat system, måste du redigera värdena i det här fönstret för att återspegla som. Om du använder domänen suffix mycloud.com måste Azure Stack klient Azure Resource Manager-slutpunkten ändra exempelvis till management. <region>. mycloud.com. När du bekräftar din information klickar du på **nästa**.
 
-    ![App Service Installer][3]
+    ![Installationsprogrammet för App Service][3]
 
 7. På nästa sida:
     1. Klicka på den **Anslut** knappen bredvid den **Azure Stack-prenumerationer** rutan.
@@ -84,7 +84,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
     3. I den **Azure Stack platser** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure-stacken Development Kit.
     4. Klicka på **Nästa**.
 
-    ![App Service Installer][4]
+    ![Installationsprogrammet för App Service][4]
 
 8. Nu har du möjlighet att distribuera till ett befintligt virtuellt nätverk som konfigurerats genom stegen [här](azure-stack-app-service-before-you-get-started.md#virtual-network), eller tillåta App Service-installationsprogrammet att skapa ett virtuellt nätverk och associerade undernät.
     1. Välj **skapa VNet med standardinställningar**, acceptera standardinställningarna och klickar sedan på **nästa**, eller;
@@ -94,16 +94,16 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
         3. Välj rätt **undernät** värden för var och en av de nödvändiga rolltjänster undernät;
         4. Klicka på **Nästa**
 
-    ![App Service Installer][5]
+    ![Installationsprogrammet för App Service][5]
 
-9. Ange information för filresursen och klicka sedan på **nästa**. Adressen till filresursen måste använda fullständigt domännamn eller IP-adressen för din filserver. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
+9. Ange information för filresursen och klicka sedan på **nästa**. Adressen till filresursen måste använda fullständigt domännamn eller IP-adressen för din filserver. Till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites, eller \\\10.0.0.1\websites.
 
 > [!NOTE]
 > Installationsprogrammet försöker att testa anslutningen till filresursen innan du fortsätter.  Om du vill distribuera i ett befintligt virtuellt nätverk, installationsprogrammet kanske inte kan ansluta till filresursen och visas en varning som frågar om du vill fortsätta.  Kontrollera informationen om filresursen och fortsätta om de är korrekta.
 >
 >
 
-   ![App Service Installer][8]
+   ![Installationsprogrammet för App Service][8]
 
 10. På nästa sida:
     1. I den **identitet program-ID** Ange GUID för programmet som du använder för identiteten (från Azure AD).
@@ -112,7 +112,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
     4. I den **Azure Resource Manager rotcertifikatfilen** rutan, ange (eller bläddra till) platsen för certifikatfilen.
     5. Klicka på **Nästa**.
 
-    ![App Service Installer][10]
+    ![Installationsprogrammet för App Service][10]
 
 11. För var och en av de tre filen rutor och klicka på **Bläddra** och gå sedan till certifikatfil. Du måste ange lösenordet för varje certifikat. Dessa certifikat är de som du skapade i den [skapa nödvändiga certifikat steg](azure-stack-app-service-before-you-get-started.md#get-certificates). Klicka på **nästa** när du har angett all information.
 
@@ -124,7 +124,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
     Om du har använt ett annat domänsuffix när du skapade certifikaten filnamn certifikatet inte använder *lokala. AzureStack.external*. I stället använda ditt anpassade domäner.
 
-    ![App Service Installer][11]
+    ![Installationsprogrammet för App Service][11]
 
 12. Ange SQL Server-information för server-instansen som används för att Apptjänst resource provider-databaser, och klicka sedan på **nästa**. Installationsprogrammet verifierar egenskaper för SQL-anslutning.
 
@@ -133,7 +133,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 >
 >
    
-   ![App Service Installer][12]
+   ![Installationsprogrammet för App Service][12]
 
 13. Granska rollinstansen och SKU-alternativ. Standardvärdena är fyllda med det minsta antalet instansen och minsta SKU: N för varje roll i en ASDK-distribution. En sammanfattning av vCPU och minneskrav tillhandahålls för att planera distributionen. När du har gjort dina val klickar du på **nästa**.
 
@@ -150,7 +150,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Skickar begäranden till App-tjänstprogram. |
     | Delade Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Värdar web eller API-program och Azure Functions-appar. Du kanske vill lägga till flera instanser. Som operatör kan du definiera dina erbjudanden och väljer en SKU-nivå. Nivåerna måste ha minst en vCPU. |
 
-    ![App Service Installer][14]
+    ![Installationsprogrammet för App Service][14]
 
     > [!NOTE]
     > **Windows Server 2016 Core är inte en bild för plattform som stöds för användning med Azure App Service på Azure-stacken.  Använd inte utvärdering avbildningar för Produktionsdistribution.**
@@ -162,20 +162,20 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
      2. Ange andra roller virtuella administratörsanvändarnamn och lösenord.
      3. Klicka på **Nästa**.
 
-    ![App Service Installer][16]
+    ![Installationsprogrammet för App Service][16]
 
 16. På sidan Sammanfattning:
     1. Kontrollera de val du gjort. Använd för att göra ändringar i **föregående** knappar för att besöka föregående sidor.
     2. Markera kryssrutan om konfigurationerna är korrekta.
     3. Starta distributionen, klicka på **nästa**.
 
-    ![App Service Installer][17]
+    ![Installationsprogrammet för App Service][17]
 
 17. På nästa sida:
     1. Spåra installationsförloppet. Apptjänst Azure stacken tar ungefär 60 minuter för att distribuera baserat på standardvalen.
     2. När installationsprogrammet slutförs, klickar du på **avsluta**.
 
-    ![App Service Installer][18]
+    ![Installationsprogrammet för App Service][18]
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validera App Service på Azure Stack-installation
 
@@ -184,6 +184,19 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 2. I översikten under status, kontrollerar du att den **Status** visar **alla roller som är klara**.
 
     ![App Service-hantering](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Om du vill distribuera till ett befintligt virtuellt nätverk och en intern IP-adress till conenct för din filserver, du måste lägga till utgående säkerhetsregel aktivera SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till utgående säkerhetsregel med följande egenskaper:
+> * Källa: alla
+> * Datakällan portintervall: *
+> * Mål: IP-adresser
+> * Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+> * Målportintervall: 445
+> * Protokoll: TCP
+> * Åtgärd: Tillåt
+> * Prioritet: 700
+> * Namn: Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Test Apptjänst Azure-stacken
 
@@ -214,9 +227,9 @@ Från och med technical preview tredje funktioner appar för att skapa webb-, AP
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Distribuera en WordPress, DNN eller Django-webbplats (valfritt)
 
-1. Klicka i klientportalen Azure Stack  **+** , gå till Azure Marketplace, distribuera en Django-webbplats och vänta tills åtgärden lyckades. Django webbplatform använder en databas med fil-system. Det kräver inte några ytterligare resurs-leverantörer, till exempel SQL eller MySQL.
+1. Klicka i klientportalen Azure Stack **+**, gå till Azure Marketplace, distribuera en Django-webbplats och vänta tills åtgärden lyckades. Django webbplatform använder en databas med fil-system. Det kräver inte några ytterligare resurs-leverantörer, till exempel SQL eller MySQL.
 
-2. Om du har distribuerat en MySQL-resursprovidern också kan du distribuera en WordPress-webbplats från Marketplace. När du uppmanas att ange parametrar anger du användarnamnet som  *User1@Server1* , med användarnamn och servernamnet du väljer.
+2. Om du har distribuerat en MySQL-resursprovidern också kan du distribuera en WordPress-webbplats från Marketplace. När du uppmanas att ange parametrar anger du användarnamnet som *User1@Server1*, med användarnamn och servernamnet du väljer.
 
 3. Om du också distribueras till en provider för SQL Server-resurs, kan du distribuera en DNN webbplats från Marketplace. När du uppmanas att ange parametrar kan du välja en databas i den dator som kör SQL Server som är ansluten till din resursprovidern.
 

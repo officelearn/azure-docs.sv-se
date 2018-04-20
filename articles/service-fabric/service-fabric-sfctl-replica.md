@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Hantera replikerna som tillhör tjänsten partitioner.
@@ -30,10 +30,10 @@ Hantera replikerna som tillhör tjänsten partitioner.
 |    Distribueras  | Hämtar information om repliken har distribuerats på en Service Fabric-nod.|
 |    distribuerat lista| Hämtar listan över repliker som har distribuerats på en Service Fabric-nod.|
 |    hälsa    | Hämtar hälsotillståndet för Service Fabric tillståndskänslig service replik eller tillståndslösa tjänstinstansen.|
-|    info      | Hämtar information om en replik av en Service Fabric-partition.|
+|    Info      | Hämtar information om en replik av en Service Fabric-partition.|
 |    lista      | Hämtar information om repliker för en partition för Service Fabric-tjänsten.|
 |    ta bort    | Tar bort en replik för tjänsten som körs på en nod.|
-|    report-health| Skickar en hälsorapport på Service Fabric-replik.|
+|    rapporten hälsa| Skickar en hälsorapport på Service Fabric-replik.|
 |    Starta om   | Startar om tjänsten replik av en beständig tjänst som körs på en nod.|
 
 
@@ -55,7 +55,7 @@ Hämtar information om repliken har distribuerats på en Service Fabric-nod. Inf
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -79,7 +79,7 @@ Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthSt
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o              | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga                  | JMESPath frågesträngen. Mer information finns i http://jmespath.org/.|
@@ -96,14 +96,14 @@ Svaret innehåller ID: t, roll, status, hälsotillstånd, nodnamn, drifttid och 
 | --- | --- |
 | --partitions-id [krävs]| Identitet för partitionen.|
 | --replik-id [krävs]| Identifierare för repliken.|
-| --continuation-token  | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
+| --fortsättningstoken  | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
 | --timeout -t          | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Mer information finns i http://jmespath.org/.|
@@ -120,14 +120,14 @@ Respons inkluderar ID, roll, status, hälsotillstånd, nodnamn, drifttid och ann
 |Argumentet|Beskrivning|
 | --- | --- |
 | --partitions-id [krävs]| Identitet för partitionen.|
-| --continuation-token  | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
+| --fortsättningstoken  | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
 | --timeout -t          | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -145,14 +145,14 @@ Detta API simulerar ett Service Fabric-replik fel genom att ta bort en replik fr
 | --nodnamn [krävs]| Namnet på noden.|
 | --partitions-id [krävs]| Identitet för partitionen.|
 | --replik-id [krävs]| Identifierare för repliken.|
-| --force-remove        | Ta bort ett Service Fabric-program eller tjänst tvång utan att gå igenom alla korrekt avslutning. Den här parametern kan användas för att tvång ta bort ett program eller tjänst för vilka borttagning är avbryts på grund av problem i den kod som förhindrar korrekt Stäng av replikerna.|
+| --force-ta bort        | Ta bort ett Service Fabric-program eller tjänst tvång utan att gå igenom alla korrekt avslutning. Den här parametern kan användas för att tvång ta bort ett program eller tjänst för vilka borttagning är avbryts på grund av problem i den kod som förhindrar korrekt Stäng av replikerna.|
 | --timeout -t          | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -176,7 +176,7 @@ Startar om tjänsten replik av en beständig tjänst som körs på en nod. Varni
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|

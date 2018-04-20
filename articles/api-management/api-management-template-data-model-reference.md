@@ -1,11 +1,11 @@
 ---
 title: Azure API Management-mall datamodell referens | Microsoft Docs
-description: "Läs mer om entiteten och Skriv garantier för vanliga objekt som används i datamodeller för developer portal mallar i Azure API Management."
+description: Läs mer om entiteten och Skriv garantier för vanliga objekt som används i datamodeller för developer portal mallar i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management-mall datamodell referens
 Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som används i datamodeller för developer portal mallar i Azure API Management.  
@@ -32,7 +32,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 -   [kodexempel](#Sample)  
 -   [Kommentar](#Comment)  
 -   [Filtrering](#Filtering)  
--   [Header](#Header)  
+-   [Huvudet](#Header)  
 -   [HTTP-begäran](#HTTPRequest)  
 -   [HTTP-svar](#HTTPResponse)  
 -   [Problemet](#Issue)  
@@ -40,7 +40,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 -   [Åtgärd-menyn](#Menu)  
 -   [Åtgärden menyobjekt](#MenuItem)  
 -   [Växling](#Paging)  
--   [Parameter](#Parameter)  
+-   [Parametern](#Parameter)  
 -   [Produkten](#Product)  
 -   [Leverantör](#Provider)  
 -   [Representation](#Representation)  
@@ -64,7 +64,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |authenticationSettings|[Auktoriseringsinställningar server-autentisering](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Samling autentiseringsinställningar som ingår i detta API.|  
 |subscriptionKeyParameterNames|objekt|Egenskapen som kan användas för att ange anpassade namn för frågan och/eller huvudet parametrar som innehåller nyckeln för prenumerationen. Om den här egenskapen finns måste det innehålla minst en av följande två egenskaper.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary">API-översikten</a>  
+##  <a name="APISummary"></a> API-översikten  
  Den `API summary` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -73,7 +73,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |namn|sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |description|sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
   
-##  <a name="Application">Programmet</a>  
+##  <a name="Application"></a> Programmet  
  Den `application` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -91,7 +91,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Bifogade filer|Samling av [bilaga](#Attachment) entiteter.|Eventuella bifogade filer för programmet, till exempel skärmdumpar eller ikoner.|  
 |Ikon|[Bifogad fil](#Attachment)|Ikonen för den för programmet.|  
   
-##  <a name="Attachment">Bifogad fil</a>  
+##  <a name="Attachment"></a> Bifogad fil  
  Den `attachment` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -101,7 +101,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Typ|sträng|Typ av bifogad fil.|  
 |ContentType|sträng|Medietyp för den bifogade filen.|  
   
-##  <a name="Sample">kodexempel</a>  
+##  <a name="Sample"></a> kodexempel  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
@@ -118,7 +118,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |rubriker|Samling av [huvud](#Header) entiteter.|Huvuden för den här åtgärden.|  
 |parameters|Samling av [parametern](#Parameter) entiteter.|Parametrar som definierats för den här åtgärden.|  
   
-##  <a name="Comment">Kommentar</a>  
+##  <a name="Comment"></a> Kommentar  
  Den `API` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -144,7 +144,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Bifogade filer|Samling av [bilaga](api-management-template-data-model-reference.md#Attachment) entiteter.|Bifogade till problemet.|  
 |Tjänster|Samling av [API](#API) entiteter.|API: erna prenumererar på användaren som skapade problemet.|  
   
-##  <a name="Filtering">Filtrering</a>  
+##  <a name="Filtering"></a> Filtrering  
  Den `filtering` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -165,7 +165,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Krävs|boolesk|Anger om sidhuvudet krävs.|  
 |Skrivskyddad|boolesk|Anger om sidhuvudet är skrivskyddad.|  
   
-##  <a name="HTTPRequest">HTTP-begäran</a>  
+##  <a name="HTTPRequest"></a> HTTP-begäran  
  Det här avsnittet beskrivs de `request` representation.  
   
 |Egenskap|Typ|Beskrivning|  
@@ -175,7 +175,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |parameters|matris med [Parameter](#Parameter)|De parametrar som begäran igen.|  
 |garantier|matris med [Representation](#Representation)|Åtgärden begäran garantier samling.|  
   
-##  <a name="HTTPResponse">HTTP-svar</a>  
+##  <a name="HTTPResponse"></a> HTTP-svar  
  Det här avsnittet beskrivs de `response` representation.  
   
 |Egenskap|Typ|Beskrivning|  
@@ -199,7 +199,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Begäran|[HTTP-begäran](#HTTPRequest)|En entitet som innehåller detaljer om förfrågan.|  
 |svar|matris med [HTTP-svar](#HTTPResponse)|Matris med åtgärden [HTTP-svar](#HTTPResponse) entiteter.|  
   
-##  <a name="Menu">Åtgärd-menyn</a>  
+##  <a name="Menu"></a> Åtgärd-menyn  
  Den `operation menu` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -209,7 +209,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Åtgärd|sträng|Menytyp.|  
 |MenuItems|Samling av [åtgärden menyalternativet](#MenuItem) entiteter.|Åtgärder för den aktuella API.|  
   
-##  <a name="MenuItem">Åtgärden menyobjekt</a>  
+##  <a name="MenuItem"></a> Åtgärden menyobjekt  
  Den `operation menu item` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -218,7 +218,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Namn|sträng|Beskrivning av åtgärden.|  
 |HttpMethod|sträng|Http-metoden för åtgärden.|  
   
-##  <a name="Paging">Växling</a>  
+##  <a name="Paging"></a> Växling  
  Den `paging` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -242,7 +242,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |typ|nummer|Om den här parametern är en sökvägsparameter (1) eller en querystring-parameter (2).|  
 |TypeName|sträng|Parametertypen.|  
   
-##  <a name="Product">Produkten</a>  
+##  <a name="Product"></a> Produkten  
  Den `product` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -264,12 +264,12 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |AuthenticationType|sträng|Providertyp. (Azure Active Directory, Facebook-inloggningar, Google-konto, Account, Twitter).|  
 |Beskrivning|sträng|Visar namnet på leverantören.|  
   
-##  <a name="Representation">Representation</a>  
+##  <a name="Representation"></a> Representation  
  Det här avsnittet beskrivs en `representation`.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|contentType|sträng|Anger en registrerad eller anpassat innehåll representation, till exempel `application/xml`.|  
+|ContentType|sträng|Anger en registrerad eller anpassat innehåll representation, till exempel `application/xml`.|  
 |exempel|sträng|Ett exempel på representationen.|  
   
 ##  <a name="Subscription"></a> Prenumerationen  

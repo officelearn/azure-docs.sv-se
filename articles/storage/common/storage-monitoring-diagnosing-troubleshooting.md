@@ -1,8 +1,8 @@
 ---
-title: "Övervaka, diagnostisera och felsöka Azure Storage | Microsoft Docs"
-description: "Använda funktioner som storage analytics loggning på klientsidan och andra verktyg från tredje part att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem."
+title: Övervaka, diagnostisera och felsöka Azure Storage | Microsoft Docs
+description: Använda funktioner som storage analytics loggning på klientsidan och andra verktyg från tredje part att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: fhryo-msft
 manager: jahogg
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -91,7 +91,7 @@ Den här guiden är avsedd att läsas i första hand av utvecklare av online-tj�
 * Att tillhandahålla nödvändiga processer och verktyg för att avgöra om ett problem eller problem i ett program som relaterar till Azure Storage.
 * Du kan få tillämplig vägledning för att lösa problem som rör Azure Storage.
 
-### <a name="how-this-guide-is-organized">Hur den här guiden är organiserat</a>
+### <a name="how-this-guide-is-organized"></a>Hur den här guiden är organiserat
 I avsnittet ”[övervakning lagringstjänsten]” beskriver hur du övervakar hälsotillstånd och prestanda för ditt Azure Storage-tjänster med hjälp av Azure Storage Analytics mätvärden (Storage-mätvärden).
 
 I avsnittet ”[diagnostisera problem med lagring]” beskriver hur du diagnostisera problem med Azure Storage Analytics loggning (Storage loggning). Det beskriver också hur du aktiverar loggning för klientsidan med funktionerna i en av klientbiblioteken exempelvis Storage-klientbiblioteket för .NET eller Azure SDK för Java.
@@ -102,7 +102,7 @@ I avsnittet ”[felsökningsanvisningar]” ger riktlinjer för felsökning för
 
 Den ”[tilläggen]” innehåller information om hur du använder andra verktyg som Wireshark och Netmon för analysera nätverk paketdata, Fiddler för att analysera HTTP/HTTPS-meddelanden och Microsoft Message Analyzer för korrelation mellan logga data.
 
-## <a name="monitoring-your-storage-service">Övervaka storage-tjänst</a>
+## <a name="monitoring-your-storage-service"></a>Övervaka storage-tjänst
 Om du är bekant med prestandaövervakning av Windows kan du se Storage-mätvärden som motsvarande Azure Storage för Windows-prestandaräknare. Storage-mätvärden innehåller en omfattande uppsättning mått (räknare i Prestandaövervakaren terminologi), till exempel tjänsttillgänglighet, totalt antal begäranden till tjänsten eller procent av lyckade begäranden till tjänsten. En fullständig lista över tillgängliga mått finns [Storage Analytics mätvärden tabellschemat](http://msdn.microsoft.com/library/azure/hh343264.aspx). Du kan ange om du vill att lagringstjänsten för att samla in och sammanställa mätvärden varje timme eller varje minut. Mer information om hur du aktivera mätvärden och övervaka dina lagringskonton finns [aktivera storage-mätvärden och visa mätvärdesdata](http://go.microsoft.com/fwlink/?LinkId=510865).
 
 Du kan välja vilka timvis mått som du vill visa i den [Azure-portalen](https://portal.azure.com) och konfigurera regler som administratörer meddelas via e-post när en timvis måttet överskrider ett visst tröskelvärde. Mer information finns i [ta emot aviseringar](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
@@ -124,7 +124,7 @@ Diagrammen i följande bild illustrerar hur medelvärdet som inträffar för var
 
 Resten av det här avsnittet beskriver vilka mått som du bör övervaka och varför.
 
-### <a name="monitoring-service-health">Övervakning av tjänstens hälsa</a>
+### <a name="monitoring-service-health"></a>Övervakning av tjänstens hälsa
 Du kan använda den [Azure-portalen](https://portal.azure.com) att visa hälsotillståndet för lagringstjänsten (och andra Azure-tjänster) i alla regioner som Azure runtom i världen. Övervakning kan påverkar du direkt se om problemet inte kan kontrollera Storage-tjänsten i den region som du använder för ditt program.
 
 Den [Azure-portalen](https://portal.azure.com) kan också ge meddelanden om incidenter som påverkar olika Azure-tjänster.
@@ -132,7 +132,7 @@ Obs: Den här informationen tidigare var tillgänglig, tillsammans med historisk
 
 När den [Azure-portalen](https://portal.azure.com) samlar in hälsouppgifter från inuti Azure datacenter (innanför ut övervakning), du kan också överväga införandet av en utanför metod för att generera syntetiska transaktioner som regelbundet använder Azure-baserad webbprogrammet från flera platser. Tjänster som erbjuds av [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) och Programinsikter för Visual Studio Team Services är exempel på den här metoden. Mer information om Application Insights för Visual Studio Team Services finns i tillägget ”[tillägg 5: övervaka med Programinsikter för Visual Studio Team Services](#appendix-5)”.
 
-### <a name="monitoring-capacity">Övervakning av kapacitet</a>
+### <a name="monitoring-capacity"></a>Övervakning av kapacitet
 Storage-mätvärden lagrar bara kapacitetsdata för blob-tjänsten eftersom blobbar vanligtvis hänsyn till största del av lagrade data (vid tidpunkten för skrivning, det går inte att använda Storage-mätvärden för att övervaka kapacitet för tabeller och köer). Du hittar dessa data i den **$MetricsCapacityBlob** tabell om du har aktiverat övervakning för Blob-tjänsten. Storage-mätvärden registrerar dessa data en gång per dag, och du kan använda värdet för den **RowKey** att fastställa om raden innehåller en entitet som är kopplat till användardata (värdet **data**) eller analysdata (värdet **analytics**). Varje lagrade entitet innehåller information om hur mycket lagringsutrymme som används (**kapacitet** mätt i byte) och det aktuella antalet behållare (**ContainerCount**) och blobbar (**ObjectCount**) används i lagringskontot. Mer information om kapacitetsdata som lagras i den **$MetricsCapacityBlob** tabell, se [Storage Analytics mätvärden tabellschemat](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
@@ -142,7 +142,7 @@ Storage-mätvärden lagrar bara kapacitetsdata för blob-tjänsten eftersom blob
 
 Om du behöver hjälp uppskatta storlek för olika lagringsobjekt,, till exempel blobbar, finns i bloggposten [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-### <a name="monitoring-availability">Övervaka tillgänglighet</a>
+### <a name="monitoring-availability"></a>Övervaka tillgänglighet
 Du bör övervaka tillgängligheten för storage-tjänster i ditt lagringskonto genom att övervaka värdet i den **tillgänglighet** kolumn i tabellerna timvis eller minut mått – **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. Den **tillgänglighet** kolumnen innehåller ett procentvärde som visar tillgängligheten för tjänsten eller API-åtgärd som representeras av raden (den **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en specifik åtgärd API).
 
 Alla värdet som är mindre än 100% anger att vissa lagringsbegäranden skickas. Du kan se varför de inte genom att undersöka andra kolumner i mätvärdesdata som visar antalet begäranden med olika feltyper som **ServerTimeoutError**. Du bör se **tillgänglighet** tillfälligt faller under 100% skäl, till exempel tillfälligt server-timeout när tjänsten flyttar partitioner till bättre belastningsutjämning begäran; logik för omprövning i ditt klientprogram ska hantera dessa återkommande villkor. Artikeln [Storage Analytics loggade åtgärder och statusmeddelanden](http://msdn.microsoft.com/library/azure/hh343260.aspx) visar transaktionstyper med Storage-mätvärden i dess **tillgänglighet** beräkning.
@@ -151,7 +151,7 @@ I den [Azure-portalen](https://portal.azure.com), kan du lägga till Varningsreg
 
 Den ”[felsökningsanvisningar]” i den här guiden beskriver några vanliga storage service problem som rör tillgängligheten.
 
-### <a name="monitoring-performance">Övervaka prestanda</a>
+### <a name="monitoring-performance"></a>Övervaka prestanda
 Du kan använda följande mått från varje timme och minut mått tabeller för att övervaka prestanda för storage-tjänster.
 
 * Värdena i den **AverageE2ELatency** och **AverageServerLatency** kolumner visar den genomsnittliga tiden lagringstjänsten eller API åtgärdstypen tar det att bearbeta begäranden. **AverageE2ELatency** är ett mått på svarstid för slutpunkt-till-slutpunkt som innehåller den tid det tar att läsa begäran och skicka svaret förutom den tid det tar att bearbeta begäran (därför innehåller Nätverksfördröjningen när begäran når lagring tjänst). **AverageServerLatency** är ett mått på bara bearbetningstiden och därför utesluter alla nätverks-svarstid som är relaterade till att kommunicera med klienten. Se avsnittet ”[mätvärdena visar AverageE2ELatency hög och låg AverageServerLatency]” senare i den här guiden för en beskrivning av varför det finnas betydande skillnader mellan dessa två värden.
@@ -164,7 +164,7 @@ I den [Azure-portalen](https://portal.azure.com), kan du lägga till Varningsreg
 
 Den ”[felsökningsanvisningar]” i den här guiden beskriver några vanliga storage service problem relaterade till prestanda.
 
-## <a name="diagnosing-storage-issues">Diagnostisera problem med lagring</a>
+## <a name="diagnosing-storage-issues"></a>Diagnostisera problem med lagring
 Det finns ett antal sätt att kan du blir medveten om problem och frågor i ditt program, inklusive:
 
 * Ett allvarligt fel inträffar som gör att programmet kraschar eller slutar fungera.
@@ -181,17 +181,17 @@ Normalt problem relaterade till Azure-lagringstjänster indelas i fyra kategorie
 
 I följande avsnitt beskrivs de steg som du bör följa att diagnostisera och felsöka problem i alla dessa fyra kategorier. I avsnittet ”[felsökningsanvisningar]” senare i den här guiden ger fler detaljer för några vanliga problem du kan stöta på.
 
-### <a name="service-health-issues">Hälsotillståndsproblem med tjänsten för</a>
+### <a name="service-health-issues"></a>Hälsotillståndsproblem med tjänsten för
 Tjänstens hälsotillstånd är vanligtvis inte kan kontrollera. Den [Azure-portalen](https://portal.azure.com) ger information om pågående problem med Azure-tjänster inklusive lagringstjänster. Om du har valt för Geo-Redundant lagring med läsbehörighet när du skapade ditt lagringskonto, kan sedan om dina data inte är tillgänglig på den primära platsen tillämpningsprogrammet tillfälligt växla till skrivskyddad kopia på den sekundära platsen. Om du vill läsa från sekundärt måste tillämpningsprogrammet kan växla mellan att använda de primära och sekundära lagringsplatser och kan arbeta i begränsat läge med skrivskyddade data. Azure Storage-klientbibliotek kan du definiera en återförsöksprincip som kan läsa från sekundär lagring om en läsning från primära lagring misslyckas. Programmet måste också vara medveten om att data på den sekundära platsen är överensstämmelse. Mer information finns i bloggposten [Azure lagringsalternativ för redundans och Geo-Redundant lagring med läsbehörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-### <a name="performance-issues">prestandaproblem</a>
+### <a name="performance-issues"></a>prestandaproblem
 Upplevelsen av programprestanda kan vara högst subjektiv, särskilt från ett användarperspektiv. Därför är det viktigt att ha tillgång till jämförelsemått, så att du tydligt ser när det blir problem med prestandan. Många faktorer kan påverka prestanda för ett Azure storage-tjänst ur klientens perspektiv för programmet. Dessa faktorer kan fungera i lagringstjänsten, klienten eller nätverksinfrastruktur. Det är därför viktigt att ha en strategi för att identifiera prestandaproblem ursprung.
 
 När du har identifierat sannolika var orsaken till prestandaproblemet från mätvärdena använda du sedan loggfilerna för att hitta detaljerad information för att diagnostisera och Felsök problemet.
 
 I avsnittet ”[felsökningsanvisningar]” senare i den här guiden innehåller mer information om några vanliga prestandarelaterade problem du kan stöta på.
 
-### <a name="diagnosing-errors">Diagnostisera fel</a>
+### <a name="diagnosing-errors"></a>Diagnostisera fel
 Användare av ditt program kan meddela dig om felen som rapporteras av klientprogrammet. Storage-mätvärden även information om antal fel för olika typer av storage-tjänster som **NetworkError**, **ClientTimeoutError**, eller **AuthorizationError**. Medan Storage-mätvärden spelar bara antal olika feltyper, hittar du mer information om enskilda begäranden genom att undersöka serversidan och klientsidan loggar för nätverket. Normalt ger HTTP-statuskoden som returnerades av lagringstjänsten en indikation om varför begäran misslyckades.
 
 > [!NOTE]
@@ -207,12 +207,12 @@ Följande resurser är användbara för att förstå lagringsrelaterade status o
 * [Felkoder för tabellen](http://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Felkoder för filen](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
-### <a name="storage-emulator-issues">Storage-emulatorn problem</a>
+### <a name="storage-emulator-issues"></a>Storage-emulatorn problem
 Azure SDK innehåller en storage-emulatorn som du kan köra på en arbetsstation för utveckling. Den här emulatorn simulerar de flesta beteendet för Azure storage-tjänster och är användbart under utveckling och testning, så att du kan köra program som använder Azure storage-tjänster utan att behöva en Azure-prenumeration och ett Azure storage-konto.
 
 Den ”[felsökningsanvisningar]” i den här guiden beskriver några vanliga problem som uppstod med storage-emulatorn.
 
-### <a name="storage-logging-tools">Loggningsverktyg för lagring</a>
+### <a name="storage-logging-tools"></a>Loggningsverktyg för lagring
 Storage-loggning innehåller serversidan loggningen av lagring i ditt Azure storage-konto. Mer information om hur du aktiverar loggning på serversidan och komma åt loggdata finns [aktivera loggning för lagring och åtkomst till loggdata](http://go.microsoft.com/fwlink/?LinkId=510867).
 
 Storage-klientbiblioteket för .NET kan du samla in loggdata för klientsidan som är kopplat till storage-åtgärder som utförs av ditt program. Mer information finns i artikeln om [klientloggning med .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkId=510868).
@@ -222,7 +222,7 @@ Storage-klientbiblioteket för .NET kan du samla in loggdata för klientsidan so
 > 
 > 
 
-### <a name="using-network-logging-tools">Med hjälp av verktyg för loggning</a>
+### <a name="using-network-logging-tools"></a>Med hjälp av verktyg för loggning
 Du kan avbilda trafik mellan klienten och servern för att tillhandahålla detaljerad information om de data som klienten och servern utbyter och underliggande nätverksförhållanden. Användbara verktyg för loggning är:
 
 * [Fiddler](http://www.telerik.com/fiddler) är en gratis webbplatser felsökning proxy som du kan undersöka sidhuvuden och nyttolasten för HTTP och HTTPS-begäran och svar-meddelanden. Mer information finns i [bilaga 1: använder Fiddler för att samla in HTTP och HTTPS-trafik](#appendix-1).
@@ -232,13 +232,13 @@ Du kan avbilda trafik mellan klienten och servern för att tillhandahålla detal
 
 Loggdata från lagring loggning och Storage-klientbiblioteket ska vara tillräcklig för att diagnostisera problem i många fall, men i vissa fall kan du behöva mer detaljerad information som kan tillhandahålla dessa verktyg för loggning. Med Fiddler visa HTTP och HTTPS-meddelanden kan du visa huvudet och nyttolasten data som skickas till och från storage-tjänster som gör att du kan granska hur ett klientprogram försöker lagringsåtgärder. Protokollet analyzers, till exempel Wireshark fungerar på paketnivå som gör att du kan visa data för TCP, vilket gör att du kan felsöka förlorade paket och problem med nätverksanslutningen. Message Analyzer kan köras på både HTTP och TCP-lager.
 
-## <a name="end-to-end-tracing">Slutpunkt till slutpunkt-spårning</a>
+## <a name="end-to-end-tracing"></a>Slutpunkt till slutpunkt-spårning
 Spårning för slutpunkt till slutpunkt med ett antal olika loggfiler är en användbar teknik för att undersöka potentiella problem. Du kan använda datum/tid-informationen från dina data mått som en indikation på var du vill börja söka i loggfiler för detaljerad information som hjälper dig att felsöka problemet.
 
-### <a name="correlating-log-data">Korrelerar loggdata</a>
+### <a name="correlating-log-data"></a>Korrelerar loggdata
 När du visar loggar från klientprogram spårar nätverk och lagring för serversidan loggning är det viktigt att kunna korrelera begäranden mellan de olika loggfilerna. Loggfilerna innehåller ett antal olika fält som är användbara Korrelations-ID: n. Klient-ID för begäran är mest användbara fältet som används för att korrelera poster i olika loggarna. Men ibland kan det vara praktiskt att använda server begäran-ID eller tidsstämplar. Följande avsnitt innehåller mer information om dessa alternativ.
 
-### <a name="client-request-id">ID för klientbegäran</a>
+### <a name="client-request-id"></a>ID för klientbegäran
 Storage-klientbiblioteket genererar automatiskt ett unikt ID för klientbegäran för varje begäran.
 
 * I loggen för klientsidan som skapar Storage-klientbiblioteket, klient-ID för begäran som visas i den **ID för klientbegäran** i varje loggpost som rör begäran.
@@ -250,7 +250,7 @@ Storage-klientbiblioteket genererar automatiskt ett unikt ID för klientbegäran
 > 
 > 
 
-### <a name="server-request-id">Server-ID för begäran</a>
+### <a name="server-request-id"></a>Server-ID för begäran
 Lagringstjänsten genererar automatiskt server begäran-ID: n.
 
 * Det begärt-ID visas i loggen lagring loggning serversidan den **huvud för begäran-ID** kolumn.
@@ -298,7 +298,7 @@ catch (StorageException storageException)
 }
 ```
 
-### <a name="timestamps">Tidsstämplar</a>
+### <a name="timestamps"></a>Tidsstämplar
 Du kan också använda tidsstämplar för att hitta relaterade loggposter, men var försiktig med en förskjutning av klockan mellan klienten och servern som kan finnas. Sök plus eller minus 15 minuter för att matcha serversidan poster baserat på tidsstämpeln på klienten. Kom ihåg att blobmetadata för blob som innehåller mått Anger tidsintervall för de mätvärden som lagras i blob. Den här tidsintervallet är användbart om du har många mått BLOB för samma minut eller timme.
 
 ## <a name="troubleshooting-guidance"></a>Riktlinjer för felsökning
@@ -429,7 +429,7 @@ Om den **PercentThrottlingError** måttet visar en ökning i procent av begäran
 
 En ökning av **PercentThrottlingError** ofta uppstår samtidigt som en ökning av antalet förfrågningar om lagring, eller när du först läsa testa ditt program. Detta kan också visa sig i klienten som ”503 servern upptagen” eller ”tidsgräns för 500 åtgärd” HTTP statusmeddelanden från lagringsåtgärder.
 
-#### <a name="transient-increase-in-PercentThrottlingError">Tillfällig ökning PercentThrottlingError</a>
+#### <a name="transient-increase-in-PercentThrottlingError"></a>Tillfällig ökning PercentThrottlingError
 Om du ser toppar i värdet för **PercentThrottlingError** som sammanfaller med perioder med hög aktivitet för program bör du implementera en exponentiell (inte linjär) inte strategi för nya försök i din klient. Försök inte minska omedelbar belastningen på partitionen och hjälpa ditt program om du vill jämna ut toppar i trafiken. Mer information om hur du implementerar försök principer med hjälp av Storage-klientbiblioteket finns [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
 
 > [!NOTE]
@@ -437,7 +437,7 @@ Om du ser toppar i värdet för **PercentThrottlingError** som sammanfaller med 
 > 
 > 
 
-#### <a name="permanent-increase-in-PercentThrottlingError">Permanent ökning PercentThrottlingError fel</a>
+#### <a name="permanent-increase-in-PercentThrottlingError"></a>Permanent ökning PercentThrottlingError fel
 Om du ser ett konsekvent högt värde för **PercentThrottlingError** efter en permanent ökning i din transaktionsvolymer eller när du utför din första last testar för ditt program, måste du utvärdera hur ditt program använder partitioner för lagring och om den närmar sig skalbarhetsmål för ett lagringskonto. Till exempel om du ser begränsning fel på en kö (som räknas som en enda partition), bör sedan du använda ytterligare köer kan sprida sig transaktioner över flera partitioner. Om du ser begränsning fel på en tabell, måste du bör du sprida dina transaktioner över flera partitioner med hjälp av ett brett spektrum av partitionsnyckelvärden med en annan partitioneringsschema. En vanlig orsak till det här problemet är prepend/lägga till ett mönstret där du väljer datumet som partitionsnyckel och sedan alla data på en viss dag skrivs till en partition: belastning detta kan resultera i en flaskhals för skrivning. Överväg att en annan partitionering design eller utvärdera om med blob storage kan vara en bättre lösning. Också kontrollera om begränsning sker till följd av toppar i trafiken och undersök sätt av Utjämning mönstret för förfrågningar.
 
 Om du distribuerar dina transaktioner över flera partitioner, måste du fortfarande vara medveten om gränserna skalbarhet för lagringskontot. Till exempel om du använde tio köer bearbetning högst 2 000 1KB meddelanden per sekund vara på övergripande högst 20 000 meddelanden per sekund för lagringskontot. Om du måste bearbeta fler än 20 000 enheter per sekund, bör du använda flera lagringskonton. Du bör också ha i åtanke att storleken på din begäran och entiteter har påverkas när lagringstjänsten begränsar klienterna: Om du har större begäranden och enheter kan du kanske att begränsas snabbare.
@@ -468,20 +468,20 @@ Din mätvärdena visar en ökning av **PercentNetworkError** för en storage-tj�
 
 Den vanligaste orsaken till felet är en klient kopplar från innan tidsgränsen upphör att gälla i lagringstjänsten. Undersök koden i din klient att förstå varför och när klienten kopplas från storage-tjänst. Du kan också använda Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten. Dessa verktyg beskrivs i den [tilläggen].
 
-### <a name="the-client-is-receiving-403-messages">Klienten tar emot HTTP 403 (förbjuden) meddelanden</a>
+### <a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403 (förbjuden) meddelanden
 Om klientprogrammet har egna HTTP 403 (förbjuden) fel är en trolig orsak att klienten använder en utgången delade signatur åtkomst (SAS) när den skickar en begäran om lagring (även om andra möjliga orsaker kan vara klockan skeva ogiltig nycklar och tom rubriker). Om en utgången SAS-nyckel är orsaken, visas inte några poster i lagring loggning loggdata för serversidan. I följande tabell visas ett exempel på klientsidan loggen genereras av Storage-klientbiblioteket som illustrerar det här problemet inträffar:
 
 | Källa | Utförlighet | Utförlighet | ID för klientbegäran | Åtgärden text |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Starta åtgärden med platsen primära per plats läge PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Starta synkron begäran om att https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Väntar på svar. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab -… |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (403) förbjuden. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Svar mottogs. Statuskod = 403 begäran-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = ETag =. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab -… |Ett undantag uppstod under åtgärden: fjärrservern returnerade ett fel: (403) nekad... |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Kontrollerar om åtgärden bör provas igen. Antal försök = 0, HTTP-statuskod = 403 undantag = fjärrservern returnerade ett fel: (403) nekad... |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Nästa plats har angetts till primära, baserat på plats. |
-| Microsoft.WindowsAzure.Storage |Fel |1 |85d077ab -… |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) förbjuden. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Starta åtgärden med platsen primära per plats läge PrimaryOnly. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Starta synkron begäran om att https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14 &amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
+| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (403) förbjuden. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Svar mottogs. Statuskod = 403 begäran-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = ETag =. |
+| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: fjärrservern returnerade ett fel: (403) nekad... |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden bör provas igen. Antal försök = 0, HTTP-statuskod = 403 undantag = fjärrservern returnerade ett fel: (403) nekad... |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Nästa plats har angetts till primära, baserat på plats. |
+| Microsoft.WindowsAzure.Storage |Fel |1 |85d077ab-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) förbjuden. |
 
 Du bör undersöka varför SAS-token upphör att gälla innan klienten skickar token till servern i det här scenariot:
 
@@ -492,7 +492,7 @@ Du bör undersöka varför SAS-token upphör att gälla innan klienten skickar t
 
 Om du använder Storage-klientbiblioteket för att generera SAS-token, är det enkelt att skapa en giltig token. Men om du använder Storage REST-API och hur du skapar SAS-token manuellt, se [delegera åtkomst med en signatur för delad åtkomst](http://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-### <a name="the-client-is-receiving-404-messages">Klienten tar emot HTTP 404 (inget hittas) meddelanden</a>
+### <a name="the-client-is-receiving-404-messages"></a>Klienten tar emot HTTP 404 (inget hittas) meddelanden
 Om klientprogrammet får felmeddelandet HTTP 404 (inget hittas) från servern, innebär det att objektet som klienten försökte använda (till exempel en entitet, tabell, blob, behållare eller kön) inte finns i lagringstjänsten. Det finns ett antal möjliga orsaker till detta, exempelvis:
 
 * [Klienten eller en annan process tidigare har tagit bort objektet]
@@ -500,7 +500,7 @@ Om klientprogrammet får felmeddelandet HTTP 404 (inget hittas) från servern, i
 * [Klientens JavaScript-kod har inte behörighet att komma åt objektet]
 * [Nätverksfel]
 
-#### <a name="client-previously-deleted-the-object">Klienten eller en annan process tidigare har tagit bort objektet</a>
+#### <a name="client-previously-deleted-the-object"></a>Klienten eller en annan process tidigare har tagit bort objektet
 I scenarier där klienten försöker läsa, uppdatera eller ta bort data i en storage-tjänst är det oftast lättare att identifiera i loggarna serversidan en tidigare åtgärd som tagit bort det aktuella objektet från storage-tjänst. Ofta visar loggdata att en annan användare eller process bort objektet. I loggen lagring loggning serversidan visar åtgärden typ och begärt Objektnyckel kolumner när en klient bort ett objekt.
 
 I ett scenario där en klient försöker infoga ett objekt, kanske den inte visar sig omedelbart anledningen till detta resulterar i ett HTTP 404 (inget hittas) svar med tanke på att klienten är att skapa ett nytt objekt. Men måste om klienten skapar en blob som den ska kunna hitta blob-behållaren om klienten skapar ett meddelande som måste kunna hitta en kö, och om klienten är att lägga till en rad den kunna hitta tabellen.
@@ -519,33 +519,33 @@ Loggposter:
 
 | ID för förfrågan | Åtgärden Text |
 | --- | --- |
-| 07b26a5d-... |Starta en synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starta synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Väntar på svar. |
 | 07b26a5d-... |Svar mottogs. Statuskod = 200, ID för begäran = eeead849... Content-MD5 = ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Svarshuvuden har bearbetats, fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Hämtar brödtext för svar. |
 | 07b26a5d-... |Åtgärden har slutförts. |
-| 07b26a5d-... |Starta en synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starta synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Jun 2014 12:10:33 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Väntar på svar. |
 | 07b26a5d-... |Svar mottogs. Statuskod = 202, ID för begäran = 6ab2a4cf-..., Content-MD5 = ETag =. |
 | 07b26a5d-... |Svarshuvuden har bearbetats, fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Hämtar brödtext för svar. |
 | 07b26a5d-... |Åtgärden har slutförts. |
-| e2d06d78-... |Starta en asynkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
-| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Starta asynkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |StringToSign = HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 Jun 2014 12:10:33 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Väntar på svar. |
-| de8b1c3c-... |Starta en synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
-| de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Starta synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |StringToSign = PUT... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-Type:BlockBlob.x-MS-Client-Request-ID:de8b1c3c-...x-MS-Date:TUE 03 Jun 2014 12:10:33 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Förbereder att skriva data för begäran. |
 | e2d06d78-... |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (404) gick inte att hitta... |
 | e2d06d78-... |Svar mottogs. Statuskod = 404 begäran-ID = 353ae3bc-..., Content-MD5 = ETag =. |
 | e2d06d78-... |Svarshuvuden har bearbetats, fortsätter med resten av åtgärden. |
 | e2d06d78-... |Hämtar brödtext för svar. |
 | e2d06d78-... |Åtgärden har slutförts. |
-| e2d06d78-... |Starta en asynkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Starta asynkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |StringToSign = PUT... 0...x-MS-Client-Request-ID:e2d06d78-...x-MS-Date:TUE 03 Jun 2014 12:10:33 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Väntar på svar. |
 | de8b1c3c-... |Begäran när data skrevs. |
 | de8b1c3c-... |Väntar på svar. |
@@ -575,7 +575,7 @@ I följande tabell visas en serversidan loggmeddelande exempel från lagring log
 | Typ av tjänst       | Blob                         |
 | Fråge-URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
-| Huvudet i begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| Huvudet i begäran-ID  | a1f348d5-8032-4912-93EF-b393e5252a3b |
 | ID för klientbegäran  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
@@ -632,10 +632,10 @@ I följande tabell visas ett utdrag ur serversidan loggen för två Klientåtgä
 
 | Tidsstämpel | Åtgärd | Resultat | Behållarens namn | ID för klientbegäran |
 | --- | --- | --- | --- | --- |
-| 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
-| 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
-| 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
-| 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
+| 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
+| 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
+| 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-... |
+| 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-... |
 
 Koden i klientprogrammet tas bort och återskapar sedan omedelbart en blob-behållare med samma namn: den **CreateIfNotExists** metod (klienten begär ID bc881924-...) så småningom misslyckas med felmeddelandet HTTP 409 (konflikt). När en klient tar bort blob-behållare, tabeller eller köer som det finns en kort period före namnet blir tillgänglig igen.
 
@@ -662,19 +662,19 @@ Du vanligtvis använda lagringsemulatorn under utveckling och test för att undv
 * [Fel ”värdet för en HTTP-huvuden är inte i rätt format” när du använder lagringsemulatorn]
 * [Kör lagringsemulatorn kräver administratörsbehörighet]
 
-#### <a name="feature-X-is-not-working">Funktionen ”X” fungerar inte i storage-emulatorn</a>
+#### <a name="feature-X-is-not-working"></a>Funktionen ”X” fungerar inte i storage-emulatorn
 Storage-emulatorn stöder inte alla funktioner i Azure storage-tjänster som tjänsten. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md).
 
 Använd Azure storage-tjänst i molnet för de funktioner som inte har stöd för storage-emulatorn.
 
-#### <a name="error-HTTP-header-not-correct-format">Fel ”värdet för en HTTP-huvuden är inte i rätt format” när du använder lagringsemulatorn</a>
+#### <a name="error-HTTP-header-not-correct-format"></a>Fel ”värdet för en HTTP-huvuden är inte i rätt format” när du använder lagringsemulatorn
 Du testar ditt program som använder Storage-klientbiblioteket mot lokal lagring emulatorn och metoden anrop som **CreateIfNotExists** misslyckas med felmeddelandet ”värdet för en HTTP-huvuden inte är i rätt format ”. Detta anger att versionen av storage-emulatorn som du använder inte stöder versionen av storage-klientbiblioteket som du använder. Storage-klientbiblioteket lägger till huvudet **x-ms-version** alla begäranden som gör det. Om storage-emulatorn inte känner igen värdet i den **x-ms-version** sidhuvud, avvisar begäran.
 
 Du kan använda lagring Biblioteksklient loggarna för att visa värdet för den **x-ms-versionshuvud** som skickas. Du kan också se värdet för den **x-ms-versionshuvud** om du använder Fiddler för att spåra begäranden från klientprogrammet.
 
 Detta inträffar vanligtvis om du installerar och använder den senaste versionen av Storage-klientbiblioteket utan att uppdatera storage-emulatorn. Du bör installera den senaste versionen av lagringsemulatorn eller använda molnlagring i stället för emulatorn för utveckling och testning.
 
-#### <a name="storage-emulator-requires-administrative-privileges">Kör lagringsemulatorn kräver administratörsbehörighet</a>
+#### <a name="storage-emulator-requires-administrative-privileges"></a>Kör lagringsemulatorn kräver administratörsbehörighet
 Du tillfrågas om autentiseringsuppgifter när du kör storage-emulatorn. Det här inträffar bara när du initierar storage-emulatorn för första gången. När du har initierat storage-emulatorn, behöver inte administratörsbehörighet för att köra det igen.
 
 Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md). Du kan också initiera storage-emulatorn i Visual Studio, vilket även kräver administratörsbehörighet.

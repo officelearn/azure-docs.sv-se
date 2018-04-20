@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps-SDK för Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -334,10 +334,10 @@ Vi rekommenderar att du lägger till azureMobile.js .gitignore-fil (eller andra 
 ### <a name="howto-appsettings"></a>Konfigurera appinställningar för din mobila app
 De flesta inställningar i filen azureMobile.js har en motsvarande appinställning i den [Azure-portalen]. Använd listan nedan för att konfigurera din app i **appinställningar**:
 
-| Appinställningen | azureMobile.js setting | Beskrivning | Giltiga värden |
+| Appinställningen | azureMobile.js inställning | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |namn |Namnet på appen |sträng |
-| **MS_MobileLoggingLevel** |logging.level |Lägsta loggningsnivån för meddelanden att logga |fel, varning, information, verbose,-debug, Löjliga |
+| **MS_MobileLoggingLevel** |Logging.level |Lägsta loggningsnivån för meddelanden att logga |fel, varning, information, verbose,-debug, Löjliga |
 | **MS_DebugMode** |felsök |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
 | **MS_TableSchema** |data.schema |Schemat för standardnamnet för SQL-tabeller |String (standard: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
@@ -822,7 +822,7 @@ Node.js-program har åtkomst till en mängd olika verktyg diagnostiska loggen. M
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Arbeta med enkelt tabeller i Azure-portalen
 Du kan använda enkel tabeller för att skapa och arbeta med tabeller direkt i portalen. Du kan ladda upp datauppsättningen enkelt tabeller i CSV-format. Observera att du inte använda egenskapsnamn (i din CSV-dataset) som står i konflikt med systemet egenskapsnamnen för Mobile Apps-serverdel. System-egenskapsnamnen är:
-* createdAt
+* CreatedAt
 * updatedAt
 * borttaget
 * version

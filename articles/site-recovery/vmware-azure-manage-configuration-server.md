@@ -1,17 +1,17 @@
 ---
-title: "Hantera konfigurationsservern för VMware katastrofåterställning med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du hanterar en befintlig configuration server för VMware katastrofåterställning till Azure med Azure Site Recovery."
+title: Hantera konfigurationsservern för VMware katastrofåterställning med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du hanterar en befintlig configuration server för VMware katastrofåterställning till Azure med Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för virtuella VMware-datorer
 
@@ -65,7 +65,7 @@ Du kan registrera om konfigurationsservern i samma valvet om du behöver. Om du 
   1. Öppna i valvet, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
   2. I **servrar**väljer **Download registreringsnyckel** att hämta valvautentiseringsfilen.
   3. Logga in på serverdatorn konfiguration.
-  4. In **%ProgramData%\ASR\home\svagent\bin**, open **cspsconfigtool.exe**.
+  4. I **%ProgramData%\ASR\home\svagent\bin**öppnar **cspsconfigtool.exe**.
   5. På den **valvet registrering** väljer **Bläddra** och leta upp valvautentiseringsfilen som du hämtat.
   6. Ange proxy-serverinformation om det behövs. Välj sedan **Registrera**.
   7. Öppna ett PowerShell-Kommandotolken som administratör och kör följande kommando:
@@ -112,7 +112,7 @@ Du kan eventuellt ta bort konfigurationsservern med hjälp av PowerShell.
 1. [Installera](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen.
 2. Logga in på ditt Azure-konto med hjälp av det här kommandot:
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Välj prenumerationen för valvet.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

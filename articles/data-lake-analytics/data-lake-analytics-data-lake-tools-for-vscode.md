@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Lake-verktyg: Använd Azure Data Lake-verktyg för Visual Studio Code | Microsoft Docs"
-description: "Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio-koden för att skapa, testa och köra U-SQL-skript. "
+title: 'Azure Data Lake-verktyg: Använd Azure Data Lake-verktyg för Visual Studio Code | Microsoft Docs'
+description: 'Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio-koden för att skapa, testa och köra U-SQL-skript. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake-verktyg för Visual Studio Code
 
@@ -38,13 +38,13 @@ För MacOS och Linux:
 - [.NET core SDK 2.0](https://www.microsoft.com/net/download/core). 
 - [Monoljud 5.2.x](http://www.mono-project.com/download/).
 
-## <a name="install-data-lake-tools"></a>Installera Data Lake-verktyg
+## <a name="install-data-lake-tools"></a>Installera Data Lake Tools
 
 När du har installerat förutsättningarna kan du installera Data Lake-verktyg för VS-kod.
 
 **Så här installerar du Data Lake-verktyg**
 
-1. Öppna Visual Studio-koden.
+1. Öppna Visual Studio Code.
 2. Klicka på **tillägg** i den vänstra rutan. Ange **Azure Data Lake** i sökrutan.
 3. Klicka på **installera** bredvid **Azure Data Lake-verktyg**. Efter några sekunder den **installera** knappen ändras till **ladda**.
 4. Klicka på **ladda** att aktivera den **Azure Data Lake-verktyg** tillägg.
@@ -354,15 +354,15 @@ Statusen visas längst ned i statusfältet när du är klar överföra och ladda
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>VSCode Explorer integrering med Azure Data Lake
 
-**Azure Integration** 
+**Azure-integrering** 
 
-- Innan inloggningen till Azure kan du alltid Expandera **DATALAKE EXPLORER**, klicka på **logga in på Azur** att logga in på Azure. Efter inloggningen, visas alla prenumerationer i ditt Azure-konto visas i den vänstra panelen i den **DATALAKE EXPLORER**. 
+- Innan inloggningen till Azure kan du alltid Expandera **AZURE DATALAKE**, klicka på **logga in på Azure** att logga in på Azure. Efter inloggningen, visas alla prenumerationer i ditt Azure-konto visas i den vänstra panelen i den **AZURE DATALAKE**. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA metadatanavigering** 
+**ADLA metadatanavigering**
 
 - Expandera din Azure-prenumeration kan du navigera U-SQL-databasen, visa den **scheman**, **autentiseringsuppgifter**, **sammansättningar**, **tabell**, **Index**och så vidare under noden U-SQL-databaser.
 
@@ -382,11 +382,31 @@ Statusen visas längst ned i statusfältet när du är klar överföra och ladda
 
 **ADLS-integrering** 
 
- - Gå till **Lagringskonto**, kan du **Preview**, **hämta**, **ta bort**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg** av snabbmenyn på noden fil. Du kan **uppdatera**, **överför**, **överför mappen**, **ta bort** genom att högerklicka på snabbmenyn på noden mapp.
+Navigera till **Data Lake Store**
+
+ - På den mapp i noden kan du **uppdatera**, **ta bort**, **överför**, **överför mappen**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg** i snabbmenyn.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - På noden fil kan du **hämta**, **Preview**, **ta bort**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg**i snabbmenyn. 
+
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB-integrering**
+
+Navigera till **Blob Storage**
+
+- På noden blob-behållare kan du **uppdatera**, **ta bort Blob-behållaren**, **överför Blob** i snabbmenyn.
+
+    ![BLOB Storage blob-behållarnod](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- På den mapp i noden kan du **uppdatera**, **överför Blob** i snabbmenyn.
+
+    ![BLOB Storage mappen nod](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- På noden fil kan du **förhandsgranskning och redigera**, **hämta**, **ta bort**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg** i snabbmenyn.
+
+    ![Noden för Blob Storage-fil](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Öppna Lagringsutforskaren för ADL i portalen
 1. Välj Ctrl + Skift + P för att öppna paletten kommando.

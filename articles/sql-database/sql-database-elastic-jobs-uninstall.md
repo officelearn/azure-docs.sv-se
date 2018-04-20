@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.openlocfilehash: f5d0579cbb5f787ce08e2a2cea58d3c39a967970
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Avinstallera jobb komponenter för elastisk databas
 **Den elastiska databasen jobb** komponenter kan avinstalleras med Azure-portalen eller PowerShell.
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/06/2018
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > CD-verktyg
 2. Köra.\UninstallElasticDatabaseJobs.ps1 PowerShell-skript.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools > avblockera filen.\UninstallElasticDatabaseJobs.ps1 PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools >.\UninstallElasticDatabaseJobs.ps1
 
 Eller helt enkelt, kör du följande skript, förutsatt att standard värden används på installation av komponenter:
 

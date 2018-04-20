@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Tableau Server | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tableau Server."
+title: 'Självstudier: Azure Active Directory-integrering med Tableau Server | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tableau Server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Självstudier: Azure Active Directory-integrering med Tableau Server
 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
-    | användarnamn | *user.mailnickname* |
+    | användarnamn | *User.mailNickname* |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 
@@ -158,7 +158,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
   
    b. Markera kryssrutan för **Använd SAML för enkel inloggning**.
    
-   c. Tableau Server Retur-URL – URL: en som Tableau Server-användare kommer åt, till exempel http://tableau_server. Du bör inte använda http://localhost. Med en URL som avslutande snedstreck (till exempel http://tableau_server/) stöds inte. Kopiera **Tableau Server Retur-URL** och klistra in den till Azure AD **logga URL** TextBox-kontroll i **URL: er och Tableau serverdomänen** avsnitt.
+   c. Tableau Server Retur-URL – URL: en som Tableau Server-användare kommer åt, t.ex http://tableau_server. Med hjälp av http://localhost rekommenderas inte. Med en URL som avslutande snedstreck (till exempel http://tableau_server/) stöds inte. Kopiera **Tableau Server Retur-URL** och klistra in den till Azure AD **logga URL** TextBox-kontroll i **URL: er och Tableau serverdomänen** avsnitt.
    
    d. SAML enhets-ID, enhets-ID som unikt identifierar din Tableau serverinstallation till IdP. Du kan ange Tableau Server URL: en igen här, om du vill, men behöver inte vara Tableau-Serveradress. Kopiera **SAML enhets-ID** och klistra in den till Azure AD **identifierare** TextBox-kontroll i **URL: er och Tableau serverdomänen** avsnitt.
      

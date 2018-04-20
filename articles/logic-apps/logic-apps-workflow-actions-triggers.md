@@ -1,11 +1,11 @@
 ---
-title: "Arbetsflödet utlösare och åtgärder - Azure Logic Apps | Microsoft Docs"
-description: "Lär dig mer om utlösare och åtgärder för att skapa automatiska arbetsflöden och processer med logic apps"
+title: Arbetsflödet utlösare och åtgärder - Azure Logic Apps | Microsoft Docs
+description: Lär dig mer om utlösare och åtgärder för att skapa automatiska arbetsflöden och processer med logic apps
 services: logic-apps
 author: divyaswarnkar
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
 ms.workload: integration
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Utlösare och åtgärder för logik app arbetsflöden
 
@@ -181,7 +181,7 @@ Den här utlösaren har en valfri egenskap som heter `schema`:
   
 | Elementnamn | Krävs | Typ | Beskrivning |
 | ------------ | -------- | ---- | ----------- |
-| schema | Nej | Objekt | En JSON-schema som kontrollerar den inkommande begäranden. Användbart för att hjälpa efterföljande arbetsflödessteg veta vilka egenskaper som ska referera till. | 
+| Schemat | Nej | Objekt | En JSON-schema som kontrollerar den inkommande begäranden. Användbart för att hjälpa efterföljande arbetsflödessteg veta vilka egenskaper som ska referera till. | 
 ||||| 
 
 Om du vill anropa den här utlösaren som en slutpunkt måste du anropa den `listCallbackUrl` API. Se [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows).
@@ -902,7 +902,7 @@ Du kan konvertera en matris till en CSV- eller HTML-tabell.
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | från | Ja | Matris | Källmatrisen. Om den `from` egenskapsvärdet är en tom matris, utdata är en tom tabell. | 
-| format | Ja | Sträng | Tabellformatet som du vill ”CSV” eller ”HTML” | 
+| Format | Ja | Sträng | Tabellformatet som du vill ”CSV” eller ”HTML” | 
 | Kolumner | Nej | Matris | De tabellkolumner som du vill använda. Används för att åsidosätta standard tabellform. | 
 | kolumnrubrik | Nej | Sträng | Kolumnrubriken | 
 | värde i kolumnen | Ja | Sträng | Värdet i kolumnen | 
@@ -1077,7 +1077,7 @@ Lär dig mer om [villkorssatser i logikappar](../logic-apps/logic-apps-control-f
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | åtgärder | Ja | Objekt | De inre åtgärderna för att köras när `expression` utvärderas till `true` | 
-| expression | Ja | Sträng | Uttrycket som ska utvärderas |
+| uttryck | Ja | Sträng | Uttrycket som ska utvärderas |
 | annan | Nej | Objekt | De inre åtgärderna för att köras när `expression` utvärderas till `false` |
 ||||| 
 
@@ -1157,7 +1157,7 @@ Den här åtgärden som är en switch-instruktionen, utför olika åtgärder bas
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| expression | Ja | Sträng | Objektet, uttryck eller token för att utvärdera | 
+| uttryck | Ja | Sträng | Objektet, uttryck eller token för att utvärdera | 
 | fall | Ja | Objekt | Innehåller uppsättningar med inre åtgärder som körs baserat på uttryckresultatet. | 
 | Ärende | Ja | Sträng | Värdet som stämmer överens med resultatet | 
 | åtgärder | Ja | Objekt | De inre åtgärder som körs för fall matchar uttryckresultatet | 
@@ -1280,9 +1280,9 @@ Exempel:
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | åtgärder | Ja | Objekt | Inre åtgärder för att köra i den här slingan | 
-| expression | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
+| uttryck | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
 | Gränsen | Ja | Objekt | Gränser för loopen. Måste ange minst en gräns. | 
-|  antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
+| antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
 | timeout | Nej | Sträng | Timeout-gränsen i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger hur länge slingan ska köras |
 ||||| 
 

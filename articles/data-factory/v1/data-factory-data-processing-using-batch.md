@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processen stora datauppsättningar genom att använda Data Factory och Batch
 > [!NOTE]
@@ -171,7 +171,7 @@ Metoden har några viktiga komponenter som behövs för att förstå:
   * **linkedServices**. Den här parametern är en enumerable lista över länkade tjänster som länkar i/o-datakällor (till exempel blobblagring) till datafabriken. I det här exemplet finns bara en länkad tjänst av typen Azure Storage som används för både inkommande och utgående.
   * **datauppsättningar**. Den här parametern är en enumerable lista över datauppsättningar. Du kan använda den här parametern för att få platser och scheman som definierats av inkommande och utgående datauppsättningar.
   * **aktiviteten**. Den här parametern representerar den aktuella beräknings-entiteten. I det här fallet är det en Batch-tjänsten.
-  * **logger**. Du kan använda loggaren skriva debug kommentarer som yta som ”användare” loggen för pipeline.
+  * **loggaren**. Du kan använda loggaren skriva debug kommentarer som yta som ”användare” loggen för pipeline.
 * Metoden returnerar en ordlista som kan användas för att kedja anpassade aktiviteter tillsammans i framtiden. Den här funktionen har inte implementerats, returnera bara ett tomt Ordbok från metoden.
 
 #### <a name="procedure-create-the-custom-activity"></a>Metod: Skapa den anpassade aktiviteten
@@ -666,21 +666,21 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
 
     | **Sektorn** | **Starttid**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**:00:00 |
-    | 2         | 2015-11-16T**01**:00:00 |
-    | 3         | 2015-11-16T**02**:00:00 |
-    | 4         | 2015-11-16T**03**:00:00 |
-    | 5         | 2015-11-16T**04**:00:00 |
+    | 1         | 2015-11-16T**00**: 00:00 |
+    | 2         | 2015-11-16T**01**: 00:00 |
+    | 3         | 2015-11-16T**02**: 00:00 |
+    | 4         | 2015-11-16T**03**: 00:00 |
+    | 5         | 2015-11-16T**04**: 00:00 |
 
     Den **folderPath** beräknas med hjälp av år, månad, dag och timme tillhör starttiden sektorn (**SliceStart**). Här är hur en inkommande mapp mappas till ett segment.
 
     | **Sektorn** | **Starttid**          | **Inkommande mapp**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04** |
 
 3. Välj **distribuera** i verktygsfältet för att skapa och distribuera den **InputDataset** tabell.
 
@@ -723,11 +723,11 @@ I det här steget skapar du en annan dataset av typen AzureBlob som representera
 
     | **Sektorn** | **Starttid**          | **Utdatafil**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16 -**03. txt** |
+    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04.txt** |
 
     Kom ihåg att alla filer i en inkommande mapp (till exempel 2015-11-16-00) är en del av ett segment med starttiden 2015-11-16-00. När den här sektorn behandlas den anpassade aktiviteten söker igenom varje fil och ger en rad i filen med antalet förekomster av sökordet ”Microsoft”. Om det finns tre filer i mappen 2015-11-16-00, finns det tre rader i den utgående filen 2015-11-16-00.txt.
 

@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Så här väljer du algoritmer för Microsoft Azure Machine Learning
 Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror”. Det beror på storleken, kvaliteten och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen översattes till instruktioner för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna datavetare går inte att avgöra vilken algoritm utför bäst innan du försöker dem.
@@ -119,16 +119,16 @@ Vissa algoritmer för maskininlärning gör viss antaganden om strukturen för d
 | [beslut skog](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [beslut Djungel ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Låg minneskrav |
 | [neurala nätverket](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för vald metod två-klass |
+| [ett-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för vald metod två-klass |
 | **Regression** | | | | | |
-| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [linjär](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Linjär Bayesian](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [beslut skog](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [tvåklassförhöjda beslutsträdet](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Stora minneskrav |
 | [snabb skog quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributioner i stället för punkt förutsägelser |
 | [neurala nätverket](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tekniskt sett log-linjär. För att förutsäga antalet |
-| [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rang ordning |
+| [ordningstalet](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rang ordning |
 | **Avvikelseidentifiering** | | | | | |
 | [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Särskilt bra för stora funktionsuppsättningar |
 | [PCA-baserad avvikelseidentifiering](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |

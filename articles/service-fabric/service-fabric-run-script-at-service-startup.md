@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
 ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra ett skript för start av tjänsten som ett lokalt konto för användaren eller systemet
+# <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
 Innan en körbara Service Fabric-tjänsten startar kan det vara nödvändigt att köra vissa konfiguration eller installationen arbete.  Till exempel konfigurera miljövariabler. Du kan ange ett skript köras innan tjänstens körbara fil som startas i service manifest för tjänsten. Konfigurera en RunAs-princip för den installationsprogrammet startpunkten som du kan ändra vilket konto körs installationsprogrammets under.  En startpunkt för separata inställningar kan du köra hög privilged konfigurationen för en kort tidsperiod så tjänstvärden körbara inte behöver köra med högre behörighet under längre tid.
 
 Startpunkten för installationsprogrammet (**SetupEntryPoint** i den [tjänstmanifestet](service-fabric-application-and-service-manifests.md)) är en privilegierade startpunkt som standard körs med samma autentiseringsuppgifter som Service Fabric (vanligtvis den  *NetworkService* konto) innan andra startpunkt. Den körbara filen som anges av **EntryPoint** är vanligtvis tjänstvärden tidskrävande. Den **EntryPoint** körbar fil körs efter den **SetupEntryPoint** körbar fil har avslutas. Resulterande processen övervakas och startas om och börjar igen med **SetupEntryPoint** om den aldrig avslutar eller kraschar. 

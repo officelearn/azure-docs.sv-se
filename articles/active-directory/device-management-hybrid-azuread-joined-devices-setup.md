@@ -1,11 +1,11 @@
 ---
 title: Hur du konfigurerar hybrid Azure Active Directory-anslutna enheter | Microsoft Docs
-description: "Lär dig hur du konfigurerar hybrid Azure Active Directory anslutna enheter."
+description: Lär dig hur du konfigurerar hybrid Azure Active Directory anslutna enheter.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -526,7 +526,7 @@ Du måste lägga till transformeringen regeluppsättningarna som överför via a
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Ange PowerShell-kommandot nedan på federationsservern när du ersätter  **\<RPObjectName\>**  med förlitande part objektnamnet för din Azure AD förlitande part förtroende-objekt. Det här objektet vanligen namnet **Identitetsplattformen för Microsoft Office 365**.
+8. Ange PowerShell-kommandot nedan på federationsservern när du ersätter **\<RPObjectName\>** med förlitande part objektnamnet för din Azure AD förlitande part förtroende-objekt. Det här objektet vanligen namnet **Identitetsplattformen för Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 

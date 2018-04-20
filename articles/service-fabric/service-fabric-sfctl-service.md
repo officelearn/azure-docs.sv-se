@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Skapa, ta bort och hantera service, tjänsttyp och servicepaket.
@@ -28,23 +28,23 @@ Skapa, ta bort och hantera service, tjänsttyp och servicepaket.
 |Kommando|Beskrivning|
 | --- | --- |
 |    appens namn-       | Hämtar namnet på Service Fabric-program för en tjänst.|
-|    code-package-list | Hämtar listan över kod paket distribueras på ett Service Fabric-nod.|
+|    koden paketlistan | Hämtar listan över kod paket distribueras på ett Service Fabric-nod.|
 |    skapa         | Skapar den angivna Service Fabric-tjänsten från beskrivningen.|
 |    radera         | Tar bort en befintlig Service Fabric-tjänst.|
 |    distribuerat typ  | Hämtar information om en angiven tjänsttyp av program som distribuerats på en nod i ett Service Fabric-kluster.|
 |    distribuerat-typ-lista| Hämtar en lista som innehåller information om tjänsttyper från program som har distribuerats på en nod i ett Service Fabric-kluster.|
 |    description    | Hämtar en beskrivning av en befintlig Service Fabric-tjänst.|
-|get-container-logs| Hämtar behållaren loggar för behållaren distribueras på ett Service Fabric-nod.|
+|Get-behållaren-loggar| Hämtar behållaren loggar för behållaren distribueras på ett Service Fabric-nod.|
 |    hälsa         | Hämtar hälsotillståndet för den angivna Service Fabric-tjänsten.|
-|    info           | Hämtar information om specifik tjänst som hör till ett Service Fabric-program.|
+|    Info           | Hämtar information om specifik tjänst som hör till ett Service Fabric-program.|
 |    lista           | Hämtar information om alla tjänster som hör till det program som anges av det program-ID.|
 |    Manifestet       | Hämtar manifestet som beskriver en tjänsttyp.|
-|    package-deploy | Hämtar paket som är associerade med angivna tjänstmanifestet till det bild-cacheminnet på angivna noden.|
-|    package-health | Hämtar information om hälsa i ett abonnemang för ett visst program som distribueras för Service Fabric-noden och program.|
+|    distribuera paketet | Hämtar paket som är associerade med angivna tjänstmanifestet till det bild-cacheminnet på angivna noden.|
+|    paketet hälsa | Hämtar information om hälsa i ett abonnemang för ett visst program som distribueras för Service Fabric-noden och program.|
 |    package-info   | Hämtar listan över servicepaket distribueras på ett Service Fabric-noden som matchar exakt det angivna namnet.|
-|    package-list   | Hämtar listan över servicepaket som har distribuerats på en Service Fabric-nod.|
+|    paket-lista   | Hämtar listan över servicepaket som har distribuerats på en Service Fabric-nod.|
 |    Återställ        | Anger att den ska försöka återställa den angivna tjänsten är för närvarande fastnat i kvorumförlust till Service Fabric-klustret.|
-|    report-health  | Skickar en hälsorapport för Service Fabric-tjänsten.|
+|    rapporten hälsa  | Skickar en hälsorapport för Service Fabric-tjänsten.|
 |    lös        | Lösa en Service Fabric-partition.|
 |    Ange-lista      | Hämtar en lista som innehåller information om tjänsttyper som stöds av en etablerad programtyp i ett Service Fabric-kluster.|
 |    Uppdatering         | Uppdaterar den angivna tjänsten med hjälp av den angivna beskrivningen.|
@@ -62,35 +62,35 @@ Skapar den angivna Service Fabric-tjänsten från beskrivningen.
 | --tjänsttypen [krävs]| Namn på tjänst.|
 | --activation-läge     | Aktivering läge för tjänstepaketet.|
 | --begränsningar         | Placeringen som en sträng. Placeringen är booleskt uttryck i Egenskaper för en nod och tillåter för att begränsa en tjänst till vissa noder baserat på kraven på tjänster. Till exempel för att placera en tjänst på noder där NodeType är blå anger du följande ”: NodeColor == blå”.|
-| --correlated-service  | Namnet på Måltjänsten för korrelation med.|
+| --korrelerade-tjänst  | Namnet på Måltjänsten för korrelation med.|
 | --korrelation         | Korrelera tjänsten med en befintlig tjänst med hjälp av en tillhörighet för justering.|
 | --dns-name            | DNS-namnet på tjänsten som ska skapas. Tjänsten DNS för Service Fabric-system måste aktiveras för den här inställningen.|
 | --antal instanser      | Instansantalet. Detta gäller för tillståndslösa tjänster.|
-| --int-scheme          | Anger att tjänsten ska partitioneras enhetligt över en mängd osignerat heltal.|
+| --int-schema          | Anger att tjänsten ska partitioneras enhetligt över en mängd osignerat heltal.|
 | --int-schema-antal    | Antalet partitioner i heltal key intervallet (för ett partitionsschema för enhetlig heltal) för att skapa.|
-| --int-scheme-high     | Slutet av viktiga heltalsintervall om du använder ett partitionsschema för enhetlig heltal.|
-| --int-scheme-low      | Början på viktiga heltalsintervall om du använder ett partitionsschema för enhetlig heltal.|
+| --int schemat hög     | Slutet av viktiga heltalsintervall om du använder ett partitionsschema för enhetlig heltal.|
+| --int och schema-låg      | Början på viktiga heltalsintervall om du använder ett partitionsschema för enhetlig heltal.|
 | --belastningen mått        | JSON-kodade listan över mått som används när belastningsutjämning services mellan noder.|
-| --min-replica-set-size| Minsta replikuppsättningens storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
+| --min---storlek på replikuppsättningen| Minsta replikuppsättningens storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
 | – Flytta kostnad           | Anger flytta kostnaden för tjänsten. Möjliga värden är: 'Noll', lågt', 'Medelhög', 'Högt'.|
-| --named-scheme        | Anger att tjänsten ska ha flera namngivna partitioner.|
+| --med namnet schema        | Anger att tjänsten ska ha flera namngivna partitioner.|
 | --named-scheme-list   | JSON-kodade namnlista partitionera tjänsten över, om du använder namngivna partitionsschemat.|
-| --no-persisted-state  | Om värdet är true anger detta tjänsten har ingen beständig tillstånd som lagras på den lokala disken eller lagrar bara tillstånd i minnet.|
-| --placement-policy-list  | JSON-kodade lista över placeringsprinciper för tjänsten och alla associerade domännamn. Principer kan vara en eller flera av: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-loss-wait    | Maximal varaktighet i sekunder som en partition kan vara i tillståndet förlorar kvorum. Detta gäller endast tillståndskänsliga tjänster.|
-| --replica-restart-wait| Varaktighet i sekunder mellan när en replik kraschar och när en replik skapas. Detta gäller endast tillståndskänsliga tjänster.|
-| --singleton-scheme    | Anger att tjänsten ska ha en enda partition eller vara en icke - partitionerade tjänst.|
-| --stand-by-replica-keep  | Maximal varaktighet i sekunder, för vilka vänteläge bevaras repliker innan den tas bort. Detta gäller endast tillståndskänsliga tjänster.|
+| --Nej sparade tillstånd  | Om värdet är true anger detta tjänsten har ingen beständig tillstånd som lagras på den lokala disken eller lagrar bara tillstånd i minnet.|
+| --placering principlistan  | JSON-kodade lista över placeringsprinciper för tjänsten och alla associerade domännamn. Principer kan vara en eller flera av: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
+| --kvorum-förlust-vänta    | Maximal varaktighet i sekunder som en partition kan vara i tillståndet förlorar kvorum. Detta gäller endast tillståndskänsliga tjänster.|
+| --Vänta-replik-omstart| Varaktighet i sekunder mellan när en replik kraschar och när en replik skapas. Detta gäller endast tillståndskänsliga tjänster.|
+| --singleton-schema    | Anger att tjänsten ska ha en enda partition eller vara en icke - partitionerade tjänst.|
+| --vänteläge av repliken keep  | Maximal varaktighet i sekunder, för vilka vänteläge bevaras repliker innan den tas bort. Detta gäller endast tillståndskänsliga tjänster.|
 | --stateful            | Anger att tjänsten är en tjänst för tillståndskänsliga.|
 | --tillståndslös           | Anger att tjänsten är en tillståndslös tjänst.|
-| --target-replica-set-size| Replikuppsättningens Ange storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
+| ---replik-set-Målstorlek| Replikuppsättningens Ange storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
 | --timeout -t          | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -106,14 +106,14 @@ Tar bort en befintlig Service Fabric-tjänst. En tjänst måste skapas innan den
 |Argumentet|Beskrivning|
 | --- | --- |
 | --tjänst-id [krävs]| Identiteten för tjänsten. Detta är vanligtvis det fullständiga namnet på tjänsten utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Om exempelvis tjänstnamnet är fabric: / myapp/app1/svc1 ”, tjänstidentiteten skulle vara” myapp ~ app1 ~ svc1 ”i 6.0 + och” myapp/app1/svc1 ”i tidigare versioner.|
-| --force-remove      | Ta bort ett Service Fabric-program eller tjänst tvång utan att gå igenom alla korrekt avslutning. Den här parametern kan användas för att tvång ta bort ett program eller tjänst för vilka borttagning är avbryts på grund av problem i den kod som förhindrar korrekt Stäng av replikerna.|
+| --force-ta bort      | Ta bort ett Service Fabric-program eller tjänst tvång utan att gå igenom alla korrekt avslutning. Den här parametern kan användas för att tvång ta bort ett program eller tjänst för vilka borttagning är avbryts på grund av problem i den kod som förhindrar korrekt Stäng av replikerna.|
 | --timeout -t        | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h           | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o         | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga             | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -135,7 +135,7 @@ Hämtar en beskrivning av en befintlig Service Fabric-tjänst. En tjänst måste
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h           | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o         | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga             | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -160,7 +160,7 @@ Hämtar information om hälsa för den angivna tjänsten. Använd EventsHealthSt
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                      | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                      | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                    | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o                  | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.                  Standard: json.|
 | --fråga                      | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -183,7 +183,7 @@ Returnerar information om angiven tjänst som hör till det angivna Service Fabr
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                 | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                 | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h               | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o             | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga                 | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -199,15 +199,15 @@ Returnerar information om alla tjänster som hör till det program som anges av 
 |Argumentet|Beskrivning|
 | --- | --- |
 | --program-id [krävs]| Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Om programnamnet är till exempel ”fabric: / myapp/app1”, programidentiteten skulle vara ”myapp ~ app1” i 6.0 + och ”myapp/app1” i tidigare versioner.|
-| --continuation-token    | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
-| --service-type-name     | Tjänsten typnamn som används för att filtrera de tjänster att fråga efter.|
+| --fortsättningstoken    | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
+| --tjänsten typnamn     | Tjänsten typnamn som används för att filtrera de tjänster att fråga efter.|
 | --timeout -t            | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                 | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                 | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h               | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o             | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga                 | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -231,7 +231,7 @@ Hämtar manifestet som beskriver en tjänsttyp. Svaret innehåller tjänstmanife
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                         | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o                       | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.                       Standard: json.|
 | --fråga                           | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -253,7 +253,7 @@ Anger att den ska försöka återställa den angivna tjänsten är för närvara
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h           | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o         | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga             | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -278,7 +278,7 @@ Lösa en partition för Service Fabric-tjänsten, för att få slutpunkter repli
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h           | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o         | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga             | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -293,26 +293,26 @@ Uppdaterar den angivna tjänsten med hjälp av den angivna beskrivningen.
 | --- | --- |
 | --tjänst-id [krävs]| Måltjänsten att uppdatera. Detta är vanligtvis fullständig ID för tjänsten utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Om namnet på tjänsten är till exempel ”fabric: / myapp/app1/svc1 ', tjänstidentiteten skulle vara ' myapp ~ app1 ~ svc1' i 6.0 + och ' myapp/app1/svc1' i tidigare versioner.|
 | --begränsningar         | Placeringen som en sträng. Placeringen är booleskt uttryck i Egenskaper för en nod och tillåter för att begränsa en tjänst till vissa noder baserat på kraven på tjänster. Till exempel för att placera en tjänst på noder där NodeType är blå anger du följande ”: NodeColor == blå”.|
-| --correlated-service  | Namnet på Måltjänsten för korrelation med.|
+| --korrelerade-tjänst  | Namnet på Måltjänsten för korrelation med.|
 | --korrelation         | Korrelera tjänsten med en befintlig tjänst med hjälp av en tillhörighet för justering.|
 | --antal instanser      | Instansantalet. Detta gäller för tillståndslösa tjänster.|
 | --belastningen mått        | JSON-kodade listan över mått används när belastningsutjämning mellan noder.|
-| --min-replica-set-size| Minsta replikuppsättningens storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
+| --min---storlek på replikuppsättningen| Minsta replikuppsättningens storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
 | – Flytta kostnad           | Anger flytta kostnaden för tjänsten. Möjliga värden är: 'Noll', lågt', 'Medelhög', 'Högt'.|
-| --placement-policy-list  | JSON-kodade lista över placeringsprinciper för tjänsten och alla associerade domännamn. Principer kan vara en eller flera av: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-loss-wait    | Maximal varaktighet i sekunder som en partition kan vara i tillståndet förlorar kvorum. Detta gäller endast tillståndskänsliga tjänster.|
-| --replica-restart-wait| Varaktighet i sekunder mellan när en replik kraschar och när en replik skapas. Detta gäller endast tillståndskänsliga tjänster.|
-| --stand-by-replica-keep  | Maximal varaktighet i sekunder, för vilka vänteläge bevaras repliker innan den tas bort. Detta gäller endast tillståndskänsliga tjänster.|
+| --placering principlistan  | JSON-kodade lista över placeringsprinciper för tjänsten och alla associerade domännamn. Principer kan vara en eller flera av: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
+| --kvorum-förlust-vänta    | Maximal varaktighet i sekunder som en partition kan vara i tillståndet förlorar kvorum. Detta gäller endast tillståndskänsliga tjänster.|
+| --Vänta-replik-omstart| Varaktighet i sekunder mellan när en replik kraschar och när en replik skapas. Detta gäller endast tillståndskänsliga tjänster.|
+| --vänteläge av repliken keep  | Maximal varaktighet i sekunder, för vilka vänteläge bevaras repliker innan den tas bort. Detta gäller endast tillståndskänsliga tjänster.|
 | --stateful            | Anger Måltjänsten är en tillståndskänslig service.|
 | --tillståndslös           | Anger Måltjänsten är en tillståndslös tjänst.|
-| --target-replica-set-size| Replikuppsättningens Ange storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
+| ---replik-set-Målstorlek| Replikuppsättningens Ange storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster.|
 | --timeout -t          | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|

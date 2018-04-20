@@ -1,11 +1,11 @@
 ---
 title: Hantera din avbildning av virtuell dator i Azure Marketplace | Microsoft Docs
-description: "Detaljerad vägledning om hur du hanterar din avbildning av virtuell dator i Azure Marketplace efter första publicering"
+description: Detaljerad vägledning om hur du hanterar din avbildning av virtuell dator i Azure Marketplace efter första publicering
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: mbaldwin;
 ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Släppts guide för erbjudanden som virtuell dator i Azure Marketplace
 Den här artikeln förklarar hur du kan uppdatera ett erbjudande för Direktmigrering av virtuell dator i Azure Marketplace. Det hjälper dig genom processen att lägga till en eller flera nya SKU: er i ett befintligt erbjudande. Även guidar dig genom processen för att ta bort ett erbjudande för Direktmigrering av virtuell dator eller SKU från på Marketplace.
@@ -47,7 +47,7 @@ Följ dessa steg om du vill lägga till en ny version i listan SKU: N och public
 2. Gå till den **virtuella datorer** och välj erbjudandet.
 3. Klicka på menyn till vänster i **VM-AVBILDNINGAR** fliken.
 4. I den **SKU: er** avsnittet, leta upp SKU: N som du vill uppdatera.
-5. Lägga till ett nytt versionsnummer för SKU: N och klickar på den ** + ** knappen. Den nya versionen ska vara i ett X.Y.Z format, där X, Y och Z är heltal. Bara ska version ändringar inkrementell.
+5. Lägga till ett nytt versionsnummer för SKU: N och klickar på den **+** knappen. Den nya versionen ska vara i ett X.Y.Z format, där X, Y och Z är heltal. Bara ska version ändringar inkrementell.
 6. I den **OS VHD URL** anger signatur för delad åtkomst URI som skapats för operativsystemet VHD och spara ändringarna.
 
    > [!IMPORTANT]
@@ -207,7 +207,7 @@ Följ dessa steg för att lägga till en ny SKU i erbjudandet live:
 1. Logga in på den [publicering portal](https://publish.windowsazure.com).
 2. Gå till den **virtuella datorer** och välj erbjudandet.
 3. Klicka på menyn till vänster i **SKU: er** fliken. Klicka på **lägga till en SKU**. 
-4. I dialogrutan anger du en **SKU-ID** med små bokstäver. Välj den **ta egen licens (BYOL) faktureringsmodellen** kryssruta om du vill publicera den nya SKU: N med en BYOL faktureringsmodell som tillämpas. Annars avmarkerar du kryssrutan. Klicka om du vill skapa en ny SKU skalstreck. Om du inte väljer BYOL fakturering modellen anges vilken faktureringsmodell som tillämpas automatiskt till varje timme. Om du vill 30-dagars utvärderingsversion för varje timme fakturering modellen väljer **en månad** för **finns en kostnadsfri utvärderingsversion?** Annars väljer **Nej utvärderingsversion**. (**Finns en kostnadsfri utvärderingsversion? ** visas bara om du inte har valt BYOL när du skapar nya SKU: N.)
+4. I dialogrutan anger du en **SKU-ID** med små bokstäver. Välj den **ta egen licens (BYOL) faktureringsmodellen** kryssruta om du vill publicera den nya SKU: N med en BYOL faktureringsmodell som tillämpas. Annars avmarkerar du kryssrutan. Klicka om du vill skapa en ny SKU skalstreck. Om du inte väljer BYOL fakturering modellen anges vilken faktureringsmodell som tillämpas automatiskt till varje timme. Om du vill 30-dagars utvärderingsversion för varje timme fakturering modellen väljer **en månad** för **finns en kostnadsfri utvärderingsversion?** Annars väljer **Nej utvärderingsversion**. (**Finns en kostnadsfri utvärderingsversion?**  visas bara om du inte har valt BYOL när du skapar nya SKU: N.)
 
    > [!IMPORTANT]
    > **Dölj den här SKU från Marketplace eftersom alltid ska köpas via en lösningsmall** ska vara **Ja** *endast* om du har godkänt för att publicera en lösningsmall. Annars kan det här alternativet ska alltid vara **nr**.

@@ -1,6 +1,6 @@
 ---
-title: "Hantera Azure SQL Database-schema i en app för flera klienter | Microsoft Docs"
-description: "Hantera scheman för flera klienter i ett program för flera klienter som använder Azure SQL Database"
+title: Hantera Azure SQL Database-schema i en app för flera klienter | Microsoft Docs
+description: Hantera scheman för flera klienter i ett program för flera klienter som använder Azure SQL Database
 keywords: sql database tutorial
 services: sql-database
 author: MightyPen
@@ -12,10 +12,10 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schemat är i ett SaaS-program som använder delat SQL-databaser för flera innehavare
 
@@ -51,7 +51,7 @@ I den här självstudiekursen får du lära du dig att:
 - Azure PowerShell måste vara installerat. Mer information finns i [komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Den här kursen använder funktioner för Azure SQL Database-tjänsten som är i en begränsad förhandsgranskning ([elastisk databas jobb](sql-database-elastic-database-client-library.md)). Om du vill göra den här självstudiekursen, ange ditt prenumerations-ID till  *SaaSFeedback@microsoft.com*  = elastiska jobb Preview med ämnet. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsgranskningen är begränsad, så Kontakta  *SaaSFeedback@microsoft.com*  för frågor eller support.
+> Den här kursen använder funktioner för Azure SQL Database-tjänsten som är i en begränsad förhandsgranskning ([elastisk databas jobb](sql-database-elastic-database-client-library.md)). Om du vill göra den här självstudiekursen, ange ditt prenumerations-ID till *SaaSFeedback@microsoft.com* = elastiska jobb Preview med ämnet. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsgranskningen är begränsad, så Kontakta *SaaSFeedback@microsoft.com* för frågor eller support.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till SaaS-schemat management mönster
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/16/2018
 ms.author: jingwang
 ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopieringsaktiviteten i Azure Data Factory
 
@@ -138,7 +138,7 @@ Följande mall för en kopia aktivitet innehåller en fullständig lista över e
 | typeProperties | En grupp egenskaper att konfigurera kopieringsaktiviteten. | Ja |
 | källa | Ange källtypen kopia och motsvarande egenskaper på hur du hämtar data.<br/><br/>Mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i kopplingen artikeln i [datalager och format stöds](#supported-data-stores-and-formats). | Ja |
 | sink | Ange Mottagartypen kopia och motsvarande egenskaper på hur du skriver data.<br/><br/>Mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i kopplingen artikeln i [datalager och format stöds](#supported-data-stores-and-formats). | Ja |
-| translator | Ange explicita kolumnmappningar från källan till mottagare. Används när kopiera standardbeteendet inte kan uppfylla dina behov.<br/><br/>Mer information från [Schema och data mappning](copy-activity-schema-and-type-mapping.md). | Nej |
+| Översättare | Ange explicita kolumnmappningar från källan till mottagare. Används när kopiera standardbeteendet inte kan uppfylla dina behov.<br/><br/>Mer information från [Schema och data mappning](copy-activity-schema-and-type-mapping.md). | Nej |
 | cloudDataMovementUnits | Ange powerfulness av [Azure Integration Runtime](concepts-integration-runtime.md) att möta kopiering av data.<br/><br/>Mer information från [molnet data movement enheter](copy-activity-performance.md). | Nej |
 | parallelCopies | Ange parallellitet som du vill kopiera aktiviteter ska användas när data lästes från käll- och skriver data till mottagare.<br/><br/>Mer information från [parallell kopiera](copy-activity-performance.md#parallel-copy). | Nej |
 | enableStaging<br/>stagingSettings | Välj att mellanlagra mellanliggande data i aa blob storage i stället för att kopieringsdata direkt från källan till mottagare.<br/><br/>Lär dig användbar scenarier och konfigurationsinformation från [mellanlagrad kopiera](copy-activity-performance.md#staged-copy). | Nej |

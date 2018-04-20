@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: fel när Automation, felsökning, problemet
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Felsökning av vanliga problem i Azure Automation 
 Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automation och ger förslag på lösningar för att lösa problemen.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>När du arbetar med Azure Automation runbook-autentiseringsfel
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Scenario: Logga in på Azure-konto misslyckades
-**Fel:** felmeddelandet ”Unknown_user_type: Okänd typ” när du arbetar med cmdlets Add-AzureAccount eller Login-AzureRmAccount.
+**Fel:** felmeddelandet ”Unknown_user_type: Okänd typ” när du arbetar med cmdlets Add-AzureAccount eller Anslut-AzureRmAccount.
 
 **Orsaken till felet:** det här felet uppstår om namn på autentiseringsuppgift tillgångsinformation inte är giltig eller om användarnamnet och lösenordet som du använde för att konfigurera Automation-autentiseringsuppgiftstillgång inte är giltiga.
 
@@ -34,7 +34,7 @@ Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automatio
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Det innebär att du inte har konfigurerat dina Azure Active Directory-autentiseringsuppgifter korrekt om autentiseringen misslyckas lokalt. Referera till [autentiserar till Azure med Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogginlägget att hämta Azure Active Directory-kontot som har ställts in korrekt.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Scenario: Det gick inte att hitta Azure-prenumeration

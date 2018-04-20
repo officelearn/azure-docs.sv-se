@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM produkter eller tjänster och IT Service Management-koppling (ITSMC) i logganalys centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -73,7 +73,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 | **Klient-ID**   | Ange klient-ID som du skapade (med skriptet för automatisk) för att autentisera webbprogrammet. Mer information om skriptet för automatisk [här.](log-analytics-itsmc-service-manager-script.md)|
 | **Klienthemlighet**   | Skriv klienthemligheten genereras för detta ID.   |
 | **Omfång för synkronisering av data**   | Välj Service Manager-arbetsobjekt som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar. **Alternativ:** incidenter, ändringsbegäranden.|
-| **Sync Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
+| **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar OMS berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad. |
 
 ![Service manager-anslutning](./media/log-analytics-itsmc/service-manager-connection.png)
@@ -227,7 +227,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 | **Klient-ID**   | Ange klient-ID som du vill använda för OAuth2-autentisering, som du tidigare genererade.  Mer information om genererar klient-ID och Hemlig: [OAuth-installationen](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Klienthemlighet**   | Skriv klienthemligheten genereras för detta ID.   |
 | **Omfång för synkronisering av data**   | Välj ServiceNow-arbetsobjekt som du vill synkronisera till Azure logganalys via ITSMC.  De valda värdena importeras till logganalys.   **Alternativ:** incidenter och ändringsbegäranden.|
-| **Sync Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
+| **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad. |
 
 ![ServiceNow-anslutning](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
@@ -315,7 +315,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Server-URL**   | Ange Webbadressen till din Provance-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i Provance-instans.  Mer information om klient-ID, se [hur du konfigurerar active directory-autentisering](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Omfång för synkronisering av data**   | Välj de Provance arbetsobjekt som du vill synkronisera till Azure logganalys via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:** incidenter, ändringsbegäranden.|
-| **Sync Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
+| **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad.|
 
 ![Provance anslutning](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
@@ -366,7 +366,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Server-URL**   | Ange Webbadressen till din Cherwell-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i Cherwell-instans.   |
 | **Omfång för synkronisering av data**   | Välj de Cherwell arbetsobjekt som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:** incidenter, ändringsbegäranden. |
-| **Sync Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
+| **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad. |
 
 

@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala Azure Stream Analytics-jobbet för att öka genomströmning
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka genomflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala ditt jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
@@ -42,7 +42,7 @@ Om frågan inte embarrassingly parallella följa du anvisningarna nedan.
 2.  Om du kan uppnå din förväntade belastningen på sikt genomströmning, är du klar. Du kan också välja att mäta samma jobb som körs på 3 SU och 1 SU för att ta reda på det minsta antalet SU som passar ditt scenario.
 3.  Om du inte går att utföra det önskade dataflödet, försök att dela din fråga i flera steg om möjligt om det inte redan har flera steg och allokera upp till 6 SU för varje steg i frågan. Till exempel om du har 3 steg, allokera 18 SU i alternativet ”skala”.
 4.  När du kör sådant jobb placerar Stream Analytics varje steg på sin egen nod med dedicerade 6 SU-resurser. 
-5.  Om du fortfarande inte har uppnåtts mål-belastning kan du försöker använda **PARTITION BY** från steg närmare till indata. För **GROUP BY** operator som inte kanske naturligt partitionable lokala globala sammanställd mönstret kan använda för att utföra en partitionerad **GROUP BY** följt av en icke-partitionerat **GROUP BY **. Till exempel om du vill räkna kan hur många bilar som passerar varje avgift monter var 3: e minut och mängden data som är större än vad hanteras av 6 SU.
+5.  Om du fortfarande inte har uppnåtts mål-belastning kan du försöker använda **PARTITION BY** från steg närmare till indata. För **GROUP BY** operator som inte kanske naturligt partitionable lokala globala sammanställd mönstret kan använda för att utföra en partitionerad **GROUP BY** följt av en icke-partitionerat **GROUP BY** . Till exempel om du vill räkna kan hur många bilar som passerar varje avgift monter var 3: e minut och mängden data som är större än vad hanteras av 6 SU.
 
 Fråga:
 

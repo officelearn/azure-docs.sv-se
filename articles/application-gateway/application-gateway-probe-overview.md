@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/30/2018
 ms.author: victorh
 ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Gateway hälsa övervakning Programöversikt
 
@@ -81,7 +81,7 @@ Följande tabell innehåller definitioner för egenskaperna för en anpassad hä
 
 | Avsökningen egenskapen | Beskrivning |
 | --- | --- |
-| namn |Namnet på avsökningen. Det här namnet används för att referera till avsökning i backend-HTTP-inställningar. |
+| Namn |Namnet på avsökningen. Det här namnet används för att referera till avsökning i backend-HTTP-inställningar. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen används protokollet som definieras i backend-HTTP-inställningar |
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway, Använd annars ”127.0.0.1”. Det här värdet skiljer sig från den virtuella datorns värdnamn. |
 | Sökväg |Avsökningen relativ sökväg. Ogiltig sökväg startar från '/'. |

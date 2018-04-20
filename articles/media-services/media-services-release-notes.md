@@ -2,10 +2,10 @@
 title: Media Services viktig information | Microsoft Docs
 description: Media Services viktig information
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa viktig information för Azure Media Services sammanfattar ändringar från tidigare versioner och kända problem.
@@ -47,7 +47,7 @@ Information om tidigare för Media Services REST API-versioner finns i [Azure Me
 
 ## <a name="october-2017-release"></a>Oktober 2017 version
 > [!IMPORTANT] 
-> Media Services sluta stöd för Azure Access Control Service autentiseringsnycklar. På den 1 juni 2018 du inte längre kan autentiseras med Media Services serverdelen via kod med hjälp av åtkomstkontrolltjänsten nycklar. Du måste uppdatera din kod för att använda Azure Active Directory (AD Azure) per [Azure AD-baserad autentisering](media-services-use-aad-auth-to-access-ams-api.md). Håll utkik efter varningar om den här ändringen i Azure-portalen.
+> Media Services sluta stöd för Azure Access Control Service autentiseringsnycklar. På den 22 juni 2018 du inte längre kan autentiseras med Media Services serverdelen via kod med hjälp av åtkomstkontrolltjänsten nycklar. Du måste uppdatera din kod för att använda Azure Active Directory (AD Azure) per [Azure AD-baserad autentisering](media-services-use-aad-auth-to-access-ams-api.md). Håll utkik efter varningar om den här ändringen i Azure-portalen.
 
 ### <a name="updates-for-october-2017"></a>Uppdateringar för oktober 2017
 #### <a name="sdks"></a>SDK:er
@@ -95,7 +95,7 @@ Starta 1 April 2017 tas alla jobb poster i ditt konto som är äldre än 90 daga
 
 I Media Services representerar en strömningsslutpunkt som en tjänst för liveströmning som kan leverera innehåll direkt till ett klientprogram player eller till ett nätverk för innehållsleverans (CDN) för vidare distribution. Media Services tillhandahåller också sömlös integrering i Azure Content Delivery Network. Utgående dataströmmen från en StreamingEndpoint-tjänst kan vara en direktsänd dataström, en video på begäran eller en progressiv nedladdning av dina tillgångar i Media Services-kontot. Varje Media Services-konto innehåller standard strömmande slutpunkten. Du kan skapa ytterligare strömningsslutpunkter under kontot. 
 
-Det finns två versioner av strömningsslutpunkter, 1.0 och 2.0. Starta 10 januari 2017 inkluderar alla Media Services-konton som nyligen skapade version 2.0 standard strömmande slutpunkten. Ytterligare strömmande slutpunkter som du lägger till det här kontot är också version 2.0. Den här ändringen påverkar inte befintliga konton. Befintliga strömningsslutpunkter version 1.0 och kan uppgraderas till version 2.0. Det finns problem, fakturering och ändringarna med den här ändringen. Mer information finns i [Streaming slutpunkter översikt](media-services-streaming-endpoints-overview.md).
+Det finns två versioner av strömningsslutpunkter, 1.0 och 2.0. Starta 10 januari 2017 inkluderar alla Media Services-konton som nyligen skapade version 2.0 standard strömmande slutpunkten. Ytterligare strömmande slutpunkter som du lägger till det här kontot är också version 2.0. Den här ändringen påverkar inte befintliga konton. Befintliga strömningsslutpunkter version 1.0 och kan uppgraderas till version 2.0. Det finns problem, fakturering och ändringarna med den här ändringen. Mer information finns i [Översikt över strömningsslutpunkter](media-services-streaming-endpoints-overview.md).
 
 Från och med 2.15 version Media Services läggas till följande egenskaper till entiteten strömmande slutpunkt:
 
@@ -457,7 +457,7 @@ Följande ändringar är inkluderade i juni 2013 versioner av Media Services SDK
 * Från och med version 2.3.0.0 Media Services SDK stöder länka flera storage-konton till ett Media Services-konto. Följande API: er stöder den här funktionen:
   
     * IStorageAccount typ
-    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
+    * Egenskapen Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
     * StorageAccount egenskapen
     * StorageAccountName egenskapen
   

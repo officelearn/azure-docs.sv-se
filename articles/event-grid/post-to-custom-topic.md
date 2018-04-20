@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Efter att anpassade avsnittet för rutnät för Azure-händelse
 
@@ -73,7 +73,7 @@ För anpassade ämnen innehåller på översta nivån data samma fält som stand
 ]
 ```
 
-En beskrivning av de här egenskaperna finns [Azure händelse rutnätet Händelseschema](event-schema.md).
+En beskrivning av de här egenskaperna finns [Azure händelse rutnätet Händelseschema](event-schema.md). Matrisen kan skicka händelser till en händelse rutnätet ämne ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB.
 
 Ett giltigt händelsenamn data schema är till exempel:
 
@@ -98,9 +98,10 @@ Efter bokföring till avsnittet slutpunkten får du svar. Svaret är en standard
 |Resultat  |Svar  |
 |---------|---------|
 |Lyckades  | 200 OK  |
-|Felaktig slutpunkt | 404 Hittades inte |
-|Ogiltig snabbtangent | 401 obehörig |
 |Händelsedata är i felaktigt format | 400 Felaktig förfrågan |
+|Ogiltig snabbtangent | 401 obehörig |
+|Felaktig slutpunkt | 404 Hittades inte |
+|Matrisen eller händelse överskrider storleksgränsen | 413 nyttolasten för stor |
 
 För fel har meddelandetexten följande format:
 

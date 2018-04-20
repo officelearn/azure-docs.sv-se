@@ -31,7 +31,8 @@ För att kunna skicka push-meddelanden till en iOS-app måste du registrera prog
    
    * **Namn**: Ange ett beskrivande namn för din app i **Namn**-fältet i avsnittet **Beskrivning av App-ID**.
    * **Paketidentifierare**: Under avsnittet **Uttrycklig App-ID**, anger du en **paketidentifierare** i formuläret `<Organization Identifier>.<Product Name>` enligt [appdistributionsguiden](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Den *organisationsidentifierare* och det *produktnamn* som du använder måste matcha organisationsidentifieraren och produktnamnet som du kommer att använda när du skapar ditt XCode-projekt. I skärmbilden nedan används *NotificationHubs* som en organisationsidentifierare och *GetStarted* som produktnamnet. Kontrollera att detta matchar de värden som du kommer att använda i ditt XCode-projekt, eftersom du då kan använda rätt publiceringsprofil med XCode. 
-   * **Push-meddelanden**: Markera alternativet **Push-meddelanden** i avsnittet **Apptjänster**.
+   * 
+  **Push-meddelanden**: Markera alternativet **Push-meddelanden** i avsnittet **App Services**.
      
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      

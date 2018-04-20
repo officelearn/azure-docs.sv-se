@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -129,8 +129,8 @@ För Azure SQL Database har funktionen virtuellt nätverk regler följande begr�
 
 - Virtuellt Nätverksregler gäller bara för Azure Resource Manager virtuella nätverk. och inte [klassiska distributionsmodellen] [ arm-deployment-model-568f] nätverk.
 
-- Aktivering av virtuella nätverksslutpunkter till Azure SQL Database kan också slutpunkter för MySQL och PostGres Azure-tjänster. Men med slutpunkter på misslyckas försöker att ansluta från slutpunkterna till din MySQL eller Postgres instanser.
-    - Den underliggande orsaken är att MySQL och PostGres stöder för närvarande inte ACLing.
+- Aktivering av virtuella nätverksslutpunkter till Azure SQL Database kan också slutpunkter för MySQL och PostgreSQL Azure-tjänster. Men med slutpunkter på misslyckas försöker att ansluta från slutpunkterna till din MySQL eller PostgreSQL instanser.
+    - Den underliggande orsaken är att MySQL och PostgreSQL för närvarande inte stöder ACLing.
 
 - IP-adressintervall gäller följande nätverk i brandväggen, men gör inte det virtuella Nätverksregler:
     - [Plats-till-plats (S2S) virtuellt privat nätverk (VPN)][vpn-gateway-indexmd-608y]
@@ -225,6 +225,10 @@ En lista över flera felmeddelanden i SQL-databas dokumenteras [här][sql-databa
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portalen kan skapa en regel för virtuellt nätverk
 
 Det här avsnittet beskriver hur du kan använda den [Azure-portalen] [ http-azure-portal-link-ref-477t] att skapa en *virtuellt nätverk regeln* i Azure SQL-databasen. Regeln anger SQL-databasen att godta kommunikation från ett visst undernät som har taggats som en *virtuellt nätverk tjänstslutpunkten*.
+
+> [!NOTE]
+> Kontrollera att tjänsten slutpunkter är aktiverade för VNET/undernät som du vill lägga till VNET brandväggsregler för servern.
+> Om Tjänsteslutpunkter inte är aktiverad för VNET/undernätet ombeds du i portalen för att aktivera dem, klickar du på Aktivera på bladet som du lägger till regeln.
 
 #### <a name="powershell-alternative"></a>PowerShell-alternativ
 

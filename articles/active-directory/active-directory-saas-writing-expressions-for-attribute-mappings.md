@@ -1,8 +1,8 @@
 ---
-title: "Skriva uttryck för attributmappning i Azure Active Directory | Microsoft Docs"
-description: "Lär dig mer om att använda uttryck mappningar för att omvandla attributvärden till ett acceptabelt format vid automatisk etablering med SaaS-app i Azure Active Directory."
+title: Skriva uttryck för attributmappning i Azure Active Directory | Microsoft Docs
+description: Lär dig mer om att använda uttryck mappningar för att omvandla attributvärden till ett acceptabelt format vid automatisk etablering med SaaS-app i Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappning i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappning som du kan ange mappningen för en uttryck. Du måste skriva ett skript-liknande uttryck som gör att du kan omvandla användarnas data i format som är mer godkänd för SaaS-program för dessa.
@@ -27,7 +27,7 @@ Syntax för uttryck för attributmappning är påminner om Visual Basic för App
 
 * Uttrycket måste definieras vad gäller funktioner, som består av ett namn följt av argument inom parentes: <br>
   *FunctionName (<< argument 1 >> <<argument N>>)*
-* Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+* Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
 * Du kan skicka tre olika typer av argument till funktioner:
   
   1. Attribut måste stå inom klamrar kvadratisk. Exempel: [attributeName]
@@ -48,7 +48,7 @@ Syntax för uttryck för attributmappning är påminner om Visual Basic för App
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
 | **suffix** |Krävs |Sträng |Strängen som du vill lägga till i slutet av värdet för källa. |
 
 - - -
@@ -61,7 +61,7 @@ Syntax för uttryck för attributmappning är påminner om Visual Basic för App
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
 | **inputFormat** |Krävs |Sträng |Förväntade format för källvärdet. Format som stöds, se [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Krävs |Sträng |Format för Utdatadatum. |
 
@@ -78,7 +78,7 @@ Om något av källvärden är ett attribut med flera värden och varje värde i 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **avgränsare** |Krävs |Sträng |Sträng som används för att avgränsa källvärden när de sammanfogas till en sträng. Kan vara ”” om ingen avgränsare krävs. |
-| **source1  … Källan ** |Obligatoriska variabeln antal gånger |Sträng |Strängen värden kopplas ihop. |
+| ** källa1... Källan ** |Obligatoriska variabeln antal gånger |Sträng |Strängen värden kopplas ihop. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -90,7 +90,7 @@ Om något av källvärden är ett attribut med flera värden och varje värde i 
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Sträng |Vanligtvis attributets namn. |
+| **Källa** |Krävs |Sträng |Vanligtvis attributets namn. |
 | **start** |Krävs |heltal |Index i den **källa** strängen där delsträngen ska starta. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
 | **Längd** |Krävs |heltal |Längden på delsträngen. Om längden slutar utanför den **källa** sträng, funktionen returnerar delsträngen från **starta** indexet till slutet av **källa** sträng. |
 
@@ -104,7 +104,7 @@ Om något av källvärden är ett attribut med flera värden och varje värde i 
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Booleskt sträng |Förväntade **källa** värden är ”True” eller ”False”... |
+| **Källa** |Krävs |Booleskt sträng |Förväntade **källa** värden är ”True” eller ”False”... |
 
 - - -
 ### <a name="replace"></a>Ersätt
@@ -131,7 +131,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
 | **oldValue** |Valfri |Sträng |Värdet som ska ersättas i **källa** eller **mallen**. |
 | **regexPattern** |Valfri |Sträng |Regex-mönster för värdet som ska ersättas i **källa**. Eller, om replacementPropertyName används mönster för att hämta värdet från egendom. |
 | **regexGroupName** |Valfri |Sträng |Namnet på gruppen i **regexPattern**. Endast när replacementPropertyName används, kommer vi extrahera värdet för den här gruppen som ersättningsvärde från egendom. |
@@ -161,7 +161,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Sträng |**källan** värde att uppdatera. |
+| **Källa** |Krävs |Sträng |**Källan** värde att uppdatera. |
 
 - - -
 ### <a name="switch"></a>Växel
@@ -173,10 +173,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source** |Krävs |Sträng |**Källan** värde att uppdatera. |
+| **Källa** |Krävs |Sträng |**Källan** värde att uppdatera. |
 | **Standardvärde** |Valfri |Sträng |Standardvärde som ska användas när datakällan inte matchar några nycklar. Kan vara en tom sträng (””). |
 | **Nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
-| **Värdet** |Krävs |Sträng |Ersättningsvärde för den **källa** matchade nyckel. |
+| **värde** |Krävs |Sträng |Ersättningsvärde för den **källa** matchade nyckel. |
 
 ## <a name="examples"></a>Exempel
 ### <a name="strip-known-domain-name"></a>Remsans kända domännamn

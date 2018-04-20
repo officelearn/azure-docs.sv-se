@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e7693ea40df2bf12fd6e9be2ef627f30748bcd
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Fråga efter och skicka kommandon till reparera manager-tjänsten.
@@ -26,7 +26,7 @@ Fråga efter och skicka kommandon till reparera manager-tjänsten.
 ## <a name="commands"></a>Kommandon
 |Kommando|Beskrivning|
 | --- | --- |
-|    approve-force| Tvingar godkännande av angivna reparationsuppgiften.|
+|    Godkänn kraft| Tvingar godkännande av angivna reparationsuppgiften.|
 |    radera       | Tar bort en slutförd reparationsuppgiften.|
 |    lista         | Hämtar en lista över reparera aktiviteter som matchar de angivna filtren.|
 
@@ -44,7 +44,7 @@ Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas di
 ### <a name="global-arguments"></a>Globala argument
 |Argumentet|Beskrivning|
 | --- | --- |
-|    --debug             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+|    – Felsökning             | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 |    --hjälp -h           | Visa den här hjälpmeddelandet och avsluta.|
 |    --utdata -o         | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.
 |    --fråga             | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -60,15 +60,15 @@ Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas di
 |Argumentet|Beskrivning|
 | --- | --- |
 |    --executor-filter| Namnet på den reparera utföraren vars påstått aktiviteter som ska tas med i listan.|
-|    --state-filter   | Ett logiskt eller av följande värden som anger vilken uppgift tillstånd ska inkluderas i resultatlistan. -1 - skapade - 2 - anspråk - 4 - förbereder - 8 - godkända - 16 - verkställande - 32 - återställning - 64 - slutfördes.|
+|    --tillstånd-filter   | Ett logiskt eller av följande värden som anger vilken uppgift tillstånd ska inkluderas i resultatlistan. -1 - skapade - 2 - anspråk - 4 - förbereder - 8 - godkända - 16 - verkställande - 32 - återställning - 64 - slutfördes.|
 |    --task-id-filter | Det reparera uppgift ID-prefixet som ska matchas.|
 
 ### <a name="global-arguments"></a>Globala argument
 |Argumentet|Beskrivning|
 | --- | --- |
-|    --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+|    – Felsökning          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 |    --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
-|    --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard| json.|
+|    --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard| JSON.|
 |    --fråga          | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
 |    -verbose        | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
 

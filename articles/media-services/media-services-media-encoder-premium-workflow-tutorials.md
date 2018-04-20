@@ -1,11 +1,11 @@
 ---
-title: "Avanced Media Encoder Premium arbetsflödet självstudier"
-description: "Det här dokumentet innehåller genomgångar som visar hur du utför avancerade uppgifter med Media Encoder Premium arbetsflöde och hur du skapar komplexa arbetsflöden med Arbetsflödesdesignern."
+title: Avanced Media Encoder Premium arbetsflödet självstudier
+description: Det här dokumentet innehåller genomgångar som visar hur du utför avancerade uppgifter med Media Encoder Premium arbetsflöde och hur du skapar komplexa arbetsflöden med Arbetsflödesdesignern.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: xstof
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Avancerade Media Encoder Premium arbetsflödet självstudier
 ## <a name="overview"></a>Översikt
 Det här dokumentet innehåller genomgång som visar hur du anpassar arbetsflöden med **Arbetsflödesdesignern**. Du kan hitta de faktiska Arbetsflödesfilerna [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
-## <a name="toc"></a>TOC
+## <a name="toc"></a>INNEHÅLLSFÖRTECKNING
 I följande avsnitt beskrivs:
 
 * [Kodning MXF till en MP4 med enkel bithastighet](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
@@ -66,10 +66,10 @@ I följande avsnitt beskrivs:
   * [Ändra listan clip från en skript-komponent](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
   * [Lägga till en ClippingEnabled bekvämlighet egenskap](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
-## <a id="MXF_to_MP4">Kodning MXF till en MP4 med enkel bithastighet</a>
+## <a id="MXF_to_MP4"></a>Kodning MXF till en MP4 med enkel bithastighet
 Det här avsnittet visar hur du skapar en enkel bithastighet. MP4-fil med AAC HAN kodat ljud från en. MXF indatafilen.
 
-### <a id="MXF_to_MP4_start_new">Starta ett nytt arbetsflöde</a>
+### <a id="MXF_to_MP4_start_new"></a>Starta ett nytt arbetsflöde
 Öppna Workflow Designer och välja Arkiv > Ny arbetsyta > Omkoda modell
 
 Det nya arbetsflödet visar tre element:
@@ -80,44 +80,44 @@ Det nya arbetsflödet visar tre element:
 
 ![Arbetsflöde för ny kodning](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
-Arbetsflöde för ny kodning
+*Arbetsflöde för ny kodning*
 
-### <a id="MXF_to_MP4_with_file_input">Med hjälp av Media filen indata</a>
+### <a id="MXF_to_MP4_with_file_input"></a>Med hjälp av Media filen indata
 För att kunna acceptera inkommande mediefilen, startar med att lägga till en Media filen inkommande komponent. Om du vill lägga till en komponent i arbetsflödet, leta efter den i sökrutan databasen och dra den aktuella posten till fönstret designer. Upprepa åtgärden för Media filen inkommande och Anslut komponenten primära källfilen till Filename inkommande PIN-koden från Media filen indata.
 
 ![Anslutna mediafilen indata](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
 
-Anslutna mediafilen indata
+*Anslutna mediafilen indata*
 
 Först identifiera en lämplig exempelfil för att använda när du skapar ett anpassat arbetsflöde. Klicka på bakgrunden i designern rutan gör du genom och leta efter egenskapen primära källfilen i den högra egenskap rutan. Klicka på mappikonen och välj önskad fil för att testa arbetsflödet. Komponenten Media filen indata undersöker filen och fylls dess utdata PIN-koder för att visa information om den kontrolleras exempelfilen.
 
 ![Ifyllda mediafilen indata](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
-Ifyllda mediafilen indata
+*Ifyllda mediafilen indata*
 
 Nu att indata är ifylld, är nästa steg att ställa in utdata kodningsinställningar. Liknar hur primära källfilen har konfigurerats, nu konfigurera egenskapen utdata mappen variabeln under den.
 
 ![Konfigurerade ingående och utgående egenskaper](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
 
-Konfigurerade ingående och utgående egenskaper
+*Konfigurerade ingående och utgående egenskaper*
 
-### <a id="MXF_to_MP4_streams">Kontrollera dataströmmar media</a>
+### <a id="MXF_to_MP4_streams"></a>Kontrollera dataströmmar media
 Det har ofta önskade veta att dataströmmen ser ut som när den förs vidare genom arbetsflödet. Om du vill kontrollera en dataström när som helst i arbetsflödet, klicka bara på en utgående eller inkommande PIN-kod på någon av komponenterna. I det här fallet ska du använda kommandot på PIN-kod för okomprimerade Video-utdata från Media filen indata. En dialogruta öppnas som gör för att inspektera utgående videon.
 
 ![Kontrollera okomprimerade Video utdata PIN-koden](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
 
-Kontrollera okomprimerade Video utdata PIN-koden
+*Kontrollera okomprimerade Video utdata PIN-koden*
 
 I det här fallet den visar att videon innehåller en 1 920 x 1 080 inmatningen vid 24 bildrutor per sekund i 4:2:2 provtagning en video om nästan 2 minuter.
 
-### <a id="MXF_to_MP4_file_generation">Lägger till en videokodare för. Generera filen för MP4</a>
+### <a id="MXF_to_MP4_file_generation"></a>Lägger till en videokodare för. Generera filen för MP4
 En okomprimerad Video och flera okomprimerade ljud utdata PIN-koder som är tillgängliga för använder nu på Media filen indata. En kodning komponenten måste läggas till arbetsflöde – i det här fallet för att generera för att koda inkommande videon. MP4-filer.
 
 Om du vill koda video-ström till H.264 att lägga till komponenten AVC-videokodare till designytan. Den här komponenten tar en video Expandera-dataström som indata och levererar en AVC komprimerade video ström på dess utdata PIN-kod.
 
 ![Ansluten AVC-kodaren](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
-Ansluten AVC-kodaren
+*Ansluten AVC-kodaren*
 
 Egenskaperna avgör hur kodning exakt händer. Låt oss ta en titt på några av de viktigaste inställningarna:
 
@@ -136,7 +136,7 @@ Ansluta okomprimerade Video utdata PIN-koden för att feed AVC-kodaren från kom
 
 *Anslutna AVC Main-kodaren*
 
-### <a id="MXF_to_MP4_audio">Kodning i ljudström</a>
+### <a id="MXF_to_MP4_audio"></a>Kodning i ljudström
 Nu måste den ursprungliga okomprimerade ljudströmmen fortfarande ska komprimeras. Lägga till komponenten AAC-kodare (Dolby) till arbetsflödet för komprimering av ljud dataströmmen.
 
 ![Ansluten AVC-kodaren](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
@@ -149,31 +149,31 @@ En först vill generera en överlagrad dataström från krävs källa ljud kanal
 
 ![Ansluten ljudström Interleaver](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-audio-stream-interleaver.png)
 
-Ansluten ljudström Interleaver
+*Ansluten ljudström Interleaver*
 
 Nu när vi har en överlagrad ljudström vi fortfarande inte har angett var åt vänster eller höger talare platser ska tilldelas. För att ange det kan vi utnyttja talare Position du.
 
 ![Lägga till en talare Position du](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-speaker-position-assigner.png)
 
-Lägga till en talare Position du
+*Lägga till en talare Position du*
 
 Konfigurera talare Position du för användning med en stereo Indataströmmen genom en kodare förinställda Filter ”anpassad” och kanal förinställningen kallas ”2.0 (L, R)”. (Detta tilldelar vänstra högtalaren möjlighet att kanalen 1 och rätt talare positionen kanal 2.)
 
 Resultatet av talare Position du att ansluta till indata för AAC-kodaren. Sedan anger du AAC kodaren att fungera med en ”2.0 (L, R)” kanal förinställningen så att den vet för att hantera stereoljud som indata.
 
-### <a id="MXF_to_MP4_audio_and_fideo">Multiplexering ljud och Video strömmar till en MP4-behållare</a>
+### <a id="MXF_to_MP4_audio_and_fideo"></a>Multiplexering ljud och Video strömmar till en MP4-behållare
 Beroende på vår AVC kodade video-ström och våra AAC kodade ljudström, vi kan samla in båda till en. MP4-behållare. Processen att blanda olika dataströmmar i en enda kallas ”multiplexering” (eller ”muxing”). I det här fallet vi interfoliering ljud- och videoströmmar i en enda konsekvent. MP4-paketet. Den komponent som samordnar för en. MP4-behållaren kallas ISO MPEG-4-multiplexor. Lägg till ett till designytan och Anslut både AVC Video Encoder och AAC kodaren till indata.
 
 ![Anslutna MPEG4 multiplexor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
 
-Anslutna MPEG4 multiplexor
+*Anslutna MPEG4 multiplexor*
 
-### <a id="MXF_to_MP4_writing_mp4">Skriver MP4-fil</a>
+### <a id="MXF_to_MP4_writing_mp4"></a>Skriver MP4-fil
 När du skriver en utdatafil används utdata från komponenten. Vi kan ansluta det till utdataporten för ISO MPEG-4-multiplexor så att dess utdata skrivs till disk. Gör du genom att ansluta behållare (MPEG-4) utdata PIN-koden till skrivåtgärder inkommande PIN-koden för fil-utdata.
 
 ![Ansluten utdata](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-file-output.png)
 
-Ansluten utdata
+*Ansluten utdata*
 
 Det filnamn som används bestäms av egenskapen. Egenskapen kan vara hårdkodad till ett visst värde, vill troligen en anges via ett uttryck i stället.
 
@@ -181,7 +181,7 @@ Att arbetsflödet automatiskt avgöra utdata har filen namnegenskapen från ett 
 
 ![Tom uttrycksredigerare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
 
-Tom uttrycksredigerare
+*Tom uttrycksredigerare*
 
 Uttrycksredigeraren för kan du ange alla litteralvärde blandas med en eller flera variabler. Variabler börja med ett dollartecken. När du klickar på nyckeln $ redigeraren visas en listruta med ett alternativ för variabler som är tillgängliga. I vårt fall använder vi en kombination av utdata directory variabel och variabeln grundläggande indatafilen namn:
 
@@ -189,7 +189,7 @@ Uttrycksredigeraren för kan du ange alla litteralvärde blandas med en eller fl
 
 ![Fylls ut uttrycksredigerare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
-Fylls ut uttrycksredigerare
+*Fylls ut uttrycksredigerare*
 
 > [!NOTE]
 > Du måste ange ett värde i uttrycksredigeraren för att visa en utdatafil kodning jobbet i Azure.
@@ -200,9 +200,9 @@ När du bekräftar uttrycket genom att träffa ok förhandsgranskar fönstret eg
 
 ![Fil-uttrycket matchar utdata dir](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-expression-resolves-output-dir.png)
 
-Fil-uttrycket matchar utdata dir
+*Fil-uttrycket matchar utdata dir*
 
-### <a id="MXF_to_MP4_asset_from_output">Skapa ett Media Services tillgångsinformation från utdatafilen</a>
+### <a id="MXF_to_MP4_asset_from_output"></a>Skapa ett Media Services tillgångsinformation från utdatafilen
 När vi har skapat en MP4-utdatafil behöver vi ange att den här filen tillhör utdatatillgången vilka media services genererar ett resultat av körning av arbetsflödet. Noden fil/Utdatatillgången på arbetsytan arbetsflöde används för detta ändamål. Alla inkommande filer till den här noden gör en del av denna Azure Media Services tillgång.
 
 Ansluta komponenten utdata till filen/Utdatatillgången komponenten att slutföra arbetsflödet.
@@ -211,7 +211,7 @@ Ansluta komponenten utdata till filen/Utdatatillgången komponenten att slutför
 
 *Klar arbetsflöde*
 
-### <a id="MXF_to_MP4_test">Testa arbetsflödet slutförts lokalt</a>
+### <a id="MXF_to_MP4_test"></a>Testa arbetsflödet slutförts lokalt
 Om du vill testa arbetsflödet lokalt, trycka på knappen Spela upp i verktygsfältet högst upp. Granska utdata som genereras i den konfigurerade Utdatamappen när arbetsflödet slutförts körs. Klar MP4 utdatafilen som har kodats från filen MXF Indatakällan visas.
 
 ## <a id="MXF_to_MP4_with_dyn_packaging"></a>Kodning MXF till MP4 - multibitrate dynamisk paketering aktiverad
@@ -221,9 +221,9 @@ När en multibithastighet tillgången utdata önskas för användning i kombinat
 
 ![Starta arbetsflöde](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
 
-Starta arbetsflöde
+*Starta arbetsflöde*
 
-### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs">Lägga till en eller flera ytterligare MP4-utdata</a>
+### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Lägga till en eller flera ytterligare MP4-utdata
 Alla MP4-filer i vårt Azure Media Services tillgång har stöd för en annan bithastighet och upplösning. Lägg till en eller flera MP4-utdatafilerna till arbetsflödet.
 
 Om du vill se till att vi har vår video kodare som skapats med samma inställningar, är det mest praktiskt att kopiera den befintliga AVC-videokodare och konfigurera en annan kombination av upplösning och bithastighet (Lägg till en 960 x 540 med 25 bildrutor per sekund med 2,5 Mbit/s ). Om du vill duplicera befintliga kodaren klistra kopiera in den på designytan.
@@ -232,7 +232,7 @@ Ansluta okomprimerade Video utdata PIN-koden för Media filen indata till vår n
 
 ![Andra AVC-kodaren som är ansluten](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-avc-encoder-connected.png)
 
-Andra AVC-kodaren som är ansluten
+*Andra AVC-kodaren som är ansluten*
 
 Nu anpassa konfigurationen för vår nya AVC-kodaren till utdata 960 x 540 med 2,5 Mbit/s. (Använd egenskaper ”utdata bredd”, ”utdata höjd” och ”bithastighet (kbps)” för detta.)
 
@@ -248,17 +248,17 @@ Nu ska du lägga till en andra ISO MPEG-4-multiplexor och en andra fil-utdata. A
 
 ![Andra Muxer och utdata från anslutna](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-muxer-file-output-connected.png)
 
-Andra Muxer och utdata från anslutna
+*Andra Muxer och utdata från anslutna*
 
 Konfigurera den multiplexor segmentet läge GOP antal eller varaktighet för kompatibilitet med Azure Media Services dynamisk paketering och ange GOPs per segment till 1. (Detta ska vara standard.)
 
 ![Muxer segment lägen](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-muxer-chunk-modes.png)
 
-Muxer segment lägen
+*Muxer segment lägen*
 
 Obs: du kanske vill upprepa processen för alla andra bithastighet upplösning kombinationer och du vill ska läggas till tillgången utdata.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names">Konfigurera filnamnen för utdata</a>
+### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Konfigurera filnamnen för utdata
 Vi har mer än en enskild fil som läggs till för utdatatillgången. Detta ger behöver kontrollera filnamnen för varje utdatafilerna skiljer sig från varandra och kanske även tillämpa ett filnamn så att det blir tydligt filnamnet vad du arbetar med.
 
 Utdata filnamngivning kan styras via uttryck i designern. Öppna fönstret egenskap för en av komponenterna utdata och uttrycksredigerare för egenskapen. Vårt första utdatafilen konfigurerades via följande uttryck (Se Självstudierna för att gå från [MXF för en enda bithastighet MP4 utdata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
@@ -276,12 +276,12 @@ och andra för:
 
 Köra ett mellanliggande test som körs för att kontrollera att båda utdata MP4-filer skapas korrekt.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_audio_tracks">Lägga till ett separat spår för ljud</a>
+### <a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>Lägga till ett separat spår för ljud
 Som vi ser senare när vi skapar en .ism-fil att gå med vår MP4-filer för utdata visar kräver vi också en ljuddata MP4-fil som ljud spår för våra anpassningsbar strömning. Skapa den här filen, lägga till en ytterligare muxer till arbetsflödet (ISO-MPEG-4 multiplexor) och ansluta kodaren AAC utdata PIN-kod med dess inkommande PIN-kod för spår 1.
 
 ![Ljud Muxer som lagts till](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-added.png)
 
-Ljud Muxer som lagts till
+*Ljud Muxer som lagts till*
 
 Skapa en tredje utdata från komponenten utdata från muxer utgående dataströmmen och konfigurera filnamn uttryck som:
 
@@ -289,7 +289,7 @@ Skapa en tredje utdata från komponenten utdata från muxer utgående dataström
 
 ![Ljud Muxer skapa filen utdata](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
-Ljud Muxer skapa filen utdata
+*Ljud Muxer skapa filen utdata*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Att lägga till den. ISM SMIL-fil
 För dynamisk paketering ska fungera i kombination med både MP4-filer (och ljuddata MP4) i vår Media Services tillgången, men vi behöver också en manifestfil (kallas även en ”SMIL”-fil: synkroniserade Multimedia Integration Language). Den här filen anger Azure Media Services vilka MP4-filer är tillgängliga för dynamisk paketering och vilka av dessa väga in för ljud strömning. En typisk manifestfil för en uppsättning MP4's med en enda ljudström ser ut så här:
@@ -323,19 +323,19 @@ Vår klar arbetsflöde ser ut som den nedan:
 
 ![Klar MXF multibitrate MP4 arbetsflödet](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-mxf-to-multibitrate-mp4-workflow.png)
 
-Klar MXF multibitrate MP4 arbetsflödet
+*Klar MXF multibitrate MP4 arbetsflödet*
 
-## <a id="MXF_to__multibitrate_MP4">Kodning MXF till multibitrate MP4 - förbättrad utkast</a>
+## <a id="MXF_to__multibitrate_MP4"></a>Kodning MXF till multibitrate MP4 - förbättrad utkast
 I den [tidigare arbetsflöde genomgången](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) vi har sett hur en enda MXF inkommande tillgång kan konverteras till en utdatatillgången med flera bithastigheter MP4-filer, en ljuddata MP4-fil och en manifestfil för användning tillsammans med Azure Media Services dynamisk paketering.
 
 Den här genomgången visar hur vissa aspekter kan förbättras och görs enklare.
 
-### <a id="MXF_to_multibitrate_MP4_overview">Översikt över arbetsflöde för att förbättra</a>
+### <a id="MXF_to_multibitrate_MP4_overview"></a>Översikt över arbetsflöde för att förbättra
 ![Multibitrate MP4-arbetsflöde för att förbättra](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
 
-Multibitrate MP4-arbetsflöde för att förbättra
+*Multibitrate MP4-arbetsflöde för att förbättra*
 
-### <a id="MXF_to__multibitrate_MP4_file_naming">Filen namngivningskonventioner</a>
+### <a id="MXF_to__multibitrate_MP4_file_naming"></a>Filen namngivningskonventioner
 I tidigare arbetsflödet angav vi ett enkelt uttryck som grund för att generera utdata-filnamn. Vi har några duplicering men: alla enskilda utdata filen komponenter angivna sådana uttrycket.
 
 Till exempel har våra filen utdata-komponenten för den första videofilen konfigurerats med det här uttrycket:
@@ -350,12 +350,12 @@ Skulle det inte vara tydligare mindre fel felbenägna och bekvämare om vi kan t
 
 Antar vi att vi ska hårddiskkonfiguration filename från bithastighet enskilda MP4-filer. Dessa bithastighet kommer ni att konfigurera på en central plats (i roten på vår diagram), där de kommer åt för att konfigurera och filnamnet för enheten. Detta gör börja vi med att publicera egenskapen bithastighet från båda AVC-kodare till roten i vår arbetsflödet, så att den blir tillgänglig från båda roten samt från och med AVC-kodare. (Även om visas i två olika platser, det är endast ett underliggande värde.)
 
-### <a id="MXF_to__multibitrate_MP4_publishing">Publicera komponentegenskaper till roten för arbetsflöde</a>
+### <a id="MXF_to__multibitrate_MP4_publishing"></a>Publicera komponentegenskaper till roten för arbetsflöde
 Öppna första AVC-kodaren, gå till egenskapen bithastighet (kbps) och välj Publicera i listrutan.
 
 ![Publicering av egenskapen bithastighet](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
 
-Publicering av egenskapen bithastighet
+*Publicering av egenskapen bithastighet*
 
 Konfigurera dialogrutan Publicera om du vill publicera till roten i vår arbetsflöde diagram med en publicerade namnet ”video1bitrate” och en läsbar visningsnamn ”Video 1 bithastighet”. Konfigurera ett eget gruppnamn kallas ”strömning bithastighet” och klicka på Publicera.
 
@@ -378,15 +378,15 @@ Vi Slutför ”strömning bithastighet”-gruppen genom att publicera våra ljud
 
 ![Publishing dialogrutan för ljud bithastighet](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-audio-bitrate.png)
 
-Publishing dialogrutan för ljud bithastighet
+*Publishing dialogrutan för ljud bithastighet*
 
 ![Resulterande video och ljud sammanställer på rot](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-resulting-video-and-audio-props-on-root.png)
 
-Resulterande video och ljud sammanställer på rot
+*Resulterande video och ljud sammanställer på rot*
 
 Om du ändrar något av dessa tre värden också Omkonfigurerar och ändras värden i de länkade med respektive komponenterna (och där publicerade från).
 
-### <a id="MXF_to__multibitrate_MP4_output_files">Har genererat utdatafilen namn är beroende av publicerade egenskapsvärden</a>
+### <a id="MXF_to__multibitrate_MP4_output_files"></a>Har genererat utdatafilen namn är beroende av publicerade egenskapsvärden
 I stället för hardcoding våra genererade filnamn, vi kan nu ändra våra filename-uttrycket på varje fil utdata-komponenter kan förlita sig på egenskaperna bithastighet vi publiceras på diagrammet roten. Med vår utdata från första början för att hitta egenskapen i och redigera uttrycket så här:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
@@ -395,7 +395,7 @@ Olika parametrar i det här uttrycket kan kommas åt och anges genom att träffa
 
 ![Åtkomst till parametrar i ett uttryck](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-accessing-parameters-within-an-expression.png)
 
-Åtkomst till parametrar i ett uttryck
+*Åtkomst till parametrar i ett uttryck*
 
 Gör samma sak för filen utdata för våra andra video:
 
@@ -407,18 +407,18 @@ och ljuddata filen utdata för:
 
 Om vi nu ändra bithastighet för någon av filerna video eller ljud respektive kodaren ska konfigureras och konventionen bithastighet-baserat namn att användas automatiskt.
 
-## <a id="thumbnails_to__multibitrate_MP4">Om du lägger till miniatyrbilder multibitrate MP4-utdata</a>
+## <a id="thumbnails_to__multibitrate_MP4"></a>Om du lägger till miniatyrbilder multibitrate MP4-utdata
 Från ett arbetsflöde som genererar [en multibitrate MP4-utdata från ett MXF indata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), vi kommer nu att titta på när du lägger till miniatyrbilder utdata.
 
-### <a id="thumbnails_to__multibitrate_MP4_overview">Översikt över att lägga till miniatyrbilder till arbetsflöde</a>
+### <a id="thumbnails_to__multibitrate_MP4_overview"></a>Översikt över att lägga till miniatyrbilder till arbetsflöde
 ![Multibitrate MP4-arbetsflöde för att starta från](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
 
-Multibitrate MP4-arbetsflöde för att starta från
+*Multibitrate MP4-arbetsflöde för att starta från*
 
-### <a id="thumbnails_to__multibitrate_MP4__with_jpg">Lägga till JPG kodning</a>
+### <a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>Lägga till JPG kodning
 Hjärtat i vår miniatyr generation kommer att komponenten JPG kodare kunna utdata JPG-filer.
 
-![JPG Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
+![JPG-kodaren](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
 *JPG-kodaren*
 
@@ -426,22 +426,22 @@ Vi kan inte men direkt ansluta våra okomprimerade Video-ström från Media file
 
 ![Ansluter en ram gate till JPG-kodaren](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-frame-gate-to-jpg-encoder.png)
 
-Ansluter en ram gate till JPG-kodaren
+*Ansluter en ram gate till JPG-kodaren*
 
 RAM-gate var så många: e sekund eller ramar kan en bildruta att skicka. Intervallet och tidsförskjutningen med det här inträffar kan konfigureras i egenskaperna.
 
 ![Video ram Gate-egenskaper](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-video-frame-gate-properties.png)
 
-Video ram Gate-egenskaper
+*Video ram Gate-egenskaper*
 
 Nu ska vi skapa en miniatyr i minuten genom att ange läget (sekunder) och intervall och 60.
 
-### <a id="thumbnails_to__multibitrate_MP4_color_space">Hantera färg utrymme konvertering</a>
+### <a id="thumbnails_to__multibitrate_MP4_color_space"></a>Hantera färg utrymme konvertering
 Medan verkar det logiskt båda okomprimerade Video PIN-koder för ram-gate och Media filen indata kan nu vara ansluten, skulle vi får en varning om vi skulle göra.
 
 ![Indatafärgen utrymme fel](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-input-color-space-error.png)
 
-Indatafärgen utrymme fel
+*Indatafärgen utrymme fel*
 
 Det beror på sätt som i vilken färg information visas i vår ursprungliga rådata okomprimerade video-ström, kommer från våra MXF skiljer sig från vad JPG-kodaren förväntar sig. Mer specifikt förväntas en så kallad ”färg utrymme” ”RGB” eller ”gråskala” på. Det innebär att den Video ram Gate inkommande video-ström måste ha en konvertering som tillämpas om dess färg utrymme först.
 
@@ -449,16 +449,16 @@ Dra till arbetsflödet färg utrymme konverteraren - Intel och ansluta till vår
 
 ![Ansluta en färg utrymme konverteraren](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-color-space-convertor.png)
 
-Ansluta en färg utrymme konverteraren
+*Ansluta en färg utrymme konverteraren*
 
 Välj posten BGR 24 förinställda listan i egenskapsfönstret.
 
-### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails">Skriva miniatyrerna</a>
+### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Skriva miniatyrerna
 Skiljer sig från våra MP4-video, JPG kodare komponenten matar ut mer än en fil. För att hantera detta, en komponent som scen Sök JPG-fil skrivaren kan användas: den tar inkommande JPG-miniatyrbilder och skriver ut dem varje filnamn som suffixet av ett annat nummer. (Det tal som anger antalet sekunder/enheter i strömmen som miniatyren ritades från vanligtvis.)
 
 ![Introduktion till skrivaren scen Sök JPG-fil](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
-Introduktion till skrivaren scen Sök JPG-fil
+*Introduktion till skrivaren scen Sök JPG-fil*
 
 Konfigurera utdata mappsökväg med uttryck: ${ROOT_outputWriteDirectory}
 
@@ -470,22 +470,22 @@ Prefixet avgör hur miniatyrer filer namnges. De suffixet med ett tal som anger 
 
 ![Egenskaper för scen Sök JPG-fil Writer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
-Egenskaper för scen Sök JPG-fil Writer
+*Egenskaper för scen Sök JPG-fil Writer*
 
 Anslut skrivaren scen Sök JPG-fil till noden fil/Utdatatillgången.
 
-### <a id="thumbnails_to__multibitrate_MP4_errors">Identifiering av fel i ett arbetsflöde</a>
+### <a id="thumbnails_to__multibitrate_MP4_errors"></a>Identifiering av fel i ett arbetsflöde
 Ansluta indata för färg utrymme konverteraren till rå okomprimerade videoutdata. Nu utföra lokala testa för arbetsflödet. Det är troligt arbetsflödet plötsligt kan avbrytas och ange med en röd ram på den komponent som ett fel uppstod:
 
 ![Färg utrymme konverteraren fel](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error.png)
 
-Färg utrymme konverteraren fel
+*Färg utrymme konverteraren fel*
 
 Klicka på lite red ”E”-ikonen i övre högra hörnet av komponenten färg utrymme konverterare och se vad orsaken kodning försöket misslyckades.
 
 ![Färg utrymme konverteraren feldialogrutan](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error-dialog.png)
 
-Färg utrymme konverteraren feldialogrutan
+*Färg utrymme konverteraren feldialogrutan*
 
 Det visar sig, som du kan se att det inkommande färg utrymmet som är standard för färg utrymme konverteraren måste vara rec601 för våra begärda konvertering av YUV till RGB. Vår dataströmmen anger uppenbarligen inte dess rec601. (Rek 601 är en standard för kodning sammanflätade analoga video signaler i digital video form. Det anger en aktiva regionen som täcker 720 ljusstyrkan exemplen och 360 krominans prover per rad. Färgen kodning system kallas YCbCr 4:2:2.)
 
@@ -493,35 +493,35 @@ För att åtgärda detta ska vi ange på metadata för våra dataström som vi b
 
 ![Uppdatera färg utrymme Standard på typen uppdateringsfilen Data](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
 
-Uppdatera färg utrymme Standard på typen uppdateringsfilen Data
+*Uppdatera färg utrymme Standard på typen uppdateringsfilen Data*
 
-### <a id="thumbnails_to__multibitrate_MP4_finish">Klar arbetsflöde</a>
+### <a id="thumbnails_to__multibitrate_MP4_finish"></a>Klar arbetsflöde
 Nu när våra arbetsflödet är klar, gör ett annat test kör för att se överförs.
 
 ![Klar arbetsflöde för flera mp4 utdata med miniatyrbilder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
 
-Klar arbetsflöde för flera mp4 utdata med miniatyrbilder
+*Klar arbetsflöde för flera mp4 utdata med miniatyrbilder*
 
-## <a id="time_based_trim">Tidsbaserade trimning multibitrate MP4-utdata</a>
+## <a id="time_based_trim"></a>Tidsbaserade trimning multibitrate MP4-utdata
 Från ett arbetsflöde som genererar [en multibitrate MP4-utdata från ett MXF indata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), vi kommer nu att titta på trimning källa videon baserat på tidsstämplar.
 
-### <a id="time_based_trim_start">Översikt över arbetsflöde börja lägga till trimning till</a>
+### <a id="time_based_trim_start"></a>Översikt över arbetsflöde börja lägga till trimning till
 ![Starta arbetsflöde för att lägga till trimning till](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
 
-Starta arbetsflöde för att lägga till trimning till
+*Starta arbetsflöde för att lägga till trimning till*
 
-### <a id="time_based_trim_use_stream_trimmer">Med hjälp av dataströmmen Trimmer</a>
+### <a id="time_based_trim_use_stream_trimmer"></a>Med hjälp av dataströmmen Trimmer
 Komponenten dataströmmen Trimmer kan du rensa början och slutet av en indataström som baseras på tidsuppgifterna information (sekunder, minuter,...). Kanstskäraren stöder inte ram-baserade trimning.
 
 ![Dataströmmen Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
-Dataströmmen Trimmer
+*Dataströmmen Trimmer*
 
 I stället för att länka AVC kodare och talare position du Media filen inkommande direkt kan ska vi placera mellan de dataströmmen trimmer. (En för video signalen och en för överlagrad ljud signalen.)
 
 ![Placera dataströmmen Trimmer mellan](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-put-stream-trimmer-in-between.png)
 
-Placera dataströmmen Trimmer mellan
+*Placera dataströmmen Trimmer mellan*
 
 Nu ska vi konfigurera kanstskäraren så att vi endast bearbeta video och ljud mellan 15 sekunder och 60 sekunder i videon.
 
@@ -529,21 +529,21 @@ Gå till egenskaperna för Video dataströmmen Trimmer och konfigurera både sta
 
 ![Publicera start tid egenskap från dataströmmen Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
 
-Publicera start tid egenskap från dataströmmen Trimmer
+*Publicera start tid egenskap från dataströmmen Trimmer*
 
 ![Publicera egenskapsdialogrutan för starttid](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-start-time.png)
 
-Publicera egenskapsdialogrutan för starttid
+*Publicera egenskapsdialogrutan för starttid*
 
 ![Publicera egenskapsdialogrutan för sluttid](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-end-time.png)
 
-Publicera egenskapsdialogrutan för sluttid
+*Publicera egenskapsdialogrutan för sluttid*
 
 Om vi nu granska roten för våra arbetsflöde, är båda egenskaperna snyggt visas och konfigureras därifrån.
 
 ![Publicerade egenskaper som är tillgängliga på rot](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
 
-Publicerade egenskaper som är tillgängliga på rot
+*Publicerade egenskaper som är tillgängliga på rot*
 
 Öppna egenskaperna trimning från ljud trimmer och konfigurera både start- och sluttider med ett uttryck som refererar till de publicerade egenskaperna i roten på vår arbetsflöde.
 
@@ -555,12 +555,12 @@ och för dess Sluttid:
 
     ${ROOT_TrimmingEndTime}
 
-### <a id="time_based_trim_finish">Klar arbetsflöde</a>
+### <a id="time_based_trim_finish"></a>Klar arbetsflöde
 ![Klar arbetsflöde](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
 *Klar arbetsflöde*
 
-## <a id="scripting">Introduktion till komponenten skriptbaserade</a>
+## <a id="scripting"></a>Introduktion till komponenten skriptbaserade
 Skriptbaserade komponenter kan köra godtycklig skript under körningen faser i vår arbetsflöde. Det finns fyra olika skript som kan utföras med specifika egenskaper och deras egen plats i arbetsflödet livscykel:
 
 * **commandScript**
@@ -570,18 +570,18 @@ Skriptbaserade komponenter kan köra godtycklig skript under körningen faser i 
 
 I dokumentationen för komponenten skripta går i detalj för varje ovan. I [i följande avsnitt](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), **realizeScript** scripting komponent används för att skapa en cliplist xml direkt när arbetsflödet startar. Det här skriptet anropas under installationen av komponenten, som görs bara en gång i livscykeln.
 
-### <a id="scripting_hello_world">Skript i ett arbetsflöde: hello world</a>
+### <a id="scripting_hello_world"></a>Skript i ett arbetsflöde: hello world
 Dra en skripta komponent till designytan och byta namn på den (till exempel ”SetClipListXML”).
 
 ![Lägga till en skriptbaserade komponent](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
-Lägga till en skriptbaserade komponent
+*Lägga till en skriptbaserade komponent*
 
 När du kontrollerar egenskaperna för komponenten skripta kommer de fyra typerna av olika skript att visas, varje konfigureras för att ett annat skript.
 
 ![Egenskaperna för komponenten för skript](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
-Egenskaperna för komponenten för skript
+*Egenskaperna för komponenten för skript*
 
 Avmarkera processInputScript och öppna Redigeraren för realizeScript. Nu ska vi har skapat och redo att börja skript.
 
@@ -595,7 +595,7 @@ Nu ska du köra en lokal testkörning. När du kör, kontrollera (via fliken Sys
 
 ![Hello world loggutdata](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output.png)
 
-Hello world loggutdata
+*Hello world loggutdata*
 
 Nodobjektet som vi anropa metoden loggen, refererar till vår aktuella ”noden” eller komponenten vi skript i. Alla komponenter har som möjlighet att loggning utdata, tillgängliga via fliken system. I det här fallet utdata vi stränglitteral ”hello world”. Viktigt att förstå här är att det kan bevisa att ett ovärderligt verktyg för felsökning, vilket ger dig information om vilka skriptet faktiskt göra.
 
@@ -621,42 +621,42 @@ Fönstret med vår ser vi följande:
 
 ![Utdata för att komma åt noden sökvägar](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output2.png)
 
-Utdata för att komma åt noden sökvägar
+*Utdata för att komma åt noden sökvägar*
 
-## <a id="frame_based_trim">RAM-baserade trimning multibitrate MP4-utdata</a>
+## <a id="frame_based_trim"></a>RAM-baserade trimning multibitrate MP4-utdata
 Från ett arbetsflöde som genererar [en multibitrate MP4-utdata från ett MXF indata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), vi kommer nu att titta på trimning källa videon baserat på ramen.
 
-### <a id="frame_based_trim_start">Översikt över utkast börja lägga till trimning till</a>
+### <a id="frame_based_trim_start"></a>Översikt över utkast börja lägga till trimning till
 ![Arbetsflöde för att börja lägga till trimning till](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
 
-Arbetsflöde för att börja lägga till trimning till
+*Arbetsflöde för att börja lägga till trimning till*
 
-### <a id="frame_based_trim_clip_list">Med hjälp av listan Clip XML</a>
+### <a id="frame_based_trim_clip_list"></a>Med hjälp av listan Clip XML
 I alla tidigare arbetsflöde självstudier använde vi Media filen inkommande komponenten som våra video Indatakällan. För dessa specifika fall men ska vi använda komponenten Clip datakälla i stället. Det får inte vara det bästa sättet att arbeta; bara använda Clip källan när det finns en verklig anledning att göra det (som i följande fall där vi gör användningen av klipp listan trimning funktioner).
 
 Om du vill växla från våra Media filen indata till Clip källan dra komponenten Clip datakälla till designytan och Anslut Clip listan XML PIN-koden till Clip listan XML-noden i Arbetsflödesdesignern. Detta fyller Clip källan med utdata PIN-koder, enligt våra videoinmatning. Nu ansluta okomprimerade Video och ljud okomprimerade PIN-koder från Clip källan till respektive AVC kodare och ljud dataströmmen Interleaver. Nu ska du ta bort filen indata Media.
 
 ![Ersätts Clip källan Media filen indata](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
-Ersätts Clip källan Media filen indata
+*Ersätts Clip källan Media filen indata*
 
 Datakälla för Clip komponenten tar som indata en ”Clip listan XML”. När du väljer att testa med lokalt källfilen, är den här clip listan xml fylls automatiskt åt dig.
 
 ![Automatisk fyllts Clip listan XML-egenskapen](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-auto-populated-clip-list-xml-property.png)
 
-Automatisk fyllts Clip listan XML-egenskapen
+*Automatisk fyllts Clip listan XML-egenskapen*
 
 Titta närmare lite xml, är detta hur det ser ut:
 
 ![Clip Listdialogrutan redigera](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-edit-clip-list-dialog.png)
 
-Clip Listdialogrutan redigera
+*Clip Listdialogrutan redigera*
 
 Detta men avspeglar inte funktionerna i clip listan xml. Vi har kan du lägga till en ”Rensa” element under både video och ljud källan, så här:
 
 ![Lägger till ett trim element i listan clip](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-trim-element-to-clip-list.png)
 
-Lägger till ett trim element i listan clip
+*Lägger till ett trim element i listan clip*
 
 Om du ändrar clip listan xml så här ovan och utföra lokala testa videon visas korrekt tagits bort mellan 10 och 20 sekunder i videon.
 
@@ -668,15 +668,15 @@ Dra en skripta komponent till designytan och Byt till ”SetClipListXML”.
 
 ![Lägga till en skriptbaserade komponent](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
-Lägga till en skriptbaserade komponent
+*Lägga till en skriptbaserade komponent*
 
 När du kontrollerar egenskaperna för komponenten skripta är de fyra olika skript-typerna visas, varje konfigureras för att ett annat skript.
 
 ![Egenskaperna för komponenten för skript](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
-Egenskaperna för komponenten för skript
+*Egenskaperna för komponenten för skript*
 
-### <a id="frame_based_trim_modify_clip_list">Ändra listan clip från en skript-komponent</a>
+### <a id="frame_based_trim_modify_clip_list"></a>Ändra listan clip från en skript-komponent
 Innan vi kan skriva om cliplist XML-filen som skapas under start av arbetsflödet, måste du ha tillgång till cliplist XML-egenskapen och innehåll. Vi kan göra det så här:
 
 ```java
@@ -687,7 +687,7 @@ Innan vi kan skriva om cliplist XML-filen som skapas under start av arbetsflöde
 
 ![Inkommande clip lista som loggas](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
 
-Inkommande clip lista som loggas
+*Inkommande clip lista som loggas*
 
 Vi måste först ett sätt att bestämma från vilken plats tills nu vill vi trim videon. För att göra det enkelt för tekniskt användaren av arbetsflödet, publicera två egenskaper till roten i diagrammet. Gör detta genom att högerklicka på designytan och välj ”Lägg till egenskap”:
 
@@ -696,17 +696,17 @@ Vi måste först ett sätt att bestämma från vilken plats tills nu vill vi tri
 
 ![Lägg till dialogrutan för egenskaper för urklippet starttid](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 
-Lägg till dialogrutan för egenskaper för urklippet starttid
+*Lägg till dialogrutan för egenskaper för urklippet starttid*
 
 ![Publicerade urklippet tid sammanställer i rot-arbetsflöde](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-time-props.png)
 
-Publicerade urklippet tid sammanställer i rot-arbetsflöde
+*Publicerade urklippet tid sammanställer i rot-arbetsflöde*
 
 Konfigurera båda egenskaperna till ett lämpligt värde:
 
 ![Konfigurera urklippet start och sluta egenskaper](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configure-clip-start-end-prop.png)
 
-Konfigurera urklippet start och sluta egenskaper
+*Konfigurera urklippet start och sluta egenskaper*
 
 Nu från i vår skript vi kan komma åt båda egenskaperna så här:
 
@@ -721,7 +721,7 @@ Nu från i vår skript vi kan komma åt båda egenskaperna så här:
 
 ![Log-fönster med början och slutet av Urklipp](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
 
-Log-fönster med början och slutet av Urklipp
+*Log-fönster med början och slutet av Urklipp*
 
 Vi parsa tidskod strängar till en mer praktiskt att använda i form av ett enkelt reguljära uttryck:
 
@@ -745,19 +745,19 @@ Vi parsa tidskod strängar till en mer praktiskt att använda i form av ett enke
 
 ![Fönstret med utdata från parsade tidskod](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
 
-Fönstret med utdata från parsade tidskod
+*Fönstret med utdata från parsade tidskod*
 
 Med den här vi information ändra vi nu cliplist xml för att återspegla start- och sluttider för önskad ram korrekt urklippet av detta.
 
 ![Skriptkod att lägga till trim element](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-trim-elements.png)
 
-Skriptkod att lägga till trim element
+*Skriptkod att lägga till trim element*
 
 Detta gjordes via normala sträng manipulering åtgärder. Den resulterande ändrade clip listan xml skrivs tillbaka till egenskapen clipListXML i arbetsflödet roten via metoden ”setProperty”. Loggfönstret när du kör ett annat test skulle visar följande:
 
 ![Loggning listan clip](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-result-clip-list.png)
 
-Loggning listan clip
+*Loggning listan clip*
 
 Gör en testkörning om du vill se hur klipps strömmar ljud och video. När du ska göra mer än en testkörning med olika värden för trimning punkter, Lägg märke till att de inte kommer beaktas men! Anledningen är att designer, till skillnad från Azure körning, inte åsidosätter cliplist xml var kör. Detta innebär att endast den första gången du har angett start- och slutpunkter, kommer xml för att omvandla, alla andra tider, vår guard-satsen (om (clipListXML.indexOf (”<trim>”) == -1)) förhindrar att arbetsflödet att lägga till ett annat trim element när det finns redan finns en.
 
@@ -823,7 +823,7 @@ Publicera som innan en ny egenskap till roten i vår arbetsflöde kallas ”Clip
 
 ![Publicerade en egenskap för att aktivera Urklipp](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
 
-Publicerade en egenskap för att aktivera Urklipp
+*Publicerade en egenskap för att aktivera Urklipp*
 
 Med den nedan enkla guard satsen vi kontrollera om trimning krävs och bestämma om vår clip lista som behöver ändras eller inte.
 

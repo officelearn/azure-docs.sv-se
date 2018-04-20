@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Välj, hantera och driva Service Fabric-kluster.
@@ -27,20 +27,20 @@ Välj, hantera och driva Service Fabric-kluster.
 
 |Kommando|Beskrivning|
 | --- | --- |
-|    code-versions| Hämtar en lista över fabric code-versioner som tillhandahålls i ett Service Fabric-kluster.|
-|    config-versions | Hämtar en lista över fabric config-versioner som tillhandahålls i ett Service Fabric-kluster.|
+|    koden-versioner| Hämtar en lista över fabric code-versioner som tillhandahålls i ett Service Fabric-kluster.|
+|    config-versioner | Hämtar en lista över fabric config-versioner som tillhandahålls i ett Service Fabric-kluster.|
 |    hälsa       | Hämtar hälsotillståndet för ett Service Fabric-kluster.|
 |    Manifestet     | Hämta Service Fabric-klustermanifestet.|
 |    Åtgärden Avbryt| Avbryter en egen användaren felåtgärd.|
 |    operationgit | Hämtar en lista över användare framkallas fel åtgärder filtreras efter angivna indata.|
 |    Etablera     | Etablera kod eller konfigurationsfil paket i ett Service Fabric-kluster.|
 |    recover-system  | Anger att den ska försöka återställa systemtjänster som för närvarande har fastnat i kvorumförlust till Service Fabric-klustret.|
-|report-health   | Skickar en hälsorapport på Service Fabric-klustret.|
+|rapporten hälsa   | Skickar en hälsorapport på Service Fabric-klustret.|
 |    välj       | Ansluter till en slutpunkt för Service Fabric-klustret.|
 | Avetablera     | Avetablera kod eller konfigurationsfil paket i ett Service Fabric-kluster.|
 |    Uppgradera         | Börja uppgradera kod eller konfigurationsfil version av Service Fabric-klustret.|
 |    återuppta uppgradering  | Se klusteruppgradering gå vidare till nästa uppgraderingsdomän.|
-|    upgrade-rollback| Återställa uppgradering av Service Fabric-klustret.|
+|    uppgraderingen återställning| Återställa uppgradering av Service Fabric-klustret.|
 |    uppgradera status  | Hämtar status för klustret uppgraderingen.|
 |uppgraderingen-uppdatering  | Uppdatera uppgradera parametrarna för en uppgradering av Service Fabric-klustret.|
 
@@ -65,7 +65,7 @@ Hämtar hälsotillståndet för ett Service Fabric-kluster. Använd EventsHealth
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                        | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                        | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                      | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o                    | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.                    Standard: json.|
 | --fråga                        | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -86,7 +86,7 @@ Hämta Service Fabric-klustermanifestet. Klustermanifestet innehåller egenskape
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h| Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga  | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -101,14 +101,14 @@ Validera och etablera kod eller konfigurationsfil paket i ett Service Fabric-klu
 |Argumentet|Beskrivning|
 | --- | --- |
 |--kluster-manifest--filsökväg| Klustret manifestfilen sökvägen.|
-|    --code-file-path            | Filsökvägen för klustret kod paketet.|
+|    --koden filsökväg            | Filsökvägen för klustret kod paketet.|
 |    --timeout -t                | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h  | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o| Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -125,9 +125,9 @@ Om ansluter till säker kluster, ange ett certifikat (.crt) och nyckelfilen (.ke
 | --- | --- |
 | --endpoint [krävs]| Kluster slutpunkts-URL, inklusive porten och HTTP eller HTTPS-prefix.|
 | --aad             | Använda Azure Active Directory för autentisering.|
-| --ca              | Sökvägen till CA-certifikat directory ska behandlas som giltiga eller Kanada paketfil.|
+| --certifikatutfärdare              | Sökvägen till CA-certifikat directory ska behandlas som giltiga eller Kanada paketfil.|
 | --cert            | Sökvägen till en klient-certifikatfil.|
-| --key             | Sökvägen till nyckelfilen för klientens certifikat.|
+| --nyckel             | Sökvägen till nyckelfilen för klientens certifikat.|
 | – Kontrollera Nej       | Inaktivera verifiering för certifikat när du använder HTTPS, Observera: Detta är en osäker alternativ och ska inte användas i produktionsmiljöer.|
 | --pem             | Sökvägen till klientcertifikat som en PEM-filen.|
 
@@ -135,7 +135,7 @@ Om ansluter till säker kluster, ange ett certifikat (.crt) och nyckelfilen (.ke
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h         | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o       | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga           | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -156,7 +156,7 @@ Avetablera kod eller konfigurationsfil paket i ett Service Fabric-kluster. Det g
 ### <a name="global-arguments"></a>Globala argument
 |Argumentet|Beskrivning|
 | --- | --- |
-|--debug         | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+|– Felsökning         | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
  |   --hjälp -h       | Visa den här hjälpmeddelandet och avsluta.|
  |   --utdata -o     | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
  |   --fråga         | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -170,31 +170,31 @@ Validera de angivna parametrarna för uppgraderingen och starta uppgraderingen k
 ### <a name="arguments"></a>Argument
 |Argumentet|Beskrivning|
 | --- | --- |
-|    --app-health-map                      | JSON-kodade ordlista med par av namn och Maxprocent ohälsosamt innan du höjer fel.|
- |   --app-type-health-map                 | JSON-kodade uppslagslista av par med programmets typnamn och Maxprocent ohälsosamt innan du höjer fel.|
+|    --app hälsa mappning                      | JSON-kodade ordlista med par av namn och Maxprocent ohälsosamt innan du höjer fel.|
+ |   --app typ-hälsa-mappning                 | JSON-kodade uppslagslista av par med programmets typnamn och Maxprocent ohälsosamt innan du höjer fel.|
  |   --code-version                        | Klustret code-versionen.|
  |   --config-version                      | Konfigurationsversionen för klustret.|
- |   --delta-health-evaluation             | Aktiverar delta hälsoutvärderingen i stället för absoluta hälsoutvärderingen efter varje domän har slutförts.|
- |   --delta-unhealthy-nodes               | Maximalt tillåten procentandel av noder hälsa försämras under uppgraderingar.  Standard: 10. Delta mäts mellan tillståndet i noderna i början av uppgradering och tillståndet i noderna vid tiden för utvärderingen hälsa. Kontrollen utförs efter varje uppgradera uppgraderingsdomänen har slutförts och kontrollera globalt tillstånd i klustret är tillåten begränsas.|
+ |   --delta klienthälsa             | Aktiverar delta hälsoutvärderingen i stället för absoluta hälsoutvärderingen efter varje domän har slutförts.|
+ |   --delta felaktiga noder               | Maximalt tillåten procentandel av noder hälsa försämras under uppgraderingar.  Standard: 10. Delta mäts mellan tillståndet i noderna i början av uppgradering och tillståndet i noderna vid tiden för utvärderingen hälsa. Kontrollen utförs efter varje uppgradera uppgraderingsdomänen har slutförts och kontrollera globalt tillstånd i klustret är tillåten begränsas.|
  |   --åtgärd vid                      | Möjliga värden är: 'Ogiltig ”,” återställa ”,” manuell ”.|
  |   --force-restart                       | Tvinga fram omstart.|
- |   --health-check-retry                  | Health check försök timeout mätt i millisekunder.|
- |   --health-check-stable                 | Hälsokontroll stabil tid, mätt i millisekunder.|
-  |  --health-check-wait                   | Health check vänta varaktighet mätt i millisekunder.|
-  |  --replica-set-check-timeout           | Uppgradera replikuppsättningen Kontrollera timeout mätt i sekunder.|
- |   --rolling-upgrade-mode                | Möjliga värden är: ”Ogiltig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Övervakade'.  Standard: UnmonitoredAuto.|
+ |   --hälsa-check-återförsök                  | Health check försök timeout mätt i millisekunder.|
+ |   --health check stabilt                 | Hälsokontroll stabil tid, mätt i millisekunder.|
+  |  --hälsokontroll-                   | Health check vänta varaktighet mätt i millisekunder.|
+  |  --replik-set-check-timeout           | Uppgradera replikuppsättningen Kontrollera timeout mätt i sekunder.|
+ |   --löpande uppgradering-läge                | Möjliga värden är: ”Ogiltig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Övervakade'.  Standard: UnmonitoredAuto.|
   |  --timeout -t                          | Servern tidsgräns i sekunder.  Standard: 60.|
   |  --felaktiga program              | Maximalt tillåten procentandel av felaktiga program innan ett fel rapporteras. Om du vill tillåta 10% av program feltillstånd exempelvis är det här värdet 10. Procentandelen representerar maximalt tillåten procentandel av program som kan vara felaktiga innan klustret anses vara fel. Om procentandelen följs men det finns minst ett feltillstånd program, utvärderas hälsa som varning. Detta beräknas genom att dividera antalet felaktiga program över det totala antalet programinstanser i klustret, exklusive programtyper som ingår i ApplicationTypeHealthPolicyMap-applikationer. Beräkningen Avrundar uppåt till tolererar att ett fel på mindre antal program.|
- |   --unhealthy-nodes                     | Maximalt tillåten procentandel av noder med fel innan den rapporterar ett fel. Om du vill tillåta 10% av noder feltillstånd, exempelvis är det här värdet 10. Procentandelen representerar maximalt tillåten procentandel av noder som kan vara felaktiga innan klustret anses vara fel. Om procentandelen följs men det finns minst en nod i feltillstånd, utvärderas hälsa som varning. Procentandelen beräknas genom att dividera antalet felaktiga noder över det totala antalet noder i klustret. Beräkningen Avrundar uppåt till tolererar att ett fel på litet antal noder. I stora kluster kommer vissa noder alltid att ned eller ut för reparationer, så den här procentandelen ska konfigureras för att tolerera som.|
+ |   --felaktiga noder                     | Maximalt tillåten procentandel av noder med fel innan den rapporterar ett fel. Om du vill tillåta 10% av noder feltillstånd, exempelvis är det här värdet 10. Procentandelen representerar maximalt tillåten procentandel av noder som kan vara felaktiga innan klustret anses vara fel. Om procentandelen följs men det finns minst en nod i feltillstånd, utvärderas hälsa som varning. Procentandelen beräknas genom att dividera antalet felaktiga noder över det totala antalet noder i klustret. Beräkningen Avrundar uppåt till tolererar att ett fel på litet antal noder. I stora kluster kommer vissa noder alltid att ned eller ut för reparationer, så den här procentandelen ska konfigureras för att tolerera som.|
  |   --upgrade-domain-delta-unhealthy-nodes| Största tillåtna procentandelen uppgraderingsdomänen noder hälsa försämras under uppgraderingar. Standard: 15. Delta mäts mellan tillståndet i uppgraderingsdomänen noderna i början av uppgradering och tillståndet för uppgraderingsdomänen noder vid tiden för utvärderingen hälsa. Kontrollen utförs när varje uppgraderingsdomänen uppgradera slutförande för alla slutförts uppgraderingsdomäner att kontrollera tillståndet för uppgraderingsdomäner är tillåten begränsas.|
- |   --upgrade-domain-timeout              | Uppgraderingsdomänen mätt i millisekunder.|
- |   --upgrade-timeout                     | Tidsgränsen för uppgradering mätt i millisekunder.|
+ |   --uppgraderingen domäntidsgräns              | Uppgraderingsdomänen mätt i millisekunder.|
+ |   --uppgraderingen-timeout                     | Tidsgränsen för uppgradering mätt i millisekunder.|
  |   --warning-as-error                    | Varningar behandlas med samma allvarlighetsgrad som fel.|
 
 ### <a name="global-arguments"></a>Globala argument
 |Argumentet|Beskrivning|
 | --- | --- |
-|--debug                               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+|– Felsökning                               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 |    --hjälp -h                             | Visa den här hjälpmeddelandet och avsluta.|
 |    --utdata -o                           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs. Standard: json.|
 |    --fråga                               | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|

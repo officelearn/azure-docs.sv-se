@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera IPsec/IKE-princip för S2S VPN- eller VNet-till-VNet-anslutningar: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Konfigurera IPsec/IKE-principen för S2S eller VNet-till-VNet-anslutningar med Azure VPN-gatewayer med Azure Resource Manager och PowerShell."
+title: 'Konfigurera IPsec/IKE-princip för S2S VPN- eller VNet-till-VNet-anslutningar: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Konfigurera IPsec/IKE-principen för S2S eller VNet-till-VNet-anslutningar med Azure VPN-gatewayer med Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-princip för S2S VPN- eller VNet-till-VNet-anslutningar
 
@@ -64,7 +64,7 @@ I följande tabell visas de kryptografiska algoritmer som stöds och viktiga sty
 | ---  | --- 
 | IKEv2-kryptering | AES256, AES192, AES128, DES3, DES  
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5  |
-| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
+| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, ingen |
 | IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS-grupp        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None 
@@ -115,7 +115,7 @@ Se [RFC3526](https://tools.ietf.org/html/rfc3526) och [RFC5114](https://tools.ie
 
 Det här avsnittet vägleder dig genom stegen för att skapa en S2S VPN-anslutning med ett IPsec/IKE-principen. Följande steg skapar anslutningen som visas i diagrammet:
 
-![s2s-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
+![s2s-princip](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
 Se [skapa en S2S VPN-anslutning](vpn-gateway-create-site-to-site-rm-powershell.md) mer detaljerad stegvisa instruktioner för att skapa en S2S VPN-anslutning.
 
@@ -162,7 +162,7 @@ Se till att växla till PowerShell-läget för att kunna använda Resource Manag
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

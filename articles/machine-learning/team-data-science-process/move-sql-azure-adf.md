@@ -1,8 +1,8 @@
 ---
-title: "Flytta data från en lokal SQL Server till SQL Azure med Azure Data Factory | Microsoft Docs"
-description: "Ställ in en ADM-pipeline som composes två data migreringsaktiviteter som tillsammans flyttar data dagligen mellan databaser på lokalt och i molnet."
+title: Flytta data från en lokal SQL Server till SQL Azure med Azure Data Factory | Microsoft Docs
+description: Ställ in en ADM-pipeline som composes två data migreringsaktiviteter som tillsammans flyttar data dagligen mellan databaser på lokalt och i molnet.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
 ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 Det här avsnittet visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure Database via Azure Blob Storage med hjälp av Azure Data Factory (ADM).
@@ -113,7 +113,7 @@ Tre tabelldefinitionerna krävs för den här ADF-pipelinen:
 >
 >
 
-### <a name="adf-table-onprem-sql">Lokal SQL-tabell</a>
+### <a name="adf-table-onprem-sql"></a>Lokal SQL-tabell
 Tabelldefinitionen för lokala SQL Server har angetts för följande JSON-fil:
 
         {
@@ -148,7 +148,7 @@ Kopiera JSON-definitionen av tabellen i en fil kallad *onpremtabledef.json* file
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store">BLOB-tabell </a>
+### <a name="adf-table-blob-store"></a>BLOB-tabell
 Definitionen för tabellen för platsen blob finns i följande (det här mappar infogade data från lokalt till Azure blob):
 
         {
@@ -178,7 +178,7 @@ Kopiera JSON-definitionen av tabellen i en fil kallad *bloboutputtabledef.json* 
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sql">SQL Azure-tabellen</a>
+### <a name="adf-table-azure-sql"></a>SQL Azure-tabellen
 Definitionen för tabellen för SQL Azure utdata finns i följande (det här schemat mappar data från blob):
 
     {

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -662,10 +662,10 @@ Du kan hämta krypteringsstatus av IaaS-VM med hjälp av kommandot CLI-diskkrypt
 #### <a name="disable-encryption-on-running-windows-iaas-vm"></a>Inaktivera kryptering på använder Windows IaaS-VM
 Du kan inaktivera kryptering på en aktiv Windows eller Linux IaaS-VM via Azure Disk Encryption Resource Manager-mall eller PowerShell-cmdlets och ange konfigurationen för dekryptering.
 
-##### <a name="windows-vm"></a>Windows VM
+##### <a name="windows-vm"></a>Virtuell Windows-dator
 Inaktivera kryptering steget inaktiverar kryptering av Operativsystemet, datavolym eller båda på körs Windows IaaS-VM. Du kan inte inaktivera systemvolymen och lämna datavolym krypteras. När steget inaktivera kryptering utförs Azure klassiska distributionsmodellen uppdaterar VM tjänstmodell och Windows IaaS-VM är markerad dekrypterade. Innehållet i den virtuella datorn är inte längre krypterat i vila. Dekrypteringen tar inte bort nyckelvalvet och kryptering nyckelmaterial (krypteringsnycklar BitLocker för Windows och lösenfrasen för Linux).
 
-##### <a name="linux-vm"></a>Linux VM
+##### <a name="linux-vm"></a>Virtuell Linux-dator
 Inaktivera kryptering steget inaktiverar kryptering av datavolym på körs Linux IaaS-VM. Det här steget fungerar bara om OS-disken inte krypteras.
 
 > [!NOTE]
@@ -720,7 +720,7 @@ Innan du fortsätter kan du granska den *krav* i den här artikeln. När du har 
 
 1. Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. Skriv följande om du vill visa prenumerationer för ditt konto om du har flera prenumerationer och vill ange en ska användas:
 

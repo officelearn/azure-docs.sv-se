@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -197,7 +197,7 @@ I det här steget ska du ge domänens säkerhet princip behörigheter för worke
     
 5. Upprepa steg 1 – 4 ovan för var och en av dessa återstående säkerhetsprinciper:
 
-| Åtgärd | Domain Security Policy |
+| Åtgärd | Säkerhetsprincip för domän |
 | ---------- | ---------- | 
 | Hämta och skicka | Worker Data: Public Worker rapporter |
 | Hämta och skicka | Worker Data: Kontakta arbetsinformation |
@@ -246,7 +246,7 @@ Beakta följande frågor innan du konfigurerar användaretablering till en Activ
    * SAM-kontonamn (SAM)
       * *Exempel: Använd värdet Workday User_ID filtreras via en Azure AD som etablerar uttryck för att ta bort ogiltiga tecken*
       
-   * User Principal Name (userPrincipalName)
+   * Användarens huvudnamn (userPrincipalName)
       * *Exempel: Använda Workday User_ID-värde med en Azure AD som etablering uttryck för att lägga till ett domännamn*
 
 * **Hur ska användarna matchas mellan Workday och Active Directory?**
@@ -308,7 +308,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
       * Operatorn: REGEX-matchning
 
-      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Värde: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Exempel: Endast anställda och inte contingent personer 
 
@@ -363,27 +363,27 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | ARBETSDAGAR ATTRIBUT | ACTIVE DIRECTORY-ATTRIBUT |  MATCHANDE ID? | SKAPA / UPPDATERA |
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Ja** | Skrivas i Skapa endast | 
-| **Användar-ID**    |  cn    |   |   Skrivas i Skapa endast |
+| **Användar-ID**    |  CN    |   |   Skrivas i Skapa endast |
 | **Ansluta till (”@”, [användarnamn] ”contoso.com”)**   | userPrincipalName     |     | Skrivas i Skapa endast 
-| **Ersätt (Mid (Ersätt (\[UserID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
-| **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  accountDisabled      |     | Skapa och uppdatera |
+| **Ersätt (Mid (Ersätt (\[UserID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Skrivas i Skapa endast |
+| **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  AccountDisabled      |     | Skapa och uppdatera |
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
-| **PreferredNameData**  |  displayName |     |   Skapa och uppdatera |
+| **PreferredNameData**  |  Visningsnamn |     |   Skapa och uppdatera |
 | **Företag**         | Företag   |     |  Skapa och uppdatera |
 | **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
-| **ManagerReference**   | manager  |     |  Skapa och uppdatera |
+| **ManagerReference**   | Manager  |     |  Skapa och uppdatera |
 | **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
-| **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
-| **Namnet**   |   l   |     | Skapa och uppdatera |
+| **AddressLineData**    |  StreetAddress  |     |   Skapa och uppdatera |
+| **Namnet**   |   L   |     | Skapa och uppdatera |
 | **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
 | **CountryReferenceTwoLetter**    |  c  |     |         Skapa och uppdatera |
 | **CountryRegionReference** |  St     |     | Skapa och uppdatera |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa och uppdatera |
-| **PostalCode**  |   Postnummer  |     | Skapa och uppdatera |
+| **Postnummer**  |   Postnummer  |     | Skapa och uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa och uppdatera |
 | **Fax**      | facsimileTelephoneNumber     |     |    Skapa och uppdatera |
-| **Mobile**  |    mobila       |     |       Skapa och uppdatera |
+| **mobila**  |    mobila       |     |       Skapa och uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa och uppdatera |                                               
 | **Växel (\[namnet\]”, OU standardanvändare, OU = = användare, OU = standard, OU = platser, DC = contoso, DC = com”, ”Dallas” ”, OU standardanvändare, OU = = användare, OU Dallas, OU = platser, DC = = contoso, DC = com”, ”Austin” ”OU standardanvändare, OU = = Användare, OU Austin, OU = platser, DC = = contoso, DC = com ”,” Seattle ””, OU standardanvändare, OU = = användare, OU Seattle, OU = = platser, DC = contoso, DC = com ”,” London ””, OU standardanvändare, OU = = användare, OU London, OU = platser, DC = = contoso, DC = com ”)**  | parentDistinguishedName     |     |  Skapa och uppdatera |
   
@@ -403,7 +403,7 @@ När du har installerat agenten, kör Powershell-kommandona nedan att konfigurer
 
 **Kommandot #2**
 
-> Add-ADSyncAgentActiveDirectoryConfiguration
+> Lägg till ADSyncAgentActiveDirectoryConfiguration
 
 * Indata: För ”katalognamn”, ange namnet på AD-skog, som har angetts i del \#2
 * Indata: Admin användarnamn och lösenord för Active Directory-skog
@@ -562,7 +562,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
       * Operatorn: REGEX-matchning
 
-      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Värde: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Exempel: Endast contingent arbetare och inte fast anställda
 
@@ -697,7 +697,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 5. Välj **externa**, och välj Human_Resources WSDL-filen som du hämtade i steg 2.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+    ![Arbetsdagar Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
 
 6. Ange den **plats** till `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, men ersätt ”IMPL-CC” med den faktiska instanstyp och ”klient” med din verkliga innehavarens namn.
 
@@ -705,7 +705,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 8.  Klicka på små **konfigurera** länken nedan rutorna begäran och svar för att ange dina Workday-autentiseringsuppgifter. Kontrollera **autentisering**, och ange användarnamn och lösenord för kontot Workday-integrering system. Se till att formatera användarnamnet som name@tenant, och lämna den **WS-Security UsernameToken** alternativ som valts.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+    ![Arbetsdagar Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
 
 9. Välj **OK**.
 
@@ -744,7 +744,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 13. I kommando-fältet i Studio för Workday Välj **fil > öppen fil...**  och öppna XML-filen som du just har sparat. Då öppnas den i Workday Studio XML-redigeraren.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+    ![Arbetsdagar Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
 
 14. I trädet filen navigera genom **/env:Envelope > ENV > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** att hitta dina användardata. 
 
@@ -771,7 +771,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 5. Välj **redigera attributlistan för Workday**.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+    ![Arbetsdagar Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
 
 6. Bläddra längst ned i attributlistan till där indatafält är.
 
@@ -783,7 +783,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 10. Välj **lägga till attributet**.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+    ![Arbetsdagar Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
 
 11. Välj **spara** ovan, och sedan **Ja** till dialogrutan. Stäng fönstret attributmappning om det fortfarande är öppet.
 

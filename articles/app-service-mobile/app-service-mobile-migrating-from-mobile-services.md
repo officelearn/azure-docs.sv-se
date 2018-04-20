@@ -1,11 +1,11 @@
 ---
-title: "Migrera från Mobile Services i en Apptjänst-Mobilapp"
-description: "Lär dig hur du enkelt migrera Mobile Services programmet till en App Service-Mobilapp"
+title: Migrera från Mobile Services i en Apptjänst-Mobilapp
+description: Lär dig hur du enkelt migrera Mobile Services programmet till en App Service-Mobilapp
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="article-top"></a>Migrera din befintliga Azure-Mobiltjänst till Azure App Service
 Med den [allmän tillgång till Azure App Service], Azure Mobile Services-platser kan enkelt migrera i för att kunna utnyttja alla funktioner i Azure App Service.  Det här dokumentet beskrivs vad som händer när du migrerar din webbplats från Azure Mobile Services till Azure App Service.
@@ -269,7 +269,7 @@ Följande ytterligare appinställningar har migrerats från din Mobiltjänst och
 | Tillämpningsinställning | Beskrivning |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Namnet på din app |
-| **MS\_MobileServiceDomainSuffix** |Domänprefixet. i.e azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Domänprefixet. engångsfaktorautentisering azure-mobile.net |
 | **MS\_ApplicationKey** |Din nyckel för programmet |
 | **MS\_MasterKey** |Huvudnyckeln för din app |
 
@@ -311,7 +311,7 @@ Diagnostikloggning är normalt inaktiverat i en Azure App Service.  Så här akt
 4. Välj **diagnostikloggar** funktioner-menyn.
 5. Klicka på **ON** för följande loggar: **programloggning (filsystem)**, **detaljerade felmeddelanden**, och **spårning av misslyckade begäranden**
 6. Klicka på **filsystemet** för Web server-loggning
-7. Klicka på **spara**
+7. Klicka på **Spara**
 
 Visa loggarna:
 

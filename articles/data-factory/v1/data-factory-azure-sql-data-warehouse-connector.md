@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -279,7 +279,7 @@ Följande tabell innehåller exempel på hur du anger den **tableName** egenskap
 | dbo |Mytable prefix |Mytable prefix eller dbo. Mytable prefix eller [dbo]. [MyTable] |
 | dbo1 |Mytable prefix |dbo1. Mytable prefix eller [dbo1]. [MyTable] |
 | dbo |My.Table |[My.Table] eller [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1].[My.Table] |
+| dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Om du ser följande fel kan bero det på ett problem med värdet som angetts för egenskapen tableName. Se tabellen på rätt sätt att ange värden för egenskapen tableName JSON.  
 
@@ -324,7 +324,7 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 | Text | Varchar (upp till 8000) |
 | NText | NVarChar (upp till 4 000) |
 | Bild | VarBinary (upp till 8000) |
-| UniqueIdentifier | UniqueIdentifier |
+| Unik identifierare | Unik identifierare |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (upp till 8000) |
@@ -346,35 +346,35 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |Byte[] |
+| Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |byte] |
 | flyttal |Dubbel |
-| Bild |Byte[] |
+| Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Ogift |
-| rowversion |Byte[] |
+| Verklig |Enkel |
+| ROWVERSION |byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| tidsstämpel |byte] |
 | tinyint |Mottagna byte |
-| uniqueidentifier |GUID |
-| varbinary |Byte[] |
+| Unik identifierare |GUID |
+| varbinary |byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

@@ -12,10 +12,10 @@ ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
 ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda logganalys med en multitenant SQL-databasen SaaS-app
 
@@ -77,7 +77,7 @@ Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suit
 
 1. Bläddra till den [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Log Analytics. Sök sedan efter logganalys.
 
-   ![Open Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![Öppna logganalys](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
 2. Välj arbetsytan med namnet _wtploganalytics -&lt;användare&gt;_.
 

@@ -1,13 +1,13 @@
 ---
-title: "Generera och exporterar certifikat för plats-till-plats: MakeCert: Azure | Microsoft Docs"
-description: "Skapa ett självsignerat rotcertifikat, exportera den offentliga nyckeln och generera klientcertifikat med hjälp av MakeCert."
+title: 'Generera och exporterar certifikat för plats-till-plats: MakeCert: Azure | Microsoft Docs'
+description: Skapa ett självsignerat rotcertifikat, exportera den offentliga nyckeln och generera klientcertifikat med hjälp av MakeCert.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generera och exporterar certifikat för plats-till-plats-anslutningar med hjälp av MakeCert
 
@@ -100,4 +100,4 @@ Vill du fortsätta med konfigurationen punkt-till-plats.
 * För **Resource Manager** modell distributionsstegen, se [konfigurera P2S med hjälp av inbyggda Azure certifikatautentisering](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * För **klassiska** modell distributionsstegen, se [konfigurerar en punkt-till-plats VPN-anslutning till ett virtuellt nätverk (klassiska)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-P2S felsökningsinformation [felsöka Azure punkt-till-plats-anslutningar](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Information om P2S-felsökning finns i [Felsöka punkt-till-plats-anslutningar i Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

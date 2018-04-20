@@ -1,12 +1,12 @@
 ---
 title: Arbeta med proxyservrar i Azure Functions | Microsoft Docs
-description: "Översikt över hur du använder Azure Functions proxyservrar"
+description: Översikt över hur du använder Azure Functions proxyservrar
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions proxyservrar
 
@@ -84,8 +84,8 @@ Om exempelvis en proxy som har en flödesmallen `/pets/{petId}`, URL: en för ba
 Följande värden kan användas i konfigurationsvärden förutom mallparametrar väg:
 
 * **{request.method}** : HTTP-metod som används på den ursprungliga begäranden.
-* **{request.headers. \<HeaderName\>}**: ett huvud som kan läsas från den ursprungliga begäranden. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill läsa. Om rubriken inte finns på begäran, ska värdet vara en tom sträng.
-* **{request.querystring. \<ParameterName\>}**: en frågesträngsparameter som kan läsas från den ursprungliga begäranden. Ersätt  *\<ParameterName\>*  med namnet på den parameter som du vill läsa. Om parametern inte finns på begäran, ska värdet vara en tom sträng.
+* **{request.headers. \<HeaderName\>}**: ett huvud som kan läsas från den ursprungliga begäranden. Ersätt *\<HeaderName\>* med namnet på det huvud som du vill läsa. Om rubriken inte finns på begäran, ska värdet vara en tom sträng.
+* **{request.querystring. \<ParameterName\>}**: en frågesträngsparameter som kan läsas från den ursprungliga begäranden. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns på begäran, ska värdet vara en tom sträng.
 
 ### <a name="response-parameters"></a>Referens för backend-svarsparametrar
 
@@ -93,7 +93,7 @@ Svarsparametrar kan användas som en del av ändra svar till klienten. Följande
 
 * **{backend.response.statusCode}** : HTTP-statuskod som returneras av backend-svaret.
 * **{backend.response.statusReason}** : HTTP-orsaksfrasen som returneras av backend-svaret.
-* **{backend.response.headers. \<HeaderName\>}**: ett huvud som kan läsas från backend-svaret. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill läsa. Om rubriken inte ingår i svaret, ska värdet vara en tom sträng.
+* **{backend.response.headers. \<HeaderName\>}**: ett huvud som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på det huvud som du vill läsa. Om rubriken inte ingår i svaret, ska värdet vara en tom sträng.
 
 ### <a name="use-appsettings"></a>Referens för programinställningar
 
@@ -175,8 +175,8 @@ Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true`
 Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
 
 * **backend.Request.Method**: HTTP-metod som används för att anropa backend-.
-* **backend.Request.QueryString. \<ParameterName\>**: en frågesträngsparameter som kan anges för anropet till serverdelen. Ersätt  *\<ParameterName\>*  med namnet på den parameter som du vill ange. Om en tom sträng ingår inte parametern på backend-begäran.
-* **backend.Request.headers. \<HeaderName\>**: ett huvud som kan anges för anropet till serverdelen. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill ange. Om du anger en tom sträng ingår inte rubriken på backend-begäran.
+* **backend.Request.QueryString. \<ParameterName\>**: en frågesträngsparameter som kan anges för anropet till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill ange. Om en tom sträng ingår inte parametern på backend-begäran.
+* **backend.Request.headers. \<HeaderName\>**: ett huvud som kan anges för anropet till serverdelen. Ersätt *\<HeaderName\>* med namnet på det huvud som du vill ange. Om du anger en tom sträng ingår inte rubriken på backend-begäran.
 
 Värden kan referera till programinställningar och parametrar från den ursprungliga klientbegäran.
 
@@ -208,7 +208,7 @@ Objektet requestOverrides definierar ändringar som görs i svaret som skickas t
 * **response.statusCode**: HTTP-statuskod som ska returneras till klienten.
 * **response.statusReason**: HTTP orsaksfrasen ska returneras till klienten.
 * **Response.body**: strängrepresentation av text som ska returneras till klienten.
-* **Response.headers. \<HeaderName\>**: ett huvud som kan anges för svar till klienten. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill ange. Om du anger en tom sträng ingår inte huvudet i svaret.
+* **Response.headers. \<HeaderName\>**: ett huvud som kan anges för svar till klienten. Ersätt *\<HeaderName\>* med namnet på det huvud som du vill ange. Om du anger en tom sträng ingår inte huvudet i svaret.
 
 Värden kan referera till programinställningar, parametrar från den ursprungliga klientbegäran och parametrar från backend-svaret.
 

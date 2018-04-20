@@ -19,8 +19,8 @@ Du behöver inte den här iothubowner-anslutningssträngen i den här konfigurat
 
 1. Öppna IoT-hubben på [Azure-portalen](https://portal.azure.com/).
 
-2. Klicka på **Enhetsutforskare**.
-3. Klicka på **Lägg till** i rutan Enhetsutforskare för att lägga till en enhet till IoT-hubben. Gör något av följande:
+2. Klicka på **IoT-enheter**.
+3. I fönstret IoT-enheter klickar du på **Lägg till** att lägga till en enhet till din IoT-hubb. Gör något av följande:
 
    **Enhets-ID**: Ange ID:t för den nya enheten. Enhets-ID är skiftlägeskänsliga.
 
@@ -30,12 +30,15 @@ Du behöver inte den här iothubowner-anslutningssträngen i den här konfigurat
 
    **Anslut enhet till IoT Hub**: Klicka på **Aktivera**.
 
-   ![Lägg till en enhet i Enhetsutforskaren för IoT-hubben](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Lägga till en enhet i IoT-enheter för din IoT-hubb](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Klicka på **Spara**.
-5. När enheten har skapats öppnar du enheten i rutan **Enhetsutforskare**.
+5. När enheten har skapats kan du öppna enheten i den **IoT-enheter** fönstret.
+
+   ![Listan över IoT-enheter i IoT-hubb](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Skriv ner anslutningssträngens primära nyckel.
 
-   ![Hämta enhetens anslutningssträng](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Hämta enhetens anslutningssträng](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

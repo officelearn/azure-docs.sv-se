@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Hantera de noder som formar ett kluster.
@@ -30,14 +30,14 @@ Hantera de noder som formar ett kluster.
 |    inaktivera       | Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte.|
 |    aktivera        | Aktivera en Service Fabric-klusternod som för tillfället inaktiverat.|
 |    hälsa        | Hämtar hälsotillståndet för en Service Fabric-nod.|
-|    info          | Hämtar information om en viss nod i Service Fabric-klustret.|
+|    Info          | Hämtar information om en viss nod i Service Fabric-klustret.|
 |    lista          | Hämtar listan över noder i Service Fabric-klustret.|
 |    läsa in          | Hämtar belastningen information för en Service Fabric-nod.|
 |    ta bort tillstånd  | Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort.|
-|    report-health | Skickar en hälsorapport på Service Fabric-nod.|
+|    rapporten hälsa | Skickar en hälsorapport på Service Fabric-nod.|
 |    Starta om       | Startar om en klusternod för Service Fabric.|
 |    övergång    | Startar eller stoppar en klusternod.|
-|    transition-status| Hämtar status för en åtgärd som är igång med StartNodeTransition.|
+|    övergången-status| Hämtar status för en åtgärd som är igång med StartNodeTransition.|
 
 
 ## <a name="sfctl-node-disable"></a>sfctl noden inaktivera
@@ -50,14 +50,14 @@ Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte. När i
 |Argumentet|Beskrivning|
 | --- | --- |
 | --nodnamn [krävs]| Namnet på noden.|
-| --deactivation-intent | Beskriver syftet eller anledningen till att inaktivera noden. |
+| --Inaktiveringen avsikt | Beskriver syftet eller anledningen till att inaktivera noden. |
 | --timeout -t       | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -79,7 +79,7 @@ Aktiverar en Service Fabric-klusternod som för tillfället inaktiverat. När ak
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -102,7 +102,7 @@ Hämtar hälsotillståndet för en Service Fabric-nod. Använd EventsHealthState
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o              | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga                  | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -124,7 +124,7 @@ Hämtar informationen om en viss nod i Service Fabric Cluster.The svar inkludera
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -139,7 +139,7 @@ Hämtar listan över noder i Service Fabric-klustret. Svaret innehåller namn, s
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --continuation-token| Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar.      När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
+| --fortsättningstoken| Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar.      När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
 | --node-status-filter| Tillåter filtrering noder baserat på NodeStatus. Endast de noder som matchar det angivna filtret värdet returneras. Filtervärdet kan vara något av följande. Standard: standard.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
@@ -147,7 +147,7 @@ Hämtar listan över noder i Service Fabric-klustret. Svaret innehåller namn, s
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga          | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -169,7 +169,7 @@ Hämtar belastningen information för en Service Fabric-nod för de mätvärden 
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -185,15 +185,15 @@ Startar om en klusternod för Service Fabric som redan har startats.
 |Argumentet|Beskrivning|
 | --- | --- |
 | --nodnamn [krävs]| Namnet på noden.|
-| --create-fabric-dump  | Ange SANT om du vill skapa en dump av processen för fabric-nod. Detta är skiftlägeskänsliga.  Standard: False.|
-| --node-instance-id | Instans-ID för målnoden. Om instans-ID har angetts noden startas om du bara med den aktuella instansen av noden. Ett standardvärde på ”0” matchar alla instans-ID. Instans-ID kan hämtas med get-noden frågan.  Standard: 0.|
+| – Skapa-fabric-dump  | Ange SANT om du vill skapa en dump av processen för fabric-nod. Detta är skiftlägeskänsliga.  Standard: False.|
+| --nod-instans-id | Instans-ID för målnoden. Om instans-ID har angetts noden startas om du bara med den aktuella instansen av noden. Ett standardvärde på ”0” matchar alla instans-ID. Instans-ID kan hämtas med get-noden frågan.  Standard: 0.|
 | --timeout -t       | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -213,14 +213,14 @@ Ange ”Start” för parametern NodeTransitionType om du vill starta en nod. An
 | --nodnamn [krävs]| Namnet på noden.|
 | ---övergång-nodtyp [krävs]| Anger vilken typ av övergång att utföra.                       NodeTransitionType.Start startar en stoppad nod.                       NodeTransitionType. Stoppa stoppar en nod som är igång. |
 | --åtgärden-id [krävs]| Ett GUID som identifierar ett detta API-anrop.  Detta är skickades till API: et för motsvarande GetProgress.|
-| --stop-duration-in-seconds [Required]| Varaktighet i sekunder, att noden stoppades.  Det lägsta värdet är 600 är maximalt 14400. När denna tid har löpt ut startas noden automatiskt igen.|
+| --stop-duration-i-sekunder [krävs]| Varaktighet i sekunder, att noden stoppades.  Det lägsta värdet är 600 är maximalt 14400. När denna tid har löpt ut startas noden automatiskt igen.|
 | --timeout -t                      | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug                           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| – Felsökning                           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                         | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o                       | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.                       Standard: json.|
 | --fråga                           | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|

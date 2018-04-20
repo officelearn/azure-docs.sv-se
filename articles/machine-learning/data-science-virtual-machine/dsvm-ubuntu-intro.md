@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera datavetenskap virtuell dator för Linux (Ubuntu)
 
-Datavetenskap virtuell dator för Linux är en bild av Ubuntu-baserad virtuell dator som gör det enkelt att komma igång med djup learning på Azure. Djupgående learning verktyg är:
+Datavetenskap virtuell dator för Linux är en bild av Ubuntu-baserad virtuell dator som gör det enkelt att komma igång med machine learning, inklusive djup learning på Azure. Djupgående learning verktyg är:
 
   * [Caffe](http://caffe.berkeleyvision.org/): ett ramverk för djup learning byggd för hastighet, expressivity och modularitet
   * [Caffe2](https://github.com/caffe2/caffe2): en plattformsoberoende version av Caffe
@@ -31,6 +31,7 @@ Datavetenskap virtuell dator för Linux är en bild av Ubuntu-baserad virtuell d
   * [Keras](https://keras.io/): ett övergripande neurala nätverk API i Python för Theano och TensorFlow
   * [MXNet](http://mxnet.io/): ett flexibla, effektiva djup learning bibliotek med många språk bindningar
   * [NVIDIA SIFFROR](https://developer.nvidia.com/digits): ett grafiskt system som förenklar vanliga djup learning uppgifter
+  * [PyTorch](http://pytorch.org/): ett övergripande Python-bibliotek med stöd för dynamisk nätverk
   * [TensorFlow](https://www.tensorflow.org/): ett bibliotek för öppen källkod för datorn intelligence från Google
   * [Theano](http://deeplearning.net/software/theano/): A Python-bibliotek för att definiera, optimera och effektivt utvärderar matematiska uttryck som involverar flerdimensionella matriser
   * [Torch](http://torch.ch/): ett vetenskapliga databehandling ramverk med brett stöd för maskininlärningsalgoritmer
@@ -113,6 +114,14 @@ Här följer stegen för att skapa en instans av datavetenskap Virtual Machine f
 Etableringen bör ta 5-10 minuter. Status för etablering av visas på Azure-portalen.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Hur du kommer åt datavetenskap virtuell dator för Linux
+
+Du kan komma åt den Ubuntu DSVM på tre sätt:
+1. SSH för fjärranslutningar
+2. X2Go för grafiska sessioner
+3. JupyterHub och JupyterLab för Jupyter-anteckningsböcker
+
+### <a name="ssh"></a>SSH
+
 När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använd de kontoautentiseringsuppgifter som du skapade i den **grunderna** avsnitt i steg 3 för gränssnittet text shell. På Windows, kan du ladda ned en SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk skrivbord (X Windows System).
 
 > [!NOTE]
@@ -120,7 +129,7 @@ När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>Installera och konfigurera X2Go klienten
+### <a name="x2go"></a>X2Go
 Linux VM är redan etablerade med X2Go server och redo att acceptera anslutningar. Slutför följande procedur på klienten för att ansluta till Linux VM grafiska skrivbordet:
 
 1. Hämta och installera klienten för din klientplattform från X2Go [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -134,6 +143,14 @@ Linux VM är redan etablerade med X2Go server och redo att acceptera anslutninga
    * **Delade mappar**: Om du vill kataloger från dina klientdatorer monteras på Linux VM, lägger du till klienten datorn kataloger som du vill dela med den virtuella datorn på den här fliken.
 
 När du loggar in på den virtuella datorn med hjälp av SSH-klienten eller XFCE grafiska via X2Go klienten, är du redo att börja använda verktygen som installeras och konfigureras på den virtuella datorn. På XFCE, kan du se program menyn genvägar och ikoner på skrivbordet för många av verktyg.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub och JupyterLab
+
+Ubuntu DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupyter-server med flera användare. För att ansluta, bläddra till https://your-vm-ip:8000 ange användarnamn och lösenord som du använde för att skapa den virtuella datorn och logga in på din bärbara dator eller skrivbordet. Många exempel bärbara datorer är tillgängliga för dig att bläddra och prova att använda.
+
+JupyterLab, är nästa generations Jupyter-anteckningsböcker och JupyterHub, också tillgänglig. Logga in till JupyterHub för att få åtkomst till den och sedan bläddra till URL: en https://your-vm-ip:8000/lab. Du kan ange JupyterLab som standard anteckningsboken server genom att lägga till den här raden /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Verktygen som installeras på den datavetenskap virtuella datorn för Linux
 ### <a name="deep-learning-libraries"></a>Djupgående Learning bibliotek
@@ -193,30 +210,32 @@ Att starta R konsolen kan du börja skriva **R** i gränssnittet. Då kommer du 
 Det finns också ett R-skript att installera den [upp 20 R-paket](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) om du vill. Det här skriptet kan köras när du är i R interaktiva gränssnittet, som kan anges (som tidigare nämnts) genom att skriva **R** i gränssnittet.  
 
 ### <a name="python"></a>Python
-För utveckling med hjälp av Python, har distribution av Anaconda Python 2.7 och 3.5 installerats. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 populäraste matematiska, ingenjörer och data analytics paket. Du kan använda standard textredigerare. Du kan dessutom använda Spyder, en Python IDE som medföljer Anaconda Python-distributioner. Spyder måste ha ett grafiskt skrivbord eller X11 vidarebefordran. En genväg till Spyder tillhandahålls i grafiska skrivbordet.
+Anaconda Python har installerats med Python 2.7 och 3.5 miljöer. 2.7 miljön kallas _rot_, och 3.5 miljön kallas _py35_. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 populäraste matematiska, ingenjörer och data analytics paket. 
 
-Eftersom vi har både Python 2.7 och 3.5, måste du uttryckligen aktivera önskade Python versionen (conda environment) du vill arbeta med i den aktuella sessionen. Aktiveringen anger sökvägsvariabeln till den önskade versionen av Python.
+Py35 miljön är standardinställningen. Så här aktiverar rot (2.7)-miljö:
 
-Kör följande kommando från gränssnittet för att aktivera Python 2.7 conda miljö:
+    source activate root
 
-    source /anaconda/bin/activate root
+Aktivera py35 miljön igen:
 
-Python 2.7 är installerad på */anaconda/bin*.
+    source activate py35
 
-Kör följande från gränssnittet för att aktivera Python 3.5 conda miljö:
+Om du vill anropa en interaktiv session Python, skriver du **python** i gränssnittet. 
 
-    source /anaconda/bin/activate py35
+Installera ytterligare Python-bibliotek med ```conda``` eller ````pip```` . För pip, aktiverar du rätt miljön först om du inte vill standard:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 är installerad på */anaconda/envs/py35/bin*.
+Eller ange den fullständiga sökvägen till pip:
 
-Om du vill anropa en interaktiv session Python, skriver du **python** i gränssnittet. Du kan ange om du är på ett grafiskt gränssnitt eller har X11 vidarebefordran set in **pycharm** att starta PyCharm Python IDE.
+    /anaconda/bin/pip install <package>
+    
+För conda, bör du alltid ange namnet på miljön (_py35_ eller _rot_):
 
-Om du vill installera ytterligare Python-bibliotek, måste du köra ```conda``` eller ````pip```` kommandot under sudo och ange sökvägen till Python package manager (conda eller pip) för att installera rätt Python-miljön. Exempel:
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+Du kan ange om du är på ett grafiskt gränssnitt eller har X11 vidarebefordran set in **pycharm** att starta PyCharm Python IDE. Du kan använda standard textredigerare. Du kan dessutom använda Spyder, en Python IDE som medföljer Anaconda Python-distributioner. Spyder måste ha ett grafiskt skrivbord eller X11 vidarebefordran. En genväg till Spyder finns i det grafiska desktop.s
 
 ### <a name="jupyter-notebook"></a>Jupyter-anteckningsbok
 Anaconda distribution innehåller också en Jupyter-anteckningsbok en miljö att dela kod och analys. Jupyter-anteckningsbok sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösenord.

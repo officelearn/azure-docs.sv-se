@@ -1,6 +1,6 @@
 ---
-title: "Migrera en databas med Import och Export i Azure-databas för PostgreSQL"
-description: "Beskriver hur extrahera en PostgreSQL-databas till en skriptfil och importera data till måldatabasen från filen."
+title: Migrera en databas med Import och Export i Azure-databas för PostgreSQL
+description: Beskriver hur extrahera en PostgreSQL-databas till en skriptfil och importera data till måldatabasen från filen.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

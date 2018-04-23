@@ -1156,7 +1156,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory för Domain Services</p>
+                                                <p>Azure Active Directory Domain Services</p>
                                             </a>
                                         </li>
                                         <li>

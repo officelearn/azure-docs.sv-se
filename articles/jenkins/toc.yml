@@ -27,7 +27,7 @@
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
     - name: Skapa med hjälp av Azure Container Instances
-      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      href: /azure/container-instances/container-instances-jenkins
       maintainContext: true
 - name: Så här gör du
   items:

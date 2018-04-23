@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera och komma åt serverloggen för PostgreSQL i Azure Portal"
-description: "Den här artikeln beskriver hur du konfigurerar och komma åt de server-loggarna i Azure-databas för PostgreSQL från Azure Portal."
+title: Konfigurera och komma åt serverloggen för PostgreSQL i Azure Portal
+description: Den här artikeln beskriver hur du konfigurerar och komma åt de server-loggarna i Azure-databas för PostgreSQL från Azure Portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -99,7 +99,7 @@ Konfiguration av Azure Cloud Services utförs antingen via Azure Portal eller SM
 
 Program som distribueras på virtuell datorer tillhandahåller egna klientverktyg och -gränssnitt efter behov. Det gäller exempelvis Microsoft Management Console (MMC), en konsol för företagshantering (till exempel Microsoft System Center eller Windows Intune) eller ett annat hanteringsprogram, bland annat Microsoft SQL Server Management Studio. Verktygen finns oftast i en företagsmiljö eller i ett klientnätverk. De kan vara beroende av specifika nätverksprotokoll, till exempel Remote Desktop Protocol (RDP), som kräver direkta och tillståndskänsliga anslutningar. Vissa kan ha webbaktiverade gränssnitt som inte ska vara publicerade eller tillgängliga öppet via Internet.
 
-I Azure kan du begränsa åtkomsten till hantering av infrastruktur och plattform med hjälp av [multifaktorautentisering](../multi-factor-authentication/multi-factor-authentication.md), [X.509-hanteringscertifikat](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) och brandväggsregler. Azure Portal och SMAPI kräver TLS (Transport Layer Security). Men tjänster och program som du distribuerar till Azure måste du vidta skyddsåtgärder som är lämpliga för ditt program. Dessa mekanismer kan ofta aktiveras enklare via en standardiserad förstärkt datorkonfiguration.
+I Azure kan du begränsa åtkomsten till hantering av infrastruktur och plattform med hjälp av [multifaktorautentisering](../active-directory/authentication/multi-factor-authentication.md), [X.509-hanteringscertifikat](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) och brandväggsregler. Azure Portal och SMAPI kräver TLS (Transport Layer Security). Men tjänster och program som du distribuerar till Azure måste du vidta skyddsåtgärder som är lämpliga för ditt program. Dessa mekanismer kan ofta aktiveras enklare via en standardiserad förstärkt datorkonfiguration.
 
 ### <a name="management-gateway"></a>Management Gateway
 Centralisera all administrativ åtkomst och förenkla övervakning och loggning genom att distribuera en dedikerad [ fjärrskrivbordsgateway ](https://technet.microsoft.com/library/dd560672)-server (RD Gateway) i det lokala nätverket och anslut den till Azure-miljön.
@@ -110,7 +110,7 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 * Koppla RD Gateway till samma [hanteringsdomän](http://technet.microsoft.com/library/bb727085.aspx) som administratörsdatorerna. Detta är nödvändigt när du använder plats-till-plats IPsec VPN eller ExpressRoute i en domän som har ett enkelriktat förtroende till Azure AD, eller om du federerar autentiseringsuppgifter mellan din lokala AD DS-instans och Azure AD.
 * Konfigurera en [auktoriseringsprincip för klientanslutning](http://technet.microsoft.com/library/cc753324.aspx) så att RD Gateway kan verifiera att klientdatorns namn är giltigt (domänanslutet) och har tillgång till Azure Portal.
 * Skydda hanteringstrafiken ytterligare från tjuvlyssnande och token-stöld med IPsec för [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/). Du kan även överväga en isolerad Internet-anslutning via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Aktivera multifaktorautentisering (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) eller smartkortsautentisering för administratörer som loggar in via RD Gateway.
+* Aktivera multifaktorautentisering (via [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) eller smartkortsautentisering för administratörer som loggar in via RD Gateway.
 * Minimera antalet tillåtna hanteringsslutpunkter genom att konfigurera [begränsningar för IP-adress](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) eller [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) i Azure.
 
 ## <a name="security-guidelines"></a>Riktlinjer för säkerhet

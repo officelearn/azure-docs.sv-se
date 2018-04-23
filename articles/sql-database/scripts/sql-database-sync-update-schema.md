@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 6b117484eaa1a9ac3ed85dfe547b3f6163d702cf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f306eba91adf574f8bb20b2aa459f890b97bb732
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp
 
@@ -34,7 +34,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 Det här exemplet kräver Azure PowerShell-modul version 4.2 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
  
-Kör `Login-AzureRmAccount` för att skapa en anslutning med Azure.
+Kör `Connect-AzureRmAccount` för att skapa en anslutning med Azure.
 
 ## <a name="examples"></a>Exempel
 

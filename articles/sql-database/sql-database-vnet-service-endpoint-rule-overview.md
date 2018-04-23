@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -140,7 +140,7 @@ För Azure SQL Database har funktionen virtuellt nätverk regler följande begr�
 Granska följande när du använder Tjänsteslutpunkter för Azure SQL Database:
 
 - **Utgående till Azure SQL Database offentliga IP-adresser krävs**: Nätverkssäkerhetsgrupper (NSG: er) måste öppnas för Azure SQL Database IP-adresser som tillåter anslutningar. Du kan göra detta med hjälp av NSG [Service taggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
-- **Azure-databas för PostgreSQL och MySQL stöds inte**: Tjänsteslutpunkter stöds inte för Azure-databas för PostgreSQL eller MySQL. Aktivera Tjänsteslutpunkter till SQL Database bryts anslutningen till dessa tjänster. Vi har en minskning. Kontakta *dmalik@microsoft.com*.
+- **Azure-databas för PostgreSQL och MySQL stöds inte**: Tjänsteslutpunkter stöds inte för Azure-databas för PostgreSQL eller MySQL. Aktivera Tjänsteslutpunkter till SQL Database bryts anslutningen till dessa tjänster. Vi har en lösning för detta och du kan kontakta *dmalik@microsoft.com* för mer information.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Azure Storage har implementerat samma funktion som låter dig begränsa anslutni
 Om du väljer att använda den här funktionen med ett lagringskonto som används av en Azure SQL Server stöter du på problem. Nästa är en lista och en beskrivning av Azure SQLDB funktioner som påverkas av detta.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot. Det finns en lösning. Kontakta *dmalik@microsoft.com* för mer information.
+PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot. Det finns en lösning för den här och du kan kontakta *dmalik@microsoft.com* för mer information.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
 Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen för slutpunkter VÄNDNING tjänsten bryts anslutningen från Azure SQLDB till lagringskontot.
@@ -227,8 +227,9 @@ En lista över flera felmeddelanden i SQL-databas dokumenteras [här][sql-databa
 Det här avsnittet beskriver hur du kan använda den [Azure-portalen] [ http-azure-portal-link-ref-477t] att skapa en *virtuellt nätverk regeln* i Azure SQL-databasen. Regeln anger SQL-databasen att godta kommunikation från ett visst undernät som har taggats som en *virtuellt nätverk tjänstslutpunkten*.
 
 > [!NOTE]
-> Kontrollera att tjänsten slutpunkter är aktiverade för VNET/undernät som du vill lägga till VNET brandväggsregler för servern.
-> Om Tjänsteslutpunkter inte är aktiverad för VNET/undernätet ombeds du i portalen för att aktivera dem, klickar du på Aktivera på bladet som du lägger till regeln.
+> Om du vill lägga till en tjänstslutpunkt VNet brandväggsregler för din Azure SQL Database-server du först se till att tjänsten slutpunkter är aktiverade för undernätet.
+>
+> Om Tjänsteslutpunkter inte är aktiverad för undernätet uppmanas du att aktivera dem i portalen. Klicka på den **aktivera** knappen på samma bladet som du lägger till regeln.
 
 #### <a name="powershell-alternative"></a>PowerShell-alternativ
 

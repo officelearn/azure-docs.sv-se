@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-självstudiekurs för Azure Cosmos DB: visualisera data med Power BI-anslutningsprogrammet
 [PowerBI.com](https://powerbi.microsoft.com/) är en onlinetjänst där du kan skapa och dela instrumentpaneler och rapporter med data som är viktiga för dig och din organisation.  Power BI Desktop är en dedikerad rapport redigeringsverktyg som gör att du kan hämta data från olika datakällor, slå samman och transformera data, skapa kraftfulla rapporter och visualiseringar och publicera rapporterna till Power BI.  Med den senaste versionen av Power BI Desktop kan du nu ansluta till ditt Azure DB som Cosmos-konto via Azure DB som Cosmos-koppling för Power BI.   
@@ -105,7 +105,7 @@ Vill du prova? Nu sätter vi igång.
     
 9. När kontot har anslutit den **Navigator** visas.  Den **Navigator** visar en lista över databaser under kontot.
 10. Klicka på och expandera på databasen där data i rapporten hämtas från, om du använder kontot demo väljer **volcanodb**.   
-11. Nu Välj en samling som du ska hämta data från. Om du använder kontot demo väljer **volcano1**.
+11. Nu Välj en samling som innehåller data som ska hämtas. Om du använder kontot demo väljer **volcano1**.
     
     Förhandsgranskning Visar en lista över **post** objekt.  Ett dokument återges som en **post** typ i Power BI. På samma sätt kan en kapslad JSON-block i ett dokument är också en **post**.
     
@@ -115,28 +115,29 @@ Vill du prova? Nu sätter vi igång.
 ## <a name="flattening-and-transforming-json-documents"></a>Förenkla och omvandla JSON-dokument
 1. Växla till Power BI Query Editor-fönstret där den **dokument** kolumnen i den mittersta rutan.
    ![Power BI Desktop frågeredigeraren](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. Klicka på expander på höger sida av den **dokument** kolumnrubriken.  Snabbmenyn med en lista med fält visas.  Välj fält som du behöver för rapporten, till exempel, vulkanen namn, land, Region, plats, höjning, typ, Status och senaste vet fall, och klicka sedan på **OK**.
+2. Klicka på expander på höger sida av den **dokument** kolumnrubriken.  Snabbmenyn med en lista med fält visas.  Välj de fält som behövs för rapporten, till exempel vulkanen namn, land, Region, plats, höjning, typ, Status och senaste vet fall. Avmarkera den **Använd ursprungliga kolumnnamnet som prefix** rutan och klicka på **OK**.
    
     ![Power BI-självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - Expandera dokument](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
-3. Den mittersta rutan visas en förhandsgranskning av resultatet med fält som har valts.
+3. Fönstret i mitten innehåller en förhandsgranskning av resultatet med fält som har valts.
    
     ![Power BI-självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - platta ut resultat](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. I vårt exempel är Platsegenskapen ett GeoJSON-block i ett dokument.  Som du ser plats representeras som en **post** typ i Power BI Desktop.  
-5. Klicka på expander på höger sida av kolumnrubriken plats.  Snabbmenyn med typ och koordinater fält visas.  Vi väljer koordinater fältet och klickar på **OK**.
+5. Klicka på expander på höger sida av Document.Location kolumnrubriken.  Snabbmenyn med typ och koordinater fält visas.  Markera fältet koordinater, se till att vi **Använd ursprungliga kolumnnamnet som prefix** inte är markerat och klicka på **OK**.
    
     ![Power BI självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - posten](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. Den mittersta rutan visas nu en kolumn för koordinater i **lista** typen.  Visas i början av kursen är GeoJSON data i den här kursen av typen punkt med latitud och longitud värden i matrisen koordinater.
    
     Elementet koordinater [0] representerar longitud medan koordinater [1] representerar latitud.
     ![Power BI självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - koordinater lista](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. Om du vill förenkla koordinater matrisen ska vi skapa en **anpassad kolumnen** kallas LatLong.  Välj den **Add Column** band och klicka på **Lägg till anpassad kolumn**.  Den **Lägg till anpassad kolumn** fönster visas.
+7. Om du vill förenkla koordinater matrisen skapa en **anpassad kolumnen** kallas LatLong.  Välj den **Add Column** band och klicka på **anpassad kolumnen**.  Den **anpassad kolumnen** visas.
 8. Ange ett namn för den nya kolumnen, t.ex. LatLong.
 9. Ange sedan den anpassade formeln för den nya kolumnen.  I vårt exempel kommer vi sammanfoga latitud och longitud värden åtskilda med kommatecken enligt nedan med hjälp av följande formel: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Klicka på **OK**.
    
     Mer information om Data Analysis uttryck (DAX) inklusive DAX-funktioner finns [DAX grundläggande i Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
     ![Power BI-självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - Lägg till anpassad kolumn](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
-10. Nu visas den mittersta rutan kolumnen nytt LatLong fylls med värdena latitud och longitud avgränsade med kommatecken.
+
+10. Den mittersta rutan visas nu, de nya LatLong kolumner fylls i med värden.
     
     ![Power BI självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - kolumnen för anpassade LatLong](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
@@ -145,10 +146,8 @@ Vill du prova? Nu sätter vi igång.
     ![Tillämpade steg ska vara källan, navigering, expanderas dokumentet, expanderas Document.Location, lägga till anpassad](./media/powerbi-visualize/power-bi-applied-steps.png)
     
     Om stegen är olika, ta bort extra steg och försök lägga till anpassade kolumnen igen. 
-11. Vi har nu slutfört förenkla data i tabellformat.  Du kan utnyttja alla funktioner som är tillgängliga i frågeredigeraren till form och transformera data i Cosmos-databasen.  Om du använder exemplet ändra datatypen för höjning till **heltal** genom att ändra den **datatyp** på den **Start** menyfliksområdet.
-    
-    ![Power BI självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - ändra kolumntypen](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. Klicka på **stängs och** spara datamodellen.
+
+11. Klicka på **stängs och** spara datamodellen.
     
     ![Power BI självstudiekurs för Azure Cosmos DB Power BI-anslutningsprogrammet - Stäng & tillämpa](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -162,7 +161,7 @@ I rapportvyn bör du hitta:
 
 1. Den **fält** rutan detta är där du kan se en lista över datamodeller med fält som du kan använda för dina rapporter.
 2. Den **visualiseringar** fönstret. En rapport kan innehålla en eller flera visualiseringar.  Välj vilka visual passa dina behov från den **visualiseringar** fönstret.
-3. Den **rapporten** arbetsyta, det är där du skapar den visuella informationen för rapporten.
+3. Den **rapporten** arbetsyta, det är där du kan bygga den visuella informationen för rapporten.
 4. Den **rapporten** sidan. Du kan lägga till flera rapportsidor i Power BI Desktop.
 
 Nedan visas de grundläggande stegen för att skapa en enkel interaktiv karta Visa rapport.
@@ -175,6 +174,7 @@ Nedan visas de grundläggande stegen för att skapa en enkel interaktiv karta Vi
 6. Du har nu skapat en enkel rapport.  Ytterligare kan du anpassa rapporten genom att lägga till fler.  I vårt fall vi har lagt till ett utsnitt vulkanen typ så att rapporten interaktiva.  
    
     ![Skärmbild av den slutgiltiga rapporten i Power BI Desktop vid slutförandet av Power BI-självstudiekurs för Azure Cosmos DB](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+7. Klicka på Arkiv-menyn **spara** och spara filen som PowerBITutorial.pbix.
 
 ## <a name="publish-and-share-your-report"></a>Publicera och dela din rapport
 Om du vill dela din rapport, måste du ha ett konto på PowerBI.com.
@@ -201,26 +201,26 @@ Följ instruktionerna i [fästa en panel från en rapport](https://powerbi.micro
 
 Du kan också göra tillfälliga ändringar i rapporten innan du skapar en instrumentpanel. Det rekommenderas dock att du använder Power BI Desktop utför ändringar och publicera om rapporten till PowerBI.com.
 
-## <a name="refresh-data-in-powerbicom"></a>Uppdatera data på PowerBI.com
-Det finns två sätt att uppdatera data, ad hoc- och schemalagda.
+<!-- ## Refresh data in PowerBI.com
+There are two ways to refresh data, ad hoc and scheduled.
 
-För en ad hoc-uppdatering, klicka på eclipses (...) av den **Dataset**, t.ex. PowerBITutorial. Du bör se en lista med åtgärder, inklusive **Uppdatera nu**. Klicka på **Uppdatera nu** datauppdatering.
+For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![Skärmbild av Uppdatera nu på PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
+![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
 
-Gör följande för en schemalagd uppdatering.
+For a scheduled refresh, do the following.
 
-1. Klicka på **Uppdatera schema** i listan åtgärd. 
+1. Click **Schedule Refresh** in the action list. 
 
-    ![Skärmbild av schemauppdatering på PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
-2. I den **inställningar** expanderar **datakällans autentiseringsuppgifter**. 
-3. Klicka på **redigera autentiseringsuppgifter**. 
+    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+2. In the **Settings** page, expand **Data source credentials**. 
+3. Click on **Edit credentials**. 
    
-    Konfigurera popup-fönster visas. 
-4. Ange nyckel för att ansluta till Azure DB som Cosmos-konto för uppsättningen data och klicka sedan på **logga in**. 
-5. Expandera **Uppdatera schema** och ställa in det schema som du vill uppdatera datauppsättningen. 
-6. Klicka på **tillämpa** och du är klar ställer in schemalagd uppdatering.
-
+    The Configure popup appears. 
+4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
+6. Click **Apply** and you are done setting up the scheduled refresh.
+-->
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Power BI i [Kom igång med Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Läs mer om Azure Cosmos DB i den [Azure Cosmos DB dokumentations-landningssidan](https://azure.microsoft.com/documentation/services/cosmos-db/).

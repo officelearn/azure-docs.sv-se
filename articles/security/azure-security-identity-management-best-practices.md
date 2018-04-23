@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2b77167992704bd342d67dc03b66af1e55955532
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 761013ad82fb8fa7d84e7929341d2e7d9e2d724c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomst kontroll säkerhetsmetoder
 Många Överväg identitet till att det nya lagret gräns för säkerhet kan ta över rollen ur ett traditionellt nätverk till Central. Den här utvecklingen av primära pivot för säkerhet kontrolleras och investeringar kommer från det faktum att nätverket ytgränser har blivit allt porös och den perimeterskydd får inte vara så effektiv som de en gång var före expanderingen av [BYOD ](http://aka.ms/byodcg) enheter och molnprogram.
@@ -88,7 +88,7 @@ Genom att aktivera Azure MFA för dina användare kan du lägger till ett andra 
 
 Exempel: du införa Azure MFA för användarna och konfigurera den att använda ett telefonsamtal eller SMS som verifiering. Om användarens autentiseringsuppgifter komprometteras kan kan angripare inte komma åt resurser eftersom de inte har åtkomst till användarens telefon. Organisationer som inte lägga till extra skyddslager identitet är mer känslig för autentiseringsuppgifter attack med lösenordsstöld, vilket kan leda till röjande av data.
 
-Ett alternativ för organisationer som vill ha hela autentiseringen kontrollen lokal är att använda [Azure Multi-Factor Authentication-servern](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), kallas även MFA lokala. Med den här metoden kan du fortfarande att kunna använda multifaktorautentisering, samtidigt som den MFA-server lokalt.
+Ett alternativ för organisationer som vill ha hela autentiseringen kontrollen lokal är att använda [Azure Multi-Factor Authentication-servern](../active-directory/authentication/howto-mfaserver-deploy.md), kallas även MFA lokala. Med den här metoden kan du fortfarande att kunna använda multifaktorautentisering, samtidigt som den MFA-server lokalt.
 
 Mer information om Azure MFA finns i artikeln [komma igång med Azure Multi-Factor Authentication i molnet](../active-directory/authentication/howto-mfa-getstarted.md).
 

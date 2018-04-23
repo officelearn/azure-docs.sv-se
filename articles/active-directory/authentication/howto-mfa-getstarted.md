@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: joflore
-ms.openlocfilehash: e6210cf7ece0aa0cdeec8f95b74910893c22b1bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7ae9ad5429c9bdfe8fba2648f8b7a3390705b23
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Komma igång med Azure Multi-Factor Authentication i molnet
 I den här artikeln beskrivs hur du kommer igång med Azure Multi-Factor Authentication i molnet.
@@ -41,7 +41,7 @@ Om du saknar någon av dessa tre licenser, eller om du inte har tillräckligt me
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Aktivera tvåstegsverifiering för användare
 
-Använd något av tillvägagångssätten som beskrivs i avsnittet om [hur du kräver tvåstegsverifiering för en användare eller grupp](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) för att börja använda Azure MFA. Du kan välja att tillämpa tvåstegsverifiering för alla inloggningar eller du kan skapa principer för villkorlig åtkomst för att kräva tvåstegsverifiering endast när det är viktigt för dig.
+Använd något av tillvägagångssätten som beskrivs i avsnittet om [hur du kräver tvåstegsverifiering för en användare eller grupp](howto-mfa-userstates.md) för att börja använda Azure MFA. Du kan välja att tillämpa tvåstegsverifiering för alla inloggningar eller du kan skapa principer för villkorlig åtkomst för att kräva tvåstegsverifiering endast när det är viktigt för dig.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat Multi-Factor Authentication i molnet kan du konfigurera din distribution. Se [Konfigurera Azure Multi-Factor Authentication](howto-mfa-mfasettings.md) för mer information.

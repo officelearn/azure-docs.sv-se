@@ -69,7 +69,7 @@ När matchningsvillkor anges den kan kopplas till avsökning för konfiguration 
 > [!NOTE]
 > Porten är samma port som backend-HTTP-inställningar.
 
-Standard-avsökning kontrollerar endast http://127.0.0.1: \<port\> att fastställa hälsostatus. Om du behöver konfigurera hälsoavsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar enligt beskrivningen i följande steg:
+Standard-avsökning kontrollerar endast http://127.0.0.1:\<port\> att fastställa hälsostatus. Om du behöver konfigurera hälsoavsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar enligt beskrivningen i följande steg:
 
 ## <a name="custom-health-probe"></a>Anpassade hälsoavsökningen
 

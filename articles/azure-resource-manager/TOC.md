@@ -47,6 +47,7 @@
 ### [Azure Portal](resource-group-portal.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
+### [Skapa EA-prenumerationer programmässigt](programmatically-create-subscription.md)
 ### [Skapa hanteringsgrupper](management-groups-create.md)
 ### [Hantera dina hanteringsgrupper](management-groups-manage.md)
 ### [Styrningsexempel](resource-manager-subscription-examples.md)

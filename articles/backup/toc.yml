@@ -100,7 +100,7 @@
         - name: Säkerhetskopiera virtuella datorer
           items:
             - name: Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Säkerhetskopiera krypterade virtuella datorer
               href: backup-azure-vms-encryption.md
             - name: Aktivera säkerhetskopiering av virtuella datorer när de virtuella datorerna skapas
@@ -179,9 +179,9 @@
           href: backup-azure-delete-vault.md
     - name: Felsöka
       items:
-        - name: Felmeddelanden för IaaS VM-säkerhetskopiering
+        - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
-        - name: Tidsgränsen uppnåddes för Azure Backup-agenten (MARS) eller VM-tillägget
+        - name: Tidsgränsen uppnåddes för Azure Backup-agenten eller VM-tillägget
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Säkerhetskopieringen av filer och mappar går långsamt
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -189,16 +189,22 @@
           href: backup-azure-mabs-troubleshoot.md
         - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Azure Backup-agent (MARS)
+        - name: Azure Backup-agent
           href: backup-azure-mars-troubleshoot.md
-        - name: Säkerhetskopiering av Azure-filresurser
+        - name: Azure-filresurs
           href: troubleshoot-azure-files.md
 - name: Referens
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: Azure CLI 2.0
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST – säkerhetskopiering
+      href: /rest/api/backup/
+    - name: REST – Recovery Services-valv
+      href: /rest/api/recoveryservices/
 - name: Resurser
   items:
     - name: Azure-översikt

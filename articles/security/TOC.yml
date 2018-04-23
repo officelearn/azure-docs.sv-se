@@ -65,6 +65,8 @@
     - name: Identitetshantering
       href: security-identity-management-overview.md
       items:
+        - name: Välj Azure AD-autentisering
+          href: azure-ad-choose-authn.md
         - name: Bästa praxis
           href: azure-security-identity-management-best-practices.md
         - name: Använda MFA på prenumerationsadministratörer
@@ -74,6 +76,8 @@
       items:
         - name: Bästa praxis
           href: azure-security-network-security-best-practices.md
+        - name: DDoS Protection
+          href: azure-ddos-best-practices.md
         - name: Gränssäkerhet
           href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Program

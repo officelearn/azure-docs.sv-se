@@ -1,15 +1,24 @@
-# [Dokumentation om VPN-gateway](index.md)
+# 
+  [Dokumentation om VPN Gateway](index.md)
 
 # Översikt
-## [Om VPN-gateway](vpn-gateway-about-vpngateways.md)
-## [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md)
+## 
+  [Om VPN Gateway](vpn-gateway-about-vpngateways.md)
+## 
+  [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md)
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Kom igång
-## Skapa en ruttbaserad VPN-gateway
+## Skapa en ruttbaserad VPN gateway
 ### [Azure Portal](create-routebased-vpn-gateway-portal.md)
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [Azure CLI](create-routebased-vpn-gateway-cli.md)
+
+# Exempel
+## [Skapa VPN Gateway](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Punkt till plats – RADIUS-autentisering](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Punkt till plats – certifikatautentisering](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Plats till plats](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
 
 # Begrepp
 ## [Planering och design för VPN Gateway](vpn-gateway-plan-design.md)
@@ -19,8 +28,9 @@
 ## [Om BGP och VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [Om anslutningar med hög tillgänglighet](vpn-gateway-highlyavailable.md)
 ## [Om punkt-till-plats-anslutningar](point-to-site-about.md)
+## [Om routing från punkt till plats](vpn-gateway-about-point-to-site-routing.md)
 
-# Gör så här för att
+# Instruktionsguider
 ## Konfigurera plats-till-plats-anslutningar
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -66,8 +76,8 @@
 ### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
-## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
-## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
+## [Verifiera en anslutning till VPN gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Återställ en VPN gateway](vpn-gateway-resetgw-classic.md)
 ## Ta bort en VPN-gateway
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
@@ -93,7 +103,7 @@
 ### [Konfigurera forcerade tunnlar](vpn-gateway-about-forced-tunneling.md)
 ### [Ta bort en VPN-gateway](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ### [Konfigurera flera S2S-anslutningar](vpn-gateway-multi-site.md)
-### [Konfigurera en VPN-gateway](vpn-gateway-configure-vpn-gateway-mp.md)
+### [Konfigurera en VPN gateway](vpn-gateway-configure-vpn-gateway-mp.md)
 ### [Migrering från klassisk till Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 
 # Referens

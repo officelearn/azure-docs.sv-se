@@ -121,7 +121,7 @@
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-how-to-configure.md)
 #### [Python-serverdel/Python-enhet](iot-hub-python-python-twin-how-to-configure.md)
-### Använda enhetsjobb för att uppdatera enhetens inbyggda programvara
+### Använda enhetstvillingar för att uppdatera enhetens inbyggda programvara
 #### [Node-serverdel/Node-enhet](iot-hub-node-node-firmware-update.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-firmware-update.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-firmware-update.md)

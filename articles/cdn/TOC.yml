@@ -14,6 +14,8 @@
   items:
     - name: Lägga till en anpassad domän
       href: cdn-map-content-to-custom-domain.md
+    - name: Konfigurera HTTPS på en anpassad domän
+      href: cdn-custom-ssl.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -38,10 +40,6 @@
               href: cdn-sas-storage-support.md
         - name: Cross-origin resource sharing (CORS)
           href: cdn-cors.md
-        - name: Lägga till en anpassad domän i CDN-slutpunkten
-          href: cdn-map-content-to-custom-domain.md
-        - name: Konfigurera HTTPS på en anpassad domän
-          href: cdn-custom-ssl.md
     - name: Optimera innehåll
       items:
         - name: Optimeringsöversikt
@@ -137,6 +135,11 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Regelmotor – funktioner
           href: cdn-rules-engine-reference-features.md
+    - name: Verizon-specifika HTTP-huvuden
+      href: cdn-verizon-http-headers.md
+      items:
+        - name: X-EC-Debug-huvuden
+          href: cdn-http-debug-headers.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET

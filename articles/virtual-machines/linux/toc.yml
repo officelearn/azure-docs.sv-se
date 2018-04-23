@@ -470,6 +470,8 @@
           href: troubleshoot-app-connection.md
         - name: Allokeringsfel
           href: allocation-failure.md
+        - name: Allokeringsfel – klassisk virtuell dator
+          href: allocation-failure-classic.md
         - name: Distributionsproblem
           href: troubleshoot-deploy-vm.md
         - name: Skapa en virtuell dator

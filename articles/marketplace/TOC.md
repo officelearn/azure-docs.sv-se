@@ -1,6 +1,8 @@
 # [Dokumentation om Azure Marketplace](index.md)
 ## [Utgivarhandbok för Azure Marketplace och AppSource](marketplace-publishers-guide.md)
 ## [Låt din verksamhet växa med Azure Marketplace](grow-your-business-azure-marketplace.md)
+## [Vad är Appsource](marketplace-what-is-appsource.md)
+## [Låt din verksamhet växa med AzureSource](marketplace-grow-your-business-with-appsource.md)
 ## [Azure Marketplace-konsulttjänster](consulting-services.md)
 ## [Teknisk publiceringsguide om Azure Marketplace SaaS-program](marketplace-saas-applications-technical-publishing-guide.md)
 ## [Partnerportalen i molnet](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

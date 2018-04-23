@@ -14,8 +14,12 @@
     - name: Konfigurera Hive-principer
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Hantera domänanslutna kluster
-      href: apache-domain-joined-manage.md
+    - name: Använda VSCode för att länka till domänanslutna kluster
+      href: ../hdinsight-for-vscode.md
+    - name: Använda IntelliJ för att länka till domänanslutna kluster
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Använda Eclipse för att länka till domänanslutna kluster
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Skydda data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

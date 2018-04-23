@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
+    - name: Migrera dina lokala resurser till Azure
+      items:
+        - name: Scenarioöversikt – migrera dina lokala resurser till Azure
+          href: migrate-scenarios-overview.md
+        - name: Scenario 1 – utvärdera lokala resurser för migrering till Azure
+          href: migrate-scenarios-assessment.md
     - name: Utforska och utvärdera en stor miljö
       href: how-to-scale-assessment.md
     - name: Gruppera datorer

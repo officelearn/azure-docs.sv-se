@@ -25,6 +25,7 @@
 ## [Efterlevnadsnivå](stream-analytics-compatibility-level.md)
 ## [Vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md)
 ## [Överväganden för händelseordning](stream-analytics-out-of-order-and-late-events.md)
+## [Kontrollpunkt och återuppspelning](stream-analytics-concepts-checkpoint-replay.md)
 
 # Anvisningsguider
 
@@ -68,7 +69,7 @@
 
 ## Felsöka
 ### [Felsökningsanvisningar](stream-analytics-troubleshooting-guide.md)
-### [Vanliga felsökningsproblem](stream-analytics-common-troubleshooting-issues.md)
+### [Vanliga problem](stream-analytics-common-troubleshooting-issues.md)
 ### [Jobbdiagram](stream-analytics-job-diagram-with-metrics.md)
 ### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
 ### [Kontrollera resurshälsa](stream-analytics-resource-health.md)
@@ -94,16 +95,8 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
-## [Viktig information](stream-analytics-release-notes.md)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Kundfallstudier](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [Whitepaper-datablad – händelsebearbetning i realtid](stream-analytics-real-time-event-processing-reference-architecture.md)
-## [Jämför Storm och Stream Analytics](stream-analytics-comparison-storm.md)
-
-
-
-
-
-

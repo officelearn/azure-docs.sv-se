@@ -8,6 +8,7 @@
 ## [Vanliga frågor och svar om DNS](dns-faq.md)
 ## [Använda privata DNS-zoner](private-dns-overview.md)
 ## [Privata DNS-scenarier](private-dns-scenarios.md)
+## [DNS-mått och -aviseringar](dns-alerts-metrics.md)
 
 
 # Kom igång

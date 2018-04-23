@@ -438,6 +438,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: Använda Spark-anslutningsappen
+          href: sql-database-spark-connector.md
 - name: Referens
   items:
     - name: Azure PowerShell

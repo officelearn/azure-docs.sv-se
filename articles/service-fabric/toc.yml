@@ -238,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Tjänstflöde
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: Automatisk skalning av tjänster
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: Övervakning och diagnostik
       items:
         - name: Övervakningsöversikt
@@ -261,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: Rapportera hälsotillståndshändelser
           href: service-fabric-report-health.md
-        - name: Övervaka med OMS
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integrering med API Management
       href: service-fabric-api-management-overview.md
 - name: Instruktionsguider
@@ -405,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Konfigurera gMSA för Windows-behållare
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Konfigurera regelbundna säkerhetskopieringar (kluster i Azure)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: Konfigurera regelbundna säkerhetskopieringar (fristående kluster)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Migrera gamla Java-program som stöder Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Arbeta i en Windows/VS-utvecklarmiljö
@@ -555,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: Lägga till OMS-agenten
               href: service-fabric-diagnostics-oms-agent.md
+            - name: Övervaka med OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: Övervaka behållare
               href: service-fabric-diagnostics-oms-containers.md
         - name: Analysera med Application Insights

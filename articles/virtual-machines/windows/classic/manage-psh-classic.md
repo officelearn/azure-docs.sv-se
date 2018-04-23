@@ -73,7 +73,7 @@ Kör följande kommando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## <a name="attach-a-data-disk"></a>Anslut en datadisk
-Den här uppgiften krävs några steg. Först måste du använda den *** Add-AzureDataDisk *** för att lägga till disken till objektet $vm. Sedan kan du använda **uppdatering AzureVM** att uppdatera konfigurationen av den virtuella datorn.
+Den här uppgiften krävs några steg. Först måste du använda den ****Add-AzureDataDisk**** för att lägga till disken till objektet $vm. Sedan kan du använda **uppdatering AzureVM** att uppdatera konfigurationen av den virtuella datorn.
 
 Du måste också bestämma om du vill koppla en ny disk eller en som innehåller data. För en ny disk kommandot skapar VHD-filen och bifogar den.
 

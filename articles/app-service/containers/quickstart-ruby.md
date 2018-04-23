@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 079eb7b89ff3d6c1e4ec0de6136cd934ba3a1f70
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby-app i App Service on Linux
 
@@ -53,34 +53,6 @@ rails server
 ```
 
 Navigera till `http://localhost:3000` i webbläsaren om du vill testa appen lokalt.
-
-![Hello-world](./media/quickstart-ruby/hello-world.png)
-
-## <a name="modify-app-to-display-welcome-message"></a>Visa ett välkomstmeddelande i appen
-
-Gör ändringar i appen så att ett välkomstmeddelande visas. Först måste du konfigurera en väg genom att ändra filen *~/workspace/ruby-docs-hello-world/config/routes.rb* så att den innehåller en väg med namnet `hello`.
-
-  ```ruby
-  Rails.application.routes.draw do
-      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      root 'application#hello'
-  end
-  ```
-
-Ändra appens kontrollant så att den returnerar meddelandet som HTML till webbläsaren. 
-
-Öppna *~/workspace/hello-world/app/controllers/application_controller.rb* för redigering. Ändra klassen `ApplicationController` så att den ser ut som i följande kodexempel:
-
-  ```ruby
-  class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception
-    def hello
-      render html: "Hello, world from Azure Web App on Linux!"
-    end
-  end
-  ```
-
-Nu har appen konfigurerats. Navigera till `http://localhost:3000` i webbläsaren för att bekräfta rotlandningssidan.
 
 ![Konfigurerad Hello World](./media/quickstart-ruby/hello-world-configured.png)
 

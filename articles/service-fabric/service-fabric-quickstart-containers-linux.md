@@ -12,14 +12,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1b65f54547821654f35571c55f61074a0106a292
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 65f048d67ef5f250691700a382e781814c57e8a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Snabbstart: Distribuera ett Azure Service Fabric Linux-behållarprogram i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -48,16 +48,16 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 ## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
 Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. Partkluster är ett enkelt sätt att snabbt skapa ett Service Fabric-kluster. Partkluster är kostnadsfria och tidsbegränsade Service Fabric-kluster som finns i Azure och som körs av Service Fabric-teamet. Du kan använda partkluster till att distribuera program och lära dig mer om plattformen. Klustret använder ett enda självsignerat certifikat för nod-till-nod- och klient-till-nod-säkerhet.
 
-Logga in och ansluta till ett [Linux-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på **Viktigt**-länken för att hitta certifikatlösenordet och anvisningar om hur du konfigurerar olika miljöer till att använda certifikatet. Behåll både sidan **Välkommen** och sidan **Viktigt** öppna så att du kan använda några av instruktionerna i följande steg. 
+Logga in och anslut till ett [Linux-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på **Viktigt**-länken för att hitta certifikatlösenordet och anvisningar om hur du konfigurerar olika miljöer till att använda certifikatet. Behåll både sidan **Välkommen** och sidan **Viktigt** öppna så att du kan använda några av instruktionerna i följande steg. 
 
 > [!Note]
-> Det finns ett begränsat antal tillgängliga partkluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster kan du vänta en stund och försöka igen, eller följa stegen i [Skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) för att skapa ett kluster i din prenumeration. 
+> Det finns ett begränsat antal tillgängliga partykluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster kan du vänta en stund och försöka igen, eller följa stegen i [Skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) för att skapa ett kluster i din prenumeration. 
 > 
 >Om du skapar ett eget kluster bör du tänka på att webbtjänsten i klientdelen är konfigurerad till att lyssna på port 80 för inkommande trafik. Se till att den porten är öppen i ditt kluster. (Om du använder ett partkluster är den här porten öppen.)
 >
 
 ## <a name="configure-your-environment"></a>Konfigurera din miljö
-Service Fabric innehåller flera verktyg som du kan använda för att hantera ett kluster och dess program:
+I Service Fabric finns flera verktyg för att hantera kluster och dess program:
 
 - Service Fabric Explorer, ett webbläsarbaserat verktyg.
 - Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI 2.0.
@@ -83,7 +83,7 @@ Använd den metod som du är mest bekväm med till att importera certifikatet p�
 
 - I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot i **Viktigt**-instruktionerna.
 - I Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.
-- I Ubuntu: Mozilla Firefox är standardwebbläsaren i Ubuntu 16.04. Klicka på menyknappen i det övre högra hörnet i webbläsaren om du vill importera certifikatet till Firefox. Klicka sedan på **Alternativ**. På sidan **Inställningar** använder du sökrutan för att söka efter ”certifikat”. Klicka på **Visa certifikat**, välj fliken **Dina certifikat** klicka på **Importera** och följ anvisningarna för att importera certifikatet.
+- Ubuntu: Mozilla Firefox är standardwebbläsare i Ubuntu 16.04. Klicka på menyknappen i det övre högra hörnet i webbläsaren om du vill importera certifikatet till Firefox. Klicka sedan på **Alternativ**. På sidan **Inställningar** söker du efter ”certifikat” i sökrutan. Klicka på **Visa certifikat** och välj fliken **Dina certifikat**. Klicka på **Importera** och följ anvisningarna för att importera certifikatet.
  
    ![Installera certifikat i Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png) 
 
@@ -148,7 +148,7 @@ Gör så här om du vill skala frontwebbtjänsten:
 
     Du kan nu se att tjänsten har två instanser. I trädvyn kan du se vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om ett fel uppstår för en tjänst ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 1. Använd avinstallationsskriptet (uninstall.sh) som medföljer mallen för att ta bort programinstansen från klustret och avregistrera programtypen. Det tar lite tid för skriptet att rensa instansen, så installationsskriptet bör inte köras omedelbart efter det här skriptet. Du kan använda Service Fabric Explorer till att avgöra när instansen har tagits bort och programtypen har avregistrerats. 

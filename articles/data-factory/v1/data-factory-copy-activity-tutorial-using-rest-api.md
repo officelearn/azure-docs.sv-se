@@ -1,11 +1,11 @@
 ---
-title: "Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline | Microsoft Docs"
-description: "I den här självstudiekursen kommer du att använda REST API för att skapa en Azure-datafabrik och kopiera data från ett Azure-blob till en Azure SQL-databas."
+title: 'Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline | Microsoft Docs'
+description: I den här självstudiekursen kommer du att använda REST API för att skapa en Azure-datafabrik och kopiera data från ett Azure-blob till en Azure SQL-databas.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0b7383c8b984c5f9e9600c0f04be703f6bc20711
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7576589e7be1668d94e80bbe63453a41fe6b85fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
   1. Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen:
     
     ```PowerShell 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```   
   2. Kör följande kommando för att visa alla prenumerationer för det här kontot:
 

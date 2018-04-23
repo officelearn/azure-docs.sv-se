@@ -14,30 +14,30 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 580dc7414baea80ef005826d27fb5f2d35ee8895
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory för utvecklare
-Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) och anpassade API:er som bygger på Azure AD-plattformen.  Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect. 
+Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) och anpassade API:er som bygger på Azure AD-plattformen.  Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect.
 
 > [!NOTE]
-> Merparten av innehållet på den här sidan fokuserar på Azure AD v1-slutpunkten, vilken enbart stöder Microsoft arbets- och skolkonton. Om du vill logga in konsumentkonton eller personliga Microsoft-konton, så läs informationen om [Azure AD v2.0-slutpunkten](active-directory-appmodel-v2-overview.md). Azure AD v2.0-slutpunkten erbjuder en enhetlig utvecklarupplevelse för appar som vill logga in både användare med Azure AD-konton (arbete och skola) och personliga Microsoft-konton. 
+> Merparten av innehållet på den här sidan fokuserar på Azure AD v1-slutpunkten, vilken enbart stöder Microsoft arbets- och skolkonton. Om du vill logga in konsumentkonton eller personliga Microsoft-konton, så läs informationen om [Azure AD v2.0-slutpunkten](active-directory-appmodel-v2-overview.md). Azure AD v2.0-slutpunkten erbjuder en enhetlig utvecklarupplevelse för appar som vill logga in både användare med Azure AD-konton (arbete och skola) och personliga Microsoft-konton.
 
 | | |
 | --- | --- |
 |[Grundläggande om autentisering](active-directory-authentication-scenarios.md) | En introduktion till autentisering med Azure AD. |
 |[Typer av program](active-directory-authentication-scenarios.md#application-types-and-scenarios) | En översikt över de autentiseringsscenarier som stöds av Azure AD. |                                
-                                                                              
+
 ## <a name="get-started"></a>Kom igång
 Med de guidade konfigurationerna får du hjälp med att skapa en app på den plattform du önskar med hjälp av SDK:n för Azure Active Directory Library (ADAL). Om du söker efter information om hur man använder Microsoft Authentication Library (MSAL), så läs vår dokumentation om [Azure AD v2.0-slutpunkten](active-directory-appmodel-v2-overview.md).
 
 |  |  |  |  |
 | --- | --- | --- | --- |
 | <center>![Mobilappar och skrivbordsappar](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Mobilappar och skrivbordsappar</center> | [Översikt](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[.NET (UWP)](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md) |
-| <center>![Webbappar](./media/active-directory-developers-guide/Web_app.png)<br />Webbappar</center> | [Översikt](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |  |
+| <center>![Webbappar](./media/active-directory-developers-guide/Web_app.png)<br />Webbappar</center> | [Översikt](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) | |
 | <center>![Appar med en sida](./media/active-directory-developers-guide/SPA.png)<br />Appar med en sida</center> | [Översikt](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Webb-API:er](./media/active-directory-developers-guide/Web_API.png)<br />Webb-API:er</center> | [Översikt](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![Tjänst-till-tjänst](./media/active-directory-developers-guide/Service_App.png)<br />Tjänst-till-tjänst</center> | [Översikt](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |

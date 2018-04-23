@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: active-directory-b2c
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: davidmu
+ms.custom: include file
+ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/18/2018
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Du registrerar ditt mobila eller inbyggda program med hjälp av inställningarna i tabellen.
@@ -8,7 +24,7 @@ Du registrerar ditt mobila eller inbyggda program med hjälp av inställningarna
 | ------------ | ------- | -------------------------------------------------- |
 | **Namn** | Contoso B2C-app | Ange ett **namn** som beskriver programmet för konsumenterna. |
 | **Inbyggd klient** | Ja | Välj **Ja** om du har ett mobilt eller inbyggt program. |
-| **Anpassad omdirigerings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Ange en omdirigerings-URI med ett anpassat schema. Se till att välja en [bra omdirigerings-URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) som inte innehåller specialtecken, till exempel understreck. |
+| **Anpassad omdirigerings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Ange en omdirigerings-URI med ett anpassat schema. Se till att välja en [bra omdirigerings-URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) som inte innehåller specialtecken, till exempel understreck. |
 
 Klicka på **Skapa** för att registrera ditt program.
 

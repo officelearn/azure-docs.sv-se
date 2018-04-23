@@ -1,22 +1,22 @@
 ---
-title: "Registrera X.509-enheter på Azure Device Provisioning Service-tjänsten med Python | Microsoft Docs"
-description: "Azure snabbstart – Registrera X.509-enheter på Azure IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringtjänst"
+title: Registrera X.509-enheter på Azure Device Provisioning Service-tjänsten med Python | Microsoft Docs
+description: Azure snabbstart – Registrera X.509-enheter på Azure IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringtjänst
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/25/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9cd16ddcd5dfbcd68be37e2988e57604082a338f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a5aef91b4af5668f1b34f029ccd443c9eed01e34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Registrera X.509-enheter på IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringtjänst
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]

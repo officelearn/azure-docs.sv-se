@@ -11,6 +11,8 @@
   items:
     - name: Skapa och anslut – portalen
       href: create-data-warehouse-portal.md
+    - name: Skapa – PowerShell
+      href: create-data-warehouse-powershell.md
     - name: Pausa och återuppta beräkning
       items:
         - name: Portalen

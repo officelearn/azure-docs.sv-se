@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en dokumentdatabas med Java och Azure Portal
 
@@ -54,43 +54,11 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett SQL-API-konto m
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Lägg till exempeldata
 
-Du kan nu lägga till data till din nya samling med datautforskaren.
-
-1. Expandera samlingen **Objekt** och klicka på **Dokument** > **Nytt dokument**.
-
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Lägg nu till ett dokument i samlingen med följande struktur och klicka på **Spara**. Kopiera JSON till Urklipp med knappen **Kopiera** i kodrutan.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Kopiera in json-data och klicka på Spara i Datautforskaren i Azure Portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Skapa och spara ännu ett dokument där du ändrar `id` till 2 och ändrar de andra egenskaperna efter behov. Dina nya dokument kan ha vilken struktur du vill eftersom Azure Cosmos DB inte kräver något schema för dina data.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>Fråga dina data
 
-Du kan nu använda frågor i Datautforskaren för att hämta och filtrera dina data.
-
-1. Du kan se att frågan är inställd på `SELECT * FROM c` som standard. Den här standardfrågan hämtar och visar alla dokument i samlingen. 
-
-    ![Standardfrågan i Datautforskaren är ”SELECT * FROM c”](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Stanna kvar på fliken **Dokument** och ändra frågan genom att klicka på knappen **Redigera filter**, lägga till `ORDER BY c._ts DESC` i frågepredikatrutan och sedan klicka på **Tillämpa filter**.
-
-    ![Ändra standardfrågan genom att lägga till ORDER BY c._ts DESC och klicka på Tillämpa filter](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-Den här ändrade frågan visar en lista över dokumenten i fallande ordning baserat på deras tidsstämpel, så att ditt andra dokument nu står först. Om du känner till SQL-syntax kan du ange någon av de [SQL-frågor](sql-api-sql-query.md) som stöds i den här rutan. 
-
-Då är vårt arbete i Datautforskaren klart. Innan vi går vidare till att arbeta med kod kan du notera att du även kan använda Datautforskaren för att skapa lagrade procedurer, UDF:er och utlösare för att utföra affärslogik på serversidan såväl som att skala genomflödet. Datautforskaren visar all den inbyggda programmässiga dataåtkomsten som finns tillgänglig i API:erna, men ger enkel åtkomst till dina data i Azure-portalen.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 

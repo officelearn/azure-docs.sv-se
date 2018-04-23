@@ -12,15 +12,15 @@
 ## [Mått och diagnostik för Standard Load Balancer](load-balancer-standard-diagnostics.md)
 
 # Kom igång
-## [Skapa en Basic Load Balancer](load-balancer-get-started-internet-portal.md)
-### [Skapa en Basic Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Skapa en Basic Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Skapa en Standard Load Balancer](load-balancer-standard-public-portal.md)
-### [Skapa en Standard Load Balancer (CLI)](load-balancer-standard-public-cli.md)
+## [Skapa en Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md)
+### [Skapa en Basic Load Balancer (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Skapa en Basic Load Balancer (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Skapa en Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)
+### [Skapa en Standard Load Balancer (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # Gör så här för att
 
-## [Skapa en zonredundant offentlig Standard Load Balancer](load-balancer-get-started-internet-az-portal.md)
+## [Skapa en zonredundant offentlig Standard Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Skapa en zonredundant offentlig Standard Load Balancer (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Skapa en zonredundant offentlig Standard Load Balancer (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Skapa en zonindelad offentlig Standard Load Balancer](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
@@ -74,7 +74,8 @@
 ## [Application Gateway](/azure/application-gateway/)
 ## [Express Route](/azure/expressroute/)
 ## [Virtual Network](/azure/virtual-network/)
-## [VPN-gateway](/azure/vpn-gateway/)
+## 
+  [VPN Gateway](/azure/vpn-gateway/)
 ## [Virtuell dator](/azure/virtual-machines/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)

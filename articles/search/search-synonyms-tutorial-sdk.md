@@ -1,22 +1,17 @@
 ---
-title: "Självstudie i förhandsgranskning av synonymer i Azure Search | Microsoft Docs"
-description: "Lägg till funktionen för förhandsgranskning av synonymer i ett index i Azure Search."
-services: search
-manager: jhubbard
-documentationcenter: 
+title: Självstudie i förhandsgranskning av synonymer i Azure Search | Microsoft Docs
+description: Lägg till funktionen för förhandsgranskning av synonymer i ett index i Azure Search.
+manager: cgronlun
 author: HeidiSteen
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 03/31/2017
 ms.author: heidist
-ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5614b0253b43938b5079515899590c7c560d232c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Förhandsgranska synonymer – en självstudie i C# för Azure Search
 
@@ -27,7 +22,7 @@ I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregl
 > [!NOTE]
 > Synonymfunktionen finns för närvarande bara i en förhandsversion och ingår bara i de senaste API- och SDK-förhandsversionerna (api-version=2016-09-01-Preview, SDK version 4.x-preview). Funktionen stöds för närvarande inte på Azure Portal. För förhandsversioner av API:er gäller inget SLA och de här funktionerna kan ändras, så du bör inte använda dem i produktionsmiljöer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I den här självstudien behöver du följande:
 

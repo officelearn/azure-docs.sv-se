@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Så här associerar du eller lägger till en prenumeration i din Azure Active Directory
 
@@ -42,7 +42,7 @@ Alla användare har en enda arbetskatalog som autentiserar dem, men de kan även
 2. Klicka på **Ändra katalog**.
 
     ![Skärmbild som visar knappen Byt katalog](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Granska varningarna. All användare med [Rollbaserad åtkomstkontroll (RBAC)](role-based-access-control-configure.md) med tilldelad åtkomst och alla prenumerationsadministratörer förlorar åtkomst när prenumerationskatalogen ändras.
+3. Granska varningarna. All användare med [Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) med tilldelad åtkomst och alla prenumerationsadministratörer förlorar åtkomst när prenumerationskatalogen ändras.
 4. Välj en katalog.
 
     ![Skärmbild som visar användargränssnitt för den ändrade katalogen](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ Att ändra prenumerationskatalogen är en åtgärd på servicenivå. Det påverk
 
 * Mer information om hur du kostnadsfritt skapar en ny Azure Active Directory-katalog finns i [Skaffa en Azure Active Directory-klient](develop/active-directory-howto-tenant.md)
 * Mer information om att överföra faktureringsägarskapet för en Azure-prenumeration finns i [Överför ägarskapet för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
-* Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](active-directory-understanding-resource-access.md)
+* Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur du tilldelar roller i Azure AD finns i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

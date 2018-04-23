@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -58,7 +58,7 @@ Offentliga IP-adresser skapas med någon av följande SKU:er:
 Alla offentliga IP-adresser som skapas före införandet av SKU:er är grundläggande offentliga IP-adresser för SKU. Genom att införa SKU:er kan du välja att ange vilken SKU du vill att den offentliga IP-adressen ska vara. Grundläggande SKU-adresser är:
 
 - Tilldelas med en statisk eller dynamisk allokeringsmetod.
-- Tilldelas till en Azure-resurs som kan tilldelas en offentlig IP-adress, t.ex. nätverksgränssnitt, VPN-gatewayer, Application Gateway och internetuppkopplade belastningsutjämnare.
+- Tilldelas till en Azure-resurs som kan tilldelas en offentlig IP-adress, t.ex. nätverksgränssnitt, VPN Gateway, Application Gateway och Internetuppkopplade belastningsutjämnare.
 - Kan tilldelas till en viss zon.
 - Ej zonredundant. Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -111,7 +111,8 @@ Du kan associera en offentlig IP-adress som skapas med en [SKU](#SKU) till en [A
 
 ### <a name="vpn-gateways"></a>VPN-gateways
 
-En [VPN-gateway i Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ansluter ett virtuellt Azure-nätverk (VNet) till andra virtuella Azure-nätverk eller till ett lokalt nätverk. En offentlig IP-adress tilldelas till VPN-gatewayen så att den kan kommunicera med fjärrnätverket. Du kan endast tilldela en *dynamisk* offentlig IP-adress till en VPN-gateway.
+
+  [VPN Gateway i Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ansluter ett virtuellt Azure-nätverk (VNet) till andra virtuella Azure-nätverk eller till ett lokalt nätverk. En offentlig IP-adress tilldelas till VPN Gateway så att den kan kommunicera med fjärrnätverket. Du kan endast tilldela en *dynamisk* offentlig IP-adress till en VPN-gateway.
 
 ### <a name="application-gateways"></a>Programgateways
 
@@ -124,7 +125,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 | --- | --- | --- | --- |
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
 | Internetuppkopplad belastningsutjämnare |Konfiguration på klientsidan |Ja |Ja |
-| VPN-gateway |IP-konfiguration för gateway |Ja |Nej |
+| VPN gateway |IP-konfiguration för gateway |Ja |Nej |
 | Programgateway |Konfiguration på klientsidan |Ja |Nej |
 
 ## <a name="private-ip-addresses"></a>Privata IP-adresser
@@ -182,5 +183,4 @@ Offentliga IP-adresser kan medföra en nominell avgift. Mer information om prise
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera en virtuell dator med en statisk offentlig IP-adress i Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-* [Distribuera en virtuell dator med en statisk offentlig IP-adress med hjälp av en mall](virtual-network-deploy-static-pip-arm-template.md)
 * [Distribuera en virtuell dator med en statisk privat IP-adress med hjälp av Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)

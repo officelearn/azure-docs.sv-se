@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb1d977dddce07b3deda7eeeeb3bc93d41339de1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -51,7 +51,7 @@ I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtill�
 
 Ge programmet namnet _myFirstAzureWebApp_ och välj **OK**.
    
-![Dialogrutan Nytt projekt](./media/app-service-web-get-started-dotnet-framework/new-project.png)
+![Dialogrutan Nytt projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
 Du kan distribuera alla typer av ASP.NET-webbappar till Azure. I den här snabbstarten väljer du **MVC**-mallen och ser till att autentiseringen är inställd på **Ingen autentisering**.
       
@@ -153,7 +153,7 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
 
-Klicka på **Apptjänster** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Kom igång med privata mallar på Azure Portal
 Mallen [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) är en deklarativ mall som används för att definiera distributionen. Du kan definiera vilka resurser som ska distribueras för en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution.
@@ -103,7 +103,7 @@ Du kan distribuera alla **mallar** som du har **läs**behörigheter på. Fyll i 
 ![Distribuera mallen](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Dela en mallresurs
-En **mall**resurs kan delas med kollegor. Delning fungerar på samma sätt som [rolltilldelning för en resurs på Azure](../active-directory/role-based-access-control-configure.md). Ägaren till **mallen** ger behörigheter till andra användare som kan interagera med en mallresurs. Personen eller gruppen av människor som du delar **mallen** med kommer att kunna se Resource Manager-mallen och dess egenskaper.
+En **mall**resurs kan delas med kollegor. Delning fungerar på samma sätt som [rolltilldelning för en resurs på Azure](../role-based-access-control/role-assignments-portal.md). Ägaren till **mallen** ger behörigheter till andra användare som kan interagera med en mallresurs. Personen eller gruppen av människor som du delar **mallen** med kommer att kunna se Resource Manager-mallen och dess egenskaper.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Åtkomstkontroll för Microsoft.Gallery-resurser
 | Roll | Behörigheter |

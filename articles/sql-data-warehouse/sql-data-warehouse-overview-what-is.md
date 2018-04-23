@@ -1,25 +1,20 @@
 ---
-title: "Vad är Azure SQL Data Warehouse? | Microsoft Docs"
-description: "En distribuerad databas i företagsklass som kan bearbeta petabytevolymer med relationella och icke-relationella data. Den är branschens första informationslager i molnet som kan växa, krympa och pausa på sekunden."
+title: Vad är Azure SQL Data Warehouse? | Microsoft Docs
+description: En distribuerad databas i företagsklass som kan bearbeta petabytevolymer med relationella och icke-relationella data. Den är branschens första informationslager i molnet som kan växa, krympa och pausa på sekunden.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Vad är Azure SQL Data Warehouse?
 
@@ -37,13 +32,6 @@ SQL Data Warehouse lagrar data i relationstabeller med kolumnbaserad lagring. De
 
 Analysresultaten kan skickas till globala rapporteringsdatabaser eller program. Företagsanalytiker får sedan den information de behöver för att kunna fatta välgrundade affärsbeslut.
 
-## <a name="optimization-choices"></a>Optimeringsalternativ
-
-SQL Data Warehouse erbjuder [prestandanivåer](performance-tiers.md) som är utformade för flexibilitet för att kunna uppfylla dina databehov, oavsett om de är stora eller små. Du kan välja ett informationslager som är optimerat för elasticitet eller för beräkning. 
-
-- På **prestandanivån Optimerat för elasticitet** avgränsas lagren för beräkning och lagring i arkitekturen. Det här alternativet är perfekt för arbetsbelastningar som kan dra full nytta av avgränsningen mellan beräkning och lagring genom frekvent skalning för bättre stöd för korta perioder med hög aktivitet. Den här beräkningsnivån har det lägsta startpriset och stöd för skalning som omfattar merparten av kundens arbetsbelastningar.
-
-- På **prestandanivån Optimerat för beräkning** används den senaste Azure-maskinvaran för att införa ett nytt NVMe-Solid State Disk-cacheminne som lagrar de data som ofta används nära processorerna. Den här prestandanivån är perfekt för komplexa frågor eftersom all I/O sparas lokalt på beräkningslagret genom att lagringen automatiskt nivåindelas. Dessutom har kolumnlagringen förbättrats för att lagra obegränsad data i ditt SQL Data Warehouse. Prestandanivån Optimerat för beräkning ger störst skalbarhet och hjälper dig att skala upp till 30 000 cDWU (informationslagerenheter för beräkning). Välj den här nivån för arbetsbelastningar som kräver kontinuerlig och blixtsnabb prestanda.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt [skapar ett SQL Data Warehouse][create a SQL Data Warehouse] och [läsa in exempeldata][load sample data]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure glossary] vara till hjälp om du stöter på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  

@@ -51,10 +51,10 @@
         - name: Sentimentklassificering
           href: predict-twitter-sentiment.md
         - name: Amerikansk intäktsklassificering
-          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Biomedicinsk enhetsidentifiering
-          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
     - name: Spark med PySpark och Scala
       href: walkthroughs-spark.md
@@ -82,7 +82,7 @@
 - name: Gör så här för att
   items:
     - name: Använda TDSP i Azure ML
-      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
       maintainContext: true
     - name: Konfigurera datavetenskapsmiljöer
       href: environment-setup.md

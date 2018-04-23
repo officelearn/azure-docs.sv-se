@@ -123,7 +123,7 @@
               href: app-insights-snapshot-debugger.md
         - name: ASP.NET Core
           items:
-            - name: Profiler för Linux-apptjänster
+            - name: Profiler för Linux App Services
               href: app-insights-profiler-aspnetcore-linux.md
         - name: J2EE
           items:
@@ -288,6 +288,8 @@
   items:
     - name: Analytics-frågespråk
       href: 'https://docs.loganalytics.io/'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
     - name: Java
@@ -296,6 +298,8 @@
       href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
     - name: API för dataåtkomst
       href: 'https://dev.applicationinsights.io/'
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/application-insights/'
     - name: Datamodell
       href: application-insights-data-model.md
       items:

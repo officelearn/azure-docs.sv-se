@@ -1,11 +1,11 @@
 ---
 title: Scheduler - begrepp, terminologi och enheter | Microsoft-dokument
-description: "Begrepp, terminologi och entitetshierarki, inklusive jobb och jobbsamlingar, relaterade till Azure Scheduler.  Innehåller ett omfattande exempel på ett schemalagt jobb."
+description: Begrepp, terminologi och entitetshierarki, inklusive jobb och jobbsamlingar, relaterade till Azure Scheduler.  Innehåller ett omfattande exempel på ett schemalagt jobb.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
 ## <a name="scheduler-entity-hierarchy"></a>Entitetshierarki i Scheduler
@@ -176,7 +176,7 @@ Om ett Scheduler-jobb kan du definiera en återförsöksprincip för att ange om
 
 Om du vill ange en återförsöksprincip kan du ange ytterligare två inställningar: ett återförsöksintervall (**retryInterval**) och antalet återförsök (**retryCount**).
 
-Återförsöksintervall, som anges med **retryInterval**-objektet, är intervallet mellan återförsöken. Standardvärdet är 30 sekunder. Det minsta konfigurerbara värdet är 15 sekunder och det högsta värdet är 18 månader. Jobb i kostnadsfria jobbsamlingar har ett minsta konfigurerbart värde på 1 timme.  Det definieras i ISO 8601-formatet. På liknande sätt anges värdet för antalet återförsök med objektet **retryCount**, som representerar det antal gånger som ett nytt försök görs. Standardvärdet är 4 och maxvärdet är 20\. Både **retryInterval** och **retryCount** är valfria. De tilldelas sina standardvärden om **retryType** har angetts till **fixed** och inga värden anges.
+Återförsöksintervall, som anges med **retryInterval**-objektet, är intervallet mellan återförsöken. Standardvärdet är 30 sekunder. Det minsta konfigurerbara värdet är 15 sekunder och det högsta värdet är 18 månader. Det definieras i ISO 8601-formatet. På liknande sätt anges värdet för antalet återförsök med objektet **retryCount**, som representerar det antal gånger som ett nytt försök görs. Standardvärdet är 4 och maxvärdet är 20\. Både **retryInterval** och **retryCount** är valfria. De tilldelas sina standardvärden om **retryType** har angetts till **fixed** och inga värden anges.
 
 ## <a name="see-also"></a>Se även
  [Vad är Scheduler?](scheduler-intro.md)

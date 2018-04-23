@@ -1,6 +1,6 @@
 ---
-title: "Förbättra säkerheten vid fjärrhantering i Azure | Microsoft Docs"
-description: "Den här artikeln beskriver hur du ökar säkerheten för fjärrhantering när du administrerar Microsoft Azure-miljöer, inklusive molntjänster, Virtual Machines och anpassade program."
+title: Förbättra säkerheten vid fjärrhantering i Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du ökar säkerheten för fjärrhantering när du administrerar Microsoft Azure-miljöer, inklusive molntjänster, Virtual Machines och anpassade program.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -64,7 +64,7 @@ Du kan också förenkla hanteringsuppgifter genom att konsolidera och ta bort oh
 ### <a name="providing-security-for-azure-remote-management"></a>Skapa säker Azure-fjärrhantering
 Azure tillhandahåller säkerhetsmekanismer som hjälper administratörer som hanterar Azure-molntjänster och virtuella datorer. Dessa mekanismer är:
 
-* Autentisering och [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md).
+* Autentisering och [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
 * Övervakning, loggning och granskning.
 * Certifikat och krypterad kommunikation.
 * En webbhanteringsportal.

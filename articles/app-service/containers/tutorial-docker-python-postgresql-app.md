@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 673564ef7b5ff02a3809154a4dcf1669c2ed798b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python- och PostgreSQL-webbapp i Azure
 
@@ -24,7 +24,7 @@ Med Web App for Containers får du en mycket skalbar och automatiskt uppdaterad 
 
 ![Docker Python Flask-app i App Service i Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure
@@ -39,7 +39,7 @@ Du kan följa stegen i den här artikeln i macOS. Instruktionerna för Linux och
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera Python](https://www.python.org/downloads/)
@@ -170,19 +170,19 @@ När den logiska Azure Database for PostgreSQL-servern har skapats visar Azure C
 
 ### <a name="create-a-firewall-rule-for-the-azure-database-for-postgresql-server"></a>Skapa en brandväggsregel för Azure Database for PostgreSQL-server
 
-Kör följande Azure CLI-kommando för att tillåta åtkomst till databasen från alla IP-adresser.
+Kör följande Azure CLI-kommando för att tillåta åtkomst till databasen från alla IP-adresser. När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
 ```
 
 Azure CLI bekräftar skapande av brandväggsregeln med utdata som liknar följande:
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -462,7 +462,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Gå till http://localhost:5000 i webbläsaren för att visa ändringarna. Skapa en testregistrering.
+Gå till http://localhost:5000 i webbläsaren för att se ändringarna. Skapa en testregistrering.
 
 ![Behållarbaserade Python Flask-program i Python körs lokalt](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 
@@ -490,7 +490,7 @@ http://<app_name>.azurewebsites.net
 
 Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
 
-Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/tutorial-docker-python-postgresql-app/app-resource.png)
 

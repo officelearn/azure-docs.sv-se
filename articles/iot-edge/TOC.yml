@@ -45,16 +45,12 @@
       href: how-to-install-iot-core.md
     - name: Använda VS-kod för att utveckla IoT Edge-lösningar
       items:
-        - name: 'Utveckla och distribuera en C#-modul'
-          href: how-to-vscode-develop-csharp-module.md
-        - name: 'Felsöka C#-modulen'
-          href: how-to-vscode-debug-csharp-module.md
-        - name: Utveckla och distribuera Azure Functions
-          href: how-to-vscode-develop-azure-function.md
-        - name: Felsöka Azure Functions
-          href: how-to-vscode-debug-azure-function.md
         - name: Arbeta med flera moduler
           href: tutorial-multiple-modules-in-vscode.md
+        - name: 'Felsöka C#-modulen'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Felsöka Azure Functions
+          href: how-to-vscode-debug-azure-function.md
     - name: Lagra data på gränsen
       href: sql-storage.md
     - name: Felsöka

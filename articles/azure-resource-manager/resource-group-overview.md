@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Azure Resource Manager | Microsoft Docs"
-description: "Beskriver hur du använder Azure Resource Manager för distribution, hantering och åtkomstkontroll av resurser i Azure."
+title: Översikt över Azure Resource Manager | Microsoft Docs
+description: Beskriver hur du använder Azure Resource Manager för distribution, hantering och åtkomstkontroll av resurser i Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: cc3402b56b12e82653f673d7a5ab527231599c5b
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a7e3d817923b0f9a691d5acaba606bdcd0012e60
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med Azure Resource Manager kan du arbeta med resurserna i en lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen. 
@@ -215,7 +215,7 @@ Azure tillhandahåller också flera resursspecifika roller. Några vanliga är:
 4. SQL Server-deltagare – kan hantera SQL-servrar och databaser, men inte deras säkerhetsrelaterade principer
 5. Webbplatsdeltagare – kan hantera webbplatser, men inte webbplaner som de är anslutna till
 
-En fullständig lista över roller och tillåtna åtgärder finns i [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md). Mer information om rollbaserad åtkomstkontroll finns i [Rollbaserad åtkomst i Azure](../active-directory/role-based-access-control-configure.md). 
+En fullständig lista över roller och tillåtna åtgärder finns i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md). Mer information om rollbaserad åtkomstkontroll finns i [Rollbaserad åtkomst i Azure](../role-based-access-control/role-assignments-portal.md). 
 
 I vissa fall kanske du vill köra kod eller skript som använder resurser, men inte genom en användares autentiseringsuppgifter. I stället skapar du en identitet som kallas för ”tjänstens huvudnamn” för programmet och tilldelar tjänstens huvudnamn lämplig roll. Med Resource Manager kan du skapa autentiseringsuppgifter för programmet och programmässigt autentisera programmet. Du kan läsa mer om hur du skapar ett huvudnamn för tjänsten i följande avsnitt:
 

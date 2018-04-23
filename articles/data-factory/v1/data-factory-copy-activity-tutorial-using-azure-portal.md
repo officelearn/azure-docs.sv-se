@@ -1,11 +1,11 @@
 ---
-title: "Självstudier: Skapa en Azure Data Factory-pipeline för att kopiera data (Azure portal) | Microsoft Docs"
-description: "I den här självstudiekursen kommer du att använda Azure Portal för att skapa en Azure-datafabrik och kopiera data från ett Azure-blobb till en Azure SQL-databas."
+title: 'Självstudier: Skapa en Azure Data Factory-pipeline för att kopiera data (Azure portal) | Microsoft Docs'
+description: I den här självstudiekursen kommer du att använda Azure Portal för att skapa en Azure-datafabrik och kopiera data från ett Azure-blobb till en Azure SQL-databas.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7f42cfda1684b7ff5bd2a1655154b6a11d4ffd31
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4e8de6b229fe027e43a2b13f2a7ad54b7c3eaf2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure Portal för att skapa Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
    6. Klicka på **Skapa**.
       
       > [!IMPORTANT]
-      > Om du vill skapa Data Factory-instanser måste du vara medlem i [Data Factory-deltagarrollen](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) på gruppnivå/resursgrupp.
+      > Om du vill skapa Data Factory-instanser måste du vara medlem i [Data Factory-deltagarrollen](../../role-based-access-control/built-in-roles.md#data-factory-contributor) på gruppnivå/resursgrupp.
       > 
       > Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.                
       > 

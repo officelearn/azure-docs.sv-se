@@ -23,6 +23,8 @@
   items:
     - name: Vanliga frågor
       href: frequently-asked-questions-genomics.md
+    - name: Felsökningsguide
+      href: troubleshooting-guide-genomics.md
     - name: Versionshistorik
       href: version-release-history-genomics.md
     - name: Verksamhetskontinuitet

@@ -1,13 +1,13 @@
 ---
-title: "Belastningsutjämna virtuella Windows-datorer i Azure | Microsoft Docs"
-description: "Lär dig hur du använder Azure Load Balancer för att skapa hög tillgänglighet och säkerhet för program över tre virtuella Windows-datorer"
+title: Belastningsutjämna virtuella Windows-datorer i Azure | Microsoft Docs
+description: Lär dig hur du använder Azure Load Balancer för att skapa hög tillgänglighet och säkerhet för program över tre virtuella Windows-datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,27 +16,27 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f0e154d0ac917d2ef2799431a72969a96415e0c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0ac48844932c77ea4d597da6cb18a820a34e0f39
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög tillgänglighet
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en Azure Load Balancer
-> * Skapa en hälsoavsökning för belastningsutjämnaren
-> * Skapa trafikregler för belastningsutjämnaren
-> * Skapa en grundläggande IIS-webbplats med tillägget för anpassat skript
-> * Skapa virtuella datorer och anslut dem till en belastningsutjämnare
-> * Visa en belastningsutjämnare i praktiken
-> * Lägga till och ta bort virtuella datorer från en belastningsutjämnare
+> * skapa en Azure Load Balancer
+> * skapa en hälsoavsökning för belastningsutjämnaren
+> * skapa trafikregler för belastningsutjämnaren
+> * skapa en grundläggande IIS-webbplats med tillägget för anpassat skript
+> * skapa virtuella datorer och anslut dem till en belastningsutjämnare
+> * visa en belastningsutjämnare i praktiken
+> * lägga till och ta bort virtuella datorer från en belastningsutjämnare.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 
 ## <a name="azure-load-balancer-overview"></a>Översikt över Azure Load Balancer
@@ -223,7 +223,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
 
 
 ### <a name="install-iis-with-custom-script-extension"></a>Installera IIS med tillägget för anpassat skript
-I en tidigare självstudiekurs om [hur du konfigurerar en virtuell Windows-dator](tutorial-automate-vm-deployment.md) lärde du dig hur du automatiserar VM-anpassning med tillägget för anpassat skript för Windows. Du kan använda samma tillvägagångssätt för att installera och konfigurera IIS på dina virtuella datorer.
+I en tidigare självstudiekurs om [hur du anpassar en virtuell Windows-dator](tutorial-automate-vm-deployment.md) lärde du dig hur du automatiserar VM-anpassning med tillägget för anpassat skript för Windows. Du kan använda samma tillvägagångssätt för att installera och konfigurera IIS på dina virtuella datorer.
 
 Använd [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) för att installera tillägget för anpassat skript. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* så att värddatornamnet visas för den virtuella datorn:
 
@@ -292,13 +292,13 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 I den här kursen har du skapat en belastningsutjämnare och kopplat virtuella datorer till den. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en Azure Load Balancer
-> * Skapa en hälsoavsökning för belastningsutjämnaren
-> * Skapa trafikregler för belastningsutjämnaren
-> * Skapa en grundläggande IIS-webbplats med tillägget för anpassat skript
-> * Skapa virtuella datorer och anslut dem till en belastningsutjämnare
-> * Visa en belastningsutjämnare i praktiken
-> * Lägga till och ta bort virtuella datorer från en belastningsutjämnare
+> * skapa en Azure Load Balancer
+> * skapa en hälsoavsökning för belastningsutjämnaren
+> * skapa trafikregler för belastningsutjämnaren
+> * skapa en grundläggande IIS-webbplats med tillägget för anpassat skript
+> * skapa virtuella datorer och anslut dem till en belastningsutjämnare
+> * visa en belastningsutjämnare i praktiken
+> * lägga till och ta bort virtuella datorer från en belastningsutjämnare.
 
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar VM-nätverk.
 

@@ -12,10 +12,10 @@ ms.date: 03/14/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Skapa en hanterad Azure SQL Database-instans i Azure-portalen
 
@@ -204,7 +204,7 @@ Följande steg visar hur du skapar ett andra undernät i det virtuella nätverke
    |**Namn**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Adressintervall (CIDR-block)**|Giltiga adressintervall inom det virtuella nätverket (använd standardvärdet)||
    |**Nätverkssäkerhetsgrupp**|Inget||
-   |**Routningstabell**|Inget||
+   |**Routningstabell**|Ingen||
    |**Tjänstens slutpunkter**|Ingen||
 
    ![vm subnet details](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)

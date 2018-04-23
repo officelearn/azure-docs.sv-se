@@ -1,11 +1,11 @@
 ---
-title: "Azure ExpressRoute för Cloud Solution Providers | Microsoft Docs"
-description: "Den här artikeln innehåller information om Cloud Solution Providers som vill inkludera Azure-tjänster och ExpressRoute i sina erbjudanden."
+title: Azure ExpressRoute för Cloud Solution Providers | Microsoft Docs
+description: Den här artikeln innehåller information om Cloud Solution Providers som vill inkludera Azure-tjänster och ExpressRoute i sina erbjudanden.
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en privat kommunikationslänk med hög hastighet till tjänster i Azure. 
@@ -65,7 +65,7 @@ Det här anslutningsscenariot kräver att kunden ansluter direkt via ett kundnä
 
 Valet mellan dessa två alternativ baseras på dina kunders behov och ditt aktuella behov att tillhandahålla Azure-tjänster. Information om dessa modeller och associerad rollbaserad åtkomststyrning, nätverk och identitetsdesignmönster beskrivs i informationen i följande länkar:
 
-* **Rollbaserad åtkomstkontroll (RBAC)** – RBAC baseras på Azure Active Directory.  Läs mer om Azure RBAC [här](../active-directory/role-based-access-control-configure.md).
+* **Rollbaserad åtkomstkontroll (RBAC)** – RBAC baseras på Azure Active Directory.  Läs mer om Azure RBAC [här](../role-based-access-control/role-assignments-portal.md).
 * **Nätverk** – Beskriver olika delar av nätverk i Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD innehåller identitetshantering för Microsoft Azure och SaaS-program från tredje part. Mer information om Azure AD finns [här](https://azure.microsoft.com/documentation/services/active-directory/).  
 

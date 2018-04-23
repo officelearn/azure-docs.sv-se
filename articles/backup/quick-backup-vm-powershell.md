@@ -1,13 +1,13 @@
 ---
-title: "Azure Snabbstart – Säkerhetskopiera en virtuell dator med PowerShell | Microsoft Docs"
-description: "Lär dig hur du säkerhetskopierar virtuella datorer med Azure PowerShell"
+title: Azure Snabbstart – Säkerhetskopiera en virtuell dator med PowerShell | Microsoft Docs
+description: Lär dig hur du säkerhetskopierar virtuella datorer med Azure PowerShell
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91303368f96b477f0756e4d3b9d19601797f0ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Säkerhetskopiera en virtuell dator med PowerShell
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator med Azure PowerShell-modulen. Du kan också utföra dessa steg med [Azure CLI](quick-backup-vm-cli.md) eller [Azure Portal](quick-backup-vm-portal.md).
@@ -31,10 +31,10 @@ Den här snabbstarten kräver Azure PowerShell-modul version 4.4 eller senare. K
 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-prenumerationen med kommandot `Login-AzureRmAccount` och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med kommandot `Connect-AzureRmAccount` och följ anvisningarna på skärmen.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Första gången du använder Azure Backup måste du registrera Azure Recovery Services-providern i din prenumeration med [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).

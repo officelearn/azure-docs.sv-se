@@ -134,24 +134,24 @@
 #### [Använda certifikat](active-directory-reporting-api-with-certificates.md)
 
 ## Hantera lösenord
-### [Lösenordsöversikt](active-directory-passwords-overview.md)
+### [Lösenordsöversikt](authentication/active-directory-passwords-overview.md)
 ### Användardokument
 #### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 #### [Metodtips för lösenord](active-directory-secure-passwords.md)
 #### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-### [SSPR – så här fungerar det](active-directory-passwords-how-it-works.md)
-### [SSPR-distributionsguide](active-directory-passwords-best-practices.md)
+### [SSPR – så här fungerar det](authentication/concept-sspr-howitworks.md)
+### [SSPR-distributionsguide](authentication/howto-sspr-deployment.md)
 ### [SSPR och Windows 10](active-directory-passwords-login.md)
-### [SSPR-principer ](active-directory-passwords-policy.md)
-### [SSPR-anpassning](active-directory-passwords-customize.md)
-### [SSPR-datakrav](active-directory-passwords-data.md)
-### [SSPR-rapportering](active-directory-passwords-reporting.md)
+### [SSPR-principer ](authentication/concept-sspr-policy.md)
+### [SSPR-anpassning](authentication/concept-sspr-customization.md)
+### [SSPR-datakrav](authentication/howto-sspr-authenticationdata.md)
+### [SSPR-rapportering](authentication/howto-sspr-reporting.md)
 ### IT-administratörer: Återställ lösenord
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-### [Licensiera SSPR](active-directory-passwords-licensing.md)
+### [Licensiera SSPR](authentication/concept-sspr-licensing.md)
 ### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
-### [Felsöka](active-directory-passwords-troubleshoot.md)
-### [Vanliga frågor och svar](active-directory-passwords-faq.md)
+### [Felsöka](authentication/active-directory-passwords-troubleshoot.md)
+### [Vanliga frågor och svar](authentication/active-directory-passwords-faq.md)
 
 
 ## Hantera enheter

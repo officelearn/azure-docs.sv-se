@@ -1,8 +1,8 @@
 ---
-title: "Säkra ditt nyckelvalv | Microsoft Docs"
-description: "Hantera åtkomstbehörigheter för nyckelvalv för att hantera valv och nycklar och hemligheter. Autentiserings- och auktoriseringsmodell för nyckelvalvet och hur du säkrar ditt nyckelvalv"
+title: Säkra ditt nyckelvalv | Microsoft Docs
+description: Hantera åtkomstbehörigheter för nyckelvalv för att hantera valv och nycklar och hemligheter. Autentiserings- och auktoriseringsmodell för nyckelvalvet och hur du säkrar ditt nyckelvalv
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molntjänst som skyddar krypteringsnycklar och hemligheter (som certifikat, anslutningssträngar, lösenord) för dina molnprogram. Eftersom dessa data är känsliga och verksamhetskritiska, behöver du säkra åtkomsten till dina nyckelvalv så att enbart auktoriserade program och användare har åtkomst. Den här artikeln ger en översikt över åtkomstmodellen för nyckelvalvet, förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst till nyckelvalvet för dina molnprogram med ett exempel.
@@ -76,7 +76,7 @@ Varje Azure-prenumerationen har en Azure Active Directory. Användare, grupper o
 
 Med Azure Resource Manager-modellen, skapar du nyckelvalv i en resursgrupp och kontrollerar åtkomst till hanteringsplanet för det här nyckelvalvet med Azure Active Directory. Du kan till exempel ge användare eller en grupp möjlighet att hantera nyckelvalv i en specifik resursgrupp.
 
-Du kan ge åtkomst till användare, grupper och program i en specifik omfattning genom att tilldela lämpliga RBAC-roller. För att exempelvis bevilja åtkomst till en användare för att hantera nyckelvalven, tilldelar du den fördefinierade rollen ”nyckelvalvsbidragare” till användaren i ett visst omfång. Omfånget är i det här fallet en prenumeration, en resursgrupp eller bara ett visst nyckelvalv. En roll som tilldelats på abonnemangsnivå gäller för alla resursgrupper och resurser inom den prenumerationen. En roll som tilldelats på resursgruppnivå gäller för alla resurser inom den resursgruppen. En roll som tilldelats för en specifik resurs gäller bara för den resursen. Det finns flera fördefinierade roller (se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md)) och om de fördefinierade rollerna inte motsvarar dina behov kan du också definiera egna roller.
+Du kan ge åtkomst till användare, grupper och program i en specifik omfattning genom att tilldela lämpliga RBAC-roller. För att exempelvis bevilja åtkomst till en användare för att hantera nyckelvalven, tilldelar du den fördefinierade rollen ”nyckelvalvsbidragare” till användaren i ett visst omfång. Omfånget är i det här fallet en prenumeration, en resursgrupp eller bara ett visst nyckelvalv. En roll som tilldelats på abonnemangsnivå gäller för alla resursgrupper och resurser inom den prenumerationen. En roll som tilldelats på resursgruppnivå gäller för alla resurser inom den resursgruppen. En roll som tilldelats för en specifik resurs gäller bara för den resursen. Det finns flera fördefinierade roller (se [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md)) och om de fördefinierade rollerna inte motsvarar dina behov kan du också definiera egna roller.
 
 > [!IMPORTANT]
 > Observera att om en användare har bidragsgivarbehörigheter (RBAC) till ett nyckelvalv, kan hen ge sig själv åtkomst till dataplanet genom att ställa in den åtkomstprincipen för nyckelvalvet som kontrollerar åtkomst till dataplanet. Vi rekommenderar därför att kraftigt begränsa vem som har "Bidragsgivar"-tillgång till dina nyckelvalv för att se till att enbart auktoriserade personer kan komma åt och hantera dina nyckelvalv, nycklar, hemligheter och certifikat.
@@ -135,7 +135,7 @@ Nu ska vi se vilka åtkomstbehörigheter för åtkomst till nyckelvalvet som beh
 | --- | --- | --- |
 | Säkerhetsteamet |nyckelvalvsbidragare |Nycklar: säkerhetskopiering, skapa, ta bort, hämta, importera, lista, återställa <br> Hemligheter: alla |
 | Utvecklare/operatör |nyckelvalvet distribueringsbehörighet så att de VM:ar de distribuerar kan hämta hemligheter från nyckelvalvet |Ingen |
-| Granskare |Ingen |Nycklar: lista<br>Hemligheter: lista |
+| Granskare |Inget |Nycklar: lista<br>Hemligheter: lista |
 | Program |Ingen |Nycklar: signera<br>Hemligheter: hämta |
 
 > [!NOTE]
@@ -204,19 +204,19 @@ Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanl
 > 
 
 ## <a name="resources"></a>Resurser
-* [Azure Active Directory rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md)
   
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
-* [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md)
   
   Den här artikeln beskriver alla inbyggda roller som är tillgängliga i RBAC.
 * [Förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Den här artikeln beskriver Resource Manager-distributionsmodellen och den klassiska distributionsmodellen och förklarar fördelarna med att använda Resource Manager och resursgrupper
-* [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   Den här artikeln förklarar hur du hanterar rollbaserad åtkomstkontroll med Azure PowerShell
-* [Hantera rollbaserad åtkomstkontroll med REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Hantera rollbaserad åtkomstkontroll med REST API](../role-based-access-control/role-assignments-rest.md)
   
   Den här artikeln visar hur du använder REST API för att hantera RBAC.
 * [Rollbaserad åtkomstkontroll i Microsoft Azure från Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

@@ -1,5 +1,21 @@
---Rubrik: ' Självstudier: utforma en Azure-databas för PostgreSQL med Azure CLI-beskrivning: den här kursen visar hur du skapar, konfigurerar och fråga din första Azure-databas för PostgreSQL-server med Azure CLI.
-tjänster: postgresql författare: rachel msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure cli ms.topic: självstudiekurs ms.date: 04/01/2018
+---
+title: 'Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI'
+description: I den här självstudien visar vi hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-server med Azure CLI.
+services: postgresql
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
+editor: jasonwhowell
+ms.service: postgresql
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: tutorial
+ms.date: 04/01/2018
+ms.openlocfilehash: acba480631ba69a81da3029aadfb9cb51797549a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
@@ -27,31 +43,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [az group create](/cli/azure/group#az_group_create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>Lägga till tillägget
-Lägg till det uppdaterade hanteringstillägget för Azure Database for PostgreSQL med följande kommando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Kontrollera att du har rätt tilläggsversion installerad. 
-```azurecli-interactive
-az extension list
-```
-
-JSON-returfilen bör innehålla följande: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Om version 0.0.5 inte returneras, kör du följande för att uppdatera tillägget: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server

@@ -1,11 +1,8 @@
-# 
-  [Dokumentation om VPN Gateway](index.md)
+# [Dokumentation om VPN Gateway](index.md)
 
 # Översikt
-## 
-  [Om VPN Gateway](vpn-gateway-about-vpngateways.md)
-## 
-  [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md)
+## [Om VPN Gateway](vpn-gateway-about-vpngateways.md)
+## [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md)
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Kom igång

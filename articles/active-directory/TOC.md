@@ -17,7 +17,7 @@
 ## [Konfigurera varumärkesexponering](customize-branding.md)
 ## [Lägga till användare i Azure AD](add-users-azure-active-directory.md)
 ## [Tilldela licenser till användare](license-users-groups.md)
-## [Konfigurera lösenordsåterställning via självbetjäning](active-directory-passwords-getting-started.md)
+## [Konfigurera lösenordsåterställning via självbetjäning](authentication/quickstart-sspr.md)
 
 
 # Gör så här för att
@@ -63,6 +63,8 @@
 #### [Dynamiska grupper och B2B-användare](active-directory-b2b-dynamic-groups.md)
 #### [Granskning och rapporter](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B för hybridorganisationer](active-directory-b2b-hybrid-organizations.md)
+##### [Bevilja B2B-användare åtkomst till lokala appar](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Bevilja lokala användare åtkomst till molnappar](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [Extern delning av B2B och Office 365](active-directory-b2b-o365-external-user.md)
 #### [B2B-licensiering](active-directory-b2b-licensing.md)
 #### [Aktuella begränsningar](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
 #### [Meddelanden](active-directory-reporting-notifications.md)
+#### [Granska aktivitetsreferens](active-directory-reporting-activity-audit-reference.md)
 #### [Felkoder för inloggningsaktivitet](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Felsöka
@@ -141,7 +144,7 @@
 #### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
 ### [SSPR – så här fungerar det](authentication/concept-sspr-howitworks.md)
 ### [SSPR-distributionsguide](authentication/howto-sspr-deployment.md)
-### [SSPR och Windows 10](active-directory-passwords-login.md)
+### [SSPR och Windows 10](authentication/tutorial-sspr-windows.md)
 ### [SSPR-principer ](authentication/concept-sspr-policy.md)
 ### [SSPR-anpassning](authentication/concept-sspr-customization.md)
 ### [SSPR-datakrav](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### IT-administratörer: Återställ lösenord
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [Licensiera SSPR](authentication/concept-sspr-licensing.md)
-### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
+### [Tillbakaskrivning av lösenord](authentication/howto-sspr-writeback.md)
 ### [Felsöka](authentication/active-directory-passwords-troubleshoot.md)
 ### [Vanliga frågor och svar](authentication/active-directory-passwords-faq.md)
 

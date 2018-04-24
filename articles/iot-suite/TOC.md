@@ -48,6 +48,7 @@
 ### [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)
 
 ## Ansluten fabrik
+### [Vad är en ansluten fabrik?](iot-suite-connected-factory-features.md)
 ### [Översikt över ansluten fabrikslösning](iot-suite-connected-factory-overview.md)
 ### [Genomgång av ansluten fabrikslösning](iot-suite-connected-factory-sample-walkthrough.md)
 

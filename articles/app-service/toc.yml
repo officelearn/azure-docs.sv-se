@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Självstudier
   items:
-    - name: 1 – App med DB
+    - name: App med DB
       items:
         - name: .NET Core med SQL DB
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python med PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 – Agera värd åt RESTful-API
+    - name: Få åtkomst till SQL DB på ett säkert sätt
+      href: app-service-web-tutorial-connect-msi.md
+    - name: Agera värd åt RESTful-API
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 – Mappa anpassad domän
+    - name: Mappa anpassad domän
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 – Bind SSL-certifikat
+    - name: Bind SSL-certifikat
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 – Lägg till CDN
+    - name: Lägg till CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 – Autentisera användare
+    - name: Autentisera användare
       href: app-service-web-tutorial-auth-aad.md
 - name: Exempel
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: OS-funktioner
       href: web-sites-available-operating-system-functionality.md
+    - name: Inkommande och utgående IP-adresser
+      href: app-service-ip-addresses.md
     - name: Autentisering och auktorisering
       href: app-service-authentication-overview.md
     - name: Hybridanslutningar
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Anpassa autentisering
           href: app-service-authentication-how-to.md
+        - name: Begränsa IP-adresser
+          href: app-service-ip-restrictions.md
         - name: Använd en hanterad tjänstidentitet
           href: app-service-managed-service-identity.md
         - name: Använda SSL-certifikat i programkod

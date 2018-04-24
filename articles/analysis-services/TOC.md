@@ -31,6 +31,7 @@
 ### [Hantera serveradministratörer](analysis-services-server-admins.md)
 ### [Övervaka servermått](analysis-services-monitor.md)
 ### [Konfigurera diagnostisk loggning](analysis-services-logging.md)
+### [Använda gateway för datakällor på virtuella nätverk](analysis-services-vnet-gateway.md)
 ## Anslut
 ### [Hämta klientbibliotek](analysis-services-data-providers.md)
 ### [Anslut till Excel](analysis-services-connect-excel.md)

@@ -50,7 +50,7 @@
 ### [Stöd för flera domäner vid federering](active-directory-aadconnect-multiple-domains.md)
 ### [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Synkronisera gästanvändares användarkonton som använder e-postadress för att logga in](active-directory-aadconnect-guest-sync.md)
 
 
 ## Hantera Azure AD Connect Sync

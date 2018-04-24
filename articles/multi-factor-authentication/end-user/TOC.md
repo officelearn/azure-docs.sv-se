@@ -12,4 +12,5 @@
 ## Använd Microsoft Authenticator-appen
 ### [Kom igång med appen](microsoft-authenticator-app-how-to.md)
 ### [Logga in med telefonen](microsoft-authenticator-app-phone-signin-faq.md)
+### [Säkerhetskopiera och återställa kontoautentiseringsuppgifter](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Vanliga frågor och svar](microsoft-authenticator-app-faq.md)

@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrerar dina lokala kataloger med Azure Active Directory
 Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.
 
 > [!IMPORTANT]
 > [Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det är ett bra tillfälle för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är inaktuella och supporten för dem upphör den 13 april 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Dessutom:
+
+
+
 > 
 > - Att synkronisera användare med Microsoft Azure Active Directory är en **kostnadsfri funktion** och kräver inte att kunderna har någon betald prenumeration.
 >- Synkroniserade användare **beviljas inte automatiskt** *någon* licens. Administratörer har fortfarande fullständig kontroll över licenstilldelningen. 
@@ -51,6 +54,10 @@ Azure Active Directory Connect består av tre huvudkomponenter: synkroniseringst
 * Hälsoövervakning – Azure AD Connect Health kan tillhandahålla robust övervakning och en central plats på Azure-portalen för att övervaka den här aktiviteten. Mer information finns i [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Installera Azure AD Connect
+
+> [!IMPORTANT]
+> Microsoft stöder inte ändring eller hantering av Azure AD Connect-synkronisering utöver de åtgärder som är formellt dokumenterade. Sådana åtgärder kan göra att Azure AD Connect-synkroniseringen hamnar i ett inkonsekvent tillstånd eller ett tillstånd som inte stöds. Därför kan Microsoft inte tillhandahålla teknisk support för sådana distributioner.
+
 Du kan ladda ned Azure AD Connect från [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Lösning | Scenario |
@@ -90,7 +97,7 @@ Azure AD Connect har flera funktioner som du kan aktivera om du vill eller som �
 
 [Synkronisering av lösenordshash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synkroniserar lösenordshashen i Active Directory med Azure AD. Slutanvändare kan använda samma lösenord lokalt och i molnet men hanterar det endast på en plats. Eftersom din lokala Active Directory används som auktoritet kan du också använda en egen lösenordsprincip.
 
-Med [tillbakaskrivning av lösenord](../active-directory-passwords-getting-started.md) kan dina användare ändra och återställa sina lösenord i molnet och tillämpa din lokala lösenordsprincip.
+Med [tillbakaskrivning av lösenord](../authentication/quickstart-sspr.md) kan dina användare ändra och återställa sina lösenord i molnet och tillämpa din lokala lösenordsprincip.
 
 Med [tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md) kan en enhet som är registrerad i Azure AD skrivas tillbaka till lokala Active Directory och användas för villkorlig åtkomst.
 
@@ -103,7 +110,7 @@ Funktionen [Automatisk uppgradering](active-directory-aadconnect-feature-automat
 | --- | --- |
 |Konfigurera filtrering | [Azure AD Connect-synkronisering: Konfigurera filtrering](active-directory-aadconnectsync-configure-filtering.md)|
 |Synkronisering av lösenordshash | [Azure AD Connect-synkronisering: Implementera synkronisering av lösenordshash](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Tillbakaskrivning av lösenord | [Komma igång med lösenordshantering](../active-directory-passwords-getting-started.md)|
+|Tillbakaskrivning av lösenord | [Komma igång med lösenordshantering](../authentication/quickstart-sspr.md)|
 |Tillbakaskrivning av enheter | [Aktivera tillbakaskrivning av enheter i Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Förhindra oavsiktliga borttagningar | [Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Automatisk uppgradering | [Azure AD Connect: Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)|

@@ -1,58 +1,57 @@
 ---
-title: "Söka efter halvstrukturerade data i Azure-molnlagring"
-description: "Söker halvstrukturerade blob-data med Azure Search."
+title: Söka efter halvstrukturerade data i Azure-molnlagring
+description: Söker efter halvstrukturerade blobdata med Azure Search.
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Del 2: Sök halvstrukturerade data i molnet
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Del 2: Söka efter halvstrukturerade data i molnlagring
 
-I en serie med två delar självstudiekursen dig du att söka delvis strukturerade och Ostrukturerade data med Azure search. [Del 1](../storage/blobs/storage-unstructured-search.md) gått du igenom Sök över Ostrukturerade data, men också tas med viktiga krav för den här självstudiekursen, som att skapa lagringskontot. 
+I en självstudiekurs i två delar får du lära dig hur du söker efter halvstrukturerade och ostrukturerade data med Azure Search. I [del 1](../storage/blobs/storage-unstructured-search.md) fick du lära dig att söka i ostrukturerade data och den innehöll också viktiga förutsättningar för den här kursen, till exempel information om hur du skapar ett lagringskonto. 
 
-I en del 2 fokus till halvstrukturerade data, till exempel JSON som lagras i Azure BLOB. Halvstrukturerade data innehåller taggar eller märkning som separerar innehållet i data. Skillnaden mellan Ostrukturerade data som måste vara indexera wholistically och formellt strukturerade data som stämmer överens med en datamodell, till exempel en relationsdatabas-schemat, vilket kan crawlas på grundval av per fältet delas.
+I en del 2 fokuserar vi på halvstrukturerade data, till exempel JSON som lagras i Azure-blobar. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Det görs skillnad på ostrukturerade data som måste indexeras som en helhet och formellt strukturerade data som följer en datamodell, till exempel ett relationsdatabasschema som kan genomsökas per fält.
 
-I en del 2 lär du dig hur du:
+I del 2 får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera en Azure Search-datakälla för ett Azure blob-behållare
-> * Skapa och fylla i en Azure Search index och indexeraren crawlas behållaren och extrahera sökbara innehåll
-> * Sök det index som du just har skapat
+> * Konfigurera en Azure Search-datakälla för en Azure-blobbehållare
+> * Skapa och fylla i ett Azure Search-index och indexerare för att crawla behållaren och extrahera sökbart innehåll
+> * Söka i indexet som du precis skapade
 
 > [!NOTE]
-> Den här kursen använder JSON-matris stöd som för närvarande är en förhandsvisningsfunktion i Azure Search. Det är inte tillgänglig i portalen. Därför använder vi förhandsversionen av REST-API som ger den här funktionen och en REST-klientverktyg att anropa API: et.
+> I den här kursen används JSON-matriser som för närvarande är en förhandsgranskningsfunktion i Azure Search. Den finns inte i portalen. Därför använder vi förhandsversionen av REST API som tillhandahåller den här funktionen och ett REST-klientverktyg för att anropa API:t.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Slutförandet av den [tidigare kursen](../storage/blobs/storage-unstructured-search.md) att tillhandahålla tjänsten storage-konto och Sök skapade i föregående kursen.
+* Lagringskonto och söktjänst som erhålls genom att slutföra den [tidigare kursen](../storage/blobs/storage-unstructured-search.md).
 
-* Installation av en REST-klient och en förståelse för hur du skapar en HTTP-begäran. Vid tillämpningen av den här kursen använder vi [Postman](https://www.getpostman.com/). Du kan använda en annan REST-klient om du är nöjd med en viss.
+* Installation av en REST-klient och en förståelse för hur du skapar en HTTP-begäran. I den här självstudiekursen använder vi [Postman](https://www.getpostman.com/). Du kan använda en annan REST-klient som du är van vid.
 
-## <a name="set-up-postman"></a>Ställ in Postman
+## <a name="set-up-postman"></a>Konfigurera Postman
 
-Starta Postman och ställa in en HTTP-begäran. Om du inte känner till det här verktyget, se [utforska Azure Search REST API: er med hjälp av Fiddler eller Postman](search-fiddler.md) för mer information.
+Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget kan du se [Utforska REST-API:er för Azure Search REST API:er med hjälp av Fiddler eller Postman](search-fiddler.md) för mer information.
 
-Begäran-metoden för varje anrop i den här kursen är ”POST”. Rubrik-nycklar är ”Content-type” och ”api-nyckel”. Värden i huvudet nycklar är ”application/json” och din ”administrationsnyckeln” (admin-nyckel är en platshållare för sökning primärnyckel) respektive. Innehållet är placerar du det faktiska innehållet i samtalet. Det kan finnas vissa varianter på hur du utformar din fråga beroende på klienten som du använder, men de används grunderna.
+Metoden för begäran för varje anrop i den här kursen är ”POST”. Huvudnycklarna är ”Content-type” och ”api-key”. Värdena för huvudnycklarna är "application/json" och din "admin key" (administratörsnyckeln är platshållare för din sökprimärnyckel). Meddelandetexten är där du placerar det faktiska innehållet i anropet. Hur du konstruerar frågan kan variera beroende på vilken klient du använder, men det här är grunderna.
 
-  ![Halvstrukturerade sökning](media/search-semi-structured-data/postmanoverview.png)
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/postmanoverview.png)
 
-Din sökning api-nyckel krävs för REST-anrop som beskrivs i den här självstudiekursen. Du kan hitta din api-nyckel under **nycklar** i din söktjänst. Den här api-nyckeln måste vara i rubriken för varje API-anrop (Ersätt ”administrationsnyckeln” i den föregående skärmbilden med) den här kursen riktar du kan göra. Behålla nyckeln eftersom du behöver för varje anrop.
+För REST-anropen som används i den här kursen krävs din sök-api-nyckel. Du hittar din api-nyckel under **Nycklar** i din söktjänst. Api-nyckeln måste anges i huvudet i varje API-anrop (ersätt ”admin key” i föregående skärmbild med den) som du gör i den här kursen. Behåll nyckeln eftersom du behöver den för varje anrop.
 
-  ![Halvstrukturerade sökning](media/search-semi-structured-data/keys.png)
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/keys.png)
 
-## <a name="download-the-sample-data"></a>Hämta exempeldata
+## <a name="download-the-sample-data"></a>Ladda ned exempeldata
 
-Data exempeldata har förberetts för dig. **Hämta [kliniska försök json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)**  och packa till sin egen mapp.
+En uppsättning exempeldata har förberetts för dig. **Ladda ned [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** och extrahera den i dess mapp.
 
-I exemplet är exempel JSON-filer som ursprungligen text filer som hämtats från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Vi har konvertera dem till JSON för din bekvämlighet.
+I mappen finns JSON-exempelfiler som ursprungligen var textfiler från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Vi har konverterat dem till JSON för att göra det enklare för dig.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -60,33 +59,33 @@ Logga in på [Azure-portalen](http://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Ladda upp exempeldata
 
-I Azure portal, gå tillbaka till det lagringskonto som skapats i den [tidigare kursen](../storage/blobs/storage-unstructured-search.md). Öppna den **data** behållare och klicka på **överför**.
+I Azure Portal går du tillbaka till det lagringskonto som skapades i den [tidigare kursen](../storage/blobs/storage-unstructured-search.md). Öppna **databehållaren** och klicka på **Överför**.
 
-Klicka på **Avancerat**, ange ”kliniska-utvärderingar-json” och sedan ladda upp alla JSON-filer som du hämtat.
+Klicka på **Avancerat**, ange ”clinical-trials-json” och ladda sedan upp alla JSON-filer som du hämtade.
 
-  ![Halvstrukturerade sökning](media/search-semi-structured-data/clinicalupload.png)
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/clinicalupload.png)
 
-När överföringen är klar ska filerna visas i sin egen undermapp i behållaren data.
+När överföringen är klar ska filerna visas i en egen undermapp i databehållaren.
 
-## <a name="connect-your-search-service-to-your-container"></a>Ansluta din söktjänst till din behållaren
+## <a name="connect-your-search-service-to-your-container"></a>Ansluta din söktjänst till behållaren
 
-Vi använder Postman för att göra tre API-anrop till din söktjänst för att skapa en datakälla, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
+Vi använder Postman för att göra tre API-anrop till din söktjänst för att skapa en datakälla, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 
-Frågesträngen måste innehålla **api-version = 2016-09-01-Preview** och varje anrop ska returnera en **201 Skapad**. Den allmänt tillgängliga api-versionen har inte möjlighet att hantera json som en jsonArray, för närvarande endast preview api-version har ännu.
+Frågesträngen måste innehålla **api-version=2016-09-01-Preview** och varje anrop ska returnera **201 Skapad**. Den allmänt tillgängliga api-versionen kan inte ännu hantera JSON som en JSON-matris. Det kan för närvarande endast förhandsgranskningsversionen av api-versionen.
 
-Kör följande tre API-anrop från REST-klient.
+Kör följande tre API-anrop från REST-klienten.
 
 ### <a name="create-a-datasource"></a>Skapa en datakälla
 
-En datakälla anger vilka data till index.
+En datakälla anger vilka data som ska indexeras.
 
-Slutpunkten för det här anropet är `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på din söktjänst.
+Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
 
-För det här anropet måste namnet på ditt lagringskonto och din lagringskontonyckel. Lagringskontots åtkomstnyckel kan hittas i Azure-portalen i ditt lagringskonto **åtkomstnycklar**. Platsen visas i följande bild:
+För det här anropet behöver du namnet på lagringskontot och lagringskontonyckeln. Lagringskontonyckeln hittar du i **Åtkomstnycklar** i ditt lagringskonto i Azure Portal. Platsen visas på följande bild:
 
-  ![Halvstrukturerade sökning](media/search-semi-structured-data/storagekeys.png)
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/storagekeys.png)
 
-Ersätt den `[storage account name]` och `[storage account key]` i brödtexten för samtalet innan anropet.
+Ersätt `[storage account name]` och `[storage account key]` i meddelandetexten för anropet innan du utför anropet.
 
 ```json
 {
@@ -97,7 +96,7 @@ Ersätt den `[storage account name]` och `[storage account key]` i brödtexten f
 }
 ```
 
-Svaret ska se ut:
+Svaret ska se ut så här:
 
 ```json
 {
@@ -123,9 +122,9 @@ Svaret ska se ut:
     
 Det andra API-anropet skapar ett index. Ett index anger alla parametrar och deras attribut.
 
-URL: en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på din söktjänst.
+URL:en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
 
-Ersätt först URL: en. Kopiera och klistra in följande kod i din brödtext och köra frågan.
+Ersätt först URL:en. Sedan kopierar du och klistrar in följande kod i meddelandetexten och kör frågan.
 
 ```json
 {
@@ -161,7 +160,7 @@ Ersätt först URL: en. Kopiera och klistra in följande kod i din brödtext och
 }
 ```
 
-Svaret ska se ut:
+Svaret ska se ut så här:
 
 ```json
 {
@@ -211,11 +210,11 @@ Svaret ska se ut:
 
 ### <a name="create-an-indexer"></a>Skapa en indexerare
 
-En indexerare ansluter datakällan till sökindex mål och ger eventuellt ett schema för att automatisera datauppdateringen.
+En indexerare ansluter datakällan till målsökindex och tillhandahåller eventuellt ett schema för att automatisera datauppdateringen.
 
-URL: en för det här anropet är `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på din söktjänst.
+URL:en för det här anropet är `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
 
-Ersätt först URL: en. Kopiera och klistra in följande kod i din brödtext och köra frågan.
+Ersätt först URL:en. Sedan kopierar du och klistrar in följande kod i meddelandetexten och kör frågan.
 
 ```json
 {
@@ -226,7 +225,7 @@ Ersätt först URL: en. Kopiera och klistra in följande kod i din brödtext och
 }
 ```
 
-Svaret ska se ut:
+Svaret ska se ut så här:
 
 ```json
 {
@@ -254,37 +253,37 @@ Svaret ska se ut:
 
 ## <a name="search-your-json-files"></a>Söka i JSON-filer
 
-Nu när din söktjänst har anslutits till en databehållare för dina, kan du börja söka dina filer.
+Nu när söktjänsten har anslutits till databehållaren kan du börja söka i dina filer.
 
-Öppna Azure-portalen och gå tillbaka till din söktjänst. Precis som i föregående självstudiekursen.
+Öppna Azure Portal och gå tillbaka till din söktjänst. Precis som du gjorde i föregående självstudiekurs.
 
-  ![Ostrukturerade sökning](media/search-semi-structured-data/indexespane.png)
+  ![Ostrukturerad sökning](media/search-semi-structured-data/indexespane.png)
 
-### <a name="user-defined-metadata-search"></a>Användardefinierade metadata sökning
+### <a name="user-defined-metadata-search"></a>Sökning med användardefinierade metadata
 
-Som tidigare kan data kan efterfrågas på ett antal olika sätt: fulltextsökning, Systemegenskaper eller användardefinierade metadata. Både Systemegenskaper och användardefinierade metadata kan bara genomsökas med den `$select` parametern om de har markerats som **strängfält** under skapandet av index för målet. Parametrarna i indexet får inte ändras när de skapas. Dock kan ytterligare parametrar som läggas till.
+Som tidigare kan du söka data på flera olika sätt: fulltextsökning, systemegenskaper eller användardefinierade metadata. Du kan bara söka systemegenskaper och användardefinierade metadata med parametern `$select` om de markerades som **hämtbara** när målindex skapades. Parametrarna i indexet får inte ändras när de har skapats. Men du kan lägga till ytterligare parametrar.
 
-Ett exempel på en fråga är `$select=Gender,metadata_storage_size`, vilket begränsar återgå till de två parametrarna.
+`$select=Gender,metadata_storage_size` är ett exempel på en enkel fråga som begränsar svaret till dessa två parametrar.
 
-  ![Halvstrukturerade sökning](media/search-semi-structured-data/lastquery.png)
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/lastquery.png)
 
-Ett exempel på en mer komplex fråga skulle vara `$filter=MinimumAge ge 30 and MaximumAge lt 75`, som returnerar endast resultat där parametrarna MinimumAge är större än eller lika med 30 och MaximumAge är mindre än 75.
+Ett exempel på en mer komplex fråga är `$filter=MinimumAge ge 30 and MaximumAge lt 75`, som endast returnerar resultat där parametrarna MinimumAge är större än eller lika med 30 och MaximumAge är mindre än 75.
 
-  ![Halvstrukturerade sökning](media/search-semi-structured-data/metadatashort.png)
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/metadatashort.png)
 
-Passa på att göra det om du vill experimentera och prova några fler frågor själv. Vet att du kan använda logiska operatorer (och, eller inte) och jämförelseoperatorer (eq, ne, gt, lt, ge, le). Strängjämförelser är skiftlägeskänsliga.
+Passa på att experimentera och prova några frågor själv. Observera att du kan använda logiska operatorer (och, eller, inte) och jämförelseoperatorer (eq, ne, gt, lt, ge, le). Strängjämförelser är skiftlägeskänsliga.
 
-Den `$filter` parametern fungerar endast med metadata som har markerats filtrera vid skapandet av ditt index.
+Parametern `$filter` fungerar endast med metadata som markerades som filtrerbara när indexet skapades.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du lärt dig om att söka halvstrukturerade data med Azure search, till exempel att:
+I kursen fick du lära dig hur du söker i halvstrukturerade data med Azure Search, till exempel:
 
 > [!div class="checklist"]
-> * Skapa ett Azure Search-tjänsten med hjälp av REST-API
-> * Använda Azure Search-tjänsten för att söka i behållaren
+> * Skapa en Azure Search-tjänst med hjälp av REST-API:et
+> * Använda Azure Search-tjänsten för att söka i en behållare
 
-Den här länken om du vill veta mer om sökningen.
+Följ den här länken om du vill veta mer om sökning.
 
 > [!div class="nextstepaction"]
 > [Indexera dokument i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

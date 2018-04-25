@@ -1,25 +1,19 @@
 ---
-title: "Självstudiekurs i indexering av Azure SQL-databaser i Azure Search | Microsoft Docs"
-description: "Crawla Azure SQL-databasen för att extrahera sökbara data och fylla ett Azure Search-index."
-services: search
-documentationcenter: 
+title: Självstudiekurs i indexering av Azure SQL-databaser i Azure Search | Microsoft Docs
+description: Crawla Azure SQL-databasen för att extrahera sökbara data och fylla ett Azure Search-index.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Crawla en Azure SQL-databas med Azure Search-indexerare
 
@@ -95,7 +89,7 @@ Du hittar slutpunkten och nyckeln för söktjänsten i portalen. En nyckel ger �
 4. Kopiera och klistra in det som första post i **appsettings.json** i Visual Studio.
 
   > [!Note]
-  > Ett tjänstnamn är en del av slutpunkten som innehåller search.windows.net. Om du är nyfiken kan du se hela URL:en i **Essentials** på översiktssidan. URL:en ser ut som i det här exemplet: https://your-service-name.search.windows.net
+  > Ett tjänstnamn är en del av slutpunkten som innehåller search.windows.net. Om du är nyfiken kan du se hela URL:en i **Essentials** på översiktssidan. URL:erna ser ut som i det här exemplet: https://your-service-name.search.windows.net
 
 5. I **Settings (Inställningar)** > **Keys (Nycklar)** kopierar du en av admin-nycklarna och klistrar in den som andra post i **appsettings.json**. Nycklarna är alfanumeriska strängar som genereras för din tjänst vid etableringen och krävs för att få åtkomst till tjänståtgärder. 
 

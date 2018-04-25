@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor och svar om Azure Active Directory | Microsoft Docs"
-description: "I det här avsnittet med vanliga frågor och svar om Azure Active Directory får du svar på frågor om Azure och Azure Active Directory, om lösenordshantering samt om åtkomsten till program."
+title: Vanliga frågor och svar om Azure Active Directory | Microsoft Docs
+description: I det här avsnittet med vanliga frågor och svar om Azure Active Directory får du svar på frågor om Azure och Azure Active Directory, om lösenordshantering samt om åtkomsten till program.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -29,7 +29,7 @@ Mer information finns i [Vad är Azure Active Directory?](active-directory-whati
 ## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
 **F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Microsoft Azure Active Directory på Azure-portalen?**
 
-**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [https://aka.ms/accessAAD](https://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
+**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [https://aka.ms/accessAAD](https://aka.ms/accessAAD) för att hitta stegen för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
 
 Mer information finns i:
 
@@ -119,11 +119,11 @@ Mer information finns i [Komma igång med lösenordshantering](active-directory-
 
 **S:** Ja, om du har aktiverat tillbakaskrivning av lösenord skrivs lösenordsåtgärder som utförs av en administratör tillbaka till din lokala miljö.  
 
-Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](active-directory-passwords-faq.md).
+Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](authentication/active-directory-passwords-faq.md).
 - - -
 **F: Vad gör jag om jag inte kommer ihåg mitt befintliga Office 365-/Azure AD-lösenord när jag försöker ändra mitt lösenord?**
 
-**S:** För den här typen av situation finns det ett par alternativ.  Använd självbetjäning för återställning av lösenord (SSPR) om det är tillgängligt.  Huruvida SSPR fungerar eller ej beror på hur det är konfigurerat.  Mer information finns i avsnittet som beskriver [Hur portalen för lösenordsåterställning fungerar](active-directory-passwords-best-practices.md).
+**S:** För den här typen av situation finns det ett par alternativ.  Använd självbetjäning för återställning av lösenord (SSPR) om det är tillgängligt.  Huruvida SSPR fungerar eller ej beror på hur det är konfigurerat.  Mer information finns i avsnittet som beskriver [Hur portalen för lösenordsåterställning fungerar](authentication/howto-sspr-deployment.md).
 
 För Office 365-användare kan administratören återställa lösenordet med hjälp av stegen som beskrivs i [Återställa användares lösenord](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 

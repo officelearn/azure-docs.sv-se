@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -30,7 +30,7 @@ Med Azure Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvär
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Uppgradera prisnivån för din app
+> * Uppgradera appens prisnivå
 > * Binda ditt anpassade SSL-certifikat till App Service
 > * Använda HTTPS i din app
 > * Automatisera SSL-certifikatsbindning med skript
@@ -149,7 +149,7 @@ Om du använder IIS eller _Certreq.exe_ till att generera din certifikatbegäran
 
 ### <a name="upload-your-ssl-certificate"></a>Ladda upp SSL-certifikatet
 
-Om du vill ladda upp SSL-certifikatet klickar du på **SSL-certifikat** i den vänstra navigeringen i webbappen.
+Om du vill ladda upp SSL-certifikatet klickar du på **SSL-inställningar** i den vänstra navigeringen i webbappen.
 
 Klicka på **Ladda upp certifikat**. 
 
@@ -159,7 +159,7 @@ Klicka på **Överför**.
 
 ![Överför certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-När App Service har överfört certifikatet visas det på sidan **SSL-certifikat**.
+När App Service har överfört certifikatet visas det på sidan **SSL-inställningar**.
 
 ![Certifikatet har laddats upp](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -216,7 +216,7 @@ Allt som nu återstår är att kontrollera att HTTPS fungerar för din anpassade
 
 Som standard kan alla fortfarande komma åt webbappen med hjälp av HTTP. Du kan omdirigera alla HTTP-begäranden till HTTPS-porten.
 
-Välj **Anpassade domäner** i den vänstra navigeringen på webbappsidan. I **Endast HTTPS** väljer du **På**.
+Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **Endast HTTPS** väljer du **På**.
 
 ![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ När åtgärden har slutförts går du till någon av de HTTP-webbadresser som p
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>Använda TLS 1.1/1.2
+
+Din app tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 som standard, vilket inte längre anses som säkert enligt branschstandarder, t.ex. [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Följ dessa steg om du vill göra en högre TLS-version obligatorisk:
+
+Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **TLS-version** väljer du sedan den lägsta TLS-version du vill använda.
+
+![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+När åtgärden är klar avvisar appen alla anslutningar med lägre TLS-version.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

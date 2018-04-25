@@ -1,23 +1,28 @@
 ---
-title: Migrera en SQLServer-databas till Azure SQL Database | Microsoft Docs
-description: Lär dig att migrera din SQL Server-databas till Azure SQL Database.
+title: Migrera en SQL Server-databas till Azure SQL Database med DMS| Microsoft Docs
+description: Lär dig att migrera din SQL Server-databas till Azure SQL Database med DMS.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrera din SQL Server-databas till Azure SQL Database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrera din SQL Server-databas till Azure SQL Database med DMS
 
-Det är lika enkelt att flytta din SQL Server-databas till Azure SQL Database som att skapa en tom SQL-databas i Azure och sedan använda [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera databasen till Azure. I de här självstudierna får du lära dig att:
+Det är lika enkelt att flytta din SQL Server-databas till en enkel databas i Azure SQL Database som att skapa en tom SQL-databas i Azure och sedan använda [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera databasen till Azure. Fler migreringsalternativ finns i [Migrera din databas till Azure SQL Database](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Om du vill migrera till Azure SQL Database Managed Instance kan du läsa [Migrera från SQL Server till en hanterad instans](sql-database-managed-instance-migrate.md)
+
+I de här självstudierna får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en tom Azure SQL-databas på Azure-portalen (med en ny eller befintlig Azure SQL Database-server)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cf678eac16f8b13c5ffaa1d5673ca1cb47440cf9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -41,16 +41,17 @@ Det stöds inte att installera Service Fabric runtime och SDK på Windows-unders
 
     * Ubuntu 16.04 (`Xenial Xerus`)
 
-* Se till att `apt-transport-https`-paketet installeras:
-
-      ```bash
-      sudo apt-get install apt-transport-https
-      ```
+      * Se till att `apt-transport-https`-paketet installeras:
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
+    * Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
 
 
 ## <a name="installation-methods"></a>Installationsmetoder
 
-### <a name="1-script-installation"></a>1. Installation av skript
+### <a name="1-script-installation-ubuntu"></a>1. Skriptinstallation (Ubuntu)
 
 Ett skript anges för att underlätta installationen av Service Fabric runtime och Service Fabric common SDK tillsammans med **sfctl** CLI. Kör de manuella installationsstegen i nästa avsnitt för att avgöra vad som ska installeras och vilka licenser som godkänns. Vi förutsätter att du har godkänt licenserna för all programvara som installeras innan du kör skriptet. 
 
@@ -63,8 +64,10 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### <a name="2-manual-installation"></a>2. Manuell installation
 Följ resten av den här guiden för information om manuell installation av Service Fabric runtime och SDK.
 
-## <a name="update-your-apt-sources"></a>Uppdatera dina APT-källor
+## <a name="update-your-apt-sourcesyum-repositories"></a>Uppdatera dina APT-källor/Yum-lagringsplatser
 Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsverktyget apt-get så måste du först uppdatera dina APT (Advanced Packaging Tool)-källor.
+
+### <a name="ubuntu"></a>Ubuntu
 
 1. Öppna en terminal.
 2. Lägga till Service Fabric-repon i listan med källor.
@@ -105,9 +108,43 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     sudo apt-get update
     ```
 
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+
+1. Öppna en terminal.
+2. Hämta och installera fler paket för Enterprise Linux (EPEL).
+
+    ```bash
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install epel-release-latest-7.noarch.rpm
+    ```
+3. Lägg till EfficiOS RHEL7-paketdatabasen i systemet.
+
+    ```bash
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    ```
+
+4. Importera EfficiOS-paketets signeringsnyckel till den lokala GPG-nyckelringen.
+
+    ```bash
+    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+5. Lägg till Microsoft RHEL-lagringsplatsen i systemet.
+   ```bash
+      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+   ```
+6. Installera dotnet sdk.
+   ```bash
+      yum install rh-dotnet20 -y
+      scl enable rh-dotnet20 bash
+   ```
+
 ## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Installera och konfigurera Service Fabric SDK för lokal klusterkonfiguration
 
 När du har uppdaterat källorna kan du installera SDK. Installera Service Fabric SDK-paketet, bekräfta installationen och acceptera licensavtalet (EULA).
+
+### <a name="ubuntu"></a>Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -120,11 +157,18 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+
+```bash
+sudo yum install servicefabricsdkcommon
+```
+
 Service Fabric-runtimen som medföljer ovanstående installation inkluderar paketen i tabellen nedan. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit från npm | senaste |
+RHEL | - | OpenJDK 1.8 | Implicit från npm | senaste |
 
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
   När installationen har slutförts ska du kunna starta ett lokalt kluster.
@@ -135,7 +179,7 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit från npm | senaste |
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. Öppna en webbläsare och gå till [Service Fabric Explorer](http://localhost:19080/Explorer). Om klustret har startats visas instrumentpanelen Service Fabric Explorer.
+  2. Öppna en webbläsare och gå till [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Om klustret har startats visas instrumentpanelen Service Fabric Explorer. Det kan ta flera minuter innan klustret är helt färdigt. Om din webbläsare inte kan öppna URL:en, eller om Service Fabric Explorer inte visar att systemet är klart, väntar du några minuter och försöker sedan igen.
 
       ![Service Fabric Explorer på Linux][sfx-linux]
 
@@ -167,6 +211,11 @@ Ubuntu
   sudo apt install nodejs-legacy
   ```
 
+Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
+  ```
 2. Installera [Yeoman](http://yeoman.io/)-mallgeneratorn på datorn från NPM
 
   ```bash
@@ -189,21 +238,30 @@ Installera [.NET Core 2.0 SDK för Ubuntu](https://www.microsoft.com/net/core#li
 
 Installera JDK 1.8 och Gradle för att köra build-uppgifter om du vill skapa Service Fabric-tjänster som använder Java. Följande kodfragment installerar Open JDK 1.8 tillsammans med Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
 
+
+Ubuntu 
  ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
+Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
+  ```
+ 
 ## <a name="install-the-eclipse-plug-in-optional"></a>Installera plugin-programmet Eclipse (valfritt)
 
-Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse IDE för Java-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och behållarprogram utöver Service Fabric Java-program.
+Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE för Java-utvecklare eller Java EE-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och behållarprogram utöver Service Fabric Java-program.
 
 > [!IMPORTANT]
-> Plugin-programmet för Service Fabric kräver Eclipse Neon eller en senare version. Se instruktionerna efter den här anteckningen för hur du kontrollerar din version av Eclipse. Om du har en tidigare version av Eclipse installerat kan du hämta nyare versioner på [Eclipses webbplats](https://www.eclipse.org). Vi rekommenderar inte att du installerar ovanpå (skriver över) en befintlig installation av Eclipse. Du kan antingen ta bort den innan du kör installationsprogrammet, eller så kan du installera den nyare versionen i en annan katalog. 
+> Service Fabric plugin-programmet kräver Eclipse Neon eller en senare version. Efter den här anteckningen följer instruktioner om hur du kontrollerar din Eclipse-version. Om du har en tidigare version av Eclipse installerad kan du hämta nyare versioner från [Eclipse-webbplatsen](https://www.eclipse.org). Vi rekommenderar inte att du installerar en ny version av Eclipse ovanpå en befintlig version (skriver över). Du kan ta bort den gamla versionen innan du kör installationsprogrammet, eller så kan du installera den nya versionen i en annan katalog. 
 > 
-> I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. 
+> I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. Du kan installera Eclipse IDE för Java-utvecklare eller för Java EE-utvecklare.
 
-1. Kontrollera att du har Eclipse Neon eller senare och den senaste Buildship-versionen (1.0.17 eller senare) installerat. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Installationsinformation**. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
+1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Om Eclipse** > **Installationsinformation**. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
 
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Hjälp** > **Installera ny programvara**.
 
@@ -217,7 +275,7 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse IDE f�
 
 6. Slutför installationsstegen och acceptera licensavtalet för användare.
 
-Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Du kan kontrollera detta genom att välja **Hjälp** > **Installationsinformation** och sedan söka efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
+Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Du kan kontrollera detta genom att välja **Hjälp** > **Om Eclipse** > **Installationsinformation** och sedan söka efter Service Fabric i listan med installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
 
 Mer information finns i [Service Fabric-plugin-program för utveckling av Java-program i Eclipse](service-fabric-get-started-eclipse.md).
 
@@ -237,11 +295,22 @@ Om du vill uppdatera Java SDK-binärfilerna från Maven måste du uppdatera vers
 ## <a name="remove-the-sdk"></a>Ta bort SDK
 Kör följande om du vill ta bort Service Fabric SDK:er:
 
+### <a name="ubuntu"></a>Ubuntu
+
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
+```
+
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+
+```bash
+sudo yum remote servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 ```
 
 ## <a name="next-steps"></a>Nästa steg

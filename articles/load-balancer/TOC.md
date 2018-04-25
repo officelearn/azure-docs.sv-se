@@ -75,8 +75,7 @@
 ## [Application Gateway](/azure/application-gateway/)
 ## [Express Route](/azure/expressroute/)
 ## [Virtual Network](/azure/virtual-network/)
-## 
-  [VPN Gateway](/azure/vpn-gateway/)
+## [VPN Gateway](/azure/vpn-gateway/)
 ## [Virtuell dator](/azure/virtual-machines/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)

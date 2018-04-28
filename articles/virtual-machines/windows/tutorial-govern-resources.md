@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3c32b5ce90d4e5aafacb8211ff8f432bc3c78db8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Virtual machine-styrning med Azure PowerShell
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/16/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. Om lokala installationer måste du också [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) att skapa en ny Azure Active Directory-grupp.
+Om du väljer att installera och använda PowerShell lokalt, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. Om lokala installationer måste du också [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) att skapa en ny Azure Active Directory-grupp.
 
 ## <a name="understand-scope"></a>Förstå omfång
 

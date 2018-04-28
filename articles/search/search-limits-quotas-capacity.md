@@ -1,25 +1,19 @@
 ---
 title: Gränser i Azure Search | Microsoft Docs
 description: Tjänstbegränsningarna som används för kapacitetsplanering och övre gräns för begäranden och -svar för Azure Search.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 77ea75bf66f4b6ae6ec7d6ede4364db6b7fa82a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningarna i Azure Search
 Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **lediga**, **grundläggande**, eller **Standard** prisnivåer.
@@ -46,7 +40,7 @@ Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och a
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resurs | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
+| Resurs | Kostnadsfri | Grundläggande&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |
 | Maximal fält per index |1000 |100 |1000 |1000 |1000 |1000 |
@@ -67,15 +61,15 @@ För att fastställa om din tjänst dokumentet gränser, kontrollera ikonen för
 
 Tjänster som har gränser skapats antingen innan du sen 2017 eller körs på datacenter med lägre kapacitet kluster som värd för Azure Search-tjänster. Berörda datacenter finns i följande områden:
 
-+ Australien, östra
-+ Asien, östra
++ Östra Australien
++ Östasien
 + Indien, centrala
-+ Japan, västra
++ Västra Japan
 + Västra centrala USA
 
 För tjänster med dokumentet begränsningar gäller gränserna som följande:
 
-|  Gratis | Grundläggande | S1 | S2 | S3 | S3&nbsp;HD |
+|  Kostnadsfri | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10 000 |1 miljon |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
 
@@ -95,14 +89,14 @@ Kom ihåg att utesluta icke-frågbar data från begäran om du vill behålla sto
 
 Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, datakällor och indexerare.
 
-| Resurs | Ledigt&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
+| Resurs | Ledigt&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Saknas |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Saknas |
-| Maximal indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Saknas |
-| Maximal körtid | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Saknas  |
-| BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |Saknas  |
-| BLOB-indexeraren: maximala antalet tecken innehåll extraheras från ett blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |Saknas |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |
+| Maximal indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Gäller inte |
+| Maximal körtid | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |
+| BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |Gäller inte  |
+| BLOB-indexeraren: maximala antalet tecken innehåll extraheras från ett blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |Gäller inte |
 
 <sup>1</sup> gratistjänster ha indexeraren maximala körningstiden för 3 minuter för blobbkällorna och 1 minut för alla andra datakällor.
 

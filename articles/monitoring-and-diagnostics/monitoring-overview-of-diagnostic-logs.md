@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 884acc4885da3a321477c51f6d7b76748d797d9b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -59,14 +59,14 @@ Resursen diagnostikloggar för icke-beräkning resurser konfigureras med hjälp 
 Dessa inställningar konfigureras enkelt via diagnostikinställningar för en resurs i Azure-portalen, via Azure PowerShell och CLI-kommandon eller via den [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!NOTE]
-> Skicka flerdimensionell mätvärden via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+> Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när exporteras via diagnostikinställningar mått representeras av alla inkommande meddelanden i alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
 > [!WARNING]
-> Diagnostikloggar och mått för från gästen OS lager av beräkning resurser (till exempel virtuella datorer eller Service Fabric) Använd [en separat mekanism för konfiguration och val av utdata](../azure-diagnostics.md).
+> Diagnostiska loggar och mått för gäst-OS lager av beräkning resurser (till exempel virtuella datorer eller Service Fabric) används [en separat mekanism för konfiguration och val av utdata](../azure-diagnostics.md).
 
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Så här aktiverar du samling resurs diagnostikloggar
 

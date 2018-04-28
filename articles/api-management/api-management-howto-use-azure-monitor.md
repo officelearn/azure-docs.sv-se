@@ -14,17 +14,17 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f4b1a6e3ee995fb309577fd6df611a705e613041
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
-Azure Monitor är Azure-tjänst som tillhandahåller en enda källa för övervakning av alla dina Azure-resurser. Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått och loggar från resurser i Azure, som API Management. 
+Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
@@ -43,24 +43,22 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## <a name="view-metrics-of-your-apis"></a>Visa mått för dina API:er
 
 API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i realtid i API:ernas tillstånd och hälsa. Nedan följer en sammanfattning av några tillgängliga mått:
 
 * Kapacitet (förhandsversion):  hjälper dig att fatta beslut om att uppgradera/nedgradera din APIM-tjänster. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
 * Totalt antal gatewaybegäranden: antalet API-begäranden under perioden. 
-* Slutförda gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder inklusive 304, 307 och under 301 (till exempel 200). 
+* Slutförda gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder inklusive 304, 307 och under 301 (till exempel 200).
 * Misslyckade gatewaybegäranden: antalet API-begäranden som tog emot felaktiga HTTP-svarskoder inklusive 400 och över 500.
-* Ej auktoriserad begäran: antalet API-begäranden som tog emot HTTP-svarskoder som 401, 403 och 429. 
+* Ej auktoriserad begäran: antalet API-begäranden som tog emot HTTP-svarskoder som 401, 403 och 429.
 * Övriga gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder som inte tillhör någon av ovanstående kategorier (til exempel 418).
 
 Så här får du åtkomst till mått:
 
 1. Välj **Mått** på menyn långt ned på sidan.
 2. Från listrutan väljer du mått som du är intresserad av (du kan lägga till flera mått). 
-    
+
     Välj till exempel **Totalt antal gatewaybegäranden** **Misslyckade gatewaybegäranden** på listan över tillgängliga mått.
 3. Diagrammet visar det totala antalet API-anrop. Det visar även antalet API-anrop som misslyckades. 
 
@@ -80,7 +78,7 @@ Så här konfigurerar du varningar:
 4. Välj **Ej auktoriserad begäran** som mått som ska övervakas.
 5. Välj **E-postägare, deltagare och läsare**.
 6. Tryck på **OK**.
-7. Försök anropa vår konferens-API utan API-nyckel. Du får en e-postavisering som ägare till den här API Management-tjänsten. 
+7. Försök anropa konferens-API utan API-nyckel. Du får en e-postavisering som ägare till den här API Management-tjänsten. 
 
     > [!TIP]
     > Varningsregeln kan också anropa en webbhook eller en Azure Logic App när den utlöses.
@@ -89,7 +87,7 @@ Så här konfigurerar du varningar:
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
-Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina API Management-tjänster. Med aktivitetsloggar kan du bestämma ”vad, vem och när” för skrivåtgärder (PUT, POST, DELETE) som ska vidtas för dina API Management-tjänster. 
+Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina API Management-tjänster. Med aktivitetsloggar kan du bestämma ”vad, vem och när” för skrivåtgärder (PUT, POST, DELETE) som ska vidtas för dina API Management-tjänster.
 
 > [!NOTE]
 > Aktivitetsloggar inkluderar inte läsåtgärder (GET), åtgärder som utförs i Azure-portalen eller via ursprungliga hanterings-API:er.
@@ -103,7 +101,7 @@ Så här visar du aktivitetsloggar:
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
+Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit.
 
 Så här konfigurerar du diagnostikloggar:
 
@@ -116,15 +114,15 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 ```json
 {  
     "isRequestSuccess" : "",
-    "time": "",   
-    "operationName": "",      
-    "category": "",   
-    "durationMs": ,   
-    "callerIpAddress": "",   
-    "correlationId": "",   
-    "location": "",      
-    "httpStatusCodeCategory": "",      
-    "resourceId": "",      
+    "time": "",
+    "operationName": "",
+    "category": "",
+    "durationMs": ,
+    "callerIpAddress": "",
+    "correlationId": "",
+    "location": "",
+    "httpStatusCodeCategory": "",
+    "resourceId": "",
     "properties": {   
         "method": "", 
         "url": "", 
@@ -206,7 +204,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
 > * Visa diagnostikloggar
-> * Visa mått för din API 
+> * Visa mått för din API
 > * Konfigurera en varningsregel när din API hämtar obehöriga anrop
 
 Gå vidare till nästa kurs:

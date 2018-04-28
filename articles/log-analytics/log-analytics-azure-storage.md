@@ -1,11 +1,11 @@
 ---
-title: "Samla in Azure-tjänstloggar och mått för Log Analytics | Microsoft Docs"
-description: "Konfigurera diagnostik på Azure-resurser att skriva loggar och mått till logganalys."
+title: Samla in Azure-tjänstloggar och mått för Log Analytics | Microsoft Docs
+description: Konfigurera diagnostik på Azure-resurser att skriva loggar och mått till logganalys.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i logganalys
 
@@ -34,22 +34,22 @@ Det finns fyra olika sätt för att samla in loggar och mått för Azure-tjänst
 | Tjänst                 | Resurstyp                           | Logs        | Mått     | Lösning |
 | --- | --- | --- | --- | --- |
 | Programgateways    | Microsoft.Network/applicationGateways   | Diagnostik | Diagnostik | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Programinsikter    |                                         | koppling   | koppling   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsgranskning) |
+| Application Insights    |                                         | Anslutning   | Anslutning   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsgranskning) |
 | Automation-konton     | Microsoft.Automation/AutomationAccounts | Diagnostik |             | [Mer information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch-konton          | Microsoft.Batch/batchAccounts           | Diagnostik | Diagnostik | |
 | Klassiska molntjänster  |                                         | Lagring     |             | [Mer information](log-analytics-azure-storage-iis-table.md) |
 | Cognitive Services      | Microsoft.CognitiveServices/accounts    |             | Diagnostik | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostik |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostik |             | |
-| Event Hub namnområde     | Microsoft.EventHub/namespaces           | Diagnostik | Diagnostik | |
+| Namnområde för händelsehubb     | Microsoft.EventHub/namespaces           | Diagnostik | Diagnostik | |
 | IoT-hubbar                | Microsoft.Devices/IotHubs               |             | Diagnostik | |
 | Key Vault               | Microsoft.KeyVault/vaults               | Diagnostik |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
-| Belastningsutjämnare          | Microsoft.Network/loadBalancers         | Diagnostik |             |  |
+| Belastningsutjämning          | Microsoft.Network/loadBalancers         | Diagnostik |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostik | Diagnostik | |
 | Nätverkssäkerhetsgrupper | Microsoft.Network/networksecuritygroups | Diagnostik |             | [Azure Nätverkssäkerhetsgruppen Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Recovery-valv         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (förhandsgranskning)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Söktjänster         | Microsoft.Search/searchServices         | Diagnostik | Diagnostik | |
-| Service Bus-namnrymd   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Bus-namnområde   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Lagring     |             | [Service Fabric Analytics (förhandsgranskning)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL Analytics (förhandsgranskning)](log-analytics-azure-sql.md) |
 | Lagring                 |                                         |             | Skript      | [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
@@ -68,6 +68,13 @@ Det finns fyra olika sätt för att samla in loggar och mått för Azure-tjänst
 Många Azure-resurser ska kunna skriva diagnostikloggar och mått direkt till Log Analytics och detta är det bästa sättet för att samla in data för analys. När du använder Azure-diagnostik, skrivs data direkt till Log Analytics och behöver inte först skriva data till lagring.
 
 Azure-resurser som stöder [Azure övervakaren](../monitoring-and-diagnostics/monitoring-overview.md) kan skicka sin loggar och mått direkt till Log Analytics.
+
+> [!NOTE]
+> Skicka flerdimensionell mått till logganalys via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
+>
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden i alla köer i hubben.
+>
+>
 
 * Mer information om tillgänglig statistik avser [stöds mått med Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Mer information om de tillgängliga loggarna avser [stöds tjänster och schemat för diagnostikloggar](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,7 +152,7 @@ Lär dig mer om den [Application Insights connector](https://blogs.technet.micro
 
 Du kan använda ett Azure Automation-skript för Azure-tjänster som inte tillhandahåller ett enkelt sätt att skicka loggar och mått till logganalys för att samla in den loggen och mått. Skriptet kan skicka data till Log Analytics med hjälp av den [datainsamlaren API](log-analytics-data-collector-api.md)
 
-Azure-mallgalleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) att samla in data från tjänster och skicka det till logganalys.
+Azure-mallgalleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) att samla in data från tjänster och skicka det till logganalys.
 
 ## <a name="next-steps"></a>Nästa steg
 

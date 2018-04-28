@@ -1,11 +1,11 @@
 ---
 title: Hantera certifikat i ett Azure Service Fabric-kluster | Microsoft Docs
-description: "Beskriver hur du lägger till nya certifikat, förnyelsecertifikat, och ta bort certifikat till eller från ett Service Fabric-kluster."
+description: Beskriver hur du lägger till nya certifikat, förnyelsecertifikat, och ta bort certifikat till eller från ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 65ade0f2526bf444c2205c74cce0e20be540998d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70de9ed6175a5fe7a8e3eed9c0a921cf8184d50d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägg till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och känna till de [kluster säkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett certifikat för klustret och som används för, innan du fortsätter ytterligare.
@@ -47,7 +47,7 @@ Om din avsikt är att ta bort certifikat som har markerats primära, måste väx
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Lägg till ett sekundärt certifikat med hjälp av hanteraren för filserverresurser Powershell
 > [!TIP]
-> Det är nu bättre och enklare sätt att lägga till ett sekundärt certifikat med hjälp av den [Lägg till AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. Du behöver inte utföra resten av stegen i det här avsnittet.  Dessutom behöver du inte den mall som ursprungligen används för att skapa distribuera klustret när du använder den [Lägg till AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
+> Det är nu bättre och enklare sätt att lägga till ett sekundärt certifikat med hjälp av den [Lägg till AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. Du behöver inte utföra resten av stegen i det här avsnittet.  Dessutom behöver du inte har använts för att skapa och distribuera klustret när du använder mallen i [Lägg till AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
 
 Dessa instruktioner förutsätter att du känner till hur Resource Manager fungerar och har distribuerat minst en Service Fabric-kluster med hjälp av en Resource Manager-mall och har den mall som du använde för att konfigurera klustret praktiska. Det förutsätts även att du är nöjd med JSON.
 
@@ -197,7 +197,7 @@ Redigera Resource Manager-mall parametern filen, lägga till två nya parametrar
 - Logga in på ditt Azure-konto och välj den specifika azure-prenumerationen. Det här är ett viktigt steg för avdelningen som har tillgång till fler än en azure-prenumeration.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
 
 ```

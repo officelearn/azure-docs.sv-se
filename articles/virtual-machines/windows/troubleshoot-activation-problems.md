@@ -1,11 +1,11 @@
 ---
-title: "Felsöka problem med Windows virtuella aktivering i Azure | Microsoft Docs"
-description: "Innehåller felsökning steg för att åtgärda Windows aktiveringsproblem för virtuell dator i Azure"
+title: Felsöka problem med Windows virtuella aktivering i Azure | Microsoft Docs
+description: Innehåller felsökning steg för att åtgärda Windows aktiveringsproblem för virtuell dator i Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure virtuella aktivering
 
@@ -34,7 +34,7 @@ Azure använder olika slutpunkter för KMS-aktivering beroende på molnet-region
 * Azure Tyskland nationella molnområdena: kms.core.cloudapi.de:1688
 * Azure oss Gov nationella molnområdena: kms.core.usgovcloudapi.net:1688
 
-## <a name="symptom"></a>Symptom
+## <a name="symptom"></a>Symtom
 
 När du försöker aktivera en Windows Azure-VM felmeddelandet meddelande som liknar följande exempel:
 
@@ -78,7 +78,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Steg 2 Kontrollera anslutningen mellan VM och Azure KMS-tjänsten
 
-1. Ladda ned och extrahera den [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) verktyget till en lokal mapp på den Virtuella inte aktiveras. 
+1. Ladda ned och extrahera den [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) verktyget till en lokal mapp på den Virtuella inte aktiveras. 
 
 2. Gå till Start, Sök på Windows PowerShell, högerklickar på Windows PowerShell och välj Kör som administratör.
 
@@ -126,7 +126,7 @@ Ja.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Vad händer om Windows-aktivering period har löpt ut? 
  
-När respitperioden upphört och Windows fortfarande inte är aktiverad, visas ytterligare meddelanden om att aktivera i Windows Server 2008 R2 och senare versioner av Windows. Skrivbordsunderlägg förblir svart och Windows Update installerar säkerhet och viktiga uppdateringar, men inte valfria uppdateringar. I avsnittet meddelanden längst ned i den [licensiering villkor](http://technet.microsoft.com/en-us/library/ff793403.aspx) sidan.   
+När respitperioden upphört och Windows fortfarande inte är aktiverad, visas ytterligare meddelanden om att aktivera i Windows Server 2008 R2 och senare versioner av Windows. Skrivbordsunderlägg förblir svart och Windows Update installerar säkerhet och viktiga uppdateringar, men inte valfria uppdateringar. I avsnittet meddelanden längst ned i den [licensiering villkor](http://technet.microsoft.com/library/ff793403.aspx) sidan.   
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.

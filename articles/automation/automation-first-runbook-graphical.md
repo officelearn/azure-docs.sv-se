@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ba721091c2eb0c67171a6d3106468a05f9be1f8f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -137,7 +137,7 @@ Nu när du har en variabel som ska innehålla prenumerations-ID:t kan du konfigu
 1. Hovra över **Inloggning i Azure** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till **Ange prenumerations-ID**.
 
 > [!IMPORTANT]
-> **Lägg till AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen bibliotekets objekt, om du inte ser **Connect-AzureRMAccount**, kan du använda **Add-AzureRMAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+> **Anslut-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen bibliotekets objekt, om du inte ser **Connect-AzureRMAccount**, kan du använda **Connect-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
 Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-autentisering](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

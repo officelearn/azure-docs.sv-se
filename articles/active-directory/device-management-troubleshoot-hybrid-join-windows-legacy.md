@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsökning av hybrid Azure Active Directory-anslutna äldre enheter 
 
-Det här avsnittet gäller endast för följande enheter: 
+Den här artikeln gäller endast för följande enheter: 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +33,7 @@ Det här avsnittet gäller endast för följande enheter:
 
 Windows 10 eller Windows Server 2016 finns [felsökning hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Det här avsnittet förutsätter att du har [konfigurerade hybrid Azure Active Directory-anslutna enheter](device-management-hybrid-azuread-joined-devices-setup.md) till stöd för följande scenarier:
+Den här artikeln förutsätter att du har [konfigurerade hybrid Azure Active Directory-anslutna enheter](device-management-hybrid-azuread-joined-devices-setup.md) till stöd för följande scenarier:
 
 - Enhetsbaserad villkorlig åtkomst
 
@@ -45,7 +45,7 @@ Det här avsnittet förutsätter att du har [konfigurerade hybrid Azure Active D
 
 
 
-Det här avsnittet ger dig felsökningsanvisningar om hur du löser problem.  
+Den här artikeln finns felsökningsanvisningar om hur du löser problem.  
 
 **Vad du bör känna till:** 
 
@@ -53,15 +53,17 @@ Det här avsnittet ger dig felsökningsanvisningar om hur du löser problem.
 
 - Registreringen / koppling för enheter som har konfigurerats för att utföra ett försök vid inloggning eller Lås / Lås upp. Det dröja 5 minuter innan utlöses av en uppgift i Schemaläggaren. 
 
-- En ominstallation av operativsystemet eller en manuell unregister och registrera kan skapa en ny registrering på Azure AD och resulterar i flera poster information på fliken användare i Azure-portalen. 
+- Installera om operativsystemet eller manuell re-registreringar kan skapa en ny registrering på Azure AD, vilket resulterar i flera poster information på fliken användare i Azure-portalen. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Steg 1: Hämta registreringsstatus 
 
 **Kontrollera registreringsstatus:**  
 
-1. Öppna Kommandotolken som administratör 
+1. Logga in med det användarkonto som har utfört en hybrid Azure AD-anslutning.
 
-2. Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Öppna Kommandotolken som administratör 
+
+3. Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 Detta kommando visar en dialogruta där du får mer information om status för anslutning till.
 
@@ -84,16 +86,11 @@ Om inte Azure AD-anslutning hybrid lyckades ger dialogrutan dig information om p
     
     Det finns ett par olika skäl till varför detta kan inträffa:
     
-    1. Om användaren loggat in är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD-anslutning på äldre enheter stöds endast för domänanvändare.
+    - Den inloggade användaren är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD-anslutning på äldre enheter stöds endast för domänanvändare.
     
-    2. Om Autoworkplace.exe av någon anledning inte kan autentisera tyst med Azure AD eller AD FS. Några möjliga orsaker kan vara routningsserver bundna problem med nätverksanslutningen till Azure AD-URL: er (kontrollera krav) eller om MFA är aktiverat/konfigurerats för användaren, men WIAORMUTLIAUTHN har inte konfigurerats på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar att Autoworkplace.exe tyst hämta en token.
+    - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på ett inkommande bundna problem med nätverksanslutningen till Azure AD URL-adresser (kontrollera krav). Det kan också vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar **autoworkplace.exe** tyst får en token.
     
-    3. Om organisationen använder Azure AD sömlös enkel inloggning, är inte installerat på enhetens IE intranätsinställningar följande URL:
-    
-       - https://autologon.microsoftazuread-sso.com
-
-    
-       och inställningen ”Tillåt uppdateringar i statusfältet via skript” måste vara aktiverat för zonen Intranät.
+    - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` finns inte på enhetens IE intranätsinställningar och **tillåta uppdateringar av statusfältet via skript** har inte aktiverats för zonen Intranät.
 
 - En kvot har uppnåtts
 
@@ -103,11 +100,11 @@ Om inte Azure AD-anslutning hybrid lyckades ger dialogrutan dig information om p
 
     ![Anslut till arbetsplatsen för Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-Du kan också hitta statusinformation i Loggboken under **program och tjänster Log\Microsoft-Arbetsplatsanslutning**.
+Du kan också hitta statusinformation i Loggboken under: **program och tjänster Log\Microsoft Workplace Join**
   
 **De vanligaste orsakerna till en misslyckad hybrid Azure AD-koppling är:** 
 
-- Datorn finns inte på det interna nätverket eller en VPN-anslutning utan anslutning till en lokal AD-domänkontrollant.
+- Datorn är inte ansluten till organisationens interna nätverket och inte heller att en VPN-anslutning med en anslutning till din lokala AD-domänkontrollant.
 
 - Du är inloggad på datorn med ett lokalt datorkonto. 
 
@@ -115,7 +112,7 @@ Du kan också hitta statusinformation i Loggboken under **program och tjänster 
 
   - Federationsservern har konfigurerats för att stödja **WIAORMULTIAUTHN**. 
 
-  - Det finns inget tjänstanslutningspunkten-objekt som pekar på ett verifierat domännamn i Azure AD i AD-skog där datorn tillhör.
+  - Datorns skogen inte har något tjänstanslutningspunkten-objekt som pekar på ett verifierat domännamn i Azure AD 
 
   - En användare har nått gränsen på enheter. 
 

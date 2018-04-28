@@ -1,11 +1,11 @@
 ---
 title: Hantera Azure Redis-Cache med Azure PowerShell | Microsoft Docs
-description: "Lär dig mer om att utföra administrativa uppgifter för Azure Redis-Cache med hjälp av Azure PowerShell."
+description: Lär dig mer om att utföra administrativa uppgifter för Azure Redis-Cache med hjälp av Azure PowerShell.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis-Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Om du redan har installerat Azure PowerShell, måste du ha Azure PowerShell vers
 
 Först måste måste du logga in till Azure med det här kommandot.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Ange den e-postadressen för kontot och lösenordet i dialogrutan för Microsoft Azure.
 
@@ -66,18 +66,18 @@ Till exempel för att få hjälp med det `New-AzureRmRedisCache` cmdlet, skriv:
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Hur du ansluter till andra moln
-Som standard i Azure-miljö är `AzureCloud`, som representerar instansen för globala Azure-molnet. Om du vill ansluta till en annan instans av `Add-AzureRmAccount` kommandot med den `-Environment` eller -`EnvironmentName` kommandoradsväxeln med önskad miljö eller namn.
+Som standard i Azure-miljö är `AzureCloud`, som representerar instansen för globala Azure-molnet. Om du vill ansluta till en annan instans av `Connect-AzureRmAccount` kommandot med den `-Environment` eller -`EnvironmentName` kommandoradsväxeln med önskad miljö eller namn.
 
 Om du vill se en lista över tillgängliga miljöer, kör den `Get-AzureRmEnvironment` cmdlet.
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Att ansluta till offentliga Azure-molnet
 Använd någon av följande kommandon för att ansluta till offentliga Azure-molnet.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 eller
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Använd någon av följande platser för att skapa en cache i Azure Government-molnet.
 
@@ -89,11 +89,11 @@ Läs mer om Azure Government-molnet [Microsoft Azure Government](https://azure.m
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Att ansluta till Azure-molnet Kina
 Använd någon av följande kommandon för att ansluta till Azure-molnet Kina.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 eller
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Använd någon av följande platser om du vill skapa ett cacheminne i Kina Azure-molnet.
 
@@ -105,12 +105,12 @@ Läs mer om Azure Kina molnet [AzureChinaCloud för Azure som drivs av 21Vianet 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Att ansluta till Microsoft Azure Tyskland
 Använd någon av följande kommandon för att ansluta till Microsoft Azure Tyskland.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 eller
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Använd någon av följande platser om du vill skapa ett cacheminne i Microsoft Azure Tyskland.
 
@@ -126,12 +126,12 @@ Följande tabell innehåller egenskaperna och beskrivningar för vanliga paramet
 | --- | --- | --- |
 | Namn |Namnet på cachen | |
 | Plats |Platsen för cachen | |
-| ResourceGroupName |Resursgruppens namn att skapa cachen | |
+| resourceGroupName |Resursgruppens namn att skapa cachen | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Antalet delar för att skapa när du skapar en premium-cache med aktiverad klustring. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU av cachen. Giltiga värden är: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Anger inställningar för Redis-konfiguration. Mer information om varje inställning finns i följande [RedisConfiguration egenskaper](#redisconfiguration-properties) tabell. | |
-| EnableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
+| enableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
 | MaxMemoryPolicy |Den här parametern är inaktuell - Använd RedisConfiguration i stället. | |
 | StaticIP |När värd för ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om inte är en valt i undernätet. | |
 | Undernät |När värd för ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du vill distribuera cachen. | |
@@ -141,17 +141,17 @@ Följande tabell innehåller egenskaperna och beskrivningar för vanliga paramet
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration egenskaper
 | Egenskap | Beskrivning | Prisnivåer |
 | --- | --- | --- |
-| rdb-backup-enabled |Om [Redis-datapersistence](cache-how-to-premium-persistence.md) är aktiverad |Endast Premium |
-| rdb-storage-connection-string |Anslutningssträngen till lagringskontot för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
-| rdb-backup-frequency |Säkerhetskopieringsfrekvensen för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
+| RDB säkerhetskopiering aktiverad |Om [Redis-datapersistence](cache-how-to-premium-persistence.md) är aktiverad |Endast Premium |
+| RDB---anslutningssträngen för lagring |Anslutningssträngen till lagringskontot för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
+| RDB säkerhetskopieringsfrekvens |Säkerhetskopieringsfrekvensen för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
 | maxmemory-reserverade |Konfigurerar den [minne som reserverats](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för icke-cache-processer |Standard och Premium |
-| maxmemory-policy |Konfigurerar den [av principen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cachen |Alla prisnivåer |
+| maxmemory-princip |Konfigurerar den [av principen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cachen |Alla prisnivåer |
 | meddela-keyspace-händelser |Konfigurerar [keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) |Standard och Premium |
-| hash-max-ziplist-entries |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| hash-max-ziplist-value |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| set-max-intset-entries |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset-max-ziplist-entries |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset-max-ziplist-value |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| hash-max-ziplist-poster |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| hash--ziplist-värdet för maximalt antal |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| set-max-intset-poster |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset-max-ziplist-poster |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset--ziplist-värdet för maximalt antal |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | databaser |Konfigurerar antalet databaser. Den här egenskapen kan endast konfigureras hos skapa cache. |Standard och Premium |
 
 ## <a name="to-create-a-redis-cache"></a>Så här skapar du ett Redis-Cache
@@ -327,7 +327,7 @@ Kommandot uppdaterar maxmemory-principen för Redis-Cache med namnet myCache.
 <a name="scale"></a>
 
 ## <a name="to-scale-a-redis-cache"></a>Att skala ett Redis-cache
-`Set-AzureRmRedisCache`kan användas för att skala ett Azure Redis-cache-instans när den `Size`, `Sku`, eller `ShardCount` ändras egenskaperna. 
+`Set-AzureRmRedisCache` kan användas för att skala ett Azure Redis-cache-instans när den `Size`, `Sku`, eller `ShardCount` ändras egenskaperna. 
 
 > [!NOTE]
 > Skala en cache med PowerShell regleras samma begränsningar och riktlinjer som skalning en cache i Azure Portal. Du kan skala till en annan prisnivå med följande begränsningar.

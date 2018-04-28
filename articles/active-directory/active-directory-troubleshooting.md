@@ -1,11 +1,11 @@
 ---
-title: "Felsöka: ”Active Directory-objekt är saknas eller är inte tillgänglig | Microsoft Docs"
-description: "Vad du gör om menyalternativet för Active Directory inte visas i Azure-hanteringsportalen."
+title: 'Felsöka: ”Active Directory-objekt är saknas eller är inte tillgänglig | Microsoft Docs'
+description: Vad du gör om menyalternativet för Active Directory inte visas i Azure-hanteringsportalen.
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Felsöka: ”Active Directory-objekt är saknas eller är inte tillgänglig
 Många av anvisningar för användning av Azure Active Directory-funktioner och tjänster som börjar med ”gå till Azure-hanteringsportalen och klicka på **Active Directory**”. Men vad gör du om Active Directory-tillägget eller menyobjektet inte visas eller om den är markerad **saknas**? Det här avsnittet är avsedda att hjälpa. Beskriver villkor under vilka **Active Directory** visas inte eller är inte tillgängligt och förklarar hur du fortsätter.
@@ -39,7 +39,7 @@ Active Directory-objektet visas i den vänstra navigeringsmenyn när något av f
 * Azure-klient har minst en Azure AD-åtkomstkontroll (ACS) namnområde. Mer information finns i [Access Control Namespace](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
     ELLER
-* Azure-klient har minst en provider för Azure Multi-Factor Authentication. Mer information finns i [administrera Azure Multi-Factor Authentication-Providers](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* Azure-klient har minst en provider för Azure Multi-Factor Authentication. Mer information finns i [administrera Azure Multi-Factor Authentication-Providers](authentication/howto-mfa-getstarted.md).
 
 Klicka för att skapa ett namnområde för åtkomstkontroll eller en flerfunktionsautentiseringsleverantör **+ ny** > **Apptjänster** > **Active Directory**.
 

@@ -1,11 +1,11 @@
 ---
-title: Service Bus med .NET och AMQP 1.0 | Microsoft Docs
-description: "Med hjälp av Azure Service Bus från .NET med AMQP"
+title: Azure Service Bus med .NET och AMQP 1.0 | Microsoft Docs
+description: Med hjälp av Azure Service Bus från .NET med AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
 
@@ -71,18 +71,18 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP typer för inneh
 | kort |kort |AMQP värde |
 | int |int |AMQP värde |
 | lång |lång |AMQP värde |
-| flyt |flyt |AMQP värde |
-| dubbel |dubbel |AMQP värde |
+| flyttal |flyttal |AMQP värde |
+| double |double |AMQP värde |
 | Decimal |decimal128 |AMQP värde |
 | Char |Char |AMQP värde |
 | DateTime |tidsstämpel |AMQP värde |
 | GUID |UUID |AMQP värde |
-| byte] |Binär |AMQP värde |
+| byte |Binär |AMQP värde |
 | sträng |sträng |AMQP värde |
 | System.Collections.IList |lista |AMQP värde: objekt i samlingen får endast vara de som definieras i den här tabellen. |
 | System.Array |matris |AMQP värde: objekt i samlingen får endast vara de som definieras i den här tabellen. |
 | System.Collections.IDictionary |karta |AMQP värde: objekt i samlingen får endast vara de som definieras i den här tabellen. Obs: endast strängnycklar stöds. |
-| URI |Beskrivs sträng (se nedan) |AMQP värde |
+| URI: N |Beskrivs sträng (se nedan) |AMQP värde |
 | DateTimeOffset |Beskrivs långt (se nedan) |AMQP värde |
 | TimeSpan |Beskrivs långt (se följande) |AMQP värde |
 | Stream |Binär |AMQP Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
@@ -90,21 +90,16 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP typer för inneh
 
 | .NET-typ | Mappade AMQP beskrivs typen | Anteckningar |
 | --- | --- | --- |
-| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| URI: N |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Funktioner som inte stöds, begränsningar och beteendebaserade skillnader
+## <a name="behavioral-differences"></a>Beteendebaserade skillnader
 
-Följande funktioner i Service Bus .NET-API stöds inte för närvarande när du använder AMQP:
-
-* Transaktioner
-* Skicka via överföring mål
-
-Det finns också några mindre skillnader i beteendet för Service Bus .NET-API när du använder AMQP, jämfört med standardprotokoll:
+Det finns några mindre skillnader i beteendet för Service Bus .NET-API när du använder AMQP, jämfört med standardprotokoll:
 
 * Den [OperationTimeout] [ OperationTimeout] egenskapen ignoreras.
-* `MessageReceiver.Receive(TimeSpan.Zero)`implementeras som `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+* `MessageReceiver.Receive(TimeSpan.Zero)` implementeras som `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Slutför meddelanden av Lås token kan bara utföras av mottagarna meddelandet som ursprungligen emot meddelanden.
 
 ## <a name="control-amqp-protocol-settings"></a>Inställningar för åtkomstkontroll AMQP-protokollet

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
 ms.author: aljo
-ms.openlocfilehash: 7da2277fef224ff7859cac1ad5a2290c9dc56a85
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Ta bort ett Service Fabric-kluster på Azure och resurser som används
 Service Fabric-klustret består av många andra Azure-resurser förutom klusterresursen sig själv. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av.
@@ -38,7 +38,7 @@ Du kan också ta bort resursgruppen genom att köra följande Azure PowerShell-c
 Öppna ett PowerShell-fönster och kör följande PS-cmdlets:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -82,7 +82,7 @@ Du kan ta bort resurser i taget genom att köra följande Azure PowerShell-cmdle
 Öppna ett PowerShell-fönster och kör följande PS-cmdlets:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Kör följande skript för var och en av de resurser som du vill ta bort:
 

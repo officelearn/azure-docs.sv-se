@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4282333fc8c6f0835c451b781f70dfaed0697d96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Automation DSC-översikt
 
@@ -25,7 +25,7 @@ Azure Automation DSC innehåller flera fördelar jämfört med DSC utanför Azur
 
 ### <a name="built-in-pull-server"></a>Inbyggda pull-server
 
-Azure Automation ger en [hämtningsservern DSC](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) så att målnoder får automatiskt konfigurationer, motsvarar tillståndet och rapportera om kompatibiliteten.
+Azure Automation ger en [hämtningsservern DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) så att målnoder får automatiskt konfigurationer, motsvarar tillståndet och rapportera om kompatibiliteten.
 Den inbyggda hämtningsservern i Azure Automation eliminerar behovet av att ställa in och underhålla din egen pull-server.
 Azure Automation kan rikta virtuella eller fysiska Windows- eller Linux-datorer, i molnet eller lokalt.
 

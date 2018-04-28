@@ -1,27 +1,24 @@
 ---
-title: SQL Data Warehouse systemvyer | Microsoft Docs
-description: Länkar till system visar innehåll för SQL Data Warehouse.
+title: Systemvyer - Azure SQL Data Warehouse | Microsoft Docs
+description: Länkar till dokumentationen för systemvyer som stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 01/22/2018
-ms.author: barbkess
-ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="system-views"></a>Systemvyer
+# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Systemvyer som stöds i Azure SQL Data Warehouse
+Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse.
+
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse katalogvyer
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -97,7 +94,7 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [sys.foreign_keys](http://msdn.microsoft.com/library/ms189807.aspx)
 * [sys.identity_columns](http://msdn.microsoft.com/library/ms187334.aspx)
 * [sys.index_columns](http://msdn.microsoft.com/library/ms175105.aspx)
-* [sys.indexes](http://msdn.microsoft.com/library/ms173760.aspx)
+* [sys.Indexes](http://msdn.microsoft.com/library/ms173760.aspx)
 * [sys.key_constraints](http://msdn.microsoft.com/library/ms174321.aspx)
 * [sys.numbered_procedures](http://msdn.microsoft.com/library/ms179865.aspx)
 * [sys.Objects](http://msdn.microsoft.com/library/ms190324.aspx)
@@ -115,7 +112,7 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [sys.stats](http://msdn.microsoft.com/library/ms177623.aspx)
 * [sys.stats_columns](http://msdn.microsoft.com/library/ms187340.aspx)
 * [sys.symmetric_keys](https://msdn.microsoft.com/library/ms189446.aspx)
-* [sys.synonyms](https://msdn.microsoft.com/library/ms189458.aspx)
+* [sys.SYNONYMS](https://msdn.microsoft.com/library/ms189458.aspx)
 * [sys.syscharsets](https://msdn.microsoft.com/library/ms190300.aspx)
 * [sys.syscolumns](https://msdn.microsoft.com/library/ms186816.aspx)
 * [sys.sysdatabases](https://msdn.microsoft.com/library/ms179900.aspx)
@@ -162,7 +159,7 @@ SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) a
 | sys.dm_pdw_nodes_exec_query_resource_semaphores |[sys.dm_exec_query_resource_semaphores](http://msdn.microsoft.com/library/ms366321.aspx) |
 | sys.dm_pdw_nodes_exec_query_stats |[sys.dm_exec_query_stats](http://msdn.microsoft.com/library/ms189741.aspx) |
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
-| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
+| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
 | sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
@@ -224,23 +221,13 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA vyer
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [KOLUMNER](http://msdn.microsoft.com/library/ms188348.aspx)
-* [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
+* [PARAMETRAR](http://msdn.microsoft.com/library/ms173796.aspx)
 * [RUTINER](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMAN](https://msdn.microsoft.com/library/ms182642.aspx)
-* [TABLES](http://msdn.microsoft.com/library/ms186224.aspx)
+* [TABELLER](http://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
+* [VYER](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-För mer Referensinformation Se [översikt för SQL Data Warehouse referens] [SQL Data Warehouse referens översikt].
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+Läs mer till referens [T-SQL-uttryck i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), och [T-SQL-språkelement i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

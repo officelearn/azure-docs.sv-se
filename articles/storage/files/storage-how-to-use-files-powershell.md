@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c30bcc293cfe57452844dd74378593c234146802
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Hantera Azure-filresurser med Azure PowerShell 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden går igenom grunderna med att arbeta med Azure-filresurser med PowerShell. I den här artikeln lär du dig hur du:
@@ -34,10 +34,10 @@ Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt](https://
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du vill att installera och använda PowerShell lokalt, kräver den här självstudien Azure PowerShell-modul version 5.1.1 eller senare. Om du vill ta reda på vilken version av Azure PowerShell-modulen som du kör, kör du `Get-Module -ListAvailable AzureRM`. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du vill att installera och använda PowerShell lokalt, kräver den här självstudien Azure PowerShell-modul version 5.1.1 eller senare. Om du vill ta reda på vilken version av Azure PowerShell-modulen som du kör, kör du `Get-Module -ListAvailable AzureRM`. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp, kan du skapa en ny med cmdleten [`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp, kan du skapa en ny med cmdleten [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 Följande exempel skapar en resursgrupp med namnet *myResourceGroup* i regionen USA, östra:
 
@@ -70,15 +70,17 @@ New-AzureStorageShare `
 > [!Important]  
 > Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck, men får inte inledas med bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Hantera innehållet i Azure-filresursen
-Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB i [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan även ändra din Azure-filresurs med Azure PowerShell-modulen. Detta innebär stora fördelar jämfört med att montera filresursen med SMB, eftersom alla begäranden som görs med PowerShell görs med File REST API:et så att du kan skapa, ändra och ta bort filer och kataloger i filresursen från:
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Arbeta med innehållet i Azure-filresursen
+Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan även arbeta med Azure-filresursen i Azure PowerShell-modulen. Detta innebär stora fördelar jämfört med att montera filresursen med SMB, eftersom alla begäranden som görs med PowerShell görs med File REST API:et så att du kan skapa, ändra och ta bort filer och kataloger i filresursen från:
 
 - PowerShell Cloud Shell (som inte kan montera filresurser över SMB).
 - Klienter som inte kan montera SMB-resurser, t.ex. lokala klienter som inte har port 445 avblockerad.
 - Serverlösa scenarier, t.ex [Azure Functions](../../azure-functions/functions-overview.md). 
 
+
 ### <a name="create-directory"></a>Skapa katalog
-Använd cmdleten [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory) för att skapa en ny katalog med namnet *myDirectory* i roten för din Azure-filresurs.
+Om du vill skapa en ny katalog med namnet *myDirectory* i roten av din Azure-filresurs, använder du cmdleten [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -88,7 +90,7 @@ New-AzureStorageDirectory `
 ```
 
 ### <a name="upload-a-file"></a>Överför en fil
-För att visa dig hur du överför en fil med hjälp av cmdleten [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent) måste vi först skapa en fil på din tillfälliga PowerShell Cloud Shell-enhet att ladda upp. 
+För att visa dig hur du överför en fil med hjälp av cmdleten [Set-AzureStorageFileContent](/powershell/module/azure.storage/set-azurestoragefilecontent), måste vi först skapa en fil på din tillfälliga PowerShell Cloud Shell-enhet att ladda upp. 
 
 Det här exemplet placerar aktuellt datum och tid i en ny fil på din tillfälliga enhet och överför sedan filen till filresursen.
 
@@ -106,14 +108,14 @@ Set-AzureStorageFileContent `
 
 Om du kör PowerShell lokalt, kan du ersätta `C:\Users\ContainerAdministrator\CloudDrive\` med en sökväg som finns på din dator.
 
-När du har överfört filen kan du använda cmdleten [`Get-AzureStorageFile`](/powershell/module/Azure.Storage/Get-AzureStorageFile) för att kontrollera att filen överfördes till din Azure-filresurs. 
+När du har överfört filen kan du använda cmdleten [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile) för att kontrollera att filen överfördes till din Azure-filresurs. 
 
 ```azurepowershell-interactive
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 ### <a name="download-a-file"></a>Hämta en fil
-Du kan hämta en kopia av filen du laddade upp till den tillfälliga Cloud Shell-enheten genom att använda cmdleten [`Get-AzureStorageFileContent`](/powershell/module/azure.storage/get-azurestoragefilecontent).
+Du kan hämta en kopia av filen du laddade upp till den tillfälliga Cloud Shell-enheten genom att använda cmdleten [Get-AzureStorageFileContent](/powershell/module/azure.storage/get-azurestoragefilecontent).
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -136,7 +138,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 ### <a name="copy-files"></a>Kopiera filer
-En gemensam uppgift är att kopiera filer från en filresurs till en annan eller till/från en Azure Blob Storage-behållare. Om du vill demonstrera den här funktionen kan du skapa en ny resurs och kopiera filen du överförde till denna nya resurs med cmdleten [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy). 
+En gemensam uppgift är att kopiera filer från en filresurs till en annan eller till/från en Azure Blob Storage-behållare. Om du vill demonstrera den här funktionen kan du skapa en ny resurs och kopiera filen du överförde till denna nya resurs med cmdleten [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy). 
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -148,7 +150,7 @@ New-AzureStorageDirectory `
    -ShareName "myshare2" `
    -Path "myDirectory2"
 
-Start-AzureStorageFileCopy 
+Start-AzureStorageFileCopy `
     -Context $storageAcct.Context `
     -SrcShareName "myshare" `
     -SrcFilePath "myDirectory\SampleUpload.txt" `
@@ -160,7 +162,7 @@ Start-AzureStorageFileCopy
 Du bör nu se den kopierade filen om du visar filerna i den nya resursen.
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDirectory2" 
+Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
 Även om cmdleten `Start-AzureStorageFileCopy` är praktiskt för ad hoc-filförflyttningar mellan Azure-filresurser och Azure Blob Storage-behållare så rekommenderar vi AzCopy för större flyttar (sett till antalet filer som flyttas eller hur stora filer som flyttas). Läs mer om [AzCopy för Windows](../common/storage-use-azcopy.md) och [AzCopy för Linux](../common/storage-use-azcopy-linux.md). AzCopy måste installeras lokalt – det är inte tillgängligt i Cloud Shell 
@@ -171,7 +173,7 @@ Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är at
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS. 
 
-Du kan skapa en ögonblicksbild av en resurs genom att använda metoden `Snapshot` på PowerShell-objektet för en filresurs som hämtas med cmdleten [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare). 
+Du kan skapa en ögonblicksbild av en resurs genom att använda metoden `Snapshot` på PowerShell-objektet för en filresurs, vilken hämtas med cmdleten [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare). 
 
 ```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -212,7 +214,7 @@ Start-AzureStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
-Du kan ta bort en resursögonblicksbild med cmdleten [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare), med variabeln som innehåller `$snapshot`-referensen till `-Share`-parametern.
+Du kan ta bort en resursögonblicksbild med cmdleten [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare), med variabeln som innehåller `$snapshot`-referensen till `-Share`-parametern.
 
 ```azurepowershell-interactive
 Remove-AzureStorageShare -Share $snapshot

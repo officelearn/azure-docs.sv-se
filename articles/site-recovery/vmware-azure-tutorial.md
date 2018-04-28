@@ -1,23 +1,23 @@
 ---
-title: "Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig att konfigurera haveriberedskap till Azure för lokala virtuella VMware-datorer med Azure Site Recovery."
+title: Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer med Azure Site Recovery | Microsoft Docs
+description: Lär dig att konfigurera haveriberedskap till Azure för lokala virtuella VMware-datorer med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
-Den här kursen visar hur du konfigurerar katastrofåterställning till Azure för lokala virtuella VMware-datorer som kör Windows. I den här guiden får du lära dig hur man:
+Den här kursen visar hur du konfigurerar katastrofåterställning till Azure för lokala virtuella VMware-datorer som kör Windows. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ange replikeringskälla och mål.
@@ -27,8 +27,8 @@ Den här kursen visar hur du konfigurerar katastrofåterställning till Azure f�
 
 Den här självstudien är den tredje i en serie. Självstudien förutsätter att du slutförde uppgifterna i de föregående självstudierna:
 
-* [Förbereda Azure](tutorial-prepare-azure.md)
-* [Förbereda lokal VMware](vmware-azure-tutorial-prepare-on-premises.md)
+* [Förbereda Azure](tutorial-prepare-azure.md). I den här självstudien beskrivs hur du konfigurerar ett Azure Storage-konto och -nätverk, kontrollerar att ditt Azure-konto har rätt behörigheter och skapar ett Recovery Services-valv.
+* [Förbereda lokal VMware](vmware-azure-tutorial-prepare-on-premises.md). I den här självstudien förbereder du konton så att Site Recovery kan få åtkomst till VMware-servrar för att upptäcka virtuella datorer, och för att även göra en push-installation av Site Recovery-mobilitetstjänstkomponenten när du aktiverar replikering för en virtuell dator. Du ska också kontrollera att dina VMware-servrar och virtuella datorer uppfyller kraven för Site Recovery.
 
 Innan du börjar är det bra att [granska arkitekturen](vmware-azure-architecture.md) för haveriberedskap.
 
@@ -43,8 +43,6 @@ Innan du börjar är det bra att [granska arkitekturen](vmware-azure-architectur
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-> [!TIP]
-> Den rekommenderade metoden för att distribuera en konfigurationsserver för att skydda virtuella VMware-datorer är att använda den OVF-baserade distributionsmodellen som föreslås i den här artikeln. Om det finns begränsningar i din organisation som förhindrar att du distribuerar en OVF-mall så kan du använda [UnifiedSetup.exe för att installera en konfigurationsserver](physical-manage-configuration-server.md).
 
 Om du vill konfigurera källmiljön behöver du en fristående lokal dator med hög tillgänglighet och en lokal värd med Site Recovery-komponenter. Komponenterna är konfigurationsservern, processervern och huvudmålservern:
 
@@ -53,6 +51,10 @@ Om du vill konfigurera källmiljön behöver du en fristående lokal dator med h
 - Huvudmålservern hanterar replikeringsdata vid återställning efter fel från Azure.
 
 Om du vill konfigurera konfigurationsservern som en virtuell VMware-dator med hög tillgänglighet laddar du ned en förberedd Open Virtualization Format-mall (OVF) och importerar mallen till VMware för att skapa den virtuella datorn. När du har konfigurerat konfigurationsservern kan du registrera den i valvet. Site Recovery identifierar lokala virtuella VMware-datorer efter registreringen.
+
+> [!TIP]
+> I den här självstudien används en OVF-mall för att skapa konfigurationsserverns virtuella VMware-dator. Om du inte kan göra det kan du köra en [manuell konfiguration](physical-manage-configuration-server.md). 
+
 
 ### <a name="download-the-vm-template"></a>Ladda ned VM-mallen
 
@@ -73,10 +75,10 @@ Om du vill konfigurera konfigurationsservern som en virtuell VMware-dator med h�
 
 3. På **Välj källa** anger du platsen för den nedladdade OVF:en.
 4. På **Detaljer för recensionen** väljer du **Nästa**.
-5. På **Välj namn och mapp** och **Välj konfiguration** accepterar du standardinställningarna.
-6. På **Välj lagring** väljer du för bästa prestanda **Thick Provision Eager Zeroed** i **Välj virtuellt diskformat**.
+5. I **Välj namn och mapp** och **Välj konfiguration** accepterar du standardinställningarna.
+6. I **Välj lagring** väljer du för bästa prestanda **Thick Provision Eager Zeroed** i **Välj virtuellt diskformat**.
 7. Acceptera standardinställningarna på resten av sidorna i guiden.
-8. På **Klart att slutföras**:
+8. I **Klart att slutföras**:
 
     * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **Power on after deployment** (Slå på strömmen efter distributionen) > **Slutför**.
 
@@ -103,7 +105,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern gör du d
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Konfigurera inställningarna och anslut till VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>Konfigurera inställningar och lägga till VMware-servern
 
 1. I guiden Konfigurera serverhantering väljer du **Ställ in anslutning** och sedan väljer du det nätverkskort som ska ta emot replikeringstrafiken. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats.
 2. I **Välj Recovery Services-valv** väljer du din Azure-prenumeration samt relevant resursgrupp och valv.
@@ -130,7 +132,7 @@ Välj och kontrollera målresurserna.
 2. Ange om din måldistributionsmodell baseras på Azure Resource Manager eller om den är klassisk.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-   ![Målflik](./media/vmware-azure-tutorial/storage-network.png)
+   ![Fliken Mål](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 

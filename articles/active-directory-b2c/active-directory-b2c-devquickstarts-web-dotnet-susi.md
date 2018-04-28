@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C profil för registrering, inloggning, redigera och återställning av lösenord
 
@@ -28,7 +28,7 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Din B2C-klient måste du ansluta till ett Azure-konto. Du kan skapa ett kostnadsfritt Azure-konto [här](https://azure.microsoft.com/en-us/).
+- Din B2C-klient måste du ansluta till ett Azure-konto. Du kan skapa ett kostnadsfritt Azure-konto [här](https://azure.microsoft.com/).
 - Du behöver [Microsoft Visual Studio](https://www.visualstudio.com/) eller ett liknande program att visa och ändra exempelkoden.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Skapa en Azure AD B2C-katalog
@@ -194,7 +194,7 @@ public partial class Startup
                 },
 
                 // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
-                Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );
     }

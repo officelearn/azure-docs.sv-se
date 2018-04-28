@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
 
 SQL-databas erbjuder tre typer av databaser:
 
-- En enskild databas som skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
-- En databas som skapats som en del av en [pool av databaser](sql-database-elastic-pool.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md) som är delas med alla databaser i poolen. En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
+- En enskild databas som skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en [kombineras uppsättning beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md) eller en [oberoende skala beräkning och lagring resurser](sql-database-service-tiers-vcore.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
+- En databas som skapats som en del av en [pool av databaser](sql-database-elastic-pool.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en [kombineras uppsättning resurser för beräkning och lagring (DTU-baserat)](sql-database-service-tiers-dtu.md) eller en [oberoende skala beräkning och lagring resurser (vCore-baserat)](sql-database-service-tiers-vcore.md) som delas mellan alla databaser i poolen. En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
 - En [instans av en SQLServer](sql-database-managed-instance.md) (hanteras skapa en instans av) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning resurser för beräkning och lagring för alla databaser på den serverinstansen. En hanterad instans innehåller både system- och databaser. Hanterade instans är utformat för att aktivera databasen lift-och-skifte till en helt hanterad PaaS utan omformandet programmet. Hanterade instans ger hög kompatibilitet med programmeringsmodell för lokala SQL Server och stöder flesta av SQL Server-funktioner och tillhörande verktyg och tjänster.  
 
 Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare och tillåter bara krypterade TCP/IP-anslutningar.
@@ -78,7 +78,7 @@ Skapa en Azure SQL database med hjälp av den [Azure-portalen](https://portal.az
   ![skapa databas-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Information om hur du väljer prisnivå för din databas finns [tjänstnivåer](sql-database-service-tiers.md).
+> Information om hur du väljer prisnivå för din databas finns [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 
 Om du vill skapa en instans för hanterade finns [skapa en instans som hanteras](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -91,11 +91,11 @@ Om du vill hantera en befintlig databas, gå till den **SQL-databaser** och klic
    ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Om du vill konfigurera egenskaper för prestanda för en databas finns [tjänstnivåer](sql-database-service-tiers.md).
+> Om du vill konfigurera egenskaper för prestanda för en databas finns [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]
-> Läs en Azure portal Snabbstartsguide [skapa en Azure SQL database i Azure portal](sql-database-get-started-portal.md).
+> Ett Azure portal Snabbstart Se [skapa en Azure SQL database i Azure portal](sql-database-get-started-portal.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Hantera Azure SQL-servrar, databaser och brandväggar med PowerShell
@@ -120,7 +120,7 @@ Använd följande PowerShell-cmdlets för att skapa och hantera Azure SQL server
 | New-AzureRmSqlServerVirtualNetworkRule | Skapar en [ *virtuellt nätverk regeln*](sql-database-vnet-service-endpoint-rule-overview.md), baserat på ett undernät som är en tjänstslutpunkt för virtuellt nätverk. |
 
 > [!TIP]
-> En PowerShell-Snabbstartsguide finns [skapa en enda Azure SQL-databas med hjälp av PowerShell](sql-database-get-started-portal.md). PowerShell-exempelskript, se [Använd PowerShell för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md) och [Övervakare och skala en enskild SQL-databas med hjälp av PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> En PowerShell-Snabbstart Se [skapa en enda Azure SQL-databas med hjälp av PowerShell](sql-database-get-started-portal.md). PowerShell-exempelskript, se [Använd PowerShell för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md) och [Övervakare och skala en enskild SQL-databas med hjälp av PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Azure CLI
@@ -150,7 +150,7 @@ Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI
 |[ta bort AZ sql server-brandväggsregel](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Tar bort en brandväggsregel|
 
 > [!TIP]
-> En Snabbstartsguide för Azure CLI, se [skapa en enda Azure SQL-databas med hjälp av Azure CLI](sql-database-get-started-cli.md). Azure CLI exempelskript finns [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
+> En Azure CLI-Snabbstart Se [skapa en enda Azure SQL-databas med hjälp av Azure CLI](sql-database-get-started-cli.md). Azure CLI exempelskript finns [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Transact-SQL
@@ -181,7 +181,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server-da
 
 
 > [!TIP]
-> Snabbstartsguide med SQL Server Management Studio på Microsoft Windows, se [Azure SQL Database: Använd SQL Server Management Studio för att ansluta och fråga efter data](sql-database-connect-query-ssms.md). En Snabbstartsguide med hjälp av Visual Studio-koden i macOS, Linux eller Windows, se [Azure SQL Database: Använd Visual Studio Code kan ansluta och fråga efter data](sql-database-connect-query-vscode.md).
+> En Snabbstart med SQL Server Management Studio på Microsoft Windows, se [Azure SQL Database: Använd SQL Server Management Studio för att ansluta och fråga efter data](sql-database-connect-query-ssms.md). En Snabbstart med hjälp av Visual Studio-koden i macOS, Linux eller Windows, se [Azure SQL Database: Använd Visual Studio Code kan ansluta och fråga efter data](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Hantera Azure SQL-servrar, databaser och brandväggar med hjälp av REST-API
 

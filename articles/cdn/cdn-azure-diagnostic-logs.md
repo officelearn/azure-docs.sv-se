@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
 Du kan använda Azure diagnostikloggar för att visa core analytics och spara dem i en eller flera mål, inklusive:
 
- - Azure Storage-konto
+ - Azure-lagringskonto
  - Azure Event Hubs
  - [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
@@ -113,7 +113,7 @@ I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell
 
 Först logga in och välj en prenumeration:
 
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
@@ -156,9 +156,9 @@ Innan du kan komma åt core analysdata från Azure Storage-konto, måste du för
 
 **Beskrivning av fält:**
 
-|värde|beskrivning|
+|värde|description|
 |-------|---------|
-|Prenumerations-ID    |ID för Azure-prenumeration i Guid-format.|
+|Prenumerations-ID:t    |ID för Azure-prenumeration i Guid-format.|
 |Resurs |Gruppnamn namnet på resursgruppen som CDN resurser tillhör.|
 |Profilnamn |Namnet på CDN-profilen|
 |Namnet på slutpunkten |Namnet på CDN-slutpunkten|
@@ -209,55 +209,55 @@ Följ dessa steg för att lägga till en lösning:
 
 3. I den **övervakning + management** bladet, klickar du på **se alla**.
 
-    ![Se allt](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Se alla](./media/cdn-diagnostics-log/15_See-all.png)
 
 4.  Sök efter CDN i sökrutan.
 
-    ![Se allt](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Se alla](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5.  Välj **Azure CDN Core Analytics**. 
 
-    ![Se allt](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Se alla](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6.  När du klickar på **skapa**, uppmanas du att skapa en ny logganalys-arbetsyta eller använda en befintlig. 
 
-    ![Se allt](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Se alla](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7.  Välj arbetsytans innan. Du måste sedan lägga till ett automation-konto.
 
-    ![Se allt](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Se alla](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. Följande skärmbild visar formuläret automation-konto måste du fylla ut. 
 
-    ![Se allt](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Se alla](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. När du har skapat automation-kontot, är du redo att lägga till din lösning. Klicka på knappen **Skapa**.
 
-    ![Se allt](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Se alla](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Din lösning har nu lagts till arbetsytan. Gå tillbaka till instrumentpanelen i Azure portal.
 
-    ![Se allt](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Se alla](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Klicka på logganalys-arbetsytan som du skapade för att gå till arbetsytan. 
 
 11. Klicka på den **OMS-portalen** ruta visas den nya lösningen.
 
-    ![Se allt](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Se alla](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. Din portal bör nu se ut som följande skärmbild:
 
-    ![Se allt](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Se alla](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Klicka på ett av rutor finns flera vyer i dina data.
 
-    ![Se allt](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Se alla](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Du kan rulla åt vänster eller höger för att se ytterligare paneler som representerar enskilda vyer i data. 
 
     Klicka på någon av panelerna får du mer information om dina data.
 
-     ![Se allt](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Se alla](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Erbjudanden och prisnivåer
 
@@ -411,7 +411,7 @@ Exempel egenskaper:
 * [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via Azure CDN kompletterande portalen](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
+* [Azure logganalys REST-API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

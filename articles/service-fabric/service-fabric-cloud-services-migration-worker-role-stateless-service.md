@@ -1,11 +1,11 @@
 ---
-title: "Omvandla appar i Azure Cloud Services till mikrotjänster | Microsoft Docs"
-description: "Den här guiden jämför Cloud Services webb- och arbetsroller- och Service Fabric tillståndslösa tjänster för att migrera från molntjänster till Service Fabric."
+title: Omvandla appar i Azure Cloud Services till mikrotjänster | Microsoft Docs
+description: Den här guiden jämför Cloud Services webb- och arbetsroller- och Service Fabric tillståndslösa tjänster för att migrera från molntjänster till Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Att konvertera webb- och arbetsroller till Service Fabric tillståndslösa tjänster
 Den här artikeln beskriver hur du migrerar din Cloud Services webb- och arbetsroller till Service Fabric tillståndslösa tjänster. Detta är den enklaste migreringsvägen från molntjänster till Service Fabric för program som ska vara ungefär samma vars övergripande arkitektur.
@@ -53,7 +53,7 @@ Worker-rollen och Service Fabric-API: er erbjuder liknande startpunkter:
 | Bearbetning |`Run()` |`RunAsync()` |
 | Starta VM |`OnStart()` |Gäller inte |
 | Stoppa VM |`OnStop()` |Gäller inte |
-| Öppna lyssnaren för klientbegäranden |Gäller inte |<ul><li> `CreateServiceInstanceListener()`för tillståndslösa</li><li>`CreateServiceReplicaListener()`för stateful</li></ul> |
+| Öppna lyssnaren för klientbegäranden |Gäller inte |<ul><li> `CreateServiceInstanceListener()` för tillståndslösa</li><li>`CreateServiceReplicaListener()` för stateful</li></ul> |
 
 ### <a name="worker-role"></a>Worker-rollen
 ```csharp
@@ -121,7 +121,7 @@ Molntjänster miljön API innehåller information och funktioner för den aktuel
 | --- | --- | --- |
 | Konfigurationsinställningar och ändringsmeddelande |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokal lagring |`RoleEnvironment` |`CodePackageActivationContext` |
-| Slutpunkten |`RoleInstance` <ul><li>Aktuell instans:`RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instans:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`för den aktuella noden adressen</li><li>`FabricClient`och `ServicePartitionResolver` för identifiering av tjänst slutpunkt</li> |
+| Slutpunkten |`RoleInstance` <ul><li>Aktuell instans: `RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instans: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` för den aktuella noden adressen</li><li>`FabricClient` och `ServicePartitionResolver` för identifiering av tjänst slutpunkt</li> |
 | Miljö emulering |`RoleEnvironment.IsEmulated` |Gäller inte |
 | Samtidiga Ändringshändelse |`RoleEnvironment` |Gäller inte |
 
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Start-uppgifter
 Start-aktiviteter är åtgärder som vidtas innan ett program startas. En startåtgärd normalt används för att köra installationsprogrammet skript med utökade privilegier. Både molntjänster och Service Fabric stöder uppstart uppgifter. Den största skillnaden är att i Cloud Services, en startaktivitet är knuten till en virtuell dator eftersom det är en del av en rollinstans medan i Service Fabric en startaktivitet är knuten till en tjänst som inte är kopplad till någon särskild virtuell dator.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Platsen för konfigurationen |ServiceDefinition.csdef |
 | Behörigheter |”begränsad” eller ”utökade” |

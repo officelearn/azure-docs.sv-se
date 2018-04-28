@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 58656e2aa3b052d9bd9aa14edeb6215858d55ea4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Konfigurera rollen anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 
@@ -52,90 +52,94 @@ Om ditt program förväntar anpassade roller som ska skickas i SAML-svar, måste
 
     ![Program i resultatlistan](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
-5. När programmet har lagts till, gå till **egenskaper** och kopiera den **objekt-ID**
+5. När programmet har lagts till, gå till **egenskaper** och kopiera den **objekt-ID**.
 
-    ![Egenskapssidan](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Egenskapssidan](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
 
     a. Logga in på webbplatsen Explorer diagram med autentiseringsuppgifterna som global administratör/medadministratör för din klient.
 
-    b. Ändra versionen som ska **beta** och hämta listan över tjänstens huvudnamn från din klient med hjälp av följande fråga:
+    b. Du måste ha behörighet att skapa roller. Klicka på **ändringsbehörighet** få behörigheterna som krävs. 
+
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+
+    c. Välj följande behörigheter i listan (om du inte har dessa redan) och klicka på ”behörighet att ändra” 
+
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    d. Detta blir du ombedd att logga in igen och acceptera samtycke. När du godkänt samtycke är du inloggad i systemet igen.
+
+    e. Ändra versionen som ska **beta** och hämta listan över tjänstens huvudnamn från din klient med hjälp av följande fråga:
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
     Om du använder flera kataloger, ska sedan du följa det här mönstret `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    c. Hämta det måste du ändra listan över tjänstens huvudnamn hämtas och. Du kan också använda Ctrl + F för att söka efter programmet från de angivna ServicePrincipals. Sök efter den **objekt-id**, som du har kopierat från egenskapssidan och Använd följande fråga för att få till respektive tjänstens huvudnamn.
+    f. Hämta det måste du ändra listan över tjänstens huvudnamn hämtas och. Du kan också använda Ctrl + F för att söka efter programmet från de angivna ServicePrincipals. Sök efter den **objekt-id**, som du har kopierat från egenskapssidan och Använd följande fråga för att få till respektive tjänstens huvudnamn.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    d. Extrahera appRoles egenskapen från tjänsten huvudobjektet.
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    g. Extrahera appRoles egenskapen från tjänsten huvudobjektet. 
 
-    e. Du måste skapa nya roller för programmet nu. Du kan ladda ned Azure AD-roll Generator från [här](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-    f. Öppna Azure AD-generatorn och utföra följande steg-
+    > [!Note]
+    > Om du använder anpassade (icke-galleriet) appen finns två standardrollerna - användar- och msiam_access. Vid galleriet app är msiam_access endast standardroll. Du behöver inte göra några ändringar i standardroller.
 
-    ![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-    
-    Ange **rollnamn**, **Rollbeskrivning**, och **roll värdet**. Klicka på **Lägg till** att lägga till rollen
-    
-    När du har lagt till alla nödvändiga roller, klickar du på **Generera**
-    
-    Kopiera innehållet genom att klicka på **kopiera innehåll**
+    h. Nu måste du generera nya roller för programmet. 
 
-    > [!NOTE] 
-    > Kontrollera att du har **msiam_access** användarroll och id matchar i rollen skapas.
+    i. Är ett exempel på appRoles objekt nedan JSON. Skapa en liknande objekt om du vill lägga till roller som du vill använda för ditt program. 
 
-    g. Gå tillbaka till ditt diagram Explorer. Ändra metod från **hämta** till **korrigering**. Korrigera service principal objekt om du vill ha önskad appRoles genom att uppdatera appRoles egenskapen med de kopierade värdena. Klicka på **Kör fråga**.
-
-    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
-
-    > [!NOTE]
-    > Följande är ett exempel på appRoles objekt. 
     ```
     {
        "appRoles": [
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
-    },
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "teacher",
-        "displayName": "teacher",
-        "id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
-        "isEnabled": ,
-        "origin": "ServicePrincipal",
-        "value": "teacher"
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "msiam_access",
+            "displayName": "msiam_access",
+            "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+            "isEnabled": true,
+            "origin": "Application",
+            "value": null
+        },
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "Administrators Only",
+            "displayName": "Admin",
+            "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+            "isEnabled": true,
+            "origin": "ServicePrincipal",
+            "value": "Administrator"
+        }
+    ],
     }
-    ] 
-    }   
     ```
-7. När tjänstens huvudnamn har korrigerats med flera roller, tilldela vi användare till respektive roller. Detta kan göras genom att gå till portalen och gå till respektive appen. Sedan, klicka på den **användare och grupper** fliken längst upp. Den här processen visar en lista över alla användare eller grupper.
+    > [!Note]
+    > Du kan bara lägga till nya roller efter den **msiam_access** för åtgärden korrigering. Dessutom kan du lägga till så många roller som du vill per behöver din organisation. Azure AD skickar den **värdet** av dessa roller som anspråksvärdet SAML-svar.
+    
+    j. Gå tillbaka till ditt diagram Explorer och ändra metod från **hämta** till **korrigering**. Korrigera service principal objekt om du vill ha önskad roller genom att uppdatera appRoles egenskapen liknar det i exemplet ovan. Klicka på **Kör fråga** att köra åtgärden korrigering. Ett meddelande bekräftar skapandet av rollen.
 
-    ![Konfigurera enkel inloggning Lägg till](./media/active-directory-enterprise-app-role-management/userrole.png)
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-    a. Om du vill tilldela en roll till någon användare bara markera viss användargrupp och klicka på **tilldela** knappen längst ned på sidan.
+7. När tjänstens huvudnamn har korrigerats med flera roller, kan du tilldela respektive roller användare. Detta kan göras genom att gå till portalen och gå till respektive appen. Klicka på den **användare och grupper** fliken längst upp. Detta visar alla användare och grupper som redan är tilldelade till programmet. Du kan lägga till nya användare på nya rollen kan även välja den befintliga användaren och klicka på **redigera** ändra rollen.
 
-    ![Konfigurera enkel inloggning Lägg till](./media/active-directory-enterprise-app-role-management/userandgroups.png)
+    ![Konfigurera enkel inloggning Lägg till](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-    b. Klicka på som öppnar ett popup-fönster för att välja en roll i olika roller som har definierats för den respektive tjänsten huvudnamn.
+     Om du vill tilldela rollen för alla användare, Välj den nya rollen och klicka på **tilldela** knappen längst ned på sidan.
 
-    c. Välj de rolltjänster som behövs och klicka på Skicka.
+    ![Konfigurera enkel inloggning Lägg till](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
+
+    > [!Note]
+    > Observera att du behöver uppdatera din session i Azure portal och se nya roller.
 
 8. Vi behöver uppdatera efter tilldela roller till användare, **attribut** kan definiera anpassade mappningen av **rollen** anspråk.
 
@@ -151,7 +155,7 @@ Om ditt program förväntar anpassade roller som ska skickas i SAML-svar, måste
 
     ![Konfigurera attribut för enkel inloggning](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textruta ange attributets namn efter behov. I det här exemplet har vi använt **rollnamn** som anspråk namn.
 
     c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
 
@@ -163,91 +167,93 @@ Om ditt program förväntar anpassade roller som ska skickas i SAML-svar, måste
 
 ## <a name="update-existing-role"></a>Uppdatera en befintlig roll
 
-1. Utför följande steg - för att uppdatera en befintlig roll
+Utför följande steg - för att uppdatera en befintlig roll
 
-    a. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
+1. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-    b. Logga in på webbplatsen Explorer diagram med autentiseringsuppgifterna som global administratör/medadministratör för din klient.
+2. Logga in på webbplatsen Explorer diagram med autentiseringsuppgifterna som global administratör/medadministratör för din klient.
     
-    c. Ändra versionen som ska **beta** och hämta listan över tjänstens huvudnamn från din klient med hjälp av följande fråga:
+3. Ändra versionen som ska **beta** och hämta listan över tjänstens huvudnamn från din klient med hjälp av följande fråga:
     
     `https://graph.microsoft.com/beta/servicePrincipals`
-        
+    
     Om du använder flera kataloger, ska sedan du följa det här mönstret `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
-    
-    d. Hämta det måste du ändra listan över tjänstens huvudnamn hämtas och. Du kan också använda Ctrl + F för att söka efter programmet från de angivna ServicePrincipals. Sök efter den **objekt-id**, som du har kopierat från egenskapssidan och Använd följande fråga för att få till respektive tjänstens huvudnamn.
+4. Hämta det måste du ändra listan över tjänstens huvudnamn hämtas och. Du kan också använda Ctrl + F för att söka efter programmet från de angivna ServicePrincipals. Sök efter den **objekt-id**, som du har kopierat från egenskapssidan och Använd följande fråga för att få till respektive tjänstens huvudnamn.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-    e. Extrahera appRoles egenskapen från tjänsten huvudobjektet.
+5. Extrahera appRoles egenskapen från tjänsten huvudobjektet.
     
-    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
     
-    f. Följ nedanstående steg för att uppdatera den befintliga rollen:
+6. Följ nedanstående steg för att uppdatera den befintliga rollen:
 
     ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
     * Ändra metod från **hämta** till **korrigering**.
 
-    * Kopiera de befintliga rollerna från programmet och klistra in dem i den **brödtext i begäran**.
-    
-    * Uppdatera värdet för rollen genom att ersätta den **Rollbeskrivning**, **roll värdet**, och **roll displayname** enligt krav för din organisation.
-    
+    * Kopiera de befintliga rollerna och klistra in dem i den **brödtext i begäran**.
+
+    * Uppdatera värdet för rollen genom att uppdatera den **Rollbeskrivning**, **roll värdet** eller **roll displayname** efter behov.
+
     * När du har uppdaterat alla nödvändiga roller, klickar du på **Kör fråga**.
         
 ## <a name="delete-existing-role"></a>Ta bort befintlig roll
 
 Om du vill ta bort en befintlig roll, gör du följande:
 
-a. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
+1. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
 
-b. Logga in på webbplatsen Explorer diagram med autentiseringsuppgifterna som global administratör/medadministratör för din klient.
+2. Logga in på webbplatsen Explorer diagram med autentiseringsuppgifterna som global administratör/medadministratör för din klient.
 
-c. Ändra versionen som ska **beta** och hämta listan över tjänstens huvudnamn från din klient med hjälp av följande fråga:
+3. Ändra versionen som ska **beta** och hämta listan över tjänstens huvudnamn från din klient med hjälp av följande fråga:
     
-`https://graph.microsoft.com/beta/servicePrincipals`
+    `https://graph.microsoft.com/beta/servicePrincipals`
     
-Om du använder flera kataloger, ska sedan du följa det här mönstret `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Om du använder flera kataloger, ska sedan du följa det här mönstret `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-d. Hämta det måste du ändra listan över tjänstens huvudnamn hämtas och. Du kan också använda Ctrl + F för att söka efter programmet från de angivna ServicePrincipals. Sök efter den **objekt-id**, som du har kopierat från egenskapssidan och Använd följande fråga för att få till respektive tjänstens huvudnamn.
+4. Hämta det måste du ändra listan över tjänstens huvudnamn hämtas och. Du kan också använda Ctrl + F för att söka efter programmet från de angivna ServicePrincipals. Sök efter den **objekt-id**, som du har kopierat från egenskapssidan och Använd följande fråga för att få till respektive tjänstens huvudnamn.
      
-`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
-    
-e. Extrahera appRoles egenskapen från tjänsten huvudobjektet.
-    
-![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-f. Följ nedanstående steg för att ta bort den befintliga rollen:
-
-![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
-
-Ändra metod från **hämta** till **korrigering**.
-
-Kopiera de befintliga rollerna från programmet och klistra in dem i den **brödtext i begäran**.
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-Ange den **IsEnabled** värde till **FALSKT** för rollen som du vill ta bort
+5. Extrahera appRoles egenskapen från tjänsten huvudobjektet.
+    
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-Klicka på **Kör fråga**.
-    
-> [!NOTE] 
-> Kontrollera att du har **msiam_access** användarroll och id matchar i rollen skapas.
-    
-g. När du har gjort ovanstående procedur hålla metoden som **korrigering** och klistra in rollen återstående innehåll i den **brödtext i begäran** och på **Kör fråga**.
-    
-![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
+6. Följ nedanstående steg för att ta bort den befintliga rollen:
 
-h. När du har kört frågan tas rollen bort.
+    ![Dialogrutan för diagram explorer](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+
+    * Ändra metod från **hämta** till **korrigering**.
+
+    * Kopiera de befintliga rollerna från programmet och klistra in dem i den **brödtext i begäran**.
+        
+    * Ange den **IsEnabled** värde till **FALSKT** för rollen som du vill ta bort
+
+    * Klicka på **Kör fråga**.
     
-> [!NOTE]
-> Rollen måste inaktiveras först innan den kan tas bort. 
+    > [!NOTE] 
+    > Kontrollera att du har **msiam_access** användarroll och id matchar i rollen skapas.
+    
+7. När rollen har inaktiverats kan ta bort detta rollen block från avsnittet appRoles, hålla metoden som **korrigering** och på **Kör fråga**.
+    
+8. När du har kört frågan tas rollen bort.
+    
+    > [!NOTE]
+    > Rollen måste inaktiveras först innan den kan tas bort. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [dokumentationen till App ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) ytterligare anvisningar.
+Se [dokumentationen till App ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) ytterligare anvisningar.
 
 <!--Image references-->
 <!--Image references-->

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -468,7 +468,7 @@ Om din Azure Active Directory-klient finns i något av de EU-datacenter, följer
 
 **Agenten felsökning**
 
-Den [Windows-händelseloggen](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) på Windows Server-dator som värd för agenten innehåller händelser för alla åtgärder som utförs av agenten. Visa dessa händelser:
+Den [Windows-händelseloggen](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) på Windows Server-dator som värd för agenten innehåller händelser för alla åtgärder som utförs av agenten. Visa dessa händelser:
     
 1. Öppna **Eventvwr.msc**.
 2. Välj **Windows-loggar > programmet**.
@@ -491,7 +491,7 @@ När delarna 1-3 har slutförts, kan du starta tjänsten etablering tillbaka i A
 
 4. När som helst kontrollera den **granskningsloggar** fliken i Azure portal och se vilka åtgärder som tjänsten etablering har utförts. Granskningsloggarna innehåller alla enskilda sync händelser utförs av tjänsten etablering, t.ex vilka användare som ska läsas från Workday och sedan senare läggs till eller uppdateras i Active Directory. **[Finns i guiden för etablering reporting detaljerade anvisningar om hur du tolkar granskningsloggarna](active-directory-saas-provisioning-reporting.md)**
 
-5.  Kontrollera den [Windows-händelseloggen](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) på Windows Server-datorn som är värd för agenten om det finns nya fel eller varningar. Dessa händelser kan visas genom att starta **Eventvwr.msc** på servern och välja **Windows-loggar > programmet**. Alla etablering meddelanden loggas under källan **AADSyncAgent**. 
+5.  Kontrollera den [Windows-händelseloggen](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) på Windows Server-datorn som är värd för agenten om det finns nya fel eller varningar. Dessa händelser kan visas genom att starta **Eventvwr.msc** på servern och välja **Windows-loggar > programmet**. Alla etablering meddelanden loggas under källan **AADSyncAgent**. 
     
 
 6. En klar skrivs en översikt över kontrollrapport den **etablering** fliken enligt nedan.
@@ -819,7 +819,7 @@ Det finns två sätt att hålla BNPR kompatibla:
 1. Hämta data för en person på begäran och ta bort data från den personen från Windows-händelseloggar. 
 2. Behåll kvarhållning av Windows-händelseloggar kommer från processen AADSyncAgent under 48 timmar
 
-Information om hur du konfigurerar datalagring för Windows-händelseloggar finns i [inställningar för händelseloggar](https://technet.microsoft.com/en-us/library/cc952132.aspx). Allmän information om Windows-händelseloggen finns [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Information om hur du konfigurerar datalagring för Windows-händelseloggar finns i [inställningar för händelseloggar](https://technet.microsoft.com/library/cc952132.aspx). Allmän information om Windows-händelseloggen finns [i den här artikeln](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Nästa steg

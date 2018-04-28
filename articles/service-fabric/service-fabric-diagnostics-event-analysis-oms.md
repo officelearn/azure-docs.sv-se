@@ -3,7 +3,7 @@ title: Azure Service Fabric-Händelseanalys med Log Analytics | Microsoft Docs
 description: Läs mer om visualisera och analysera händelser med hjälp av Log Analytics för övervakning och diagnostik av Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,68 +12,101 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 290b1d594cc1f874bcfdd0cef728fc78af96f702
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med logganalys
 
-Azure hanteringslösningar är en uppsättning tjänster som underlättar övervakning och diagnostik för program och tjänster i molnet. För att få en mer detaljerad översikt över logganalys och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
+Logganalys, även kallat OMS (Operations Management Suite) är en uppsättning tjänster som underlättar övervakning och diagnostik för program och tjänster i molnet. Den här artikeln beskrivs hur du kör frågor i logganalys få insikter och felsökning av vad som händer i klustret. Följande vanliga frågor tas upp:
+
+* Hur felsöker hälsa händelser?
+* Hur vet jag när en nod kraschar?
+* Hur vet jag om min programtjänster har startas eller stoppas?
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
 
-Logganalys samlar in data från hanterade resurser, inklusive en Azure-lagring eller en agent och underhåller i en central databas. Data kan sedan användas för analys, varningar och visualisering eller ytterligare exporteras. Logganalys stöder händelser, prestandadata eller andra anpassade data.
+Logganalys samlar in data från hanterade resurser, inklusive en Azure-lagring eller en agent och underhåller i en central databas. Data kan sedan användas för analys, varningar och visualisering eller ytterligare exporteras. Logganalys stöder händelser, prestandadata eller andra anpassade data. Checka ut [steg för att konfigurera diagnostik-tillägget för att aggregera händelser](service-fabric-diagnostics-event-aggregation-wad.md) och [steg för att skapa en logganalys-arbetsytan att läsa från händelser i lagring](service-fabric-diagnostics-oms-setup.md) kontrollera data flödar till logganalys .
 
-När logganalys konfigureras, kommer du ha tillgång till en specifik *logganalys-arbetsytan*, från där data kan efterfrågas eller visualiseras i instrumentpaneler.
+När data tas emot av logganalys Azure har flera *hanteringslösningar* som är färdigförpackade lösningar för att övervaka inkommande data, anpassas efter flera scenarier. Dessa inkluderar en *Service Fabric Analytics* lösning och en *behållare* lösning som är de två viktigaste som att diagnostik- och övervaka när du använder Service Fabric-kluster. Den här artikeln beskriver hur du använder Service Fabric Analytics-lösning som har skapats med arbetsytan.
 
-När data tas emot av logganalys Azure har flera *hanteringslösningar* som är färdigförpackade lösningar för att övervaka inkommande data, anpassas efter flera scenarier. Dessa inkluderar en *Service Fabric Analytics* lösning och en *behållare* lösning som är de två viktigaste som att diagnostik- och övervaka när du använder Service Fabric-kluster. Det finns flera andra program som är värda att utforska och Log Analytics kan också för att skapa anpassade lösningar som du kan läsa mer om [här](../operations-management-suite/operations-management-suite-solutions.md). Varje lösning som du vill använda för ett kluster kan konfigureras på samma logganalys-arbetsytan tillsammans med logganalys. Arbetsytor Tillåt för anpassade instrumentpaneler och visualisering av data och ändringar av data som du vill samla in processen och analysera.
+## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric Analytics-lösning
 
-## <a name="setting-up-a-log-analytics-workspace-with-the-service-fabric-analytics-solution"></a>Ställa in en logganalys-arbetsytan med Service Fabric Analytics lösning
-Vi rekommenderar att du inkluderar Service Fabric-lösningen i logganalys-arbetsytan - innehåller en instrumentpanel som visar olika inkommande loggkanaler från nivån plattform och program och ger möjlighet att fråga Service Fabric specifika loggar. Här är en relativt enkla Service Fabric-lösningen ser ut, med ett enda program som distribuerats på klustret:
+1. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Markera resursen**ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan.
 
-![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
+2. På översiktssidan klickar du på länken längst ned att gå till OMS-portalen
 
-Se [konfigurera logganalys](service-fabric-diagnostics-oms-setup.md) att komma igång med den här för klustret.
+    ![Länken OMS-portalen](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
 
-## <a name="using-the-oms-agent"></a>Med hjälp av OMS-Agent
+3. Du är nu i OMS-portalen och kan se de lösningar som du har aktiverat. Klicka på diagrammet med rubriken Service Fabric (första bilden nedan) för få gå till Service Fabric-lösning (andra bilden nedan)
 
-Är det rekommenderat att använda EventFlow och BOMULLSTUSS som aggregering lösningar eftersom de tillåter en mer modulär metod för diagnostik och övervakning. Om du vill ändra dina utdata från EventFlow krävs till exempel ändras inte den faktiska instrumentation en enkel ändring i konfigurationsfilen. Om du vill investera i med hjälp av logganalys bör du ställa in den [OMS-agent](../log-analytics/log-analytics-windows-agent.md). Du bör också använda OMS-agenten när du distribuerar behållare i klustret som beskrivs nedan. 
+    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
 
-Öppna över [lägga till OMS-Agent till ett kluster](service-fabric-diagnostics-oms-agent.md) stegvisa instruktioner för detta.
+    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
 
-Fördelar med detta är följande:
+Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är en ögonblicksbild vy över vad som händer i klustret. Om du har aktiverat diagnostik när klustret har skapats kan du visa händelser för 
 
-* Rikare data om prestanda räknare och mått på klientsidan
-* Enkelt att konfigurera mått som samlas in från klustret och utan att behöva uppdatera din klusterkonfigurationen. Ändringar av inställningarna för agentens kan göras från OMS-portalen och agenten startas om automatiskt så att den matchar konfigurationen. Om du vill konfigurera OMS-agent för specifika prestandaräknare, gå till arbetsytan **Start > Inställningar > Data > Windows prestandaräknare** och välj de data som du vill visa insamlade
-* Data visas snabbare än med lagras före tas upp av logganalys
-* Övervakning av behållare är mycket enklare eftersom den kan hämta docker-loggar (stdout, stderr) och statistik (prestandamått på behållaren och nod-nivåer)
+* [Operativa kanalen](service-fabric-diagnostics-event-generation-operational.md): att åtgärder som utför Service Fabric-plattformen (insamling av systemtjänster).
+* [Reliable Actors programmering modellen händelser](service-fabric-reliable-actors-diagnostics.md)
+* [Reliable Services programming modellen händelser](service-fabric-reliable-services-diagnostics.md)
 
-Den huvudsakliga ersättningen är att eftersom agenten ska distribueras på ditt kluster tillsammans med alla program, det kan finnas vissa påverkan på prestanda för ditt program i klustret.
+>[!NOTE]
+>Förutom den operativa kanalen, mer detaljerad systemhändelser kan samlas in av [uppdaterar konfigurationen av diagnostik-tillägg](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-## <a name="monitoring-containers"></a>Övervakning av behållare
+### <a name="view-operational-events-including-actions-on-nodes"></a>Visa operativa händelser, inklusive åtgärder på noder
 
-När du distribuerar behållare till ett Service Fabric-kluster, rekommenderas det att klustret har konfigurerats med OMS-agent och att lösningen behållare har lagts till logganalys-arbetsytan för att övervaka och diagnostik. Här är lösningen behållare ser ut i en arbetsyta:
+1. På sidan Service Fabric Analytics på OMS-portalen klickar du på diagrammet för drift-kanal
 
-![Grundläggande OMS-instrumentpanelen](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![OMS SA lösning operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
-Agenten aktiverar insamlingen av flera behållare-specifika loggar som kan frågas i logganalys eller användas för visualiserade nyckeltal. Log-typer som samlas in är:
+2. Klicka på tabellen för att visa händelser i en lista. När du ser här alla händelserna som har samlats in. Dessa är från WADServiceFabricSystemEventsTable i Azure Storage-konto för referens, och på samma sätt tjänsterna tillförlitliga och aktörer händelser visas bredvid är från dessa respektive tabeller.
+    
+    ![OMS fråga operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-* ContainerInventory: Visar information om behållarens plats, namn och bilder
-* ContainerImageInventory: information om distribuerade bilder, inklusive ID eller storlekar
-* ContainerLog: specifika felloggar, docker-loggar (stdout osv.) och andra transaktioner
-* ContainerServiceLog: docker daemon kommandon som har körts
-* Prestanda: prestandaräknare inklusive behållaren cpu, minne, nätverkstrafik, disk-i/o och anpassade mått från värddatorerna
+Du kan också klicka på förstoringsglaset till vänster och använda frågespråket Kusto för att hitta det du söker. Du kan exempelvis använda följande fråga för att söka efter alla händelser relaterade till åtgärder som vidtas på noder av klustret. Händelse-ID används nedan finns i den [operativa kanalen händelser](service-fabric-diagnostics-event-generation-operational.md)
 
-[Övervaka behållare med logganalys](service-fabric-diagnostics-oms-containers.md) beskriver de steg som krävs för att ställa in behållaren övervakning för klustret. Mer information om Log Analytics behållare lösning checka ut sina [dokumentationen](../log-analytics/log-analytics-containers.md).
+```kusto
+ServiceFabricOperationalEvent
+| where EventId < 29627 and EventId > 29619 
+```
+Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemtjänst (aktivitet) och mycket mer
+
+### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Visa Fabric tillförlitlig Service och aktören händelser
+
+1. På sidan Service Fabric Analytics på OMS-portalen klickar du på diagrammet för Reliable Services
+
+    ![OMS SA lösning Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+
+2. Klicka på tabellen för att visa händelser i en lista. Här kan du visa händelser från tillförlitliga tjänsterna. Du kan se olika händelser för när tjänsten runasync startades och slutfördes som inträffar oftast på distribution och uppgraderingar. 
+
+    ![OMS fråga Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+
+Tillförlitliga aktören händelser kan visas på ett liknande sätt. Om du vill konfigurera mer detaljerade händelser för reliable actors, måste du ändra den `scheduledTransferKeywordFilter` i konfigurationen av filnamnstillägget diagnostiska (se nedan). Information om värdena för dessa finns i den [tillförlitliga aktörer händelser](service-fabric-reliable-actors-diagnostics.md#keywords)
+
+```json
+"EtwEventSourceProviderConfiguration": [
+                {
+                    "provider": "Microsoft-ServiceFabric-Actors",
+                    "scheduledTransferKeywordFilter": "1",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                    }
+                },
+```
+
+Frågespråket Kusto är kraftfull. En annan värdefulla fråga som du kan köra är att ta reda på vilka noder som genererar flest händelser. Frågan i skärmbilden nedan visar reliable services händelse aggregeras med viss tjänst och nod
+
+![OMS frågan händelser per nod](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska följande logganalys verktyg och alternativ för att anpassa en arbetsyta för dina behov:
-
-* För lokala kluster erbjuder Log Analytics Gateway (HTTP framåt Proxy) som kan användas för att skicka data till logganalys. Läs mer om att [ansluta datorer utan Internetanslutning till Log Analytics med hjälp av OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md)
-* Konfigurera logganalys att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
+* Om du vill aktivera infrastrukturövervakning d.v.s. prestandaräknare, gå till [att lägga till OMS-agenten](service-fabric-diagnostics-oms-agent.md). Agenten samlar in prestandaräknare och lägger till dem i en befintlig arbetsyta.
+* För lokala kluster erbjuder OMS Gateway (HTTP framåt Proxy) som kan användas för att skicka data till OMS. Läs mer om att [ansluta datorer utan Internetanslutning till OMS med OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md)
+* Konfigurera OMS att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
 * Hämta bekantat med den [logga sökning och hämtning av](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av logganalys
+* Få en detaljerad översikt över logganalys och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

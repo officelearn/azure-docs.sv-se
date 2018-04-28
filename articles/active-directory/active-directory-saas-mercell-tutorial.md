@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d009e8bdf513b10198aac826236ff44376ed630
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 60432e18c9496ff6fc5431fcd7b73aa5f4c9696c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Självstudier: Azure Active Directory-integrering med Mercell
 
@@ -99,7 +99,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_samlbase.png)
 
 3. På den **Mercell domän och URL: er** avsnittet, utför följande steg:
@@ -107,36 +107,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![URL: er och Mercell domän med enkel inloggning information](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_url.png)
 
     I den **identifierare** textruta anger du URL: `https://my.mercell.com/`
- 
-4. Klicka på **spara** knappen.
+
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-mercell-tutorial/tutorial_metadataurl.png)
+     
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-mercell-tutorial/tutorial_general_400.png)
 
-5. Att generera den **URL för tjänstmetadata**, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_endpoint.png)
-     
-    d. Gå till egenskapssidan för **Mercell** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mercell-tutorial/tutorial_mercell_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Konfigurera enkel inloggning på **Mercell** sida, måste du skicka den genererade **URL för tjänstmetadata** till [Mercell supportteamet](mailto:webmaster@mercell.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Konfigurera enkel inloggning på **Mercell** sida, måste du skicka den genererade **webbadress Federation Metadata** till [Mercell supportteamet](mailto:webmaster@mercell.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

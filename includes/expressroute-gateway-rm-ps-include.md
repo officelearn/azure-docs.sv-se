@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9eaab359d76afce61cfcc72e3fa125b08856e32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 Stegen för den här aktiviteten använder ett VNet baserat på värdena i följande konfiguration är en lista. Ytterligare inställningar och namn också beskrivs i den här listan. Vi använder inte den här listan i steg, även om vi lägger till variabler baserat på värdena i den här listan. Du kan kopiera listan om du vill använda som en referens, där du ersätter värdena med dina egna.
 
@@ -36,7 +36,7 @@ Stegen för den här aktiviteten använder ett VNet baserat på värdena i följ
 1. Ansluta till din Azure-prenumeration.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```

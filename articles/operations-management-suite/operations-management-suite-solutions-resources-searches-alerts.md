@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
-ms.author: bwren
+ms.date: 04/16/2018
+ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c43e262725bd7b4c4fe5680f514d80112766f991
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till logganalys sparade sökningar och aviseringar för lösning (förhandsgranskning)
 
@@ -38,7 +38,7 @@ Den här artikeln förutsätter att du redan är bekant med [skapar en lösning 
 ## <a name="log-analytics-workspace"></a>Log Analytics Workspace
 Alla resurser i logganalys finns i en [arbetsytan](../log-analytics/log-analytics-manage-access.md).  Enligt beskrivningen i [logganalys-arbetsytan och Automation-konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), arbetsytan ingår inte i hanteringslösningen men det måste finnas innan lösningen är installerad.  Om den inte är tillgänglig misslyckas lösning installationen.
 
-Namnet på arbetsytan är namnet på varje logganalys-resurs.  Detta görs i lösningen med den **arbetsytan** parameter som i följande exempel på en savedsearch resurs.
+Namnet på arbetsytan är namnet på varje logganalys-resurs.  Detta görs i lösningen med den **arbetsytan** parameter som i följande exempel på en SavedSearch resurs.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -82,21 +82,26 @@ Varje egenskap för en sparad sökning beskrivs i följande tabell.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enda kategori så att de grupperas tillsammans i konsolen. |
-| displayname | Namnet som visas för den sparade sökningen i portalen. |
+| visningsnamn | Namnet som visas för den sparade sökningen i portalen. |
 | DocumentDB | Frågan ska köras. |
 
 > [!NOTE]
-> Du kan behöva använda escape-tecken i fråga om den innehåller tecken som kan tolkas som JSON.  Om din fråga var till exempel **typ: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write”**, bör vara skriven i lösningsfilen som **typ: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> Du kan behöva använda escape-tecken i fråga om den innehåller tecken som kan tolkas som JSON.  Om din fråga var till exempel **typ: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write”**, bör vara skriven i lösningsfilen som **typ: AzureActivity OperationName:\" Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Aviseringar
 [Logga Analytics varningar](../log-analytics/log-analytics-alerts.md) skapas av Varningsregler som kör en sparad sökning med regelbundna intervall.  Om resultatet av frågan matchar de angivna villkoren, skapas en avisering post och en eller flera åtgärder körs.  
+
+> [!NOTE]
+> Från den 14 maj 2018 startar alla aviseringar i en arbetsyta automatiskt utökas till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [grupp - Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Varningsregler i en hanteringslösning består av följande tre olika resurser.
 
 - **Sparad sökning.**  Definierar loggen sökningen som körs.  Flera Varningsregler kan dela en sparad sökning.
 - **Schema.**  Definierar hur ofta loggen sökningen ska köras.  Varje regel för varning har ett och endast ett schema.
-- **Åtgärd för aviseringen.**  Varje regel för varning har en åtgärd resurs med en typ av **avisering** som definierar information om aviseringen, till exempel kriterier för när en avisering post har skapats och att beakta aviseringens allvarlighetsgrad.  Åtgärden resursen kommer du även definiera ett e-post och runbook-svar.
-- **Webhook-åtgärd (valfritt).**  Om regeln anropar en webhook, så det krävs en ytterligare åtgärd resurs med en typ av **Webhook**.    
+- **Åtgärd för aviseringen.**  Varje regel för varning har en åtgärd grupp eller åtgärd resurs (äldre) med en typ av **avisering** som definierar information om aviseringen, till exempel kriterier för när en avisering post har skapats och att beakta aviseringens allvarlighetsgrad. [Grupp](../monitoring-and-diagnostics/monitoring-action-groups.md) resurs kan ha en lista över konfigurerade åtgärder som ska vidtas när aviseringen utlöses – till exempel röstsamtal, SMS, e-post, webhook, ITSM verktyget, automation-runbook, logikapp, osv.
+ 
+Resursen åtgärd (äldre) definierar du ett e-post och runbook-svar.
+- **Webhook-åtgärd (äldre).**  Om regeln anropar en webhook, så det krävs en ytterligare åtgärd resurs med en typ av **Webhook**.    
 
 Sparad sökning resurser som beskrivs ovan.  De andra resurserna beskrivs nedan.
 
@@ -133,20 +138,25 @@ I följande tabell beskrivs egenskaperna för schemalägga resurser.
 
 Resursen schema ska beror på den sparade sökningen så att den har skapats innan schemat.
 
+> [!NOTE]
+> Namn på schema måste vara unikt för en viss arbetsyta; två scheman kan inte ha samma ID, även om de är kopplade till olika sparade sökningar. Namn för alla sparade sökningar, scheman och åtgärder som skapats med API: et för Log Analytics måste också vara i gemener.
+
 
 ### <a name="actions"></a>Åtgärder
-Det finns två typer av åtgärden resursen som anges av den **typen** egenskapen.  Ett schema kräver en **avisering** åtgärd som definierar varningsregeln och vilka åtgärder som vidtas när en avisering skapas.  Det kan också innehålla en **Webhook** åtgärd om en webhook ska anropas från aviseringen.  
+Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera processer för att utföra som skickar ett e-post eller starta en runbook eller den kan definiera ett tröskelvärde som bestämmer när resultatet av en sökning som matchar vissa villkor.  Vissa åtgärder definiera både så att processerna som utförs när tröskelvärdet är uppfyllda.
 
-Åtgärden resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
+Åtgärder kan definieras med hjälp av [grupp] eller åtgärd resurs.
 
-#### <a name="alert-actions"></a>Aviseringsåtgärder
+> [!NOTE]
+> Från den 14 maj 2018 startar alla aviseringar i en arbetsyta automatiskt utökas till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [grupp - Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
-Varje schemat har en **avisering** åtgärd.  Detta definierar information om aviseringen och eventuellt meddelande- och reparationsloggarna åtgärder.  Ett meddelande skickas ett e-postmeddelande till en eller flera adresser.  En startar en runbook i Azure Automation för att försöka åtgärda identifierade problem.
+
+Det finns två typer av åtgärden resursen som anges av den **typen** egenskapen.  Ett schema kräver en **avisering** åtgärd som definierar varningsregeln och vilka åtgärder som vidtas när en avisering skapas. Åtgärden resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
 
 Aviseringsåtgärder har följande struktur.  Detta inkluderar vanliga parametrarna och variablerna så att du kan kopiera och klistra in det här kodstycket i din lösningsfilen och ändra parameternamn. 
 
 
-
+```
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -167,20 +177,16 @@ Aviseringsåtgärder har följande struktur.  Detta inkluderar vanliga parametra
                     "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
                     "operator": "[variables('Alert').Trigger.Operator]",
                     "value": "[variables('Alert').Trigger.Value]"
-                },
-            },
-            "emailNotification": {
-                "recipients": [
-                    "[variables('Alert').Recipients]"
-                ],
-                "subject": "[variables('Alert').Subject]"
-            },
-            "remediation": {
-                "runbookName": "[variables('Alert').Remedition.RunbookName]",
-                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
-            }
+                  },
+              },
+      "AzNsNotification": {
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
         }
     }
+```
 
 Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 
@@ -189,17 +195,16 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 | Typ | Ja | Typ av åtgärd.  Detta är **avisering** för aviseringsåtgärder. |
 | Namn | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | Beskrivning | Nej | Valfri beskrivning av aviseringen. |
-| Allvarsgrad | Ja | Allvarlighetsgrad för aviseringen posten från följande värden:<br><br> **kritiska**<br>**Varning**<br>**Informational** |
+| Allvarsgrad | Ja | Allvarlighetsgrad för aviseringen posten från följande värden:<br><br> **kritiska**<br>**Varning**<br>**Information**
 
 
-##### <a name="threshold"></a>Tröskelvärde
+#### <a name="threshold"></a>Tröskelvärde
 Det här avsnittet krävs.  Den definierar egenskaperna för tröskelvärde.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | Operator | Ja | Operator för jämförelse från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
 | Värde | Ja | Värde att jämföra resultatet. |
-
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Det här avsnittet är valfritt.  Inkludera det för ett mått mätning aviseringen.
@@ -213,12 +218,33 @@ Det här avsnittet är valfritt.  Inkludera det för ett mått mätning aviserin
 | Operator | Ja | Operator för jämförelse från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
 | Värde | Ja | Antal gånger som villkoret måste uppfyllas för att utlösa en avisering. |
 
-##### <a name="throttling"></a>Begränsning
+
+#### <a name="throttling"></a>Begränsning
 Det här avsnittet är valfritt.  Inkludera det här avsnittet om du vill undertrycka aviseringar från samma regel för vissa tidsperiod när en avisering har skapats.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | DurationInMinutes | Ja om begränsning element som ingår | Antal minuter för att undertrycka aviseringar när en från samma varningsregeln har skapats. |
+
+
+#### <a name="azure-action-group"></a>Azure grupp
+Alla aviseringar i Azure, använda åtgärden gruppen standardmekanism för hantering av åtgärder. Med åtgärden grupp du ange dina åtgärder en gång och sedan associerar åtgärdsgruppen till flera aviseringar - i Azure. Utan att behöva, upprepade gånger deklarera samma åtgärder upprepade gånger. Åtgärdsgrupper har stöd för flera åtgärder – inklusive e-post, SMS, röst anropa, ITSM anslutning, Automation-Runbook, Webhook URI och mycket mer. 
+
+För användare som har utökat sina aviseringar i Azure - bör ett schema nu ha grupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Postinformation om e-, Webhook URL: er, Runbook Automation-information och andra åtgärder måste definieras på sidan av en grupp innan du kan skapa en avisering; går att skapa [grupp från Azure-Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) på portalen eller Använd [grupp - Resource-mallen](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+
+| Elementnamn | Krävs | Beskrivning |
+|:--|:--|:--|
+| AzNsNotification | Ja | Resurs-ID för åtgärdsgruppen Azure som ska associeras med aviseringen för att utföra nödvändiga åtgärder när aviseringsvillkoren uppfylls. |
+| CustomEmailSubject | Nej | Anpassade ämnesraden för e-postmeddelandet som skickas till alla adresser som anges i grupp relaterade åtgärder. |
+| CustomWebhookPayload | Nej | Anpassad nyttolast skickas till alla webhook-slutpunkter som definierats i gruppen relaterade åtgärder. Formatet beror på vad webhooken förväntar sig och ska vara en giltig serialiserade JSON. |
+
+
+#### <a name="actions-for-oms-legacy"></a>Åtgärder för OMS (bakåtkompatibelt)
+
+Varje schemat har en **avisering** åtgärd.  Detta definierar information om aviseringen och eventuellt meddelande- och reparationsloggarna åtgärder.  Ett meddelande skickas ett e-postmeddelande till en eller flera adresser.  En startar en runbook i Azure Automation för att försöka åtgärda identifierade problem.
+
+> [!NOTE]
+> Från den 14 maj 2018 startar alla aviseringar i en arbetsyta automatiskt utökas till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [grupp - Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Det här avsnittet är valfritt att inkludera det om du vill att aviseringen ska skicka e-post till en eller flera mottagare.
@@ -239,7 +265,7 @@ Det här avsnittet är valfritt att inkludera det om du vill att en runbook att 
 | WebhookUri | Ja | URI för webhook för runbook. |
 | Förfallodatum | Nej | Datum och tid då reparationen upphör att gälla. |
 
-#### <a name="webhook-actions"></a>Webhook-åtgärder
+##### <a name="webhook-actions"></a>Webhook-åtgärder
 
 Webhook-åtgärder kan du starta en process genom att anropa en URL och du kan också tillhandahålla en nyttolast som ska skickas. De liknar reparationsåtgärder förutom de är avsedda för webhooks som kan anropa processer än Azure Automation-runbooks. De ger också ytterligare alternativ för att tillhandahålla en nyttolast som ska levereras till fjärrprocessen.
 
@@ -268,9 +294,7 @@ Egenskaper för Webhook åtgärd resurser beskrivs i följande tabeller.
 | typ | Ja | Typ av åtgärd.  Detta är **Webhook** för webhook-åtgärder. |
 | namn | Ja | Visningsnamn för åtgärden.  Detta visas inte i konsolen. |
 | wehookUri | Ja | URI för webhooken. |
-| customPayload | Nej | Anpassad nyttolast skickas till webhooken. Formatet beror på vad webhooken förväntas. |
-
-
+| CustomPayload | Nej | Anpassad nyttolast skickas till webhooken. Formatet beror på vad webhooken förväntas. |
 
 
 ## <a name="sample"></a>Exempel
@@ -279,11 +303,11 @@ Följande är ett exempel på en lösning som omfattar som innehåller följande
 
 - Sparad sökning
 - Schema
-- Aviseringsåtgärden
-- Webhook-åtgärd
+- Åtgärdsgrupp
 
 Används [standardlösningen parametrar](operations-management-suite-solutions-solution-file.md#parameters) variabler som ofta används i en lösning i stället för hardcoding värden i resursdefinitionerna.
 
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -294,34 +318,16 @@ Används [standardlösningen parametrar](operations-management-suite-solutions-s
               "Description": "Name of Log Analytics workspace"
             }
           },
-          "accountName": {
-            "type": "string",
-            "metadata": {
-              "Description": "Name of Automation account"
-            }
-          },
           "workspaceregionId": {
             "type": "string",
             "metadata": {
               "Description": "Region of Log Analytics workspace"
             }
           },
-          "regionId": {
+          "actiongroup": {
             "type": "string",
             "metadata": {
-              "Description": "Region of Automation account"
-            }
-          },
-          "pricingTier": {
-            "type": "string",
-            "metadata": {
-              "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-          },
-          "recipients": {
-            "type": "string",
-            "metadata": {
-              "Description": "List of recipients for the email alert separated by semicolon"
+              "Description": "List of action groups for alert actions separated by semicolon"
             }
           }
         },
@@ -331,7 +337,7 @@ Används [standardlösningen parametrar](operations-management-suite-solutions-s
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-11-01-preview",
+          "LogAnalyticsApiVersion": "2015-03-20",
     
           "MySearch": {
             "displayName": "Error records by hour",
@@ -357,20 +363,11 @@ Används [standardlösningen parametrar](operations-management-suite-solutions-s
               "Value": 3
             },
             "ThrottleMinutes": 60,
-            "Notification": {
-              "Recipients": [
-                "[parameters('recipients')]"
+            "AzNsNotification": {
+              "GroupIds": [
+                "[parameters('actiongroup')]"
               ],
-              "Subject": "Sample alert"
-            },
-            "Remediation": {
-              "RunbookName": "MyRemediationRunbook",
-              "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-            },
-            "Webhook": {
-              "Name": "MyWebhook",
-              "Uri": "https://MyService.com/webhook",
-              "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+              "CustomEmailSubject": "Sample alert"
             }
           }
         },
@@ -394,8 +391,7 @@ Används [standardlösningen parametrar](operations-management-suite-solutions-s
               "containedResources": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
               ]
             },
             "plan": {
@@ -458,39 +454,18 @@ Används [standardlösningen parametrar](operations-management-suite-solutions-s
               "Throttling": {
                 "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
               },
-              "EmailNotification": {
-                "Recipients": "[variables('MyAlert').Notification.Recipients]",
-                "Subject": "[variables('MyAlert').Notification.Subject]",
-                "Attachment": "None"
-              },
-              "Remediation": {
-                "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
-                "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
-              }
-            }
-          },
-          {
-            "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
-            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-            "dependsOn": [
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
-            ],
-            "properties": {
-              "etag": "*",
-              "Type": "Webhook",
-              "Name": "[variables('MyAlert').Webhook.Name]",
-              "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
-              "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+            "AzNsNotification": {
+              "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
+            }             
             }
           }
         ]
     }
-
+```
 
 Följande parameterfilen innehåller exempel värden för den här lösningen.
-
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
@@ -510,12 +485,12 @@ Följande parameterfilen innehåller exempel värden för den här lösningen.
             "pricingTier": {
                 "value": "Free"
             },
-            "recipients": {
-                "value": "recipient1@contoso.com;recipient2@contoso.com"
+            "actiongroup": {
+                "value": "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
             }
         }
     }
-
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägga till vyer](operations-management-suite-solutions-resources-views.md) att din lösning för hantering.

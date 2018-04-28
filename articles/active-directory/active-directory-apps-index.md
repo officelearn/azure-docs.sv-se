@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -43,7 +43,7 @@ Det här avsnittet ger snabb åtkomst till relevanta riktlinjer för felsökning
 | Federerad enkel inloggning |[Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md) |
 | Lösenordsbaserade enkel inloggning |[Felsökning av Access panelen-tillägg för Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Programproxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
-| Enkel inloggning mellan lokala AD och Azure AD |[Felsöka Lösenordssynkronisering för Hash](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Enkel inloggning mellan lokala AD och Azure AD |[Felsöka Lösenordssynkronisering för Hash](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Felsöka tillbakaskrivning av lösenord](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dynamiska gruppmedlemskap |[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Enkel inloggning (SSO)
@@ -96,7 +96,7 @@ Om organisationen upprätthåller en Windows Server Active Directory lokalt till
 | En översikt över alternativ för enkel inloggning som erbjuds i Azure AD Connect, samt information om hur du hanterar hybridmiljöer |[Användaren loggar in alternativ i Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Allmänna riktlinjer för att hantera miljöer med både lokala Active Directory och Azure Active Directory |[Överväganden vid utformning av Azure AD-Hybrid](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md) |
 | Hjälp med att använda Lösenordssynkronisering för att aktivera enkel inloggning |[Implementera Lösenordssynkronisering med Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Felsöka Lösenordssynkronisering](https://support.microsoft.com/en-us/kb/2855271) |
-| Hjälp med att använda tillbakaskrivning av lösenord för att aktivera enkel inloggning |[Komma igång med lösenordshantering i Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Felsök tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Hjälp med att använda tillbakaskrivning av lösenord för att aktivera enkel inloggning |[Komma igång med lösenordshantering i Azure AD](authentication/quickstart-sspr.md)<br /><br />[Felsök tillbakaskrivning av lösenord](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Anvisningar om hur du använder identitetsleverantörer från tredje part för att aktivera enkel inloggning |[Lista över kompatibla utomstående leverantörer som kan användas för att aktivera enkel inloggning](https://aka.ms/ssoproviders) |
 | Hur Windows 10-användare kan dra nytta av fördelarna med enkel inloggning via Azure AD Join |[Utöka Molnkapaciteten till Windows Join 10 enheter via Azure Active Directory](active-directory-azureadjoin-overview.md) |
 
@@ -184,9 +184,9 @@ Azure AD-åtkomstpanelen är där slutanvändarna kan starta sina appar och åtk
 | Artikel Guide |  |
 |:---:| --- |
 | En jämförelse av de olika alternativ som är tillgängliga för distribution av appar för enkel inloggning för användare |[Distribuera Azure AD-integrerade program till användare](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
-| En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Hur du kommer åt Azure AD-appar från Office 365-webbplatsen |[Med hjälp av Office 365 App starta](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Hur du kommer åt Azure AD-appar med djuplänkar för att initiera enkel inloggning |[Hämta inloggning Direktlänkar till dina appar](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Åtkomstpanelen är tillgänglig för [alla utgåvor av Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).

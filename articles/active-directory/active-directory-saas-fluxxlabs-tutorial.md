@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Självstudier: Azure Active Directory-integrering med Fluxx Labs
 
@@ -32,7 +32,7 @@ Integrera Fluxx Labs med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Fluxx Labs, behöver du följande:
 
@@ -114,16 +114,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     |-------------|------------|
     | Produktion | `https://<subdomain>.fluxx.io` |
     | Förproduktion | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | Mellanlagring    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     b. I den **Reply URL** textruta Skriv en URL med följande mönster:
 
     | Miljö | URL-mönster|
     |-------------|------------|
     | Produktion | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Förproduktion | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | Mellanlagring    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Fluxx Labs supportteam](mailto:travis@fluxxlabs.com) att hämta dessa värden.
 
@@ -141,11 +139,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. I en annan webbläsarfönster inloggning till webbplatsen Fluxx Labs företag som administratör.
 
-8. I det övre högra hörnet på sidan, klickar du på **inställningsikonen** och sedan **Admin**.
+8. Välj **Admin** under den **inställningar** avsnitt.
 
     ![Fluxx Labs konfiguration](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. Markera Admin-panelen **plugins** > **integreringar** och välj sedan **SAML SSO-(Enabled)**
+9. Markera Admin-panelen **plugins** > **integreringar** och välj sedan **SAML SSO-(Disabled)**
 
     ![Fluxx Labs konfiguration](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **motringning sökvägen** textruta typen **/auth/saml/callback**.
 
-    d. I den **Assertion konsument-tjänstens Url** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+    d. I den **Assertion konsumenten Service Url(Single Sign-On URL)** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
 
-    e. I den **utfärdaren** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
+    e. I den **målgruppen (SP enhets-ID)** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
 
-    f. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **IDP Cert** textruta.
+    f. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **providern identitetscertifikat** textruta.
 
-    g.  I **namnidentifierare Format** textruta anger du värdet `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. I **namnidentifierare Format** textruta anger du värdet `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
     h. Klicka på **Spara**.
 
@@ -212,23 +210,21 @@ Om du vill aktivera Azure AD-användare kan logga in på Fluxx Labs, måste de e
 
 1. Logga in på webbplatsen Fluxx Labs företag som administratör.
 
-2. På instrumentpanelen, klickar du på den nedan visas ikonen för att öppna den **ny PERSON** kort.
+2. Klicka på den nedan visas **ikonen**.
+
+    ![Fluxx Labs konfiguration](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. På instrumentpanelen, klickar du på den nedan visas ikonen för att öppna den **nya personer** kort.
 
     ![Fluxx Labs konfiguration](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. På den **ny PERSON** avsnittet, utför följande steg:
+4. På den **nya personer** avsnittet, utför följande steg:
     
     ![Fluxx Labs konfiguration](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. I den **inloggning** textruta ange e-postadress för användaren som Azure_Admin.
+    a. Fluxx labben använda e-post som den unika identifieraren för SSO-inloggning. Fyll i den **SSO UID** med användarens e-postadress som matchar den e-postadress som de använder som inloggningen med enkel inloggning.
 
-    b. I den **lösenord** textruta skriver du lösenordet för kontot Azure_Admin.
-
-    c. I den **Bekräfta lösenord** textruta lösenordet för kontot Azure_Admin.
-
-    d. Fluxx labben använda e-post som den unika identifieraren för SSO-inloggning. Fyll i den **SSO UID** med användarens e-postadress som matchar den e-postadress som de använder som inloggningen med enkel inloggning.
-
-    e. Klicka på **skapar Person**.
+    b. Klicka på **Spara**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -285,4 +281,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

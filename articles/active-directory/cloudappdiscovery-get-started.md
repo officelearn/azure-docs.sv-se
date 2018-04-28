@@ -1,32 +1,29 @@
 ---
-title: "Konfigurera Cloud App Discovery-tjänsten i Azure Active Directory | Microsoft Docs"
-description: "Hitta och hantera program med Cloud App Discovery genom att ge tillgång till rätt information om molnanvändning och shadow IT."
+title: Konfigurera Cloud App Discovery-tjänsten i Azure Active Directory | Microsoft Docs
+description: Hitta och hantera program med Cloud App Discovery genom att ge tillgång till rätt information om molnanvändning och shadow IT.
 services: active-directory
 keywords: cloud app discovery, hantera program
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 tags: ignite
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 04/25/2018
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e46098d93360c809ba0aef46ed8244acf5af7196
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Konfigurera Cloud App Discovery i Azure AD
 
 Cloud App Discovery i Azure AD är nu baserat på integrering med data som är tillgängliga från Microsoft Cloud App Security. Om du vill ge pågående information om molnanvändning och shadow IT, jämför Cloud App Discovery dina trafikloggar till Cloud App Security-katalog med över 15 000 molnappar. Den här artikeln beskriver installationsprocessen och innehåller länkar till detaljerad information om varje steg. Här beskrivs också brandväggar och proxyservrar information och logga stöd.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Din organisation måste ha en Azure AD Premium P1-licens för att använda produkten. Mer information finns i [priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 * Du måste vara en Global administratör eller en läsare för säkerhet i Azure Active Directory om du vill konfigurera Cloud App Discovery.
@@ -86,6 +83,7 @@ För att kunna generera en rapport för Cloud App Discovery, måste dina trafikl
 * Cisco Meraki – URL-logg
 * Clavister nästa generations Brandvägg (Syslog)
 * Dell Sonicwall
+* Digitala konst i-FILTER
 * Fortinets Fortigate
 * Juniper SRX
 * Juniper SSG
@@ -123,7 +121,7 @@ Om din logg inte stöds väljer **andra** som den **datakällan** och anger enhe
 | Juniper SSG                             | Nej             | **Ja**       | Nej       | **Ja**   | **Ja**       | **Ja**        |
 | McAfee SWG                              | **Ja**        | Nej            | Nej       | **Ja**   | **Ja**       | **Ja**        |
 | MS TMG                                  | **Ja**        | Nej            | **Ja**  | **Ja**   | **Ja**       | **Ja**        |
-| Palo Alto Networks                      | **Ja**        | **Ja**       | **Ja**  | **Ja**   | **Ja**       | **Ja**        |
+| Palo Alto Networks                      | Nej             | **Ja**       | **Ja**  | **Ja**   | **Ja**       | **Ja**        |
 | Sophos                                  | **Ja**        | **Ja**       | **Ja**  | **Ja**   | **Ja**       | Nej             |
 | SQUID (allmän)                          | **Ja**        | Nej            | **Ja**  | **Ja**   | Nej            | **Ja**        |
 | SQUID (intern)                          | **Ja**        | Nej            | **Ja**  | **Ja**   | Nej            | **Ja**        |

@@ -1,19 +1,19 @@
 ---
-title: Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Node.js | Microsoft Docs
-description: I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Node.js och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
+title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Node.js | Microsoft Docs
+description: I den här snabbstarten skapar du ett lagringskonto och en behållare i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Node.js och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Node.js
 
@@ -82,7 +82,7 @@ Syftet med modulerna är följande:
 - *dotenv* läser in miljövariabler som definierats i en fil med namnet *.env* i den aktuella körningskontexten
 - *path* krävs för att kunna fastställa den absoluta sökvägen för den fil som ska laddas upp till blobblagringen
 - *yargs* innehåller ett enkelt gränssnitt för åtkomst till kommandoradsargumenten
-- *azure-storage* är modulen [Azure Storage SDK](/nodejs/api/azure-storage) för Node.js
+- *azure-storage* är modulen [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) för Node.js
 
 Därefter initieras en serie med variabler:
 
@@ -294,4 +294,4 @@ Den här snabbstarten visar hur du laddar upp en fil mellan en lokal disk och Az
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](storage-nodejs-how-to-use-blob-storage.md)
 
-Information om Node.js-referensen för Azure Storage finns i [azure-storage-paketet](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+Information om Node.js-referensen för Azure Storage finns i [azure-storage-paketet](https://docs.microsoft.com/javascript/api/azure-storage).

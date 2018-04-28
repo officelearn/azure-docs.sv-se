@@ -1,11 +1,10 @@
 ---
-title: "Köra Java-programservern på en klassisk Azure-VM | Microsoft Docs"
-description: "Den här kursen använder resurser som har skapats med den klassiska distributionsmodellen och visar hur du skapar en Windows virtuell dator och konfigurera den för att köra Apache Tomcat-programserver."
+title: Köra Java-programservern på en klassisk Azure-VM
+description: Den här kursen använder resurser som har skapats med den klassiska distributionsmodellen och visar hur du skapar en Windows virtuell dator och konfigurera den för att köra Apache Tomcat-programserver.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Så kör du ett Java-program på en virtuell dator skapad med den klassiska distributionsmodellen
 > [!IMPORTANT]
@@ -84,7 +83,7 @@ Den här kursen använder Tomcat som Java-programservern för att installera.
 
 Du kan starta Tomcat manuellt genom att öppna en kommandotolk på den virtuella datorn och kör kommandot **net&nbsp;starta&nbsp;Tomcat8**.
 
-När Tomcat körs kan du komma åt Tomcat genom att ange URL: en <http://localhost: 8080> i webbläsaren för den virtuella datorn.
+När Tomcat körs kan du komma åt Tomcat genom att ange URL: en <http://localhost:8080> i webbläsaren för den virtuella datorn.
 
 Om du vill se Tomcat körs från externa datorer, måste du skapa en slutpunkt och öppnar en port.
 
@@ -113,7 +112,7 @@ Om du vill se Tomcat körs från externa datorer, måste du skapa en slutpunkt o
 6. För den **regeltyp**väljer **Port**, och klicka sedan på **nästa**.  
    ![Ny inkommande regel port][NewRulePort]
 7. På den **protokoll och portar** väljer **TCP**, ange **8080** som den **specifika lokala portar**, och klicka sedan på **nästa**.  
-  ![Ny inkommande regel][NewRuleProtocol]
+  ![Ny inkommande regel ][NewRuleProtocol]
 8. På den **åtgärd** väljer **tillåter anslutningen**, och klicka sedan på **nästa**.
    ![Ny inkommande Regelåtgärd][NewRuleAction]
 9. På den **profil** kontrollerar du att **domän**, **privata**, och **offentliga** är markerade och klickar sedan på **nästa**.

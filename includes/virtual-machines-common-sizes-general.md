@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 48c4ee60487ed4a78bf7a823011b833d46db4ecf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -20,7 +20,10 @@ Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minn
 
 - Virtuella datorer i D-serien är utformade för att köra program som kräver högre beräkningskraft och tillfälliga diskprestanda. Virtuella datorer i D-serien erbjuder snabbare processorer, högre ”minne till virtuell processor”-förhållande och en Solid State-hårddisk (SSD) för den temporära disken. Mer information finns i inlägget om [nya storlekar för virtuella datorer i D-serien](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) i Azure-bloggen.
 
-- Dv3-serien, Dv2-serien, en uppföljning till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den baseras på den senaste generationens 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell) och kan uppnå 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+- Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på senaste generation Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) eller E5 2673 v4 2,3 GHz (Broadwell) processorer, och med Intel Turbo förstärkningen teknik 2.0 kan gå upp till 3.1 GHz. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+
+- Dv3-serien funktionerna för samma processor(er) som Dv2-serien, men i en hyper-threaded konfiguration för att ge en bättre lösning där värdet för den mest allmänna ändamål arbetsbelastningar och ta Dv3 justeras mot generella virtuella datorer med de flesta andra moln.  Minne har expanderats (från ~3.5 GiB/vCPU till 4 GiB/vCPU) medan disk- och gränser har justerats på grundval av per core ska justeras med övergången till hypertrådar.  Dv3 inte längre har höga minnesområdet VM-storlekar D/Dv2 familjer, de har flyttats till den nya Ev3 familjen.
+
 
 - Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer.
 
@@ -77,6 +80,7 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 
 <sup>1</sup> Dv3-serien VM funktion Intel® flertrådsteknik
 
+
 ## <a name="dsv2-series"></a>DSv2-serien
 
 ACU: 210–250
@@ -99,8 +103,8 @@ ACU: 210–250
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 4              | 4 × 500            | 2/750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 8              | 8 × 500            | 2/1 500                                     |
-| Standard_D3_v2 | 4    | 14          | 200                    | 12 000 / 187 / 93                                           | 16             | 16 × 500           | April 00                                       |
-| Standard_D4_v2 | 8    | 28          | 400                    | 24 000 / 375 / 187                                          | 32             | 32 × 500           | Augusti 00                                       |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12 000 / 187 / 93                                           | 16             | 16 × 500           | 4/3 000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24 000 / 375 / 187                                          | 32             | 32 × 500           | 8/6 000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48 000 / 750 / 375                                          | 64             | 64 x 500           | 8 / 12000                                    |
 
 

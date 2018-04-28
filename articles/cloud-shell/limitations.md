@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell-begränsningar | Microsoft Docs"
-description: "Översikt över begränsningar i Azure Cloud Shell"
+title: Azure Cloud Shell-begränsningar | Microsoft Docs
+description: Översikt över begränsningar i Azure Cloud Shell
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar i Azure-molnet Shell
 
@@ -76,7 +76,7 @@ Med PowerShell-cmdlets, kan användare inte skapa filer under Azure enhet. När 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-Om användaren som kör ett kommando som skulle skapa en Windows-dialogruta som `Connect-AzureAD` eller `Login-AzureRMAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Om användaren som kör ett kommando som skulle skapa en Windows-dialogruta som `Connect-AzureAD` eller `Connect-AzureRmAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Nästa steg
 

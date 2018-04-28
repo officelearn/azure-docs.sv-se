@@ -1,26 +1,26 @@
 ---
-title: "Villkoren i Azure Active Directory för villkorlig åtkomst | Microsoft Docs"
-description: "Lär dig hur tilldelningar används i Azure Active Directory för villkorlig åtkomst för att utlösa en princip."
+title: Villkoren i Azure Active Directory för villkorlig åtkomst | Microsoft Docs
+description: Lär dig hur tilldelningar används i Azure Active Directory för villkorlig åtkomst för att utlösa en princip.
 services: active-directory
-keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
-documentationcenter: 
+keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/27/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Villkoren i Azure Active Directory för villkorlig åtkomst 
 
@@ -45,17 +45,23 @@ Den här artikeln ger en översikt över villkor och hur de används i en princi
 
 Villkor för användare och grupper är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen väljer **alla användare** eller Välj användare och grupper.
 
-![Kontroll](./media/active-directory-conditional-access-conditions/02.png)
+![Kontroll](./media/active-directory-conditional-access-conditions/111.png)
 
 När du väljer:
 
-- **Alla användare**, din principen gäller för alla användare med i katalogen. Detta inkluderar gästanvändare.
+- **Alla användare**, din principen gäller för alla användare i katalogen. Detta inkluderar gästanvändare.
 
-- **Välj användare och grupper**, du kan rikta specifika uppsättningar med användare. Exempelvis kan du välja en grupp som innehåller alla medlemmar i HR-avdelningen om du har en HR-app som valts som molnappen. 
+- **Välj användare och grupper**, kan du ange följande alternativ:
 
-- En grupp, det kan vara någon typ av grupp i Azure AD, inklusive dynamiska eller tilldelade säkerhets- och distributionsgrupper grupper.
+    - **Alla gästanvändare** -gör att du kan rikta en princip för att B2B gästanvändare. Det här tillståndet matchar ett användarkonto med de *userType* -attributet inställt på *gäst*. Du kan använda den här inställningen i fall där en princip måste tillämpas när kontot skapas i en inbjudan flödet i Azure AD.
 
-Du kan också utesluta specifika användare eller grupper från en princip. Vanliga användningsfall är tjänstkonton om principen tillämpar multifaktorautentisering. 
+    - **I katalogen** -gör att du kan rikta en princip baserat på användarens rolltilldelning. Det här villkoret stöder directory roller som *Global administratör* eller *lösenordsadministratör*.
+
+    - **Användare och grupper** -gör det möjligt att målet specifika uppsättningar med användare. Exempelvis kan du välja en grupp som innehåller alla medlemmar i HR-avdelningen om du har en HR-app som valts som molnappen.
+
+En grupp kan det vara någon typ av grupp i Azure AD, inklusive dynamiska eller tilldelade säkerhets- och distributionsgrupper grupper
+
+Du kan också utesluta specifika användare eller grupper från en princip. Vanliga användningsfall är tjänstkonton om principen tillämpar multifaktorautentisering (MFA). 
 
 Målobjekt för specifika uppsättningar med användare är användbart för distribution av en ny princip. I en ny princip bör du använda en grunduppsättning med användare att verifiera funktionen. 
 
@@ -71,7 +77,7 @@ Molnet appar villkoret är obligatoriskt i en princip för villkorlig åtkomst. 
 
 Du kan välja:
 
-- **Alla molnappar** principer för baslinjen ska tillämpas för hela organisationen. Ett vanligt användningsfall för den här markeringen är en princip som kräver multifaktorautentisering när inloggningen risk har upptäckts för alla molnappar.
+- **Alla molnappar** principer för baslinjen ska tillämpas för hela organisationen. Ett vanligt användningsfall för den här markeringen är en princip som kräver multifaktorautentisering när inloggningen risk har upptäckts för alla molnappar. En princip som tillämpas på **alla molnappar** gäller för åtkomst till alla webbplats och tjänster. Den här inställningen är inte begränsat till molnappar som visas på den **Välj molnappar** lista.
 
 - Enskilda molnappar till specifika mål-tjänster av en princip. Du kan till exempel kräva att användarna har en [kompatibel enhet](active-directory-conditional-access-policy-connected-applications.md) åtkomst till SharePoint Online. Den här principen gäller även andra tjänster när de har åtkomst till SharePoint-innehåll, till exempel Microsoft Teams. 
 
@@ -105,6 +111,17 @@ En fullständig lista över enhetsplattformar som stöds finns i [enhet plattfor
 
 
 Ett vanligt användningsfall för det här villkoret är en princip som begränsar åtkomsten till dina molnappar till [betrodda enheter](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Fler scenarier inklusive villkoret enhet plattform, se [Azure Active Directory app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md).
+
+
+
+## <a name="device-state"></a>Enhetens tillstånd
+
+Enhetens tillstånd villkoret kan Azure AD-hybridlösning ansluten och enheter som markerats som kompatibel som ska undantas från principen för villkorlig åtkomst. Detta är användbart när en princip bara ska gälla ohanterad enhet för att ge ytterligare en sessionssäkerhet. Till exempel bara att verkställa Microsoft Cloud App Security session kontrollen när en enhet är ohanterade. 
+
+
+![Villkor](./media/active-directory-conditional-access-conditions/112.png)
+
+Om du vill blockera åtkomst för ohanterade enheter bör du implementera [enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Platser

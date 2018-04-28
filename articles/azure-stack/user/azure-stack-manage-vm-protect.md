@@ -3,7 +3,7 @@ title: Skydda virtuella datorer som distribueras på Azure-stacken | Microsoft D
 description: Riktlinjer för hur du skyddar virtuella datorer distribueras på Azure-stacken.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -11,20 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b49a8650611472b5e35c4bdf8373a1d7e3a45589
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer distribueras på Azure-stacken
-
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
-
 Den här artikeln beskriver riktlinjer för hur du skyddar användare virtuella datorer som distribueras på Azure-stacken.
 
 Du måste implementera en plan för säkerhetskopiering återställning eller katastrofåterställning för dina data och program för att skydda mot dataförlust och oplanerade driftavbrott. Den här planen är unik för varje program men följer ett ramverk som upprättas av din organisations omfattande affärskontinuitet och haveriberedskap (BC/DR). Allmänna mönster och metoder för program tillgänglighet och flexibilitet finns [flexibel när program utformas för Azure](https://docs.microsoft.com/azure/architecture/resiliency) i Azures arkitektur Center.
@@ -43,7 +40,7 @@ Varje Azure-stacken moln har distribuerats i ett datacenter. En separat miljö k
  
 Planera din strategi för säkerhetskopiering återställning och katastrofåterställning för varje program för att fastställa målet för varje program. Detta hjälper organisationen korrekt storlek lagringskapacitet krävs lokalt och projektet förbrukning i det offentliga molnet. 
 
-|  | Global Azure | Azure stacken har distribuerats till CSP-datacentret och drivas av Kryptografiprovider | Azure stacken har distribuerats till kunden datacenter och drivas av kunden |
+|  | Globala Azure | Azure stacken har distribuerats till CSP-datacentret och drivas av Kryptografiprovider | Azure stacken har distribuerats till kunden datacenter och drivas av kunden |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **Azure stacken har distribuerats till CSP-datacentret och drivas av Kryptografiprovider** | Virtuella datorer som användaren har distribuerats till CSP: N drivas Azure stacken. Användarnas VM återställts från säkerhetskopian eller växlar över direkt till Azure. | CSP fungerar de primära och sekundära instanserna av Azure-stacken i sina egna datacenter. Användarnas VM återställas eller växlar över mellan två Azure Stack-instanser. | CSP fungerar Azure-stacken i den primära platsen. Kundens datacenter är mål för återställning eller växling vid fel. |
 | **Azure stacken har distribuerats till kunden datacenter och drivas av kunden** | Virtuella datorer som användaren har distribuerats till kunden drivas Azure stacken. Användarnas VM återställts från säkerhetskopian eller växlar över direkt till Azure. | Kunden fungerar de primära och sekundära instanserna av Azure-stacken i sina egna datacenter. Användarnas VM återställas eller växlar över mellan två Azure Stack-instanser. | Kunden fungerar Azure-stacken i den primära platsen. CSP-datacenter är mål för återställning eller växling vid fel. |
@@ -60,11 +57,11 @@ Du måste avgöra hur mycket driftavbrott och dataförlust som din organisation 
  
 RTO och RPO handlar om affärsbehov. Utföra en riskbedömning för att definiera programmets RTO och Återställningspunktmål. En annan vanliga mått är **tid att återställa** (MTTR), vilket är den genomsnittliga tiden som det tar för att återställa programmet efter ett fel. MTTR är ett empiriskt fakta kring ett system. Om MTTR är längre än RTO så skapar fel i systemet oacceptabla affärsstörningar, eftersom det inte går att återställa systemet inom definierad RTO.
 
-### <a name="backup-restore"></a>Backup-restore
+### <a name="backup-restore"></a>Säkerhetskopiering återställning
 
 De vanligaste är skydd för VM-baserade program att använda ett säkerhetskopieringsprogram. Säkerhetskopiering av en virtuell dator vanligtvis innehåller operativsystemet, konfiguration, binärfiler och programdata. Säkerhetskopieringar skapas en ögonblicksbild av volymer, diskar eller hela den virtuella datorn. Med Azure Stack har möjlighet att säkerhetskopiera från inom ramen för gästoperativsystemet eller från Azure Stack-lagring och beräkna API: er. Azure-stacken stöder inte med säkerhetskopior på hypervisor-nivå. 
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Säkerhetskopiering restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
  
 Återställa programmet kräver att återställa en eller flera virtuella datorer till samma moln eller till en ny moln. Du kan rikta ett moln i ditt datacenter eller det offentliga molnet. Vilka molnappar som du riktar är helt inom din kontroll och baseras på dina data sekretess och suveränitet krav. 
  
@@ -147,7 +144,8 @@ Viktigt att tänka på för Azure Stack-distribution:
 ## <a name="next-steps"></a>Nästa steg 
 
 I den här artikeln beskrivs vi riktlinjer för hur du skyddar användare virtuella datorer som distribueras på Azure-stacken. Mer information om hur du skyddar dina virtuella datorer med hjälp av Azure-tjänster finns:
- - [Azure Backup Server-stöd för Azure-stacken](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Azure Site Recovery-stöd för Azure-stacken](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Använda Azure Backup för att säkerhetskopiera filer och program på Azure-stacken](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Backup Server-stöd för Azure-stacken](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure Site Recovery-stöd för Azure-stacken](https://docs.microsoft.com/azure/site-recovery/)  
  
 Mer information om de partner-produkter som ger skydd för Virtuella Azure-stacken avser ”[skyddar program och data på Azure-stacken](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)”.

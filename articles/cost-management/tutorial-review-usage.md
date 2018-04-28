@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Självstudie: Granska användning och kostnader
 
-I Azure Cost Management visas användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
+I Azure Cost Management visas användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Spårar trender inom användning och kostnader
@@ -37,11 +37,11 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="open-the-cloudyn-portal"></a>Öppna Cloudyn-portalen
 
-Du kan granska all användning och alla kostnader i Cloudyn-portalen. Öppna Cloudyn-portalen från Azure-portalen eller navigera till https://azure.cloudyn.com och logga in.
+Du kan granska all användning och alla kostnader i Cloudyn-portalen. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
 
 ## <a name="track-usage-and-cost-trends"></a>Spårar trender inom användning och kostnader
 
-Du kan spåra faktiska utgifter för användning och kostnader med rapporter över tid där du kan identifiera trender. Om du vill börja leta efter trender kan du använda rapporten Actual Cost Over Time (Faktisk kostnad över tid). Gå till rapportmenyn längst upp i portalen och klicka på **Cost** (Kostnad) >  **Cost Analysis** (Kostnadsanalys)  >  **Actual Cost Over Time**. När du först öppnar rapporten används inga grupper eller filter.
+Du kan spåra faktiska utgifter för användning och kostnader med rapporter över tid där du kan identifiera trender. Om du vill börja leta efter trender kan du använda rapporten Actual Cost Over Time (Faktisk kostnad över tid). I menyn längst upp i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. När du först öppnar rapporten används inga grupper eller filter.
 
 Här är en exempelrapport:
 
@@ -69,7 +69,7 @@ Problemet är att den befintliga infrastrukturen redan är betald. Användarna k
 
 I rapporten Cost Effective Sizing Recommendations (Rekommendationer kring kostnadseffektiv storleksändring) identifieras potentiella årliga besparingar genom att jämföra kapaciteten hos olika typer av VM-instanser med historiska data kring användning av processor och minne.  
 
-Gå till rapportmenyn längst upp i portalen och klicka på **Optimizer** (Optimerare)  >  **Pricing Optimization** (Prisoptimering)  >  **Cost Effective Sizing Recommendations**. Filtrera providern som Azure för att endast titta på virtuella Azure-datorer. Här är en exempelbild.
+I menyn längst upp i portalen klickar du på **Optimizer** (Optimerare)  > **Sizing Optimization** (Prisstorlek)  > **Cost Effective Sizing Recommendations** (Kostnadseffektiv storleksrekommendation). Filtrera providern som Azure för att endast titta på virtuella Azure-datorer. Här är en exempelbild.
 
 ![Virtuella Azure-datorer](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Om du vill se en självstudievideo om att identifiera ineffektivitet i användni
 
 Du kan automatiskt meddela intressenter vid avvikelser i utgifterna och vid risk för höga utgifter. Du kan snabbt och enkelt skapa aviseringar med hjälp av rapporter som har stöd för aviseringar baserat på tröskelvärden för budgetar och kostnader.
 
-Du kan skapa en avisering för alla typer av utgifter från valfri kostnadsrapport. I det här exemplet använder du rapporten Actual Cost Over Time till att meddela dig när Azure VM-utgifterna närmar sig din totala budget. Gå till rapportmenyn längst upp i portalen och klicka på **Cost** (Kostnad) >  **Cost Analysis** (Kostnadsanalys)  >  **Actual Cost Over Time**. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. Klicka på **Actions** (Åtgärder) uppe till höger i rapporten och välj **Schedule report** (Schemalägg rapport).
+Du kan skapa en avisering för alla typer av utgifter från valfri kostnadsrapport. I det här exemplet använder du rapporten Actual Cost Over Time till att meddela dig när Azure VM-utgifterna närmar sig din totala budget. Alla följande steg krävs för att skapa aviseringen. I menyn längst upp i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. Klicka på **Actions** (Åtgärder) uppe till höger i rapporten och välj **Schedule report** (Schemalägg rapport).
 
-På fliken **Scheduling** (Schemaläggning) kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 500 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 250 000 USD och en **gul avisering** vid 240 000 USD. Välj sedan antalet på varandra följande aviseringar. När du fått det antal aviseringar du angav skickas inga fler aviseringar. Spara den schemalagda rapporten.
+På fliken **Scheduling** (Schemaläggning) kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. Välj **Skicka via e-post**. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 500 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 250 000 USD och en **gul avisering** vid 240 000 USD. Inkludera inte kommatecken i de värden som du anger. Välj sedan antalet på varandra följande aviseringar. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. Spara den schemalagda rapporten.
 
 ![exempelrapport](./media/tutorial-review-usage/schedule-alert01.png)
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: a29af17c97b106860c3b4adbad5e8002d2a91651
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av PowerShell
 
@@ -27,7 +27,7 @@ Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade id
 
 I den här artikeln beskrivs hur du aktiverar och ta bort MSI för en Azure-dator med hjälp av PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -60,10 +60,10 @@ Skapa en MSI-aktiverad virtuell dator:
 
 Om du behöver aktivera MSI på en befintlig virtuell dator:
 
-1. Logga in på Azure med hjälp av `Login-AzureRmAccount`. Använd ett konto som är kopplad till den Azure-prenumeration som innehåller den virtuella datorn. Kontrollera också att ditt konto hör till en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”Virtual Machine-deltagare”:
+1. Logga in på Azure med hjälp av `Connect-AzureRmAccount`. Använd ett konto som är kopplad till den Azure-prenumeration som innehåller den virtuella datorn. Kontrollera också att ditt konto hör till en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”Virtual Machine-deltagare”:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Först hämta VM-egenskaper med hjälp av den `Get-AzureRmVM` cmdlet. Om du vill aktivera MSI använder den `-AssignIdentity` växla den [uppdatering AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
@@ -84,10 +84,10 @@ Om du behöver aktivera MSI på en befintlig virtuell dator:
 
 Om du har en virtuell dator som inte längre behöver en MSI, kan du använda den `RemoveAzureRmVMExtension` för att ta bort MSI från den virtuella datorn:
 
-1. Logga in på Azure med hjälp av `Login-AzureRmAccount`. Använd ett konto som är kopplad till den Azure-prenumeration som innehåller den virtuella datorn. Kontrollera också att ditt konto hör till en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”Virtual Machine-deltagare”:
+1. Logga in på Azure med hjälp av `Connect-AzureRmAccount`. Använd ett konto som är kopplad till den Azure-prenumeration som innehåller den virtuella datorn. Kontrollera också att ditt konto hör till en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”Virtual Machine-deltagare”:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Använd den `-Name` växel med den [ta bort AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, att ange samma namn som du använde när du har lagt till tillägget:

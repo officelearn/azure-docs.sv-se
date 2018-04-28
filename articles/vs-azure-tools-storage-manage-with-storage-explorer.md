@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Lagringsutforskaren (förhandsversion) | Microsoft Docs"
-description: "Hantera Azure-lagringsresurser med Lagringsutforskaren (förhandsversion)"
+title: Kom igång med Lagringsutforskaren | Microsoft Docs
+description: Hantera Azure-lagringsresurser med Lagringsutforskaren
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -14,33 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c4cd3c79b64ef6ba86c7764f0ae27e29418e9ee5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
+# <a name="get-started-with-storage-explorer"></a>Kom igång med Lagringsutforskaren
 ## <a name="overview"></a>Översikt
-Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, Mac OS och Linux. I den här artikeln får du lära dig flera sätt att ansluta till och hantera dina Azure storage-konton.
+Azure Lagringsutforskaren är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. I den här artikeln får du lära dig flera sätt att ansluta till och hantera dina Azure storage-konton.
 
-![Microsoft Azure Lagringsutforskaren (förhandsversion)][0]
+![Microsoft Azure Storage Explorer][0]
 
 ## <a name="prerequisites"></a>Förutsättningar
-* [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> Du kan behöva installera manuellt vissa beroenden för Linux-distributioner än Ubuntu 16.04. I allmänhet krävs följande paket:
-> * libgconf-2-4
-> * libsecret
-> * Uppdaterade GCC
->
-> Beroende på din distro kan det finnas andra paket som du behöver installera. Lagringsutforskaren [viktig information](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehåller särskilda åtgärder för vissa distributioner.
->
->
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+Azure Lagringsutforskaren stöds på följande versioner av Windows:
+
+* Windows 10 (rekommenderas)
+* Windows 8
+* Windows 7
+
+[Hämta och installera Storage Explorer](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Azure Lagringsutforskaren stöds på följande versioner av macOS:
+
+* macOS 10.12 ”Sierra” och senare versioner
+
+[Hämta och installera Storage Explorer](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+Azure Lagringsutforskaren stöds på följande distributioner av Linux:
+
+* Ubuntu 16.04 x64 (rekommenderas)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+Azure Lagringsutforskaren fungerar på andra distributioner, men endast som visas ovan stöds officiellt.
+
+Du måste också ha följande beroenden/bibliotek installeras för att köra Azure Storage Exploer på Linux:
+
+* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (Obs: libsecret 1.so.0 måste vara tillgängliga på din dator. Om du har en annan version av libsecret installerat kan försöka du mjuka länkar dess .so-fil till libsecret 1.so.0)
+* libgconf-2-4
+* Uppdaterade GCC
+
+Azure Lagringsutforskaren [viktig information](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehåller särskilda åtgärder för vissa distributioner.
+
+[Hämta och installera Storage Explorer](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Ansluta till ett lagringskonto eller en tjänst
-Med Lagringsutforskaren (förhandsversion) kan du ansluta till lagringskonton på flera olika sätt. Du kan till exempel:
+I Storage Explorer finns flera olika sätt att ansluta till lagringskonton. Du kan till exempel:
 * Ansluta till lagringskonton som är associerade med dina Azure-prenumerationer.
 * Ansluta till lagringskonton och tjänster som delas från andra Azure-prenumerationer.
 * Ansluta till och hantera lokal lagring med hjälp av Azure Storage-emulatorn. 
@@ -60,7 +87,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 >
 >
 
-1. I Lagringsutforskaren (förhandsversion), väljer **hantera konton** att gå till den **konto Management panelen**.
+1. I Lagringsutforskaren, Välj **hantera konton** att gå till den **konto Management panelen**.
 
     ![Hantera konton][1]
 
@@ -79,7 +106,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
     ![Valda Azure-prenumerationer][4]
 
 ## <a name="work-with-local-development-storage"></a>Arbeta med lokal utvecklingslagring
-Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med hjälp av Azure Storage-emulatorn. Den här metoden kan du simulera arbeta med Azure Storage utan att ha ett lagringskonto som har distribuerats på Azure, eftersom lagringskontot emuleras av Azure Storage-emulatorn.
+Med Lagringsutforskaren kan arbeta du mot lokal lagring med hjälp av Azure Storage-emulatorn. Den här metoden kan du simulera arbeta med Azure Storage utan att ha ett lagringskonto som har distribuerats på Azure, eftersom lagringskontot emuleras av Azure Storage-emulatorn.
 
 > [!NOTE]
 > Azure Storage-emulatorn stöds för närvarande endast för Windows.
@@ -91,7 +118,7 @@ Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med h
 >
 >
 
-1. I den vänstra rutan i Lagringsutforskaren (förhandsversion), expandera den **(lokala och bifogad)** > **Lagringskonton** > **(utveckling)**  >  **Blobbbehållare** nod.
+1. I den vänstra rutan i Lagringsutforskaren, expanderar den **(lokala och bifogad)** > **Lagringskonton** > **(utveckling)**  >  **Blobbbehållare** nod.
 
     ![Noden Lokal utveckling][5]
 
@@ -102,12 +129,9 @@ Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med h
 3. När emulatorn har installerats kan du skapa och arbeta med lokala blobbar, köer och tabeller. Om du vill veta hur du arbetar med respektive lagringskontotyp finns i följande handböcker:
 
     * [Hantera Azure-bloblagringsresurser](vs-azure-tools-storage-explorer-blobs.md)
-    * Hantera Azure-filresurslagringsresurser: *kommer snart*
-    * Hantera Azure-kölagringsresurser: *kommer snart*
-    * Hantera Azure-tabellagringsresurser: *kommer snart*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Ansluta eller koppla från ett externt lagringskonto
-Med Lagringsutforskaren (förhandsversion) kan du ansluta till externa lagringskonton så att du enkelt kan dela lagringskonton. Det här avsnittet beskriver hur du ansluter till (och kopplar från) externa lagringskonton.
+Med Lagringsutforskaren kan ansluta du till externa lagringskonton så att storage-konton kan delas. Det här avsnittet beskriver hur du ansluter till (och kopplar från) externa lagringskonton.
 
 ### <a name="get-the-storage-account-credentials"></a>Hämta autentiseringsuppgifterna för lagringskontot
 Om du vill dela ett externt lagringskonto ägaren av det kontot först hämta autentiseringsuppgifterna (kontonamnet och nyckeln) för kontot och sedan dela informationen med den person som vill ansluta till rapporterade att kontot. Du kan hämta autentiseringsuppgifter för lagringskonto via Azure portal genom att göra följande:
@@ -120,7 +144,7 @@ Om du vill dela ett externt lagringskonto ägaren av det kontot först hämta au
 
 4. I listan över **Lagringskonton**, Välj önskat lagringskonto.
 
-5. Under **inställningar**väljer **åtkomstnycklar**.
+5. Under **Inställningar** klickar du på **Åtkomstnycklar**.
 
     ![Alternativ för åtkomstnycklar][7]
 
@@ -129,9 +153,9 @@ Om du vill dela ett externt lagringskonto ägaren av det kontot först hämta au
     ![Åtkomstnycklar][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Ansluta till ett externt lagringskonto
-Om du vill ansluta till ett externt lagringskonto behöver du ha tillgång till kontots namn och nyckel. I avsnittet Hämta autentiseringsuppgifter för lagringskonto beskrivs hur du hämtar dessa värden från Azure Portal. Men i portalen kallas kontonyckeln **nyckel1**. Så, när Lagringsutforskaren (förhandsversion) begär en kontonyckel, anger du den **key1** värde.
+Om du vill ansluta till ett externt lagringskonto behöver du ha tillgång till kontots namn och nyckel. I avsnittet Hämta autentiseringsuppgifter för lagringskonto beskrivs hur du hämtar dessa värden från Azure Portal. Men i portalen kallas kontonyckeln **nyckel1**. Så, när Lagringsutforskaren begär en kontonyckel, anger du den **key1** värde.
 
-1. I Lagringsutforskaren (förhandsversion), öppnar den **ansluta dialogrutan**.
+1. I Lagringsutforskaren kan öppna den **ansluta dialogrutan**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
@@ -172,10 +196,10 @@ För att illustrera detta antar vi att Användare A är administratör för en A
 
 2. Användare a delar SAS med den person (i det här exemplet b) som vill ha åtkomst till lagringskontot.  
 
-3. Användare B använder Lagringsutforskaren (förhandsversion) för att ansluta till kontot som hör till Användare A med hjälp av den SAS som han eller hon fått.
+3. B använder Lagringsutforskaren för att ansluta till det konto som tillhör användare a med SAS.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generera en SAS-anslutningssträng för det konto som du vill dela
-1. I Lagringsutforskaren (förhandsversion) högerklickar du på det lagringskontot som du vill dela och välj sedan **hämta signatur för delad åtkomst...** .
+1. I Lagringsutforskaren, högerklickar du på det lagringskontot som du vill dela och välj sedan **hämta signatur för delad åtkomst...** .
 
     ![Snabbmenyalternativet Hämta SAS][14]
 
@@ -186,7 +210,7 @@ För att illustrera detta antar vi att Användare A är administratör för en A
 3. Bredvid den **anslutningssträngen** text markerar **kopiera** kopiera till Urklipp och klicka sedan på **Stäng**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Anslut till ett lagringskonto med hjälp av en SAS-anslutningssträng
-1. I Lagringsutforskaren (förhandsversion), öppnar den **ansluta dialogrutan**.
+1. I Lagringsutforskaren kan öppna den **ansluta dialogrutan**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
@@ -213,12 +237,9 @@ Avsnittet ”Koppla ett lagringskonto med hjälp av en SAS” beskrivs hur en ad
 I den här kontexten en tjänst vara en blobbehållare, kö, tabell eller filresurs. Om du vill generera SAS för en tjänst kan du läsa:
 
 * [Hämta SAS för en blobbehållare](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Hämta SAS för en filresurs: *kommer snart*
-* Hämta SAS för en kö: *kommer snart*
-* Hämta SAS för en tabell: *kommer snart*
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Ansluta till tjänsten delade kontot med hjälp av SAS-URI
-1. I Lagringsutforskaren (förhandsversion), öppnar den **ansluta dialogrutan**.
+1. I Lagringsutforskaren kan öppna den **ansluta dialogrutan**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
@@ -251,7 +272,7 @@ Förutom hantera Azure Cosmos DB konton via Azure-prenumeration, ett alternativt
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Anslut till Azure Data Lake Store av URI: N
 Om du vill komma åt resurser som inte finns i din prenumeration. Men andra ger dig behörighet att komma åt resursernas URI. I det här fallet kan du ansluta till Data Lake Store med denna URI när du loggat in. Se följande steg.
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. I det vänstra fönstret expanderar du **Lokala och ansluten**.
 3. Högerklicka på **Data Lake Store** och från snabbmenyn väljer du **Anslut till Data Lake Store...**.
 
@@ -276,9 +297,9 @@ När du skriver i sökrutan visar alla resurser som matchar sökvärdet som du h
 >
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)](vs-azure-tools-storage-explorer-blobs.md)
+* [Hantera Azure Blob Storage-resurser med Lagringsutforskaren](vs-azure-tools-storage-explorer-blobs.md)
 * [Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)](./cosmos-db/storage-explorer.md)
-* [Hantera Azure Data Lake Store-resurser med Lagringsutforskaren (förhandsversion)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Hantera Azure Data Lake Store-resurser med Lagringsutforskaren](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

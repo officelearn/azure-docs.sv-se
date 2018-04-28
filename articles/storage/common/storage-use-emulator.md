@@ -1,8 +1,8 @@
 ---
-title: "Använd Azure storage-emulatorn för utveckling och testning | Microsoft Docs"
-description: "Azure storage-emulatorn är en kostnadsfri lokal utvecklingsmiljö för att utveckla och testa dina Azure Storage-program. Lär dig hur begäranden autentiseras, hur du ansluter till emulatorn från ditt program och hur du använder kommandoradsverktyget."
+title: Använd Azure storage-emulatorn för utveckling och testning | Microsoft Docs
+description: Azure storage-emulatorn är en kostnadsfri lokal utvecklingsmiljö för att utveckla och testa dina Azure Storage-program. Lär dig hur begäranden autentiseras, hur du ansluter till emulatorn från ditt program och hur du använder kommandoradsverktyget.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -27,7 +27,7 @@ Microsoft Azure storage-emulatorn tillhandahåller en lokal miljö som emulerar 
 ## <a name="get-the-storage-emulator"></a>Hämta storage-emulatorn
 Storage-emulatorn är tillgänglig som en del av den [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). Du kan också installera storage-emulatorn genom att använda den [fristående installationsprogram](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct nedladdning). Om du vill installera storage-emulatorn måste du ha administratörsbehörighet på datorn.
 
-Storage-emulatorn för närvarande kan endast köras på Windows. För de överväger storage-emulatorn för Linux, ett alternativ är gemenskapen underhålls öppen källkod storage-emulatorn [Azurite](https://github.com/arafato/azurite).
+Storage-emulatorn för närvarande kan endast köras på Windows. För de överväger storage-emulatorn för Linux, ett alternativ är gemenskapen underhålls öppen källkod storage-emulatorn [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Data som har skapats i en version av storage-emulatorn är inte säkert att vara tillgänglig när du använder en annan version. Om du behöver att spara dina data på lång sikt, rekommenderar vi att du lagrar data i Azure storage-konto i stället för storage-emulatorn.

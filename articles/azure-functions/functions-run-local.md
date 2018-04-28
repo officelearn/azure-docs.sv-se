@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: f3278c064a01e3dea1d7a629b4a7b2e846a71208
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -31,45 +31,88 @@ Om du är en Visual Studio C# utvecklare Azure Functions även [kan integreras m
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
-[Azure Functions grundläggande verktyg] är en lokal version av Azure Functions-runtime som du kan köra på utvecklingsdatorn lokala. Det är inte en emulator eller simulatorn. Det är samma körningsmiljön som stänger fungerar i Azure. Det finns två versioner av Azure Functions Core verktyg, en för version 1.x av runtime och en för version 2.x. Båda versionerna tillhandahålls som ett [npm paketet](https://docs.npmjs.com/getting-started/what-is-npm).
+[Azure Functions grundläggande verktyg] är en lokal version av Azure Functions-runtime som du kan köra på utvecklingsdatorn lokala. Det är inte en emulator eller simulatorn. Det är samma körningsmiljön som stänger fungerar i Azure. Det finns två versioner av Azure Functions grundläggande verktyg:
 
->[!NOTE]  
-> Innan du installerar någon version, måste du [installera NodeJS](https://docs.npmjs.com/getting-started/installing-node), som innehåller npm. För version 2.x verktyg, endast Node.js 8.5 och senare versioner stöds. 
++ [Version 1.x](#v1): har stöd för version 1.x av körningsmiljön. Den här versionen stöds endast på Windows-datorer och installeras från en [npm paketet](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Version 2.x](#v2): har stöd för version 2.x av körningsmiljön. Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika paketet chefer eller npm för installation. 
 
-### <a name="version-2x-runtime"></a>Version 2.x runtime
+### <a name="v1"></a>Version 1.x
 
-Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder. Den här versionen används för utveckling av plattformar och när Functions-runtime 2.x krävs. 
+Den ursprungliga versionen av verktygen använder funktioner 1.x runtime. Den här versionen använder .NET Framework (4.7.1) och stöds endast på Windows-datorer. Innan du installerar verktygen version 1.x, måste du [installera NodeJS](https://docs.npmjs.com/getting-started/installing-node), som innehåller npm.
 
->[!IMPORTANT]   
-> Innan du installerar Azure Functions grundläggande verktyg [installera .NET Core 2.0](https://www.microsoft.com/net/core).  
->
-> Azure Functions-runtime 2.0 är en förhandsversion och stöds för närvarande inte alla funktioner i Azure Functions. Mer information finns i [Azure Functions-runtime 2.0 kända problem](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
-
- Använd följande kommando för att installera verktygen för version 2.0:
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-När du installerar på Ubuntu Använd `sudo`enligt följande:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-När du installerar i macOS och Linux, du kan behöva ta de `unsafe-perm` flaggan på följande sätt:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>Version 1.x runtime
-
-Den ursprungliga versionen av verktygen använder funktioner 1.x runtime. Den här versionen använder .NET Framework och stöds endast på Windows-datorer. Använd följande kommando för att installera version 1.x-verktyg:
+Använd följande kommando för att installera version 1.x-verktyg:
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>Version 2.x
+
+>[!NOTE]
+> Azure Functions-runtime 2.0 är en förhandsversion och stöds för närvarande inte alla funktioner i Azure Functions. Mer information finns i [Azure Functions-versioner](functions-versions.md) 
+
+Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x har stöd för, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux).
+
+#### <a name="windows-npm"></a>Windows
+
+Följande steg kan du använda npm för att installera grundläggande verktyg i Windows. Du kan också använda [Chocolatey](https://chocolatey.org/). Mer information finns i [grundläggande verktyg viktigt](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+
+1. Installera [.NET Core 2.0 för Windows](https://www.microsoft.com/net/download/windows).
+
+2. Installera [Node.js], som innehåller npm. För version 2.x verktyg, endast Node.js 8.5 och senare versioner stöds.
+
+3. Installera paketet Verktyg för kärnor:
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>MacOS med Homebrew
+
+Följande steg använda Homebrew för att installera hanteringsverktygen kärnor på macOS.
+
+1. Installera [.NET Core 2.0 för macOS](https://www.microsoft.com/net/download/macos).
+
+1. Installera [Homebrew](https://brew.sh/), om den inte redan är installerad.
+
+2. Installera paketet Verktyg för kärnor:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a> Linux (Debian/Ubuntu) med LGH
+
+Följande steg används [LGH](https://wiki.debian.org/Apt) installera grundläggande verktyg på Ubuntu/Debian Linux-distribution. Andra Linux-distributioner finns i [grundläggande verktyg viktigt](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+
+1. Installera [.NET Core 2.0 för Linux](https://www.microsoft.com/net/download/linux).
+
+1. Registrera Microsoft-produktnyckeln som tillförlitliga:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Konfigurera paketet flöde eller ersätta `<version>` i följande kommando med namnet rätt version från tabellen:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux-distribution | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu nr 17.04 från    | `zesty`     |
+  | Ubuntu 16.04/Linux myntverket 18    | `xenial`  |
+
+3. Installera paketet Verktyg för kärnor:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
 
 ## <a name="run-azure-functions-core-tools"></a>Köra verktyg för Azure Functions kärnor
  
@@ -136,16 +179,20 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
 ```
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Om värdet är **SANT**, alla värden som är krypterade med en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
-| **Värden** | Samling av programinställningar som används när du kör lokalt. **AzureWebJobsStorage** och **AzureWebJobsDashboard** är exempel, en fullständig lista, se [app inställningsreferens](functions-app-settings.md).  |
+| **isEncrypted** | Om värdet är **SANT**, alla värden som är krypterade med en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
+| **Värden** | Samling av programinställningar som används när du kör lokalt. **AzureWebJobsStorage** och **AzureWebJobsDashboard** är exempel, en fullständig lista, se [app inställningsreferens](functions-app-settings.md). Många utlösare och bindningar har en egenskap som refererar till en appinställning som **anslutning** för Blob storage-utlösare. För sådana egenskaper, behöver du en tillämpningsinställning som definierats i den **värden** matris. Detta gäller även för binding-egenskapen som du anger att en app inställningsnamn genom att omsluta värdet i procenttecken, till exempel `%AppSettingName%`. |
 | **Värd** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. | 
 | **LocalHttpPort** | Anger den standardport som används när du kör den lokala värden funktioner (`func host start` och `func run`). Den `--port` kommandoradsalternativet har högre prioritet än detta värde. |
 | **CORS** | Definierar det ursprung som tillåts för [resursdelning för korsande ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med inga blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från alla ursprung. |
 | **ConnectionStrings** | Innehåller databasanslutningssträngar för dina funktioner. Anslutningssträngar i det här objektet har lagts till i miljön med providern **System.Data.SqlClient**.  | 
 
-De flesta utlösare och bindningar har en **anslutning** egenskap som mappas till namnet på en miljöinställning för variabeln eller app. För varje anslutning-egenskap måste det finnas appinställningen som definierats i local.settings.json-filen. 
+De här inställningarna kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i referensavsnitten språkspecifika:
 
-De här inställningarna kan också läsa i koden som miljövariabler. I C#, använda [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) eller [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). I JavaScript, använda `process.env`. Inställningarna som en systemmiljövariabler åsidosätter värden i filen local.settings.json. 
++ [C#-förkompilerat](functions-dotnet-class-library.md#environment-variables)
++ [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 Inställningarna i filen local.settings.json används endast av funktioner verktyg när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att se till att dessa inställningar har lagts till i funktionsapp i Azure.
 
@@ -167,7 +214,7 @@ För att ange ett värde för anslutningssträngar, kan du göra något av följ
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    Båda kommandon måste du först logga in till Azure.
+    Båda kommandon måste du först logga in på Azure.
 
 <a name="create-func"></a>
 ## <a name="create-a-function"></a>Skapa en funktion
@@ -275,7 +322,7 @@ Följande exempel är samma funktion som anropas från en POST-begäran skickas 
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Observera att du HÄMTAR förfrågningar från en webbläsare överföring av data i frågesträngen. För alla andra HTTP-metoder, måste du använda cURL, Fiddler, Postman eller ett liknande tester HTTP-verktyg.  
+Du kan hämta begäranden från en webbläsare överföring av data i frågesträngen. För alla andra HTTP-metoder, måste du använda cURL, Fiddler, Postman eller ett liknande tester HTTP-verktyg.  
 
 #### <a name="non-http-triggered-functions"></a>Icke-HTTP-utlösta funktioner
 Du kan testa dina funktioner för alla typer av funktioner än http-utlösare och webhooks lokalt genom att anropa en slutpunkt för administration. Anropar den här slutpunkten med en HTTP POST-begäran på den lokala servern utlöser funktionen. Du kan eventuellt överföra testdata att körningen i brödtexten för POST-begäran. Den här funktionen liknar den **Test** fliken i Azure-portalen.  
@@ -361,3 +408,4 @@ Till filen en bugg eller funktion begäran [öppna ett problem med GitHub](https
 
 [Azure Functions grundläggande verktyg]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure-portalen]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

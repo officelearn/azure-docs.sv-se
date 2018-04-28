@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -25,7 +25,7 @@ Azure Application Insights ger detaljerad övervakning av webbprogrammet nivån 
 
 Den här artikeln guidar dig igenom hur du skapar en ASP.NET Core [Razor sidor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) program i Visual Studio och hur du börja övervaka med Azure Application Insights.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - NET Core 2.0.0 SDK eller senare.
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.3 eller senare med ASP.NET och web development arbetsbelastningen.
@@ -85,7 +85,7 @@ Välj **visa** > **Team Explorer** (Ctrl +\, Ctrl + M) > **projekt** > **ändrin
 
    ![Skärmbild av filer som ändrats genom att lägga till Application Insights](./media/app-insights-asp-net-core/0010-contoso-netcore-csproj.png)
 
-   **Program.cs**
+   **Program.CS**
 
    ![Skärmbild av filer som ändrats genom att lägga till Application Insights](./media/app-insights-asp-net-core/0011-program-cs.png)
 
@@ -187,13 +187,13 @@ Nu när du har slutfört föregående steg kan du testa och bekräfta att allt f
 
    ![Skärmbild av Live mått dataström](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (Om PowerShell-skriptet är fortfarande körs om bör du se live mått har slutat att kör skriptet igen med direktsänd dataström öppna.)
+   (Om din PowerShell skriptet körs fortfarande du bör se live statistik, och om den har stoppats kör skriptet igen med direktsänd dataström öppna.)
 
 ## <a name="app-insights-sdk-comparison"></a>App Insights SDK jämförelse
 
 Application Insights-produktgruppen har arbetat hårt för att få så nära funktionsparitet som möjligt mellan den [fullständig .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) och .net Core SDK. 2.2.0 versionen av den [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) för Application Insights i stort sett har stängts funktionen mellanrum.
 
-Information om skillnaderna och kompromisser mellan [.NET och .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Information om skillnaderna och kompromisser mellan [.NET och .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | Jämförelse av SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +203,7 @@ Information om skillnaderna och kompromisser mellan [.NET och .NET Core](https:/
    | **SQL-Beroendeanrop**     | **+** |**-** | **+**|
    | **Prestandaräknare*** | **+** | **-**| **-**|
 
-_Prestandaräknare_ refererar till i den här kontexten [serversidan prestandaräknare](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) som processor, minne och diskanvändning.
+_Prestandaräknare_ refererar till i den här kontexten [serversidan prestandaräknare](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) som processor, minne och diskanvändning.
 
 ## <a name="open-source-sdk"></a>Öppen källkod SDK
 [Läsa och bidra till koden](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

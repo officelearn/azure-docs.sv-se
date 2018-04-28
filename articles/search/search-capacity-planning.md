@@ -1,25 +1,18 @@
 ---
-title: "Kapacitetsplanering för Azure Search | Microsoft Docs"
-description: "Justera partition och repliken datorresurser i Azure Search, där varje resurs prissätts i fakturerbar search-enheter."
-services: search
-documentationcenter: 
+title: Kapacitetsplanering för Azure Search | Microsoft Docs
+description: Justera partition och repliken datorresurser i Azure Search, där varje resurs prissätts i fakturerbar search-enheter.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Skala resursen nivåer för fråga och indexering arbetsbelastningar i Azure Search
 När du [Välj prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att om du vill öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal fakturering enheter. Den här artikeln beskriver hur du tilldela dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för körning av fråga, indexering och lagring.
@@ -111,10 +104,10 @@ Den här tabellen visar SUs som krävs för att stödja kombinationer av replike
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
-| **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Gäller inte |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Gäller inte |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Gäller inte |
+| **12 repliker** |12 SU |24 SU |36 SU |Gäller inte |Saknas |Gäller inte |
 
 SUs priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [prisinformation](https://azure.microsoft.com/pricing/details/search/).
 

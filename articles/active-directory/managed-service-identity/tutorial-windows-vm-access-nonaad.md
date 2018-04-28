@@ -1,8 +1,8 @@
 ---
-title: "Använd en Windows VM-MSI för att komma åt Azure Key Vault"
-description: "En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Key Vault."
+title: Använd en Windows VM-MSI för att komma åt Azure Key Vault
+description: En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Key Vault.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 3c1f41f407dc85eac40d1aa545c588426db6a382
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c65e2dc3d1b7a754bda54bb9127bbc777b514768
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure Key Vault 
 
@@ -58,7 +58,7 @@ Den här självstudiekursen skapar vi en ny Windows virtuell dator. Du kan ocks�
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
-En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: MSI VM-tillägget installeras på den virtuella datorn och det gör att MSI i Azure Resource Manager.
+En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa det hanterade identitet och konfigurerar identiteten på den virtuella datorn.
 
 1.  Välj den **virtuella** som du vill aktivera MSI på.  
 2.  Klicka på det vänstra navigeringsfältet **Configuration**. 
@@ -66,10 +66,6 @@ En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behö
 4.  Se till att du klickar på **spara** att spara konfigurationen.  
 
     ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Om du vill kontrollera och vilka tillägg som finns på den här virtuella datorn, klickar du på **tillägg**. Om MSI aktiveras sedan **ManagedIdentityExtensionforWindows** visas i listan.
-
-    ![ALT bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Ge dina VM-åtkomst till en hemlighet som lagras i ett Nyckelvalv 
  
@@ -112,25 +108,25 @@ Vi använder först MSI för den virtuella datorn för att få en åtkomsttoken 
     PowerShell-begäran:
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://vault.azure.net"} -Headers @{Metadata="true"} 
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -Method GET -Headers @{Metadata="true"} 
     ```
     
     Därefter extraheras det fullständiga svaret som lagras som en JavaScript Object Notation (JSON) formaterad sträng i $response-objektet.  
     
     ```powershell
-    PS C:\> $content = $response.Content | ConvertFrom-Json 
+    $content = $response.Content | ConvertFrom-Json 
     ```
     
     Extrahera sedan den åtkomst-token från svaret.  
     
     ```powershell
-    PS C:\> $KeyVaultToken = $content.access_token 
+    $KeyVaultToken = $content.access_token 
     ```
     
     Använd slutligen PowerShells Invoke-WebRequest kommando för att hämta den hemlighet som du skapade tidigare i Nyckelvalvet, skicka åtkomst-token i auktoriseringshuvudet.  Du behöver URL-Adressen till ditt Nyckelvalv som finns i den **Essentials** avsnitt i den **översikt** sida i Nyckelvalvet.  
     
     ```powershell
-    PS C:\> (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
+    (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
     ```
     
     Svaret ser ut så här: 

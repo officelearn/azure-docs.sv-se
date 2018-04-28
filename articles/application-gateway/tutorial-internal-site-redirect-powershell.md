@@ -1,6 +1,6 @@
 ---
 title: Skapa en Programgateway med interna omdirigering - Azure PowerShell | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway som omdirigerar interna webbtrafik till lämplig serverdelspoolen av servrar med hjälp av Azure Powershell."
+description: Lär dig hur du skapar en Programgateway som omdirigerar interna webbtrafik till lämplig serverdelspoolen av servrar med hjälp av Azure Powershell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: c319d4f9aa3f607bccdc7237ce1f678b338180d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c0da7920692673ce414d76932fe23280d3b217dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med interna genom att använda Azure PowerShell
 
 Du kan använda Azure Powershell för att konfigurera [web trafik omdirigering](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här kursen definierar du en serverdelspool med hjälp av en skaluppsättning för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på domäner som du äger för att kontrollera Internet-trafik anländer till i poolen. Den här kursen förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.contoso.org*.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Om du vill ta reda på vilken version du kör ` Get-Module -ListAvailable AzureRM` . Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Om du vill ta reda på vilken version du kör ` Get-Module -ListAvailable AzureRM` . Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -224,7 +224,7 @@ Add-AzureRmApplicationGatewayRequestRoutingRule `
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-## <a name="create-virtual-machine-scale-set"></a>Skapa virtuella datorns skaluppsättning
+## <a name="create-virtual-machine-scale-set"></a>Skapa VM-skalningsuppsättningar
 
 I det här exemplet skapar du en skaluppsättning för virtuell dator som har stöd för serverdelspoolen som du skapade. Den skaluppsättning som du skapar heter *myvmss* och innehåller två instanser för virtuella datorer som du installerar IIS. Du kan tilldela skaluppsättningen till serverdelspoolen när du konfigurerar IP-inställningar.
 
@@ -295,11 +295,11 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. T.ex, http://www.contoso.com.
 
 ![Testa plats för contoso i Programgateway](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Ändra adressen till den andra domänen, till exempel http://www.contoso.org och du bör se att trafiken dirigeras till lyssnaren för www.contoso.com.
+Ändra adressen till din domän, till exempel http://www.contoso.org ska du se att trafiken dirigeras till lyssnaren för www.contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 

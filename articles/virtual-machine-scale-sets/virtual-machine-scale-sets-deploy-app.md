@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera programmet på virtuella datorer
-Om du vill köra program på instanser i en skaluppsättning för virtuella datorer (VM), måste du först installera programkomponenterna och filer som krävs. Den här artikeln introducerar sätt att skapa en anpassad VM-avbildning för instanser i en skala eller köra automatiskt installera skript på befintliga VM-instanser. Du också lära dig hur du hanterar programmet eller OS-uppdateringar i en skaluppsättning.
+Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln introducerar sätt att skapa en anpassad VM-avbildning för instanser i en skala eller köra automatiskt installera skript på befintliga VM-instanser. Du också lära dig hur du hanterar programmet eller OS-uppdateringar i en skaluppsättning.
 
 
 ## <a name="build-a-custom-vm-image"></a>Skapa en anpassad VM-avbildning
@@ -42,7 +42,7 @@ Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-da
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installera en app på Windows virtuell dator med PowerShell DSC
-[PowerShell önskad tillstånd Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) är en plattform för att definiera konfigurationen av måldatorerna. DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. Motorn för lokala Configuration Manager (MGM) körs på varje målnoden som bearbetar begärda åtgärder baserat på intryckt konfigurationer.
+[PowerShell önskad tillstånd Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) är en plattform för att definiera konfigurationen av måldatorerna. DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. Motorn för lokala Configuration Manager (MGM) körs på varje målnoden som bearbetar begärda åtgärder baserat på intryckt konfigurationer.
 
 PowerShell DSC-tillägg kan du anpassa VM-instanser i en skala som anges med PowerShell. I följande exempel:
 

@@ -1,10 +1,10 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med XaitPorter | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och XaitPorter."
+title: 'Självstudier: Azure Active Directory-integrering med XaitPorter | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och XaitPorter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Självstudier: Azure Active Directory-integrering med XaitPorter
 
@@ -32,7 +32,7 @@ Integrera XaitPorter med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med XaitPorter, behöver du följande:
 
@@ -108,38 +108,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och XaitPorter domän med enkel inloggning information](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.xaitporter.com/saml/login`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.xaitporter.com/saml/login`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.xaitporter.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [XaitPorter klienten supportteamet](https://www.xait.com/support/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [XaitPorter klienten supportteamet](https://www.xait.com/support/) att hämta dessa värden.
+     
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar. 
 
-4. Klicka på **spara** knappen.
+    ![Länken hämta certifikatet](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. Att generera den **Metadata** url, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. Gå till egenskapssidan för **XaitPorter** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Ange den **IP-adress** eller **URL för tjänstmetadata** till den [SmartRecruiters supportteam](https://www.smartrecruiters.com/about-us/contact-us/), så att XaitPorter kan se till att IP-adress kan nås från din XaitPorter Konfigurera listan på sidan-instans. 
+6. Ange den **IP-adress** eller **webbadress Federation Metadata** till den [SmartRecruiters supportteam](https://www.smartrecruiters.com/about-us/contact-us/), så att XaitPorter kan se till att IP-adress kan nås från din Konfigurera listan på sidan XaitPorter-instans. 
 
 7. I en annan webbläsarfönster loggar du in på webbplatsen XaitPorter företag som administratör.
 
@@ -157,15 +141,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Välj **aktivera enkel inloggning, autentisering**.
 
-    b. I **identitet providerinställningar** textruta klistra in **URL för tjänstmetadata** som du har kopierat från Azure och klicka på **hämta**.
+    b. I **identitet providerinställningar** textruta klistra in **webbadress Federation Metadata** som du har kopierat från Azure-portalen och klicka på **hämta**.
 
     c. Välj **Aktivera skapa automatiskt användare**.
 
     d. Klicka på **OK**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

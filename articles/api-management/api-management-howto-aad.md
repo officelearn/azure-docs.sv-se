@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera developer konton med hjälp av Azure Active Directory i Azure API Management
 
@@ -100,6 +100,11 @@ Den här artikeln visar hur du aktiverar åtkomst till developer-portalen för a
 31. Växla tillbaka till ditt API Management-program. 
 
     I den **Lägg till identitetsleverantör** fönstret klistra in nyckeln i den **klienthemlighet** textruta.
+
+    > [!IMPORTANT]
+    > Se till att uppdatera den **klienthemlighet** innan nyckeln upphör att gälla. 
+    >  
+    >
 32. Den **Lägg till identitetsleverantör** fönstret innehåller också den **tillåtna klienter** textruta. Ange det, domäner i Azure AD-instanser som du vill bevilja åtkomst till API: er för API Management service-instans. Du kan avgränsa flera domäner med radmatningar bäddas, mellanslag eller semikolon.
 
     Du kan ange flera domäner i den **tillåtna hyresgäster** avsnitt. Innan en användare kan logga in från en annan domän än den ursprungliga där programmet har registrerats, bevilja en global administratör i domänen annat behörigheten för programmet att komma åt directory data. Om du vill ge behörighet, bör den globala administratören

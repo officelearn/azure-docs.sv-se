@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f418e70c6da46443b95e5fd4056ca26d46d95505
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-container-service-aks-preview"></a>Introduktion till förhandsversion av Azure Container Service (AKS)
 

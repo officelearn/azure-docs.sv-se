@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exempel på användning: Kontinuerlig distribution till virtuella datorer med hjälp av Automation DSC och Chocolatey
 I en DevOps-värld finns många verktyg för att hjälpa till med olika punkter i pipeline för kontinuerlig Integration.  Azure Automation önskat tillståndskonfigurationen (DSC) är en Välkommen nya tillägg till de alternativ som DevOps team kan använda.  Den här artikeln visar inställningen in kontinuerlig distribution (CD) för en Windows-dator.  Du kan enkelt utöka tekniken för att inkludera så många Windows-datorer som behövs i roll (till exempel en webbplats), och därifrån samt ytterligare roller.
@@ -50,7 +50,7 @@ Du utför förmodligen redan bitars längst upp eller de flesta av den.  Skapa n
 Om du inte behöver börja med en ARM-mall, är det också OK.  Det finns PowerShell-cmdlets som utformats för att hjälpa dig att registrera dina virtuella datorer med pull-server och alla övriga. Mer information finns i den här artikeln: [Onboarding datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Steg 1: Konfigurera kontot för pull-servern och automatisering
-Vid en autentiserad (Add-AzureRmAccount) PowerShell-kommandorad: (kan ta några minuter innan den pull-servern har konfigurerats)
+Vid en autentiserad (Connect-AzureRmAccount) PowerShell-kommandorad: (kan ta några minuter innan den pull-servern har konfigurerats)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
@@ -132,7 +132,7 @@ ISVBoxConfig.ps1:
         }    
     }
 
-New-ConfigurationScript.ps1:
+Nya-ConfigurationScript.ps1:
 
     Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 

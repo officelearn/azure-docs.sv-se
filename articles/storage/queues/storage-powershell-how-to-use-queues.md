@@ -1,12 +1,12 @@
 ---
-title: "Utföra åtgärder på Azure Queue storage med PowerShell | Microsoft Docs"
-description: "Hur du utför åtgärder på Azure Queue storage med PowerShell"
+title: Utföra åtgärder på Azure Queue storage med PowerShell | Microsoft Docs
+description: Hur du utför åtgärder på Azure Queue storage med PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra Azure Queue storage-åtgärder med Azure PowerShell
 
@@ -38,15 +38,15 @@ Det finns inga PowerShell-cmdletar för dataplan för köer. Om du vill utföra 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot `Login-AzureRmAccount` och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med kommandot `Connect-AzureRmAccount` och följ anvisningarna på skärmen.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Hämta listan över platser
 
-Om du inte vet vilken plats som du vill använda, kan du visa tillgängliga platser. När listan visas hitta det du vill använda. Den här övningen använder **eastus**. Lagras i variabeln **plats** för framtida användning.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. Den här övningen använder **eastus**. Lagras i variabeln **plats** för framtida användning.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -190,7 +190,7 @@ I den här artikeln du lärt dig om grundläggande lagringshantering för kön m
 > * Ta bort en kö
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell lagrings-cmdletar
-* [PowerShell-cmdlets för lagring](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdletar](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

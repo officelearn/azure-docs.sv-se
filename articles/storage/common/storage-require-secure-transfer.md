@@ -1,12 +1,12 @@
 ---
-title: "Kräver säker överföring i Azure Storage | Microsoft Docs"
-description: "Mer information om funktionen ”säker överföring krävs” för Azure Storage och hur du aktiverar den."
+title: Kräver säker överföring i Azure Storage | Microsoft Docs
+description: Mer information om funktionen ”säker överföring krävs” för Azure Storage och hur du aktiverar den.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Kräv säker överföring i Azure Storage
 
@@ -66,7 +66,7 @@ Använd inställningen för att kräva säker överföring via programmering _su
 
 Det här exemplet kräver Azure PowerShell Modulversion 4.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
-Kör `Login-AzureRmAccount` att skapa en anslutning med Azure.
+Kör `Connect-AzureRmAccount` för att skapa en anslutning med Azure.
 
  Använd följande kommandorad för att kontrollera inställningen:
 

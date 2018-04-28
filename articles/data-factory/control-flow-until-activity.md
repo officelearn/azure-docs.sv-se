@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 14abd3f069cb5cd49265a6b27e4b1c4363a21441
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3462bfda5437ed66f58025deb98e4dbb3860f1d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Förrän aktivitet i Azure Data Factory
 Aktiviteten till fungerar på samma sätt som ett-tills slingor strukturen innehåller programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
@@ -59,7 +59,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på den `Until` aktivitet. | Sträng | Ja
 typ | Måste anges till **tills**. | Sträng | Ja
-expression | Uttryck som måste utvärderas till true eller false | Uttryck.  | Ja
+uttryck | Uttryck som måste utvärderas till true eller false | Uttryck.  | Ja
 timeout | Do-tills loop gånger ut efter den angivna tiden. | Sträng. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta tillåtna värde är: 90 dagar. | Nej
 Aktiviteter | Uppsättning aktiviteter körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
@@ -253,7 +253,7 @@ Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** ell
 Kommandona förutsätter att du har sparat JSON-filer i mappen: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

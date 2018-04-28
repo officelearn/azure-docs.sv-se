@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
+ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0f40d2d953f028f2014c88a22f9ad31fed705b76
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Skapa en .NET Core-webbapp i App Service på Linux
 
@@ -41,7 +41,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 För att slutföra den här snabbstarten behöver du:
 
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Installera .NET Core SDK 1.1</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">Installera .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Skapa appen lokalt
 
@@ -171,7 +171,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/quickstart-dotnetcore/portal-app-service-list.png)
 

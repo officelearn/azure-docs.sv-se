@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c284bb3637415186a12c63d4eeb088ab5f23e2e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f85a7b018085ce30550bec21fe41ca3f9253da80
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-location-based-services---supported-languages"></a>Azure-plats-baserade tjänster - språk som stöds
 Azure baserad platstjänster lokaliserade på flera olika språk tjänster.  Följande tabell innehåller språkkoderna som stöds för varje tjänst.  
@@ -26,21 +26,21 @@ Azure baserad platstjänster lokaliserade på flera olika språk tjänster.  Fö
 
 
 
-| ID         | namn                   |  Kartor | Sökning | Routning | Trafik incidenter | JS kartkontrollen | Tidszon |
+| ID         | Namn                   |  Maps | Search | Routning | Trafik incidenter | JS kartkontrollen | Tidszon |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
+| AF ÖA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | EU-ES      | Baskiska                 |       |        |         |                   |                |     ✓     |
-| bg-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| BG-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | CA-ES      | Katalanska                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Kinesiska (förenklad)   |       |  zh-CN |         |                   |                |     ✓     |
 | zh-HanT    | Kinesiska (traditionell)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
-| hr-HR      | Kroatiska               |       |    ✓   |         |                   |                |     ✓     |
-| cs-CZ      | tjeckiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| HR-HR      | Kroatiska               |       |    ✓   |         |                   |                |     ✓     |
+| CS-CZ      | tjeckiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl -NL     | Nederländska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-BE      | Engelska (Nya Zeeland)        |       |    ✓   |         |                   |                |     ✓     |
-| sv-SE         | Engelska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-NL      | Nederländska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-vara      | Engelska (Nya Zeeland)        |       |    ✓   |         |                   |                |     ✓     |
+| en         | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estniska               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Franska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -51,29 +51,29 @@ Azure baserad platstjänster lokaliserade på flera olika språk tjänster.  Fö
 | han IL      | Hebreiska                 |       |        |         |         ✓         |                |     ✓     |
 | Hej IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | ungerska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonesiska             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| ID-ID      | Indonesiska             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
 | IT-IT      | Italienska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japanska               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazakiska                 |       |        |         |                   |                |     ✓     |
-| ko-KR      | koreanska                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| es-419     | Latinamerika spanska |       |    ✓   |         |                   |                |     ✓     |
+| KK KZ      | Kazakiska                 |       |        |         |                   |                |     ✓     |
+| ko-KR      | Koreanska                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
+| ES 419     | Latinamerika spanska |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Lettiska                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Litauiska             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ms-MY      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Norska (bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| pl-PL      | polska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| Mina MS      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| NB-NO      | Norska (bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portugisiska (Brasilien)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| pt-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Rumänska               |       |        |         |         ✓         |                |     ✓     |
-| ru-RU      | ryska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| PT-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| RO-RO      | Rumänska               |       |        |         |         ✓         |                |     ✓     |
+| ru-RU      | Ryska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sr-Cyrl-RS | Serbiska (kyrillisk)     |       |        |         |                   |                |     ✓     |
-| sr-Latn-RS | Serbiska (latinsk)        |       |        |         |                   |                |     ✓     |
+| SR-Latn-RS | Serbiska (latinsk)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Slovakiska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Slovenska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Spanska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Spanska (Mexiko)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| SV -SE     | svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| SV -SE     | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | TH-TH      | Thai                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
-| tr-TR      | turkiska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| TR-TR      | Turkiska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | Ukrainska               |       |        |         |                   |                |     ✓     |
-| vi-VN      | Vietnamesiska             |       |        |         |                   |                |     ✓     |
+| Vi VN      | Vietnamesiska             |       |        |         |                   |                |     ✓     |

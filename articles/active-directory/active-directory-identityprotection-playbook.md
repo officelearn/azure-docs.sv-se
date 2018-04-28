@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory-identitetsskydd playbook | Microsoft Docs
-description: "Lär dig hur Azure AD Identity Protection gör att du kan begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet och att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad."
+description: Lär dig hur Azure AD Identity Protection gör att du kan begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet och att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad.
 services: active-directory
-keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
-documentationcenter: 
+keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory-identitetsskydd playbook
 
@@ -50,7 +50,7 @@ Slutför följande procedur måste du använda:
 
 **Utför följande steg för att simulera en inloggning från en anonym IP**:
 
-1. Med hjälp av den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gå till [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Med hjälp av den [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gå till [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
 2. Ange autentiseringsuppgifter för det konto som du vill ska visas i den **inloggningar från anonyma IP-adresser** rapporten.
 
 Logga in visas på instrumentpanelen identitetsskydd inom 10 – 15 minuter. 
@@ -76,7 +76,7 @@ Slutför följande procedur måste du använda ett konto som har:
 **Utför följande steg för att simulera en inloggning från en okänd plats**:
 
 1. När du loggar in med ditt test, misslyckas MFA-kontrollen genom att inte skicka MFA-kontrollen.
-2. Använd din nya VPN-anslutningar, navigera till [https://myapps.microsoft.com](https://myapps.microsoft.com) och ange autentiseringsuppgifterna för kontot för testet.
+2. Använd din nya VPN-anslutningar, navigera till [ https://myapps.microsoft.com ](https://myapps.microsoft.com) och ange autentiseringsuppgifterna för kontot för testet.
    
 
 Logga in visas på instrumentpanelen identitetsskydd inom 10 – 15 minuter.
@@ -90,18 +90,18 @@ Det är svårt att simulera villkoret omöjligt att resa eftersom algoritmen anv
 
 **Utför följande steg för att simulera en omöjligt att resa till ovanliga plats**:
 
-1. Använd din standard-webbläsare, navigera till [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Använd din standard-webbläsare, navigera till [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
 2. Ange autentiseringsuppgifter för det konto som du vill generera en händelse med omöjliga resor risken för.
 3. Ändra din användaragent. Du kan ändra användaragent i Internet Explorer från utvecklingsverktyg eller ändra din användaragent i Firefox eller Chrome med en användaragent switcher tillägg.
 4. Ändra IP-adress. Du kan ändra din IP-adress med hjälp av en VPN-anslutning, Tor-tillägg eller startas en ny dator i Azure i olika datacenter.
-5. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com) använder du samma inloggningsuppgifter som förut och inom några minuter efter den föregående inloggningen.
+5. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com) använder du samma inloggningsuppgifter som förut och inom några minuter efter den föregående inloggningen.
 
 Logga in visas i instrumentpanelen identitetsskydd inom 2-4 timmar.
 
 ## <a name="simulating-vulnerabilities"></a>Simulera säkerhetsrisker
 Säkerhetsrisker är svagheter i en Azure AD-miljö som kan utnyttjas av en felaktig aktören. För närvarande exponeras 3 typer av säkerhetsproblem i Azure AD Identity Protection som utnyttjar andra funktioner i Azure AD. Dessa problem visas på instrumentpanelen identitetsskydd automatiskt när dessa funktioner har ställts in.
 
-* Azure AD [Multifaktorautentisering](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multifaktorautentisering](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
@@ -120,7 +120,7 @@ Mer information finns i [användaren risk säkerhetsprincip](active-directory-id
 
 **Utför följande steg om du vill testa en säkerhetsprincip för användaren risk**:
 
-1. Logga in på [https://portal.azure.com](https://portal.azure.com) med globala administratörsbehörigheter för din klient.
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com) med globala administratörsbehörigheter för din klient.
 2. Gå till **identitetsskydd**. 
 3. På den **Azure AD Identity Protection** klickar du på **risk användarprincip**.
 4. I den **tilldelningar** , Välj önskade användare (och grupper) och risknivå för användaren.
@@ -145,7 +145,7 @@ Mer information finns i [användaren risk säkerhetsprincip](active-directory-id
 
 **Utför följande steg om du vill testa ett tecken i riskprincipen:**
 
-1. Logga in på [https://portal.azure.com ](https://portal.azure.com) med globala administratörsbehörigheter för din klient.
+1. Logga in på [ https://portal.azure.com ](https://portal.azure.com) med globala administratörsbehörigheter för din klient.
 
 2. Gå till **Azure AD Identity Protection**.
 

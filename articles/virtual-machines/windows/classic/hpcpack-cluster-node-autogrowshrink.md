@@ -1,10 +1,10 @@
 ---
 title: Autoskala HPC Pack klusternoder | Microsoft Docs
-description: "Automatiskt växa eller krympa antalet noder i HPC Pack beräkning i Azure"
+description: Automatiskt växa eller krympa antalet noder i HPC Pack beräkning i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatiskt växa eller krympa HPC Pack klusterresurserna i Azure enligt klustrets arbetsbelastning
 Om du distribuerar Azure ”burst” noder i klustret HPC Pack, eller skapar du ett HPC Pack-kluster i virtuella Azure-datorer, kanske ett sätt att automatiskt öka eller minska klustrets resurser, till exempel noder eller kärnor enligt belastningen på klustret. Skalning klusterresurserna på så sätt kan du använda resurserna i Azure mer effektivt och kontrollera deras kostnader.
@@ -35,11 +35,11 @@ För närvarande kan endast automatiskt växa och krympa HPC Pack compute-noder 
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>Ange egenskapen AutoGrowShrink kluster
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * **HPC Pack 2012 R2 uppdatering 2 eller ett senare kluster** -klustrets huvudnod kan distribueras antingen lokalt eller i en Azure VM. Se [ställer in en hybrid-kluster med HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) att komma igång med en lokal huvudnod och Azure ”burst” noder. Finns det [HPC Pack IaaS distributionsskriptet](hpcpack-cluster-powershell-script.md) att snabbt distribuera ett kluster som HPC Pack i virtuella Azure-datorer.
 
-* **För ett kluster med en huvudnod i Azure (Resource Manager-modellen)** – med början i HPC Pack 2016 certifikatautentisering i ett Azure Active Directory-program används för att automatiskt växer och krympande klustrets virtuella datorer distribueras via Azure Resource Manager. Konfigurera ett certifikat på följande sätt:
+* **För ett kluster med en huvudnod i Azure (Resource Manager-modellen)** – med början i HPC Pack 2016 certifikatautentisering i ett Azure Active Directory-program används för att automatiskt växande och krympande klustrets virtuella datorer distribueras via Azure Resource Manager. Konfigurera ett certifikat på följande sätt:
 
   1. Efter-Klusterdistribution kan du ansluta av fjärrskrivbord till en huvudnod.
 
@@ -50,13 +50,13 @@ För närvarande kan endast automatiskt växa och krympa HPC Pack compute-noder 
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Om ditt konto finns i fler än en Azure Active Directory-klient eller Azure-prenumeration kan köra du följande kommando för att välja rätt klient och prenumeration:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Kör följande kommando för att visa den markerade klient och prenumeration:
@@ -86,7 +86,7 @@ För närvarande kan endast automatiskt växa och krympa HPC Pack compute-noder 
     Mer information om **ConfigARMAutoGrowShrinkCert.ps1**kör `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
 
-* **För ett kluster med en huvudnod i Azure (klassiska distributionsmodellen)** - om du använder HPC Pack IaaS-distributionsskriptet skapa klustret i den klassiska distributionsmodellen genom att aktivera den **AutoGrowShrink** kluster egenskapen genom att ange alternativet AutoGrowShrink i konfigurationsfilen för klustret. Mer information finns i dokumentationen som medföljer den [hämtning av](https://www.microsoft.com/download/details.aspx?id=44949).
+* **För ett kluster med en huvudnod i Azure (klassiska distributionsmodellen)** - om du använder HPC Pack IaaS-distributionsskriptet skapa klustret i den klassiska distributionsmodellen genom att aktivera den **AutoGrowShrink** kluster egenskap med Ange alternativet AutoGrowShrink i konfigurationsfilen för klustret. Mer information finns i dokumentationen som medföljer den [hämtning av](https://www.microsoft.com/download/details.aspx?id=44949).
 
     Du kan också aktivera den **AutoGrowShrink** kluster egenskapen när du har distribuerat klustret med hjälp av HPC PowerShell-kommandon som beskrivs i följande avsnitt. För att förbereda för det här gör du följande:
 
@@ -181,24 +181,24 @@ Som standard HPC Pack växer 1% extra noder för MPI-jobb (**ExtraNodesGrowRatio
 Som standard **SoaJobGrowThreshold** är inställd på 50000 och **SoaRequestsPerCore** är inställd på 20000. Om du skickar ett SOA-jobb med 70000 begäranden, det finns en köad aktivitet och inkommande begäranden 70000. I det här fallet HPC Pack växer 1 kärna för aktiviteten i kö och för inkommande begäranden, växer (70000 50000) / 20000 = 1 core i totalt växer 2 kärnor för denna SOA-jobb.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Kör skriptet AzureAutoGrowShrink.ps1
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * **HPC Pack 2012 R2 Update 1 eller ett senare kluster** – **AzureAutoGrowShrink.ps1** skript är installerad på % CCP_HOME % bin-mappen. Klustrets huvudnod kan distribueras antingen lokalt eller i en Azure VM. Se [ställer in en hybrid-kluster med HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) att komma igång med en lokal huvudnod och Azure ”burst” noder. Finns det [HPC Pack IaaS distributionsskriptet](hpcpack-cluster-powershell-script.md) att snabbt distribuera ett kluster som HPC Pack i virtuella Azure-datorer eller använda en [Azure quickstart mallen](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0** -skriptet för närvarande är beroende av den här specifika versionen av Azure PowerShell.
 * **För ett kluster med Azure burst-noder** -kör skriptet på en klientdator där HPC Pack är installerad eller på huvudnoden. Om körs på en klientdator, se till att du anger variabeln $env: CCP_SCHEDULER så att den pekar till huvudnod. Azure ”burst” noder måste läggas till i klustret, men de kan vara i tillståndet inte distribueras.
-* **För ett kluster som distribueras på virtuella Azure-datorer (Resource Manager-distributionsmodellen)** -för ett kluster med Azure virtuella datorer som distribueras i Resource Manager-distributionsmodellen skriptet stöder två metoder för Azure-autentisering: Logga in på ditt Azure-konto för att köra skriptet varje gång (genom att köra `Login-AzureRmAccount`, eller konfigurera ett huvudnamn för tjänsten att autentisera med ett certifikat. HPC Pack tillhandahåller skript **ConfigARMAutoGrowShrinkCert.ps** att skapa ett huvudnamn för tjänsten med certifikat. Skriptet skapar ett program för Azure Active Directory (Azure AD) och ett huvudnamn för tjänsten och tilldelar deltagarrollen till tjänstens huvudnamn. Starta Azure PowerShell som administratör för att köra skriptet och kör följande kommandon:
+* **För ett kluster som distribueras på virtuella Azure-datorer (Resource Manager-distributionsmodellen)** -för ett kluster med Azure virtuella datorer som distribueras i Resource Manager-distributionsmodellen skriptet stöder två metoder för Azure-autentisering: Logga in på ditt Azure-konto för att köra den varje gång-skript (genom att köra `Connect-AzureRmAccount`, eller konfigurera ett huvudnamn för tjänsten att autentisera med ett certifikat. HPC Pack tillhandahåller skript **ConfigARMAutoGrowShrinkCert.ps** att skapa ett huvudnamn för tjänsten med certifikat. Skriptet skapar ett program för Azure Active Directory (Azure AD) och ett huvudnamn för tjänsten och tilldelar deltagarrollen till tjänstens huvudnamn. Starta Azure PowerShell som administratör för att köra skriptet och kör följande kommandon:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
 
     Mer information om **ConfigARMAutoGrowShrinkCert.ps1**kör `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`,
 
-* **För ett kluster som distribueras på virtuella Azure-datorer (klassiska distributionsmodellen)** -kör skriptet på huvudnoden VM, eftersom den är beroende av **Start HpcIaaSNode.ps1** och **stoppa HpcIaaSNode.ps1** skript som är installerade det. Dessa skript Dessutom kräver ett Azure-hanteringscertifikat eller inställningsfilen för publicering (se [hantera compute-noder i ett HPC Pack kluster i Azure](hpcpack-cluster-node-manage.md)). Kontrollera att alla Beräkningsnoden virtuella datorer som du redan har lagts till i klustret. De kan vara i stoppat tillstånd.
+* **För ett kluster som distribueras på virtuella Azure-datorer (klassiska distributionsmodellen)** -kör skriptet på huvudnoden VM, eftersom den är beroende av **Start HpcIaaSNode.ps1** och **stoppa HpcIaaSNode.ps1** skript som installeras det. Dessa skript Dessutom kräver ett Azure-hanteringscertifikat eller inställningsfilen för publicering (se [hantera compute-noder i ett HPC Pack kluster i Azure](hpcpack-cluster-node-manage.md)). Kontrollera att alla Beräkningsnoden virtuella datorer som du redan har lagts till i klustret. De kan vara i stoppat tillstånd.
 
 
 

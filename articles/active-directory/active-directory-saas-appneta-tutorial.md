@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 9049c98803056ce459ef22869100166cbd232cc3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6c06b2819516664a367ca31925366eabd05e688e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Självstudier: Azure Active Directory-integrering med AppNeta Prestandaövervakaren
 
@@ -130,7 +130,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | rubrik| User.jobtitle|
 
     > [!NOTE]
-    > ”grupper” syftar på säkerhetsgruppen i Appneta som mappas till en roll i Azure AD. Se [detta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) dokument som beskriver hur du skapar anpassade roller i Azure AD.
+    > ”grupper” syftar på säkerhetsgruppen i Appneta som mappas till en roll i Azure AD. Se [detta](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) dokument som beskriver hur du skapar anpassade roller i Azure AD.
         
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 

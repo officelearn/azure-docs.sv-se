@@ -1,13 +1,13 @@
 ---
-title: "Azure virtuella datorer DBMS-distribution för SAP NetWeaver | Microsoft Docs"
-description: "Azure virtuella datorer DBMS-distribution för SAP NetWeaver"
+title: Azure virtuella datorer DBMS-distribution för SAP NetWeaver | Microsoft Docs
+description: Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8e8f1bc6f43c78e500e198a222fd29051138505
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -237,7 +237,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -290,7 +290,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -742,7 +742,7 @@ Tänk dock på, genomflödet beror också på platsen för Azure Storage-konto d
 Det är ett krav att hantera säkerhetskopiering på egen hand. Eftersom förutsättningen att många blobbar skapas genom att köra säkerhetskopieringar av transaktionsloggen ofta, kan administration av dessa blobbar enkelt överbelasta Azure-portalen. Därför är det recommendable utnyttjar en Azure Lagringsutforskaren. Det finns flera bra de tillgängliga, vilket hjälper dig för att hantera ett Azure storage-konto
 
 * Microsoft Visual Studio med Azure SDK är installerat (<https://azure.microsoft.com/downloads/>)
-* Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>)
+* Microsoft Azure Lagringsutforskaren (<https://azure.microsoft.com/downloads/>)
 * Verktyg från tredje part
 
 En fullständig beskrivning av säkerhetskopiering och SAP på Azure, referera till [guiden SAP säkerhetskopiering](sap-hana-backup-guide.md) för mer information.
@@ -810,18 +810,18 @@ Vissa aspekter med hjälp av en Tillgänglighetsgruppslyssnare är:
 
 [comment]: <> (Gamla TODO-blogg)
 [comment]: <> (Detaljerade anvisningar och är nödvändigt att installera en AlwaysOn-konfigurationen på Azure är enklast att när du går igenom kursen tillgängliga [here][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
-[comment]: <> (Förkonfigurerade AlwaysOn-installationen via Azure-galleriet < https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (Förkonfigurerade AlwaysOn-installationen via Azure-galleriet <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (Skapa en Tillgänglighetsgruppslyssnare är bäst beskrivs i kursen [this][virtual-machines-windows-classic-ps-sql-int-listener])
 [comment]: <> (Att säkra nätverksslutpunkter med åtkomstkontrollistor beskrivs bästa här:)
-[comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
+[comment]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
 Det är möjligt att distribuera en SQL Server alltid på tillgänglighetsgrupp över samt olika Azure-regioner. Den här funktionen utnyttjar Azure VNet-till-Vnet-anslutningen ([mer][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (Gamla TODO-blogg)
-[comment]: <> (Installationen av SQL Server AlwaysOn-Tillgänglighetsgrupper i ett sådant scenario som beskrivs här: < https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (Installationen av SQL Server AlwaysOn-Tillgänglighetsgrupper i ett sådant scenario som beskrivs här: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>En sammanfattning av SQL Server med hög tillgänglighet i Azure
 Med tanke på att innehållet skyddas av Azure Storage, är det ett mindre skäl till att kräva en hot standby-avbildning. Detta innebär att ditt scenario för hög tillgänglighet behöver bara skydda mot följande fall:
@@ -915,9 +915,9 @@ För SAP-system som använder SAP ASE som databasplattform, är DBACockpit tillg
 
 Som med lokalt system krävs flera steg för att aktivera alla SAP NetWeaver-funktioner som används av Webdynpro implementeringen av DBACockpit. Följ SAP-kommentar [1245200] att aktivera användning av webdynpros och generera de nödvändiga. När följa anvisningarna i ovanstående anteckningar konfigurera du också hanteraren för Internet-kommunikation (icm) tillsammans med portarna som ska användas för http och https-anslutningar. Standardinställningen för HTTP-ser ut så här:
 
-> icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_0 = skydd = HTTP, PORT = 8000 PROCTIMEOUT = 600, TIMEOUT = 600
 > 
-> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_1 = skydd = HTTPS, PORT = 443$ $PROCTIMEOUT = 600, TIMEOUT = 600
 > 
 > 
 
@@ -1068,9 +1068,9 @@ För SAP-system som använder SAP ASE som databasplattform, är DBACockpit tillg
 
 Som med lokalt system krävs flera steg för att aktivera alla SAP NetWeaver-funktioner som används av Webdynpro implementeringen av DBACockpit. Följ SAP-kommentar [1245200] att aktivera användning av webdynpros och generera de nödvändiga. När följa anvisningarna i ovanstående anteckningar konfigurera du också hanteraren för Internet-kommunikation (icm) tillsammans med portarna som ska användas för http och https-anslutningar. Standardinställningen för HTTP-ser ut så här:
 
-> icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_0 = skydd = HTTP, PORT = 8000 PROCTIMEOUT = 600, TIMEOUT = 600
 > 
-> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_1 = skydd = HTTPS, PORT = 443$ $PROCTIMEOUT = 600, TIMEOUT = 600
 > 
 > 
 

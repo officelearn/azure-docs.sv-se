@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -47,7 +47,7 @@ Azure-stacken 1802 uppdatera versionsnumret är **20180302.1**.
   Följ vanliga procedurer för att installera snabbkorrigeringen [installerar uppdateringar för Azure-Stack](azure-stack-apply-updates.md). Namnet på uppdateringen visas som **AzS Hotfix – 1.0.180312.1**, och innehåller följande filer: 
     - PUPackageHotFix_20180222.2-1.exe
     - PUPackageHotFix_20180222.2-1.bin
-    - Metadata.xml
+    - Metadata.XML
 
   När du överför dessa filer till ett lagringskonto och en behållare, kör du installationen från panelen uppdatering i administrationsportal. 
   
@@ -56,9 +56,10 @@ Azure-stacken 1802 uppdatera versionsnumret är **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
-Installera alla tillämpliga snabbkorrigeringar efter installationen av 1802. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
-- [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/help/4103348)
+Installera alla tillämpliga snabbkorrigeringar efter installationen av 1802. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md). 
+- Azure Stack snabbkorrigering **1.0.180302.4**. [KB 4131152 - befintliga Skalningsuppsättningar i virtuella datorer går inte att använda]( https://support.microsoft.com/help/4131152) 
 
+  Den här snabbkorrigeringen också lösa de problem som beskrivs i [KB 4103348 - Nätverksstyrenhetens API kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar

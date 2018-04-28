@@ -1,69 +1,69 @@
 ---
-title: Etablera en enhet med Azure IoT Hub enheten etablering Service (.NET) | Microsoft Docs
-description: "Etablera enheten till en enda IoT-hubb med hjälp av Azure IoT Hub enheten etablering Service (.NET)"
+title: Etablera en enhet med Azure IoT Hub Device Provisioning Service (.NET) | Microsoft Docs
+description: Etablera din enhet till en enda IoT-hubb med tjänsten Azure IoT Hub Device Provisioning (.NET)
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6919f962d853faa572ee7ad5d0cb9aeacd3bd2b6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrera enheten till en IoT-hubb med hjälp av Azure IoT Hub etablering Service klienten (.NET)
+# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrera enheten till en IoT-hubb med tjänsteklienten Azure IoT Hub Provisioning (.NET)
 
-Du lärt dig hur du ställer in en enhet för att ansluta till tjänsten Enhetsetableringen i föregående självstudierna. I kursen får du lära dig hur att använda tjänsten för att etablera enheten till en enda IoT-hubb med både  **_enskilda registrering_**  och  **_registrering grupper_**. I den här självstudiekursen lär du dig att:
+I den förra självstudien lärde du dig att konfigurera en enhet för att ansluta till din enhetsetableringstjänst. I den här självstudien lär du dig att använda tjänsten för att etablera enheten till en enda IoT-hubb, med hjälp av **_individuell registrering_** och **_registreringslistor_**. I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > * Registrera enheten
 > * Starta enheten
 > * Kontrollera att enheten är registrerad
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du fortsätter måste du konfigurera din enhet och dess *maskinvarusäkerhetsmodul* enligt beskrivningen i självstudierna [konfigurera en enhet för att etablera med hjälp av Azure IoT-hubb Device etablering Service](./tutorial-set-up-device.md).
+Innan du fortsätter måste du konfigurera din enhet och dess *säkerhetsmodul för maskinvara* enligt anvisningarna i självstudien [Konfigurera en enhet för etablering med Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-device.md).
 
 * Visual Studio 2015 eller Visual Studio 2017
 
 > [!NOTE]
-> Visual Studio krävs inte. Installationen av [.NET](https://www.microsoft.com/net) räcker och utvecklare kan använda sina önskad redigerare på Windows- eller Linux.  
+> Visual Studio krävs inte. Installationen av [.NET](https://www.microsoft.com/net) räcker och utvecklare kan använda det redigeringsprogram de föredrar på Windows eller Linux.  
 
-Den här självstudiekursen simulerar perioden under eller direkt efter den maskinvara som tillverkar processen när enhetsinformation läggs till tjänsten etablering. Den här koden körs vanligtvis på en dator eller en factory-enhet som kan köra .NET-kod och inte att lägga till enheter själva.
+Den här självstudien simulerar perioden under eller direkt efter processen för maskinvarutillverkning, när enhetsinformation läggs till i etableringstjänsten. Den här koden körs vanligtvis på en dator eller en enhet som kan köra .NET-kod och bör inte lägga till själva enheterna.
 
 
 ## <a name="enroll-the-device"></a>Registrera enheten
 
-Det här steget måste du lägga till enhetens unik säkerhet artefakter till enheten Etableringstjänsten. Dessa artefakter säkerhet är följande:
+I det här steget ska du lägga till enhetens unika säkerhetsartefakter till enhetsetableringstjänsten. Dessa säkerhetsartefakter är:
 
 - För TPM-baserade enheter:
-    - Den *bekräftelsenyckel* som är unik för varje TPM-chip eller simuleringen. Läs den [förstå bekräftelsenyckel för TPM](https://technet.microsoft.com/library/cc770443.aspx) för mer information.
-    - Den *registrerings-ID* som används för att unikt identifiera en enhet i namnområdet/omfattning. Detta kan eller kan inte vara samma som enhets-ID. ID: T är obligatorisk för varje enhet. Registrerings-ID kan härledas från TPM, till exempel en SHA-256-hash för TPM-bekräftelsenyckel för TPM-baserade enheter.
+    - *Bekräftelsenyckeln* som är unik för varje TPM-krets eller simulering. Läs [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Förstå TPM-bekräftelsenyckeln) för mer information.
+    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. För TPM-baserade enheter kan registrerings-ID:t härledas från själv TPM, till exempel en SHA-256-hash för TPM-bekräftelsenyckeln.
 
 - För X.509-baserade enheter:
-    - Den [X.509-certifikat som utfärdades för enheten](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), i form av antingen en *.pem* eller en *.cer* fil. För enskilda registrering måste du använda den *lövcertifikatet* för X.509-systemet, medan för registrering av grupper du behöver använda den *rotcertifikat* eller motsvarande *undertecknare certifikatet*.
-    - Den *registrerings-ID* som används för att unikt identifiera en enhet i namnområdet/omfattning. Detta kan eller kan inte vara samma som enhets-ID. ID: T är obligatorisk för varje enhet. Registrerings-ID är härledd från certifikatets nätverksnamn (CN) för X.509-baserade enheter. Mer information om kraven finns [enheten begrepp](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - [X.509-certifikatet som utfärdats till enheten](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), antingen som en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda *lövcertifikatet* för ditt X.509-system, och för registreringsgrupper måste du använda *rotcertifikatet* eller ett motsvarande *signeringscertifikat*.
+    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. Registrerings-ID härleds från certifikatets eget namn (CN) för X.509-baserade enheter. Mer information om kraven finns under [Enhetskoncept](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
 
-Det finns två sätt att registrera enheten till tjänsten etablering enhet:
+Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 
-- **Enskilda registreringar** representerar en post för en enda enhet som kan registrera med enheten Etableringstjänsten. Enskilda registreringar kan använda X.509-certifikat eller SAS-token (i TPM verkliga eller virtuella) som mekanismer för attestering. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer, eller för enheter som kan bara använda SAS-token via TPM som metod för attestering. Enskilda registreringar kanske önskade IoT-hubb enhets-ID angetts.
+- **Enskilda registreringar** Detta representerar en inmatning för en enskild enhet som kan registreras med enhetsetableringstjänsten. Enskilda registreringar kan använda antingen X509-certifikat eller SAS-token (i en verklig eller virtuell TPM) som attesteringsmetoder. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer eller enheter som endast kan använda SAS-token via TPM som attesteringsmetod. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
 
-- **Registrering grupper** representerar en grupp av enheter som delar en mekanism för specifika attestering. Vi rekommenderar en grupp för registrering för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter alla kommer att samma klientorganisation. X.509 finns bara i registrering grupper och alla delar ett signerat certifikat i kedjan sina X.509-certifikat.
+- **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient. För Registreringsgrupper gäller bara X.509 och alla delar ett signeringscertifikat i X.509-certifikatkedjan.
 
 ### <a name="enroll-the-device-using-individual-enrollments"></a>Registrera enheten med enskilda registreringar
 
-1. Skapa ett Visual C#-konsolprogram-projekt i Visual Studio med hjälp av den **Konsolapp** projektmall. Namnge projektet **DeviceProvisioning**.
+1. I Visual Studio skapar du ett nytt Visual C# Console Application-projekt med hjälp av projektmallen **Konsolapp**. Kalla projektet **DeviceProvisioning**.
     
-1. I Solution Explorer högerklickar du på den **DeviceProvisioning** projektet och klicka sedan på **hantera NuGet-paket...** .
+1. Högerklicka på projektet **DeviceProvisioning** i Solution Explorer och klicka sedan på **Hantera NuGet-paket...**.
 
-1. I den **NuGet Package Manager** väljer **Bläddra** och Sök efter **microsoft.azure.devices.provisioning.service**. Välj posten och klicka på **installera** att installera den **Microsoft.Azure.Devices.Provisioning.Service** paketet och Godkänn användningsvillkoren. Den här proceduren hämtar, installerar och lägger till en referens till den [Azure IoT-enhet som etablerar SDK-tjänsten](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet-paketet och dess beroenden.
+1. I fönstret **NuGet-pakethanteraren** väljer du **Bläddra** och letar upp **microsoft.azure.devices.provisioning.service**. Välj posten och klicka på **Installera** för att installera **Microsoft.Azure.Devices.Provisioning.Service**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [Azure IoT för enhetsetableringstjänst SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) för NuGet-paket och dess beroenden.
 
 1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
@@ -71,7 +71,7 @@ Det finns två sätt att registrera enheten till tjänsten etablering enhet:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt platshållaren värdet med DP-anslutningssträngen som anges i föregående avsnitt.
+1. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med DPS-anslutningssträngen som du antecknade i föregående avsnitt.
    
     ```csharp
     static readonly string ServiceConnectionString = "{DPS connection string}";
@@ -87,7 +87,7 @@ Det finns två sätt att registrera enheten till tjänsten etablering enhet:
     private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
     ```
 
-1. Lägg till följande om du vill implementera registreringen för enheten:
+1. Lägg till följande för att implementera registreringen för enheten:
 
     ```csharp
     static async Task SetRegistrationDataAsync()
@@ -112,7 +112,7 @@ Det finns två sätt att registrera enheten till tjänsten etablering enhet:
     }
     ```
 
-1. Slutligen lägger du till följande kod i **Main** metod för att öppna anslutningen till din IoT-hubb och påbörja registreringen:
+1. Lägg till sist till följande kod i metoden **Main** för att öppna anslutningen till IoT-hubben och starta registreringen:
    
     ```csharp
     try
@@ -131,22 +131,22 @@ Det finns två sätt att registrera enheten till tjänsten etablering enhet:
     }
     ```
         
-1. Högerklicka på lösningen i Visual Studio Solution Explorer och klicka sedan på **ange Startprojekt...** . Välj **enda Startprojekt**, och välj sedan den **DeviceProvisioning** projekt i den nedrullningsbara menyn.  
+1. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt...**. Välj **Single startup project** (Enskilt uppstartsprojekt) och sedan **DeviceProvisioning** i listrutan.  
 
-1. Kör .NET enhetsapp **DeviceProvisiong**. Det bör ställa in etablering för enheten: 
+1. Kör .NET-enhetsappen **DeviceProvisiong**. Den bör konfigurera etablering av enheten: 
 
-    ![Enskilda registrering kör](./media/tutorial-net-provision-device-to-hub/individual.png)
+    ![Körning av individuell registrering](./media/tutorial-net-provision-device-to-hub/individual.png)
 
-När enheten har registrerats, bör du se den visas i portalen enligt följande:
+När enheten har registrerats bör du se den i portalen på följande sätt:
 
    ![Lyckad registrering i portalen](./media/tutorial-net-provision-device-to-hub/individual-portal.png)
 
-### <a name="enroll-the-device-using-enrollment-groups"></a>Registrera enheten med hjälp av grupper för registrering
+### <a name="enroll-the-device-using-enrollment-groups"></a>Registrera enheten med registreringsgrupper
 
 > [!NOTE]
-> Grupp-exempel registrering kräver ett X.509-certifikat.
+> Exemplet för registreringsgruppen kräver ett X.509-certifikat.
 
-1. Öppna i Visual Studio Solution Explorer i **DeviceProvisioning** projekt skapade ovan. 
+1. Öppna projektet **DeviceProvisioning** som du skapade ovan i Visual Studio Solution Explorer. 
 
 1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
     
@@ -154,14 +154,14 @@ När enheten har registrerats, bör du se den visas i portalen enligt följande:
     using System.Security.Cryptography.X509Certificates;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt platshållaren värdet med X509 certifikat plats.
+1. Lägg till följande fält i klassen **Program**. Byt platshållarvärdet till X509-certifikatplatsen.
    
     ```csharp
     private const string X509RootCertPathVar = "{X509 Certificate Location}";
     private const string SampleEnrollmentGroupId = "sample-group-csharp";
     ```
 
-1. Lägg till följande till **Program.cs** implementera registreringen för gruppen:
+1. Lägg till följande till **Progra.cs** för att implementera registreringen för gruppen:
 
     ```csharp
     public static async Task SetGroupRegistrationDataAsync()
@@ -191,7 +191,7 @@ När enheten har registrerats, bör du se den visas i portalen enligt följande:
     }
     ```
 
-1. Till sist ersätter följande kod i **Main** metod för att öppna anslutningen till din IoT-hubb och börja registrera för gruppen:
+1. Byt till sist ut följande kod i metoden **Main** för att öppna anslutningen till IoT-hubben och starta gruppregistreringen:
    
     ```csharp
     try
@@ -210,36 +210,36 @@ När enheten har registrerats, bör du se den visas i portalen enligt följande:
     }
     ```
 
-1. Kör .NET enhetsapp **DeviceProvisiong**. Det bör ställa in gruppen etablering för enheten: 
+1. Kör .NET-enhetsappen **DeviceProvisiong**. Den bör konfigurera gruppetablering av enheten: 
 
-    ![Gruppregistrering kör](./media/tutorial-net-provision-device-to-hub/group.png)
+    ![Körning av gruppregistrering](./media/tutorial-net-provision-device-to-hub/group.png)
 
-    När enhetsgrupp har registrerats, du bör se den i portalen enligt följande:
+    När enhetsgruppen har registrerats bör du se den i portalen på följande sätt:
 
-   ![Lyckad grupp registrering i portalen](./media/tutorial-net-provision-device-to-hub/group-portal.png)
+   ![Lyckad gruppregistrering i portalen](./media/tutorial-net-provision-device-to-hub/group-portal.png)
 
 
 ## <a name="start-the-device"></a>Starta enheten
 
-Följande inställningar är nu klar för registrering av enheten:
+Följande inställningar är nu klara för registrering av enheten:
 
-1. Din enhet eller grupp av enheter registreras till din enhet etablering av tjänst, och 
-2. Enheten är klar med säkerhet konfigurerats och är tillgänglig via det program som använder enheten Etableringstjänsten klient-SDK.
+1. Din enhet eller enhetsgrupp har registrerats till enhetsetableringstjänsten, och 
+2. Din enhet är klar med säkerhetskonfigurationen och är åtkomlig via programmet med klient-SDK:n för enhetsetableringstjänsten.
 
-Starta enhet så att ditt klientprogram att starta registreringen med din enhet etablering av tjänst.  
+Starta enheten för att låta klientprogrammet starta registreringen med din enhetsetableringstjänst.  
 
 
 ## <a name="verify-the-device-is-registered"></a>Kontrollera att enheten är registrerad
 
-När din enhet Starter följande åtgärder ska utföras. Se exempelprogrammet TPM simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) för mer information. 
+När enheten startar ska följande åtgärder utföras. Se exemplet på TPM-simulatorprogrammet [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) för mer information. 
 
-1. Enheten skickar en begäran om registrering till din enhet etableringstjänsten.
-2. Etablering av tjänst skickar tillbaka en registrering utmaning som enheten svarar för TPM-enheter. 
-3. På lyckad registrering skickar enheten Etableringstjänsten IoT-hubb URI, enhets-ID och den krypterade nyckeln tillbaka till enheten. 
-4. IoT-hubb klientprogrammet på enheten sedan ansluter till din hubb. 
-5. Lyckad anslutning till hubben, bör du se enheten visas i IoT-hubben **enheten Explorer**. 
+1. Enheten skickar en registreringsbegäran till enhetsetableringstjänsten.
+2. För TPM-enheten skickar enhetsetableringstjänsten tillbaka en registreringskontroll som enheten svarar på. 
+3. Om registringen har lyckats skickar enhetsetableringstjänsten tillbaka IoT-hubbens URI, enhets-ID och den krypterade nyckeln till enheten. 
+4. IoT Hub-klientprogrammet på enheten ansluter därefter till hubben. 
+5. Om anslutningen till hubben lyckas ska du se enheten i IoT-hubbens **Device Explorer**. 
 
-    ![Anslutning till hubb i portalen](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
+    ![Lyckad anslutning till hubben i portalen](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
@@ -249,7 +249,7 @@ I den här självstudiekursen lärde du dig att:
 > * Starta enheten
 > * Kontrollera att enheten är registrerad
 
-Gå vidare till nästa kurs att lära dig att etablera flera enheter över Utjämning av nätverksbelastning hubs. 
+Gå vidare till nästa självstudiekurs för att lära dig att etablera flera enheter över belastningsutjämnade hubbar. 
 
 > [!div class="nextstepaction"]
-> [Etablera enheter över Utjämning av nätverksbelastning IoT-hubbar](./tutorial-provision-multiple-hubs.md)
+> [Etablera enheter till flera belastningsutjämnade IoT-hubbar](./tutorial-provision-multiple-hubs.md)

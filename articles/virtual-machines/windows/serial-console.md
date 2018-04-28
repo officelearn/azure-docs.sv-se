@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtuella seriekonsolen (förhandsgranskning) 
 
@@ -109,7 +109,7 @@ Om du behöver aktivera Windows-startprogrammet uppmanas du för att visa i seri
 
 Det här avsnittet innehåller exempel på kommandon för att utföra vanliga aktiviteter i scenarier där du kan behöva använda SAC att komma åt den virtuella datorn, till exempel när du behöver felsöka RDP-anslutningsfel.
 
-SAC har inkluderats i alla versioner av Windows sedan Windows Server 2003, men är inaktiverad som standard. SAC förlitar sig på den `sacdrv.sys` kernel-drivrutinen den `Special Administration Console Helper` service (`sacsvr`), och `sacsess.exe` process. Mer information finns i [nödsituation Management Services-verktyg och inställningar för](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC har inkluderats i alla versioner av Windows sedan Windows Server 2003, men är inaktiverad som standard. SAC förlitar sig på den `sacdrv.sys` kernel-drivrutinen den `Special Administration Console Helper` service (`sacsvr`), och `sacsess.exe` process. Mer information finns i [nödsituation Management Services-verktyg och inställningar för](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC kan du ansluta till ditt operativsystem via serieport. När du startar CMD SAC, `sacsess.exe` startar `cmd.exe` i ditt operativsystem. Du kan se att aktiviteten Manager om RDP till den virtuella datorn på samma gång du är ansluten till SAC via seriekonsolen-funktionen. CMD som du kommer åt via SAC är samma `cmd.exe` du använder när du är ansluten via RDP. Samma är kommandon och verktyg tillgängliga, inklusive möjligheten att starta PowerShell från den CMD-instansen. Som en största skillnaden mellan SAC och Windows Recovery Environment (WinRE) i den SAC är att låta dig att hantera ditt operativsystem där WinRE startar i en annan, minimal OS. Virtuella Azure-datorer kan hanteras via SAC medan virtuella Azure-datorer inte stöder möjlighet att komma åt WinRE, med funktionen seriekonsol.
 
@@ -266,11 +266,11 @@ Det här exemplet returnerar versionen av den virtuella drivrutin NIC netvsc.sys
 #### <a name="scan-for-system-file-corruption"></a>Sök efter skadade systemfiler
 `sfc /scannow`
 
-Se även [reparera en Windows-avbildning](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Se även [reparera en Windows-avbildning](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="scan-for-system-file-corruption"></a>Sök efter skadade systemfiler
 `dism /online /cleanup-image /scanhealth`
 
-Se även [reparera en Windows-avbildning](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Se även [reparera en Windows-avbildning](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="export-file-permissions-to-text-file"></a>Exportera filen behörigheter till textfil
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Spara filbehörigheter ACL-fil
@@ -516,7 +516,7 @@ Du kan fråga Azure instans metadata från i Azure-dator för att visa informati
 
 Frågar instans metadata kräver felfri gäst nätverksanslutningen, eftersom den gör ett REST-anrop via Azure-värden till tjänsten instans metadata. Så om du ska kunna fråga instans metadata anger som du gästen kan kommunicera över nätverket till en Azure-värdtjänsten.
 
-Mer information finns i [Azure instans Metadata tjänsten](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Mer information finns i [Azure instans Metadata tjänsten](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Instansen metadata
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

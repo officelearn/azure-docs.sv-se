@@ -3,18 +3,18 @@ title: I stället för ETL, utforma ELT för Azure SQL Data Warehouse | Microsof
 description: I stället för ETL, utforma en extrahera, Load and Transform ELT ()-processen för inläsning av data eller Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 04/11/2018
+ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 13189bfe2e2e6db6185c798065dc3bea1fd3d537
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Designa extrahera, Load and Transform (ELT) för Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Du kan använda något av dessa alternativ för inläsning för att läsa in dat
 PolyBase läser in data från UTF-8 och UTF-16-kodade avgränsade textfiler. Förutom avgränsade textfiler laddas från Hadoop-filformat RC-filen, ORC och parkettgolv. PolyBase kan läsa in data från Gzip och snygga komprimerade filer. PolyBase stöder för närvarande inte utökade ASCII, fast bredd format och kapslade format till exempel WinZip, JSON och XML.
 
 ### <a name="non-polybase-loading-options"></a>Icke-PolyBase läser in alternativ
-Om dina data inte är kompatibel med PolyBase, kan du använda [bcp](sql-data-warehouse-load-with-bcp.md) eller [SqlBulkCopy körs API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob storage och är endast avsett för små belastning. Observera att prestandan belastningen av dessa alternativ är avsevärt långsammare än PolyBase. 
+Om dina data inte är kompatibel med PolyBase, kan du använda [bcp](/sql/tools/bcp-utility) eller [SqlBulkCopy körs API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob storage och är endast avsett för små belastning. Observera att prestandan belastningen av dessa alternativ är avsevärt långsammare än PolyBase. 
 
 
 ## <a name="extract-source-data"></a>Extrahera källdata

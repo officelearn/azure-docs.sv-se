@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera Azure Stack användningsdata till Azure 
 
@@ -27,7 +27,7 @@ Användningsdata, kallas även förbrukningsdata, representerar mängden resurse
 Azure med flera noder Stack-system som använder förbrukningsbaserad fakturering modellen bör rapportera användningsdata till Azure för fakturering ändamål.  Azure Stack-operatörer bör konfigurera sina Azure Stack-instans rapportera användningsdata till Azure.
 
 > [!NOTE]
-> Rapportering av användningsdata krävs för Azure-stacken med flera noder användare licens under lön-som-du-Använd modellen. Det är valfritt för kunder som har licens under kapacitet modellen (finns i [köpa sidan](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). För Azure-stacken Development Kit användare Azure Stack-operatörer rapportera användningsdata och testa funktionen. Användare debiteras dock inte för alla de utsätts för användning. 
+> Rapportering av användningsdata krävs för Azure-stacken med flera noder användare licens under lön-som-du-Använd modellen. Det är valfritt för kunder som har licens under kapacitet modellen (finns i [köpa sidan](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). För Azure-stacken Development Kit användare Azure Stack-operatörer rapportera användningsdata och testa funktionen. Användare debiteras dock inte för alla de utsätts för användning. 
 
 
 ![flödet för fakturering](media/azure-stack-usage-reporting/billing-flow.png)

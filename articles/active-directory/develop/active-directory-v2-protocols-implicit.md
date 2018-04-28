@@ -1,11 +1,11 @@
 ---
-title: "Skydda en sida av program med Azure AD v2.0 implicita flödet | Microsoft Docs"
-description: "Skapa webbprogram med hjälp av Azure AD v2.0 implementering av implicita flödet för appar med enstaka sidor."
+title: Skydda en sida av program med Azure AD v2.0 implicita flödet | Microsoft Docs
+description: Skapa webbprogram med hjälp av Azure AD v2.0 implementering av implicita flödet för appar med enstaka sidor.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b855dcaae99e16aa21a0e19ad37d933cb18c678a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll - SPA med det implicita flödet
-Med v2.0-slutpunkten du loggar in användare i din ensidesappar med både personliga och arbete/skola konton från Microsoft.  Sida och andra JavaScript-appar som körs i första hand i en webbläsare yta några intressanta utmaningar när det gäller att autentisering:
+Med v2.0-slutpunkten du loggar in användare i din ensidesappar med både personliga och arbete/skola konton från Microsoft. Sida och andra JavaScript-appar som körs i första hand i en webbläsare yta några intressanta utmaningar när det gäller att autentisering:
 
-* Säkerhetsegenskaper för dessa appar är skiljer sig från traditionella serverbaserad webbprogram.
+* Säkerhetsegenskaper för dessa appar är skiljer sig från traditionella serverbaserade webbprogram.
 * Många servrar för auktorisering och identitetsleverantörer har inte stöd för CORS-begäranden.
 * Helsida webbläsare omdirigerar från appen blir särskilt inkräktande av användarupplevelsen.
 
@@ -62,23 +62,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Klicka på länken nedan för att utföra den här begäran! När du har registrerat webbläsaren ska omdirigeras till `https://localhost/myapp/` med en `id_token` i adressfältet.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare.  Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
-| client_id |Krävs |Program-Id som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
-| response_type |Krävs |Måste innehålla `id_token` för OpenID Connect inloggning.  Det kan också innehålla response_type `token`. Med hjälp av `token` här kommer att din app kan ta emot en åtkomst-token direkt från slutpunkten för auktorisering utan att behöva göra en andra begäran till slutpunkten för auktorisering.  Om du använder den `token` response_type, den `scope` parameter måste innehålla ett scope som anger vilken resurs för att utfärda token för. |
-| redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade. |
-| Omfång |Krävs |En blankstegsavgränsad lista över scope.  Det måste innehålla omfånget för OpenID Connect `openid`, vilket innebär att behörigheten ”logga in dig på” i medgivande Användargränssnittet.  Alternativt kan du också inkludera den `email` eller `profile` [scope](active-directory-v2-scopes.md) för att få åtkomst till ytterligare användardata.  Du kan också omfatta andra scope i den här förfrågan för att begära tillstånd till olika resurser. |
-| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Bör vara `fragment` för implicita flödet. |
-| state |Rekommenderas |Ett värde som ingår i denna begäran kommer också att returneras i token svaret.  Det kan vara en sträng med innehåll som du vill.  Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
-| temporärt ID |Krävs |Ett värde som ingår i denna begäran som genererats av den app som ska inkluderas i den resulterande id_token som ett anspråk.  Appen kan sedan kontrollera värdet för att minimera token replay-attacker.  Värdet är vanligtvis en slumpmässig, unik sträng som används för att identifiera ursprunget för begäran. |
-| kommandotolk |valfri |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena just nu är ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - säkerställer att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returneras ett fel v2.0-slutpunkten.  `prompt=consent`dialogrutan OAuth-medgivande utlöses när användaren loggar in, be användaren att tilldela behörigheter till appen. |
-| login_hint |valfri |Kan användas till att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
-| domain_hint |valfri |Kan vara något av `consumers` eller `organizations`.  Om den hoppar över e-postbaserad identifieringsprocessen användaren som passerar på v2.0 inloggningssidan, vilket leder till en något mer effektiv användarupplevelse.  Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` anspråk från id_token.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare.  Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
+| client_id |Krävs |Programmet ID som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
+| response_type |Krävs |Måste innehålla `id_token` för OpenID Connect inloggning.  Det kan också innehålla response_type `token`. Med hjälp av `token` här kommer att din app kan ta emot en åtkomst-token direkt från slutpunkten för auktorisering utan att behöva göra en andra begäran till slutpunkten för auktorisering. Om du använder den `token` response_type, den `scope` parameter måste innehålla ett scope som anger vilken resurs för att utfärda token för. |
+| redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app. Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade. |
+| omfång |Krävs |En blankstegsavgränsad lista över scope. Det måste innehålla omfånget för OpenID Connect `openid`, vilket innebär att behörigheten ”logga in dig på” i medgivande Användargränssnittet. Alternativt kan du också inkludera den `email` eller `profile` [scope](active-directory-v2-scopes.md) för att få åtkomst till ytterligare användardata. Du kan också omfatta andra scope i den här förfrågan för att begära tillstånd till olika resurser. |
+| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Bör vara `fragment` för implicita flödet. |
+| state |Rekommenderas |Ett värde som ingår i denna begäran kommer också att returneras i token svaret. Det kan vara en sträng med innehåll som du vill.  Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
+| temporärt ID |Krävs |Ett värde som ingår i denna begäran som genererats av den app som ska inkluderas i den resulterande id_token som ett anspråk.  Appen kan sedan kontrollera värdet för att minimera token replay-attacker. Värdet är vanligtvis en slumpmässig, unik sträng som används för att identifiera ursprunget för begäran. |
+| kommandotolk |valfri |Anger vilken typ av användarinteraktion som krävs. De enda giltiga värdena just nu är ”inloggning” none, och 'godkännande'.  `prompt=login` Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none` är motsatsen - säkerställer att användaren inte visas med en interaktiv prompt som helst. Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returneras ett fel v2.0-slutpunkten.  `prompt=consent` dialogrutan OAuth-medgivande utlöses när användaren loggar in, be användaren att tilldela behörigheter till appen. |
+| login_hint |valfri |Kan användas till att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg. Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
+| domain_hint |valfri |Kan vara något av `consumers` eller `organizations`. Om den hoppar över e-postbaserad identifieringsprocessen användaren som passerar på v2.0 inloggningssidan, vilket leder till en något mer effektiv användarupplevelse.  Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` anspråk från id_token.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
 
 Nu ombeds användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen.  V2.0-slutpunkten säkerställer också att användaren har godkänt för de behörigheter som anges i den `scope` Frågeparametern.  Om användaren inte har godkänt till någon av dessa behörigheter, uppmanas användaren att godkänna behörigheterna som krävs.  Information om [behörigheter, medgivande och flera innehavare appar finns här](active-directory-v2-scopes.md).
 
@@ -99,10 +99,10 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Inkluderade om `response_type` innehåller `token`. Åtkomsttoken som appen begärt i det här fallet för Microsoft Graph.  Åtkomst-token ska inte avkodas eller annars kontrolleras, den kan hanteras som en täckande sträng. |
-| token_type |Inkluderade om `response_type` innehåller `token`.  Kommer alltid att `Bearer`. |
-| expires_in |Inkluderade om `response_type` innehåller `token`.  Anger antalet sekunder som denna token är giltig för cachelagring. |
-| Omfång |Inkluderade om `response_type` innehåller `token`.  Anger område(n) som access_token ska vara giltig. |
+| access_token |Inkluderade om `response_type` innehåller `token`. Åtkomsttoken som appen begärt i det här fallet för Microsoft Graph. Åtkomst-token ska inte avkodas eller annars kontrolleras, den kan hanteras som en täckande sträng. |
+| token_type |Inkluderade om `response_type` innehåller `token`. Kommer alltid att `Bearer`. |
+| expires_in |Inkluderade om `response_type` innehåller `token`. Anger antalet sekunder som denna token är giltig för cachelagring. |
+| omfång |Inkluderade om `response_type` innehåller `token`.  Anger område(n) som access_token ska vara giltig. |
 | id_token |Id_token som begärts av appen. Du kan använda id_token för att verifiera användarens identitet och starta en session med användaren.  Mer information om id_tokens och deras innehåll ingår i den [v2.0-slutpunkten tokenreferens](active-directory-v2-tokens.md). |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 
@@ -166,11 +166,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare.  Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
-| client_id |Krävs |Program-Id som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare.  Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
+| client_id |Krävs |Programmet ID som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
 | response_type |Krävs |Måste innehålla `id_token` för OpenID Connect inloggning.  Den kan också omfatta andra response_types som `code`. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade. |
-| Omfång |Krävs |En blankstegsavgränsad lista över scope.  För att hämta token omfattar alla [scope](active-directory-v2-scopes.md) du behöver för resursen av intresse. |
+| omfång |Krävs |En blankstegsavgränsad lista över scope.  För att hämta token omfattar alla [scope](active-directory-v2-scopes.md) du behöver för resursen av intresse. |
 | response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Kan vara något av `query`, `form_post`, eller `fragment`. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran kommer också att returneras i token svaret.  Det kan vara en sträng med innehåll som du vill.  Ett slumpmässigt genererat unikt värde används vanligtvis för att förhindra attacker med förfalskning av begäran.  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 | temporärt ID |Krävs |Ett värde som ingår i denna begäran som genererats av den app som ska inkluderas i den resulterande id_token som ett anspråk.  Appen kan sedan kontrollera värdet för att minimera token replay-attacker.  Värdet är vanligtvis en slumpmässig, unik sträng som används för att identifiera ursprunget för begäran. |
@@ -198,7 +198,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Kommer alltid att `Bearer`. |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
-| Omfång |Scope som gäller för åtkomst-token. |
+| omfång |Scope som gäller för åtkomst-token. |
 
 #### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att appen kan hantera dem på lämpligt sätt.  I fall av `prompt=none`, är ett förväntat fel:
@@ -216,6 +216,16 @@ error=user_authentication_required
 
 Om du får detta felmeddelande i iframe begäran måste användaren interaktivt logga in igen att hämta en ny token.  Du kan välja att hantera den här situationen i sättet som passar bäst för ditt program.
 
+## <a name="validating-access-tokens"></a>Verifiera åtkomsttoken
+
+När du har fått en access_token, se till att verifiera signaturen för token som följande anspråk. Du kan också välja att validera ytterligare anspråk baserat på ditt scenario. 
+
+* **målgruppen** anspråk så att token är avsedd för att tilldelas till din app
+* **utfärdaren** anspråk för att verifiera att token har utfärdats till din app av v2.0-slutpunkten
+* **inte före** och **förfallotid** anspråk för att verifiera att token inte har gått ut
+
+Mer information om anspråk finns i åtkomsttoken finns det [tokenreferens för v2.0-slutpunkten](active-directory-v2-tokens.md)
+
 ## <a name="refreshing-tokens"></a>Uppdatera token
 Båda `id_token`s och `access_token`s upphör att gälla efter en kort tidsperiod, så måste du förbereda din app att uppdatera dessa säkerhetstoken med jämna mellanrum.  Om du vill uppdatera båda typerna av token kan du utföra samma dolda iframe begäran ovan med hjälp av den `prompt=none` parametern för att styra beteendet för Azure AD.  Om du vill få en ny `id_token`, måste du använda `response_type=id_token` och `scope=openid`, samt en `nonce` parameter.
 
@@ -228,5 +238,5 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare.  Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare.  Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
 | post_logout_redirect_uri | Rekommenderas | Den URL som användaren ska returneras till när logga ut har slutförts. Det här värdet måste matcha en omdirigerings-URI: er som registrerats för programmet. Om inte ingår, visas användaren ett allmänt meddelande av v2.0-slutpunkten. |

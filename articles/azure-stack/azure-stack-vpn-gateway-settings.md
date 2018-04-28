@@ -1,11 +1,11 @@
 ---
-title: "VPN gateway-inställningar för Azure-stacken | Microsoft Docs"
-description: "Läs mer om inställningar för VPN-gatewayer som du använder med Azure-stacken."
+title: VPN gateway-inställningar för Azure-stacken | Microsoft Docs
+description: Läs mer om inställningar för VPN-gatewayer som du använder med Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure-stacken
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>Gateway-SKU:er
 När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj SKU: er som uppfyller dina krav baserat på typerna av arbetsbelastning, genomflöden, funktioner och servicenivåavtal.
 
->[!NOTE]
-> Klassiska virtuella nätverk ska fortsätta att använda gamla SKU: er. Mer information om gamla gatewayen-SKU: er finns i [Arbeta med SKU: er för virtuell nätverksgateway (gamla)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy).
-
 Azure-stacken erbjuder följande VPN-gatewayen SKU: er:
 
 |   | VPN Gateway-genomströmning |VPN-Gateway, Max. IPsec-tunnlar |
 |-------|-------|-------|
-|**Basic SKU**  | 100 Mbit/s  | 10    |
+|**Grundläggande SKU**  | 100 Mbit/s  | 10    |
 |**Standard-SKU**           | 100 Mbit/s  | 10    |
-|**Högpresterande SKU** | 200 Mbit/s    | 30    |
+|**Högpresterande SKU** | 200 Mbit/s    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>Ändra storlek på gateway-SKU: er
 Azure-stacken stöder inte en storleksändring av SKU: er mellan stöds äldre SKU: er.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Du måste ange en VPN-typ när du skapar den virtuella nätverksgatewayen för en konfiguration för VPN-gateway. VPN-typ som du väljer beror på topologin anslutning som du vill skapa.  En VPN-typ kan också vara beroende av den maskinvara som du använder. S2S konfigurationer kräver en VPN-enhet. Vissa VPN-enheter stöder bara en viss typ av VPN.
 
 > [!IMPORTANT]  
-> Azure-stacken stöder endast väg-baserad VPN-typ för tillfället. Om enheten stöder endast princip-baserade VPN-anslutningar, stöds inte anslutningar till dessa enheter från Azure-stacken.
+> Azure-stacken stöder endast väg-baserad VPN-typ för tillfället. Om enheten stöder endast princip-baserade VPN-anslutningar, stöds inte anslutningar till dessa enheter från Azure-stacken.  Dessutom Azure stacken stöder inte användning av princip baserat trafik väljare för vägen baserat Gateways just nu, eftersom de anpassade konfigurationer för IPSec/IKE-principen inte stöds ännu.
 
 - **PolicyBased**: *(stöds av Azure, men inte av Azure-stacken)* principbaserade VPN: er krypterar och dirigerar paket via IPsec-tunnlar baserat på IPsec-principer som konfigureras med kombinationer av adressprefix mellan ditt lokala nätverk och Azure-stacken VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-enhetens konfiguration.
 
-- **RouteBased**: RouteBased VPN: er använder ”rutter” i IP-vidarebefordrings- eller routningstabeller för att dirigera paket till sina motsvarande tunnelgränssnitt. Tunnelgränssnitten krypterar eller dekrypterar sedan paketen in och ut från tunnlarna. Principen (eller trafikväljaren) för RouteBased VPN konfigureras som alla-till-alla (eller jokertecken). Värdet för en RouteBased VPN-typ är RouteBased.
+- **RouteBased**: RouteBased VPN: er använder ”rutter” i IP-vidarebefordrings- eller routningstabeller för att dirigera paket till sina motsvarande tunnelgränssnitt. Tunnelgränssnitten krypterar eller dekrypterar sedan paketen in och ut från tunnlarna. Principen (eller trafikväljaren) för RouteBased VPN konfigureras som alla-till-alla (eller jokertecken) som standard och kan inte ändras. Värdet för en RouteBased VPN-typ är RouteBased.
 
 Följande PowerShell-exempel anger VpnType - som RouteBased. När du skapar en gateway måste du kontrollera att -VpnType är rätt för din konfiguration.
 
@@ -110,7 +107,7 @@ I följande tabell visas kraven för VPN-gatewayer.
 |--|--|--|--|--|
 | **Plats-till-plats-anslutning (S2S connectivity)** | Stöds inte | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration |
 | **Autentiseringsmetod**  | Stöds inte | I förväg delad nyckel för S2S-anslutning  | I förväg delad nyckel för S2S-anslutning  | I förväg delad nyckel för S2S-anslutning  |   
-| **Maximalt antal S2S-anslutningar**  | Stöds inte | 10 | 10| 30|
+| **Maximalt antal S2S-anslutningar**  | Stöds inte | 10 | 10| 5|
 |**Stöd för aktiv routning (BGP)** | Stöds inte | Stöds inte | Stöds | Stöds |
 
 ### <a name="gateway-subnet"></a>Gateway-undernät 
@@ -160,7 +157,7 @@ Till skillnad från Azure, vilket stöder flera erbjudanden för både som initi
 |IKE-version |IKEv2 |
 |Kryptering och hash-algoritmer (kryptering)     | GCMAES256|
 |Kryptering och hash-algoritmer (autentisering) | GCMAES256|
-|SA-livstid (tid)  | 14 400 sekunder |
+|SA-livstid (tid)  | 27 000 sekunder |
 |SA-livstid (byte) | 819,200       |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Utebliven peer-identifiering | Stöds|  

@@ -1,24 +1,19 @@
 ---
 title: Ansluta Azure SQL-databas till Azure sökning med hjälp av indexerare | Microsoft Docs
 description: Lär dig hur du hämtar data från Azure SQL Database till ett Azure Search-index med hjälp av indexerare.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: eugenesh
-ms.openlocfilehash: a5198cc6e3b019fc6fd241f22c4da088f0839066
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ansluta Azure SQL Database till Azure Search med indexerare
 
@@ -288,16 +283,16 @@ Den **softDeleteMarkerValue** måste vara en sträng – Använd strängrepresen
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mappning mellan datatyperna SQL och Azure Search
 | SQL-datatypen | Tillåtna målindexet fälttyp | Anteckningar |
 | --- | --- | --- |
-| bitar |Edm.Boolean, Edm.String | |
+| bitar |Edm.Boolean Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.String | |
-| verkliga, float |Edm.Double, Edm.String | |
+| bigint |Edm.Int64 Edm.String | |
+| verkliga, float |Edm.Double Edm.String | |
 | smallmoney pengar decimal numeriskt |Edm.String |Azure Search har inte stöd för konvertering av decimaltyper till Edm.Double eftersom detta skulle förlora precision |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-sträng kan användas för att fylla i ett fält för Collection(Edm.String) om strängen som representerar en JSON-matris med strängar: `["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geografisk plats |Edm.GeographyPoint |Stöds endast geografi instanser av typen plats med SRID 4326 (som är standard) |
-| rowversion |Gäller inte |Radversioner kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
+| ROWVERSION |Gäller inte |Radversioner kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
 | tid, timespan, binary, varbinary, image, xml, geometry, CLR-typer |Gäller inte |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar

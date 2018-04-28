@@ -1,25 +1,25 @@
 ---
 title: Azure Active Directory v2.0 tokens referens | Microsoft Docs
-description: "Typer av token och anspråk som sänds av Azure AD v2.0-slutpunkten"
+description: Typer av token och anspråk som sänds av Azure AD v2.0-slutpunkten
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
 Azure Active Directory (AD Azure) v2.0-slutpunkten genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](active-directory-v2-flows.md). Den här referensen beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -49,7 +49,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> Klistra in exempel ID-token till om du vill granska anspråk i exempel-ID-token för övningen [calebb.net](http://calebb.net/).
+> Klistra in exempel ID-token till om du vill granska anspråk i exempel-ID-token för övningen [jwt.ms](http://jwt.ms/).
 >
 >
 
@@ -57,12 +57,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | målgrupp |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifierar den avsedda mottagaren av token. I ID-token är den din app program-ID som tilldelats din app i portalen för registrering av Microsoft-program. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
-| issuer |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient som användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från v2.0-slutpunkten. Det bör också använda GUID-delen av anspråket för att begränsa antalet klienter som kan logga in i appen. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Utfärdaren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient som användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från v2.0-slutpunkten. Det bör också använda GUID-delen av anspråket för att begränsa antalet klienter som kan logga in i appen. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | Utfärdat till |`iat` |`1452285331` |Den tid då token utfärdats representeras i epok tid. |
 | Förfallotid |`exp` |`1452289231` |Den tid då token blir ogiltig representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1452285331` |Den tid då token börjar gälla, representeras i epok tid. Det är vanligtvis samma som den utfärdande-tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | version |`ver` |`2.0` |Versionen av ID-token, som definieras av Azure AD. Värdet är för v2.0-slutpunkten `2.0`. |
-| Klient-ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Ett GUID som representerar Azure AD-klient som användaren är från. För arbets- och skolkonton konton är GUID oföränderliga klient-ID på den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot denna begäran. |
+| klientorganisations-ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Ett GUID som representerar Azure AD-klient som användaren är från. För arbets- och skolkonton konton är GUID oföränderliga klient-ID på den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot denna begäran. |
 | Koden hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Koden hash ingår i ID-token endast när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Den kan användas för att validera en Auktoriseringskoden är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
 | Åtkomst-token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Åtkomst-token hash ingår i ID tokens endast när ID-token utfärdas med en OAuth 2.0-åtkomsttoken. Den kan användas för att validera en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
 | temporärt ID |`nonce` |`12345` |Temporärt ID är en strategi för att minimera token replay-attacker. Appen kan ange ett temporärt ID i en auktoriseringsbegäran om med hjälp av den `nonce` Frågeparametern. Värdet du anger i begäran har genererats i token ID `nonce` anspråk som ska ändras. Din app kan kontrollera värdet mot det värde som det anges på begäran, som associerar appens session med en specifik ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen ID-token. |
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Objekt-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Oåterkalleliga identifierare för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto.  Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren i program - två olika program som loggar in samma användare får samma värde i den `oid` anspråk.  Det innebär att den kan användas när du skapar frågor till Microsoft online services, till exempel Microsoft Graph.  Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto.  Eftersom den `oid` tillåter flera apparna att korrelera användare, den `profile` omfattning krävs för att ta emot denna begäran. Observera att om en användare finns i flera klienter kan användaren innehåller ett annat objekt-ID i varje klient - de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
 
 ### <a name="access-tokens"></a>Åtkomst-token
-Åtkomst-token som utfärdas av v2.0-slutpunkten kan för närvarande används endast av Microsoft Services. Dina appar behöver inte utföra några verifiering eller kontroll av åtkomsttoken för någon av scenarierna som stöds för närvarande. Du kan hantera åtkomst-token som helt ogenomskinlig. De är bara strängar som din app kan skicka till Microsoft i HTTP-förfrågningar.
 
-I den nära framtiden beskrivs v2.0-slutpunkten för din app att ta emot åtkomst-token från andra klienter. Informationen i det här referensavsnittet kommer att uppdateras med den information du behöver för din app för att utföra åtkomst-token verifiering och andra liknande uppgifter som helst.
+V2.0-slutpunkten kan appar från tredje part som har registrerats med Azure AD för att utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Mer information om hur du konfigurerar ett program att utfärda åtkomsttoken finns [hur du registrerar en app med v2.0-slutpunkten](active-directory-v2-app-registration.md). Vid registreringen programmet med v2.0-slutpunkten utvecklaren kan ange åtkomstnivåer, kallas **scope**, för vilka åtkomst token kan utfärdas. Till exempel den **calendars.read** räckvidden i Microsoft Graph API ger behörighet att läsa användarens kalender. När programmet tar emot en åtkomst-token från v2.0-slutpunkten, måste du verifiera token signatur, utfärdare, målgrupp, förfallotid och andra anspråk beroende på ditt scenario. 
 
 När du begär en åtkomst-token från v2.0-slutpunkten returnerar metadata om åtkomsttoken för din app att använda även v2.0-slutpunkten. Informationen omfattar förfallotiden för åtkomst-token och scope som är giltig. Din app använder dessa metadata för att utföra intelligent cachelagring av åtkomsttoken utan att behöva öppna att parsa den åtkomst-token.
 

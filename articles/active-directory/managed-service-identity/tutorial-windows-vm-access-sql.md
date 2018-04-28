@@ -1,8 +1,8 @@
 ---
-title: "Använda en Windows VM-MSI för åtkomst till Azure SQL"
-description: "En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure SQL."
+title: Använda en Windows VM-MSI för åtkomst till Azure SQL
+description: En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure SQL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5459739e9d3469adc7dbf65c8dcc0de918ea0c73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure SQL
 
@@ -55,17 +55,13 @@ Den här självstudiekursen skapar vi en ny Windows virtuell dator.  Du kan ocks
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
-En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: MSI VM-tillägget installeras på den virtuella datorn och det gör att MSI i Azure Resource Manager.
+En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn.
 
 1.  Välj den **virtuella** som du vill aktivera MSI på.  
 2.  Klicka på det vänstra navigeringsfältet **Configuration**. 
 3.  Du ser **hanterade tjänstidentiteten**. För att registrera och aktivera MSI-filerna, Välj **Ja**, om du vill inaktivera det, väljer du Nej. 
 4.  Se till att du klickar på **spara** att spara konfigurationen.  
     ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Om du vill kontrollera och vilka tillägg som finns på den här virtuella datorn, klickar du på **tillägg**. Om MSI aktiveras sedan **ManagedIdentityExtensionforWindows** visas i listan.
-
-    ![ALT bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Ge din VM-åtkomst till en databas i en Azure SQL-server
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Lägg sedan till den virtuella datorn MSI i gruppen.  Du måste MSI- **ObjectId**, som du kan hämta med hjälp av Azure PowerShell.  Hämta först [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Logga sedan in med `Login-AzureRmAccount`, och kör följande kommandon:
+Lägg sedan till den virtuella datorn MSI i gruppen.  Du måste MSI- **ObjectId**, som du kan hämta med hjälp av Azure PowerShell.  Hämta först [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Logga sedan in med `Connect-AzureRmAccount`, och kör följande kommandon:
 - Kontrollera din sessionskontexten är den önskade Azure-prenumerationen om du har flera.
 - Visa en lista med de tillgängliga resurserna i din Azure-prenumeration, kontrollera i rätt resursgrupp och VM-namn.
 - Hämta VM MSI-egenskaper, med lämpliga värden för `<RESOURCE-GROUP>` och `<VM-NAME>`.
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ Du kan också ett snabbt sätt att testa slutpunkt till slutpunkt-installationsp
 4.  Med hjälp av Powershell's `Invoke-WebRequest`, gör en begäran till den lokala MSI-slutpunkten för att hämta en åtkomst-token för Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Konvertera svaret från ett JSON-objekt till en PowerShell-objektet. 

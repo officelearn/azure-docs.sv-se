@@ -1,6 +1,6 @@
 ---
-title: "Felsökning utan data, Application Insights för .NET"
-description: "Inte visa data i Azure Application Insights? Försök här."
+title: Felsökning utan data, Application Insights för .NET
+description: Inte visa data i Azure Application Insights? Försök här.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Vissa av min telemetri saknas
@@ -65,7 +65,7 @@ Något verkar ha gått fel när du installerar Application Insights eller kanske
 
 Högerklicka på projektet i Solution Explorer och välj **Programinsikter > Konfigurera Application Insights**. Du får en dialogruta som uppmanar dig att logga in på Azure och skapa en Application Insights-resurs eller återanvända en befintlig.
 
-## <a name="NuGetBuild"></a>”NuGet-paket saknas” på min build-server
+## <a name="NuGetBuild"></a> ”NuGet-paket saknas” på min build-server
 *Allt bygger OK när jag felsökningsläget datorn utveckling, men får ett NuGet-fel på build-servern.*
 
 Se [NuGet-Paketåterställning](http://docs.nuget.org/Consume/Package-Restore) och [automatisk Paketåterställning](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -124,7 +124,7 @@ Instrumentation nyckeln i ApplicationInsights.config kontroller där telemetrin 
     Det ser du vissa sammanfattning diagram. Du kan klicka igenom dem för att se mer information.
 * Klicka på knappen Application Insights i Visual Studio när du felsöker din app.
 
-## <a name="q03"></a>Ingen server-data (eller inga data alls)
+## <a name="q03"></a> Ingen server-data (eller inga data alls)
 *Jag har kört min app och sedan öppnas Application Insights-tjänsten i Microsoft Azure, men alla diagram visar ”Lär dig att samla in...” eller ”inte konfigurerad”.* Eller, *endast vyn sida och användardata, men inga serverdata.*
 
 * Kör ditt program i felsökningsläge i Visual Studio (F5). Använd programmet för att generera vissa telemetri. Kontrollera att du kan se händelserna som loggas i utdatafönstret Visual Studio. 

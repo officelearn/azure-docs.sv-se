@@ -11,14 +11,14 @@ ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd0daae8289839b64e7b54d97c78719587c18e7d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive på Linux-baserat HDInsight
 
@@ -34,6 +34,8 @@ Lär dig hur du analyserar svarta fördröjning data med hjälp av Hive på Linu
 * **Azure SQL Database**. Du kan använda en Azure SQL database som ett dataarkiv som mål. Om du inte har en SQL-databas, se [skapa en Azure SQL database i Azure portal](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. Om du inte har installerat Azure CLI, se [installera Azure CLI 1.0](../cli-install-nodejs.md) fler steg.
+
+* **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Ladda ned data rör sig
 
@@ -54,24 +56,21 @@ Lär dig hur du analyserar svarta fördröjning data med hjälp av Hive på Linu
 
 1. Använd följande kommando för att ladda upp ZIP-filen till HDInsight-klustrets huvudnod:
 
-    ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```bash
+    scp FILENAME.zip sshuser@clustername-ssh.azurehdinsight.net:
     ```
 
-    Ersätt *FILENAME* med namnet på .zip-filen. Ersätt *användarnamn* med SSH-inloggning för HDInsight-kluster. Ersätt *KLUSTERNAMN* med namnet på HDInsight-klustret.
-
-   > [!NOTE]
-   > Om du använder ett lösenord för att autentisera SSH-inloggning kan uppmanas du lösenordet. Om du använder en offentlig nyckel kan du behöva använda de `-i` parametern och ange sökvägen till motsvarande privata nyckel. Till exempel `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+    Ersätt `FILENAME` med namnet på .zip-filen. Ersätt `sshuser` med SSH-inloggning för HDInsight-kluster. Ersätt `clustername` med namnet på HDInsight-klustret.
 
 2. När överföringen är klar kan du ansluta till klustret med hjälp av SSH:
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-
-    Mer information finns i [Ansluta till HDInsight (Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
 3. Använd följande kommando för att packa upp ZIP-filen:
 
-    ```
+    ```bash
     unzip FILENAME.zip
     ```
 
@@ -79,7 +78,7 @@ Lär dig hur du analyserar svarta fördröjning data med hjälp av Hive på Linu
 
 4. Använder du följande kommando för att skapa en katalog på HDInsight lagring och kopiera filen till katalogen:
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
@@ -90,7 +89,7 @@ Använd följande steg för att importera data från CSV-filen till en Hive-tabe
 
 1. Använd följande kommando för att skapa och redigera en ny fil med namnet **flightdelays.hql**:
 
-    ```
+    ```bash
     nano flightdelays.hql
     ```
 
@@ -160,13 +159,13 @@ Använd följande steg för att importera data från CSV-filen till en Hive-tabe
 
 3. Att starta Hive och köra den **flightdelays.hql** fil, använder du följande kommando:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. Efter den __flightdelays.hql__ skriptet har slutförts körs, Använd följande kommando för att öppna en interaktiv session Beeline:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -200,13 +199,13 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 
 1. Använd följande kommando från en SSH-anslutning till klustret för att installera FreeTDS:
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. När installationen är klar använder du följande kommando för att ansluta till SQL Database-server. Ersätt **serverName** med SQL Database-servernamn. Ersätt **adminLogin** och **adminPassword** med inloggningen för SQL-databas. Ersätt **databaseName** med namnet på databasen.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -224,7 +223,7 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 
 4. På den `1>` uppmanar, ange följande rader:
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -237,7 +236,7 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 
     Använd följande fråga för att kontrollera att tabellen har skapats:
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -255,7 +254,7 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 
 1. Använd följande kommando för att kontrollera att Sqoop kan se din SQL-databas:
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -263,7 +262,7 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 
 2. Använd följande kommando för att exportera data från hivesampletable till tabellen fördröjningar:
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -271,13 +270,13 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 
 3. När kommandot sqoop har slutförts kan du använda verktyget tsql för att ansluta till databasen:
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Använda följande instruktioner för att verifiera att data har exporterats till tabellen fördröjningar:
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```

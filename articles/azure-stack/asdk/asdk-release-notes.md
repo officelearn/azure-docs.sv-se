@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 1a8cbdef8f3d8a5aa4aeab0e51275933160360c2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3335fdd3a1bb20c378bf36307d742491de0e46ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-stacken Development Kit viktig information
 Dessa versionsanmärkningar innehåller information om förbättringar, korrigeringar och kända problem i Azure-stacken Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -239,7 +239,7 @@ I administrationsportalen för Azure-stacken kan du se en kritisk varning med na
 
 
 
-## <a name="build-201801032"></a>Build 20180103.2
+## <a name="build-201801032"></a>Skapa 20180103.2
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
 
@@ -308,81 +308,4 @@ I Azure Active Directory Federation Services (ADFS) distribuerade miljöer, den 
 > [!IMPORTANT]
 > Även den **azurestack\cloudadmin** konto är ägare till prenumerationen Standard Provider i ADFS distribuerade miljöer, har inte behörighet att RDP till värden. Fortsätta att använda den **azurestack\azurestackadmin** konto eller det lokala administratörskontot för att logga in, komma åt och hantera värden efter behov.
 
-
-
-
-## <a name="build-201711221"></a>Skapa 20171122.1
-
-### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
-
-- Finns det [nya funktioner och korrigeringar](.\.\azure-stack-update-1711.md#new-features-and-fixes) avsnittet av Azure-stacken 1711 update viktig information om Azure-stacken integrerat system.
-
-    > [!IMPORTANT]
-    > Några av de objekt som visas i den **nya funktioner och korrigeringar** avsnittet gäller bara för Azure-stacken integrerat system.
-
-### <a name="known-issues"></a>Kända problem
-
- 
-#### <a name="deployment"></a>Distribution
-- Du måste ange en tidsserver efter IP-adress under distributionen.
-- Från och med version 1711, **CloudAdmin** är ett reserverat kontonamn och bör inte manuellt anges när du distribuerar i development kit. 
-
-#### <a name="infrastructure-management"></a>Infrastrukturhantering
-- Aktivera inte infrastrukturen för säkerhetskopiering på den **infrastruktur säkerhetskopiering** bladet.
-- Baseboard management controller (BMC) IP-adress och modell visas inte i viktig information för en enhet skala-nod. Detta beteende förväntas i Azure-stacken Development Kit.
-
-#### <a name="portal"></a>Portalen
-- Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, väljer du växeln-ikonen i det övre högra hörnet av portalen och välj sedan **återställa standardinställningarna**.
-- När du visar egenskaperna för en resursgrupp i **flytta** är inaktiverat. Det är förväntat. Flytta resursgrupper mellan prenumerationer stöds inte för närvarande.
--  För alla arbetsflöden där du väljer en prenumeration, resursgrupp eller plats i en listrutan, kan en eller flera av följande problem uppstå:
-
-   - Du kan se en tom rad längst upp i listan. Du måste fortfarande kunna markera ett objekt som förväntat.
-   - Om listan över objekt i den nedrullningsbara listrutan är kort kan kanske du inte visa något av objektnamn.
-   - Om du har flera prenumerationer för användaren, får den nedrullningsbara resurslistan vara tom. 
-
-   Du kan skriva namnet på den prenumeration eller resursgrupp (om du vet att den) Undvik de två sista problem, eller kan du använda PowerShell i stället.
-
-- Du ser en **-aktivering krävs** varning om att registrera din Azure-stacken Development Kit. Det är förväntat.
-- Om den **komponenten** användaren klickar på från någon **infrastrukturrollen** meddela den resulterande **översikt** bladet försöker läsa in och misslyckas. Dessutom den **översikt** bladet har ingen timeout.
-- Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren.
-- Det går inte att visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan kontrollera du behörigheterna med hjälp av PowerShell.
-- Den **tjänstens hälsa** bladet inte laddas. När du öppnar bladet tjänstens hälsa i administratören eller användaren portal, Azure stacken visas ett fel och läses inte in information. Detta är förväntat. Även om du kan markera och öppna tjänstens hälsa, funktionen är inte tillgänglig ännu, men de kommer att genomföras i en framtida version av Azure-stacken.
-
-#### <a name="marketplace"></a>Marketplace
-- När du försöker lägga till objekt i stacken för Azure marketplace med hjälp av den **Lägg till från Azure** alternativet inte alla objekt kan vara synlig för hämtning.
-- Användare kan bläddra till den fullständiga marknadsplatsen utan en prenumeration och kan se administrativa element som planer och erbjudanden. Objekten är icke-fungerande till användare.
- 
-#### <a name="compute"></a>Compute
-- Användare möjlighet att skapa en virtuell dator med geo-redundant lagring. Den här konfigurationen gör att skapa en virtuell dator misslyckas. 
-- Du kan konfigurera en virtuell dator tillgänglighetsuppsättning endast med en feldomän på en och en uppdateringsdomän i en.
-- Det finns inga marketplace-upplevelse för att skapa virtuella datorer. Du kan skapa en skala som anges med hjälp av en mall.
-- Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
-
-#### <a name="networking"></a>Nätverk
-- Du kan inte skapa en belastningsutjämnare med en offentlig IP-adress med hjälp av portalen. Som en tillfällig lösning kan använda du PowerShell för att skapa belastningsutjämnaren.
-- När du skapar en Utjämning av nätverksbelastning måste du skapa en regel för network adress translation (NAT). Om du inte får ett fel när du försöker lägga till en NAT-regel när belastningsutjämnaren har skapats.
-- Under **nätverk**, om du klickar på **anslutning** att ställa in en VPN-anslutning **VNet-till-VNet** har listats som en möjlig anslutningstyp. Välj inte det här alternativet. För närvarande endast den **plats-till-plats (IPsec)** stöds.
-- Du kan koppla en offentlig IP-adress från en virtuell dator (VM) när den virtuella datorn har skapats och associerats med den IP-adressen. Disassociation visas ska fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn. Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny. För närvarande måste du bara använda nya offentliga IP-adresser för att skapa en ny virtuell dator.
-- Azure Stack-operatörer kanske inte kan distribuera, ta bort, ändra Vnet eller Nätverkssäkerhetsgrupper. Det här problemet visas främst på efterföljande update försök av samma paket. Detta beror på ett paketering problem med en uppdatering som för närvarande är under undersökningen.
-- Internt Load Balancing (ILB) hanterar felaktigt MAC-adresser för backend-virtuella datorer som släpper paket till backend-nätverket när du använder Linux-instanser.
- 
-#### <a name="sqlmysql"></a>SQL/MySQL 
-- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 
-- Skapande av objekt direkt på SQL- och MySQL som värd för servrar som inte utförs av resursprovidern stöds inte och kan resultera i ett felaktigt tillstånd.
-
-    > [!NOTE]
-    > Visa enskilda [SQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) och [MySQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) konfigurera artiklar om version kompatibilitet.
-
-#### <a name="app-service"></a>App Service
-- Användaren måste registrera lagringsresursprovidern innan de skapar sin första Azure-funktion i prenumerationen.
-
-#### <a name="usage"></a>Användning  
-- Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* tidsstämpel som visar när posten har skapats. För närvarande kan du använda informationen för att utföra redovisas korrekt användning av offentlig IP-adress.
-
-#### <a name="identity"></a>Identitet
-
-I Azure Active Directory Federation Services (ADFS) distribuerade miljöer, den **azurestack\azurestackadmin** inte längre är standard providern Prenumerationens ägare. I stället för att logga in på den **administrationsportalen / adminmanagement endpoint** med den **azurestack\azurestackadmin**, du kan använda den **azurestack\cloudadmin** kontot, så att hantera och använda standard providern prenumerationen.
-
-> [!IMPORTANT]
-> Även den **azurestack\cloudadmin** konto är ägare till prenumerationen Standard Provider i ADFS distribuerade miljöer, har inte behörighet att RDP till värden. Fortsätta att använda den **azurestack\azurestackadmin** konto eller det lokala administratörskontot för att logga in, komma åt och hantera värden efter behov.
 

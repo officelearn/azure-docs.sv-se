@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f0df9b02e7672faec3a1d94997c9b27ffca275e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure-stacken användnings-API
 Den här artikeln besvarar några vanliga frågor om Azure-stacken användning API.
@@ -44,7 +44,7 @@ Användning har rapporterats för följande resursproviders:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Antal begäranden i 10 för 000's |Kön tjänstbegäranden (i 10 000-tal). |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingång data i GB |Kön tjänsten data ingång i GB. |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Utgående trafik i GB |Kön service datatrafik i GB |
-| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*timmar   | Total DB kapacitet vid skapandet. Om du anropar API för användning med en timme, returnerar mätaren MB multiplicerat med antalet timmar. |
+| **SQL-RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*timmar   | Total DB kapacitet vid skapandet. Om du anropar API för användning med en timme, returnerar mätaren MB multiplicerat med antalet timmar. |
 | **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*timmar    | Total DB kapacitet vid skapandet. Om du anropar API för användning med en timme, returnerar mätaren MB multiplicerat med antalet timmar. |
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Timmar för grundläggande VM-storlek |Virtuella kärntimmar | Antal virtuella kärnor multiplicerat med timmar som den virtuella datorn kördes. |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM storlek timmar |Virtuella kärntimmar | Antal virtuella kärnor multiplicerat med timmar för den virtuella datorn kördes. |
@@ -68,7 +68,7 @@ Användning har rapporterats för följande resursproviders:
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Hur gör Azure Stack-användning API: er som jämför med den [Azure användnings-API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (för närvarande i förhandsversion)?
 * Användning-API-klient är konsekvent med Azure-API, med ett undantag: den *showDetails* flaggan för närvarande inte stöds i Azure-stacken.
 * API: et för providern användning gäller bara för Azure-stacken.
-* För närvarande den [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) som är tillgängliga i Azure är inte tillgängligt i Azure-stacken.
+* För närvarande den [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) som är tillgängliga i Azure är inte tillgängligt i Azure-stacken.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Vad är skillnaden mellan användning och rapporterade tid?
 Data användningsrapporter har två huvudsakliga tidsvärden:

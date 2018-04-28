@@ -1,24 +1,18 @@
 ---
 title: Implementera fasetterad navigering i Azure Search | Microsoft Docs
-description: "Lägga till fasetterad navigering i program som integreras med Azure Search molnbaserade search-tjänsten på Microsoft Azure."
-services: search
-documentationcenter: 
+description: Lägga till fasetterad navigering i program som integreras med Azure Search molnbaserade search-tjänsten på Microsoft Azure.
 author: HeidiSteen
-manager: mblythe
-editor: 
-ms.assetid: cdf98fd4-63fd-4b50-b0b0-835cb08ad4d3
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Fasetterad navigering är en filtreringsmekanism som ger automatisk dirigerad nedbrytning navigering i sökprogram. Termen ”fasetterad navigering' kanske inte känner, men du förmodligen har använt det förut. I följande exempel visas är fasetterad navigering inget annat än de kategorier som används för att filtrera resultat.
@@ -54,7 +48,7 @@ Startpunkten är en sida för program som ger fasetterad navigering, normalt pla
 1. En fråga skickas till Azure Search anger navigeringsstrukturen fasetterad via en eller flera aspekten Frågeparametrar. Till exempel frågan kan innehålla `facet=Rating`, kanske med en `:values` eller `:sort` alternativet för att förfina presentationen.
 2. Presentation lagret återger en sida som innehåller fasetterad navigering, med aspekterna som har angetts i begäran.
 3. En fasetterad navigeringsstruktur som innehåller klassificering får du klickar på ”4” som anger att endast produkter med en klassificering på 4 eller senare ska visas. 
-4. Svar skickar programmet en fråga som innehåller`$filter=Rating ge 4` 
+4. Svar skickar programmet en fråga som innehåller `$filter=Rating ge 4` 
 5. Presentation lagret uppdaterar sidan visar en minskad resultatmängd som innehåller bara de objekt som uppfyller de nya kriterierna (i det här fallet produkter klassificerade 4 och senare).
 
 En begränsningsaspekt är en frågeparameter men Blanda inte ihop med frågan indata. Den används aldrig som urvalskriterier i en fråga. Se i stället aspekten frågeparametrar som indata till navigeringsstrukturen som kommer tillbaka i svaret. För varje aspekten frågeparameter som du anger, utvärderar Azure Search är hur många dokumenten i partiella resultaten för varje aspektvärdet.
@@ -67,7 +61,7 @@ I programkoden är mönstret att använda aspekten frågeparametrar för att ret
 
 ### <a name="query-basics"></a>Grunderna i frågan
 
-En begäran har angetts via en eller flera frågeparametrar i Azure Search (se [Sök dokument](http://msdn.microsoft.com/library/azure/dn798927.aspx) en beskrivning av var och en). Ingen av frågeparametrarna krävs, men du måste ha minst en för en fråga ska vara giltigt.
+En begäran har angetts via en eller flera frågeparametrar i Azure Search (se [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en beskrivning av var och en). Ingen av frågeparametrarna krävs, men du måste ha minst en för en fråga ska vara giltigt.
 
 Precision, tolkas som möjlighet att filtrera bort irrelevanta träffar uppnås genom en eller båda av dessa uttryck.
 
@@ -234,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Begränsningsaspekten frågeparameter har angetts till ett fält och beroende på datatyp, kan ytterligare parameteriseras via kommaavgränsad lista med `count:<integer>`, `sort:<>`, `interval:<integer>`, och `values:<list>`. En värdelista som stöds för numeriska data när du ställer in intervall. Se [Sök dokument (Azure Search-API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) för användningsinformation.
+Begränsningsaspekten frågeparameter har angetts till ett fält och beroende på datatyp, kan ytterligare parameteriseras via kommaavgränsad lista med `count:<integer>`, `sort:<>`, `interval:<integer>`, och `values:<list>`. En värdelista som stöds för numeriska data när du ställer in intervall. Se [Sök dokument (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användningsinformation.
 
 Tillsammans med facets, ska begäran formulerade av programmet även skapa filter som begränsar uppsättningen kandidatdokument baserat på en markering för aspekten värdet. För en cykel store fasetterad navigering innehåller ledtrådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?*. Filtrering svar på frågor som *vilka exakt cyklar är röda mountain cyklar i det här pris av intervallet?*. När du klickar på ”Red” för att indikera att endast Red produkter ska visas i nästa fråga som programmet skickar innehåller `$filter=Color eq ‘Red’`.
 
@@ -301,7 +295,7 @@ I allmänhet om du upptäcker att aspekten resultat konsekvent är för stor, re
 
 Det finns en standardgräns med 10 värden för varje fasetterad fält i navigeringsträdet. Den här standardinställningen är meningsfullt för navigeringsstrukturer eftersom den bevarar värdelistan till en hanterbar storlek. Du kan åsidosätta standardinställningen genom att tilldela ett värde som ska räknas.
 
-* `&facet=city,count:5`Anger att de första fem orter hittades i det övre rangordnas resultat returneras som ett resultat av aspekten. Överväg att en exempelfråga med en sökterm ”flygplats” och 32 matchar. Om frågan anger `&facet=city,count:5`, de fem första unika orter med flest dokument i sökresultatet ingår i aspekten resultaten.
+* `&facet=city,count:5` Anger att de första fem orter hittades i det övre rangordnas resultat returneras som ett resultat av aspekten. Överväg att en exempelfråga med en sökterm ”flygplats” och 32 matchar. Om frågan anger `&facet=city,count:5`, de fem första unika orter med flest dokument i sökresultatet ingår i aspekten resultaten.
 
 Observera skillnaden mellan aspekten resultat och sökresultat. Sökresultaten är alla dokument som matchar frågan. Begränsningsaspekten resultat är matchningarna för varje aspektvärdet. Sökresultaten innehåller stadsnamn som inte finns med i listan över klassificering aspekten (5 i vårt exempel) i det här exemplet. Resultat som har filtrerats ut via fasetterad navigering visas när du tar bort facets eller välja andra facets förutom stad. 
 
@@ -335,12 +329,12 @@ Etiketter definieras vanligen i formuläret eller HTML (`index.cshtml` i exempel
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrera baserat på ett intervall
-Faceting över intervall med värden är en gemensam programkrav för sökning. Adressintervall stöds för numeriska data och DateTime-värden. Du kan läsa mer om varje metod i [Sök dokument (Azure Search-API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Faceting över intervall med värden är en gemensam programkrav för sökning. Adressintervall stöds för numeriska data och DateTime-värden. Du kan läsa mer om varje metod i [Sök dokument (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Azure Search förenklar intervallet konstruktionen genom att tillhandahålla två metoder för att beräkna ett intervall. Azure Search skapar lämpliga områden angivna indata som du har angett för båda metoderna. Till exempel om du anger intervallvärden 10 | 20 | 30, skapas automatiskt intervall på 0-10, 20 10, 20 – 30. Programmet kan du ta bort alla intervall som är tomma. 
 
 **Metod 1: Använd parametern intervall**  
-Om du vill ange pris facets i $10 steg, anger du:`&facet=price,interval:10`
+Om du vill ange pris facets i $10 steg, anger du: `&facet=price,interval:10`
 
 **Metod 2: Använda en värdelista med**  
 Du kan använda en värdelista för numeriska data.  Överväg att aspekten intervall för en `listPrice` -fält ska renderas på följande sätt:
@@ -368,7 +362,7 @@ Det finns två geospatiala funktioner i Azure Search **geo.distance** och **geo.
 * Den **geo.distance** funktionen returnerar avståndet i kilometer, mellan två punkter. En punkt är ett fält och andra är en konstant skickas som en del av filtret. 
 * Den **geo.intersects** funktionen returnerar true om en viss punkten befinner sig inom en viss polygon. Det är ett fält och från en polygon har angetts som en konstant lista över koordinater som skickas som en del av filtret.
 
-Du kan hitta filter exemplen i [syntaxen för OData-uttryck (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Du kan hitta filter exemplen i [syntaxen för OData-uttryck (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -437,9 +431,9 @@ För mer information om principer för fasetterad navigering rekommenderar vi f�
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

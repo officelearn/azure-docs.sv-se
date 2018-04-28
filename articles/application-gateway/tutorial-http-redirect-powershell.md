@@ -1,6 +1,6 @@
 ---
 title: Skapa en Programgateway med HTTP till HTTPS - omdirigering av Azure PowerShell | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway med omdirigerade trafik från HTTP till HTTPS med Azure PowerShell."
+description: Lär dig hur du skapar en Programgateway med omdirigerade trafik från HTTP till HTTPS med Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,17 +11,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: a831171b267cca1ffdbf8eef33baafa71dd9bd79
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d67ed204ee263c139b09232b63ad18a85af1e82e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Skapa en Programgateway med HTTP till HTTPS genom att använda Azure PowerShell
 
 Du kan använda Azure PowerShell för att skapa en [Programgateway](application-gateway-introduction.md) med ett certifikat för SSL-avslutning. En regel för vidarebefordran används för att dirigera HTTP-trafik till HTTPS-porten i Programgateway. I det här exemplet du också skapa en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för serverdelspoolen för Programgateway som innehåller två virtuella instanser. 
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandon i den här självstudiekursen, du måste också köra `Login-AzureRmAccount` att skapa en anslutning med Azure.
+Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandon i den här självstudiekursen, du måste också köra `Connect-AzureRmAccount` att skapa en anslutning med Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
@@ -257,7 +257,7 @@ Add-AzureRmApplicationGatewayRequestRoutingRule `
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
 I det här exemplet skapar du en virtuell dator skala in för att tillhandahålla servrar för serverdelspoolen i programgatewayen. Du kan tilldela skaluppsättningen till serverdelspoolen när du konfigurerar IP-inställningar.
 
@@ -320,7 +320,7 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. Till exempel http://52.170.203.149
+Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, http://52.170.203.149
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -328,7 +328,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Säker varning](./media/tutorial-http-redirect-powershell/application-gateway-secure.png)
 
-Om du vill acceptera säkerhetsmeddelande om du använder ett självsignerat certifikat, Välj **information** och sedan **går du vidare till webbsidan**. Skyddad IIS-webbplatsen visas som i följande exempel:
+Om du vill acceptera säkerhetsmeddelande om du använder ett självsignerat certifikat, Välj **information** och sedan **går du vidare till webbsidan**. Din skyddade IIS-webbplats visas sedan som i exemplet nedan:
 
 ![Testa bas-URL i Programgateway](./media/tutorial-http-redirect-powershell/application-gateway-iistest.png)
 

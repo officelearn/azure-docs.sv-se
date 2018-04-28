@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-tjänsten-funktioner
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -56,14 +56,14 @@ Följande inställningar konfigureras med Azure AD Connect och kan inte ändras 
 | DeviceWriteback |[Azure AD Connect: Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect-synkronisering: katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Tillåter ett attribut som ska placeras i karantän när det är en dubblett av ett annat objekt i stället misslyckas hela objektet under exporten. |
-| PasswordSync |[Implementera Lösenordssynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[Implementera hash Lösenordssynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Förhandsversion: Tillbakaskrivning av grupp](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Stöds inte för närvarande. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicerat attribut återhämtning
 I stället för misslyckas att etablera objekt med dubblerade UPN-namn / proxyAddresses, duplicerade attributet ”i karantän” och ett tillfälligt värde är tilldelad. När konflikten löses ändras tillfälliga UPN automatiskt till rätt värde. Mer information finns i [identitet synkronisering och dubblett attributet återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="userprincipalname-soft-match"></a>UserPrincipalName soft match
+## <a name="userprincipalname-soft-match"></a>UserPrincipalName mjuka matchning
 När den här funktionen är aktiverad, mjuk-matcha är aktiverad för UPN förutom den [primära SMTP-adress](https://support.microsoft.com/kb/2641663), som alltid är aktiverat. Soft-matcha används för att matcha befintliga molnanvändare i Azure AD med lokala användare.
 
 Om du behöver matcha lokala AD-konton med befintliga konton som skapats i molnet och du använder inte Exchange Online och sedan den här funktionen är användbart. I det här scenariot kan du vanligtvis inte en orsak till att ange SMTP-attributet i molnet.
@@ -88,7 +88,7 @@ Tidigare uppdateringar för attributet UserPrincipalName med synkroniseringstjä
 
 Mer information finns i [användarnamnen i Office 365, Azure eller Intune matchar inte lokal UPN eller alternativ inloggnings-ID](https://support.microsoft.com/kb/2523192).
 
-Den här funktionen aktiveras kan Synkroniseringsmotorn att uppdatera userPrincipalName när den har ändrats lokalt och du använder Lösenordssynkronisering. Den här funktionen stöds inte om du använder federation.
+Den här funktionen aktiveras kan Synkroniseringsmotorn att uppdatera userPrincipalName när den har ändrats lokalt och du använder hash-synkronisering. Den här funktionen stöds inte om du använder federation.
 
 Den här funktionen är på skapas som standard för nya Azure AD-kataloger. Du kan se om den här funktionen är aktiverad för du genom att köra:  
 

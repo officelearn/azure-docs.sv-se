@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9c2ce75b2bfb4b8ddab11ac94e5a8e50c2fad6ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services-livscykel
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Tjänster som inte hanteras att korrekt kan få problem med flera. Dessa åtgär
 
 Eftersom tjänsterna är tillståndskänslig, är det också sannolikt att tjänsterna använder [tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md). När en primär degraderas i Service Fabric är en av de första sakerna som händer skrivåtkomst till tillståndet för underliggande återkallas. Detta leder till en annan uppsättning problem som kan påverka service lifecycle. Samlingar returnerade undantag baserat på tiden och om repliken flyttas eller stängs av. Det är viktigt att hantera dessa korrekt. 
 
-Undantag från Service Fabric är antingen permanenta [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) eller tillfälligt [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Permanent undantag ska loggas och utlöstes. Tillfälligt undantag kan göras baserat på logik.
+Undantag från Service Fabric är antingen permanenta [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) eller tillfälligt [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). Permanent undantag ska loggas och utlöstes. Tillfälligt undantag kan göras baserat på logik.
 
 En viktig del av testa och validera Reliable Services hanterar undantag som kommer från med hjälp av den `ReliableCollections` tillsammans med tjänsten Livscykelhändelser. Vi rekommenderar att du alltid köra tjänsten under belastning. Du bör också utföra uppgraderingar och [chaos testning](service-fabric-controlled-chaos.md) innan du distribuerar till produktionen. De grundläggande stegen för att säkerställa att din tjänst har implementerats korrekt och att den hanterar Livscykelhändelser på rätt sätt.
 

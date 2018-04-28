@@ -1,8 +1,8 @@
 ---
-title: "Använda en virtuell Linux-MSI för åtkomst till Azure Storage med hjälp av en SAS-autentiseringsuppgifter"
-description: "En självstudiekurs som visar hur du använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Storage, med hjälp av en SAS-autentiseringsuppgifter i stället för en åtkomstnyckeln för lagringskontot."
+title: Använda en virtuell Linux-MSI för åtkomst till Azure Storage med hjälp av en SAS-autentiseringsuppgifter
+description: En självstudiekurs som visar hur du använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Storage, med hjälp av en SAS-autentiseringsuppgifter i stället för en åtkomstnyckeln för lagringskontot.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a3edf58d1e2429d15b599f75e7f9382afd94bb7b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 724d05ab931254c9db372612fedb035a93c393a5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Använd en Linux VM hanteras tjänstidentitet för åtkomst till Azure Storage via en SAS-autentiseringsuppgifter
 
@@ -59,7 +59,7 @@ Den här självstudiekursen skapar vi en ny Linux VM. Du kan också aktivera MSI
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
-En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Under försättsbladen, aktivera MSI gör två saker: MSI VM-tillägget installeras på den virtuella datorn och det möjliggör hanterade tjänstidentiteten för den virtuella datorn.  
+En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera hanterade tjänstidentiteten på en virtuell dator har två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn. 
 
 1. Gå till resursgruppen för den nya virtuella datorn och välj den virtuella dator som du skapade i föregående steg.
 2. Under den virtuella datorn ”inställningar” till vänster klickar du på **Configuration**.
@@ -67,10 +67,6 @@ En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behö
 4. Se till att du klickar på **spara** att spara konfigurationen.
 
     ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Om du vill kontrollera vilka tillägg finns på den virtuella datorn, klickar du på **tillägg**. Om MSI aktiveras den **ManagedIdentityExtensionforLinux** visas i listan.
-
-    ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
@@ -124,7 +120,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     CURL förfrågan och svar för åtkomsttoken understiger:
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true    
     ```
     
     > [!NOTE]

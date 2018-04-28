@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Data Lake Store"
-description: "En självstudiekurs som visar hur du använder en Windows VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Data Lake Store."
+title: Hur du använder en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Data Lake Store
+description: En självstudiekurs som visar hur du använder en Windows VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: be76fa089003a7e881bcddcfeeb628e4a704ce21
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2e0d7f7f8b63a199f921c28072bcd861711addfc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure Data Lake Store
 
@@ -55,7 +55,7 @@ Den här självstudiekursen skapar vi en ny Windows virtuell dator.  Du kan ocks
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
-En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: MSI VM-tillägget installeras på den virtuella datorn och det gör att MSI i Azure Resource Manager.
+En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn.
 
 1. Välj den **virtuella** som du vill aktivera MSI på.  
 2. Klicka på det vänstra navigeringsfältet **Configuration**. 
@@ -102,7 +102,7 @@ I den här självstudiekursen autentisera till Data Lake Store-filsystem som anv
 4. Med hjälp av Powershell's `Invoke-WebRequest`, gör en begäran till den lokala MSI-slutpunkten för att hämta en åtkomst-token för Azure Data Lake Store.  Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Data Lake har en exakt matchning på Resursidentifieraren och avslutande snedstreck är viktigt.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
    Konvertera svaret från ett JSON-objekt till en PowerShell-objektet. 

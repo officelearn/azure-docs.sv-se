@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Händelseutlösare rutnät för Azure Functions
 
@@ -213,11 +213,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON |Beskrivning|
 |---------|---------|----------------------|
-| **Typ** | Krävs – måste vara inställd på `eventGridTrigger`. |
-| **Riktning** | Krävs – måste vara inställd på `in`. |
+| **typ** | Krävs – måste vara inställd på `eventGridTrigger`. |
+| **riktning** | Krävs – måste vara inställd på `in`. |
 | **Namn** | Obligatoriskt - variabelnamnet som används i Funktionskoden för den parameter som tar emot informationen om händelsen. |
 
-## <a name="usage"></a>Syntax
+## <a name="usage"></a>Användning
 
 Du kan använda följande parametertyper för händelsen rutnätet utlösaren för C# och F # funktioner är:
 
@@ -337,6 +337,9 @@ Du kan också skicka en HTTP PUT för att ange värdet för nyckeln själv.
 
 ## <a name="local-testing-with-requestbin"></a>Lokal testning med RequestBin
 
+> [!NOTE]
+> RequestBin platsen är inte tillgängligt, men du kan använda den här metoden med https://hookbin.com i stället. Om platsen är igång kan du använda [ngrok](#local-testing-with-ngrok).
+
 Om du vill testa en händelse rutnätet utlösare lokalt, måste du hämta händelsen rutnätet HTTP-begäranden som levereras från sina ursprung i molnet till den lokala datorn. Ett sätt att göra det är genom att samla in begäranden online och manuellt skicka dem på den lokala datorn:
 
 2. [Skapa en slutpunkt för RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ När du är klar testning, du kan använda samma prenumeration för produktion g
 
 ### <a name="create-a-requestbin-endpoint"></a>Skapa en RequestBin slutpunkt
 
-RequestBin är ett verktyg med öppen källkod som accepterar HTTP-begäranden och visar begärandetexten. Den http://requestb.in URL hämtar särskild behandling av Azure händelse rutnätet. För att underlätta testningen skickar händelse rutnätet händelser för RequestBin URL: en utan att kräva en rätt svar på begäranden för verifiering av prenumerationen. Två andra testningsverktyg behandlas på samma: http://webhookinbox.com och http://hookbin.com.
+RequestBin är ett verktyg med öppen källkod som accepterar HTTP-begäranden och visar begärandetexten. Den http://requestb.in URL hämtar särskild behandling av Azure händelse rutnätet. För att underlätta testningen skickar händelse rutnätet händelser för RequestBin URL: en utan att kräva en rätt svar på begäranden för verifiering av prenumerationen. En andra test verktyg på samma sätt: http://hookbin.com.
 
 RequestBin är inte avsedd för användning med hög genomströmning. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
 

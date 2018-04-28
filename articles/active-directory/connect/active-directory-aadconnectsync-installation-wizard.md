@@ -1,12 +1,12 @@
 ---
-title: "Guiden Installera köra Azure AD Connect | Microsoft Docs"
-description: "Beskriver hur installationsguiden fungerar andra gången du kör den."
-keywords: "Installationsguiden för Azure AD Connect kan du konfigurera inställningar för underhåll den andra gången som du kör den"
+title: Guiden Installera köra Azure AD Connect | Microsoft Docs
+description: Beskriver hur installationsguiden fungerar andra gången du kör den.
+keywords: Installationsguiden för Azure AD Connect kan du konfigurera inställningar för underhåll den andra gången som du kör den
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 56cc38275a23eb4529558b876db619768a885a25
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synkronisering: guiden Installera körs en gång
 Första gången du kör installationsguiden för Azure AD Connect vägleder den dig igenom hur du konfigurerar din installation. Om du kör installationsguiden igen erbjuder alternativ för underhåll.
@@ -79,7 +79,7 @@ Välj det här alternativet om du vill ändra tillståndet och markera eller avm
 ![Alternativ som visas också det aktuella tillståndet för mellanlagringsläge](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>Ändra användarinloggning
-Det här alternativet kan du ändra från synkronisering av lösenord till federation eller tvärtom. Du kan inte ändra till **konfigurerar inte**.
+Det här alternativet kan du ändra metoden för användare till och från synkronisering av lösenords-hash, direktautentisering eller federation. Du kan inte ändra till **konfigurerar inte**.
 
 Mer information om det här alternativet, se [användarinloggning](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 

@@ -1,8 +1,8 @@
 ---
-title: "Vad är åtkomstpanelen i Azure Active Directory? | Microsoft Docs"
-description: "Lär dig hur du använder variationer av åtkomstpanelen (webbläsare, Android-app, iPhone och iPad-appen) för att få åtkomst till SaaS-appar."
+title: Vad är åtkomstpanelen i Azure Active Directory? | Microsoft Docs
+description: Lär dig hur du använder variationer av åtkomstpanelen (webbläsare, Android-app, iPhone och iPad-appen) för att få åtkomst till SaaS-appar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3c8ea85a0906071d6b30f176de7509e5f346b513
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -50,9 +50,7 @@ Du kan komma åt åtkomstpanelen genom att gå till `http://myapps.microsoft.com
 
 Om du har anpassning som konfigurerats för sidan logga in, kan du läsa in anpassning genom att lägga till organisationens domän till URL (till exempel `http://myapps.microsoft.com/<your domain>.com`).
 
-Du kan använda alla aktiva eller verifierat domännamn som har konfigurerats i Azure-portalen, enligt nedan:
-
-![Wingtip Toys domännamn][2]  
+Du kan använda alla aktiva eller verifierat domännamn som har konfigurerats i din Azure-portalen som visas här: ![Wingtip Toys domännamn][2]  
 
 Distribuera URL för alla användare som loggar in på program som är integrerade med Azure AD.
 
@@ -75,7 +73,7 @@ Tillägget för åtkomst-panelen är tillgängligt för:
 - **Edge**: på Windows 10 årsdagar Edition eller senare. 
 - **Chrome**: på Windows 7 eller senare, och i MacOS X eller senare.
 - **Firefox 26.0 eller senare**: Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
-- **Internet Explorer 8, 9, 10, 11**: i Windows 7 eller senare (begränsat stöd).
+- **Internet Explorer 11**: i Windows 7 eller senare (begränsat stöd).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Mina appar skyddat inloggningstillägg
 Om du vill logga in på lösenordsbaserade enkel inloggning, måste du använda tillägget. När tillägget har installerats kan du logga in till den att aktivera ytterligare funktioner genom att välja **logga in att komma igång**. 

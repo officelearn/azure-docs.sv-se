@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory-Autentiseringsbibliotek | Microsoft Docs
-description: "Azure AD Authentication Library (ADAL) kan klienten programvaruutvecklare autentisera enkelt användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop."
+description: Azure AD Authentication Library (ADAL) kan klienten programvaruutvecklare autentisera enkelt användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
 editor: mbaldwin
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: f017e3d323b98660fdee902770652b3165e70e5e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2c77b2e47ce3dd900b1b277e802a07cfed84702
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Autentiseringsbibliotek
 Azure Active Directory Authentication Library (ADAL) gör det möjligt för programutvecklare att autentisera användare till molnet eller lokala Active Directory (AD) och hämta token för att skydda API-anrop. ADAL underlättar autentisering för utvecklare med hjälp av funktioner som:
@@ -29,24 +29,24 @@ Azure Active Directory Authentication Library (ADAL) gör det möjligt för prog
  - och mycket mer
 
 > [!NOTE]
-> Letar du efter Azure AD v2.0-bibliotek (MSAL)? Checka ut den [MSAL biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
-> 
-> 
+> Letar du efter Azure AD v2.0-bibliotek (MSAL)? Checka ut den [MSAL biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+>
+>
 
 ### <a name="client-libraries"></a>Klientbibliotek
 
 | Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
-| .NET-klient Windows Store UWP Xamarin-iOS och Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Skrivbordsapp](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referens](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) | 
-| .NET-klient Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Skrivbordsapp](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
+| .NET-klient Windows Store UWP Xamarin-iOS och Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Skrivbordsapp](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referens](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) |
+| .NET-klient Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Skrivbordsapp](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Den enda sidan App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referens](https://cocoapods.org/pods/ADAL)|
 | Android |ADAL |[Den centrala databasen](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java-webbapp](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
-| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python-webbapp](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) | |
 
-### <a name="server-libraries"></a>Server-bibliotek 
+### <a name="server-libraries"></a>Server-bibliotek
 
 | Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
@@ -63,8 +63,8 @@ Den [Azure AD v2.0-slutpunkten](https://docs.microsoft.com/azure/active-director
 
 | Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
-| .NET-klient Windows Store UWP Xamarin-iOS och Android |MSAL för .NET (förhandsgranskning) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Skrivbordsapp](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[Referens](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
-| JavaScript |MSAL för JavaScript (förhandsgranskning) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Den enda sidan App](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [Referens](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
+| .NET-klient Windows Store UWP Xamarin-iOS och Android |MSAL för .NET (förhandsgranskning) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Skrivbordsapp](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[Referens](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) |
+| JavaScript |MSAL för JavaScript (förhandsgranskning) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Den enda sidan App](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [Referens](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) |
 | iOS |MSAL för iOS (förhandsgranskning) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS-app](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [Referens](https://azuread.github.io/docs/objc/) |
 | Android |MSAL för Android (förhandsgranskning) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android-app](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [Referens](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 
@@ -72,7 +72,7 @@ Den [Azure AD v2.0-slutpunkten](https://docs.microsoft.com/azure/active-director
 
 Här följer tre vanliga scenarier där ADAL kan användas för att autentisera en klient som ansluter till en fjärresurs:  
 
-### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>Autentisering av användare av en native client-program som körs på en enhet 
+### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>Autentisering av användare av en native client-program som körs på en enhet
 
 I detta scenario har en utvecklare ett WPF-klientprogram som behöver åtkomst till en fjärresurs som skyddas av Azure AD, till exempel ett webb-API. Han har en Azure-prenumeration, vet hur att anropa underordnat webb-API och vet Azure AD-klient som använder webb-API. Han kan därmed använder ADAL för att underlätta autentisering med Azure AD, antingen genom att delegera fullt ut autentiseringsupplevelse till ADAL eller genom att uttryckligen hantera autentiseringsuppgifter. ADAL gör det enkelt att autentisera användaren får en åtkomst-token och uppdateringstoken från Azure AD och använda den åtkomst-token för att göra begäranden i webb-API.
 
@@ -82,7 +82,7 @@ Kodexempel som visar det här scenariot använder autentisering till Azure AD, s
 
 I det här scenariot kan har en utvecklare ett program som körs på en server som behöver åtkomst till en fjärresurs som skyddas av Azure AD, till exempel ett webb-API. Han har en Azure-prenumeration, vet hur att anropa tjänsten underordnade och vet använder Azure AD-klient webb-API. Han kan därmed använder ADAL för att underlätta autentisering med Azure AD genom att uttryckligen hantera programmets autentiseringsuppgifter. ADAL gör det enkelt att hämta en token från Azure AD med hjälp av autentiseringsuppgifter för programmets klienten och sedan använda denna token så att begäranden till webb-API. ADAL hanterar också hantera livslängden för åtkomst-token med cachelagringen och förnya efter behov. Kodexempel som visar det här scenariot, se [Daemon konsolen programmet till webb-API](https://github.com/AzureADSamples/Daemon-DotNet).
 
-### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>Autentisering av ett konfidentiellt klientprogram som körs på en server för en användares räkning 
+### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>Autentisering av ett konfidentiellt klientprogram som körs på en server för en användares räkning
 
 I det här scenariot kan har en utvecklare ett program som körs på en server som behöver åtkomst till en fjärresurs som skyddas av Azure AD, till exempel ett webb-API. Begäran måste också göras för ett Azure AD-användares räkning. Han har en Azure-prenumeration, vet hur att anropa underordnat webb-API och vet Azure AD-klient tjänsten använder. När användaren har autentiserats till webbprogrammet kan programmet hämta ett auktoriseringskod för användaren från Azure AD. Webbprogrammet kan sedan använda ADAL för att få en åtkomst-token och uppdatera token för en användare som använder de kod och klient-autentiseringsuppgifter som är kopplade till programmet från Azure AD. När webbprogrammet åtkomsttoken tillgång kan anropa det webb-API förrän token upphör att gälla. När token upphör att gälla kan webbprogrammet använda ADAL för att få en ny åtkomsttoken med hjälp av uppdateringen token som tidigare togs emot. Kodexempel som visar det här scenariot, se [Native client webb-API: et för Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 

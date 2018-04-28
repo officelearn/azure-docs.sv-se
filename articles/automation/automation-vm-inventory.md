@@ -2,17 +2,18 @@
 title: Hantera en virtuell Azure-dator med inventeringssamling | Microsoft Docs
 description: Hantera en virtuell dator med inventeringssamling
 services: automation
+ms.service: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6eb1a77613c6f7784e251bb99a03e6ca7e1f7017
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0b744911d37e2d54f88ebeac3ec64a309bab22b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -59,7 +60,7 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Aktiverad     | Fastställer om inställningen tillämpas        |
+|Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
 |Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
@@ -68,7 +69,7 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Aktiverad     | Fastställer om inställningen tillämpas        |
+|Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”
@@ -77,7 +78,7 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Aktiverad     | Fastställer om inställningen tillämpas        |
+|Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”/etc/*.conf”       |

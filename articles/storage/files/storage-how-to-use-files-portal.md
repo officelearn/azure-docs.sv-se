@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9b8a7988be2c3a2622dd45a264abcb674b7d169e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Hantera Azure-filresurser med Azure Portal 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/). Lär dig att:
@@ -47,10 +47,10 @@ Så här skapar du en filresurs:
 4. I **namn** skriver du *myshare*.
 5. Klicka på **OK** för att skapa Azure-filresursen.
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Ändra innehållet i Azure-filresursen
-Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan också ändra din Azure-filresurs med Azure Portal. Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst.
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Arbeta med innehållet i Azure-filresursen
+Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan också arbeta med din Azure-filresurs med Azure Portal. Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst.
 
-### <a name="create-directory"></a>Skapa katalog
+### <a name="create-a-directory"></a>Skapa en katalog
 Skapa en ny katalog med namnet *myDirectory* vid roten på Azure-filresursen:
 
 1. På sidan **Filtjänst** väljer du filresursen **myshare**. Då öppnas sidan för filresursen.

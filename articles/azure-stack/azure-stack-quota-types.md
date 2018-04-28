@@ -1,25 +1,25 @@
 ---
 title: Kvottyper i stacken Azure | Microsoft Docs
-description: "Granska de olika kvoten typerna som är tillgängliga för tjänster och resurser i Azure-stacken."
+description: Granska de olika kvoten typerna som är tillgängliga för tjänster och resurser i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure-stacken
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | Max antal tillgänglighetsuppsättningar | 10 | Maximalt antal tillgänglighetsuppsättningar som kan skapas på den här platsen. |
 | Anger högsta antal virtuella datorn | 20 | Det maximala antalet skalningsuppsättningar i virtuella datorer som kan skapas på den här platsen. |
 
-> [!NOTE]
-> Beräkna kvoter inte tillämpas i den här tekniska förhandsversionen.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Kvoten lagringstyper
 | **Objektet** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
 | Maximal kapacitet (GB) |500 |Totalt antal lagringskapacitet som kan användas av en prenumeration på den här platsen. |
 | Totalt antal storage-konton |20 |Maximalt antal lagringskonton som skapar en prenumeration på den här platsen. |
+
+> [!NOTE]  
+> Det kan ta upp till två timmar innan en ny lagringskvoten aktiveras. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Typer av nätverk kvot
 | **Objektet** | **Standardvärde** | **Beskrivning** |

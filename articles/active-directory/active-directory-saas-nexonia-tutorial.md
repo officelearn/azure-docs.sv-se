@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Nexonia | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Nexonia."
+title: 'Självstudier: Azure Active Directory-integrering med Nexonia | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Nexonia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Självstudier: Azure Active Directory-integrering med Nexonia
 
@@ -95,7 +95,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Nexonia, måste d
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Nexonia program.
 
   > [!Note]
-   > Om du har problem i integrationen och sedan refererar detta [länken](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) för guide för felsökning. Om du fortfarande inte har hittat lösningen, öka du supportbegäran från Azure-portalen.
+   > Om du har problem i integrationen och sedan refererar detta [länken](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) för guide för felsökning. Om du fortfarande inte har hittat lösningen, öka du supportbegäran från Azure-portalen.
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Nexonia:**
 
@@ -111,9 +111,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Nexonia domän med enkel inloggning information](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
 
-    a. I den **identifierare** textruta, ange ett värde:`Nexonia`
+    a. I den **identifierare** textruta, ange ett värde: `Nexonia`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
     > Reply URL-värdet är inte verkliga. Uppdatera värdet med det faktiska Reply-URL. Kontakta [Nexonia supportteamet](https://nexonia.zendesk.com/hc/requests/new) värdet hämtas.

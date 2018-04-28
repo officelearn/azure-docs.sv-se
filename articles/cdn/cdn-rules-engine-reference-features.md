@@ -3,7 +3,7 @@ title: Azure CDN regler motorn funktioner | Microsoft Docs
 description: I referensdokumentationen för Azure CDN regler motorn funktioner.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: rli
-ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: v-deasim
+ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -33,7 +33,7 @@ Namn | Syfte
 -----|--------
 [Neka åtkomst (403)](#deny-access-403) | Anger om alla begäranden avvisas med ett 403 förbjuden svar.
 [Token Auth](#token-auth) | Anger om tokenbaserad autentisering används på en begäran.
-[Token Auth DOS-kod](#token-auth-denial-code) | Anger typ av svar som returneras till en användare när en begäran nekades på grund av Token-baserad autentisering.
+[Token Auth DOS-kod](#token-auth-denial-code) | Anger typ av svar som returneras till en användare när en begäran nekades på grund av token-baserad autentisering.
 [Token Auth Ignorera skiftläge för URL](#token-auth-ignore-url-case) | Anger om URL: en jämförelser av tokenbaserad autentisering är skiftlägeskänsliga.
 [Tokenparameter Auth](#token-auth-parameter) | Anger om tokenbaserad autentisering frågesträngparametern ska ändras.
 
@@ -515,16 +515,16 @@ Viktig information:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Felsöka Cache-svarshuvuden
-**Syfte:** avgör om ett svar kan innehålla svarshuvud X EC Debug som innehåller information om cacheprincipen för den begärda tillgången.
+**Syfte:** avgör om ett svar kan innehålla [X EC Debug svarshuvuden](cdn-http-debug-headers.md), som innehåller information om cacheprincipen för den begärda tillgången.
 
 Felsöka cachesvar huvuden som ska inkluderas i svaret när båda av följande villkor uppfylls:
 
-- Felsöka Cache svar huvuden funktionen har aktiverats på den önskade begäranden.
-- Begäran definierar en uppsättning debug cache-svarshuvuden som ska inkluderas i svaret.
+- Felsöka Cache svarshuvuden-funktionen har aktiverats på den angivna begäranden.
+- Den angivna begäranden definierar en uppsättning debug cache-svarshuvuden som ska inkluderas i svaret.
 
-Felsöka cachesvar huvuden kan begäras genom att inkludera följande huvud och önskade direktiven i förfrågan:
+Felsöka cachesvar huvuden kan begäras genom att inkludera följande huvud och de angivna direktiven i förfrågan:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Exempel:**
 
@@ -624,7 +624,7 @@ Ta bort| Garanterar att en `Expires` huvud ingår inte i sidhuvud-svaret. Om en 
 ### <a name="external-max-age"></a>Externa maximal ålder
 **Syfte:** bestämmer intervallet maximal ålder för webbläsaren till POP Cachevalidering. Hur lång tid som ska förflyta innan en webbläsare kan med andra ord att söka efter en ny version av en tillgång från en POP.
 
-Den här funktionen aktiveras genererar `Cache-Control: max-age` och `Expires` meddelandehuvuden från POP och skicka dem till HTTP-klienten. Dessa huvuden skriver över de som skapats i den ursprungliga servern. Dock användas behandling för Cache-Control-huvudet och upphör att gälla sidhuvud behandling funktioner beteendet.
+Den här funktionen aktiveras genererar `Cache-Control: max-age` och `Expires` meddelandehuvuden från POP och skicka dem till HTTP-klienten. Som standard skrivs dessa huvuden dessa huvuden som skapats av den ursprungliga servern. Dock användas behandling för Cache-Control-huvudet och upphör att gälla sidhuvud behandling funktioner beteendet.
 
 Viktig information:
 
@@ -706,7 +706,7 @@ Den här funktionen kan inte associeras med följande matchar villkor på grund 
 Viktig information:
 
 - Definiera en blankstegsavgränsad tillåtna H.264 filename tillägg i alternativet filnamnstillägg. Alternativet filnamnstillägg att åsidosätta standardbeteendet. Att stöda MP4 och F4V genom att inkludera dessa filnamnstillägg när det här alternativet. 
-- Se till att ta en period när du anger varje filnamnstillägget (till exempel .mp4 .f4v).
+- Inkludera en period när du anger varje filnamnstillägg (till exempel _.mp4_, _.f4v_).
 
 **Standardbeteende:** HTTP progressiv nedladdning stöder MP4 och F4V media som standard.
 
@@ -727,7 +727,7 @@ Disabled|Återställer standardbeteendet. Standardinställningen är att förhin
 
 För all trafik för produktion rekommenderas att lämna den här funktionen i inaktiverad standardtillståndet. Ursprungliga servrarna kommer annars inte att skärma från användare som oavsiktligt utlösa många no-cache-begäranden när du uppdaterar webbsidor eller från många vanliga mediespelare som är kodade för att skicka ett no-cache-huvud med varje video begäran. Den här funktionen kan dock vara praktiskt att tillämpas på vissa icke-produktion mellanlagring och testning kataloger, för att tillåta nytt innehåll som ska hämtas på begäran från den ursprungliga servern.
 
-Cachestatus som rapporteras för en begäran ska kunna vidarebefordras till ett ursprungsservern på grund av den här funktionen är TCP_Client_Refresh_Miss. Rapporten Cache status som är tillgänglig i Core reporting modulen ger statistisk information genom att Cachestatus. På så sätt kan du spåra antalet och procentandelen förfrågningar som vidarebefordras till en ursprungsserver på grund av den här funktionen.
+Cachestatus som har rapporterats för en begäran ska kunna vidarebefordras till ett ursprungsservern på grund av den här funktionen är `TCP_Client_Refresh_Miss`. Rapporten Cache status som är tillgänglig i Core reporting modulen ger statistisk information genom att Cachestatus. Den här rapporten kan du spåra antalet och procentandelen förfrågningar som vidarebefordras till en ursprungsserver på grund av den här funktionen.
 
 **Standardbeteende:** inaktiverad.
 
@@ -858,7 +858,7 @@ Disabled|Återställer standardbeteendet. Standardinställningen är att ignorer
 ### <a name="maximum-keep-alive-requests"></a>Högsta antal Keep-Alive-begäranden
 **Syfte:** definierar det maximala antalet begäranden för en Keep-Alive-anslutning innan den är stängd.
 
-Ange det maximala antalet begäranden till ett lågt värde rekommenderas inte och kan resultera i försämrade prestanda.
+Ange det maximala antalet begäranden till ett lågt värde inte och kan resultera i försämrade prestanda.
 
 Viktig information:
 
@@ -884,9 +884,9 @@ En av följande åtgärder kan utföras på ett huvud:
 
 Alternativ|Beskrivning|Exempel
 -|-|-
-Lägg till|Det angivna värdet läggs till i slutet av det befintliga begäran huvudvärdet.|**Begära huvudvärde (klient):**Value1 <br/> **Begära huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny begäran huvudvärde:** Value1Value2
-Skriv över|Begäran huvudvärde sätts till det angivna värdet.|**Begära huvudvärde (klient):**Value1 <br/>**Begära huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny begäran huvudvärde:** Value2 <br/>
-Ta bort|Tar bort det angivna begärandehuvudet.|**Begära huvudvärde (klient):**Value1 <br/> **Ändra konfigurationen för klienten begärandehuvudet:** ta bort begärandehuvudet i fråga. <br/>**Resultat:** det angivna begärandehuvudet inte vidarebefordras till den ursprungliga servern.
+Lägg till|Det angivna värdet läggs till i slutet av det befintliga begäran huvudvärdet.|**Begära huvudvärde (klient):** Value1 <br/> **Begära huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny begäran huvudvärde:** Value1Value2
+Skriv över|Begäran huvudvärde sätts till det angivna värdet.|**Begära huvudvärde (klient):** Value1 <br/>**Begära huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny begäran huvudvärde:** Value2 <br/>
+Ta bort|Tar bort det angivna begärandehuvudet.|**Begära huvudvärde (klient):** Value1 <br/> **Ändra konfigurationen för klienten begärandehuvudet:** ta bort begärandehuvudet i fråga. <br/>**Resultat:** det angivna begärandehuvudet inte vidarebefordras till den ursprungliga servern.
 
 Viktig information:
 
@@ -922,8 +922,8 @@ En av följande åtgärder kan utföras på en svarshuvud:
 
 Alternativ|Beskrivning|Exempel
 -|-|-
-Lägg till|Det angivna värdet läggs till i slutet av det befintliga värdet för huvudet svar.|**Svaret huvudvärde (klient):**Value1 <br/> **Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value1Value2
-Skriv över|Svaret huvudvärde sätts till det angivna värdet.|**Svaret huvudvärde (klient):**Value1 <br/>**Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value2 <br/>
+Lägg till|Det angivna värdet läggs till i slutet av det befintliga värdet för huvudet svar.|**Svaret huvudvärde (klient):** Value1 <br/> **Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value1Value2
+Skriv över|Svaret huvudvärde sätts till det angivna värdet.|**Svaret huvudvärde (klient):** Value1 <br/>**Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value2 <br/>
 Ta bort|Tar bort det angivna svarshuvudet.|**Svaret huvudvärde (klient):** Value1 <br/> **Ändra konfigurationen för klienten svarshuvud:** ta bort rubriken i fråga. <br/>**Resultat:** det angivna svarshuvudet inte vidarebefordras till beställaren.
 
 Viktig information:
@@ -990,12 +990,22 @@ Viktig information:
 
 ---
 ### <a name="proxy-special-headers"></a>Proxy särskilda rubriker
-**Syfte:** definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en POP till en ursprungsservern.
+**Syfte:** definierar en uppsättning [Verizon-specifika HTTP-huvuden för begäran](cdn-verizon-http-headers.md) som vidarebefordras från en POP till en ursprungsservern.
 
 Viktig information:
 
-- Varje CDN-specifika begärandehuvudet som definierats i den här funktionen ska vidarebefordras till en ursprungsservern.
-- Förhindra att ett CDN-specifikt huvud som vidarebefordras till en ursprungsservern genom att ta bort den från den här listan.
+- Varje CDN-specifika begärandehuvudet som definierats i den här funktionen vidarebefordras till en ursprungsservern. Exkluderade huvuden vidarebefordras inte.
+- Förhindra att ett CDN-specifikt huvud vidarebefordras genom att ta bort den från blankstegsavgränsad lista i listan huvudfält.
+
+Följande HTTP-huvuden ingår i listan som standard:
+- via
+- X vidarebefordras för
+- X vidarebefordras Proto
+- X-värden
+- X-Midgress
+- X-Gateway-lista
+- X-EC-Name
+- Värd
 
 **Standardbeteende:** alla CDN-specifika begärandehuvuden vidarebefordras till den ursprungliga servern.
 

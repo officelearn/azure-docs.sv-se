@@ -1,11 +1,11 @@
 ---
-title: "Använda Azure Stack principmodul | Microsoft Docs"
-description: "Lär dig att begränsa en Azure-prenumeration fungerar som en prenumeration på Azure-stacken"
+title: Använda Azure Stack principmodul | Microsoft Docs
+description: Lär dig att begränsa en Azure-prenumeration fungerar som en prenumeration på Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 10df87ec6d30e74356b0ff0f44b8745f8c7b8bf3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Hantera Azure principer som använder Azure Stack-principmodulen
 
@@ -41,7 +41,7 @@ Azure-stacken principmodulen kan du konfigurera en Azure-prenumeration med samma
 Följande kommando kan användas för att tillämpa en standardprincip för Azure-stacken mot din Azure-prenumeration. Innan du kör, Ersätt *Azure prenumerationsnamn* med din Azure-prenumeration.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Du kanske vill tillämpa principer i en mer detaljerad metod.  Du kan exempelvis ha andra resurser som körs i samma prenumeration.  Du kan definiera principen programmet till en viss resursgrupp, vilket gör att du kan testa dina appar för Azure-stacken använder Azure-resurser. Innan du kör, Ersätt *Azure prenumerationsnamn* med namn på din Azure-prenumeration.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

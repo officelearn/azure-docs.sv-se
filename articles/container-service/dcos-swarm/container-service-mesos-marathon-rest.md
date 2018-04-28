@@ -1,25 +1,25 @@
 ---
 title: Hantera Azure DC/OS-kluster med Marathon REST API
-description: "Distribuera behållare till ett Azure Container Service DC/OS-kluster med Marathon REST API."
+description: Distribuera behållare till ett Azure Container Service DC/OS-kluster med Marathon REST API.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS-hantering av behållare via Marathon REST API
 
 DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar. Även om ramverk är tillgängliga för många populära arbetsbelastningar, hjälper det här dokumentet dig att börja skapa och skala distribution i behållare med Marathon REST API. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konfigurerats i Azure Container Service. Du måste också kunna fjärransluta till det här klustret. Mer information finns i följande artiklar:
 
@@ -27,7 +27,7 @@ Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konf
 * [Ansluta till ett Azure Container Service-kluster](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>DC/OS-API: er
-När du har anslutit till Azure Container Service-klustret kan du komma åt DC/OS och relaterade REST API:er via http://localhost:local-port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel Marathon-slutpunkter kan nås på URI: er från och med `http://localhost/marathon/v2/`. 
+När du är ansluten till Azure Container Service-kluster, du kan komma åt DC/OS och relaterade REST-API: er via http://localhost:local-port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel Marathon-slutpunkter kan nås på URI: er från och med `http://localhost/marathon/v2/`. 
 
 Mer information om de olika API:erna finns i Mesosphere-dokumentationen för [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) och [Chronos API](https://mesos.github.io/chronos/docs/api.html), samt Apache-dokumentationen för [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -120,7 +120,7 @@ Du kan använda Marathon API för att skala ut eller skala in programdistributio
 Kör följande kommando för att skala ut programmet från anslutningens tunnel.
 
 > [!NOTE]
-> URI:n är http://localhost/marathon/v2/apps/ och följs av ID:t för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI:n http://localhost/marathon/v2/apps/nginx.
+> URI är http://localhost/marathon/v2/apps/ följt av ID för programmet som ska skalas. Om du använder Nginx-exemplet som har angetts här, URI: N är http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -179,7 +179,7 @@ Du kan även använda Marathon API för att skala ut eller skala in programdistr
 Kör följande kommando för att skala ut programmet:
 
 > [!NOTE]
-> URI:n är http://localhost/marathon/v2/apps/ och följs av ID:t för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI:n http://localhost/marathon/v2/apps/nginx.
+> URI är http://localhost/marathon/v2/apps/ följt av ID för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N är http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 

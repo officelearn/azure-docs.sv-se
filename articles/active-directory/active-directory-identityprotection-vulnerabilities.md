@@ -1,9 +1,9 @@
 ---
-title: "Sårbarheter som identifieras av Azure Active Directory Identity Protection | Microsoft Docs"
-description: "Översikt över sårbarheter som identifieras av Azure Active Directory Identity Protection."
+title: Sårbarheter som identifieras av Azure Active Directory Identity Protection | Microsoft Docs
+description: Översikt över sårbarheter som identifieras av Azure Active Directory Identity Protection.
 services: active-directory
-keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
-documentationcenter: 
+keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som identifieras av Azure Active Directory Identity Protection
 Säkerhetsrisker är svagheter i din miljö som kan utnyttjas av en angripare. Vi rekommenderar att åtgärda dessa problem för att förbättra säkerhetsläget i din organisation och förhindrar att angripare utnyttjar dem.
@@ -38,7 +38,7 @@ Azure Multi-Factor authentication ger ett andra säkerhetslager för autentiseri
 
 Vi rekommenderar att du behöver Azure Multi-Factor Authentication för användarinloggningar. Multifaktorautentisering spelar en viktig roll i risk-baserade villkorliga åtkomstprinciper tillgängliga via Identity Protection.
 
-Mer information finns i [vad är Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Mer information finns i [vad är Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Ohanterade molnappar
 Det här problemet kan du identifiera ohanterade molnappar i din organisation.

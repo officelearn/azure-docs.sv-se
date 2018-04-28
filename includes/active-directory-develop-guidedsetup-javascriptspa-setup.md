@@ -1,4 +1,26 @@
-
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="setting-up-your-web-server-or-project"></a>Konfigurera webbservern eller projekt
 
 > Om du vill hämta den här exempelprojektet i stället? 
@@ -7,7 +29,7 @@
 > eller
 > - [Hämta projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) för en lokal webbserver, till exempel Python
 >
-> Och gå sedan till den [konfigurationssteget](#create-an-application-express) konfigurera kodexemplet innan den körs.
+> Och gå sedan till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan den körs.
 
 ## <a name="prerequisites"></a>Förutsättningar
 En lokal webbserver som [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), eller IIS Express integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/) krävs för att köra interaktiva installationen. 
@@ -18,10 +40,10 @@ Anvisningarna i guiden är baserade på både Python och Visual Studio 2017 men 
 
 > ### <a name="option-1-visual-studio"></a>Alternativ 1: Visual Studio 
 > Om du använder Visual Studio och skapar ett nytt projekt, Följ stegen nedan för att skapa en ny Visual Studio-lösning:
-> 1.    I Visual Studio:`File` > `New` > `Project`
-> 2.    Under `Visual C#\Web`väljer`ASP.NET Web Application (.NET Framework)`
+> 1.    I Visual Studio:  `File` > `New` > `Project`
+> 2.    Under `Visual C#\Web`väljer `ASP.NET Web Application (.NET Framework)`
 > 3.    Namnge ditt program och klicka på *OK*
-> 4.    Under `New ASP.NET Web Application`väljer`Empty`
+> 4.    Under `New ASP.NET Web Application`väljer `Empty`
 
 <p/><!-- -->
 

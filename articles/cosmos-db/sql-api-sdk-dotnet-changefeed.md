@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -41,6 +41,11 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="stable-builds"></a>Stabil versioner
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Korrigeringar i den pågående arbete beräkning av.
+
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Stabilitetsförbättringar.
 * Stöd för manuell kontrollpunkter.
@@ -63,6 +68,23 @@ ms.lasthandoff: 04/16/2018
 * GA-SDK
 * Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.14.1 och nedan.
 
+### <a name="pre-release-builds"></a>Förhands-versioner
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Nya v2 API:
+  * Builder mönster för flexibel konstruktionen processorn: ChangeFeedProcessorBuilder-klassen.
+    * Det kan ta en kombination av parametrar.
+    * Det kan ta DocumentClient instans för övervakning och/eller lån samling (inte tillgängligt i v1).
+  * IChangeFeedObserver.ProcessChangesAsync tar nu CancellationToken.
+  * IRemainingWorkEstimator - återstående arbete exteriörbedömning kan användas separat från processorn.
+  * Nya punkter:
+    * IParitionLoadBalancingStrategy - för anpassade belastningsutjämning av partitioner mellan olika instanser av processorn.
+    * ILease ILeaseManager - för hantering av anpassade lån.
+    * IPartitionProcessor - anpassad bearbetning ändringar på en partition.
+* Loggning - använder [LibLog](https://github.com/damianh/LibLog) bibliotek.
+* 100% bakåtkompatibel med API: n v1.
+* Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.21.1 och högre.
+
 ## <a name="release--retirement-dates"></a>Versionen & pensionering datum
 Microsoft meddelar notification minst **12 månader** innan du tar bort en SDK för att utjämna övergången till en nyare/stöds version.
 
@@ -74,6 +96,7 @@ Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tj�
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |
 | [1.2.0](#1.2.0) |31 oktober 2017 |--- |
 | [1.1.1](#1.1.1) |Den 29 augusti 2017 |--- |

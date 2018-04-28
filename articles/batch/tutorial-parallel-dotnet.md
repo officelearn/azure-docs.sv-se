@@ -1,21 +1,21 @@
 ---
-title: "Kör en parallell arbetsbelastning – Azure Batch .NET"
-description: "Självstudie – Omkoda mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch .NET"
+title: Kör en parallell arbetsbelastning – Azure Batch .NET
+description: Självstudie – Omkoda mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch .NET
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
 
@@ -38,7 +38,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 eller senare). 
 
-* Ett Batch-konto och ett länkat allmänt lagringskonto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
+* Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
 * [Windows 64-bitarsversionen av ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt. 
 
@@ -61,7 +61,7 @@ Använd Azure-portalen och lägg till ffmpeg i Batch-kontot som ett [programpake
 
 ## <a name="download-and-run-the-sample"></a>Ladda ned och kör exemplet
 
-### <a name="download-the-sample"></a>Ladda ned exemplet
+### <a name="download-the-sample"></a>Hämta exemplet
 
 [Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
@@ -280,11 +280,11 @@ for (int i = 0; i < inputFiles.Count; i++)
 batchClient.JobOperations.AddTask(jobId, tasks);
 ```
 
-### <a name="monitor-tasks"></a>Övervaka uppgifter
+### <a name="monitor-tasks"></a>Övervaka aktiviteter
 
 När Batch lägger till uppgifter i ett jobb placerar tjänsten dem automatiskt i kö och schemalägger dem för körning vid beräkningsnoder i den associerade poolen. Baserat på de inställningar du anger sköter Batch all köhantering, all schemaläggning, alla omförsök och all annan uppgiftsadministration åt dig. 
 
-Du kan övervaka uppgiftskörningen på många sätt. I det här exemplet definieras metoden `MonitorTasks` för att rapportera endast vid slutförande och vid uppgiftstillstånden för fel eller framgång. Koden i `MonitorTasks` anger en [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) så att endast minimalt med information om uppgifterna väljs. Sedan skapas en [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) som tillhandahåller hjälpkomponenter för övervakning av uppgiftstillstånd. I `MonitorTasks` väntar exemplet på att alla uppgifter ska nå `TaskState.Completed` inom en tidsgräns. Sedan avslutas jobbet och alla uppgifter som slutfördes men där det kan ha uppstått ett fel rapporteras, till exempel vid slutkoder skilda från noll.
+Du kan övervaka aktivitetskörningen på många sätt. I det här exemplet definieras metoden `MonitorTasks` för att rapportera endast vid slutförande och vid uppgiftstillstånden för fel eller framgång. Koden i `MonitorTasks` anger en [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) så att endast minimalt med information om uppgifterna väljs. Sedan skapas en [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) som tillhandahåller hjälpkomponenter för övervakning av uppgiftstillstånd. I `MonitorTasks` väntar exemplet på att alla uppgifter ska nå `TaskState.Completed` inom en tidsgräns. Sedan avslutas jobbet och alla uppgifter som slutfördes men där det kan ha uppstått ett fel rapporteras, till exempel vid slutkoder skilda från noll.
 
 ```csharp
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
@@ -304,7 +304,7 @@ batchClient.JobOperations.TerminateJob(jobId, successMessage);
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När uppgifterna har körts tar appen automatiskt bort den lagringsbehållare som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) och [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) i BatchClient har båda motsvarande borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och uppgifterna så debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla uppgiftsutdata vid noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
+När uppgifterna har körts tar appen automatiskt bort den lagringsbehållare som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) och [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) i BatchClient har båda motsvarande borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och uppgifterna så debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
 
 När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för Batch-kontot och klickar på **Ta bort resursgrupp**.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 044c901799ff7acae1e27602b84802f6b5f70f05
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Köra Hive-frågor med hjälp av PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -45,7 +45,7 @@ Azure PowerShell innehåller *cmdlets* som gör det möjligt att köra Hive-frå
 
 Följande cmdlets som används när du kör Hive-frågor i en fjärransluten HDInsight-kluster:
 
-* `Add-AzureRmAccount`: Autentiserar Azure PowerShell på Azure-prenumerationen.
+* `Connect-AzureRmAccount`: Autentiserar Azure PowerShell på Azure-prenumerationen.
 * `New-AzureRmHDInsightHiveJobDefinition`: Skapar ett *jobbet definition* med hjälp av de angivna HiveQL-instruktionerna.
 * `Start-AzureRmHDInsightJob`: Skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
 * `Wait-AzureRmHDInsightJob`: Använder jobbobjektet för att kontrollera status för jobbet. Den väntar tills jobbet slutförs eller väntetiden har överskridits.

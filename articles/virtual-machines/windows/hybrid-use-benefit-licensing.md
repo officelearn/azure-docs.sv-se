@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: f445a2c77b14477ea2ef4ff7722183d641275f08
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfad3ff71be07026cf4a7dd6ad75df399349f844
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server du använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer från eventuella Azure stöds Windows Server plattformsavbildning eller anpassade Windows-avbildningar. Den här artikeln går över stegen på hur du distribuerar nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server finns i licens- och besparingar i [Azure Hybrid-förmån för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -194,4 +194,4 @@ Lär dig mer om [Azure Hybrid-förmån för Windows Server och Azure Site Recove
 
 Lär dig mer om [Windows 10 på Azure med Multitenant värd höger](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
-Läs mer om [vanliga frågor och svar](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)
+Läs mer om [vanliga frågor och svar](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)

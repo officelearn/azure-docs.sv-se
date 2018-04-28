@@ -10,14 +10,14 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Databasen Transaction Units (Dtu) och elastiska Datatransaktionsenheter (edtu: er)
-Den här artikeln förklarar vad databastransaktionsenheter (DTU:er) och elastiska databastransaktionsenheter (eDTU:er) är och vad som händer när du når det högsta antalet tillåtna DTU:er eller eDTU:er.  
+Den här artikeln förklarar vad databastransaktionsenheter (DTU:er) och elastiska databastransaktionsenheter (eDTU:er) är och vad som händer när du når det högsta antalet tillåtna DTU:er eller eDTU:er. Specifika prisinformation finns [priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Vad är Database Transaction Units (Dtu)?
 För en enda Azure SQL-databas på specifika prestandanivåer inom en [tjänstnivån](sql-database-single-database-resources.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av andra databas i Azure-molnet), och tillhandahålla en förutsägbar nivå av prestanda. Den här mängden resurser beräknas som ett antal Database Transaction Units eller dtu: er och är ett anpassade mått för bearbetning, lagring och i/o-resurser. Förhållandet mellan resurserna har ursprungligen bestäms av ett [OLTP-arbetsbelastning benchmark](sql-database-benchmark-overview.md) utformats är typiska för verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överskrider mängden någon av dessa resurser, är din dataflödet begränsad – vilket resulterar i långsammare prestanda och timeout. De resurser som används av din arbetsbelastning påverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och resurs som används av andra arbetsbelastningar som inte påverkar resurserna som är tillgängliga för din SQL-databas.

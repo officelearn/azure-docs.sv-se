@@ -1,11 +1,11 @@
 ---
-title: "Etablering av guide för SQL Server-datorer med Azure PowerShell | Microsoft Docs"
-description: "Innehåller steg och PowerShell-kommandon för att skapa en virtuell Azure-dator med SQL Server virtuella galleriavbildningar."
+title: Etablering av guide för SQL Server-datorer med Azure PowerShell | Microsoft Docs
+description: Innehåller steg och PowerShell-kommandon för att skapa en virtuell Azure-dator med SQL Server virtuella galleriavbildningar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Hur du etablerar SQL Server-datorer med Azure PowerShell
 
@@ -31,10 +31,10 @@ Den här artikeln kräver Azure PowerShell Modulversion 3,6 eller senare. Kör `
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Add-AzureRmAccount**.
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra den **Connect-AzureRmAccount** kommando.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Du bör se en inloggningsskärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.
@@ -326,8 +326,8 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzureRmResourceGroup**. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
 
-## <a name="example-script"></a>Exempelskriptet
-Följande skript innehåller fullständig PowerShell-skriptet för den här självstudiekursen. Det förutsätts att du har redan installerat Azure-prenumerationen för användning med den **Add-AzureRmAccount** och **Select-AzureRmSubscription** kommandon.
+## <a name="example-script"></a>Exempelskript
+Följande skript innehåller fullständig PowerShell-skriptet för den här självstudiekursen. Det förutsätts att du har redan installerat Azure-prenumerationen för användning med den **Connect-AzureRmAccount** och **Select-AzureRmSubscription** kommandon.
 
 ```PowerShell
 # Variables

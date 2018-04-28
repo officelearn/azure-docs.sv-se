@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -32,10 +32,10 @@ När det finns uppdateringar för virtuell dator (VM)-tillägg som du använder,
 |  | Objektnamnet | Beskrivning | Utgivare | OS-typ |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS-tillägg](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS-tillägg ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Hämta det här tillägget för att distribuera SQL Server på Windows Marketplace-objektet - det här tillägget är obligatoriskt.</b> | Microsoft | Windows |
-|![Anpassat skripttillägg](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägget för anpassat skript ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av anpassade skript tillägget för Windows.</b> | Microsoft | Windows |
+|![Anpassat skripttillägg](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägget för anpassat skript ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av anpassade skript tillägget för Windows.</b> | Microsoft | Windows |
 |![PowerShell DSC-tillägg](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC-tillägg ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Hämta uppdateringen till rutan i version av PowerShell DSC-tillägg. Uppdateras för att stödja TLS version 1.2.</b> | Microsoft | Windows |
-| ![Tillägg för Microsoft-program mot skadlig kod](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägg för Microsoft-program mot skadlig kod ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware för Azure är en enskild agent lösning för program och klient-miljöer är avsedd att köras i bakgrunden utan mänsklig inblandning. | Microsoft | Windows |
-|![Anpassat skripttillägg](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägget för anpassat skript ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av tillägget för anpassat skript för Linux. Det finns flera versioner av det här tillägget och bör du hämta både 1.5.2.1 och 2.0.x. </b> | Microsoft | Linux |
+| ![Tillägg för Microsoft-program mot skadlig kod](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägg för Microsoft-program mot skadlig kod ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware för Azure är en enskild agent lösning för program och klient-miljöer är avsedd att köras i bakgrunden utan mänsklig inblandning. | Microsoft | Windows |
+|![Anpassat skripttillägg](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägget för anpassat skript ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av tillägget för anpassat skript för Linux. Det finns flera versioner av det här tillägget och bör du hämta både 1.5.2.1 och 2.0.x. </b> | Microsoft | Linux |
 | ![Docker-tillägg](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker-tillägget för Linux virtuella datorer. | Microsoft | Linux |
 | ![VM-åtkomst för Linux](media/azure-stack-marketplace-azure-items/cse.png) | [ VM-åtkomst för Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Hämta uppdateringen till den i box-versionen av VMAccess för Linux-tillägg. Denna uppdatering är viktigt om du planerar att använda Debian virtuella Linux-datorer.</b> | Microsoft | Linux |
 | ![Acronis säkerhetskopiering tillägget för Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis säkerhetskopiering tillägget för Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis internationella GmbH. | Linux |

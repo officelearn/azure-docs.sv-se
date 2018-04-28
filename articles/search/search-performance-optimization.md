@@ -1,24 +1,19 @@
 ---
-title: "Azure Search-prestanda och optimering överväganden | Microsoft Docs"
-description: "Finjustera prestanda för Azure Search och konfigurera optimala skala"
-services: search
-documentationcenter: 
+title: Azure Search-prestanda och optimering överväganden | Microsoft Docs
+description: Finjustera prestanda för Azure Search och konfigurera optimala skala
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure Search-prestanda och optimering överväganden
 En bra sökinställningar är en nyckel till slutförd för många mobila och webbprogram. Från fastigheter, för bil marknadsplatser till onlinekataloger, påverkar Snabbsökning och relevanta resultat kundupplevelsen. Det här dokumentet är avsett att hjälp du identifiera bästa praxis för att få ut mesta möjliga av Azure Search, särskilt för avancerade scenarier med avancerad krav för skalbarhet, flerspråkig stöd eller anpassade rangordning.  Dessutom kan det här dokumentet beskrivs internals och täcker metoder fungera effektivt i verkliga kunden appar.

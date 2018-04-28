@@ -1,25 +1,25 @@
 ---
-title: "Stacken plan, erbjudande, kvoter och prenumeration översikt över Azure | Microsoft Docs"
-description: "Jag vill förstå Azure Stack planer, erbjudanden, kvoter och prenumerationer som en moln-operator."
+title: Stacken plan, erbjudande, kvoter och prenumeration översikt över Azure | Microsoft Docs
+description: Jag vill förstå Azure Stack planer, erbjudanden, kvoter och prenumerationer som en moln-operator.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Översikt över plan, erbjudande, kvot och prenumeration
 
@@ -32,10 +32,10 @@ Erbjudanden som innehåller en eller flera planer och varje plan innehåller en 
 - mängden de resurser som användare kan använda
 - vilka regioner som har åtkomst till resurser
 
-När du levererar en tjänst, ska du följa dessa anvisningar:
+Följ dessa anvisningar när du levererar en tjänst:
 
 1. Lägg till en tjänst som du vill skicka till användarna.
-2. Skapa en plan som innehåller en eller flera tjänster. När du skapar en plan, kommer du väljer eller skapar kvoter som definierar gränserna för varje tjänst resurs i planen.
+2. Skapa en plan som innehåller en eller flera tjänster. När du skapar en plan, Välj eller skapa kvoter som definierar gränserna för varje tjänst resurs i planen.
 3. Skapa ett erbjudande som innehåller en eller flera planer (inklusive basen planer och valfria tillägg planer).
 
 När du har skapat erbjudandet kan användarna prenumerera på komma åt de tjänster och resurser som den innehåller. Användare kan prenumerera på valfritt antal erbjudanden som de vill. Följande diagram visar ett enkelt exempel på en användare som prenumererar på två erbjudanden. Varje erbjudandet har en plan eller ett par och varje plan ger dem åtkomst till tjänster.
@@ -52,13 +52,15 @@ För att hjälpa dig att hantera din kapacitet, Välj eller skapa en kvot för v
 
 Kvoter kan konfigureras per region. En plan som innehåller beräknings-tjänster från Region A kan till exempel ha en kvot på två virtuella datorer, 4 GB RAM-minne och 10 CPU-kärnor. I Azure-stacken Development Kit endast en region (med namnet *lokala*) är tillgänglig.
 
+Lär dig mer om [kvottyper i stacken Azure](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Basplan
 
 När du skapar ett erbjudande kan tjänstadministratören innehålla en Basplan. Dessa basen planer ingår som standard när en användare som prenumererar på det erbjudandet. När en användare prenumererar har åtkomst till alla providrar som anges i dessa basen planer (med motsvarande kvoter).
 
 ### <a name="add-on-plans"></a>Tilläggsplaner
 
-Du kan även inkludera valfria tillägg planer i ett erbjudande. Tillägget planer ingår inte som standard i prenumerationen. Tillägget är ytterligare scheman (med kvoter) tillgängliga i ett erbjudande som en prenumerant kan lägga till sina prenumerationer. Exempelvis kan du erbjuda en grundläggande plan med begränsade resurser för en utvärderingsversion och en plan för tillägget med mer omfattande resurser för kunder som vill använda tjänsten.
+Tillägget planer är valfria planer som du lägger till ett erbjudande. Tillägget planer ingår inte som standard i prenumerationen. Tillägget är ytterligare scheman (med kvoter) tillgängliga i ett erbjudande som en prenumerant kan lägga till sina prenumerationer. Exempelvis kan du erbjuda en grundläggande plan med begränsade resurser för en utvärderingsversion och en plan för tillägget med mer omfattande resurser för kunder som vill använda tjänsten.
 
 ## <a name="offers"></a>Erbjudande
 

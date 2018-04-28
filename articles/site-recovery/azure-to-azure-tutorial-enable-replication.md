@@ -5,24 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Konfigurera programåterställning för virtuella Azure-datorer till en sekundär Azure-region (förhandsversion)
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveriberedskap till en sekundär Azure-region för virtuella Azure-datorer. I den här guiden får du lära dig hur man:
+Den här självstudien visar hur du konfigurerar haveriberedskap till en sekundär Azure-region för virtuella Azure-datorer. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv
@@ -30,9 +27,9 @@ Den här självstudien visar hur du konfigurerar haveriberedskap till en sekund�
 > * Konfigurera utgående åtkomst för virtuella datorer
 > * Aktivera replikering för en virtuell dator
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-azure-to-azure.md) för alla komponenter.
@@ -77,7 +74,7 @@ Om du använder en webbadressbaserad brandväggsproxy för att styra utgående n
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
-När en IP-baserad brandvägg, proxy eller NSG-regler används för att styra utgående anslutningar måste följande IP-adressintervall tillåtas. Ladda ned en lista med intervall med följande länkar:
+Om du vill styra utgående anslutningar med hjälp av IP-adresser istället för URL:er, måste du vitlista lämpliga datacenterintervall, Office 365-adresser och tjänstens slutpunktsadresser för IP-baserade brandväggar, proxy eller NSG-regler.
 
   - [Microsoft Azure Datacenter IP-intervall](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP-intervall i Tyskland](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ När en IP-baserad brandvägg, proxy eller NSG-regler används för att styra ut
   - [URL:er och IP-adressintervall för Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [IP-adresser för Site Recovery-tjänstens slutpunkter](https://aka.ms/site-recovery-public-ips)
 
-Använd dessa listor och konfigurera nätverksåtkomsten. Du kan använda det här [skriptet](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) om du vill skapa de NSG-regler som krävs.
+Du kan använda det här [skriptet](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) om du vill skapa de NSG-regler som krävs.
 
 ## <a name="verify-azure-vm-certificates"></a>Verifiera certifikat för virtuella Azure-datorer
 
@@ -105,7 +102,7 @@ Azure Site Recovery har tre inbyggda roller som styr Site Recovery-hanteringen.
 
 - **Site Recovery-läsare** – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-chef som kan övervaka aktuell skyddsnivå och skapa supportärenden.
 
-Läs mer om [Azure RBAC inbyggda roller](../active-directory/role-based-access-built-in-roles.md)
+Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -144,9 +141,9 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 - **Cachelagringskonton**: Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.
 
-- **Rikta storage-konton (om datakällan inte använder VM-hanterade diskar)**: som standard skapar Site Recovery ett nytt lagringskonto i målregionen för spegling av källan VM storage-konto.
+- **Mållagringskonton (om den virtuella måldatorn inte använder hanterade diskar)**: Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.
 
-- **Replik hanterade diskar (om Virtuella källdatorn använder hanterade diskar)**: som standard skapar Site Recovery replik som hanteras diskarna i målregionen för spegling av käll-VM hanterade diskar med samma lagringstyp (Standard eller premium) som den Virtuella källdatorns hanterad disk.
+- **Hanterade replikeringsdiskar (om den virtuella måldatorn använder hanterade diskar)**: Som standard skapar Site Recovery hanterade replikeringsdiskar i målregionen, som speglar den virtuella källdatorns hanterade diskar med samma lagringstyp (standard eller premium) som den virtuella källdatorns hanterade disk.
 
 - **Tillgänglighetsuppsättningar för mål**: Som standard skapar Site Recovery en ny tillgänglighetsuppsättning i målregionen med suffixet ”asr”. Det går bara att lägga till tillgänglighetsuppsättningar om virtuella datorer ingår i en tillgänglighetsuppsättning i källregionen.
 

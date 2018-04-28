@@ -3,17 +3,17 @@ title: Azure Behållarinstanser och behållare orchestration
 description: Förstå hur Azure-behållaren instanser interagera med behållaren orchestrators.
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 79dcb4be49791e84efa99b36b1c0a0d474a372f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e1455cba004facfa03dca21544eec754f5dc60be
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container instanser och behållare orchestrators
 

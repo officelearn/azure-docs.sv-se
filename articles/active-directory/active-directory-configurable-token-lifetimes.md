@@ -1,11 +1,11 @@
 ---
-title: "Konfigurerbara token livslängd i Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du ställer in livslängd för token som utfärdats av Azure AD."
+title: Konfigurerbara token livslängd i Azure Active Directory | Microsoft Docs
+description: Lär dig hur du ställer in livslängd för token som utfärdats av Azure AD.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: billmath
+ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
 
-> [!NOTE]
-> Den här funktionen är för närvarande i förhandsversion. Var beredd på att återställa eller ta bort alla ändringar. Funktionen är tillgänglig i alla Azure Active Directory-prenumeration under Public Preview. Men när funktionen blir allmänt tillgänglig vissa aspekter av funktionen kan kräva en [Azure Active Directory Premium](active-directory-get-started-premium.md) prenumeration.
+> [!IMPORTANT]
+> Den här metoden för att kontrollera livstid för token att bli inaktuell.  När den förblir tillgängliga tills funktionen ersättning är klar, när den är föråldrad livslängd för token-principer som skapas med att den här metoden upphöra att fungera. 
 >
 >
 
@@ -45,19 +45,19 @@ Du kan ange en princip som standardprincipen för din organisation. Principen ti
 Du kan ange principer för livslängd för token för uppdaterings-tokens, åtkomsttoken, session token och ID-token.
 
 ### <a name="access-tokens"></a>Åtkomst-token
-Klienter använder åtkomsttoken att få åtkomst till en skyddad resurs. En åtkomst-token kan användas endast för en specifik kombination av användare, klienten och resursen. Åtkomst-token kan inte återkallas och är giltiga tills de upphör att gälla. En skadlig aktören som har fått en åtkomst-token kan använda det för omfattningen av dess livslängd. Justera livslängden för en åtkomst-token är en kompromiss mellan förbättra systemets prestanda och öka mängden tid att klienten behåller åtkomst efter användarens konto har inaktiverats. Förbättrad prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.
+Klienter använder åtkomsttoken att få åtkomst till en skyddad resurs. En åtkomst-token kan användas endast för en specifik kombination av användare, klienten och resursen. Åtkomst-token kan inte återkallas och är giltiga tills de upphör att gälla. En skadlig aktören som har fått en åtkomst-token kan använda det för omfattningen av dess livslängd. Justera livslängden för en åtkomst-token är en kompromiss mellan förbättra systemets prestanda och öka mängden tid att klienten behåller åtkomst efter användarens konto har inaktiverats. Förbättrad prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.  Standardvärdet är 1 timme - efter en timme klienten måste använda uppdateringstoken (vanligtvis tyst) skaffar en ny uppdateringstoken och åtkomst-token. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
-När en klient får en åtkomst-token för att få åtkomst till en skyddad resurs, får klienten både en uppdateringstoken och en åtkomst-token. Uppdateringstoken som används för att hämta nya åtkomst/uppdatera token par när den aktuella åtkomst-token upphör att gälla. En uppdateringstoken är bunden till en kombination av användar- och klienten. En uppdateringstoken kan återkallas och token giltighet kontrolleras varje gång token som används.
+När en klient får en åtkomst-token för att få åtkomst till en skyddad resurs, får klienten också en uppdateringstoken. Uppdateringstoken som används för att hämta nya åtkomst/uppdatera token par när den aktuella åtkomst-token upphör att gälla. En uppdateringstoken är bunden till en kombination av användar- och klienten. En uppdateringstoken kan vara [återkallas när som helst](develop/active-directory-token-and-claims.md#token-revocation), och token giltighet kontrolleras varje gång token som används.  
 
-Det är viktigt att se skillnad mellan konfidentiell och offentliga klienter. Läs mer om olika typer av klienter, [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+Är det viktigt att se skillnad mellan konfidentiell och offentliga klienter eftersom detta påverkar hur länge uppdaterings-tokens kan användas. Läs mer om olika typer av klienter, [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Token livslängd med konfidentiella klienten uppdatera token
-Konfidentiell klienter är program som kan lagras säkert lösenord klienten (hemliga). De kan visa att förfrågningarna kommer från klientprogrammet och inte från en skadlig aktören. Ett webbprogram är till exempel en konfidentiell klient eftersom det kan lagra en klienthemlighet på webbservern. Exponeras inte. Eftersom dessa flöden är säkrare standard livslängd för uppdaterings-tokens som utfärdats till dessa flöden är `until-revoked`, kan inte ändras med hjälp av Grupprincip och kommer inte att återkallas på frivilliga lösenordsåterställning.
+Konfidentiell klienter är program som kan lagras säkert lösenord klienten (hemliga). De kan visa att förfrågningarna kommer från skyddade klientprogrammet och inte från en skadlig aktören. Ett webbprogram är till exempel en konfidentiell klient eftersom det kan lagra en klienthemlighet på webbservern. Exponeras inte. Eftersom dessa flöden är säkrare standard livslängd för uppdaterings-tokens som utfärdats till dessa flöden är `until-revoked`, kan inte ändras med hjälp av Grupprincip och kommer inte att återkallas på frivilliga lösenordsåterställning.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Token livslängd med offentliga klienten uppdatera token
 
-Offentliga klienter kan inte på ett säkert sätt att lagra ett klient-lösenord (hemliga). En iOS/Android-app kan till exempel obfuscate en hemlighet från resursägare så är det en offentlig klient. Du kan ange principer resurser för att förhindra uppdaterings-tokens från offentliga klienter som är äldre än en angiven period från att erhålla ett nytt åtkomst/uppdatera token par. (Gör du genom att använda egenskapen uppdatera Token inaktiva maxtid.) Du kan också använda principer för att ange en tidsperiod efter vilken uppdaterings-tokens accepteras inte längre. (Det gör du genom att använda egenskapen uppdatera Token Max Age.) Du kan justera livslängden för en uppdateringstoken för att styra när och hur ofta användaren krävs för att ange autentiseringsuppgifter, i stället för att tyst återautentiseras, när du använder en offentlig klientprogrammet.
+Offentliga klienter kan inte på ett säkert sätt att lagra ett klient-lösenord (hemliga). En iOS/Android-app kan till exempel obfuscate en hemlighet från resursägare så är det en offentlig klient. Du kan ange principer resurser för att förhindra uppdaterings-tokens från offentliga klienter som är äldre än en angiven period från att erhålla ett nytt åtkomst/uppdatera token par. (Om du vill göra detta använder du egenskapen uppdatera Token inaktiva Maxtid (`MaxInactiveTime`).) Du kan också använda principer för att ange en tidsperiod efter vilken uppdaterings-tokens accepteras inte längre. (Det gör du genom att använda egenskapen uppdatera Token Max Age.) Du kan justera livslängden för en uppdateringstoken för att styra när och hur ofta användaren krävs för att ange autentiseringsuppgifter, i stället för att tyst återautentiseras, när du använder en offentlig klientprogrammet.
 
 ### <a name="id-tokens"></a>ID-token
 ID-token skickas till webbplatser och interna klienter. ID-token innehåller profilinformation om en användare. En ID-token är bunden till en specifik kombination av användar- och klienten. ID-token anses giltiga tills de upphör att gälla. Vanligtvis ett webbprogram matchar en användare har sessioners livstid i tillämpningsprogrammet att livslängden för ID-token som utfärdas för användaren. Du kan justera livslängden för en ID-token för att styra hur ofta webbprogrammet upphör sessionen program och hur ofta den kräver att användaren autentiseras med Azure AD (tyst eller interaktivt).
@@ -79,10 +79,10 @@ En princip för livslängd för token är en typ av grupprincipobjekt som inneh�
 | --- | --- | --- | --- | --- | --- |
 | Livslängd för åtkomst-Token |AccessTokenLifetime |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
-| Enskild faktor uppdatera Token maximal ålder |MaxAgeSingleFactor |Uppdatera token (för alla användare) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
-| Multi-Factor uppdatera Token maximal ålder |MaxAgeMultiFactor |Uppdatera token (för alla användare) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
-| Enskild faktor Session Token maximal ålder |MaxAgeSessionSingleFactor<sup>2</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
+| Enskild faktor uppdatera Token maximal ålder |MaxAgeSingleFactor |Uppdatera token (för alla användare) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
+| Multi-Factor uppdatera Token maximal ålder |MaxAgeMultiFactor |Uppdatera token (för alla användare) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
+| Enskild faktor Session Token maximal ålder |MaxAgeSessionSingleFactor<sup>2</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
+| Multi-Factor Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är maxlängden explicit som kan anges för dessa attribut.
 * <sup>2</sup>om **MaxAgeSessionSingleFactor** är inte ange det här värdet tar den **MaxAgeSingleFactor** värde. Om varken parametern anges tar egenskapen standardvärdet (förrän har återkallats).
@@ -93,7 +93,7 @@ En princip för livslängd för token är en typ av grupprincipobjekt som inneh�
 | --- | --- | --- |
 | Uppdatera Token Max Age (utfärdas för federerade användare har inte tillräckligt återkallningsinformation<sup>1</sup>) |Uppdatera token (utfärdas för federerade användare har inte tillräckligt återkallningsinformation<sup>1</sup>) |12 timmar |
 | Uppdatera Token inaktiva Maxtid (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |90 dagar |
-| Uppdatera Token Max Age (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |Until-revoked |
+| Uppdatera Token Max Age (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |Tills återkallats |
 
 * <sup>1</sup>externa användare har inte tillräckligt återkallningsinformation innehåller alla användare som inte har attributet ”LastPasswordChangeTimestamp” synkroniseras. Dessa användare får den här korta Max Age eftersom AAD inte går att kontrollera när återkalla token som är knutna till gamla autentiseringsuppgifter (till exempel ett lösenord som har ändrats) och måste checka in mer ofta så att användare och associerade token är fortfarande i god position. För att förbättra upplevelsen innehavaradministratörer se till att de synkroniserar attributet ”LastPasswordChangeTimestamp” (Detta kan ställas in på användarobjekt med hjälp av Powershell eller via AADSync).
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskap aktiviteter: utforskning, modellering och distribution
 
 Vanliga vetenskap aktiviteter inkluderar datagranskning, modellering och distribution. Den här artikeln visar hur du använder den **interaktiv Datagranskning, analys och rapportering (IDEAR)** och **automatisk modellering och rapportering (AMAR)** verktyg för att slutföra flera gemensamma datavetenskap uppgifter till exempel interaktiv datagranskning, dataanalys, rapportering och skapa en modell. Här beskrivs också alternativ för distribution av en modell i en produktionsmiljö med hjälp av en mängd olika verktyg och data plattformar, till exempel följande:
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [SQL-Server med ML-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ Vanliga vetenskap aktiviteter inkluderar datagranskning, modellering och distrib
 
 En data-forskare kan utföra undersökning och rapportering i en mängd olika sätt: genom att använda bibliotek och paket som är tillgängliga för Python (matplotlib till exempel) eller med R (ggplot eller gitter till exempel). Datavetare kan anpassa sådan kod så att de passar bäst för datagranskning för specifika scenarier. Behov för att hantera strukturerade data är olika för Ostrukturerade data, till exempel text och bilder. 
 
-Produkter som Azure Machine Learning arbetsstationen även ange [avancerade förberedelse av data](../preview/tutorial-bikeshare-dataprep.md) för data som wrangling och undersökning, inklusive funktionen skapas. Användaren ska fatta beslut om verktyg, bibliotek och paket som bäst suite deras behov. 
+Produkter som Azure Machine Learning arbetsstationen även ange [avancerade förberedelse av data](../desktop-workbench/tutorial-bikeshare-dataprep.md) för data som wrangling och undersökning, inklusive funktionen skapas. Användaren ska fatta beslut om verktyg, bibliotek och paket som bäst suite deras behov. 
 
 Leverans i slutet av den här fasen är en rapport för undersökning av data. Rapporten bör ge en ganska omfattande vy av data som ska användas för modellering och bedöma om data är lämpligt att gå vidare till steg modellering. Team Data vetenskap processen (TDSP)-verktyg som beskrivs i följande avsnitt för delvis automatiserad utforskning, modellering och rapportering dessutom standardiserade datagranskning och modellering rapporter. 
 
@@ -75,7 +75,7 @@ Mer information finns i [automatisk modellering och rapportering Utility i TDSP 
 ### <a name="model-management"></a>Modellhantering
 När flera modeller har skapats, måste vanligtvis du ha ett system för att registrera och hantera modeller. Vanligtvis behöver du en kombination av skript eller API: er och backend-databas eller versionshantering systemet. Några alternativ som du kan tänka på för dessa hanteringsaktiviteter är:
 
-1. [Azure Machine Learning - modellen management-tjänsten](../preview/index.yml)
+1. [Azure Machine Learning - modellen management-tjänsten](../service/index.yml)
 2. [ModelDB från MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver som ett system för hantering av modellen](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv 
 Det finns olika strategier och plattformar för att placera modeller i produktionen. Här följer några alternativ:
 
 
-- [Distribution av modellen i Azure Machine Learning](../preview/model-management-overview.md)
+- [Distribution av modellen i Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Distribution av en modell i SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

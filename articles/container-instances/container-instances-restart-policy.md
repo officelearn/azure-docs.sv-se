@@ -1,18 +1,18 @@
 ---
-title: "Köra av uppgifter i Azure Container instanser"
-description: "Lär dig hur du använder Azure Behållarinstanser för att köra aktiviteter som körs kan slutföras, som i build-, test- eller image-återgivning jobb."
+title: Köra av uppgifter i Azure Container instanser
+description: Lär dig hur du använder Azure Behållarinstanser för att köra aktiviteter som körs kan slutföras, som i build-, test- eller image-återgivning jobb.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Köra en av aktivitet i Azure Container instanser
 

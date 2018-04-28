@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7c36d2ead9ca9e1ebd08d3d5a9c4901e46d42c00
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (Skriv till exempel ett lösenord) en andra gång.
@@ -75,7 +75,7 @@ I båda fallen autentiseringsuppgifter lagras i ett krypterat tillstånd i katal
 Lösenordsbaserade SSO är beroende av ett webbläsartillägg på ett säkert sätt hämta program- och användarspecifik information från Azure AD och tillämpa det på tjänsten. De flesta SaaS tredjepartsprogram som stöds av Azure AD stöder denna funktion.
 
 Användarens webbläsare kan vara för lösenordsbaserad enkel inloggning:
-* Internet Explorer 8, 9, 10, 11--på Windows 7 eller senare
+* Internet Explorer 11--på Windows 7 eller senare
 * Kanten på Windows 10 årsdagar Edition eller senare 
 * Chrome--På Windows 7 eller senare, och i MacOS X eller senare
 * Firefox 26.0 eller senare--på Windows XP SP2 eller senare, och på Mac OS X 10,6 eller senare

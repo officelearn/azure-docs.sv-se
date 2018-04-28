@@ -1,7 +1,7 @@
 ---
-title: "Azure SQL: inloggningar och användare | Microsoft Docs"
-description: "Lär dig mer om SQL Database säkerhetshantering, särskilt hur du hanterar säkerheten för databasåtkomst och inloggning via huvudnamnkonto på servernivå."
-keywords: "sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst"
+title: 'Azure SQL: inloggningar och användare | Microsoft Docs'
+description: Lär dig mer om SQL Database säkerhetshantering, särskilt hur du hanterar säkerheten för databasåtkomst och inloggning via huvudnamnkonto på servernivå.
+keywords: sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1f512cdbb0275e9ae2d868a326df0e4e5dd2ee24
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Kontrollera och att bevilja åtkomst till databasen
 
@@ -75,7 +75,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
 1. Anslut till huvuddatabasen med ett administratörskonto.
 2. Alternativt steg: Skapa en SQL Server-autentiseringsinloggning med hjälp av instruktionen [SKAPA INLOGGNING](https://msdn.microsoft.com/library/ms189751.aspx). Exempel på instruktion:
    
-   ```
+   ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
    
@@ -86,15 +86,15 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
 
 3. Skapa en användare i huvuddatabasen med hjälp av instruktionen [SKAPA ANVÄNDARE](https://msdn.microsoft.com/library/ms173463.aspx). Användaren kan vara en Azure Active Directory-autentiserad oberoende databasanvändare (om du har konfigurerat din miljö för Azure AD-autentisering), eller en SQL Server-autentiserad oberoende databasanvändare, eller en SQL Server-autentiserad användare baserad på en SQL Server-autentiserad inloggning (skapad i föregående steg.) Exempel på instruktioner:
    
-   ```
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-   CREATE USER Tran WITH PASSWORD = '<strong_password>';
-   CREATE USER Mary FROM LOGIN Mary; 
+   ```sql
+   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
+   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
 4. Lägg till den nya användaren till **dbmanager**-databasrollen med hjälp av instruktionen [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Exempel på instruktioner:
    
-   ```
+   ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
@@ -114,21 +114,25 @@ Icke-administratörskonton behöver i allmänhet inte åtkomst till huvuddatabas
 
 För att skapa användare, anslut till databasen och köra instruktioner som liknar följande exempel:
 
-```
+```sql
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Initialt kan endast en av administratörerna eller ägaren av databasen skapa användare. För att auktorisera ytterligare användare som ska kunna skapa nya användare: Ge den valda användaren `ALTER ANY USER`-behörighet genom att använda en instruktion som:
 
-```
+```sql
 GRANT ALTER ANY USER TO Mary;
 ```
 
 Om du vill ge ytterligare användare fullständig behörighet till databasen, gör dem till medlemmar i den fasta databasrollen **db_owner** med hjälp av `ALTER ROLE`-instruktionen.
 
+```sql
+ALTER ROLE db_owner ADD MEMBER Mary; 
+```
+
 > [!NOTE]
-> Den vanligaste anledningen till att skapa databasanvändare baserat på inloggningar är när du har SQL Server-autentiserade användare som behöver åtkomst till flera databaser. Användare baserade på inloggningar är knutna till inloggningen och endast ett lösenord för att logga in. Oberoende databasanvändare i individuella databaser är var och en individuella enheter och var och en underhåller ett eget lösenord. Detta kan förvirra oberoende databasanvändare om de inte upprätthåller sina lösenord som identiska.
+> Det är en vanlig orsak till att skapa en databasanvändare baserat på en logisk server-inloggning för användare som behöver åtkomst till flera databaser. Eftersom finns databasanvändare enskilda enheter, varje databas behåller sin egen användar- och eget lösenord. Detta kan orsaka kostnader som användaren sedan komma ihåg varje lösenord för varje databas, och den kan bli ohållbara när behöva ändra flera lösenord för många databaser. Men när du använder SQL Server-inloggningar och hög tillgänglighet (aktiv geo-replikering och redundans grupper), måste SQL Server-inloggningar anges manuellt på varje server. Annars kommer databasanvändaren inte längre att mappas till server-inloggning efter en växling vid fel inträffar och kommer inte att komma åt databasen efter växling vid fel. Mer information om hur du konfigurerar inloggningar för geo-replikering finns [konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller failover](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurera brandvägg på databasnivå
 Bästa praxis är att icke-administratörer bara har åtkomst genom brandväggen till de databaser som de använder. Istället för att auktorisera deras IP-adresser genom brandväggen på servernivå och ge dem åtkomst till alla databaser, använd instruktionen [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) för att konfigurera brandväggen på databasnivå. Brandväggen på databasnivå kan inte konfigureras via portalen.
@@ -164,7 +168,7 @@ När du hanterar inloggningar och användare i SQL Database, bör du överväga 
 * När du kör uttryck `CREATE/ALTER/DROP LOGIN` och `CREATE/ALTER/DROP DATABASE` i ett ADO.NET-program, är det inte tillåtet att använda parametriserade kommandon. Mer information finns i [Kommandon och parametrar](https://msdn.microsoft.com/library/ms254953.aspx).
 * När du kör uttrycket `CREATE/ALTER/DROP DATABASE` och `CREATE/ALTER/DROP LOGIN`, måste vart och ett av dessa uttryck vara den enda instruktionen i en Transact-SQL-batch. Annars uppstår ett fel. Till exempel kontrollerar följande Transact-SQL huruvida databasen finns. Om den finns anropas ett `DROP DATABASE`-uttryck för att ta bort databasen. Eftersom `DROP DATABASE`-uttrycket inte är det enda uttrycket i batchen, ger körning av följande Transact-SQL-uttryck ett fel.
 
-  ```
+  ```sql
   IF EXISTS (SELECT [name]
            FROM   [sys].[databases]
            WHERE  [name] = N'database_name')

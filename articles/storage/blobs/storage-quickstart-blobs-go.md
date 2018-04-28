@@ -1,19 +1,19 @@
 ---
-title: Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Go | Microsoft Docs
-description: I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
+title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Go | Microsoft Docs
+description: I den här snabbstarten skapar du ett lagringskonto och en behållare i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: seguler
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: b288c764c3a6b5821f913170f8f9c88e5cc86956
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 171cfaadce4bdafeadfdc26dedaedbba3025bd3c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 

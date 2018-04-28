@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 90bbcc865f13a1d048ea12fdccd3ca848cf362ba
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 I en [relaterade Azure AD B2C-artikeln](active-directory-b2c-custom-rest-api-netfw.md), du skapar en RESTful-tjänst (webb-API) som kan integreras med Azure Active Directory B2C (Azure AD B2C) användaren resor utan autentisering. 
 
 I den här artikeln får du lägger till grundläggande HTTP-autentisering RESTful-tjänst så att endast verifieras användare, inklusive B2C, kan komma åt din API. Grundläggande HTTP-autentisering anger du användarens autentiseringsuppgifter (app-ID och app secret) i en anpassad princip. 

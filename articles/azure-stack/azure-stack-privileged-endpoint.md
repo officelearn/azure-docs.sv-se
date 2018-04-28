@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med den privilegierade slutpunkten i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Du bör använda administratörsportal PowerShell eller Azure Resource Manager API: erna för de flesta dagliga hanteringsuppgifter som operatör Azure stacken. Men för vissa mindre vanliga åtgärder, måste du använda den *Privilegierade endpoint* (program). Detta program är en förkonfigurerad PowerShell fjärrkonsolen som ger dig bara tillräckligt med kapacitet för att utföra en obligatorisk uppgift. Slutpunkten använder [PowerShell JEA (Just tillräckligt Administration)](https://docs.microsoft.com/en-us/powershell/jea/overview) att exponera en begränsad uppsättning cmdlets för. Ett lågprivilegierat konto används för att komma åt detta program och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
+Du bör använda administratörsportal PowerShell eller Azure Resource Manager API: erna för de flesta dagliga hanteringsuppgifter som operatör Azure stacken. Men för vissa mindre vanliga åtgärder, måste du använda den *Privilegierade endpoint* (program). Detta program är en förkonfigurerad PowerShell fjärrkonsolen som ger dig bara tillräckligt med kapacitet för att utföra en obligatorisk uppgift. Slutpunkten använder [PowerShell JEA (Just tillräckligt Administration)](https://docs.microsoft.com/powershell/jea/overview) att exponera en begränsad uppsättning cmdlets för. Ett lågprivilegierat konto används för att komma åt detta program och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
 
 Du kan använda detta program för att utföra uppgifter, till exempel följande:
 
@@ -87,7 +87,7 @@ Innan du börjar den här proceduren för ett integrerat system, kontrollera att
 
     Många av dessa cmdlets är endast avsett för integrerat system-miljöer (till exempel cmdlets för datacenter-integrering). Följande cmdlets i ASDK, har verifierats:
 
-    - Clear-Host
+    - Rensa värden
     - Stäng PrivilegedEndpoint
     - Avsluta-PSSession
     - Get-AzureStackLog
@@ -99,7 +99,7 @@ Innan du börjar den här proceduren för ett integrerat system, kontrollera att
     - Mått-objekt
     - New-CloudAdminUser
     - Standard ut
-    - Remove-CloudAdminUser
+    - Ta bort CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
     - Test-AzureStack
@@ -108,7 +108,7 @@ Innan du börjar den här proceduren för ett integrerat system, kontrollera att
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tips om att använda Privilegierade slutpunkten 
 
-Som nämnts ovan är detta program är en [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) slutpunkt. Och ger en stark säkerhetsskiktet minskar en slutpunkt för JEA några av de grundläggande PowerShell-funktionerna, till exempel skript eller TABB slutförande. Om du av någon typ av skriptåtgärd åtgärden misslyckas med fel **ScriptsNotAllowed**. Detta är förväntat.
+Som nämnts ovan är detta program är en [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) slutpunkt. Och ger en stark säkerhetsskiktet minskar en slutpunkt för JEA några av de grundläggande PowerShell-funktionerna, till exempel skript eller TABB slutförande. Om du av någon typ av skriptåtgärd åtgärden misslyckas med fel **ScriptsNotAllowed**. Detta är förväntat.
 
 Så exempelvis köra för att få en lista över parametrar för en viss cmdlet kan du följande kommando:
 
@@ -116,7 +116,7 @@ Så exempelvis köra för att få en lista över parametrar för en viss cmdlet 
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Du kan också använda den [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) för att importera alla program-cmdletar i den aktuella sessionen på din lokala dator. På så sätt, är alla cmdletar och funktioner för detta program nu tillgängliga på den lokala datorn, tillsammans med flikavslutande med mera, i allmänhet skript. 
+Du kan också använda den [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) för att importera alla program-cmdletar i den aktuella sessionen på din lokala dator. På så sätt, är alla cmdletar och funktioner för detta program nu tillgängliga på den lokala datorn, tillsammans med flikavslutande med mera, i allmänhet skript. 
 
 Om du vill importera program sessionen på den lokala datorn, gör du följande steg:
 

@@ -1,12 +1,12 @@
 ---
 title: Integrera Azure Service Fabric med API Management | Microsoft Docs
-description: "I den här självstudiekursen lär du dig att snabbt komma igång med Azure API Management och Service Fabric."
+description: I den här självstudiekursen lär du dig att snabbt komma igång med Azure API Management och Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Självstudiekurs: Distribuera API Management med Service Fabric
 Den här självstudien är del fyra i en serie.  Att distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API Management är användbart när du vill publicera API: er med en omfattande uppsättning dirigeringsregler för dina Service Fabric-serverdelstjänster. Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara valfri tillståndslös tjänst för ingångstrafik, till exempel ett ASP.NET Core-program, Event Hubs, IoT Hub eller Azure API Management. 
 
 I den här kursen får du se hur du konfigurerar [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric för att dirigera trafik till en serverdelstjänst i Service Fabric.  När du är klar kan har du distribuerat API Management till ett virtuellt nätverk och konfigurerat en API-åtgärd som dirigerar trafik till tillståndslösa servicedelstjänster. Mer information om Azure API Management-scenarier med Service Fabric finns i [översiktsartikeln](service-fabric-api-management-overview.md).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Distribuera API Management
@@ -59,7 +59,7 @@ Nu när du har ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet
 Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ För den här självstudiekursen distribuerar du en enkel webbserver som ekar me
 
    En tillståndslös Java-tjänst med namnet `fabric:/EchoServerApplication/EchoServerService` bör nu köras i ditt Service Fabric-kluster i Azure.
 
-5. Öppna en webbläsare och skriv in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Nu bör ”[version 1.0] Hello World!!!” visas.
+5. Öppna en webbläsare och skriv http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, du bör se ”[version 1.0] Hello World!!!” visas.
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Ladda ned och förstå Resource Manager-mallarna
 Ladda ned och spara följande mallar och parameterfil för Resource Manager:
@@ -179,7 +179,7 @@ Ange ett beskrivande **DisplayName** och en **beskrivning** av produkten. För d
 
 - **DisplayName** kan vara valfritt namn för din API. För den här självstudiekursen använder du ”Service Fabric App”.
 - **name** är ett unikt och beskrivande namn för API:et, till exempel ”service-fabric-app”. Det visas i utvecklar- och utgivarportalerna. 
-- **serviceUrl** refererar till HTTP-tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen. Det här URL-värdet används inte för Service Fabric-serverdelar. Du kan ange ett valfritt värde här. För den här självstudiekursen kan du till exempel ange ”http://servicefabric”. 
+- **serviceUrl** refererar till HTTP-tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen. Det här URL-värdet används inte för Service Fabric-serverdelar. Du kan ange ett valfritt värde här. För den här självstudien kan du till exempel ange ”http://servicefabric”. 
 - **path** läggs till baswebbadressen för API-hanteringstjänsten. Baswebbadressen är gemensam för alla API:er som har en API Management-tjänstinstans som värd. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare. 
 - **protocol** anger vilka protokoll som kan användas för åtkomst till API:et. För den här självstudiekursen anger du **http** och **https**.
 - **sökväg** är ett suffix för API:et. Använd ”myapp” för den här självstudiekursen.

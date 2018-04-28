@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure-mallar för att skapa HDInsight och Data Lake Store | Microsoft Docs"
-description: "Använd Azure Resource Manager-mallar för att skapa och använda HDInsight-kluster med Azure Data Lake Store"
+title: Använda Azure-mallar för att skapa HDInsight och Data Lake Store | Microsoft Docs
+description: Använd Azure Resource Manager-mallar för att skapa och använda HDInsight-kluster med Azure Data Lake Store
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bc20504865fa59cafc199305f9810fb4c3d99524
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Skapa ett HDInsight-kluster med Data Lake Store med Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Anvisningarna i länken ovan kräver PowerShell. Innan du börjar med dessa inst
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription
@@ -80,7 +80,7 @@ Om du vill kontrollera att du laddar upp exempeldata är tillgänglig från HDIn
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Kör testjobb i HDInsight-klustret för att använda Data Lake Store
 När du har konfigurerat ett HDInsight-kluster, kan du köra testjobb på klustret för att testa att HDInsight-klustret har åtkomst till Data Lake Store. Om du vill göra det, kommer vi kör ett Hive-jobb som skapar en tabell med exempeldata som du tidigare har överförts till din Data Lake Store.
 
-I det här avsnittet kommer du att SSH till ett kluster i HDInsight Linux och kör den en exempelfråga Hive. Om du använder en Windows-klient, bör du använda **PuTTY**, som kan hämtas från [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+I det här avsnittet kommer du att SSH till ett kluster i HDInsight Linux och kör den en exempelfråga Hive. Om du använder en Windows-klient, bör du använda **PuTTY**, som kan hämtas från [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Läs mer om hur du använder PuTTY [använda SSH med Linux-baserade Hadoop i HDInsight från Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -116,7 +116,7 @@ Läs mer om hur du använder PuTTY [använda SSH med Linux-baserade Hadoop i HDI
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Åtkomst till Data Lake Store med hjälp av HDFS-kommandon
 När du har konfigurerat HDInsight-klustret för att använda Data Lake Store kan använda du HDFS-gränssnittskommandon tillgång till store.
 
-I det här avsnittet kommer du att SSH i Linux ett HDInsight-kluster och kör HDFS-kommandon. Om du använder en Windows-klient, bör du använda **PuTTY**, som kan hämtas från [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+I det här avsnittet kommer du att SSH i Linux ett HDInsight-kluster och kör HDFS-kommandon. Om du använder en Windows-klient, bör du använda **PuTTY**, som kan hämtas från [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Läs mer om hur du använder PuTTY [använda SSH med Linux-baserade Hadoop i HDInsight från Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

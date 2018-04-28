@@ -1,6 +1,6 @@
 ---
-title: "Hur du skapar DSVM och HDI som beräkna mål för Azure ML"
-description: "Skapa DSVM och HDI Spark-kluster som compute mål för Azure ML experiment."
+title: Hur du skapar DSVM och HDI som beräkna mål för Azure ML
+description: Skapa DSVM och HDI Spark-kluster som compute mål för Azure ML experiment.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Skapa DSVM och HDI Spark-kluster som compute mål
 
@@ -27,7 +27,7 @@ Du kan enkelt skala upp eller ut machine learning-experiment genom att lägga ti
 
 Du kan skapa en DSVM från Azure-portalen. 
 
-1. Logga in på Azure-portalen från https://portal.azure.com
+1. Logga in på Azure portal https://portal.azure.com
 2. Klicka på den **+ ny** länk, och Sök efter ”datavetenskap virtuell dator för Linux”.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
 4. Välj **datavetenskap virtuell dator för Linux (Ubuntu)** i listan och följ de på skärmen instruktioner för att skapa DSVM.
@@ -148,13 +148,13 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Expandera DSVM OS-disk
-Linux VM i Azure kommer vanligtvis med en 30 GB för operativsystemets disk. När det används som beräkna mål för Azure ML, den både passar snabbt genom att dra nedåt Docker-bilder och bygga conda lager ovanpå det Docker-motorn. Det är en bra idé att expandera OS-disken till en större storlek (till exempel 200 GB) för att undvika fel ”disken är full” när du är mitt i en körning. Referens [så att utöka virtuella hårddiskar på en Linux-VM med Azure CLI](../../virtual-machines/linux/expand-disks.md) att lära dig hur du gör det enkelt från azure cli. 
+Ubuntu DSVM levereras med en disk på 50GB OS och disk på 100GB data. Docker lagrar bilderna på datadisken som mer utrymme finns tillgängliga. När det används som beräkna mål för Azure ML användas disken av Docker-motorn dra nedåt Docker-bilder och bygga conda lager ovanpå den. Du kan behöva expandera disk disken till en större storlek (till exempel 200 GB) för att undvika fel ”disken är full” när du är mitt i en körning. Referens [så att utöka virtuella hårddiskar på en Linux-VM med Azure CLI](../../virtual-machines/linux/expand-disks.md) att lära dig hur du gör det enkelt från azure cli. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Skapa ett Apache Spark i Azure HDInsight-kluster i Azure-portalen
 
 Om du vill köra skalbar Spark jobb, måste du skapa ett Apache Spark i Azure HDInsight-kluster i Azure-portalen.
 
-1. Logga in på Azure-portalen från https://portal.azure.com
+1. Logga in på Azure portal https://portal.azure.com
 2. Klicka på den **+ ny** länk, och Sök efter ”HDInsight”.
 
     ![hitta hdi](media/how-to-create-dsvm-hdi/hdi.png)

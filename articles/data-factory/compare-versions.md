@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Jämför V1 och V2 av Azure Data Factory
 Den här artikeln jämför V2 med V1 för Azure Data Factory. En introduktion till V1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). En introduktion till V2 finns i [Introduktion till Data Factory (V2 – förhandsgranskning)](introduction.md).
@@ -139,11 +139,7 @@ SDK:erna som har uppdaterats för V2 är inte bakåtkompatibla med V1-klienter.
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 
-Skapa och hantera underordnade resurser för en v2 Data Factory:
-
--   Version 1 av Data Factory-deltagarrollen kan inte användas för att skapa och hantera v2-resurser.
--   ARM-standarddeltagarrollen, som skapats med Data Factory-resursen, är tillräcklig för att skapa och hantera underordnade resurser för en v2 Data Factory som distribueras med PowerShell eller SDK:erna. Det räcker inte med att skapa och hantera underordnade resurser för en v2 Data Factory som distribuerats från Azure Portal eller med ARM-mallsdistribution.
--   Du måste vara medlem i rollen Automation-jobboperator på resursgruppsnivå eller prenumerationsnivå för att kunna skapa och hantera underordnade resurser för en v2 Data Factory som distribuerats från Azure Portal eller med ARM-mallsdistribution. Din organisation kan också skapa en anpassad roll som innehåller Microsoft.Resources/deployments/* i listan Åtgärder, så som beskrivs i [Skapa anpassade roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-custom-roles.md).
+Version 1 av Data Factory-deltagarrollen kan inte användas till att skapa och hantera Data Factory-resurser i version 2.
 
 ## <a name="monitoring-experience"></a>Övervakningsupplevelse
 I V2 kan du även övervaka datafabriker genom att använda [Azure Monitor](monitor-using-azure-monitor.md). De nya PowerShell-cmdletarna har stöd för övervakning av [Integration Runtimes](monitor-integration-runtime.md). Både V1 och V2 har stöd för visuell övervakning via ett övervakningsprogram som kan startas från Azure Portal.

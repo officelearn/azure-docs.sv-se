@@ -1,8 +1,8 @@
 ---
-title: "Komma igång med Azure Key Vault | Microsoft Docs"
-description: "Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault för att skapa en säker behållare i Azure för lagring och hantering av krypteringsnycklar och hemligheter i Azure."
+title: Komma igång med Azure Key Vault | Microsoft Docs
+description: Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault för att skapa en säker behållare i Azure för lagring och hantering av krypteringsnycklar och hemligheter i Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Komma igång med Azure Key Vault
 Med den här artikeln får du hjälp med att komma igång med Azure Key Vault med PowerShell, och den går igenom följande aktiviteter:
@@ -49,10 +49,10 @@ Om du vill visa detaljerad hjälp om cmdlets som du ser i den här självstudiek
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Om du till exempel behöver hjälp med cmdleten **Login-AzureRmAccount** skriver du:
+Om du till exempel behöver hjälp med cmdleten **Connect-AzureRmAccount** skriver du:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 Du kan också läsa följande artiklar för att bekanta dig med Azure Resource Manager-distributionsmodellen i Azure PowerShell:
@@ -64,13 +64,13 @@ Du kan också läsa följande artiklar för att bekanta dig med Azure Resource M
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
- Om du använder en specifik instans av Azure använder du parametern -Environment. Exempel: 
+ Om du använder en specifik instans av Azure använder du parametern -Environment. Till exempel: 
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Azure PowerShell identifierar alla prenumerationer som är associerade med det här kontot och använder den första som standard.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 Utdata från denna cmdlet visar egenskaper för nyckelvalvet som du precis skapat. De två viktigaste egenskaperna är:
 
 * **Valvnamn**: I det här exemplet är namnet **ContosoKeyVault**. Du ska använda det här namnet för andra Key Vault-cmdlets.
-* **Valvets URI**: I exemplet är detta https://contosokeyvault.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
+* **Valvets URI**: I det här exemplet är det https://contosokeyvault.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu har ditt Azure-konto behörighet att utföra åtgärder i det här nyckelvalvet. Vilket ingen annan har ännu.
 
@@ -138,11 +138,11 @@ du kan visa nyckelns URI genom att skriva:
 $key.id
 ```
 
-Du kan referera till nyckeln som du skapat eller överfört till Azure Key Vault med hjälp av dess URI. För att få den aktuella versionen kan du använda **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**  och använd **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** för att få den här specifika versionen.  
+Du kan referera till nyckeln som du skapat eller överfört till Azure Key Vault med hjälp av dess URI. Du kan använda **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** för att hämta den aktuella versionen och **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** för att hämta den här specifika versionen.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importera en befintlig PFX-fil till Azure Key Vault
 
-När det gäller befintliga nycklar som lagras i en pfx-fil som du vill överföra till Azure Key Vault är stegen olika. Exempel:
+När det gäller befintliga nycklar som lagras i en pfx-fil som du vill överföra till Azure Key Vault är stegen olika. Till exempel:
 - Om du har en befintlig programvaruskyddad nyckel i en. PFX-fil
 - Pfx-filen heter softkey.pfx 
 - Filen lagras på C-enheten.
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-Nu kan du referera till det här lösenordet som du lagt till i Azure Key Vault med hjälp av dess URI. Använd **https://ContosoVault.vault.azure.net/secrets/SQLPassword** om du alltid vill hämta den senaste versionen och använd **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** om du vill hämta den här specifika versionen.
+Nu kan du referera till det här lösenordet som du lagt till i Azure Key Vault med hjälp av dess URI. Använd **https://ContosoVault.vault.azure.net/secrets/SQLPassword** för att alltid hämta den aktuella versionen och **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** för att hämta den här specifika versionen.
 
 Du visar hemlighetens URI genom att skriva:
 
@@ -241,7 +241,10 @@ Du måste välja samma katalog som innehåller Azure-prenumerationen som du skap
 10. Du använder **Program-ID:T** och **nyckelinformationen** i nästa steg för att ställa in behörigheter för ditt valv.
 
 ## <a id="authorize"></a>Godkänna att programmet använder nyckeln eller hemligheten
-För att ge programmet tillstånd att komma åt nyckeln eller hemligheten i valvet använder du cmdleten [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+Det finns två sätt att ge programmet åtkomst till nyckeln eller hemligheten i valvet.
+
+### <a name="using-powershell"></a>Använda PowerShell
+Använd cmdleten [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) för att använda PowerShell.
 
 Om ditt valvnamn till exempel är **ContosoKeyVault** och programmet som du vill auktorisera har klient-ID:t 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed och du vill tillåta att programmet dekrypterar och loggar in med nycklar i valvet, kör du följande:
 
@@ -254,6 +257,13 @@ Om du vill att samma program ska kunna läsa hemligheter i valvet kör du följa
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
+För att ändra programmets behörighet att använda nycklar och hemligheter:
+1. Välj **Åtkomstprinciper** från resursbladet Key Vault
+2. Klicka på [+ Lägg till ny] upptill på bladet
+3. Klicka på **Välj huvudkonto** för att välja det program du skapade tidigare
+4. Välj ”Dekryptera” och ”Signera” i den nedrullningsbara listan **Nyckelbehörigheter** för att ge programmet behörighet att dekryptera och signera med nycklar i ditt valv
+5. Välj ”Hämta” i den nedrullningsbara listan **Hemliga behörigheter** för att ge programmet behörighet att läsa hemligheter i valvet
 
 ## <a id="HSM"></a>Arbeta med en maskinvarusäkerhetsmodul (HSM)
 Om du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM-gränsen. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Om detta krav inte är nödvändigt för dig hoppar du över det här avsnittet och går vidare till [Ta bort nyckelvalvet och associerade nycklar och hemligheter](#delete).

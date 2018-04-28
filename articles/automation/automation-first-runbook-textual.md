@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b29fd8a576b4360b8465cc59db606fb1a8f2a02d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 33e9b68973aa399123fa9e62a2d0eea77c55add0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -97,7 +97,7 @@ Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publ
 12. Du kan klicka på det här jobbet för att öppna fönstret för samma jobb som du har visat när du startade runbook. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
-Du har testat och publicerat din runbook, men hittills märkvärdigheter användbart. Du vill ha den hantera Azure-resurser. Det kommer inte att kunna göra det, men om du inte har den autentisera med de autentiseringsuppgifter som anges i den [krav](#prerequisites). Det gör du med den **Add-AzureRMAccount** cmdlet.
+Du har testat och publicerat din runbook, men hittills märkvärdigheter användbart. Du vill ha den hantera Azure-resurser. Det kommer inte att kunna göra det, men om du inte har den autentisera med de autentiseringsuppgifter som anges i den [krav](#prerequisites). Det gör du med den **Connect-AzureRmAccount** cmdlet.
 
 1. Öppna textredigeraren genom att klicka på **Redigera** i fönstret MyFirstRunbook-Workflow.
 2. Du behöver den **Write-Output** rad längre, och nu måste du ta bort den.
@@ -106,7 +106,7 @@ Du har testat och publicerat din runbook, men hittills märkvärdigheter använd
 
    ```powershell-interactive
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
 5. Klicka på **Test fönstret** så att du kan testa din runbook.
@@ -115,13 +115,13 @@ Du har testat och publicerat din runbook, men hittills märkvärdigheter använd
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
 Nu när din runbook autentiseras till din Azure-prenumeration, kan du hantera resurser. Du lägger till ett kommando för att starta en virtuell dator. Du kan välja en virtuell dator i din Azure-prenumeration och nu du hardcoding namn i runbook.
 
-1. Efter *Add-AzureRmAccount* skriver du *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* och anger namnet och resursgruppsnamnet för den virtuella dator som ska starta.  
+1. Efter *Connect-AzureRmAccount*, typen *Start AzureRmVM-namnet 'VMName' - ResourceGroupName 'NameofResourceGroup'* att ange namnet och resursgruppens namn för den virtuella datorn ska starta.  
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
@@ -141,7 +141,7 @@ din runbook startar den virtuella datorn som du hårdkodad i runbook, men det ä
      [string]$ResourceGroupName
     )  
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```

@@ -1,25 +1,19 @@
 ---
-title: "Välj en SKU eller prisnivån för Azure Search | Microsoft Docs"
-description: "Azure Search kan etableras på dessa SKU: er: ledigt, Basic eller Standard, där Standard finns i olika resurskonfigurationer och kapacitet för nivåerna."
+title: Välj en SKU eller prisnivån för Azure Search | Microsoft Docs
+description: 'Azure Search kan etableras på dessa SKU: er: ledigt, Basic eller Standard, där Standard finns i olika resurskonfigurationer och kapacitet för nivåerna.'
 services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 8d4b7bca-02a5-43ee-b3f8-03551dfb32fd
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Välj en SKU eller prisnivå för Azure Search
 I Azure Search en [service etableras](search-create-service-portal.md) på en specifik prisnivån eller SKU: N. Alternativen är **lediga**, **grundläggande**, eller **Standard**, där **Standard** är tillgänglig i flera konfigurationer och kapacitet.
@@ -78,9 +72,9 @@ Följande diagram är en delmängd av gränser från [Tjänstbegränsningarna i 
 | Serviceavtal (SLA) |Nr <sup>1</sup> |Ja |Ja |Ja |Ja |Ja |
 | Index gränser |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
 | Dokumentet gränser |10 000 totalt |1 miljon per tjänst |15 miljoner per partition |60 miljoner per partition |120 miljoner per partition |1 miljon per index |
-| Maximal partitioner |Saknas |1 |12 |12 |12 |3 <sup>2</sup> |
+| Maximal partitioner |Gäller inte |1 |12 |12 |12 |3 <sup>2</sup> |
 | Partitionsstorlek |Totalt antal 50 MB |2 GB per tjänst |25 GB per partition |100 GB per partition (upp till högst 1,2 TB per tjänst) |200 GB per partition (upp till högst 2,4 TB per tjänst) |200 GB (upp till 600 GB per tjänst) |
-| Maximal repliker |Saknas |3 |12 |12 |12 |12 |
+| Maximal repliker |Gäller inte |3 |12 |12 |12 |12 |
 
 <sup>1</sup> ledigt nivå och förhandsgranska funktioner inte kommer med servicenivåavtal (SLA). För alla fakturerbar nivåer börjar SLA gälla när du etablerar tillräcklig redundans för din tjänst. Två eller flera repliker krävs för SERVICENIVÅAVTAL för frågan (läsa). Tre eller flera repliker krävs för fråga och indexering SLA (skrivskyddad). Antalet partitioner är inte ett SLA-faktor. 
 

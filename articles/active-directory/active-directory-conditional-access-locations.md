@@ -1,26 +1,26 @@
 ---
-title: "Plats-villkor i Azure Active Directory för villkorlig åtkomst | Microsoft Docs"
-description: "Lär dig använda villkoret plats för att styra åtkomsten till dina molnappar baserat på användarens nätverksplats."
+title: Plats-villkor i Azure Active Directory för villkorlig åtkomst | Microsoft Docs
+description: Lär dig använda villkoret plats för att styra åtkomsten till dina molnappar baserat på användarens nätverksplats.
 services: active-directory
-keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
-documentationcenter: 
+keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Plats-villkor i Azure Active Directory för villkorlig åtkomst 
 
@@ -43,7 +43,14 @@ En plats är en etikett för en nätverksplats som antingen representerar en nam
 
 Du kan skapa logiska grupperingar av IP-adressintervall, länder och regioner med namngivna platser. 
 
- En namn-plats innehåller följande komponenter:
+Du kan komma åt din sökvägarna i den **hantera** på sidan för villkorlig åtkomst.
+
+![Platser](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+En namngiven plats innehåller följande komponenter:
 
 ![Platser](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ Antalet namngivna platser som du kan konfigurera är begränsad av storleken på
 
 ## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
 
-Du kan också konfigurera IP-adressintervall som motsvarar din organisations lokalt intranät i den [multifaktorautentisering tjänstinställningar](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Den här funktionen kan du konfigurera upp till 50 IP-adressintervall. Det är de IP-adressintervall i CIDR-format. Mer information finns i [tillförlitliga IP-adresser](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+Du kan också konfigurera IP-adressintervall som motsvarar din organisations lokalt intranät i den [multifaktorautentisering tjänstinställningar](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Den här funktionen kan du konfigurera upp till 50 IP-adressintervall. Det är de IP-adressintervall i CIDR-format. Mer information finns i [tillförlitliga IP-adresser](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Om du har tillförlitliga IP-adresser konfigureras de visas som **MFA tillförlitliga IP-adresser** i listan över platser för plats-villkor.   
 
 ### <a name="skipping-multi-factor-authentication"></a>Hoppa över multifaktorautentisering
 
-På sidan multifaktorautentisering service-inställningar du kan identifiera företagsintranät användare genom att välja **hoppa över multifaktorautentisering för förfrågningar från externa användare i intranätet**. Den här inställningen anger att innanför företagets nätverk anspråk som utfärdas av AD FS bör betrodd och används för att identifiera användaren som i företagsnätverket. Mer information finns i [aktivera funktionen tillförlitliga IP-adresser med hjälp av villkorlig åtkomst](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+På sidan multifaktorautentisering service-inställningar du kan identifiera företagsintranät användare genom att välja **hoppa över multifaktorautentisering för förfrågningar från externa användare i intranätet**. Den här inställningen anger att innanför företagets nätverk anspråk som utfärdas av AD FS bör betrodd och används för att identifiera användaren som i företagsnätverket. Mer information finns i [aktivera funktionen tillförlitliga IP-adresser med hjälp av villkorlig åtkomst](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 När du har kontrollerat att det här alternativet, inklusive namngiven plats **MFA tillförlitliga IP-adresser** gäller för alla principer med den här valda.
 
@@ -100,7 +107,7 @@ När du konfigurerar villkoret plats har möjlighet att skilja mellan:
 
 ### <a name="any-location"></a>Vilken plats som helst
 
-Som standard väljer **var som helst** orsakar en princip som ska tillämpas på alla IP-adresser, vilket innebär att alla adresser på Internet. Den här inställningen är inte begränsat till IP-adresser som du har konfigurerat som namngiven plats inte. När du väljer **var som helst**, du kan fortfarande undanta specifika platser från en princip. Du kan till exempel använda en princip till alla platser utom betrodda platser för att ange omfång för alla platser, förutom företagets nätverk.
+Som standard väljer **var som helst** orsakar en princip som ska tillämpas på alla IP-adresser, vilket innebär att alla adresser på Internet. Den här inställningen är inte begränsat till IP-adresser som du har konfigurerat som namngiven plats. När du väljer **var som helst**, du kan fortfarande undanta specifika platser från en princip. Du kan till exempel använda en princip till alla platser utom betrodda platser för att ange omfång för alla platser, förutom företagets nätverk.
 
 ### <a name="all-trusted-locations"></a>Alla betrodda platser
 
@@ -112,7 +119,7 @@ Det här alternativet gäller för:
 
 ### <a name="selected-locations"></a>Valda platser
 
-Med det här alternativet kan du välja en eller flera namngivna platser. För en princip med den här inställningen ska gälla måste användaren ansluta från någon av de valda platserna. Var du klickar på **Välj** namngivet nätverk markeringen kontrollen som innehåller en lista över namngivna nätverk öppnas. I listan visas också om en nätverksplats nedan har markerats som betrodda. Namngiven plats kallas **MFA tillförlitliga IP-adresser** används för att inkludera de IP-inställningar som kan konfigureras i sidan multifaktorautentisering inställningen.
+Med det här alternativet kan du välja en eller flera namngivna platser. För en princip med den här inställningen ska gälla måste användaren ansluta från någon av de valda platserna. När du klickar på **Välj** namngivet nätverk markeringen kontrollen som innehåller en lista över namngivna nätverk öppnas. I listan visas också om en nätverksplats nedan har markerats som betrodda. Namngiven plats kallas **MFA tillförlitliga IP-adresser** används för att inkludera de IP-inställningar som kan konfigureras i sidan multifaktorautentisering inställningen.
 
 ## <a name="what-you-should-know"></a>Vad du bör känna till
 

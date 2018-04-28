@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik;aljo
-ms.openlocfilehash: 37425f8a076be2579726e5a83bec3da8c6eb5fff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 948b1bb2ce5a19007906262a4efb0ecca8e40482
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Innehållet i Service Fabric fristående paketet för Windows Server
 I den [hämtas](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fristående paketet, hittar du följande filer:
@@ -47,7 +47,7 @@ I den [hämtas](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fr
 | ClusterConfig.Windows.MultiMachine.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för ett säkert, flera datorer (eller virtuella datorn)-kluster med Windows-säkerhet, inklusive information för varje dator som är i säker klustret. Klustret skyddas med hjälp av [Windows identiteter](https://msdn.microsoft.com/library/ff649396.aspx). |
 | ClusterConfig.x509.DevCluster.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för en säker, tre-nod, enskild dator (eller virtuella) development klustret, inklusive information för varje nod i klustret. Klustret skyddas med x509 certifikat. |
 | ClusterConfig.x509.MultiMachine.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för säker, flera datorer (eller virtuella) klustret, inklusive information för varje nod i klustret säker. Klustret skyddas med x509 certifikat. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för säker, flera datorer (eller virtuella) klustret, inklusive information för varje nod i klustret säker. Klustret skyddas med [Grupphanterade tjänstkonton](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för säker, flera datorer (eller virtuella) klustret, inklusive information för varje nod i klustret säker. Klustret skyddas med [Grupphanterade tjänstkonton](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Klustret Configuration-exempel
 Senaste versionerna av klustrets Konfigurationsmallar finns på GitHub-sidan: [fristående kluster Configuration exempel](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

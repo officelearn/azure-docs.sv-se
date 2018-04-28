@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1968222940888c1e5399e257a9694d47adce2e45
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverkskort
 Du kan skapa en virtuell dator (VM) i Azure som har flera virtuella nätverksgränssnitt (NIC) ansluten till den. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverkskort som är kopplade till den och lägga till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
@@ -181,7 +181,7 @@ Du kan också använda en `copyIndex()` att sedan lägga till ett tal till ett r
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Du kan läsa en komplett exempel på [skapar flera nätverkskort med hjälp av Resource Manager-mallar](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Du kan läsa en komplett exempel på [skapar flera nätverkskort med hjälp av Resource Manager-mallar](../../virtual-network/template-samples.md).
 
 Lägg till routningstabeller gästoperativsystemet genom att slutföra stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for- multiple-nics).
 
@@ -219,28 +219,28 @@ eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 
 Du sedan skapa följande filer och lägga till lämpliga regler och vägar till varje:
 
-- */etc/sysconfig/network-scripts/rule-eth0*
+- */etc/sysconfig/Network-Scripts/rule-eth0*
 
     ```bash
     from 10.0.1.4/32 table eth0-rt
     to 10.0.1.4/32 table eth0-rt
     ```
 
-- */etc/sysconfig/network-scripts/route-eth0*
+- */etc/sysconfig/Network-Scripts/route-eth0*
 
     ```bash
     10.0.1.0/24 dev eth0 table eth0-rt
     default via 10.0.1.1 dev eth0 table eth0-rt
     ```
 
-- */etc/sysconfig/network-scripts/rule-eth1*
+- */etc/sysconfig/Network-Scripts/rule-eth1*
 
     ```bash
     from 10.0.1.5/32 table eth1-rt
     to 10.0.1.5/32 table eth1-rt
     ```
 
-- */etc/sysconfig/network-scripts/route-eth1*
+- */etc/sysconfig/Network-Scripts/route-eth1*
 
     ```bash
     10.0.1.0/24 dev eth1 table eth1-rt

@@ -1,8 +1,8 @@
 ---
 title: Azure Key Vault-loggning | Microsoft Docs
-description: "Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning."
+description: Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -42,7 +42,7 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault-lo
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett befintligt nyckelvalv som du har använt.  
@@ -52,7 +52,7 @@ För att kunna slutföra den här självstudiekursen behöver du följande:
 ## <a id="connect"></a>Ansluta till dina prenumerationer
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Azure PowerShell identifierar alla prenumerationer som är associerade med det här kontot och använder den första som standard.
 
@@ -133,7 +133,7 @@ Om du vill visa alla blobbar i den här behållaren skriver du:
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 Följande utdata returneras för detta:
 
-**Behållarens URI: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Behållar-Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Namn**
 

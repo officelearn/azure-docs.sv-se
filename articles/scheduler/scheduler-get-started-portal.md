@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Scheduler på Azure-portalen | Microsoft-dokument"
-description: "Komma igång med Azure Scheduler på Azure-portalen"
+title: Komma igång med Azure Scheduler på Azure-portalen | Microsoft-dokument
+description: Komma igång med Azure Scheduler på Azure-portalen
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Komma igång med Azure Scheduler på Azure-portalen
 Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självstudiekursen lär du dig hur du skapar ett jobb. Du lär dig också om övervaknings- och hanteringsfunktionerna i Scheduler.
@@ -92,7 +92,7 @@ Du kan ändra startdatum och starttid, upprepningsschemat och slutdatumet och sl
 Fliken **Historik** innehåller utvalda mätvärden för varje jobbkörning i systemet för det valda jobbet. Dessa mätvärden är realtidsvärden som beskriver följande hälsoindikatorer i Scheduler:
 
 1. Status  
-2. Detaljer  
+2. Information  
 3. Antal återförsök
 4. Förekomst: första, andra, tredje osv.
 5. Starttid för körning  
@@ -105,7 +105,7 @@ Du kan klicka på en körning om du vill visa  dess **historikinformation**, ink
    ![][job-history-details]
 
 ### <a name="users"></a>Användare
-Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure Scheduler. Information om hur du använder fliken Användare finns i [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md)
+Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure Scheduler. Information om hur du använder fliken Användare finns i [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>Se även
  [Vad är Scheduler?](scheduler-intro.md)

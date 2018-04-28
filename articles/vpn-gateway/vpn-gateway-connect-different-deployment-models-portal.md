@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ansluta virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -232,7 +232,7 @@ I följande steg ska konfigurera du anslutningen från den klassiska VNet till R
 Öppna PowerShell-konsol med utökade behörigheter och logga in på ditt Azure-konto. När du loggar in laddas inställningarna för ditt konto så att de blir tillgängliga för Azure PowerShell. Följande cmdlet efterfrågar autentiseringsuppgifter för inloggning för ditt Azure-konto för Resource Manager-distributionsmodellen:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Hämta en lista över dina Azure-prenumerationer.

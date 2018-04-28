@@ -1,19 +1,19 @@
 ---
 title: Skydda Active Directory och DNS med Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln beskriver hur du implementerar en lösning för katastrofåterställning för Active Directory med hjälp av Azure Site Recovery."
+description: Den här artikeln beskriver hur du implementerar en lösning för katastrofåterställning för Active Directory med hjälp av Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ebddd3f68605df94bd06bef1fec785f740c3b023
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
 
@@ -57,16 +57,16 @@ Konfigurera nätverksinställningar enligt för den virtuella datorn som är vä
 Skapa en domänkontrollant på den sekundära platsen. När du befordrar servern till en domänkontrollant, ange namnet på samma domän som används på den primära platsen. Du kan använda den **Active Directory-platser och tjänster** snapin-modulen att konfigurera inställningar på platslänkobjekt som platserna ska läggas till. Du kan styra när replikeringen sker mellan två eller flera platser och hur ofta den inträffar genom att konfigurera inställningar på en länk. Mer information finns i [schemalägga replikering mellan platser](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Plats till Azure-skydd
-Första, [skapa en domänkontrollant i en Azure-nätverket](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). När du befordrar servern till en domänkontrollant, kan du ange samma domännamn som används på den primära platsen.
+Skapa först en domänkontrollant i Azure-nätverk. När du befordrar servern till en domänkontrollant, kan du ange samma domännamn som används på den primära platsen.
 
-Sedan [konfigurera DNS-servern för det virtuella nätverket](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) du använder DNS-servern i Azure.
+Konfigurera sedan om DNS-servern för det virtuella nätverket att använda DNS-server i Azure.
 
 ![Azure-nätverk](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Azure-Azure-skydd
-Första, [skapa en domänkontrollant i en Azure-nätverket](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). När du befordrar servern till en domänkontrollant, kan du ange samma domännamn som används på den primära platsen.
+Skapa först en domänkontrollant i Azure-nätverk. När du befordrar servern till en domänkontrollant, kan du ange samma domännamn som används på den primära platsen.
 
-Sedan [konfigurera DNS-servern för det virtuella nätverket](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) du använder DNS-servern i Azure.
+Konfigurera sedan om DNS-servern för det virtuella nätverket att använda DNS-server i Azure.
 
 ## <a name="test-failover-considerations"></a>Redundanstestning
 För att undvika påverkan på produktionsarbetsbelastningar, inträffar testa redundans i ett nätverk som är isolerat från produktionsnätverket.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -77,7 +77,7 @@ Som standard blir det Microsoft-konto eller organisationskonto som använts för
 Det finns två behörighetsmodeller som kontrollerar åtkomst till en Log Analytics-arbetsyta:
 
 1. Äldre Log Analytics-användarroller
-2. [Rollbaserad åtkomst i Azure](../active-directory/role-based-access-control-configure.md)
+2. [Rollbaserad åtkomst i Azure](../role-based-access-control/role-assignments-portal.md)
 
 I följande tabell sammanfattas åtkomsten som kan ställas in med varje behörighetsmodell:
 
@@ -104,7 +104,7 @@ Följande aktiviteter kräver även Azure-behörigheter:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
-Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
+Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
 
 Azure har två inbyggda användarroller för Log Analytics:
 - Log Analytics Reader
@@ -156,7 +156,7 @@ Använd de här rollerna för att ge användare åtkomst med olika omfång:
 - Resursgrupp: åtkomst till alla arbetsytor i resursgruppen
 - Resurs: endast åtkomst till en angiven arbetsyta
 
-Använd [anpassade roller](../active-directory/role-based-access-control-custom-roles.md) för att skapa roller med specifik behörighet.
+Använd [anpassade roller](../role-based-access-control/custom-roles.md) för att skapa roller med specifik behörighet.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure-användarroller och Log Analytics Portal-användarroller
 Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna OMS-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
@@ -174,11 +174,11 @@ Din rolltilldelning i OMS-portalen fastställs så här:
 | För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är i Azure Active Directory, länkat till arbetsytan | Administratör | Vanligtvis en CSP-kund |
 | För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är inte i Azure Active Directory, länkat till arbetsytan | Deltagare | Vanligtvis CSP |
 
-<sup>1</sup> Läs [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Läs [Azure permissions](../role-based-access-control/custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`.
 
 Vissa saker att tänka på vad gäller Azure-portalen:
 
-* När du loggar in på OMS-portalen med hjälp av http://mms.microsoft.com, visas listan **Välj en arbetsyta**. Listan innehåller endast arbetsytor där du har en Log Analytics-användarroll. Om du vill se arbetsytorna du har åtkomst till med Azure-prenumerationer måste du ange en klient som en del av URL:en. Till exempel: `mms.microsoft.com/?tenant=contoso.com`. Klient-ID är ofta den sista delen av e-postadressen som du loggade in med.
+* När du loggar in på OMS-portalen med hjälp av http://mms.microsoft.com visas listan **Välj en arbetsyta**. Listan innehåller endast arbetsytor där du har en Log Analytics-användarroll. Om du vill se arbetsytorna du har åtkomst till med Azure-prenumerationer måste du ange en klient som en del av URL:en. Till exempel: `mms.microsoft.com/?tenant=contoso.com`. Klient-ID är ofta den sista delen av e-postadressen som du loggade in med.
 * Om du vill gå direkt till en portal som du har åtkomst till genom att använda Azure-behörigheter måste du ange resursen som en del av URL:en. Det är möjligt att hämta den här URL:en med hjälp av PowerShell.
 
   Till exempel `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.

@@ -1,29 +1,24 @@
 ---
-title: "Elastisk frågan självstudier med Azure SQL Data Warehouse | Microsoft Docs"
-description: "Lär dig mer om elastiska frågan med Azure SQL Data Warehouse"
+title: 'Självstudier: Elastiska frågan med Azure SQL Data Warehouse | Microsoft Docs'
+description: Den här kursen använder funktionen elastisk frågan frågan Azure SQL Data Warehouse från Azure SQL-databas.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>Konfigurera elastisk fråga med SQL Data Warehouse
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Självstudier: Använd elastisk frågan att komma åt data i Azure SQL Data Warehouse från Azure SQL Database
 
-I kursen får du lära dig hur du använder elastisk frågan för att skicka en fråga från SQL-databas till SQL Data Warehouse. Elastisk frågan är en funktion som finns mellan Azure SQL-produkter. Läs mer om elastiska Query som ett koncept, [ **använda elastisk fråga med SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse].
+Den här kursen använder funktionen elastisk frågan frågan Azure SQL Data Warehouse från Azure SQL-databas. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Förutsättningar för självstudiekursen
 
@@ -128,7 +123,7 @@ I följande steg ska vi skapa en tabell i våra data warehouse-instans med flera
 
 5. Observera att du nu har en externa tabelldefinitionen din **SQL-databasinstans**.
 
-   ![elastisk frågedefinitionen för extern tabell](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![elastisk frågedefinitionen för extern tabell](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. Skicka följande fråga som frågar data warehouse-instans. Du bör få fem värden som har infogats i steg 2. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Grattis, du har ställt in de första grunderna för elastiska fråga. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>Nästa steg
+Rekommendationer finns [bästa praxis för att använda elastisk frågan med Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).

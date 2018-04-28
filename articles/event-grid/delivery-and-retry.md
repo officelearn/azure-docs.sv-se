@@ -1,24 +1,26 @@
 ---
-title: "Azure händelse rutnätet leverans och försök igen"
-description: "Beskriver hur Azure händelse rutnätet ger händelser och hur den hanterar felande meddelanden."
+title: Azure händelse rutnätet leverans och försök igen
+description: Beskriver hur Azure händelse rutnätet ger händelser och hur den hanterar felande meddelanden.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Händelsen rutnätet meddelandeleverans och försök igen 
 
 Den här artikeln beskrivs hur Azure händelse rutnätet hanterar händelser när leverans inte bekräftas.
 
-Händelsen rutnätet innehåller varaktiga leverans. Den ger varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken för varje prenumeration. Om en webhook inte bekräfta mottagandet av en händelse inom 60 sekunder från det första försöket leverans, försöker händelse rutnätet leverans av händelsen.
+Händelsen rutnätet innehåller varaktiga leverans. Den ger varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken för varje prenumeration. Om en webhook inte bekräfta mottagandet av en händelse inom 60 sekunder från det första försöket leverans, försöker händelse rutnätet leverans av händelsen. 
+
+För närvarande skickar händelse rutnätet varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enskild händelse.
 
 ## <a name="message-delivery-status"></a>Status för leverans av meddelande
 
@@ -41,8 +43,8 @@ Följande HTTP-svarskoder indikera att en händelse leverans försök misslyckad
 - 408 begäran-timeout
 - 414 URI för lång
 - 500 Internt serverfel
-- 503 inte tillgänglig
-- 504 gateway-Timeout
+- 503 Tjänsten är inte tillgänglig
+- 504 Gateway-timeout
 
 Andra svarskod eller brist på ett svar anger du ett fel. Händelsen rutnätet återförsök leverans. 
 

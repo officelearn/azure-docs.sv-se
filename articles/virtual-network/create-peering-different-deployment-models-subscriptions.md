@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa ett virtuellt nätverk peering - olika distributionsmodeller och prenumerationer
 
@@ -46,7 +46,7 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som UserA. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
 2. Klicka på **+ ny**, klickar du på **nätverk**, klicka på **för virtuella nätverk**.
 3. I den **skapa virtuellt nätverk** bladet anger, eller Välj värden för följande inställningar och sedan klickar du på **skapa**:
-    - **Name**: *myVnetA*
+    - **Namnet**: *myVnetA*
     - **Adressutrymmet**: *10.0.0.0/16*
     - **Undernätnamnet**: *standard*
     - **Adressintervall för gatewayundernät**: *10.0.0.0/24*
@@ -204,7 +204,7 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
     > [!WARNING]
     > Importera en konfigurationsfil för ändrade nätverket kan orsaka ändringar av befintliga virtuella nätverk (klassiskt) i din prenumeration. Se till att du bara lägga till det tidigare virtuella nätverket och att du inte ändra eller ta bort alla befintliga virtuella nätverk från prenumerationen. 
 
-5. Logga in till BS prenumeration som användare b använder Resource Manager-kommandon genom att ange den `login-azurermaccount` kommando.
+5. Logga in till BS prenumeration som användare b använder Resource Manager-kommandon genom att ange den `Connect-AzureRmAccount` kommando.
 6. Tilldela behörigheter för UserA till virtuellt nätverk B. kopiera följande skript för att en textredigerare på datorn och Ersätt `<SubscriptionB-id>` med ID för prenumerationen B. Om du inte vet prenumerations-Id, ange den `Get-AzureRmSubscription` kommando för att visa den. Värdet för **Id** returnerade resultatet är ditt prenumerations-ID. Azure skapade det virtuella nätverket (klassisk) som du skapade i steg 4 i en resursgrupp med namnet *standard-nätverk*. Om du vill köra skriptet kopiera skriptet ändrade, klistra in den i PowerShell och tryck sedan på `Enter`.
     
     ```powershell 
@@ -214,7 +214,7 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Logga ut från Azure som b och logga in till Useras prenumeration som UserA genom att ange den `login-azurermaccount` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
+7. Logga ut från Azure som b och logga in till Useras prenumeration som UserA genom att ange den `Connect-AzureRmAccount` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
 8. Skapa virtuella nätverk (Resource Manager) genom att kopiera följande skript, klistra in den i PowerShell och sedan trycka på `Enter`:
 
     ```powershell

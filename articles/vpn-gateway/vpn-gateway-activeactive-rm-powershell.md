@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera aktiv-aktiv S2S VPN-anslutningar för VPN-gatewayer: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Den här artikeln beskriver hur du konfigurerar aktiv-aktiv anslutningar med Azure VPN-gatewayer med Azure Resource Manager och PowerShell."
+title: 'Konfigurera aktiv-aktiv S2S VPN-anslutningar för VPN-gatewayer: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Den här artikeln beskriver hur du konfigurerar aktiv-aktiv anslutningar med Azure VPN-gatewayer med Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c09abe97d34b7220d76481a403165f1b7e07fcaa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiv-aktiv S2S VPN-anslutningar med Azure VPN-gatewayer
 
@@ -94,7 +94,7 @@ Se till att växla till PowerShell-läget för att kunna använda Resource Manag
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -276,7 +276,7 @@ På liknande sätt nedan visar parametrarna skriver du in i andra VPN-enhet:
 
 När anslutningen (tunnlar) är klar har du dubbla redundant VPN-enheter och ansluter dina lokala nätverk och Azure-tunnlar:
 
-![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![dubbla-redundans-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Del 3: upprätta en anslutning för aktiv-aktiv VNet-till-VNet
 Det här avsnittet skapar du en aktiv-aktiv VNet-till-VNet-anslutning med BGP. 
@@ -372,7 +372,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 När du har slutfört de här stegen anslutningen upprättas i några minuter och BGP-är peering-session när VNet-till-VNet-anslutningen har slutförts med dubbla redundans:
 
-![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
+![aktiv-aktiv-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
 ## <a name ="aaupdate"></a>Uppdatera en befintlig VPN-gateway
 
@@ -416,7 +416,7 @@ I det här steget aktivera läget för aktiv-aktiv och uppdatera gatewayen. I de
 
 * Du kan inte ändra en äldre SKU till en ny SKU: er med hjälp av det här steget. Du kan bara ändra storlek på en äldre SKU till en annan stöds äldre SKU. Till exempel ändra du inte SKU: N från Standard till VpnGw1 (även om VpnGw1 stöds för aktiv-aktiv) eftersom Standard är en äldre SKU och VpnGw1 är aktuella SKU. Mer information om storleksändring och migrera SKU: er finns [Gateway-SKU: er](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Om du vill ändra storlek på en aktuell SKU, till exempel VpnGw1 till VpnGw3, kan du göra detta med hjälp av det här steget eftersom de SKU: er med samma familj av SKU. Om du vill göra det använder värdet:```-GatewaySku VpnGw3```
+* Om du vill ändra storlek på en aktuell SKU, till exempel VpnGw1 till VpnGw3, kan du göra detta med hjälp av det här steget eftersom de SKU: er med samma familj av SKU. Om du vill göra det använder värdet: ```-GatewaySku VpnGw3```
 
 När du använder detta i din miljö, om du inte behöver ändra storlek på gatewayen, behöver du inte ange - GatewaySku. Observera att i det här steget måste du ange gateway-objektet i PowerShell för att utlösa den faktiska uppdateringen. Den här uppdateringen kan ta 30 till 45 minuter, även om du inte ändrar storlek på din gateway.
 

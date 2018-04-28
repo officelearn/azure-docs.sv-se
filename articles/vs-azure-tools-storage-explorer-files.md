@@ -1,12 +1,12 @@
 ---
-title: "Använd Storage Explorer (förhandsutgåva) med Azure File Storage | Microsoft Docs"
-description: "Lär dig att använda Storage Explorer (förhandsversion) för att arbeta med filresurser och filer."
+title: Använda Storage Explorer med Azure File Storage | Microsoft Docs
+description: Lär dig att använda Storage Explorer för att arbeta med filresurser och filer.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Använd Storage Explorer (förhandsutgåva) med Azure File Storage
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Använd Storage Explorer med Azure File Storage
 
-Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Du kan använda File Storage om du vill exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Storage Explorer (förhandsversion) för att arbeta med filresurser och filer.
+Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Du kan använda File Storage om du vill exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Storage Explorer för att arbeta med filresurser och filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-- [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com/)
+- [Hämta och installera Storage Explorer](http://www.storageexplorer.com/)
 
 - [Ansluta till ett Azure-lagringskonto eller en Azure-lagringstjänst](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 Alla filer måste finnas i en filresurs, vilket är en logisk gruppering av filer. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer.
 
-Följande steg visar hur du skapar en filresurs i Storage Explorer (förhandsutgåva).
+Följande steg visar hur du skapar en filresurs i Storage Explorer.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 
 2. Expandera lagringskontot som du vill skapa filresursen i från den vänstra rutan
 
@@ -58,9 +58,9 @@ Följande steg visar hur du skapar en filresurs i Storage Explorer (förhandsutg
 
 Filresurser innehåller filer och mappar (som kan också innehålla filer).
 
-Följande steg illustrerar hur du kan visa innehållet i en filresurs i Storage Explorer (förhandsutgåva): +
+Följande steg illustrerar hur du kan visa innehållet i en filresurs i Storage Explorer: +
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 
 2. Expandera lagringskontot som innehåller den filresurs som du vill visa i den vänstra rutan.
 
@@ -78,9 +78,9 @@ Följande steg illustrerar hur du kan visa innehållet i en filresurs i Storage 
 
 Filresurser kan enkelt skapas och tas bort efter behov. (Information om hur du tar bort enskilda filer finns i avsnittet [Hantera filer i en filresurs](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
-Följande steg visar hur du tar bort en filresurs i Storage Explorer (förhandsgutgåva):
+Följande steg visar hur du raderar en filresurs i Storage Explorer:
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 
 2. Expandera lagringskontot som innehåller den filresurs som du vill visa i den vänstra rutan.
 
@@ -96,11 +96,11 @@ Följande steg visar hur du tar bort en filresurs i Storage Explorer (förhandsg
 
 ## <a name="copy-a-file-share"></a>Kopiera en filresurs
 
-Med Storage Explorer (förhandsutgåva) kan du kopiera en filresurs till Urklipp och klistra in filresursen på ett annat lagringskonto. (Information om hur du kopierar enskilda filer finns i avsnittet [Hantera filer i en filresurs](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Med Storage Explorer kan du kopiera en filresurs till Urklipp och klistra in filresursen på ett annat lagringskonto. (Information om hur du kopierar enskilda filer finns i avsnittet [Hantera filer i en filresurs](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 Följande steg illustrerar hur du kopierar en filresurs från ett lagringskonto till ett annat.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 
 2. Expandera lagringskontot som innehåller den filresurs som du vill kopiera i den vänstra rutan.
 
@@ -120,7 +120,7 @@ En [signatur för delad åtkomst (Shared Access Signature, SAS)](https://docs.mi
 
 Följande steg visar hur du skapar en SAS för en filresurs: +
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 
 2. Gå till vänster ruta och expandera det lagringskonto som innehåller filresursen som du vill hämta en SAS för.
 
@@ -146,7 +146,7 @@ Följande steg visar hur du skapar en SAS för en filresurs: +
 
 Följande steg illustrerar hur du hanterar (lägger till och tar bort) åtkomstprinciper för en filresurs: +. Åtkomstprinciperna används för att skapa SAS-URL: er som kan användas för att komma åt Storage File-resursen under en angiven tidsperiod.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 
 2. Gå till vänster ruta och expandera det lagringskonto som innehåller den filresurs som du vill hantera åtkomstprinciper för.
 
@@ -180,7 +180,7 @@ När du har skapat en filresurs kan du överföra en fil till den filresursen, h
 
 Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
-1.  Öppna Lagringsutforskaren (förhandsversion).
+1.  Öppna Storage Explorer.
 
 2.  Expandera lagringskontot som innehåller den filresurs som du vill hantera i den vänstra rutan.
 
@@ -258,6 +258,6 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Visa [ viktig information och videor för den senaste Storage Explorer-versionen (förhandsutgåva)](http://www.storageexplorer.com/).
+- Visa [viktig information och videor för den senaste Storage Explorer-versionen](http://www.storageexplorer.com/).
 
 - Läs mer om hur du [skapar program med Azure-blobbar, tabeller köer och filer](https://azure.microsoft.com/documentation/services/storage/).

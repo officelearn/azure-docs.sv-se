@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Utöka (kopiera) aviseringar från OMS-portalen till Azure
 Operations Management Suite (OMS) portalen visar endast logganalys varningar.  Den nya upplevelsen av aviseringar har nu integrerats aviseringar upplevelsen över olika tjänster och delar i Microsoft Azure. Den nya upplevelsen som är tillgängliga som **aviseringar** under Azure-Monitor i Azure portal som innehåller aktiviteten Logga varningar, mått aviseringar och logga varningar för både logganalys och Application Insights. 
@@ -43,7 +43,7 @@ När aviseringar i logganalys-arbetsytan hämta schemat för att utöka till Azu
  ![Under schemalagda användaråtgärd på aviseringar dirigeras till Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Utöka aviseringar från OMS-portalen till Azure debiteras inte och användning av Azure aviseringar för frågebaserade logganalys aviseringar inte debiteras, när de används de begränsningar och villkor som anges i [Azure-Monitor priser princip](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Utöka aviseringar från OMS-portalen till Azure debiteras inte och användning av Azure aviseringar för frågebaserade logganalys aviseringar inte debiteras, när de används de begränsningar och villkor som anges i [Azure-Monitor priser princip](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Användare kan dra nytta av fördelarna med att utöka aviseringar innan detta datum. genom att inaktivera frivilligt så att deras aviseringar kan hanteras i Azure.
 

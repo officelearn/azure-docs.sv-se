@@ -1,12 +1,12 @@
 ---
 title: Distribuera Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: "Lär dig hur du installerar om ASDK i den här självstudiekursen."
+description: Lär dig hur du installerar om ASDK i den här självstudiekursen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 579414f79da29a443ddaf8e167bf3889a647f33d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 33879187a912394b5cec6e9f9a8898f431134f5c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-redeploy-the-asdk"></a>Självstudier: Distribuera om ASDK
 I kursen får lära du att distribuera om Azure Stack Development Kit (ASDK) i en produktionsmiljö. Eftersom ASDK inte finns stöd för att uppgradera, måste du omdistribuera helt flytta det till en nyare version. Du kan också distribuera ASDK när som helst som du vill börja om från början.
@@ -28,7 +28,7 @@ I kursen får lära du att distribuera om Azure Stack Development Kit (ASDK) i e
 > [!IMPORTANT]
 > Uppgradera ASDK till en ny version stöds inte. Du måste distribuera ASDK på värddatorn development kit varje gång som du vill utvärdera en nyare version av Azure-stacken.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ta bort registreringen för Azure 
@@ -48,7 +48,7 @@ Ta bort resursen registrering med den **ta bort AzsRegistration** för att avreg
   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Provide Azure subscription admin credentials
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
 
   # Provide ASDK admin credentials
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"

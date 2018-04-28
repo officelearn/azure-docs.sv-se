@@ -1,6 +1,6 @@
 ---
-title: "Skapa en Programgateway med en brandvägg för webbaserade program - Azure PowerShell | Microsoft Docs"
-description: "Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure PowerShell."
+title: Skapa en Programgateway med en brandvägg för webbaserade program - Azure PowerShell | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,22 +11,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: fe36076988e65837340ec70982de788e532c455d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 662e8bc8b1119022cf88bf40108bb8d1e680f122
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Skapa en Programgateway med en brandvägg för webbaserade program med hjälp av Azure PowerShell
 
 Du kan använda Azure PowerShell för att skapa en [Programgateway](application-gateway-introduction.md) med en [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md) (Brandvägg) som använder en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. Brandvägg använder [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regler för att skydda ditt program. Dessa regler innehåller skydd mot attacker, till exempel SQL injection, webbplatser scripting attacker och sessionen hijacks. 
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en Programgateway med Brandvägg aktiverat
-> * Skapa en skaluppsättning för virtuell dator
+> * Skapa en VM-skalningsuppsättning
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
 ![Exempel på brandväggen ett webbprogram](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -153,7 +153,7 @@ $appgw = New-AzureRmApplicationGateway `
   -WebApplicationFirewallConfig $wafConfig
 ```
 
-## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
 I det här exemplet skapar du en virtuell dator skala in för att tillhandahålla servrar för serverdelspoolen i programgatewayen. Du kan tilldela skaluppsättningen till serverdelspoolen när du konfigurerar IP-inställningar.
 
@@ -252,7 +252,7 @@ Set-AzureRmDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -267,7 +267,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en Programgateway med Brandvägg aktiverat
-> * Skapa en skaluppsättning för virtuell dator
+> * Skapa en VM-skalningsuppsättning
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
 Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

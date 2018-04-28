@@ -1,47 +1,34 @@
 ---
-title: "Hantera statistik på tabellerna i SQL Data Warehouse | Microsoft Docs"
-description: "Komma igång med statistik på tabellerna i Azure SQL Data Warehouse."
+title: Skapa, uppdatera statistik - Azure SQL Data Warehouse | Microsoft Docs
+description: Rekommendationer och exempel för att skapa och uppdatera frågan optimering statistik på tabellerna i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Hantera statistik på tabellerna i SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Översikt över][Overview]
-> * [Datatyper][Data Types]
-> * [Distribuera][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistik][Statistics]
-> * [Tillfällig][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Skapa, uppdatera statistik på tabellerna i Azure SQL Data Warehouse
+Rekommendationer och exempel för att skapa och uppdatera frågan optimering statistik på tabellerna i Azure SQL Data Warehouse.
 
+## <a name="why-use-statistics"></a>Varför använda statistik?
 Ju mer Azure SQL Data Warehouse medveten om dina data, desto snabbare den kan köra frågor mot den. Samla in statistik på dina data och läsa in informationen i SQL Data Warehouse är en av de viktigaste sakerna som du kan göra för att optimera dina frågor. Detta beror på att Frågeoptimeringen SQL Data Warehouse är en kostnad-baserade optimering. Den jämför kostnaden för olika frågeplaner och väljer plan med lägst kostnad, som i de flesta fall är den plan som kör den snabbaste. Till exempel om optimering uppskattar att datumet du filtrerar i frågan returnerar en rad, kan det välja ett annat schema än om den beräknar som det valda datumet returnerar 1 miljoner rader.
 
 Processen för att skapa och uppdatera statistik för närvarande är en manuell process, men den är enkel att göra.  Du kommer snart att kunna skapa och uppdatera statistik på enskild kolumner och index automatiskt.  Du kan avsevärt automatisera hanteringen av statistik på dina data med hjälp av följande information. 
 
-## <a name="getting-started-with-statistics"></a>Komma igång med statistik
+## <a name="scenarios"></a>Scenarier
 Provade statistik skapas för varje kolumn är ett enkelt sätt att komma igång. Inaktuella statistik leda till något sämre prestanda. Uppdatera statistik på alla kolumner i takt med dina data växer kan dock använda minne. 
 
 Här följer några rekommendationer för olika scenarier:
-| **Scenario** | Rekommendation |
+| **scenario** | Rekommendation |
 |:--- |:--- |
 | **Kom igång** | Uppdatera alla kolumner när du har migrerat till SQL Data Warehouse |
 | **De viktigaste kolumn för statistik** | Hash-fördelningsnyckel |
@@ -94,7 +81,7 @@ WHERE
 
 **Datum kolumner** i datalagret, till exempel vanligtvis måste frekventa uppdateringar av statistik. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra fördelningen data och se statistik för gammal.  Däremot kanske statistik på kolumnen i tabellen för en kund kön aldrig behöver uppdateras. Under förutsättning att distributionen är konstant mellan kunder, ska lägga till nya rader i tabellen variationen inte du ändra fördelningen data. Men om ditt data warehouse innehåller endast en kön och en ny krav resulterar i flera könen, måste du uppdatera statistik i kolumnen kön.
 
-Ytterligare förklaring finns [statistik] [ Statistics] på MSDN.
+Mer information finns i allmänna riktlinjer för [statistik](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>Implementera hantering av statistik
 Det är ofta en bra idé att utöka datainläsning processen för att säkerställa att uppdateras i slutet av belastningen. Inläsningen är när tabeller ändras oftast deras storlek och/eller distribution av värden. Därför är detta en logisk plats för att implementera vissa hanteringsprocesser.
@@ -107,7 +94,7 @@ Följande riktlinjerna tillhandahålls för att uppdatera statistiken under inl�
 * Överväg att uppdatera statiska distributionskolumner mindre ofta.
 * Kom ihåg att varje statistik objekt uppdateras i följd. Bara implementera `UPDATE STATISTICS <TABLE_NAME>` inte alltid är perfekt, särskilt för många tabeller med många statistik objekt.
 
-Ytterligare förklaring finns [kardinalitet uppskattning] [ Cardinality Estimation] på MSDN.
+Mer information finns i [kardinalitet beräkning av](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="examples-create-statistics"></a>Exempel: Skapa statistik
 De här exemplen visar hur du använder olika alternativ för att skapa statistik. Vilka alternativ som du använder för varje kolumn beror på egenskaperna för dina data och hur kolumnen används i frågor.
@@ -172,7 +159,7 @@ Du kan också kombinera alternativen tillsammans. I följande exempel skapas en 
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Fullständiga referenser finns [CREATE STATISTICS] [ CREATE STATISTICS] på MSDN.
+Fullständiga referenser finns [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Skapa flera kolumner statistik
 Om du vill skapa ett objekt med flera kolumnstatistik att bara använda föregående exempel, men ange fler kolumner.
@@ -362,9 +349,9 @@ Den här instruktionen är enkla att använda. Men kom ihåg att uppdateringarna
 > 
 > 
 
-För en implementering av en `UPDATE STATISTICS` proceduren, se [temporära tabeller][Temporary]. Metoden implementering är skiljer sig från den föregående `CREATE STATISTICS` procedur, men resultatet är samma.
+För en implementering av en `UPDATE STATISTICS` proceduren, se [temporära tabeller](sql-data-warehouse-tables-temporary.md). Metoden implementering är skiljer sig från den föregående `CREATE STATISTICS` procedur, men resultatet är samma.
 
-Den fullständiga syntaxen finns [Update Statistics] [ Update Statistics] på MSDN.
+Den fullständiga syntaxen finns [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="statistics-metadata"></a>Statistik metadata
 Det finns flera systemvyer och funktioner som du kan använda för att hitta information om statistik. Du kan till exempel se om ett statistik-objekt kan vara inaktuell med hjälp av funktionen stats datum när statistiken skapades eller uppdaterades senast.
@@ -374,21 +361,21 @@ Dessa systemvyer innehåller information om statistik:
 
 | katalogvyn | Beskrivning |
 |:--- |:--- |
-| [sys.Columns][sys.columns] |En rad för varje kolumn. |
-| [sys.Objects][sys.objects] |En rad för varje objekt i databasen. |
-| [sys.schemas][sys.schemas] |En rad för varje schema i databasen. |
-| [sys.stats][sys.stats] |En rad för varje objekt i statistik. |
-| [sys.stats_columns][sys.stats_columns] |En rad för varje kolumn i statistik-objektet. Länkar till sys.columns. |
-| [sys.Tables][sys.tables] |En rad för varje tabell (inklusive externa tabeller). |
-| [sys.table_types][sys.table_types] |En rad för varje datatyp. |
+| [sys.Columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
+| [sys.Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje objekt i statistik. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i statistik-objektet. Länkar till sys.columns. |
+| [sys.Tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inklusive externa tabeller). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |En rad för varje datatyp. |
 
 ### <a name="system-functions-for-statistics"></a>Systemfunktioner för statistik
 Dessa systemfunktioner är användbara för att arbeta med statistik:
 
 | Systemfunktionen | Beskrivning |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Datum statistik objektet senast uppdaterades. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Översikt över nivå och detaljerad information om distributionen av värden som tolkas av statistik-objektet. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Datum statistik objektet senast uppdaterades. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Översikt över nivå och detaljerad information om distributionen av värden som tolkas av statistik-objektet. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Kombinera statistik kolumner och funktioner i en vy
 Den här vyn visar kolumnerna som relaterar till statistik och fås funktionen STATS_DATE().
@@ -476,37 +463,5 @@ DBCC SHOW_STATISTICS() implementeras striktare i SQL Data Warehouse jämfört me
 - Anpassade fel 2767 stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] på MSDN.
+För ytterligare förbättra frågeprestanda, se [övervaka din arbetsbelastning](sql-data-warehouse-manage-monitor.md)
 
-  Mer information finns i artiklar på [tabell översikt][Overview], [Data tabelltyper][Data Types], [distribuerar en tabell] [ Distribute], [Indexering av en tabell][Index], [partitionering en tabell][Partition], och [Temporära tabeller][Temporary].
-  
-   Mer information om metodtips finns [Metodtips för SQL Data Warehouse][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

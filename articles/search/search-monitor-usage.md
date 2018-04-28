@@ -1,25 +1,20 @@
 ---
-title: "Övervaka användning och statistik i en Azure Search-tjänst | Microsoft Docs"
-description: "Spåra resursstorlek för användnings- och index för Azure Search värdbaserade moln search-tjänsten på Microsoft Azure."
-services: search
-documentationcenter: 
+title: Övervaka användning och statistik i en Azure Search-tjänst | Microsoft Docs
+description: Spåra resursstorlek för användnings- och index för Azure Search värdbaserade moln search-tjänsten på Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Övervaka en Azure Search-tjänst
 
@@ -89,7 +84,7 @@ När data kopieras till ett lagringskonto formateras data som JSON och dess plat
 
 Det finns en blob, per timme per behållare.
 
-Exempelsökväg till:`resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Exempelsökväg till: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 #### <a name="log-schema"></a>Loggen schema
 Loggar blobbar innehålla dina trafikloggar för search-tjänsten.
@@ -98,36 +93,36 @@ Varje blobb innehåller poster på den åtgärd som utfördes under samma timme.
 
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| time |Datum och tid |”2015-12-07T00:00:43.6872559Z” |Tidsstämpel för åtgärden |
-| resourceId |Sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESURSGRUPPER-STANDARD-PROVIDERS /<br/> MICROSOFT. SEARCHSERVICE-SÖKNINGEN/SEARCHSERVICES ” |Din ResourceId |
-| operationName |Sträng |”Query.Search” |Namnet på åtgärden |
-| operationVersion |Sträng |"2015-02-28" |Api-version som används |
-| category |Sträng |”OperationLogs” |konstant |
-| resultType |Sträng |”Lyckades” |Möjliga värden: lyckats eller misslyckats |
+| time |datetime |”2015-12-07T00:00:43.6872559Z” |Tidsstämpel för åtgärden |
+| resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESURSGRUPPER-STANDARD-PROVIDERS /<br/> MICROSOFT. SEARCHSERVICE-SÖKNINGEN/SEARCHSERVICES ” |Din ResourceId |
+| operationName |sträng |”Query.Search” |Namnet på åtgärden |
+| operationVersion |sträng |"2015-02-28" |Api-version som används |
+| category |sträng |”OperationLogs” |konstant |
+| resultType |sträng |”Lyckades” |Möjliga värden: lyckats eller misslyckats |
 | resultSignature |int |200 |Resultatkod för HTTP |
 | durationMS |int |50 |Varaktighet för åtgärden i millisekunder |
-| properties |Objektet |Se tabellen nedan |Objekt som innehåller åtgärden-specifika data |
+| properties |objekt |Se tabellen nedan |Objekt som innehåller åtgärden-specifika data |
 
 **Egenskaper för schemat**
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| Beskrivning |Sträng |”Hämta /indexes('content')/docs” |Åtgärdens slutpunkt |
-| Fråga |Sträng |”? Sök = AzureSearch & $count = true & api-version 2015-02-28 =” |Frågeparametrar |
+| Beskrivning |sträng |”Hämta /indexes('content')/docs” |Åtgärdens slutpunkt |
+| Fråga |sträng |”? Sök = AzureSearch & $count = true & api-version 2015-02-28 =” |Frågeparametrar |
 | Dokument |int |42 |Antal bearbetade dokument |
-| Indexnamn |Sträng |”testindex” |Namnet på det index som associeras med operationen |
+| Indexnamn |sträng |”testindex” |Namnet på det index som associeras med operationen |
 
 #### <a name="metrics-schema"></a>Mått schema
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| resourceId |Sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESURSGRUPPER-STANDARD-PROVIDERS /<br/>MICROSOFT. SEARCHSERVICE-SÖKNINGEN/SEARCHSERVICES ” |resurs-id |
-| metricName |Sträng |”Latens” |namnet på måttet |
-| time |Datum och tid |”2015-12-07T00:00:43.6872559Z” |åtgärdens tidsstämpel |
-| Genomsnittlig |int |64 |Medelvärdet för raw exempel i mått tidsintervallet |
-| minsta |int |37 |Det lägsta värdet för raw exempel i mått tidsintervallet |
-| Maximalt |int |78 |Det maximala värdet för raw exempel i mått tidsintervallet |
-| Totalt |int |258 |Det totala värdet av rådata exempel i mått tidsintervallet |
-| Antal |int |4 |Antalet rådata exempel som används för att skapa måttet |
-| tidskorn |Sträng |”PT1M” |Tidskornet på måttet i ISO 8601 |
+| resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESURSGRUPPER-STANDARD-PROVIDERS /<br/>MICROSOFT. SEARCHSERVICE-SÖKNINGEN/SEARCHSERVICES ” |resurs-id |
+| metricName |sträng |”Latens” |namnet på måttet |
+| time |datetime |”2015-12-07T00:00:43.6872559Z” |åtgärdens tidsstämpel |
+| medel |int |64 |Medelvärdet för raw exempel i mått tidsintervallet |
+| min |int |37 |Det lägsta värdet för raw exempel i mått tidsintervallet |
+| max |int |78 |Det maximala värdet för raw exempel i mått tidsintervallet |
+| totalt |int |258 |Det totala värdet av rådata exempel i mått tidsintervallet |
+| antal |int |4 |Antalet rådata exempel som används för att skapa måttet |
+| tidskorn |sträng |”PT1M” |Tidskornet på måttet i ISO 8601 |
 
 Alla mätvärden rapporteras i minuts intervall. Varje måttet visas lägsta, högsta och genomsnittliga värden per minut.
 

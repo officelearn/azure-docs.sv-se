@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: ba7c0400e59d8c747553479eb5474978a629dfdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
 
@@ -31,7 +31,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 ## <a name="work-with-network-security-groups"></a>Arbeta med nätverkssäkerhetsgrupper
@@ -119,9 +119,9 @@ Det finns en gräns för hur många regler per nätverkssäkerhetsgruppen kan sk
     |Inställning  |Värde  |Information  |
     |---------|---------|---------|
     |Källa     | Välj **alla**, **IP-adresser**, eller **tjänsten taggen**.        | Om du väljer **IP-adresser**, måste du ange **käll-IP-adresser/CIDR-intervallen**. Du kan ange ett enda värde eller en kommaavgränsad lista med flera värden. Ett exempel på flera värden är 10.0.0.0/16 192.188.1.1. Det finns begränsningar för antalet värden som du kan ange. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) mer information. Om du väljer **Service Tag**, måste du ange en tagg för tjänsten. Taggen service är en fördefinierad identifierare för en kategori av IP-adresser. Mer information om tillgängliga taggar och varje tagg representerar finns [tjänsten taggar](security-overview.md#service-tags)        |
-    |Portintervall för källa     | Ange en enskild port, till exempel 80, ett portintervall, till exempel 1024-65535, eller en kommaavgränsad lista med enda portar eller portintervall, till exempel 80, 1024-65535. Ange en asterisk som tillåter trafik på alla portar. | Ange vilka portar trafik som tillåts eller nekas av regeln portar och adressintervall. Det finns begränsningar för antalet portar som du kan ange. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) mer information.  |
+    |Källportintervall     | Ange en enskild port, till exempel 80, ett portintervall, till exempel 1024-65535, eller en kommaavgränsad lista med enda portar eller portintervall, till exempel 80, 1024-65535. Ange en asterisk som tillåter trafik på alla portar. | Ange vilka portar trafik som tillåts eller nekas av regeln portar och adressintervall. Det finns begränsningar för antalet portar som du kan ange. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) mer information.  |
     |Mål     | Välj **alla**, **IP-adresser**, eller **virtuellt nätverk**.        | Om du väljer **IP-adresser**, måste du ange **mål-IP-adresser/CIDR-intervallen**. Liknar **källa** och **käll-IP-adresser/CIDR-intervallen**, du kan ange en enda eller flera adresser eller ett intervall och det finns begränsningar för antalet du kan ange. Att välja **för virtuella nätverk**, vilket är en tjänst-tagg, innebär det att trafik tillåts alla IP-adresser inom adressutrymmet för det virtuella nätverket.        |
-    |Portintervall för mål     | Ange ett värde eller en kommaavgränsad lista med värden. | Liknar **datakällan portintervall**, kan du ange en enda eller flera portar och adressintervall och det finns begränsningar för antalet du kan ange. |
+    |Målportintervall     | Ange ett värde eller en kommaavgränsad lista med värden. | Liknar **datakällan portintervall**, kan du ange en enda eller flera portar och adressintervall och det finns begränsningar för antalet du kan ange. |
     |Protokoll     | Välj **alla**, **TCP**, eller **UDP**.        |         |
     |Åtgärd     | Välj **Tillåt** eller **neka**.        |         |
     |Prioritet     | Ange ett värde mellan 100-4096 som är unikt för alla säkerhetsregler inom nätverkssäkerhetsgruppen. |Regler bearbetas i prioritetsordning. Ju lägre nummer, desto högre prioritet. Vi rekommenderar att du behåller en lucka mellan prioritet tal när du skapar regler, till exempel 100, 200, 300. Lämnar mellanrum gör det enklare att lägga till regler i framtiden som du kan behöva göra högre eller lägre än befintliga regler.         |

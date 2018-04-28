@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database development Programöversikt
 Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database.
@@ -29,12 +29,12 @@ Det finns kodexempel för olika programmeringsspråk och plattformar. Du hittar 
 * Mer information: [anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
 
 ## <a name="tools"></a>Verktyg 
-Du kan använda verktyg baserade på öppen källkod som [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) och [VS Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Du kan också använda Azure-hanteringsportalen, PowerShell och REST API: er för att ytterligare höja produktiviteten.
+Du kan utnyttja öppen källkod verktyg som [gepard](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli), [VS koden](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Du kan också använda Azure-hanteringsportalen, PowerShell och REST API: er för att ytterligare höja produktiviteten.
 
 ## <a name="resource-limitations"></a>Resursbegränsningar
 Azure SQL Database hanterar de resurser som är tillgängliga för en databas på två olika sätt: resursstyrning och verkställandet av gränser.
 
-* Mer information: [gränserna för Azure SQL Database](sql-database-service-tiers.md).
+* Mer information: [DTU för Azure SQL Database-baserade gränserna för modellen](sql-database-dtu-resource-limits.md) och [Azure SQL Database vCore-baserade modellen gränserna (förhandsgranskning)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Säkerhet
 Azure SQL Database innehåller resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en SQL Database.

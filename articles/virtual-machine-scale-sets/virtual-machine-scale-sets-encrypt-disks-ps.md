@@ -1,13 +1,13 @@
 ---
 title: Skala virtuell Azure-dator anger diskkryptering | Microsoft Docs
-description: "Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i skalningsuppsättningar i virtuella datorer"
+description: Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i skalningsuppsättningar i virtuella datorer
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Kryptera OS och anslutna diskar i en skaluppsättning för virtuell dator
 Om du vill skydda och skydda data i viloläge med hjälp industry standard krypteringsteknik stöder skalningsuppsättningar i virtuella datorer Azure Disk Encryption (ADE). Kryptering kan aktiveras för Windows och Linux virtuella skala anger. Mer information finns i [Azure Disk Encryption för Windows och Linux](../security/azure-security-disk-encryption.md).
@@ -41,7 +41,7 @@ Den här artikeln kräver Azure PowerShell Modulversion 5.3.0 eller senare. Kör
 Registrera din Azure subsription för förhandsversionen av kryptering för den virtuella datorn anger med [registrera AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
@@ -80,13 +80,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Ange en administratör först användarnamn och lösenord för VM-instanser med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Först anger du ett administratörsanvändarnamn och lösenord för virtuella datorer med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Om du vill distribuera trafik till de enskilda VM-instanserna, skapas även en belastningsutjämnare. Belastningsutjämnaren innehåller regler för att distribuera trafik på TCP-port 80 som tillåter remote desktop trafik på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985:
+Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). För att distribuera trafik till flera virtuella datorinstanser så skapas även en belastningsutjämnare. Belastningsutjämnaren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985:
 
 ```powershell
 $vmssName="myScaleSet"

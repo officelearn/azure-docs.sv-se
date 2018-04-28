@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrera nätverkstrafik med nätverkssäkerhetsgrupper
 
@@ -50,8 +50,8 @@ NSG-regler har följande egenskaper:
 | **Protokoll** |Protokoll att matcha för regeln. |TCP, UDP eller * |Användningen av * som protokoll innefattar ICMP (enbart öst-väst-trafik), samt UDP och TCP, och kan minska antalet regler som du behöver.<br/>Användningen av * kan dock bli för bred, och därför rekommenderar vi endast att du använder * om det verkligen behövs. |
 | **Källportintervall** |Källportintervall att matcha för regeln. |Enskilda portnummer mellan 1 och 65535, portintervall (exempel: 1-65535) eller * (för alla portar). |Källportar kan vara tillfälliga. Såvida inte klientprogrammet använder en viss port bör du använda * i de flesta fall.<br/>Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler.<br/>Flera portar eller portintervall kan inte grupperas med kommatecken. |
 | **Målportintervall** |Målportintervall att matcha för regeln. |Enskilda portnummer mellan 1 och 65535, portintervall (exempel: 1-65535) eller \* (för alla portar). |Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler.<br/>Flera portar eller portintervall kan inte grupperas med kommatecken. |
-| **Källadress-prefix** |Källadressprefix eller tagg att matcha för regeln. |Enskild IP-adress (exempel: 10.10.10.10), IP-undernät (exempel: 192.168.1.0/24), [standardtagg](#default-tags) eller * (för alla adresser). |Överväg att använda intervall, standardtaggar och * för att minska antalet regler. |
-| **Måladress-prefix** |Måladressprefix eller tagg att matcha för regeln. | Enskild IP-adress (exempel: 10.10.10.10), IP-undernät (exempel: 192.168.1.0/24), [standardtagg](#default-tags) eller * (för alla adresser). |Överväg att använda intervall, standardtaggar och * för att minska antalet regler. |
+| **Källadress-prefix** |Källadressprefix eller tagg att matcha för regeln. |Enskild IP-adress (exempel: 10.10.10.10), IP-undernät (exempel: 192.168.1.0/24), [servicetagg](#service-tags) eller * (för alla adresser). |Överväg att använda intervall, servicetaggar och * för att minska antalet regler. |
+| **Måladress-prefix** |Måladressprefix eller tagg att matcha för regeln. | Enskild IP-adress (exempel: 10.10.10.10), IP-undernät (exempel: 192.168.1.0/24), [standardtagg](#service-tags) eller * (för alla adresser). |Överväg att använda intervall, servicetaggar och * för att minska antalet regler. |
 | **Riktning** |Trafikriktning att matcha för regeln. |Inkommande eller utgående. |Regler för inkommande och utgående bearbetas separat, baserat på riktning. |
 | **Prioritet** |Regler kontrolleras enligt prioritetsordning. När villkoren för en regel uppfylls testas inga fler regler. | Tal mellan 100 och 4096. | Överväg att skapa regler som hoppar mellan prioriteter i steg om 100 för varje regel så att det finns plats för nya regler som du kanske skapar senare. |
 | **Åtkomst** |Typ av åtkomst som ska tillämpas om regeln matchar. | Tillåt eller neka. | Tänk på att paketet ignoreras om ingen ”tillåt”-regel hittas för ett paket. |
@@ -62,36 +62,13 @@ Nätverkssäkerhetsgrupper innehåller två regeluppsättningar: inkommande och 
 
 Föregående bild visar hur NSG-regler bearbetas.
 
-### <a name="default-tags"></a>Standardtaggar
-Standardtaggar är systemdefinierade identifierare för en viss kategori av IP-adresser. Du kan använda standardtaggar i egenskaperna för **källadress-prefix** och **måladress-prefix** för alla regler. Det finns tre standardtaggar som du kan använda:
+### <a name="default-tags"></a>Systemtaggar
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (CIDR-intervall definierade i Azure), alla anslutna lokala adressutrymmen och anslutna virtuella Azure-nätverk (lokala nätverk).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en IP-adress för Azure-datacentret som Azure Load Balancers hälsoavsökning kommer från.
-* **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Intervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Servicetaggar är systemdefinierade identifierare för en viss kategori av IP-adresser. Du kan använda servicetaggar i egenskaperna för **källadress-prefix** och **måladress-prefix** för alla säkerhetsregler. Läs mer om [servicetaggar](security-overview.md#service-tags).
 
-### <a name="default-rules"></a>Standardregler
-Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bort, men eftersom de tilldelas lägst prioritet så kan de överskridas av de reglerna du själv skapar. 
+### <a name="default-rules"></a>Standardsäkerhetsregler
 
-Standardreglerna tillåter och nekar trafik på följande sätt:
-- **Virtuellt nätverk:** Trafik som kommer från eller som går till ett virtuellt nätverk tillåts både i inkommande och utgående riktning.
-- **Internet:** Utgående trafik tillåts, men inkommande trafik blockeras.
-- **Belastningsutjämnare:** Tillåter att Azures belastningsutjämnare avsöker hälsotillståndet för dina virtuella datorer och rollinstanser. Om du åsidosätter den här regeln misslyckas Azure Load Balancers hälsoavsökningar, vilket kan påverka tjänsten.
-
-**Inkommande standardregler**
-
-| Namn | Prioritet | Käll-IP-adress | Källport | Mål-IP-adress | Målport | Protokoll | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | Tillåt |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | Tillåt |
-| DenyAllInBound |65500 | * | * | * | * | * | Neka |
-
-**Utgående standardregler**
-
-| Namn | Prioritet | Käll-IP-adress | Källport | Mål-IP-adress | Målport | Protokoll | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Tillåt |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | Tillåt |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Neka |
+Alla NSG:er har en uppsättning standardsäkerhetsregler. Standardreglerna kan inte tas bort, men eftersom de tilldelas lägst prioritet så kan de överskridas av de reglerna du själv skapar. Läs mer om [standardsäkerhetsregler](security-overview.md#default-security-rules).
 
 ## <a name="associating-nsgs"></a>Koppla NSG:er
 Du kan koppla en nätverkssäkerhetsgrupp till virtuella datorer, nätverkskort och undernät, beroende på vilken distributionsmodell du använder, enligt följande:
@@ -127,7 +104,7 @@ Du kan implementera nätverkssäkerhetsgrupper i Resource Manager-distributionsm
 | PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | Nej | [Ja](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager-mall   | Nej  | [Ja](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager-mall   | Nej  | [Ja](template-samples.md) |
 
 ## <a name="planning"></a>Planering
 Innan du implementerar nätverkssäkerhetsgrupper måste du besvara följande frågor:

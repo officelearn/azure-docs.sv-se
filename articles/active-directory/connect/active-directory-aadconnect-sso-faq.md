@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ba402847d14f7de6c70b545b74d7ba8c1aaddcb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -49,7 +49,7 @@ Dessutom kan användare få en tyst inloggning om ett program skickar inloggning
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| sharepoint online | contoso.sharepoint.com |
+| sharepoint online | Contoso.SharePoint.com |
 | Azure Portal | portal.azure.com/contoso.com |
 
 Ersätt ”contoso.com” i tabellerna ovan med ditt domännamn för att få rätt program URL: er för din klient.
@@ -82,7 +82,7 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Steg 1. Hämta lista över AD-skogar där sömlös SSO har aktiverats
 
 1. Först ladda ned och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Hämta och installera den [64-bitars Azure Active Directory-modulen för Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. Hämta och installera den [64-bitars Azure Active Directory-modulen för Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importera sömlös SSO-PowerShell-modulen med det här kommandot: `Import-Module .\AzureADSSO.psd1`.
 5. Kör PowerShell som administratör. I PowerShell anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör du få ett popup-fönster att ange autentiseringsuppgifter för din klient Global administratör.

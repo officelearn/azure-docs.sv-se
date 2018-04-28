@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 0074486d3d7fb58bc6e3adcbe4245ec53e7e4cde
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -29,7 +29,7 @@ Lär dig hur du använder Azure HDInsight Tools för Visual Studio-koden (VS) f�
 
 Följande krävs för att slutföra stegen i den här artikeln:
 
-- Ett HDInsight-kluster.  Om du vill skapa ett kluster, se [komma igång med HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Ett HDInsight-kluster. Om du vill skapa ett kluster, se [komma igång med HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono är bara krävs för Linux och macOS.
 
@@ -100,7 +100,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS-kod, måste du anslut
     - Skicka PySpark kommandoskript
     - Set-konfigurationer
 
-**Länka ett kluster**
+<a id="linkcluster"></a>**Länka ett kluster**
 
 Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka ett säkerhet hadoop-kluster med hjälp av användarnamn (exempel: user1@contoso.com).
 1. Öppna paletten kommandot genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
@@ -112,7 +112,7 @@ Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka 
    ![länka klustret dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > Vi använder länkade användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster. 
+   > Länkade användarnamn och lösenord används om klustret både inloggad i Azure-prenumeration och länka ett kluster. 
    
 3. Du kan se ett länkade kluster med hjälp av kommandot **listan kluster**. Nu kan du skicka ett skript för att den här länkade klustret.
 
@@ -275,8 +275,50 @@ HDInsight-verktyg för VS-kod kan du skicka den interaktiva PySpark frågor till
 
 När du skickar en Python-jobb skicka loggarna visas i den **utdata** fönster i VS-kod. Den **Spark UI URL** och **Yarn UI URL** visas också. Du kan öppna URL: en i en webbläsare för att spåra jobbstatus.
 
-
+>[!NOTE]
+>PySpark3 stöds inte längre i Livius 0,4 (vilket är spark 2.2 HDI-kluster). Endast ”PySpark” stöds för python. Det är känt problem att skicka till spark 2.2 misslyckas med python3.
    
+## <a name="livy-configuration"></a>Livius konfiguration
+Livius konfiguration stöds, den kan anges i projektinställningarna utrymme arbetsmappar. Mer information finns [Livius viktigt](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ Projektinställningar:
+
+    ![Livius konfiguration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ De Livius-konfigurationerna som stöds:   
+
+    **Bokför /batches**   
+    Begärandetext
+
+    | namn | description | typ | 
+    | :- | :- | :- | 
+    | fil | Filen som innehåller programmet ska köras | sökvägen (krävs) | 
+    | proxyUser | Användaren att personifiera när jobbet körs | sträng | 
+    | Klassnamn | Huvudsakliga programklassen för Java/Spark | sträng |
+    | argument | Kommandoradsargument för programmet | lista med strängar | 
+    | burkar | JAR: er som ska användas i den här sessionen | Lista över sträng | 
+    | pyFiles | Python-filer som ska användas i den här sessionen | Lista över sträng |
+    | filer | filer som ska användas i den här sessionen | Lista över sträng |
+    | driverMemory | Mängden minne som ska användas för drivrutinen processen | sträng |
+    | driverCores | Antal kärnor som ska användas för drivrutinen processen | int |
+    | executorMemory | Mängden minne för att använda utföraren processer | sträng |
+    | executorCores | Antal kärnor som ska användas för varje utförare | int |
+    | numExecutors | Antal executors startas för den här sessionen | int |
+    | Arkiv | Arkiv som ska användas i den här sessionen | Lista över sträng |
+    | Kön | Namnet på YARN-kö som skickats | sträng |
+    | namn | Namnet på den här sessionen | sträng |
+    | conf | Egenskaper för Spark-konfiguration | Karta över nyckel = värde |
+
+    Svarstexten   
+    Det skapade objektet Batch.
+
+    | namn | description | typ | 
+    | :- | :- | :- | 
+    | id | Sessions-id | int | 
+    | appId | Program-id för den här sessionen |  Sträng |
+    | appInfo | Detaljerad programinformation | Karta över nyckel = värde |
+    | Logg | Loggen rader | lista med strängar |
+    | state |   Batch-tillstånd | sträng |
 
 
 ## <a name="additional-features"></a>Ytterligare funktioner

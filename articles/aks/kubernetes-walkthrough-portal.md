@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Container Service-kluster (AKS)
 
@@ -83,6 +83,11 @@ Hantera Kubernetes-kluster med [kubectl][kubectl], Kubernetes kommandoradsklient
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+Ange prenumeration (om du inte redan gjort det)
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 Du konfigurerar kubectl att ansluta till ditt Kubernetes-kluster genom att köra kommandot [aaz aks get-credentials][az-aks-get-credentials].
 
 Kopiera och klistra in följande kommando i Cloud Shell. Ändra resursnamnet grupp och klustret om det behövs.
@@ -110,7 +115,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka behållaravbildningar som ska köras. I det här exemplet använder du ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet.
 
-Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-kod till den. Om du arbetar i Azure Cloud Shell, kan du skapa filen med vi eller Nano som i ett virtuellt eller fysiskt system.
+Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-kod till den. Om du arbetar i Azure Cloud Shell kan du skapa filen med ”vi” eller Nano som i ett virtuellt eller fysiskt system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +216,13 @@ När *EXTERNAL-IP*-adressen har ändrats från *pending* till en *IP-adress* anv
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Nu kan du bläddra till den externa IP-adressen för att se Azure Vote-appen.
+Gå till den externa IP-adressen så att du ser Azure Vote-appen.
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Ta bort klustret
 
-När klustret inte längre behövs kan du ta bort klusterresursgruppen, vilket tar bort alla associerade resurser. Det kan du göra i Azure-portalen genom att välja resursgruppen och klicka på borttagningsknappen. Du kan även använda kommandot [az group delete][az-group-delete] i Cloud Shell.
+När klustret inte längre behövs kan du ta bort klusterresursgruppen. Då tas alla associerade resurser bort. Det kan du göra i Azure-portalen genom att välja resursgruppen och klicka på borttagningsknappen. Du kan även använda kommandot [az group delete][az-group-delete] i Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait

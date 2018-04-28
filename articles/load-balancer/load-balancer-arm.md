@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d1d098f45c391363523b6a56ec0c6fdb40e64d68
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Med Azure belastningsutjämnare Azure Resource Manager-stöd
 
@@ -46,7 +46,7 @@ Mallar kan innehålla definitioner för virtuella datorer, virtuella nätverk, T
 
 [Mer information om mallar](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[Mer information om nätverksresurser](../virtual-network/resource-groups-networking.md)
+[Mer information om nätverksresurser](../networking/networking-overview.md)
 
 Snabbstartsmallar med hjälp av Azure belastningsutjämnare, finns det [GitHub-lagringsplatsen](https://github.com/Azure/azure-quickstart-templates) som är värd för en uppsättning community genereras mallar.
 

@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db5cdecc57cf07876ca8d4e981860615643cfd79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Självstudie: Tilldela åtkomst till kostnadshanteringsdata
 
@@ -40,7 +40,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Även om du redan har administratörsåtkomst kanske medarbetare i organisationen också behöver ha administratörsåtkomst. Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **User Management** (Användarhantering). Klicka på **Add New User** (Lägg till ny användare) för att lägga till en ny användare.
 
-Ange nödvändig information om användaren. Du kan lämna lösenordsfältet tomt så att användaren får ange ett nytt lösenord vid den första inloggningen. En länk med inloggningsinformation skickas till användaren via e-post från Cloudyn när du väljer **Notify user by email** (Meddela användaren via e-post). Välj behörigheter och tillåt User Management (Användarhantering) så att användaren kan skapa och ändra andra användare. Recipient Lists Management (Hantering av mottagarlistor) så att användaren kan redigera mottagarlistor.
+Ange nödvändig information om användaren. Inloggnings-ID:t måste vara en giltig e-postadress. Välj behörigheter och tillåt User Management (Användarhantering) så att användaren kan skapa och ändra andra användare. Med hanteringen av mottagarlistor kan användaren redigera mottagarlistor. En länk med inloggningsinformation skickas till användaren via e-post från Cloudyn när du väljer **Notify user by email** (Meddela användaren via e-post). Användaren anger ett lösenord vid sin första inloggning.
 
 Under **User has admin access** (Användaren har administratörsåtkomst) är rotentiteten i din organisation vald. Lämna root valt och spara användarinformationen. När rotentiteten är vald har användaren inte bara administratörsbehörighet för rotentiteten i trädet utan även alla enheter under den.  
   ![lägg till en ny användare med administratörsåtkomst](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ När du skapar trädet ska du tänka på hur du vill se kostnaderna uppdelade me
 
 När du registrerade ditt Azure-avtal eller -konto hos Cloudyn kopierades dina Azure-resursdata, inklusive användning, prestanda, fakturering och taggdata från dina prenumerationer, till Cloudyn-kontot. Du måste däremot skapa entitetsträdet manuellt. Om du hoppade över Azure Resource Manager-registreringen är endast faktureringsdata och några tillgångsrapporter tillgängliga i Cloudyn-portalen.
 
-Klicka på **Settings** (Inställningar) uppe till höger i Cloudyn-portalen och välj **Cloud Accounts** (Molnkonton). Du börjar med en enda entitet (roten) och skapar entitetsträdet under roten. Här är ett exempel på en entitetshierarki som liknar många IT-organisationer när trädet är färdigt:
+Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Du börjar med en enda entitet (roten) och skapar entitetsträdet under roten. Här är ett exempel på en entitetshierarki som liknar många IT-organisationer när trädet är färdigt:
 
 ![entitetsträd](.\media\tutorial-user-access\entity-tree.png)
 

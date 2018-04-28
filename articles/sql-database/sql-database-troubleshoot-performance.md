@@ -11,11 +11,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervaka och justera prestanda
 
@@ -49,8 +49,8 @@ Du kan också låta Azure SQL database [automatiskt optimera prestanda för dina
 
 ## <a name="improving-database-performance-with-more-resources"></a>Förbättrad databasprestanda med mer resurser
 
-Slutligen om det finns ingen tillämplig objekt som kan förbättra prestandan för din databas kan ändra du mängden tillgängliga resurser i Azure SQL Database. Du kan tilldela fler resurser genom att ändra den [tjänstnivån](sql-database-service-tiers.md) för en fristående databas eller öka edtu: er för en elastisk pool när som helst.
-1. För fristående databaser, kan du [ändra tjänstnivå](sql-database-service-tiers.md) på begäran för att förbättra prestanda för databasen.
+Slutligen om det finns ingen tillämplig objekt som kan förbättra prestandan för din databas kan ändra du mängden tillgängliga resurser i Azure SQL Database. Du kan tilldela fler resurser genom att ändra den [DTU tjänstnivån](sql-database-service-tiers-dtu.md) för en fristående databas eller öka edtu: er för en elastisk pool när som helst. Alternativt, om du använder den [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md), kan du ändra antingen tjänstnivån eller öka resurserna för din databas. 
+1. För fristående databaser, kan du [ändra tjänstnivå](sql-database-service-tiers-dtu.md) eller [beräkningsresurser](sql-database-service-tiers-vcore.md)på begäran för att förbättra prestanda för databasen.
 2. Överväg att använda för flera databaser [elastiska pooler](sql-database-elastic-pool-guidance.md) att skala resurser automatiskt.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Finjustera och flytta program eller databas

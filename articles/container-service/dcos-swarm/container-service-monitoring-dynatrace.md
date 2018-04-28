@@ -1,19 +1,19 @@
 ---
-title: "Övervaka Azure DC/OS-kluster - Dynatrace"
-description: "Övervaka ett Azure Container Service DC/OS-kluster med Dynatrace. Distribuera Dynatrace OneAgent med hjälp av DC/OS-instrumentpanelen."
+title: Övervaka Azure DC/OS-kluster - Dynatrace
+description: Övervaka ett Azure Container Service DC/OS-kluster med Dynatrace. Distribuera Dynatrace OneAgent med hjälp av DC/OS-instrumentpanelen.
 services: container-service
 author: MartinGoodwell
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 52a8a05f050017f5062ff986bad7ec2e6a650aa5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Övervaka ett Azure Container Service DC/OS-kluster med Dynatrace SaaS/hanteras
 
@@ -26,13 +26,13 @@ Följande bild visar Dynatrace UI:
 
 ![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>Krav 
-[Distribuera](container-service-deployment.md) och [ansluta](./../container-service-connect.md) till ett kluster som har konfigurerats med Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) att ställa in en Dynatrace SaaS-konto.  
+## <a name="prerequisites"></a>Förutsättningar 
+[Distribuera](container-service-deployment.md) och [ansluta](./../container-service-connect.md) till ett kluster som har konfigurerats med Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [ https://www.dynatrace.com/trial/ ](https://www.dynatrace.com/trial/) att ställa in en Dynatrace SaaS-konto.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Konfigurera Dynatrace distribution med Marathon
 Dessa steg visar hur du konfigurerar och distribuerar program för Dynatrace till ditt kluster med Marathon.
 
-1. Åtkomst till ditt DC/OS-Gränssnittet via [http://localhost:80 /](http://localhost:80/). En gång i DC/OS-Gränssnittet går du till den **Universe** fliken och sök sedan efter **Dynatrace**.
+1. Åtkomst till ditt DC/OS-Gränssnittet via [ http://localhost:80/ ](http://localhost:80/). En gång i DC/OS-Gränssnittet går du till den **Universe** fliken och sök sedan efter **Dynatrace**.
 
     ![Dynatrace i DC/OS Universe](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 

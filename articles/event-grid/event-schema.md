@@ -1,24 +1,26 @@
 ---
-title: Azure Event Grid event schema
+title: Azure händelse rutnätet Händelseschema
 description: Beskriver de egenskaper som har angetts för händelser med Azure händelse rutnätet
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="azure-event-grid-event-schema"></a>Azure Event Grid event schema
+# <a name="azure-event-grid-event-schema"></a>Azure händelse rutnätet Händelseschema
 
 Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem krävs strängegenskaper och ett objekt för data som krävs. Egenskaper är gemensamma för alla händelser från alla utgivare. Dataobjekt som innehåller egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-avsnitt.
 
-Händelser skickas till Azure händelse rutnät i en matris som kan innehålla flera händelseobjekt. Om det finns endast en enskild händelse, har en längd på 1 i matrisen. Matrisen kan ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB.
+Händelsekällan skicka händelser till Azure händelse rutnät i en matris som kan innehålla flera händelseobjekt. Matrisen kan skicka händelser till en händelse rutnätet ämne ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB. Om en händelse eller matrisen överskrider storleksgränser, visas svaret **413 nyttolasten är för stor**.
+
+Händelsen rutnätet skickar händelser till prenumeranter i en matris som innehåller en enstaka händelse. Detta kan ändras i framtiden.
 
 Du kan hitta JSON-schema för händelsen rutnätet händelsen och varje Azure utgivare datanyttolasten i den [Händelseschema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 

@@ -1,8 +1,8 @@
 ---
 title: Hantera program med Azure Active Directory | Microsoft Docs
-description: "Den här artikeln fördelarna med att integrera Azure Active Directory med din lokala, moln och SaaS-program."
+description: Den här artikeln fördelarna med att integrera Azure Active Directory med din lokala, moln och SaaS-program.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Hantera program med Azure Active Directory
 Utöver det faktiska arbetsflödet eller innehåll har företag två grundläggande krav för alla program:
@@ -111,5 +111,6 @@ Du kan skydda dina program med detaljerade åtkomstprinciper och förintegrerade
 Om du vill komma igång med att integrera program med Azure AD kan ta en titt på den [integrera Azure Active Directory med program komma igång](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Se också
-[Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
+[Artikel Index för programhantering i Azure Active Directory](active-directory-apps-index.md)
+[stegvisa distributionsplan för enkel inloggning till ett SaaS-program](http://aka.ms/ssodeploymentplan)
 

@@ -108,8 +108,10 @@
                   href: azure-stack-version-profiles-powershell.md
                 - name: Azure CLI 2.0
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: GO
+                - name: GÅ
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
                 - name: 'Resursprovidern API: er som stöds av profiler'
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Använda principmodul

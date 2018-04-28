@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datadrivna felsökning med hjälp av jobb-diagram
 
@@ -76,11 +76,11 @@ Om föregående frågesteg är en inkommande processor Använd inkommande mått 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Vi sjunker vid läsning av data?
 
-*   **InputEventsSourcesBackloggedTotal** får du reda på hur många fler meddelanden behöver läsas för Event Hubs och Azure IoT Hub-indata.
+*   **Inkommande händelser eftersläpande (totalt)** får du reda på hur många fler meddelanden behöver läsas för Event Hubs och Azure IoT Hub-indata. När det här antalet är större än 0, innebär det att jobbet inte kan bearbeta data så fort det kommer. I det här fallet kan du behöva öka antalet enheter för strömning och/eller se till att jobbet kan paralleliserad. Du kan se mer information om detta på den [frågan parallellisering sidan](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Få hjälp
-Mer hjälp, försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Mer hjälp, försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)

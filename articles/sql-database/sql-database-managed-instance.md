@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -42,8 +42,6 @@ Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarie
 |Azure SQL Database (enkel eller pool) |**Elastiska pooler**: för kunder att utveckla nya SaaS flera program eller avsiktligt omvandla sina befintliga lokala appar i en multitenant SaaS-app, föreslå elastiska pooler. Fördelarna med den här modellen är: <br><ul><li>Konvertering av modellen verksamhet från sälja licenser för att sälja prenumerationer (för ISV: er)</li></ul><ul><li>Enkel och punkt bevis klientisolering</li></ul><ul><li>En förenklad databasen till Central programmeringsmodell</li></ul><ul><li>Möjlighet att skala ut utan att en hård gräns</li></ul>**Enkel databaser**: för kunder att utveckla nya appar än SaaS flera innehavare, vars arbetsbelastning är stabila och förutsägbara, föreslå enskilda databaser. Fördelarna med den här modellen är:<ul><li>En förenklad databasen till Central programmeringsmodell</li></ul>  <ul><li>Förutsägbar prestanda för varje databas</li></ul>|
 |Virtuell SQL IaaS-dator|För kunder som behöver anpassa operativsystemet eller den databasserver, samt kunder som har specifika krav som kör appar från tredje part vid sida med SQL Server (i samma VM), föreslå SQL virtuella datorer / IaaS som den bästa lösningen|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Så här identifierar du en instans som hanteras via programmering
 
@@ -224,5 +222,5 @@ Hanterade instans aktivera systemadministratören att fokusera på vad gäller d
 
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
-- En självstudiekurs som skapar en instans som hanteras och återställer en databas från en säkerhetskopia finns [skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
+- En självstudiekurs som skapar en instans som hanteras och återställer en databas från en säkerhetskopia finns [skapa en instans för hanterade](sql-database-managed-instance-create-tutorial-portal.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).

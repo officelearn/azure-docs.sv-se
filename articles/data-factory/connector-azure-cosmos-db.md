@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 01de1020cd485b3cf91e5d5bc2e175df2bcad111
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos-databasen med Azure Data Factory
 
@@ -168,7 +168,6 @@ Om du vill kopiera data till Azure Cosmos DB anger sink i kopieringsaktiviteten 
 |:--- |:--- |:--- |
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till: **DocumentDbCollectionSink** |Ja |
 | nestingSeparator |Ett specialtecken i källkolumnsnamnet att ange kapslade dokumentet krävs. <br/><br/>Till exempel `Name.First` i datamängd för utdata struktur genererar följande JSON-strukturen i dokumentet DB Cosmos:`"Name": {"First": "[value maps to this column from source]"}` när nestedSeparator är punkt. |Nej (standardvärdet är punkt `.`) |
-| writeBatchTimeout |Vänta tills åtgärden har slutförts innan tidsgränsen uppnås.<br/><br/>Tillåtna värden är: timespan. Exempel ”: 00: 30:00” (30 minuter). |Nej |
 
 **Exempel:**
 

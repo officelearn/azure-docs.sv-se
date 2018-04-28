@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SignalFx | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SignalFx."
+title: 'Självstudier: Azure Active Directory-integrering med SignalFx | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SignalFx.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Självstudier: Azure Active Directory-integrering med SignalFx
 
@@ -121,9 +121,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
-    | User.FirstName          | user.givenname |
+    | User.FirstName          | User.givenName |
     | User.email          | User.Mail |
-    | PersonImmutableID       | user.userprincipalname    |
+    | PersonImmutableID       | User.userPrincipalName    |
     | User.LastName       | User.surname    |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
@@ -140,49 +140,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     e. Klicka på **OK**.
  
-6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+6. På den **SAML-signeringscertifikat** avsnittet, utför följande steg: 
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Klicka på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+
+    b. Klicka på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
 7. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Att generera den **url för tjänstmetadata**, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Gå till egenskapssidan för **SignalFx** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. På den **SignalFx Configuration** klickar du på **konfigurera SignalFx** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID** från den **Snabbreferens avsnitt.**
+8. På den **SignalFx Configuration** klickar du på **konfigurera SignalFx** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID** från den **Snabbreferens avsnitt.**
 
     ![SignalFx konfiguration](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Inloggning på webbplatsen SignalFx företag som administratör.
+9. Inloggning på webbplatsen SignalFx företag som administratör.
 
-11. I SignalFx övre klickar du på **integreringar** att öppna sidan integreringar.
+10. I SignalFx övre klickar du på **integreringar** att öppna sidan integreringar.
 
-    ![SignalFx Integration](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
+    ![SignalFx integrering](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Klicka på **Azure Active Directory** panelen **inloggningstjänster** avsnitt.
+11. Klicka på **Azure Active Directory** panelen **inloggningstjänster** avsnitt.
  
     ![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Klicka på **ny INTEGRATION** och under den **installera** fliken utför följande steg:
+12. Klicka på **ny INTEGRATION** och under den **installera** fliken utför följande steg:
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. I den **utfärdar-URL** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
 
-    e. I den **URL för tjänstmetadata** textruta klistra in den **url för tjänstmetadata** mönster som du har genererat från Azure-portalen.
+    e. I den **URL för tjänstmetadata** textruta klistra in den **webbadress Federation Metadata** som du har kopierat från Azure-portalen.
 
     f. Klicka på **Spara**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

@@ -1,12 +1,11 @@
 ---
-title: "Azure DB Cosmos global distributionsplatsen självstudier för tabellen API | Microsoft Docs"
-description: "Lär dig hur du ställer in Azure Cosmos DB global distributionsplatsen med tabell-API."
+title: Självstudie för global distribution i Azure Cosmos DB för tabell-API | Microsoft Docs
+description: Läs om hur du konfigurerar global distribution i Azure Cosmos DB med tabell-API.
 services: cosmos-db
-keywords: Global distributionsplatsen, tabell
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+keywords: global distribution, Table
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,46 +13,46 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 40c0bfe913e1396194de00cf6fa1d1ff823b1d0e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: f877baa33d94dad07250da9a10209555dbca65c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med tabell-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Så här konfigurerar du global distribution i Azure Cosmos DB med tabell-API
 
-Den här artikeln omfattar följande aktiviteter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
-> * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med hjälp av den [tabellen API](table-introduction.md)
+> * Konfigurera global distribution med Azure Portal
+> * Konfigurera global distribution med [tabell-API](table-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Ansluter till en önskad region med tabell-API
+## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Ansluta till en önskad region med hjälp av tabell-API
 
-För att kunna dra nytta av [global distributionsplatsen](distribute-data-globally.md), klientprogram kan ange beställda inställningar listan över regioner som används för att utföra åtgärder för dokumentet. Detta kan göras genom att ange den [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations) egenskapen. Azure Cosmos DB tabell API SDK hämtar bästa slutpunkten ska kunna kommunicera med baserat på konfigurationen av kontot, regional tillgänglighet och listan med angivna inställningar.
+I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta kan göras genom att ange egenskapen [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations). Tabell-API:ns SDK i Azure Cosmos DB väljer den bästa slutpunkten för kommunikationen baserat på kontokonfiguration, aktuell regional tillgänglighet och listan med inställningar.
 
-PreferredLocations ska innehålla en kommaavgränsad lista över önskade (flera homing) platser för läsning. Varje klientinstans kan ange en delmängd av dessa regioner i önskad ordning för låg latens läsningar. Regionerna måste namnges med deras [visningsnamn](https://msdn.microsoft.com/library/azure/gg441293.aspx), till exempel `West US`.
+PreferredLocations ska innehålla en kommaavgränsad lista med önskade (flera värdar) platser för läsningar. Varje klientinstans kan ange en delmängd av dessa regioner i önskad ordning för läsningar med låg latens. Regionerna måste namnges med sina [visningsnamn](https://msdn.microsoft.com/library/azure/gg441293.aspx), till exempel `West US`.
 
-Alla Läs skickas till den första tillgängliga regionen i listan över PreferredLocations. Om begäran inte klienten misslyckas nedåt i listan till nästa region, och så vidare.
+Alla läsningar skickas till den första tillgängliga regionen i PreferredLocations-listan. Om begäran misslyckas går klienten nedåt i listan till nästa region osv.
 
-SDK försöker läsa från regionerna anges i PreferredLocations. Så, till exempel om det konto som är tillgänglig i tre regioner, men klienten endast anger två av regionerna som icke-och skrivbehörighet för PreferredLocations, sedan utan läsning hanteras utanför området skrivåtgärder även vid redundans.
+SDK:erna försöker läsa från de regioner som anges i PreferredLocations. Det innebär att om databaskontot t.ex. är tillgängligt i tre regioner men klienten enbart anger två av de skrivskyddade regionerna för PreferredLocations, så hanteras inga läsningar från skrivregionen även om en redundans sker.
 
-SDK skickar automatiskt alla skrivningar till det aktuella området för skrivning.
+SDK:n skickar automatiskt alla skrivningar till den aktuella skrivregionen.
 
-Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från det aktuella området för skrivning.
+Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från den aktuella skrivregionen.
 
-Det är den som Slutför den här kursen. Du kan lära dig hur du hanterar konsekvensen för globalt replikerade kontot genom att läsa [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Och för mer information om hur globala databasreplikering fungerar i Azure Cosmos DB, se [distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
+Och med detta är den här självstudiekursen klar. Mer information om hur du kan hantera ditt globalt replikerade kontos konsekvens finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Mer information om hur global databasreplikering fungerar i Azure Cosmos DB finns i [Distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med API: er Azure Cosmos DB tabell
+> * Konfigurera global distribution med Azure Portal
+> * Konfigurera global distribution med tabell-API:n i Azure Cosmos DB
 

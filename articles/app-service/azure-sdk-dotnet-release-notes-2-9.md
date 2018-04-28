@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK för .NET 2.9 viktig information
 
@@ -41,7 +41,7 @@ Inga senaste Azure SDK 2.9 ändringar har införts i den här versionen. Det fin
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 virtuella datorer
 
-- Visual Studio stöder nu distribuera Cloud Services till OS-familjen 5 (Windows Server 2016) virtuella datorer. Du kan ändra dina inställningar om du vill rikta nya OS-familjen för befintliga molntjänster. När du skapar nya molntjänster, om du väljer att skapa tjänsten med hjälp av .net 4.6 eller högre, kommer den som standard tjänsten om du vill använda OS-familjen 5.  Mer information kan du granska den [gäst-OS-familjen stöder tabellen](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio stöder nu distribuera Cloud Services till OS-familjen 5 (Windows Server 2016) virtuella datorer. Du kan ändra dina inställningar om du vill rikta nya OS-familjen för befintliga molntjänster. När du skapar nya molntjänster, om du väljer att skapa tjänsten med hjälp av .net 4.6 eller högre, kommer den som standard tjänsten om du vill använda OS-familjen 5.  Mer information kan du granska den [gäst-OS-familjen stöder tabellen](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### <a name="known-issues"></a>Kända problem
 
@@ -50,7 +50,7 @@ Inga senaste Azure SDK 2.9 ändringar har införts i den här versionen. Det fin
  
 ### <a name="azure-in-role-cache"></a>Azure i Rollinstanser 
 
-- Stöd för cachelagring i Rollinstanser för Azure ends i 30 November 2016. Mer information klickar du på [här](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- Stöd för cachelagring i Rollinstanser för Azure ends i 30 November 2016. Mer information klickar du på [här](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>Azure Resource Manager-mallar för Azure-Stack
 

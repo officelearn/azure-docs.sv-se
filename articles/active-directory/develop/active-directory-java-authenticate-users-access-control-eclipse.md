@@ -1,25 +1,24 @@
 ---
-title: "Hur du använder åtkomstkontroll (Java) | Microsoft Docs"
-description: "Lär dig hur du utvecklar och använder åtkomstkontroll med Java i Azure."
+title: Hur du använder åtkomstkontroll (Java)
+description: Lär dig hur du utvecklar och använder åtkomstkontroll med Java i Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Hur du autentiserar användare webbprogram med Azure Access Control Service med Eclipse
 Den här guiden visar hur du använder Azure Access Control Service (ACS) i Azure-verktygen för Eclipse. Mer information om ACS finns i [nästa steg](#next_steps) avsnitt.
@@ -116,14 +115,14 @@ I den här uppgiften kan du konfigurera ACS för att identifiera ditt webbprogra
    
    1. I **namn**, skriver du namnet på RP. Syftet med den här kursen skriver **Azure Web App**.
    2. I **läge**väljer **ange inställningar manuellt**.
-   3. I **sfär**, ange URI som gäller för säkerhetstoken som utfärdats av ACS. Den här uppgiften skriver **http://localhost: 8080 /**.
+   3. I **sfär**, ange URI som gäller för säkerhetstoken som utfärdats av ACS. Den här uppgiften skriver **http://localhost:8080/**.
       ![Förlitande part sfär för användning i beräkningsemulatorn][relying_party_realm_emulator]
-   4. I **Retur-URL** ange Webbadressen som returnerar ACS säkerhetstoken. Den här uppgiften skriver **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![förlitande part Retur-URL för användning i beräkningsemulatorn][relying_party_return_url_emulator]
+   4. I **Retur-URL** ange Webbadressen som returnerar ACS säkerhetstoken. Den här uppgiften skriver ** http://localhost:8080/MyACSHelloWorld/index.jsp ** 
+       ![förlitande part Retur-URL för användning i beräkningsemulatorn][relying_party_return_url_emulator]
    5. Godkänn standardvärdena i resten av fälten.
 4. Klicka på **Spara**.
 
-Du har nu konfigurerat ditt webbprogram för Java när den körs i Azure-beräkningsemulatorn (på http://localhost: 8080 /) ska vara en RP i ACS-namnområdet. Skapa sedan de regler som ACS använder för att bearbeta anspråk för RP.
+Du har nu konfigurerat ditt webbprogram för Java när den körs i Azure-beräkningsemulatorn (på http://localhost:8080/) ska vara en RP i ACS-namnområdet. Skapa sedan de regler som ACS använder för att bearbeta anspråk för RP.
 
 ## <a name="create-rules"></a>Skapa regler
 I den här uppgiften definierar de regler som driver hur anspråk skickas från IP-adresser till din RP. I den här guiden kommer vi bara konfigurera ACS om du vill kopiera inkommande anspråkstyper och värden utan filtrering eller ändra dem direkt i utdatatoken.

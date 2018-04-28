@@ -1,11 +1,11 @@
 ---
-title: "Ansluta klassiska virtuella nätverk till Azure Resource Manager VNets: PowerShell | Microsoft Docs"
+title: 'Ansluta klassiska virtuella nätverk till Azure Resource Manager VNets: PowerShell | Microsoft Docs'
 description: Skapa en VPN-anslutning mellan klassiska Vnet och Resource Manager VNets med VPN-Gateway och PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65faf1a4f78244d9fdd03b6415bf2cadac923504
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
@@ -54,9 +54,9 @@ Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem f�
 VNet-Name = ClassicVNet <br>
 Plats = västra USA <br>
 Virtuellt nätverk adressutrymmen = 10.0.0.0/24 <br>
-Subnet-1 = 10.0.0.0/27 <br>
+Undernät-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
-Local Network Name = RMVNetLocal <br>
+Lokala nätverksnamn = RMVNetLocal <br>
 GatewayType = DynamicRouting
 
 **Hanteraren för filserverresurser VNet-inställningarna**
@@ -64,7 +64,7 @@ GatewayType = DynamicRouting
 VNet-Name = RMVNet <br>
 Resursgruppens namn = RG1 <br>
 Virtuellt IP-adressutrymmen = 192.168.0.0/16 <br>
-Subnet-1 = 192.168.1.0/24 <br>
+Undernät-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
 Plats = östra USA <br>
 Gateway offentliga IP-namn = gwpip <br>
@@ -176,7 +176,7 @@ Följ instruktionerna nedan om du vill skapa en VPN-gateway för RM-VNet. Starta
 1. Logga in på ditt Azure-konto i PowerShell-konsolen. Följande cmdlet efterfrågar autentiseringsuppgifter för inloggning för ditt Azure-konto. När du loggar in laddas inställningarna för ditt konto så att de blir tillgängliga för Azure PowerShell.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ``` 
    
   Hämta en lista över dina Azure-prenumerationer.

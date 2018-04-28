@@ -6,20 +6,21 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8b7062f85a7130c73c6493f6f0c277c90374f11
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
 Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med hjälp av [RBAC](../role-based-access-control/role-assignments-portal.md), du kan särskilja uppgifter i din grupp och ge bara mängden åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete. Rollbaserad åtkomst kan beviljas till användare som använder Azure Portal, Azure-kommandoradsverktygen eller Azure Management-API:er.
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
+
 I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till användare, grupper och program i Automation-kontoomfånget. Följande är de inbyggda roller som stöds av ett Automation-konto:
 
 | **Roll** | **Beskrivning** |
@@ -27,9 +28,9 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 | Ägare |Rollen som ägare ger åtkomst till alla resurser och åtgärder i ett Automation-konto som bland annat ge tillgång till andra användare, grupper och program för att hantera Automation-kontot. |
 | Deltagare |Med deltagarrollen kan du hantera allt, men du kan inte ändra andra användares åtkomstbehörighet till ett Automation-konto. |
 | Läsare |Med läsarrollen kan du visa alla resurser i ett Automation-konto men inte göra några ändringar. |
-| Automation-operatör |Med rollen som Automation-operatör kan du utföra driftåtgärder, till exempel starta, stoppa, pausa, återuppta och schemalägga jobb. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. |
-|Automation-jobboperator|Rollen operatör för Automation-jobb kan du skapa och hantera jobb med hjälp av Automation-runbooks.|
-|Automation Runbook-operator|Rollen Automation Runbook-operatör kan du läsa egenskaper för runbook. Du kan också skapa jobb för runbook.|
+| Automation-operatör |Rollen Automation operatör kan du visa runbook-namn och egenskaper att skapa och hantera jobb för alla runbooks i ett Automation-konto. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. |
+|Automation-jobboperator|Rollen operatör för Automation-jobb kan du skapa och hantera jobb för alla runbooks i ett Automation-konto.|
+|Automation Runbook-operator|Rollen Automation Runbook-operatör kan du visa namn och egenskaper i en runbook.|
 | Log Analytics Contributor | Log Analytics deltagarrollen kan du läsa alla övervakningsdata och redigera inställningarna för övervakning. Redigera inställningarna för övervakning innehåller lägger till VM-tillägget på virtuella datorer kan läsa lagringskontonycklar för att kunna konfigurera samlingen loggar från Azure storage, skapa och konfigurera Automation-konton, att lägga till lösningar och konfigurerar Azure-diagnostik i alla Azure-resurser.|
 | Log Analytics Reader | Rollen Log Analytics läsare kan du visa och Sök alla övervakning data samt visa inställningar för övervakning. Detta inkluderar visar konfigurationen för Azure-diagnostik på alla Azure-resurser. |
 | Övervaka deltagare | Övervaka deltagarrollen kan du läsa alla data och uppdatera inställningar för övervakning.|
@@ -70,7 +71,7 @@ En läsare kan visa alla resurser i ett Automation-konto men göra inte några �
 
 ### <a name="automation-job-operator"></a>Automation-jobboperator
 
-En Operator för Automation-jobb beviljas definitionsområdet Automation-konto. Detta gör att operatörsbehörigheter för att hantera jobb i kontot.
+Ett Automation-jobb operatörsrollen beviljas definitionsområdet Automation-konto. På så sätt kan operatorn behörigheter att skapa och hantera jobb för alla runbooks i kontot. I följande tabell visas behörigheter för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -88,7 +89,10 @@ En Operator för Automation-jobb beviljas definitionsområdet Automation-konto.�
 
 ### <a name="automation-runbook-operator"></a>Automation Runbook-operator
 
-En roll för Automation Runbook-operatör beviljas definitionsområdet Runbook. Ett Automation Runbook-operatör kan se runbook-namnet. I kombination med-Automation jobbet Operator' definitionsområdet Automation-konto, tillåter operatorn för att utföra åtgärder för Automation-operatorn för en viss runbook. I följande tabell visas behörigheter för rollen:
+En roll för Automation Runbook-operatör beviljas definitionsområdet Runbook. En Operator för Automation-Runbook kan visa runbook-namn och egenskaper.  Den här rollen i kombination med rollen Automation jobbet-operatorn kan operatorn för att skapa och hantera jobb för runbook. I följande tabell visas behörigheter för rollen:
+
+> [!NOTE]
+> Ange inte rollen Automation-operatorn om du inte vill ge en operator möjligheten att hantera jobb för alla runbooks i kontot.
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -101,7 +105,7 @@ En roll för Automation Runbook-operatör beviljas definitionsområdet Runbook. 
 
 ### <a name="automation-operator"></a>Automation-operatör
 
-Ett Automation-operatorn kan starta, stoppa, pausa och återuppta jobb. I följande tabell visas behörigheter för rollen:
+En Automation-Operator kan skapa och hantera jobb och läsa egenskaper för alla runbooks i ett Automation-konto och runbook-namn.  Obs: Om du vill styra operatorn åtkomsten till enskilda runbooks och sedan inte ange den här rollen, och i stället använda rollerna Automation jobbet-operatorn och Automation Runbook-operatör.  I följande tabell visas behörigheter för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -136,7 +140,6 @@ Log Analytics deltagare kan läsa alla övervakningsdata och redigera inställni
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Skapa och hantera distributionen av resursgrupper.|
 |Microsoft.Storage/storageAccounts/listKeys/action|Lista nycklar för lagringskonto.|
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
-
 
 ### <a name="log-analytics-reader"></a>Log Analytics Reader
 
@@ -256,34 +259,37 @@ Uppdateringshantering når över flera tjänster att tillhandahålla sin tjänst
 |Virtuell dator     | Virtuell datordeltagare        | Virtuell dator        |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Konfigurera RBAC för ditt Automation-konto med hjälp av Azure portal
-1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.  
+
+1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.
 2. Klicka på den **åtkomstkontroll (IAM)** kontrollen i det övre vänstra hörnet. Då öppnas den **åtkomstkontroll (IAM)** sidan där du kan lägga till nya användare, grupper och program för att hantera ditt Automation-kontot och visa befintliga roller som kan konfigureras för Automation-kontot.
-   
-   ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)  
+
+   ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Lägga till en ny användare och tilldela en roll
-1. Från den **åtkomstkontroll (IAM)** klickar du på **+ Lägg till** att öppna den **lägga till behörigheter** sida där du kan lägga till en användare, grupp eller ett program och tilldela dem en roll.  
+
+1. Från den **åtkomstkontroll (IAM)** klickar du på **+ Lägg till** att öppna den **lägga till behörigheter** sida där du kan lägga till en användare, grupp eller ett program och tilldela dem en roll.
 
 2. Välj en roll i listan över tillgängliga roller. Du kan välja någon av de tillgängliga inbyggda roller som har stöd för ett Automation-konto eller en anpassad roll som du har definierat.
 
 3. Ange användarnamnet för användaren som du vill ge behörighet till i den **Välj** fältet. Välj användaren i listan och klicka på **spara**.
-   
-   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)  
-   
-   Nu bör du se den användare som lagts till i den **användare** sidan med den valda rollen tilldelas.  
-   
-   ![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)  
-   
-   Du kan också tilldela en roll till användaren från sidan **Roller**. 
+
+   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
+
+   Nu bör du se den användare som lagts till i den **användare** sidan med den valda rollen tilldelas
+
+   ![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)
+
+   Du kan också tilldela en roll till användaren från sidan **Roller**.
 4. Klicka på **roller** från den **åtkomstkontroll (IAM)** kan du öppna den **roller** sidan. Härifrån kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
-   
-    ![Tilldela en roll från sidan Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
-   
+
+    ![Tilldela en roll från sidan Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
+
    > [!NOTE]
    > Rollbaserad åtkomstkontroll kan bara anges i omfånget för Automation-konto och inte på en resurs under Automation-kontot.
 
 ### <a name="remove-a-user"></a>Ta bort en användare
-Du kan ta bort åtkomstbehörighet för en användare som inte hanterar Automation-kontot eller som inte längre fungerar för organisationen. Nedan följer stegen för att ta bort en användare: 
+
+Du kan ta bort åtkomstbehörighet för en användare som inte hanterar Automation-kontot eller som inte längre fungerar för organisationen. Nedan följer stegen för att ta bort en användare:
 
 1. Från den **åtkomstkontroll (IAM)** väljer användaren vill ta bort och klicka på **ta bort**.
 2. Klicka på knappen **Ta bort** på sidan med tilldelningsinformation.
@@ -296,42 +302,44 @@ Du kan ta bort åtkomstbehörighet för en användare som inte hanterar Automati
 När en användare som tilldelats en roll loggar in på Azure och väljer deras Automation-konto, kan de nu se ägarens konto som angetts i listan över **kataloger**. För att visa det Automation-konto som de har lagts till i måste de byta standardkatalogen till ägarens standardkatalog.
 
 ### <a name="user-experience-for-automation-operator-role"></a>Användarupplevelsen för Automation-operatörsrollen
+
 När en användare som har tilldelats Automation operatorn rollen vyer Automation-konto som har tilldelats, kan bara visa listan över runbooks, runbook-jobb och scheman i Automation-konto men det går inte att visa deras definition. Användaren kan starta, stoppa, pausa, återuppta eller schemalägga runbook-jobbet. Användaren har inte åtkomst till andra Automation-resurser, till exempel konfigurationer, hybrid worker-grupper eller DSC-noder.
 
-![Ingen åtkomst till resurser](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
+![Ingen åtkomst till resurser](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
 Användaren kan visa och skapa scheman, men har inte åtkomst till någon annan typ av tillgång.
 
 Den här användaren kan inte heller visa webhooks som är associerade med en runbook.
 
-![Ingen åtkomst till webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
+![Ingen åtkomst till webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Konfigurera RBAC för ditt Automation-konto med hjälp av Azure PowerShell
+
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda det här kommandot tillsammans med egenskapen **Namn** för att visa en lista över alla de åtgärder som kan vidtas av en viss roll.
+[Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) listar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda det här kommandot tillsammans med egenskapen **Namn** för att visa en lista över alla de åtgärder som kan vidtas av en viss roll.
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
 ```
 
 Följande är exempel på utdata:
 
-```powershell
+```azurepowershell-interactive
 Name             : Automation Operator
 Id               : d3881f73-407a-4167-8283-e981cbba0404
 IsCustom         : False
 Description      : Automation Operators are able to start, stop, suspend, and resume jobs
-Actions          : {Microsoft.Authorization/*/read, Microsoft.Automation/automationAccounts/jobs/read, Microsoft.Automation/automationAccounts/jobs/resume/action, 
+Actions          : {Microsoft.Authorization/*/read, Microsoft.Automation/automationAccounts/jobs/read, Microsoft.Automation/automationAccounts/jobs/resume/action,
                    Microsoft.Automation/automationAccounts/jobs/stop/action...}
 NotActions       : {}
 AssignableScopes : {/}
-``` 
+```
 
-• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) visar Azure AD RBAC-rolltilldelningar i det angivna omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.  
+[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) listar Azure AD RBAC rolltilldelningar i det specificerade omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.
     **Exempel:** Använd följande kommando om du vill visa alla användare och deras roller i ett Automation-konto.
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
@@ -349,16 +357,16 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-• [Ny AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) du tilldelar åtkomst till användare, grupper och program till ett visst scope.  
+[Nya AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) du tilldelar åtkomst till användare, grupper och program till ett visst scope.
     **Exempel:** använder du följande kommando för att tilldela rollen ”Automation-operatör” för en användare i området för Automation-konto.
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
 Följande är exempel på utdata:
 
-```powershell
+```azurepowershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
                      ers/Microsoft.Authorization/roleAssignments/25377770-561e-4496-8b4f-7cba1d6fa346
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount
@@ -370,17 +378,17 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-• Använd [ta bort AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) att ta bort åtkomsten till en specifik användare, grupp eller ett program från ett visst scope.  
+Använd [ta bort AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) att ta bort åtkomsten till en specifik användare, grupp eller ett program från ett visst scope.
     **Exempel:** använder du följande kommando för att ta bort användaren från rollen ”Automation-operatör” i omfånget för Automation-konto.
 
-```powershell-interactive
+```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-I föregående exempel ersätta **inloggning Id**, **prenumerations-Id**, **resursgruppens namn**, och **Automation kontonamn** med din kontoinformation. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort rolltilldelningen för användaren.   
+I föregående exempel ersätta **inloggning Id**, **prenumerations-Id**, **resursgruppens namn**, och **Automation kontonamn** med din kontoinformation. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort rolltilldelningen för användaren.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Information om hur du kan konfigurera RBAC på olika sätt med Azure Automation finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Mer information om hur du kan starta en runbook på olika sätt finns i [Starta en runbook](automation-starting-a-runbook.md)
 * Information om olika runbook-typer finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
-

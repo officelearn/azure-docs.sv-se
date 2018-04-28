@@ -1,13 +1,13 @@
 ---
-title: "Hur du på ett säkert sätt Migrera användare mellan produktlicenser med hjälp av gruppbaserade licensiering i Azure Active Directory | Microsoft Docs"
-description: "Beskriver den rekommenderade processen för att migrera användare mellan olika produktlicenser (Office 365 Enterprise E1 och E3) med hjälp av gruppbaserade licensiering"
+title: Hur du på ett säkert sätt Migrera användare mellan produktlicenser med hjälp av gruppbaserade licensiering i Azure Active Directory | Microsoft Docs
+description: Beskriver den rekommenderade processen för att migrera användare mellan olika produktlicenser (Office 365 Enterprise E1 och E3) med hjälp av gruppbaserade licensiering
 services: active-directory
 keywords: Azure AD-licensiering
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 068457044af7af7a55bdbcc4043da3028a68b2d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Hur du på ett säkert sätt Migrera användare mellan produktlicenser med hjälp av gruppbaserade licensiering
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver den rekommenderade metoden för att flytta användar
 
 -   Enkel migrering mellan produktlicenser som inte innehåller motstridiga serviceplaner, till exempel migrera mellan Office 365 Enterprise E3 och Office 365 Enterprise E5.
 
--   Mer komplexa migrering mellan produkter som innehåller vissa motstridiga serviceplaner, till exempel migrera mellan Office 365 Enterprise E1 och Office 365 Enterprise E3. Mer information om konflikter finns [i konflikt serviceplaner](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) och [tjänsten planer inte kan tilldelas samtidigt](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-   Mer komplexa migrering mellan produkter som innehåller vissa motstridiga serviceplaner, till exempel migrera mellan Office 365 Enterprise E1 och Office 365 Enterprise E3. Mer information om konflikter finns [i konflikt serviceplaner](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) och [tjänsten planer inte kan tilldelas samtidigt](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Den här artikeln innehåller exempelkod för PowerShell som kan användas för att utföra åtgärder för migrering och kontroll. Koden är särskilt användbar för storskaliga åtgärder om det inte är möjligt att utföra stegen manuellt.
 
@@ -37,7 +37,7 @@ Innan du påbörjar migreringen är det viktigt att kontrollera vissa antaganden
 -   Användare har den *källkodslicens* som har associerats med hjälp av gruppbaserade licensiering. Licenser att flytta från ärvs från en enda källa grupp och har inte tilldelats direkt.
 
     >[!NOTE]
-    >Om licenser tilldelas också direkt, de kan förhindra att den *mål licens*. Lär dig mer om [direkt och gruppera licenstilldelning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Du kanske vill använda en [PowerShell-skript](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) kontrollera om användarna har direkt licenser.
+    >Om licenser tilldelas också direkt, de kan förhindra att den *mål licens*. Lär dig mer om [direkt och gruppera licenstilldelning](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Du kanske vill använda en [PowerShell-skript](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) kontrollera om användarna har direkt licenser.
 
 -   Du har tillräckligt många tillgängliga licenser för mål-produkten. Om du inte har tillräckligt med licenser vissa användare kanske inte att hämta den *mål licens*. Du kan [kontrollera antalet tillgängliga licenser](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
@@ -54,7 +54,7 @@ Migrering målet är att använda gruppbaserade licensiering för att ändra anv
 
 3.  Lägga till en grupp med användare i målgruppen. Gruppbaserade licensiering hämtar ändringen och tilldelar den *mål licens*. Processen kan ta lång tid, beroende på storleken på gruppen och andra aktiviteter i klienten.
 
-4.  Kontrollera att bearbetas fullständigt i gruppen med användare av gruppbaserade licensiering. Bekräfta att alla användare har den *mål licens* tilldelad. Kontrollera att användare inte hamna i ett feltillstånd som står i konflikt med andra produkter eller bristande tillräckligt många licenser. Mer information om fel finns [Active Directory-licensiering grupp problemlösning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Kontrollera att bearbetas fullständigt i gruppen med användare av gruppbaserade licensiering. Bekräfta att alla användare har den *mål licens* tilldelad. Kontrollera att användare inte hamna i ett feltillstånd som står i konflikt med andra produkter eller bristande tillräckligt många licenser. Mer information om fel finns [Active Directory-licensiering grupp problemlösning](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Användarna har nu både den *källkodslicens* och *mål licens* tilldelad.
 
@@ -175,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrera användare mellan produkter som har motstridiga service-planer
-Migrering målet är att använda gruppbaserade licensiering för att ändra användarlicenser från en *källkodslicens* (i det här exemplet: Office 365 Enterprise E1) till en *mål licens* (i det här exemplet: Office 365 Enterprise E3). De här två produkterna i det här scenariot innehåller motstridiga serviceplaner så du kan lösa konflikten sömlöst migrera användarna. Mer information om dessa konflikter finns [Active Directory-licensiering grupp problemlösning: motstridiga serviceplaner](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). På någon punkt under migreringen bör användare förlorar åtkomst till tjänster eller data. Migreringen utförs i små ”batchar”. Du kan verifiera för varje grupp och minimera omfånget för eventuella problem som kan uppstå under processen. Generellt sett är processen följande:
+Migrering målet är att använda gruppbaserade licensiering för att ändra användarlicenser från en *källkodslicens* (i det här exemplet: Office 365 Enterprise E1) till en *mål licens* (i det här exemplet: Office 365 Enterprise E3). De här två produkterna i det här scenariot innehåller motstridiga serviceplaner så du kan lösa konflikten sömlöst migrera användarna. Mer information om dessa konflikter finns [Active Directory-licensiering grupp problemlösning: motstridiga serviceplaner](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). På någon punkt under migreringen bör användare förlorar åtkomst till tjänster eller data. Migreringen utförs i små ”batchar”. Du kan verifiera för varje grupp och minimera omfånget för eventuella problem som kan uppstå under processen. Generellt sett är processen följande:
 
 1.  Användarna är medlemmar i gruppen för en datakälla och ärver de den *källkodslicens* från gruppen.
 
@@ -183,7 +183,7 @@ Migrering målet är att använda gruppbaserade licensiering för att ändra anv
 
 3.  Lägga till en grupp med användare i målgruppen. Gruppbaserade licensiering hämtar ändringen och försöker tilldela den *mål licens*. Tilldelningen misslyckas på grund av konflikter mellan tjänster i de här två produkterna. Felet registreras gruppbaserade licensiering som ett fel på varje användare. Processen kan ta lång tid, beroende på storleken på gruppen och andra aktiviteter i klienten.
 
-4.  Kontrollera att bearbetas fullständigt i gruppen med användare av gruppbaserade licensiering. Bekräfta att varje användare har konflikt felet. Kontrollera att vissa användare inte hamna i ett oväntat feltillstånd. Mer information om fel finns [Active Directory-licensiering grupp problemlösning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Kontrollera att bearbetas fullständigt i gruppen med användare av gruppbaserade licensiering. Bekräfta att varje användare har konflikt felet. Kontrollera att vissa användare inte hamna i ett oväntat feltillstånd. Mer information om fel finns [Active Directory-licensiering grupp problemlösning](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Nu användarna fortfarande har den *källkodslicens* och en konflikt fel för den *mål licens*. Användarna ännu inte har den *mål licens* tilldelad.
 
@@ -317,7 +317,7 @@ Det här avsnittet innehåller en PowerShell-kod som krävs för att köra skrip
 >[!WARNING]
 >Den här koden har angetts som ett exempel i exempelsyfte. Du kan testa koden först i liten skala, eller i en separat Testklient om du tänker använda den i din miljö. Du kan behöva justera koden för att uppfylla de specifika behoven i din miljö.
 
-Om du vill köra koden, följ instruktionerna i den [Azure AD PowerShell v1.0 bibliotek](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Innan du kör skriptet, kör du den `connect-msolservice` cmdlet för att logga in på klienten.
+Om du vill köra koden, följ instruktionerna i den [Azure AD PowerShell v1.0 bibliotek](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Innan du kör skriptet, kör du den `connect-msolservice` cmdlet för att logga in på klienten.
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

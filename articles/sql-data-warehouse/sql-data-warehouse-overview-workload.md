@@ -1,25 +1,20 @@
 ---
-title: "Lär dig mer om Azure SQL Data Warehouse operations | Microsoft Docs"
-description: "Elasticiteten i SQL Data Warehouse låter dig öka, minska eller pausa beräkningskraft med hjälp av en glidande skala för informationslagerenheter (DWU:er). Den här artikeln förklarar måtten i informationslager och hur de relaterar till DWU:er. "
+title: Lär dig mer om Azure SQL Data Warehouse operations | Microsoft Docs
+description: 'Elasticiteten i SQL Data Warehouse låter dig öka, minska eller pausa beräkningskraft med hjälp av en glidande skala för informationslagerenheter (DWU:er). Den här artikeln förklarar måtten i informationslager och hur de relaterar till DWU:er. '
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 21e1f687e152cf91bd32389e0d5aa0dabd463b2f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-warehouse-workload"></a>Arbetsbelastning i informationslager
 En arbetsbelastning i ett informationslager innefattar alla åtgärder som utförs mot informationslagret. Arbetsbelastningen i informationslagret innefattar hela processen med att läsa in data i lagret, genomföra analys och rapportering av informationslagret, hantera data i informationslagret och exportera data från informationslagret. Hur djupa och breda de här komponenterna är, står ofta i proportion till åldern på informationslagret.

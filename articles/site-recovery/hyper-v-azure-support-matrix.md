@@ -1,6 +1,6 @@
 ---
-title: "Stöd matrix för Hyper-V-replikering till Azure | Microsoft Docs"
-description: "Sammanfattning av de stödda komponenter och krav för Hyper-V-replikering till Azure med Azure Site Recovery"
+title: Stöd matrix för Hyper-V-replikering till Azure | Microsoft Docs
+description: Sammanfattning av de stödda komponenter och krav för Hyper-V-replikering till Azure med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stöd matrix för Hyper-V-replikering till Azure
 
@@ -95,7 +95,7 @@ Multipath (MPIO). Testats med:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/
 **Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | ---
 VMDK | Ej tillämpligt | Ej tillämpligt
-VHD/VHDX | Ja | Ja
+VHD-ELLER VHDX | Ja | Ja
 Generation 2 VM | Ja | Ja
 EFI/UEFI| Ja | Ja
 Delad klusterdisk | Nej | Nej
@@ -117,7 +117,7 @@ Multipath (MPIO) | Ja | Ja
 **Komponent** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | ---
 Lokalt redundant lagring | Ja | Ja
-Geografiskt redundant lagring. | Ja | Ja
+Geografiskt redundant lagring | Ja | Ja
 Geo-redundant lagring med läsbehörighet | Ja | Ja
 Lågfrekvent | Nej | Nej
 Frekvent| Nej | Nej
@@ -133,7 +133,7 @@ Azure Virtual Network service-slutpunkter (Azure Storage brandväggar och virtue
 **Funktion** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | ---
 Tillgänglighetsuppsättningar | Ja | Ja
-HUB | Ja | Ja  
+HUBBEN | Ja | Ja  
 Hanterade diskar | Ja, för växling vid fel.<br/><br/> Återställning efter fel för hanterade diskar stöds inte. | Ja, för växling vid fel.<br/><br/> Återställning efter fel för hanterade diskar stöds inte.
 
 ## <a name="azure-vm-requirements"></a>Krav för Azure VM
@@ -151,10 +151,10 @@ Datadisken för virtuell Hårddisk | Upp till 4,095 GB | Kravkontroll misslyckas
 Nätverkskort | Flera nätverkskort stöds |
 Delad virtuell Hårddisk | Stöds inte | Kravkontroll misslyckas om stöds inte.
 FC-disk | Stöds inte | Kravkontroll misslyckas om stöds inte.
-Format för hårddisk | VHD <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
+Format för hårddisk | VIRTUELL HÅRDDISK <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
 BitLocker | Stöds inte | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
 VM-namn | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra. | Uppdatera värdet i VM-egenskaper i Site Recovery.
-VM-typ | Generation 1<br/><br/> Generation 2--Windows | Generation 2 virtuella datorer med en OS-disktyp av grundläggande (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme stöds.<br></br>Linux Generation 2 virtuella datorer stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+VM-typ | Generation 1<br/><br/> Generation 2 – Windows | Generation 2 virtuella datorer med en OS-disktyp av grundläggande (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme stöds.<br></br>Linux Generation 2 virtuella datorer stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services-valvet åtgärder
 
@@ -170,7 +170,7 @@ Kontrollera att du kör den senaste providern och agentversioner för att kontro
 
 **Namn** | **Beskrivning** | **Detaljer**
 --- | --- | --- | --- | ---
-Azure Site Recovery-providern | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan att Virtual Machine Manager: installerad på Hyper-V-värdar| Senaste version: 5.1.2700.1 (tillgänglig från Azure portal)<br/><br/> [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
+Azure Site Recovery-providern | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan att Virtual Machine Manager: installerad på Hyper-V-värdar| Senaste version: 5.1.2700.1 (tillgänglig från Azure portal)<br/><br/> [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services-agenten | Samordnar replikering mellan Hyper-V virtuella datorer och Azure<br/><br/> Installerad på lokala Hyper-V-servrar (med eller utan Virtual Machine Manager) | Senaste agenten som är tillgängliga från portalen
 
 

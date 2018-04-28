@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c54670b11c0a2a3c5379abe4a43431445daa1a5a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c06289625ab18dad134c235fc28fd5c775955eb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Kör jobb för Pig med HDInsight med hjälp av Azure PowerShell
 
@@ -44,7 +44,7 @@ Azure PowerShell innehåller *cmdlets* som gör det möjligt att köra Pig-jobb 
 
 Följande cmdlets används när Pig-jobb som körs på en fjärransluten HDInsight-kluster:
 
-* **Login-AzureRmAccount**: autentiserar Azure PowerShell för att din Azure-prenumeration.
+* **Ansluta AzureRmAccount**: autentiserar Azure PowerShell för att din Azure-prenumeration.
 * **Nya AzureRmHDInsightPigJobDefinition**: skapar ett *jobbet definition* med hjälp av de angivna Pig Latin-instruktionerna.
 * **Start-AzureRmHDInsightJob**: skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
 * **Vänta AzureRmHDInsightJob**: använder jobbobjektet för att kontrollera status för jobbet. Den väntar tills jobbet har slutförts eller väntetiden har överskridits.

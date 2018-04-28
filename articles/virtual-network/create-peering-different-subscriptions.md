@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa ett virtuellt nätverk peering - hanteraren för filserverresurser, olika prenumerationer 
 
@@ -46,7 +46,7 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som *UserA*. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
 2. Välj **+ skapa en resurs**väljer **nätverk**, och välj sedan **för virtuella nätverk**.
 3. Välj eller ange följande exempelvärden för följande inställningar och sedan **skapa**:
-    - **Name**: *myVnetA*
+    - **Namnet**: *myVnetA*
     - **Adressutrymmet**: *10.0.0.0/16*
     - **Undernätnamnet**: *standard*
     - **Adressintervall för gatewayundernät**: *10.0.0.0/24*
@@ -55,11 +55,11 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
     - **Plats**: *östra USA*
 4. I den **söka resurser** rutan överst i portalen, typen *myVnetA*. Välj **myVnetA** när den visas i sökresultaten. 
 5. Välj **åtkomstkontroll (IAM)** från lodräta listan till vänster.
-6. Under **myVnetA - åtkomstkontroll (IAM)**väljer **+ Lägg till**.
+6. Under **myVnetA - åtkomstkontroll (IAM)** väljer **+ Lägg till**.
 7. Välj **Network-deltagare** i den **rollen** rutan.
 8. I den **Välj** väljer *b*, eller ange användare BS e-postadress för att söka efter den. En lista över användare som visas är från samma Azure Active Directory-klientorganisation som det virtuella nätverket som du konfigurerar peering för. Om du inte ser b, är förmodligen eftersom b i en annan Active Directory-klient än UserA. Om du vill ansluta virtuella nätverk i olika Active Directory-klienter kan du ansluta dem med en [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), i stället för ett virtuellt nätverk som peering.
 9. Välj **Spara**.
-10. Under **myVnetA - åtkomstkontroll (IAM)**väljer **egenskaper** från lodräta listan till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som liknar följande exempel: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Under **myVnetA - åtkomstkontroll (IAM)** väljer **egenskaper** från lodräta listan till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som liknar följande exempel: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. Logga ut från portalen som UserA och sedan logga in som användare b.
 12. Slutför steg 2 – 3, att ange eller markera följande värden i steg 3:
 
@@ -179,7 +179,7 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
 
 1. Installera den senaste versionen av PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/)-modulen. Om du inte har använt Azure PowerShell kan du läsa [Översikt över Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Starta en PowerShell-session.
-3. I PowerShell, logga in på Azure som UserA genom att ange den `login-azurermaccount` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
+3. I PowerShell, logga in på Azure som UserA genom att ange den `Connect-AzureRmAccount` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#permissions).
 4. Skapa en resursgrupp och virtuella nätverk A. kopiera följande skript för att en textredigerare på datorn. Ersätt `<SubscriptionA-Id>` med ID SubscriptionA. Om du inte vet ditt prenumerations-Id, ange den `Get-AzureRmSubscription` kommando för att visa den. Värdet för **Id** returnerade resultatet är ditt prenumerations-ID. Om du vill köra skriptet kopiera skriptet ändrade, klistra in den i PowerShell och tryck sedan på `Enter`.
 
     ```powershell

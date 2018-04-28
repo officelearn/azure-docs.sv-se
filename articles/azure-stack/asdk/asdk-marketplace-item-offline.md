@@ -1,12 +1,12 @@
 ---
-title: "Lägg till ett Azure-stacken marketplace-objekt från en lokal källa | Microsoft Docs"
-description: "Beskriver hur du lägger till en lokal operativsystemsavbildning Stack Azure Marketplace."
+title: Lägg till ett Azure-stacken marketplace-objekt från en lokal källa | Microsoft Docs
+description: Beskriver hur du lägger till en lokal operativsystemsavbildning Stack Azure Marketplace.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 296719ddd23fb9ee717455420906e9a634a71a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 815dc055e19a38a61cbb3e927c3d7e92393b17dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>Självstudier: lägga till ett Azure-stacken marketplace-objekt från en lokal källa
 
@@ -28,7 +28,7 @@ Som operatör Azure-stacken är det första du behöver göra så att användarn
 
 I kursen får du ladda ned en Windows Server 2016 VM-avbildning från den Windows Server-utvärderingar sidan och överföra den till stacken för Azure marketplace.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägg till en Windows Server 2016 VM-avbildning
@@ -37,7 +37,7 @@ I den här guiden får du lära dig hur man:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 - Installera den [Azure Stack-kompatibla Azure PowerShell-moduler](asdk-post-deploy.md#install-azure-stack-powershell)
 - Hämta den [Azure Stack-verktyg](asdk-post-deploy.md#download-the-azure-stack-tools)
@@ -84,7 +84,7 @@ Använd det här alternativet om du har distribuerat Azure Stack i ett scenario 
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -112,7 +112,7 @@ Använd det här alternativet om du har distribuerat Azure Stack i ett scenario 
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```

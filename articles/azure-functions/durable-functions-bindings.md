@@ -1,12 +1,12 @@
 ---
-title: "Bindningar för beständig funktioner – Azure"
-description: "Hur du använder utlösare och bindningar för beständig Functons-tillägg för Azure Functions."
+title: Bindningar för beständig funktioner – Azure
+description: Hur du använder utlösare och bindningar för beständig Functons-tillägg för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f3952ce87394270051bd37fae271162abc04a675
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för beständig funktioner (Azure-funktioner)
 
@@ -92,7 +92,7 @@ De flesta funktioner i orchestrator anropa aktivitet funktioner, så här är en
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
@@ -167,6 +167,44 @@ Parametern standardtypen för den `ActivityTriggerAttribute` bindning är `Durab
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
+}
+```
+
+### <a name="passing-multiple-parameters"></a>Skicka flera parametrar 
+
+Det går inte att skicka flera parametrar till en aktivitet funktion direkt. I detta fall är rekommendationen att skicka in en uppsättning objekt eller att använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objekt.
+
+I följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) lagts till med [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<dynamic> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university 
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
 }
 ```
 

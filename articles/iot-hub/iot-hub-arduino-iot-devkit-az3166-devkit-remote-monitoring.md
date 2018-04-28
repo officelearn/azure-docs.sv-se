@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b288595ca06c3a3cccb72082658f1927f2ae558a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Ansluta MXChip IoT DevKit till Azure IoT Suite för övervakning av fjärråtkomst
 
@@ -35,7 +35,7 @@ Slutför den [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/io
 
 En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någon av följande två metoder:
 
-* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/en-us/free/)
+* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/free/)
 * Anspråk din [Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) om du prenumererar på MSDN eller Visual Studio
 
 ## <a name="create-an-azure-iot-suite"></a>Skapa ett Azure IoT Suite
@@ -116,7 +116,7 @@ Du kan ändra enhets-ID i IoT-hubb genom att följa [handboken](https://microsof
 
 Om du stöter på problem, läser du [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller nå oss från följande kanaler:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -124,4 +124,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT Suite och visualisera sensordata, är här de föreslagna nästa steg:
 
 * [Översikt över Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

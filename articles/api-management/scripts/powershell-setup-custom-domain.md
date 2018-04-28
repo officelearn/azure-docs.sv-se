@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell skriptexempel - ställa in anpassad domän | Microsoft Docs"
-description: "Azure PowerShell skriptexempel - ställa in anpassad domän"
+title: Skriptexempel för Azure PowerShell – Konfigurera en anpassad domän | Microsoft Docs
+description: Skriptexempel för Azure PowerShell – Konfigurera en anpassad domän
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
@@ -13,19 +13,19 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cc30dfc93fde25b4d52c29377988260009f53360
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: ea2e222b66c911f30972ad58e7506eb1bf736e30
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="set-up-custom-domain"></a>Konfigurera anpassade domäner
+# <a name="set-up-custom-domain"></a>Konfigurera en anpassad CDN-domän
 
-Det här exempelskriptet ställer in anpassad domän för proxy och portalen slutpunkten för API Management-tjänsten.
+Det här exempelskriptet konfigurerar en anpassad domän för proxy och portalens slutpunkt för API Management-tjänsten.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -43,6 +43,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](https://docs.microsoft.com/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/overview).
 
-Ytterligare Azure Powershell-exempel för Azure API Management finns i den [PowerShell-exempel](../powershell-samples.md).
+Ytterligare Azure Powershell-exempel för Azure API Management finns i [PowerShell-exemplen](../powershell-samples.md).

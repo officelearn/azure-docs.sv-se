@@ -2,23 +2,20 @@
 title: Komma igång med queue storage- och Visual Studio anslutna tjänster (Webbjobb projekt) | Microsoft Docs
 description: Hur du kommer igång med Azure Queue storage i ett Webbjobb projekt efter anslutning till ett lagringskonto med hjälp av Visual Studio anslutna tjänster.
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 52c089d2657d61ee42730a00def060dec74439fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 332d682147ba832f631052d8348039f74b46c438
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio anslutna tjänster (Webbjobb projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -81,7 +78,7 @@ Du kan använda **QueueTrigger** med följande typer:
 
 * **Sträng**
 * En POCO-typen som serialiseras som JSON
-* **byte[]**
+* **byte]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Avsökningen algoritm
@@ -199,7 +196,7 @@ Skicka POCO-typ för att skapa ett meddelande i kön som innehåller en POCO i s
 SDK Serialiserar automatiskt objektet till JSON. Ett kömeddelande skapas alltid, även om objektet är null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i async-funktioner
-Om du vill skapa flera meddelanden gör parametertypen för utgående kö **ICollector<T>**  eller **IAsyncCollector<T>**som visas i följande exempel.
+Om du vill skapa flera meddelanden gör parametertypen för utgående kö **ICollector<T>**  eller **IAsyncCollector<T>** som visas i följande exempel.
 
         public static void CreateQueueMessages(
             [QueueTrigger("inputqueue")] string queueMessage,

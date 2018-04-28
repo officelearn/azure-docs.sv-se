@@ -1,11 +1,11 @@
 ---
-title: "Förstå Azure IoT Hub-enhet till moln messaging | Microsoft Docs"
-description: "Utvecklare guide - hur du använder enhet till moln-meddelanden med IoT-hubben. Innehåller information om hur du skickar data både telemetri och icke-telemtry routning för att leverera meddelanden."
+title: Förstå Azure IoT Hub-enhet till moln messaging | Microsoft Docs
+description: Utvecklare guide - hur du använder enhet till moln-meddelanden med IoT-hubben. Innehåller information om hur du skickar data både telemetri och icke-telemtry routning för att leverera meddelanden.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Skicka meddelanden från enhet till moln till IoT-hubb
 
@@ -32,7 +32,7 @@ Enhet till moln meddelanden med IoT-hubben har följande egenskaper:
 * Meddelanden från enhet till moln är beständiga och behållas i en IoT-hubb standard **meddelanden/händelser** slutpunkt för upp till sju dagar.
 * Meddelanden från enhet till moln kan innehålla högst 256 KB och kan grupperas i batchar att optimera skickar. Batchar kan innehålla högst 256 KB.
 * Enligt beskrivningen i den [styra åtkomsten till IoT-hubb] [ lnk-devguide-security] avsnittet, IoT-hubb kan per enhet autentisering och åtkomstkontroll.
-* IoT-hubb kan du skapa upp till 10 anpassade slutpunkter. Meddelanden levereras till slutpunkterna baserat på vägar som konfigurerats på din IoT-hubb. Mer information finns i [regler för routning](#routing-rules).
+* IoT-hubb kan du skapa upp till 10 anpassade slutpunkter. Meddelanden levereras till slutpunkterna baserat på vägar som konfigurerats på din IoT-hubb. Mer information finns i [regler för routning](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IoT-hubb kan miljontals samtidigt anslutna enheter (se [kvoter och begränsning][lnk-quotas]).
 * IoT-hubb kan inte godtycklig partitionering. Meddelanden från enhet till moln partitioneras baserat på deras ursprung **deviceId**.
 

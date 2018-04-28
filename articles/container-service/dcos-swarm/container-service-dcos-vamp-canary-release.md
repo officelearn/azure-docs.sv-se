@@ -1,19 +1,19 @@
 ---
-title: "Kanarieöarna version med Vamp på Azure DC/OS-klustret"
-description: "Hur du använder Vamp till Kanarieöarna versionen tjänster och tillämpa smart trafik filtrering på ett Azure Container Service DC/OS-kluster"
+title: Kanarieöarna version med Vamp på Azure DC/OS-klustret
+description: Hur du använder Vamp till Kanarieöarna versionen tjänster och tillämpa smart trafik filtrering på ett Azure Container Service DC/OS-kluster
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Kanarieöarna versionen mikrotjänster med Vamp på ett Azure Container Service DC/OS-kluster
 
@@ -41,7 +41,7 @@ I den här genomgången ska konfigurera vi Vamp på Azure Container Service med 
 
 ## <a name="set-up-vamp"></a>Ställ in Vamp
 
-Nu när du har ett DC/OS-kluster som körs kan du installera Vamp från DC/OS-Gränssnittet (http://localhost:80). 
+Nu när du har ett DC/OS-kluster som körs, kan du installera Vamp från Gränssnittet för DC/OS (http://localhost:80). 
 
 ![DC/OS-gränssnitt:](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 

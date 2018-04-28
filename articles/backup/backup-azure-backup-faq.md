@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 9226bef986a0fd2b6e8454cbd78b659feda401b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller svar på vanliga frågor om Azure Backup-komponenter. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,10 +30,10 @@ Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkar
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Finns det någon gräns för antalet valv som kan skapas i varje Azure-prenumeration? <br/>
-Ja. Från och med januari 2018, kan du skapa upp till 25 Recovery Services-valv, per region för stöds av Azure Backup per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
+Ja. Du kan skapa upp till 500 Recovery Services-valv, per region för stöds av Azure Backup per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv? <br/>
-Du kan registrera upp till 200 Azure virtuella datorer per valvet. Om du använder MAB Agent, kan du registrera upp till 50 MAB agenter per valvet. Och du kan registrera 50 MAB servrar/DPM-servrar ett valv.
+Du kan registrera upp till 1000 Azure virtuella datorer per valvet. Om du använder MAB Agent, kan du registrera upp till 50 MAB agenter per valvet. Och du kan registrera 50 MAB servrar/DPM-servrar ett valv.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Min organisation har ett valv. Hur kan jag isolera en servers data från en annan server när jag återställer data?<br/>
 Alla servrar som är registrerade för samma valv kan återställa data som säkerhetskopierats av andra servrar *som använder samma lösenfras*. Om du vill isolera säkerhetskopierade data på en server från andra servrar i organisationen kan du använda en annan lösenfras för dessa servrar. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.

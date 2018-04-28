@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Adobe | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Adobe logga."
+title: 'Självstudier: Azure Active Directory-integrering med Adobe | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Adobe logga.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Självstudier: Azure Active Directory-integrering med Adobe
 
@@ -31,7 +31,7 @@ Integrera Adobe inloggning med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Adobe, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.echosign.com/`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.echosign.com/`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.echosign.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) att hämta dessa värden. 
@@ -129,40 +129,31 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. I en annan webbläsarfönster loggar du in på webbplatsen Adobe logga företag som administratör.
 
-8. Klicka på menyn högst upp **konto**, och klickar sedan på i navigeringsfönstret till vänster **SAML inställningar** under **kontoinställningar**.
+8. SAML-menyn klickar du på **kontoinställningar**, och klicka sedan på **SAML inställningar**.
    
-   ![Kontot](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "konto")
+    ![Kontot](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "konto")
 
-9. Utför följande steg i avsnittet SAML-inställningar:
+9. I den **SAML inställningar** avsnittet, utför följande steg:
+  
+    ![Inställningar för SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
    
-   ![Inställningar för SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
+    a. Som **SAML läge**väljer **SAML obligatoriska**.
    
-   a. Som **SAML läge**väljer **SAML obligatoriska**.
+    b. Välj **Tillåt Adobe logga Kontoadministratörer att logga in med sina autentiseringsuppgifter för inloggning av Adobe**.
    
-   b. Välj **Tillåt EchoSign Kontoadministratörer kan logga in med hjälp av autentiseringsuppgifterna EchoSign**.
-   
-   c. Som **Användarskapelse**väljer **Lägg automatiskt till användare som autentiseras via SAML**.
+    c. Som **Användarskapelse**väljer **Lägg automatiskt till användare som autentiseras via SAML**.
 
-10. Flytta, utför följande steg:
-
-       ![Inställningar för SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML-inställningar")
-
-    a. Klistra in **SAML enhets-ID**, som du har kopierat från Azure-portalen i den **IdP enhets-ID** textruta.
+    d. Klistra in **SAML enhets-ID**, som du har kopierat från Azure-portalen i den **entitet ID/utfärdar-URL** textruta.
     
-    b. Klistra in **SAML enkel inloggning Tjänstwebbadress**, som du har kopierat från Azure-portalen i den **IdP inloggnings-URL** textruta.
+    e. Klistra in **SAML enkel inloggning Tjänstwebbadress**, som du har kopierat från Azure-portalen i den **inloggningen URL/SSO Endpoint** textruta.
    
-    c. Klistra in **Sign-Out URL**, som du har kopierat från Azure-portalen i den **IdP logga ut URL** textruta.
+    f. Klistra in **Sign-Out URL**, som du har kopierat från Azure-portalen i den **logga ut URL/SLO Endpoint** textruta.
 
-    d. Öppna din hämtade **Certificate(Base64)** fil i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **IdP certifikat** textruta
+    g. Öppna din hämtade **Certificate(Base64)** fil i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **IdP certifikat** textruta
 
-    e. Klicka på **spara ändringar**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    h. Klicka på **spara ändringar**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -208,15 +199,15 @@ Om du vill aktivera Azure AD-användare kan logga in till Adobe inloggning, mås
 
 2. Klicka på menyn högst upp **konto**, och klickar sedan på i navigeringsfönstret till vänster **användare och grupper**, och klicka sedan på **skapa en ny användare**.
    
-   ![Kontot](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "konto")
+    ![Kontot](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "konto")
    
 3. I den **skapa nya användare** avsnittet, utför följande steg:
    
-   ![Skapa användare](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "skapa användare")
+    ![Skapa användare](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "skapa användare")
    
-   a. Typ av **e-postadress**, **Förnamn**, och **efternamn** av en giltig AAD-konto som du vill etablera i relaterade textrutor.
+    a. Typ av **e-postadress**, **Förnamn**, och **efternamn** av en giltig AAD-konto som du vill etablera i relaterade textrutor.
    
-   b. Klicka på **skapa användare**.
+    b. Klicka på **skapa användare**.
 
 >[!NOTE]
 >Azure Active Directory kontoinnehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan den aktiveras. 

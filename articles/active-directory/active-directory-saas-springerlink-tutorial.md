@@ -1,10 +1,10 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Springer länk | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Springer länk."
+title: 'Självstudier: Azure Active Directory-integrering med Springer länk | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Springer länk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e532659be9b8aef303a20900465d16a7641d8cfe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b004bec7c022662a1c90f54079af4fd25c84fab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Självstudier: Azure Active Directory-integrering med Springer länk
 
@@ -32,7 +32,7 @@ Integrera Springer länken med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Springer länk, behöver du följande:
 
@@ -107,45 +107,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och springer länken domän med enkel inloggning information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. I den **identifierare** textruta anger du URL:`https://fsso.springer.com`
+    a. I den **identifierare** textruta anger du URL: `https://fsso.springer.com`
 
-    b. I den **Reply URL** textruta anger du URL:`https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    b. I den **Reply URL** textruta anger du URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
 4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och springer länken domän med enkel inloggning information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    I den **inloggnings-URL** textruta anger du URL:`https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    I den **inloggnings-URL** textruta anger du URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-5. Klicka på **spara** knappen.
+5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar. 
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_certificate.png)    
+
+6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-6. Att generera den **Metadata** url, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpoint.png)
-     
-    d. Gå till egenskapssidan för **Springer länken** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Konfigurera enkel inloggning på **Springer länken** sida, måste du skicka den genererade **URL för tjänstmetadata** till [Springer länken supportteamet](mailto:identity@springernature.com).
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
+7. Konfigurera enkel inloggning på **Springer länken** sida, måste du skicka den **webbadress Federation Metadata** till [Springer länken supportteamet](mailto:identity@springernature.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

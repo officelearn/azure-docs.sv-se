@@ -1,34 +1,30 @@
 ---
-title: "Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory"
-description: "Kända problem med hanterade tjänstidentiteten för Azure Active Directory."
+title: Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
+description: Kända problem med hanterade tjänstidentiteten för Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
-
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>Finns det en privat förhandsgranskning tillgängligt för ytterligare funktioner?
-
-Ja. Om du vill att anses vara för registrering i privat förhandsvisning [sidan med våra anmälan](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Fungerar MSI med Azure Cloud Services?
 
@@ -42,13 +38,27 @@ Nej, MSI inte ännu integrerat med ADAL eller MSAL. Mer information om att förv
 
 Säkerhetsgräns identitet är den resurs som den är kopplad till. Till exempel är säkerhetsgräns för en virtuell dator MSI den virtuella datorn. All kod som körs på den virtuella datorn kan anropa MSI-slutpunkten och begära token. Det är liknande upplevelse med andra resurser som har stöd för MSI.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>Bör jag använda MSI VM IMDS slutpunkten eller MSI VM-tillägget slutpunkten?
+
+När du använder MSI med virtuella datorer, gärna med hjälp av MSI IMDS slutpunkten. Tjänsten Azure instans Metadata är en REST-slutpunkt som är tillgängliga för alla IaaS-VM som skapats via Azure Resource Manager. Några av fördelarna med att använda MSI över IMDS är:
+
+1. Alla operativsystem för Azure IaaS stöds kan använda MSI över IMDS. 
+2. Behöver inte längre att installera tillägget på den virtuella datorn att aktivera MSI. 
+3. Certifikat som används av MSI inte längre finns i den virtuella datorn. 
+4. IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgänglig i den virtuella datorn. 
+
+MSI-VM-tillägget är fortfarande tillgängliga som ska användas i dag; dock däromkring vi kommer som standard med hjälp av IMDS-slutpunkten. MSI-VM-tillägget startar på en plan för utfasningen snart. 
+
+Läs mer på Azure-tjänsten för instansen Metada [IMDS dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>Vad är Linux-distributioner som stöds?
 
-Följande Linux-distributioner har stöd för MSI: 
+Alla Linux-distributioner som stöds av Azure IaaS kan användas med MSI via IMDS slutpunkten. 
 
+Obs: MSI VM-tillägget stöder bara följande Linux-distributioner:
 - Virtuell CoreOS stabil
 - CentOS 7.1
-- RedHat 7.2
+- 7.2 RedHat
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -108,3 +118,16 @@ När den virtuella datorn har startats kan taggen tas bort med hjälp av följan
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-msi-preview"></a>Kända problem med användaren tilldelas MSI *(förhandsgranskning)*
+
+- Det enda sättet att ta bort alla användare som tilldelats MSI: er tilldelas genom att aktivera systemet MSI. 
+- Etablering av VM-tillägget till en virtuell dator kan misslyckas på grund av fel i DNS-sökning. Starta om den virtuella datorn och försök igen. 
+- Om du lägger till en 'obefintlig' MSI kommer den virtuella datorn misslyckas. *Obs: Korrigering misslyckas tilldela identitet om MSI inte finns, används platta ut*
+- Azure Storage-kursen är endast tillgängligt i centrala oss EUAP för tillfället. 
+- Skapar en användare som tilldelats MSI med specialtecken (dvs understreck) i namn stöds inte.
+- Om att lägga till en annan användare har tilldelats identitet, kanske clientID inte tillgänglig för begäranden token för den. Starta om MSI-VM-tillägget med följande två bash-kommandon som en lösning:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- VMAgent på Windows stöder för närvarande inte användaren tilldelas MSI. 
+- När en virtuell dator har en användare som tilldelats MSI men inget system tilldelade MSI portalen Användargränssnittet visar MSI som aktiverad. Använda en Azure Resource Manager-mall, ett Azure CLI eller en SDK om du vill aktivera tilldelats MSI.

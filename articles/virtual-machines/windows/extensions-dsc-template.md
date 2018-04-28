@@ -7,7 +7,7 @@ author: mgreenegit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-keywords: dsc
+keywords: DSC
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver Azure Resource Manager-mallen för den [önskade til
 
 Följande kodavsnitt som ska ingå i den **resurs** avsnitt i mallen.
 DSC-tillägg ärver standardegenskaperna för tillägget.
-Mer information finns i [VirtualMachineExtension klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Mer information finns i [VirtualMachineExtension klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +83,7 @@ En virtuell dator scale set-nod har en **egenskaper** avsnitt som har en **Virtu
 Under **tillägg**, lägga till information för DSC-tillägg.
 
 DSC-tillägg ärver standardegenskaperna för tillägget.
-Mer information finns i [VirtualMachineScaleSetExtension klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Mer information finns i [VirtualMachineScaleSetExtension klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -185,7 +185,7 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 | --- | --- | --- |
 | settings.wmfVersion |sträng |Anger vilken version av Windows Management Framework (WMF) och som ska installeras på den virtuella datorn. Den här egenskapen **senaste** installerar den senaste versionen av WMF. För närvarande endast möjliga värden för den här egenskapen är **4.0**, **5.0**, **5.0PP**, och **senaste**. Dessa möjliga värden är regleras av uppdateringar. Standardvärdet är **senaste**. |
 | settings.configuration.url |sträng |Anger URL-plats som du vill hämta DSC-konfiguration ZIP-fil. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationUrlSasToken** egenskapen till värdet för SAS-token. Den här egenskapen är obligatorisk om **settings.configuration.script** eller **settings.configuration.function** definieras. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange plats Configuration Manager (MGM) metadata och argument måste anges. |
-| settings.configuration.script |sträng |Anger namnet på det skript som innehåller definitionen av DSC-konfigurationen. Det här skriptet måste vara i rotmappen på .zip-filen som har hämtats från den URL som anges av den **configuration.url** egenskapen. Den här egenskapen är obligatorisk om **settings.configuration.url** eller **settings.configuration.script** definieras. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange MGM metadata och argument måste anges. |
+| Settings.Configuration.Script |sträng |Anger namnet på det skript som innehåller definitionen av DSC-konfigurationen. Det här skriptet måste vara i rotmappen på .zip-filen som har hämtats från den URL som anges av den **configuration.url** egenskapen. Den här egenskapen är obligatorisk om **settings.configuration.url** eller **settings.configuration.script** definieras. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange MGM metadata och argument måste anges. |
 | settings.configuration.function |sträng |Anger namnet på DSC-konfigurationen. Den konfiguration som heter måste ingå i skriptet som **configuration.script** definierar. Den här egenskapen är obligatorisk om **settings.configuration.url** eller **settings.configuration.function** definieras. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange MGM metadata och argument måste anges. |
 | settings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfigurationen. Den här egenskapen är inte krypterad. |
 | settings.configurationData.url |sträng |Anger den URL som du vill hämta din konfigurationsdatafilen (.psd1) ska användas som indata för DSC-konfigurationen. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationDataUrlSasToken** egenskapen till värdet för SAS-token. |
@@ -197,7 +197,7 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 
 ## <a name="default-configuration-script"></a>Standard-konfigurationsskript
 
-Mer information om följande värden finns [Local Configuration Manager grundläggande inställningar](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Mer information om följande värden finns [Local Configuration Manager grundläggande inställningar](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 Du kan använda DSC-tillägg standard-konfigurationsskript för att konfigurera endast MGM egenskaper som visas i följande tabell.
 
 | Egenskapsnamn | Typ | Beskrivning |
@@ -206,8 +206,8 @@ Du kan använda DSC-tillägg standard-konfigurationsskript för att konfigurera 
 | settings.configurationArguments.RegistrationUrl |sträng |Obligatorisk egenskap. Anger URL för Automation-slutpunkten där noden försöker registrera. Det här värdet kan identifieras automatiskt med hjälp av den **referens** metoden mot Automation-kontot. |
 | settings.configurationArguments.NodeConfigurationName |sträng |Obligatorisk egenskap. Anger nodkonfigurationen i Automation-konto för att tilldela noden. |
 | settings.configurationArguments.ConfigurationMode |sträng |Anger läget för MGM. Giltiga alternativ är **ApplyOnly**, **ApplyandMonitor**, och **ApplyandAutoCorrect**.  Standardvärdet är **ApplyandMonitor**. |
-| settings.configurationArguments.RefreshFrequencyMins | uint32 | Anger hur ofta MGM försöker kontakta Automation-kontot för uppdateringar.  Standardvärdet är **30**.  Minimivärdet är **15**. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Anger hur ofta MGM verifierar den aktuella konfigurationen. Standardvärdet är **15**. Minimivärdet är **15**. |
+| settings.configurationArguments.RefreshFrequencyMins | UInt32 | Anger hur ofta MGM försöker kontakta Automation-kontot för uppdateringar.  Standardvärdet är **30**.  Minimivärdet är **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Anger hur ofta MGM verifierar den aktuella konfigurationen. Standardvärdet är **15**. Minimivärdet är **15**. |
 | settings.configurationArguments.RebootNodeIfNeeded | boolesk | Anger om en nod kan startas automatiskt, om en DSC-åtgärd begär den. Standardvärdet är **FALSKT**. |
 | settings.configurationArguments.ActionAfterReboot | sträng | Anger vad som händer när datorn startas om när du använder en konfiguration. Giltiga alternativ är **ContinueConfiguration** och **StopConfiguration**. Standardvärdet är **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | boolesk | Anger om MGM skriver över befintliga moduler på noden. Standardvärdet är **FALSKT**. |
@@ -320,16 +320,16 @@ Här är hur det tidigare formatet anpassar sig till det aktuella formatet:
 
 | Egenskapsnamn | Tidigare schemat motsvarande |
 | --- | --- |
-| settings.wmfVersion |settings.WMFVersion |
+| settings.wmfVersion |inställningar. WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |Första delen av inställningar. ConfigurationFunction (innan \\ \\) |
+| Settings.Configuration.Script |Första delen av inställningar. ConfigurationFunction (innan \\ \\) |
 | settings.configuration.function |Andra delen av inställningar. ConfigurationFunction (när \\ \\) |
-| settings.configurationArguments |settings.Properties |
+| settings.configurationArguments |inställningar. Egenskaper |
 | settings.configurationData.url |protectedSettings.DataBlobUri (utan SAS-token) |
-| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
-| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| settings.privacy.dataEnabled |inställningar. Privacy.DataEnabled |
+| settings.advancedOptions.downloadMappings |inställningar. AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
-| protectedSettings.configurationUrlSasToken |settings.SasToken |
+| protectedSettings.configurationUrlSasToken |inställningar. SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS-token från protectedSettings.DataBlobUri |
 
 ## <a name="troubleshooting---error-code-1100"></a>Felsökning – felkoden 1100
@@ -340,9 +340,9 @@ Här följer några av de fel som kan uppstå och hur du kan åtgärda dem.
 
 ### <a name="invalid-values"></a>Ogiltiga värden
 
-”Privacy.dataCollection är: {0}.
+”Privacy.dataCollection är '{0}'.
 Endast möjliga värden är ”,” aktivera ”och” inaktivera ””.
-”WmfVersion är: {0}.
+”WmfVersion är '{0}'.
 Endast möjliga värden är... ' senaste ' ”.
 
 **Problemet**: ett angivet värde tillåts inte.
@@ -352,7 +352,7 @@ Mer information finns i tabellen i [information](#details).
 
 ### <a name="invalid-url"></a>Ogiltig URL
 
-”ConfigurationData.url är: {0}. Detta är inte en giltig URL ”” DataBlobUri är: {0}. Detta är inte en giltig URL ”” Configuration.url är: {0}. Detta är inte en giltig URL ”
+”ConfigurationData.url är '{0}'. Detta är inte en giltig URL ”” DataBlobUri är '{0}'. Detta är inte en giltig URL ”” Configuration.url är '{0}'. Detta är inte en giltig URL ”
 
 **Problemet**: A angivna Webbadressen inte är giltig.
 
@@ -361,7 +361,7 @@ Se till att alla URL: er motsvara giltiga platser att tillägget kan komma åt p
 
 ### <a name="invalid-configurationargument-type"></a>Ogiltig ConfigurationArgument-typ.
 
-”Ogiltigt configurationArguments typ {0}”
+”Ogiltigt configurationArguments typen {0}”
 
 **Problem**: den *ConfigurationArguments* egenskapen kan inte matchas till en **Hashtable** objekt.
 
@@ -370,7 +370,7 @@ Följ det format som anges i föregående exempel. Håll utkik efter citattecken
 
 ### <a name="duplicate-configurationarguments"></a>Duplicera ConfigurationArguments
 
-”Finns duplicerade argument: {0} i både offentliga och skyddade configurationArguments”
+”Hitta dubblerade argument{0}' i både offentliga och skyddade configurationArguments”
 
 **Problem**: den *ConfigurationArguments* i inställningar för offentliga och *ConfigurationArguments* i skyddade inställningarna har egenskaper med samma namn.
 

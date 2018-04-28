@@ -1,11 +1,11 @@
 ---
-title: "Identitet hybridutformning - införandestrategin Azure | Microsoft Docs"
-description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet."
-documentationcenter: 
+title: Identitet hybridutformning - införandestrategin Azure | Microsoft Docs
+description: Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införandet en hybrid identity
 I den här uppgiften definierar du hybrid identity införandestrategin för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
@@ -90,7 +90,7 @@ Du måste också vara medveten om vilka funktioner är inte tillgängliga:
 * Övergången av Office till passiv autentisering kan användas för att stödja ren SAML 2.0 IdPs, men stöd kommer fortfarande att klienten av klient
 
 > [!NOTE]
-> Läs artikeln https://aka.ms/ssoproviders för den mest uppdaterade listan.
+> För senaste uppdaterade listan artikeln https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -196,7 +196,7 @@ Trots att du kan ha regleras på en lösning för din strategi, behöver du fort
 | Lokala AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> Du bör också se till att alternativet multifaktorautentisering design som du har valt stöder funktioner som krävs för din design.  Mer information finns [Multi-Factor säkerhetslösning väljer du](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> Du bör också se till att alternativet multifaktorautentisering design som du har valt stöder funktioner som krävs för din design.  Mer information finns [Multi-Factor säkerhetslösning väljer du](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

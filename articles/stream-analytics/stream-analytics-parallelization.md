@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: fae9d7f871dbb20f19bfd61576e017b3910ee8f4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågan parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du dra nytta av parallellisering i Azure Stream Analytics. Du lär dig att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -29,21 +29,13 @@ Skalning Stream Analytics-jobbet utnyttjar partitioner i in- eller utdata. Parti
 
 ### <a name="inputs"></a>Indata
 Alla Azure Stream Analytics-indata kan dra nytta av partitionering:
--   EventHub (måste uttryckligen ange Partitionsnyckeln)
--   IoT-hubb (måste uttryckligen ange Partitionsnyckeln)
+-   EventHub (måste ange partitionsnyckel explicit med nyckelordet PARTITION BY)
+-   IoT-hubb (måste ange partitionsnyckel explicit med nyckelordet PARTITION BY)
 -   Blob Storage
 
 ### <a name="outputs"></a>Utdata
 
-När du arbetar med Stream Analytics kan du dra nytta av partitionering i utdata:
--   Azure Data Lake Storage
--   Azure Functions
--   Azure-tabell
--   Blob Storage
--   CosmosDB (måste uttryckligen ange Partitionsnyckeln)
--   EventHub (måste uttryckligen ange Partitionsnyckeln)
--   IoT-hubb (måste uttryckligen ange Partitionsnyckeln)
--   Service Bus
+När du arbetar med Stream Analytics kan du dra nytta av partitionering för de flesta utdata sänkor. Mer information om partitionering utdata är tillgängligt på den [partitionering på utdata-sidan](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
 
 PowerBI och SQL-informationslager utdata stöd inte för partitionering. Men du kan fortfarande partitionera indata som beskrivs i [i det här avsnittet](#multi-step-query-with-different-partition-by-values) 
 
@@ -56,7 +48,7 @@ Mer information om partitioner finns i följande artiklar:
 ## <a name="embarrassingly-parallel-jobs"></a>Embarrassingly parallella jobb
 En *embarrassingly parallella* jobbet är den mest skalbara scenario som vi har i Azure Stream Analytics. En partition av indata till en instans av frågan ansluter den till en partition av utdata. Den här parallellitet har följande krav:
 
-1. Om din fråga logik beror på samma nyckel som bearbetas av samma fråga instans, måste du se till att händelserna går till samma partition som indata. Händelsehubbar, det innebär att informationen om händelsen måste ha den **PartitionKey** värdet uppsättningen. Du kan också använda partitionerade avsändare. För blob storage betyder det att händelserna skickas till samma partition mapp. Om din fråga logik inte kräver samma nyckel som kan bearbetas i samma fråga instans, kan du ignorera det här kravet. Ett exempel på den här logiken skulle vara en enkel fråga väljer project filter.  
+1. Om din fråga logik beror på samma nyckel som bearbetas av samma fråga instans, måste du se till att händelserna går till samma partition som indata. Det innebär att informationen om händelsen måste ha för Händelsehubbar eller IoT-hubb i **PartitionKey** värdet uppsättningen. Du kan också använda partitionerade avsändare. För blob storage betyder det att händelserna skickas till samma partition mapp. Om din fråga logik inte kräver samma nyckel som kan bearbetas i samma fråga instans, kan du ignorera det här kravet. Ett exempel på den här logiken skulle vara en enkel fråga väljer project filter.  
 
 2. När data är placerade på inkommande sida måste du kontrollera att frågan är partitionerad. Detta måste du använda **PARTITION BY** i alla steg. Flera steg tillåts, men de måste vara partitionerad med samma nyckel. För närvarande partitionsnyckel måste anges till **PartitionId** för jobbet ska vara fullständigt parallellt.  
 
@@ -66,6 +58,7 @@ En *embarrassingly parallella* jobbet är den mest skalbara scenario som vi har 
 
    * 8 event hub inkommande partitioner och 8 händelsehubb utdata partitioner
    * 8 event hub inkommande partitioner och blob storage-utdata  
+   * 8 Iot-hubb inkommande partitioner och 8 händelsehubb utdata partitioner
    * 8 blob storage inkommande partitioner och blob storage-utdata  
    * 8 blob storage inkommande partitioner och 8 event hub utdata partitioner  
 
@@ -109,7 +102,7 @@ I det här fallet det spelar ingen roll frågan är. Om antalet inkommande parti
 
 ### <a name="query-using-non-partitioned-output"></a>Fråga med partitionerade utdata
 * Indata: Event hub med 8 partitioner
-* Output: PowerBI
+* Utdata: PowerBI
 
 PowerBI utdata stöder för närvarande inte partitionering. Det här scenariot är därför inte embarrassingly parallellt.
 

@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 930b5607f343b87adc253cc99d74ddf28235a50b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -32,9 +32,9 @@ Elastiska pooler lösa detta problem genom att säkerställa att databaser får 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastiska pooler kan utvecklare att köpa resurser för en pool som delas av flera databaser för oväntade perioder med användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#dtu-based-purchasing-model) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Resurskrav för en pool bestäms av den sammanlagda användningen av databaserna. Mängden resurser som är tillgängliga för poolen styrs av utvecklare budget. Utvecklaren bara lägger till databaserna i poolen, anger de lägsta och högsta resurserna för databaserna (dtu: er minumumn och högsta eller lägsta eller högsta vCores beroende på ditt val av resourceing modellen), och anger sedan resurserna från poolen baserat på deras budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
+Elastiska pooler kan utvecklare att köpa resurser för en pool som delas av flera databaser för oväntade perioder med användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#dtu-based-purchasing-model) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Resurskrav för en pool bestäms av den sammanlagda användningen av databaserna. Mängden resurser som är tillgängliga för poolen styrs av utvecklare budget. Utvecklaren bara lägger till databaserna i poolen, anger de lägsta och högsta resurserna för databaserna (lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och anger resurserna från poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 
-I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Hårt belastad, kan en databas använda mer resurser för att uppfylla begäran. Databaser under lätta belastningar förbrukar mindre och databaser under inga belastningen använda några resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har du en förutsägbar budget för poolen. Ytterligare resurser kan läggas till en befintlig adresspool utan avbrott i databasen, förutom att databaserna kan behöva flyttas att tillhandahålla ytterligare beräkningsresurser för ny eDTU-reservation. På liknande sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig adresspool när som helst i tid. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
+I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Hårt belastad, kan en databas använda mer resurser för att uppfylla begäran. Databaser under lätta belastningar förbrukar mindre och databaser under inga belastningen använda några resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har en förutsägbar budget för poolen. Ytterligare resurser kan läggas till en befintlig adresspool utan avbrott i databasen, förutom att databaserna kan behöva flyttas att tillhandahålla ytterligare beräkningsresurser för ny eDTU-reservation. På liknande sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig adresspool när som helst i tid. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>När bör du överväga en SQL Database-elastisk pool?
 
@@ -81,7 +81,7 @@ Minst två S3-databaser eller minst 15 S0-databaser behövs för att en pool med
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Högsta antal samtidigt databaser med aktivitetstoppar
 
-Genom att dela resourcess kan använda inte alla databaser i poolen samtidigt resourcess upp till gränsen som är tillgängliga för enskilda databaser. Färre databaserna som samtidigt högsta, Ju lägre pool-resurser kan ställas in och det mer kostnadseffektivt poolen blir. I allmänhet bör inte mer än 2/3 (eller 67%) för databaserna i poolen samtidigt högsta att begränsa deras resurser.
+Genom att dela resurser, kan inte alla databaser i poolen samtidigt använda resurser upp till gränsen som är tillgängliga för enskilda databaser. Färre databaserna som samtidigt högsta, Ju lägre pool-resurser kan ställas in och det mer kostnadseffektivt poolen blir. I allmänhet bör inte mer än 2/3 (eller 67%) för databaserna i poolen samtidigt högsta att begränsa deras resurser.
 
 ***DTU-baserade köp modell-exempel***<br>
 För att minska kostnaderna för tre S3-databaser i en pool med 200 eDTU:er kan högst två av dessa databaser ha belastningstoppar samtidigt. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen utökas till mer än 200 eDTU:er skulle fler S3-databaser behöva läggas till i poolen för att kostnaderna ska vara lägre än med prestandanivåer för enskilda databaser.
@@ -98,7 +98,7 @@ En S3-databas som behöver 100 DTU:er vid hög aktivitet och som har en genomsni
 
 Den rekommenderade storleken för en pool beror på de sammanställda resurser som krävs för alla databaser i poolen. Detta omfattar att fastställa följande:
 
-* Maximal resurser som används av alla databaser i poolen (högsta dtu: er eller maximal vCores beroende på ditt val av resourceing modell).
+* Maximal resurser som används av alla databaser i poolen (högsta dtu: er eller maximal vCores beroende på ditt val av resourcing modell).
 * Högsta lagringsutrymme i byte som används av alla databaser i poolen.
 
 Tillgängliga nivåer för varje resursmodell, finns det [DTU-baserade inköpsmodell](sql-database-service-tiers.md#dtu-based-purchasing-model) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
@@ -177,7 +177,7 @@ Om du vill övervaka databaser i din pool, kan du klicka på **databasen resursu
 
 Du kan redigera diagrammet och sidan mått om du vill visa andra mått som CPU-procent, data IO-procent och loggen IO-procent som används.
 
-På den **redigera diagram** formuläret som du kan välja en fast tidpunkt intervall eller klicka på **anpassade** att välja alla 24-timmarsperioden under de senaste två veckorna och välj sedan resurserna som ska övervaka.
+På den **redigera diagram** formuläret som du kan välja en fast tidpunkt intervall eller klicka på **anpassade** att välja valfritt 24-timmarsformat fönster under de senaste två veckorna och välj sedan resurserna som ska övervaka.
 
 #### <a name="to-select-databases-to-monitor"></a>Att välja databaser för att övervaka
 
@@ -269,17 +269,17 @@ Om du vill skapa och hantera SQL Database-elastisk använda pooler dessa REST AP
 |[Elastiska pooler - Get](/rest/api/sql/elasticpools/get)|Hämtar en elastisk pool.|
 |[Elastiska pooler - lista av servern](/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista över elastiska pooler i en server.|
 |[Elastiska pooler - uppdatering](/rest/api/sql/elasticpools/update)|Uppdaterar en befintlig elastisk pool.|
-|[Rekommenderade elastiska pooler - Get](/rest/api/sql/recommendedelasticpools/get)|Hämtar en recommented elastisk pool.|
+|[Rekommenderade elastiska pooler - Get](/rest/api/sql/recommendedelasticpools/get)|Hämtar en rekommenderad elastisk pool.|
 |[Rekommenderade elastiska pooler - lista av servern](/rest/api/sql/recommendedelasticpools/listbyserver)|Returnerar rekommenderade elastiska pooler.|
-|[Rekommenderade elastiska pooler - listan mått](/rest/api/sql/recommendedelasticpools/listmetrics)|Returnerar recommented elastisk pool mått.|
+|[Rekommenderade elastiska pooler - listan mått](/rest/api/sql/recommendedelasticpools/listmetrics)|Returnerar rekommenderad elastisk pool mått.|
 |[Elastisk Pool aktiviteter](/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
 |[Databasaktiviteter elastisk Pool](/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
 |[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – Get](/rest/api/sql/databases/get)|Hämtar en databas.|
 |[Databaser – få genom elastisk Pool](/rest/api/sql/databases/getbyelasticpool)|Hämtar en databas i en elastisk pool.|
-|[Databaser – få genom rekommenderad elastisk Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hämtar en databas i en recommented elastisk pool.|
+|[Databaser – få genom rekommenderad elastisk Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hämtar en databas i en rekommenderad elastisk pool.|
 |[Databaser - listan efter elastisk Pool](/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser - listan efter rekommenderad elastisk Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returnerar en lista över databaser i en recommented elastisk pool.|
+|[Databaser - listan efter rekommenderad elastisk Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returnerar en lista över databaser i en rekommenderad elastisk pool.|
 |[Databaser – lista av servern](/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
 |[Databaser - uppdatering](/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
 

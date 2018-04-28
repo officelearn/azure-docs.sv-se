@@ -1,11 +1,11 @@
 ---
-title: "Installera program åtkomst panelen webbläsare extension - Azure | Microsoft Docs"
-description: "Åtgärda vanliga fel som uppstod när du installerar webbläsartillägget för åtkomst-panelen."
+title: Installera program åtkomst panelen webbläsare extension - Azure | Microsoft Docs
+description: Åtgärda vanliga fel som uppstod när du installerar webbläsartillägget för åtkomst-panelen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installera webbläsartillägget för åtkomst till Kontrollpanelen
 
@@ -37,7 +37,6 @@ Du kan använda någon av följande webbläsare för lösenordsbaserad enkel inl
 - **Edge**: på Windows 10 årsdagar Edition eller senare. 
 - **Chrome**: på Windows 7 eller senare, och i MacOS X eller senare.
 - **Firefox 26.0 eller senare**: Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
-- **Internet Explorer 8, 9, 10, 11**: i Windows 7 eller senare (begränsat stöd).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Installera webbläsartillägget för åtkomst till Kontrollpanelen
 
@@ -113,7 +112,7 @@ Steg för steg instruktioner om hur du konfigurerar grupprincipen och distribuer
 
 -   Fel-ID för korrelation
 -   UPN (användarens e-postadress)
--   TenantID
+-   Klient-ID
 -   Typ av webbläsare
 -   Tidszon och tid eller tidsram när felet uppstod
 -   Fiddler spårningar

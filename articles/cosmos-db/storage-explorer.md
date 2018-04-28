@@ -17,17 +17,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 18f580f1eae31c9bf3626e100217467bb48ca881
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c584ec0c8d89a232d573399cfabe02fc8aa1c87
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Hantera Azure Cosmos DB i Azure Storage Explorer (förhandsversion)
+# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Hantera Azure Cosmos DB i Azure Storage Explorer
 
 Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För tillfället stöder Azure Storage Explorer SQL-, MongoDB-, Graph- och Table-konton.
-
-I den här artikeln får du lära dig hur du använder Storage Explorer för att hantera Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -75,8 +73,11 @@ Ett alternativt sätt att ansluta till en Azure Cosmos DB är att använda en an
     ![Anslutningssträng](./media/storage-explorer/connection-string.png)
 
 ## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Anslut till Azure Cosmos DB med en lokal emulator
+
 Använd följande steg för att ansluta till en Azure Cosmos DB med en Emulator, stöder enbart SQL-konto för tillfället.
+
 1. Installera Emulatorn och starta. Information om hur du installerar emulatorn finns i [Cosmos DB-emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+
 2. Hitta **Lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB-konton** och välj **Anslut till Cosmos DB-emulator...**
 
     ![Anslut till Cosmos DB med emulator](./media/storage-explorer/emulator-entry.png)
@@ -84,7 +85,6 @@ Använd följande steg för att ansluta till en Azure Cosmos DB med en Emulator,
 3. Stöder endast SQL-API för tillfället. Klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar anslutningssträngen finns i [Hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Dialogrutan Anslut till Cosmos DB med Emulator](./media/storage-explorer/emulator-dialog.png)
-
 
 
 ## <a name="azure-cosmos-db-resource-management"></a>Resurshantering för Azure Cosmos DB
@@ -208,8 +208,111 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
     ![Lagrad procedur](./media/storage-explorer/stored-procedure.png)
 * Åtgärderna för **Utlösare** och **UDF** liknar dem för **Lagrade procedurer**.
 
+## <a name="troubleshooting"></a>Felsökning
+
+[Microsoft Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) är en fristående app som gör det möjligt att ansluta till Azure Cosmos DB-konton som finns på Azure och i nationella moln från Windows, macOS eller Linux. Det gör det möjligt för dig att hantera Microsoft Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer.
+
+Det finns lösningar på vanliga problem för Azure Cosmos DB i Storage Explorer.
+
+### <a name="sign-in-issues"></a>Inloggningsproblem
+
+Försök att starta om programmet innan du går vidare och se om problemen kan åtgärdas.
+
+#### <a name="self-signed-certificate-in-certificate-chain"></a>Självsignerat certifikat i certifikatkedjan
+
+Det finns några skäl till att det här felet visas, de två vanligaste är:
+
++ Du är bakom en ”transparent proxy”, vilket innebär att någon (till exempel din IT-avdelning) avlyssnar HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
+
++ Du kör programvara, till exempel antivirusprogram, som infogar ett självsignerat SSL-certifikat till de HTTPS-meddelanden du får.
+
+När Storage Explorer påträffar ett sådant ”självsignerade certifikat” kan den inte längre veta om HTTPS-meddelandet den får har manipulerats eller inte. Om du har en kopia av det självsignerade certifikatet kan du berätta för Storage Explorer att lita på det. Om du är osäker på vem som infogat certifikatet kan du försöka att hitta det själv genom att göra följande:
+
+1. Installera öppen SSL
+     - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna är ok)
+     - Mac och Linux: ska ingå i ditt operativsystem
+2. Kör öppen SSL
+    - Windows: Gå till installationskatalogen, sedan **/bin/**, dubbelklicka på **openssl.exe**.
+    - Mac och Linux: kör **openssl** från en terminal
+3. Kör `s_client -showcerts -connect microsoft.com:443`
+4. Leta efter självsignerade certifikat. Om du är osäker på vilka som är självsignerade, leta då överallt efter om ämnet (”s:”) och utfärdaren (”i:”) är samma.
+5.  När du har hittat självsignerade certifikat, kopiera och klistra in allt från och med **---BEGIN CERTIFICATE---** till **---END CERTIFICATE---** till en ny .cer-fil för varje certifikat.
+6.  Öppna Storage Explorer och gå sedan till **Redigera** > **SSL-certifikat** > **Importera certifikat**. Med filväljaren, hitta, markera och öppna de CER-filerna som du skapade.
+
+Om det inte går att hitta något självsignerat certifikat med hjälp av stegen ovan kan du skicka feedback för mer hjälp.
+
+#### <a name="unable-to-retrieve-subscriptions"></a>Det gick inte att hämta prenumerationer
+
+Om det inte går att hämta dina prenumerationer när du har loggat in:
+
+- Verifiera att ditt konto har åtkomst till prenumerationerna genom att logga in på [Azure Portal](http://portal.azure.com/)
+- Kontrollera att du har loggat in med rätt miljö ([Azure](http://portal.azure.com/), [Azure Kina](https://portal.azure.cn/), [Azure Tyskland](https://portal.microsoftazure.de/), [Azure som tillhör amerikanska myndigheter](http://portal.azure.us/), eller Anpassad miljö/Azure Stack)
+- Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt
+- Försök att ta bort och lägga till kontot igen
+- Försök att ta bort följande filer från arbetskatalogen (exempel: C:\Users\ContosoUser), och lägg sedan till kontot igen:
+  - .adalcache
+  - .devaccounts
+  - .extaccounts
+- Titta på utvecklingsverktygskonsolen (f12) när du loggar in för eventuella felmeddelanden
+
+![konsol](./media/storage-explorer/console.png)
+
+#### <a name="unable-to-see-the-authentication-page"></a>Det gick inte att visa autentiseringssidan 
+
+Om du inte kan se autentiseringssidan:
+
+- Beroende på anslutningen kan det ta ett tag för inloggningssidan att läsas in, vänta minst en minut innan du stänger dialogrutan för autentisering
+- Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt
+- Visa utvecklingskonsolen genom att trycka på F12. Titta på svar från utvecklarkonsolen och se om du hittar en ledtråd till varför autentiseringen inte fungerar
+
+#### <a name="cannot-remove-account"></a>Det går inte att ta bort kontot
+
+Om du inte kan ta bort ett konto, eller återautentiseringslänken inte gör något
+
+- Försök att ta bort följande filer från arbetskatalogen och lägg sedan till kontot igen:
+  - .adalcache
+  - .devaccounts
+  - .extaccounts
+- Om du vill ta bort SAS-kopplade lagringsresurser, ta bort:
+  - %AppData%/StorageExplorer-mapp för Windows
+  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer för Mac
+  - ~/.config/StorageExplorer för Linux
+  - **Du måste ange dina autentiseringsuppgifter igen** om du tar bort dessa filer
+
+
+### <a name="httphttps-proxy-issue"></a>HTTP-/HYYPS-proxyproblem
+
+Du kan inte visa Microsoft Azure Cosmos DB-noder i det vänstra trädet när du konfigurerar HTTP-/HTTPS-proxy i ASE. Det är ett känt problem och korrigeras i nästa version. Du kan använda Microsoft Azure Cosmos DB-datautforskare i Azure Portal som en temporär lösning för tillfället. 
+
+### <a name="development-node-under-local-and-attached-node-issue"></a>Problem med ”Utvecklingsnod” under ”Lokala och kopplade” noder
+
+Du får inget svar när du klickar på noden ”utveckling” under ”lokala och kopplade” noder i vänster träd.  Det här beteendet är förväntat. Microsoft Azure Cosmos DB lokala emulatorn stöds i nästa version.
+
+![Utvecklingsnod](./media/storage-explorer/development.png)
+
+### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Nodfel vid koppling av Microsoft Azure Cosmos DB-konto i ”Lokala och kopplade”
+
+Om du ser nedanstående fel när du har kopplat Microsoft Azure DB som Cosmos-kontot i ”Lokala och kopplade” noder, kontrollerar du om du använder rätt anslutningssträng.
+
+![Fel vid fästning av Microsoft Azure Cosmos DB i Lokala och kopplade](./media/storage-explorer/attached-error.png)
+
+### <a name="expand-azure-cosmos-db-node-error"></a>Nodfel vid expandera Microsoft Azure Cosmos DB
+
+Du kan se nedanstående fel vid försök att expandera noderna i vänster träd. 
+
+![Expanderingsfel](./media/storage-explorer/expand-error.png)
+
+Prova följande rekommendationer:
+
+- Kontrollera om Microsoft Azure Cosmos DB-kontot håller på att skapas och försök igen när kontot har skapats.
+- Om kontot är under noden ”Snabbåtkomst” eller ”Lokala och kopplade” noder måste du kontrollera om kontot har tagits bort. I så fall måste du manuellt ta bort noden.
+
+## <a name="contact-us"></a>Kontakta oss
+
+Om ingen av lösningarna fungerar, skicka ett e-postmeddelande till Microsoft Azure Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) med information om felet för att åtgärda problemen.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Titta på följande videoklipp om du vill se hur du använder Azure Cosmos DB i Azure Storage Explorer: [Använda Azure Cosmos-DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Läs mer om Storage Explorer och om att ansluta fler tjänster i [Kom igång med Storage Explorer (förhandsversion)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Läs mer om Storage Explorer och om att ansluta fler tjänster i [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

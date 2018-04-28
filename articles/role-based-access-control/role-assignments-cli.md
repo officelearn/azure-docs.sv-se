@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9a4489c575de9f63740c68bda8cbf921592402ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f783b08b25b7dd00351537f4dd404d9c8d02044d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Hantera rollbaserad åtkomstkontroll med kommandoradsgränssnittet i Azure
 
@@ -38,7 +38,7 @@ Om du vill använda Azure CLI för att hantera rolltilldelningar, måste du ha f
 
 ## <a name="list-role-definitions"></a>Lista rolldefinitioner
 
-Om du vill visa alla tillgängliga rolldefinitioner använda [az rollen definitionslista](/cli/azure/role/definition#az_role_definition_list):
+Om du vill visa alla tillgängliga rolldefinitioner använda [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list
@@ -95,7 +95,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 
 ### <a name="list-actions-of-a-role-definition"></a>Lista över åtgärder som en rolldefinition
 
-Visa åtgärderna för en rolldefinition, Använd [az rollen definitionslista](/cli/azure/role/definition#az_role_definition_list):
+Visa åtgärderna för en rolldefinition, Använd [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -185,7 +185,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-assignments-for-a-user"></a>Lista rolltilldelningar för en användare
 
-Om du vill visa rolltilldelningar för en viss användare, Använd [az rollen tilldelningslista](/cli/azure/role/assignment#az_role_assignment_list):
+Om du vill visa rolltilldelningar för en viss användare, Använd [az rollen tilldelningslista](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --assignee <assignee>
@@ -214,7 +214,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ### <a name="list-role-assignments-for-a-resource-group"></a>Lista rolltilldelningar för en resursgrupp
 
-Om du vill visa rolltilldelningar som finns för en resursgrupp, Använd [az rollen tilldelningslista](/cli/azure/role/assignment#az_role_assignment_list):
+Om du vill visa rolltilldelningar som finns för en resursgrupp, Använd [az rollen tilldelningslista](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
@@ -243,7 +243,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Skapa en rolltilldelning för en användare
 
-Så här skapar du en rolltilldelning för en användare på resursen Gruppomfång [az rolltilldelning skapa](/cli/azure/role/assignment#az_role_assignment_create):
+Så här skapar du en rolltilldelning för en användare på resursen Gruppomfång [az rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -257,13 +257,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Skapa en rolltilldelning för en grupp
 
-Du kan skapa en rolltilldelning för en grupp med [az rolltilldelning skapa](/cli/azure/role/assignment#az_role_assignment_create):
+Du kan skapa en rolltilldelning för en grupp med [az rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-I följande exempel tilldelas den *Reader* rollen till den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet prenumeration. Du kan använda för att hämta ID för gruppen [az ad grupplistan](/cli/azure/ad/group#az_ad_group_list) eller [az ad-gruppen visa](/cli/azure/ad/group#az_ad_group_show).
+I följande exempel tilldelas den *Reader* rollen till den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet prenumeration. Du kan använda för att hämta ID för gruppen [az ad grupplistan](/cli/azure/ad/group#az-ad-group-list) eller [az ad-gruppen visa](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -277,13 +277,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Skapa en rolltilldelning för ett program
 
-Du kan skapa en roll för ett program med [az rolltilldelning skapa](/cli/azure/role/assignment#az_role_assignment_create):
+Du kan skapa en roll för ett program med [az rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-I följande exempel tilldelas den *Virtual Machine-deltagare* rollen till ett program med objekt-ID 44444444-4444-4444-4444-444444444444 på den *pharma-försäljning-projectforecast* resursgruppen. omfattningen. Du kan använda för att få objekt-ID för programmet, [az ad app-lista](/cli/azure/ad/app#az_ad_app_list) eller [az ad app visa](/cli/azure/ad/app#az_ad_app_show).
+I följande exempel tilldelas den *Virtual Machine-deltagare* rollen till ett program med objekt-ID 44444444-4444-4444-4444-444444444444 på den *pharma-försäljning-projectforecast* resursgruppen. omfattningen. Du kan använda för att få objekt-ID för programmet, [az ad app-lista](/cli/azure/ad/app#az-ad-app-list) eller [az ad app visa](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -291,7 +291,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 
-Ta bort en rolltilldelning med [az rolltilldelning ta bort](/cli/azure/role/assignment#az_role_assignment_delete):
+Ta bort en rolltilldelning med [az rolltilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -303,7 +303,7 @@ I följande exempel tar bort den *Virtual Machine-deltagare* rolltilldelningen f
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-I följande exempel tar bort den *Reader* roll från den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet prenumeration. Du kan använda för att hämta ID för gruppen [az ad grupplistan](/cli/azure/ad/group#az_ad_group_list) eller [az ad-gruppen visa](/cli/azure/ad/group#az_ad_group_show).
+I följande exempel tar bort den *Reader* roll från den *Ann Mack Team* med ID 22222222-2222-2222-2222-222222222222 definitionsområdet prenumeration. Du kan använda för att hämta ID för gruppen [az ad grupplistan](/cli/azure/ad/group#az-ad-group-list) eller [az ad-gruppen visa](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -313,7 +313,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ### <a name="list-custom-roles"></a>Lista över anpassade roller
 
-Om du vill visa de roller som är tillgängliga för tilldelning på scopenivå, använder [az rollen definitionslista](/cli/azure/role/definition#az_role_definition_list).
+Om du vill visa de roller som är tillgängliga för tilldelning på scopenivå, använder [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list).
 
 Båda av följande exempel lista alla anpassade roller i den aktuella prenumerationen:
 
@@ -344,7 +344,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ### <a name="create-a-custom-role"></a>Skapa en anpassad roll
 
-Så här skapar du en anpassad roll [az rolldefinitionen skapa](/cli/azure/role/definition#az_role_definition_create). Rolldefinitionen kan vara en JSON-beskrivning eller en sökväg till en fil som innehåller en JSON-beskrivning.
+Så här skapar du en anpassad roll [az rolldefinitionen skapa](/cli/azure/role/definition#az-role-definition-create). Rolldefinitionen kan vara en JSON-beskrivning eller en sökväg till en fil som innehåller en JSON-beskrivning.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
@@ -386,7 +386,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ### <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
 
-Om du vill uppdatera en anpassad roll först använda [az rollen definitionslista](/cli/azure/role/definition#az_role_definition_list) att hämta rolldefinitionen. Andra, gör ändringarna i rolldefinitionen. Använd slutligen [az rollen Definitionsuppdatering](/cli/azure/role/definition#az_role_definition_update) att spara den uppdaterade rolldefinitionen.
+Om du vill uppdatera en anpassad roll först använda [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list) att hämta rolldefinitionen. Andra, gör ändringarna i rolldefinitionen. Använd slutligen [az rollen Definitionsuppdatering](/cli/azure/role/definition#az-role-definition-update) att spara den uppdaterade rolldefinitionen.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
@@ -429,7 +429,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ### <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
 
-Ta bort en anpassad roll genom att använda [az rolldefinitionen ta bort](/cli/azure/role/definition#az_role_definition_delete). Rollen för att ta bort Använd rollnamnet eller roll-ID. Använd för att fastställa roll-ID [az rollen definitionslista](/cli/azure/role/definition#az_role_definition_list).
+Ta bort en anpassad roll genom att använda [az rolldefinitionen ta bort](/cli/azure/role/definition#az-role-definition-delete). Rollen för att ta bort Använd rollnamnet eller roll-ID. Använd för att fastställa roll-ID [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition delete --name <role_name or role_id>

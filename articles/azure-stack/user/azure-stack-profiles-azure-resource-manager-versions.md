@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resursen tjänstproviderns API-versioner som stöds av profiler i Azure-stacken
 
@@ -55,7 +53,7 @@ Du kan använda rollbaserad åtkomstkontroll för att hantera de åtgärder anv�
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Azure Compute-API: erna ger programmatisk åtkomst till virtuella datorer och deras stödresurser. Mer information finns i [Azure Compute](https://docs.microsoft.com/en-us/rest/api/compute/).
+Azure Compute-API: erna ger programmatisk åtkomst till virtuella datorer och deras stödresurser. Mer information finns i [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
 
 | Resurstyp | API-Version |
 |---------------------------------------------------------------|-------------|
@@ -128,7 +126,7 @@ Operations anropet resultatet är en representation av tillgängliga molnet oper
 | Belastningsutjämning | 2015-06-15 |
 | Lokal nätverksgateway | 2015-06-15 |
 | Platser | 2016-04-01 |
-| Location/operationResults | 2016-04-01 |
+| Plats/operationResults | 2016-04-01 |
 | Platser/operationer | 2016-04-01 |
 | Platser/användningsområden | 2016-04-01 |
 | Nätverksgränssnitt | 2015-06-15 |
@@ -149,7 +147,7 @@ Azure Resource Manager kan du distribuera och hantera infrastrukturen för din A
 | Kontrollera resursnamnet | 2015-012016-09-01 |
 | Delegerad Providers | 2015-01-01 |
 | Delegerad Providers-erbjudanden | 2015-01-01 |
-| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
+| EstimatePrice-DelegatedProviders/erbjudanden | 2015-01-01 |
 | Distributioner | 2016-0209-01 |
 | Distributioner/operationer | 2016-0209-01 |
 | Tillägg Metadata | 2015-01-01 |
@@ -181,7 +179,7 @@ Storage Resource Provider (SRP) kan du hantera ditt lagringskonto och nycklar ge
 | Platser | 2016-01-01 |
 | Platser-kvoter | 2016-01-01 |
 | Åtgärder | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
+| storageAccounts | 2016-01-01 |
 | Användningsområden | 2016-01-01 |
 
 ## <a name="next-steps"></a>Nästa steg

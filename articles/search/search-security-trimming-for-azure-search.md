@@ -1,21 +1,18 @@
 ---
-title: "Säkerhetsfilter trimning resultat i Azure Search | Microsoft Docs"
-description: "Åtkomstkontroll på Azure Search-innehåll med hjälp av säkerhetsfilter och användaridentiteter."
-ms.custom: 
-ms.date: 08/07/2017
+title: Säkerhetsfilter trimning resultat i Azure Search | Microsoft Docs
+description: Åtkomstkontroll på Azure Search-innehåll med hjälp av säkerhetsfilter och användaridentiteter.
 ms.service: search
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+ms.topic: conceptual
+services: search
+ms.date: 08/07/2017
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Säkerhetsfilter trimning resultat i Azure Search
 
@@ -29,12 +26,12 @@ Den här artikeln visar hur du utför säkerhetsfiltrering med följande steg:
 > [!div class="checklist"]
 > * Skapa ett fält som innehåller de huvudsakliga identifierarna 
 > * Push- eller uppdatera befintliga dokument med de relevanta huvudnamn identifierarna
-> * Utfärda en sökbegäran med `search.in``filter`
+> * Utfärda en sökbegäran med `search.in` `filter`
 
 >[!NOTE]
 > Hämtningen av de huvudsakliga identifierarna ingår inte i det här dokumentet. Du bör få det från leverantören identitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Search-tjänsten](https://docs.microsoft.com/azure/search/search-create-service-portal), och [Azure Search Index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -151,11 +148,11 @@ Du bör få dokumenten tillbaka där `group_ids` innehåller ”group_id1” ell
  ]
 }
 ```
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Detta är hur du kan filtrera resultatet baserat på användarens identitet och Azure Search `search.in()` funktion. Du kan använda den här funktionen för att skicka in huvudnamn identifierare för den begärande användaren för matchning mot huvudnamn identifierare som är kopplade till varje måldokument som. När en sökbegäran hanteras den `search.in` funktionen filtreras sökresultatet för vilka ingen av användarens säkerhetsobjekt har läsbehörighet. De huvudsakliga identifierarna kan representera säkerhetsgrupper, roller eller även användarens identitet.
  
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Active Directory identitetsbaserade åtkomstkontroll med Azure Search filter](search-security-trimming-for-azure-search-with-aad.md)
 + [Filter i Azure Search](search-filters.md)

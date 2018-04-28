@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 0b216b334f07a59f7c159bc804116f2190f3bf6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 758da9ceb86e26d373f71e4f89a47d67d1cefe2d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 
@@ -46,8 +46,8 @@ Följande egenskaper stöds för Hive länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Hive** | Ja |
 | värd | IP-adressen eller värdnamnet namnet på servern Hive åtskilda av ';' för flera värdar (endast när serviceDiscoveryMode har aktiverats).  | Ja |
-| port | TCP-porten som Hive-servern använder för att lyssna efter anslutningar.  | Nej |
-| serverType | Typ av Hive-server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
+| port | TCP-porten som Hive-servern använder för att lyssna efter anslutningar. Om du ansluter till Azure HDInsights ange porten som 443. | Ja |
+| Servertyp | Typ av Hive-server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, **HTTP** | Nej |
 | AuthenticationType | Den autentiseringsmetod som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | serviceDiscoveryMode | TRUE om du vill ange använder tjänsten ZooKeeper false inte.  | Nej |
@@ -78,8 +78,7 @@ Följande egenskaper stöds för Hive länkade tjänsten:
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

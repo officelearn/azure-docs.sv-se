@@ -1,11 +1,11 @@
 ---
-title: "Förbereda Azure VM-avbildning för användning med molnet init | Microsoft Docs"
-description: "Hur du förbereder en befintlig virtuell dator i Azure-avbildning för distribution med molnet initiering"
+title: Förbereda Azure VM-avbildning för användning med molnet init | Microsoft Docs
+description: Hur du förbereder en befintlig virtuell dator i Azure-avbildning för distribution med molnet initiering
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2eb7510d4e76e4996e83f351a62c0b025b487df2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbereda en befintlig Linux Azure VM-avbildning för användning med molnet initiering
 Den här artikeln visar hur du tar en befintlig Azure virtuell dator och förbereda den omdistribuerade och klar att använda molnet initiering. Bilden kan användas för att distribuera en ny virtuell dator eller skalningsuppsättningar i virtuella - som kan sedan anpassas ytterligare genom molnet init vid tidpunkten för distribution.  Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här dokumentet förutsätter att du redan har en körs virtuella Azure-datorn kör en version av Linux-operativsystem som stöds. Du redan har konfigurerat datorn så att de passar dina behov, installeras alla moduler som krävs, bearbetas alla nödvändiga uppdateringar och har testat den för att kontrollera att den uppfyller dina krav. 
 
 ## <a name="preparing-rhel-74--centos-74"></a>Förbereda RHEL 7.4 / CentOS 7.4
@@ -43,22 +43,20 @@ Uppdatering av `cloud_init_modules` i avsnittet `/etc/cloud/cloud.cfg` att inklu
 
 Här är ett exempel på vilka allmänna `cloud_init_modules` avsnitt ser ut.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 Ett antal åtgärder som rör etablering och hantering av tillfälliga diskar som behöver uppdateras i `/etc/waagent.conf`. Kör följande kommandon för att uppdatera inställningarna. 
 ```bash
@@ -72,6 +70,28 @@ Tillåt endast Azure som en datakälla för Azure Linux-agenten genom att skapa 
 ```bash
 # This configuration file is provided by the WALinuxAgent package.
 datasource_list: [ Azure ]
+```
+
+Lägga till en konfiguration för att åtgärda en utestående hostname registrering programfel.
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
 ```
 
 Om din befintlig Azure-avbildning har en växlingsfil konfigurerats och du vill ändra konfigurationen för växlingsutrymme-filen för nya avbildningar med molnet init, måste du ta bort befintliga växlingsfilen.

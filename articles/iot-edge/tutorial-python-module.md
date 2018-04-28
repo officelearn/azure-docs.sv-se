@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en Python IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -29,7 +29,7 @@ Du kan använda IoT kant-moduler för att distribuera kod som implementerar aff�
 Modulen IoT kant som du skapar i den här självstudiekursen filtrerar temperatur data som genereras av enheten. Den endast skickar meddelanden uppströms om är överskrider ett angivet tröskelvärde. Den här typen av analys i utkanten är användbart för att minska mängden data meddelas och lagras i molnet. 
 
 > [!IMPORTANT]
-> För närvarande kan Python-modul endast köra i amd64 Linux behållare. Kan inte körs i Windows-behållare eller ARM-baserade behållare. 
+> Python-modul kan för närvarande bara köras i amd64 Linux-behållare. Det går inte att köras i Windows-behållare eller ARM-baserade behållare. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,7 +40,7 @@ Modulen IoT kant som du skapar i den här självstudiekursen filtrerar temperatu
 * [Python-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) på samma dator som har Visual Studio-koden. Community Edition (CE) är tillräcklig för den här kursen. 
 * [Python](https://www.python.org/downloads/).
-* [PIP](https://pip.pypa.io/en/stable/installing/#installation) för att installera Python-paket.
+* [PIP](https://pip.pypa.io/en/stable/installing/#installation) för att installera Python-paket (som vanligtvis ingår i installationen av Python).
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **behållaravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
@@ -57,10 +57,10 @@ Du kan använda valfritt Docker-kompatibelt register för den här självstudien
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT kant-modul
 Följande steg visar hur du skapar en IoT kant Python-modul med hjälp av Visual Studio Code och Azure IoT kant-tillägget.
 1. I Visual Studio Code väljer **visa** > **integrerad Terminal** att öppna VS koden integrerad terminal.
-2. Ange följande kommando för att installera (eller uppdatera) i terminalen integrerad i **cookiecutter**:
+2. Ange följande kommando för att installera (eller uppdatera) i en integrerad terminal **cookiecutter** (Vi rekommenderar detta till en virtuell miljö eller som en användare-installation som visas nedan):
 
     ```cmd/sh
-    pip install -U cookiecutter
+    pip install --upgrade --user cookiecutter
     ```
 
 3. Skapa ett projekt för den nya modulen. Följande kommando skapar projektmappen **FilterModule**, med lagringsplatsen för behållaren. Parametern för `image_repository` ska vara i form av `<your container registry name>.azurecr.io/filtermodule` om du använder Azure-behållaren registret. Ange följande kommando i den aktuella arbetsmappen:
@@ -78,11 +78,11 @@ Följande steg visar hur du skapar en IoT kant Python-modul med hjälp av Visual
     import json
     ```
 
-8. Lägg till den `TEMPERATURE_THRESHOLD` och `TWIN_CALLBACKS` under globala räknare. Tröskelvärdet för temperatur anger det värde som uppmätta temperaturen får överstiga för data som ska skickas till IoT-hubb.
+8. Lägg till den `TEMPERATURE_THRESHOLD`, `RECEIVE_CALLBACKS`, och `TWIN_CALLBACKS` under globala räknare. Tröskelvärdet för temperatur anger det värde som uppmätta temperaturen får överstiga för data som ska skickas till IoT-hubb.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = 0
+    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
     ```
 
 9. Uppdatera funktionen `receive_message_callback` med nedan innehåll.
@@ -97,16 +97,16 @@ Följande steg visar hur du skapar en IoT kant Python-modul med hjälp av Visual
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
+        print("    Properties: {}".format(key_value_pair))
         RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
@@ -118,14 +118,14 @@ Följande steg visar hur du skapar en IoT kant Python-modul med hjälp av Visual
     def device_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
     ```
 
 11. I klassen `HubManager`, Lägg till en ny rad i den `__init__` metod för att initiera den `device_twin_callback` funktionen som du just lagt till.

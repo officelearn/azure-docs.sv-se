@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory B2B-samarbete vanliga frågor och svar | Microsoft Docs"
-description: "Få svar på vanliga frågor och svar om Azure Active Directory B2B-samarbete."
+title: Azure Active Directory B2B-samarbete vanliga frågor och svar | Microsoft Docs
+description: Få svar på vanliga frågor och svar om Azure Active Directory B2B-samarbete.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -85,7 +85,7 @@ Ja. Här följer viktig information för lösenordsåterställning via självbet
 Ja. Ett lösenord för återställning av e-post kan skickas som gör det möjligt för en användare att återställa sina lösenord i JIT-innehavare.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Tillhandahåller Microsoft Dynamics 365 support online för Azure AD B2B-samarbete?
-Ja, Dynamics 365 (online) ger stöd för Azure AD B2B-samarbete. Mer information finns i artikeln Dynamics 365 [bjuda in användare med Azure AD B2B-samarbete](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Ja, Dynamics 365 (online) ger stöd för Azure AD B2B-samarbete. Mer information finns i artikeln Dynamics 365 [bjuda in användare med Azure AD B2B-samarbete](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Vad är livslängden för en inledande lösenordet för en nyligen skapade B2B-samarbete användare?
 Azure AD har en fast uppsättning tecken och lösenordssäkerhet konto kontoutelåsning krav som gäller lika för alla Azure AD cloud användarkonton. Användarkonton i molnet är konton som inte är federerat med en annan identitetsleverantör som 

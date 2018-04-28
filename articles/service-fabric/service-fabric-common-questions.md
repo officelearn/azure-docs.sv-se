@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a112951409fc6177240b9eddc9fcd7f6c0c932cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor för Service Fabric
 
 Det finns många vanliga frågor om vad Service Fabric kan göra och hur den ska användas. Det här dokumentet beskrivs många av dessa vanliga frågor och deras svar.
 
 ## <a name="cluster-setup-and-management"></a>Konfigurera och hantera kluster
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Hur gör jag för att återställa mitt certifikatarkiv för Service Fabric-klustret?
+
+Att återställa kräver en uppgradering till ditt program hälsa felidentifiering innan din Service Fabric-klusterkvorum genomföra ändringarna; Spara ändringar kan bara återställas framåt. Eskalering tekniker via kundsupport, kan behöva återställa klustret, om en ändring av oövervakade senaste certifikatet har införts.  [Uppgradering av Service Fabric-programmet](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) gäller [uppgradera applikationsparametrarna](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), och ger noll avbrottstid uppgradera promise.  Följande appen rekommenderade Uppgraderingsläge övervakade, automatisk fortsätta med uppdateringen domäner baseras på hälsokontroller skickar rullande tillbaka automatiskt om uppdaterar standardtjänst misslyckas.
+ 
+Om klustret fortfarande använder egenskapen klassiska tumavtrycket för certifikatet i mallen Resource Manager dess rekommenderade du [ändra kluster från tumavtrycket för certifikatet till nätverksnamn](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter hanteringsfunktioner.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan jag skapa ett kluster som sträcker sig över flera Azure-regioner eller egna Datacenter?
 
@@ -89,7 +95,7 @@ Du är ansvarig för att uppgradera medan vi arbetar på en bättre upplevelse i
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag kryptera bifogade datadiskar i ett kluster nodtypen (skaluppsättning för virtuell dator)?
 Ja.  Mer information finns i [skapa ett kluster med anslutna datadiskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [kryptera diskar (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), och [kryptera diskar (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>Vad är kataloger och processer som jag behöver för att undanta när du kör ett antivirusprogram i min kluster?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Vad är kataloger och processer som jag behöver för att undanta när du kör ett antivirusprogram i min kluster?
 
 | **Antivirusprogram exkluderade kataloger** |
 | --- |

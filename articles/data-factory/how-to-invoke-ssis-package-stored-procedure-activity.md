@@ -1,6 +1,6 @@
 ---
-title: Anropa SSIS-paket med hjälp av Azure Data Factory - lagrade Proceduraktiviteten | Microsoft Docs
-description: Den här artikeln beskriver hur du anropa ett SQL Server Integration Services (SSIS)-paket från ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten.
+title: Kör SSIS-paket med lagrade Proceduraktiviteten i Azure Data Factory | Microsoft Docs
+description: Den här artikeln beskriver hur du kör en SQL Server Integration Services (SSIS) från ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 00a4401a9116d8ebbfefa56194fe45802bcf198e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
-Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
+# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
+Den här artikeln beskriver hur du kör ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -85,12 +85,13 @@ I det här steget kan använda du Data Factory-Användargränssnittet för att s
 4. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
     1. Välj **Azure SQL Database** för **typen**.
-    2. Välj din Azure SQL-server som är värd för SSIDB-databasen för den **servernamn** fältet.
-    3. Välj **SSISDB** för **databasnamnet**.
-    4. För **användarnamn**, ange namnet på användaren som har åtkomst till databasen.
-    5. För **lösenord**, ange lösenordet för användaren. 
-    6. Testa anslutningen till databasen genom att klicka på **Anslutningstestet** knappen.
-    7. Spara den länkade tjänsten genom att klicka på den **spara** knappen. 
+    2. Välj den **standard** Azure Integration Runtime att ansluta till Azure SQL-databasen som är värd för den `SSISDB` databas.
+    3. Välj Azure SQL-databasen som är värd för SSIDB-databasen för den **servernamn** fältet.
+    4. Välj **SSISDB** för **databasnamnet**.
+    5. För **användarnamn**, ange namnet på användaren som har åtkomst till databasen.
+    6. För **lösenord**, ange lösenordet för användaren. 
+    7. Testa anslutningen till databasen genom att klicka på **Anslutningstestet** knappen.
+    8. Spara den länkade tjänsten genom att klicka på den **spara** knappen. 
 
         ![Länkad Azure SQL Database-tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Växla till i egenskapsfönstret för den **lagrade proceduren** fliken från den **konto för SQL** fliken och gör följande: 
@@ -121,14 +122,18 @@ I det här avsnittet utlösa en pipeline-körning och övervaka den.
 
 1. Klicka på för att utlösa en pipeline som kör **utlösaren** i verktygsfältet och på **aktivera nu**. 
 
-    ![Utlös nu](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![Utlös nu](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
 3. Växla till fliken **Övervaka** till vänster. Du ser pipeline kör och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
 
     ![Pipelinekörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara en aktivitet som körs som pipelinen har endast en aktivitet (lagrade proceduren aktivitet).
 
-    ![Aktiviteten körs](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4 kan du köra följande **frågan** mot SSISDB databasen i Azure SQL-server för att kontrollera att paketet körs. 
+    ![Aktivitetskörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+
+4. Du kan köra följande **frågan** mot SSISDB databasen i Azure SQL-server för att kontrollera att paketet körs. 
 
     ```sql
     select * from catalog.executions

@@ -1,5 +1,5 @@
 ---
-title: Ladda upp, lista och ta bort blobar med Azure Storage med hjälp av JavaScript och HTML i webbläsaren
+title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av JavaScript och HTML i webbläsaren
 description: Lär dig använda en instans av BlobService och överföra, lista och ta bort blobar med hjälp av JavaScript på en HTML-sida.
 services: storage
 keywords: storage, javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>Snabbstart: Ladda upp, lista och ta bort blobar med Azure Storage med hjälp av JavaScript/HTML i webbläsaren
-Den här snabbstarten visar hur du hanterar blobar från kod som körs helt i webbläsaren, och nödvändiga säkerhetsåtgärder för att säkerställa skyddad åtkomst till bloblagringskontot. Du behöver en [Azure-prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) för att kunna utföra den här snabbstarten.
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Snabbstart: Ladda upp, lista och ta bort blobar med hjälp av JavaScript/HTML i webbläsaren
+Den här snabbstarten visar hur du hanterar blobar från kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot. Du behöver en [Azure-prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) för att kunna utföra den här snabbstarten.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>Kopiera säkerhetsinställningar
-Under den här snabbstarten behöver du vissa säkerhetsrelaterade värden för att skapa en säkerhetstoken. Via portalen kan du kopiera värdena till en textredigerare så att du kan använda dem senare. 
-
-Välj lagringskontot på portalen och leta upp avsnittet **Inställningar**. Under Inställningar väljer du **Åtkomstnycklar** och noterar värdena **Lagringskontonamn** och **Nyckel** under rubriken **key1** (nyckel 1). (Du kan använda knappen Kopiera till höger om rutan när du kopierar värdet till Urklipp.)
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Ställa in CORS-regler för lagringskonto 
 Innan webbprogrammet kan komma åt en bloblagring från klienten måste kontot konfigureras så att du aktiverar CORS, [resursdelning mellan ursprung](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services). 
@@ -55,7 +50,7 @@ Härnäst använder du Azure-molnskalet och skapar en säkerhetstoken.
 ## <a name="create-a-shared-access-signature"></a>Skapa en signatur för delad åtkomst
 SAS, eller signatur för delad åtkomst, används av den kod som körs i webbläsaren för att autentisera begäranden till bloblagring. Med hjälp av SAS kan klienten autentisera utan att ha åtkomstnyckel eller anslutningssträng för kontot. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-Du kan skapa en SAS med hjälp av Azure CLI via Azure-molnskalet. I följande tabell beskrivs de parametrar du behöver ange värden för om du vill skapa en SAS.
+Du kan skapa en SAS med hjälp av Azure CLI via Azure-molnskalet eller med Azure Storage Explorer. I följande tabell beskrivs de parametrar du behöver ange värden för om du vill skapa en SAS med CLI.
 
 | Parameter      |Beskrivning  | Platshållare |
 |----------------|-------------|-------------|
@@ -121,7 +116,7 @@ Skriv slutligen in `npm start` i kommandotolken för att starta webbservern:
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Hämta klientskripten för bloblagringen
+### <a name="get-the-blob-storage-client-library"></a>Hämta klientbiblioteket för bloblagringen
 [Ladda ned JavaScript-klientbiblioteken](https://aka.ms/downloadazurestoragejs), packa upp innehållet i zip-filen och placera skriptfilerna från mappen *bundle* (paket) i en mapp med namnet *scripts* (skript).
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>Lägga till klientskriptreferens på sidan
@@ -153,7 +148,7 @@ Sen här markeringen lägger till följande på sidan:
 - ett *INPUT*-element (indata) som använd till att ladda upp en fil
 - en platshållare för lagringsspecifik kod
 
-### <a name="create-a-blob-service"></a>Skapa en blob-tjänst 
+### <a name="create-an-instance-of-blobservice"></a>Skapa en instans av BlobService 
 Tjänsten [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) tillhandahåller ett gränssnitt för Azure Blob Storage. Om du vill skapa en instans av tjänsten måste du ange lagringskontonamnet och den SAS som genererades i ett tidigare steg.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Ladda upp en blob
-När du vill ladda upp en blob från ett HTML-formulär hämtar du först en referens till den valda filen via `files`-matrisen för ett *INPUT*-element som har *type* inställt på *file*.
+Om du vill ladda upp en blob från ett HTML-formulär måste du hämta en referens till den valda filen från ett *INPUT*-element. Den valda filen är tillgängliga via matrisen `files` när elementets *typ* är inställd på *fil*.
 
 Via skriptet kan du referera till HTML-element och skicka den valda filen till blobtjänsten.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+Metoden *listBlobsSegmented* returnerar en samling blobar. Som standard är samlingsantalet 5 000 blobar, men du kan ändra värdet efter dina behov. I [continuation sample](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132) får du en demonstration av hur du arbetar med ett stort antal blobar och hur klientbiblioteket stöder sidindelning. 
+
 
 ### <a name="delete-blobs"></a>Ta bort blobbar
 Du kan ta bort den blob som du laddade upp genom att anropa [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor).

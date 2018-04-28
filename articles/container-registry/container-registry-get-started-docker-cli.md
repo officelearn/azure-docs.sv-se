@@ -3,17 +3,17 @@ title: Push-Docker-avbildning till registret för privat Azure
 description: Skicka och hämta Docker-avbildningar till ett privat behållarregister i Azure med hjälp av Docker CLI
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 40f2d3bde5e92a035709b1a8e49b76d3da079680
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-behållarregister med hjälp av Docker CLI
 
@@ -61,7 +61,7 @@ Kör följande [docker kör](https://docs.docker.com/engine/reference/run/) komm
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Bläddra till [http://localhost: 8080](http://localhost:8080) att visa standardwebbsidan hanteras av Nginx-behållare körs. Du bör se en sida som liknar följande:
+Bläddra till [ http://localhost:8080 ](http://localhost:8080) att visa standardwebbsidan hanteras av Nginx-behållare körs. Du bör se en sida som liknar följande:
 
 ![Nginx på lokal dator](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -103,7 +103,7 @@ Använd den [docker kör](https://docs.docker.com/engine/reference/run/) kommand
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Bläddra till [http://localhost:8080](http://localhost:8080) för att visa behållaren som körs.
+Bläddra till [ http://localhost:8080 ](http://localhost:8080) att visa behållaren körs.
 
 Stoppa och ta bort behållaren genom att trycka på `Control` + `C`.
 

@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: b9ead9643cc7926be3bd69e947977fa40d45a722
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B användare från specifika organisationer
 
 Du kan använda en lista över tillåtna eller en Neka-lista till Tillåt eller blockera inbjudningar till B2B användare från specifika organisationer. Till exempel om du vill blockera domäner för personliga e-postadress kan du konfigurera en Neka-lista som innehåller domäner som Gmail.com och Outlook.com. Om företaget har ett samarbete med andra företag som Contoso.com, Fabrikam.com och Litware.com och du vill begränsa inbjudningar till bara dessa organisationer, du kan lägga till Contoso.com, Fabrikam.com och Litware.com till din lista över tillåtna.
   
-> [!NOTE]
-> Du kan för närvarande endast använda neka listor. Möjligheten att använda Tillåt listor kommer snart.
-
 ## <a name="important-considerations"></a>Viktiga överväganden
 
 - Du kan skapa en lista över tillåtna eller en Neka-lista. Du kan inte ange båda typerna av listor. Som standard, oavsett domäner är inte i listan över tillåtna finns på listan över nekade och vice versa. 
@@ -50,22 +47,34 @@ Lägg till en Neka-lista:
 2. Välj **Azure Active Directory** > **användare** > **användarinställningar**.
 3. Under **externa användare**väljer **hantera inställningar för externt samarbete**.
 4. Under **samarbete begränsningar**väljer **neka inbjudningar till de angivna domänerna**.
-5. Under **MÅLDOMÄNER**, ange namnet på en av de domäner som du vill blockera. Ange varje domän på en ny rad för flera domäner.
+5. Under **MÅLDOMÄNER**, ange namnet på en av de domäner som du vill blockera. Ange varje domän på en ny rad för flera domäner. Exempel:
 
    ![Visar alternativet Neka med tillagda domäner](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. När du är klar klickar du på **spara**.
 
-När du ställer in principen, om du försöker att bjuda in en användare från en blockerad domän får du ett meddelande om att användaren är blockerad för inbjudan principen.
+När du ställer in principen, om du försöker att bjuda in en användare från en blockerad domän får du ett meddelande om att användarens domän är blockerad för inbjudan principen.
  
 ### <a name="add-an-allow-list"></a>Lägg till en lista över tillåtna
 
-> [!NOTE]
-> För närvarande den **Tillåt inbjudningar endast till de angivna domänerna (mest restriktiva)** är inte tillgänglig. Möjligheten att använda Tillåt listor kommer snart.
-
 Detta är en mer begränsande konfiguration, där du kan ange specifika domäner i listan över tillåtna och begränsa inbjudningar med andra organisationer eller domäner som inte anges. 
 
-Om du vill använda en lista över tillåtna kontrollerar du att du ägnar tid att fullständigt utvärdera verksamheten behöver. Om du gör den här principen för begränsande kan användarna välja att skicka dokument via e-post eller hitta andra IT-sanktionerade sätt att samarbeta.
+Om du vill använda en lista över tillåtna, se till att det tar tid att fullständigt utvärdera verksamheten behöver finns. Om du gör den här principen för begränsande kan användarna välja att skicka dokument via e-post eller hitta andra IT-sanktionerade sätt att samarbeta.
+
+
+Lägg till en lista över tillåtna:
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj **Azure Active Directory** > **användare** > **användarinställningar**.
+3. Under **externa användare**väljer **hantera inställningar för externt samarbete**.
+4. Under **samarbete begränsningar**väljer **Tillåt inbjudningar endast till de angivna domänerna (mest restriktiva)**.
+5. Under **MÅLDOMÄNER**, ange namnet på en av de domäner som du vill tillåta. Ange varje domän på en ny rad för flera domäner. Exempel:
+
+   ![Visar alternativet Tillåt med tillagda domäner](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. När du är klar klickar du på **spara**.
+
+När du ställer in principen, om du försöker att bjuda in en användare från en domän som inte finns med på listan över tillåtna får ett meddelande om att användarens domän är blockerad för inbjudan principen.
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Tillåt att växeln från Neka lista och vice versa 
 
@@ -115,9 +124,6 @@ Om modulen inte är installerad eller om du inte har en version som krävs, gör
     ````
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Använda AzureADPolicy-cmdletar för att konfigurera principen
-
-> [!NOTE]
-> För närvarande kan du bara konfigurera neka listor. Möjligheten att använda Tillåt listor kommer snart.
 
 Skapa en Tillåt eller neka listan genom att använda den [ny AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. I följande exempel visas hur du ställer in en Neka-lista som blockerar ”live.com”-domän.
 

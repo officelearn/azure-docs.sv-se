@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/29/2018
 | **Identity-arkitektur / Utvecklingsteamet** | Teamet är vanligtvis den som designerna lösningen, implementerar prototyper, godkännanden-enheter och slutligen lämnar till åtgärder | De ger miljöerna och som utvärderar olika scenarier ur hanterbarhet |
 | **Lokal identitet driftteamet** | Hanterar annan identitet källor lokal: Active Directory-skogar, LDAP-kataloger, HR-system och Federation identitetsleverantörer. | Ge åtkomst till lokala resurser som krävs för PoC-scenarier.<br/>De bör vara inblandade så lite som möjligt|
 | **Tekniska ägare** | Tekniska ägare av olika molnappar och tjänster som ska integreras med Azure AD | Innehåller detaljerad information om SaaS-program (potentiellt instanser för att testa) |
-| **Azure AD Global Admin** | Hanterar Azure AD-konfiguration | Ange autentiseringsuppgifter för att konfigurera synkroniseringstjänsten. Vanligtvis samma team som identitet arkitektur under PoC men avgränsa under fasen åtgärder|
+| **Global administratör för Azure AD** | Hanterar Azure AD-konfiguration | Ange autentiseringsuppgifter för att konfigurera synkroniseringstjänsten. Vanligtvis samma team som identitet arkitektur under PoC men avgränsa under fasen åtgärder|
 | **Databas-teamet** | Ägarna av databasinfrastruktur | Ge åtkomst till SQL-miljö (AD FS eller Azure AD Connect) för specifik situation förberedelser.<br/>De bör vara inblandade så lite som möjligt |
 | **Nätverk-teamet** | Ägarna av nätverkets infrastruktur | Ange nödvändiga åtkomsten på nätverksnivån för synkroniseringsservrar att korrekt åtkomst till datakällor och molntjänster (brandväggsregler, öppnade portar, IPSec-regler osv.) |
 | **Säkerhetsteamet** | Definierar säkerhetsstrategi, analyserar säkerhetsrapporter från olika källor och följer på resultat. | Ange mål säkerhet utvärdering scenarier |
@@ -380,8 +380,8 @@ Ungefärlig tid till slutförd: 15 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Aktivera lösenordshantering av självbetjäning i din klient. | [Azure Active Directory återställning av lösenord för IT-administratörer](active-directory-passwords-update-your-own-password.md) |
-| Aktivera tillbakaskrivning av lösenord hantera lösenord från lokala. Obs detta kräver vissa Azure AD Connect versioner | [Krav för tillbakaskrivning av lösenord](active-directory-passwords-writeback.md) |
-| Identifiera PoC-användare som kommer att använda den här funktionen och kontrollera att de är medlemmar i en säkerhetsgrupp. Användarna måste vara icke-administratörer att fullständigt demonstrerar kapacitet | [Anpassa: Azure AD-lösenordshantering: begränsa åtkomst till återställning av lösenord](active-directory-passwords-writeback.md) |
+| Aktivera tillbakaskrivning av lösenord hantera lösenord från lokala. Obs detta kräver vissa Azure AD Connect versioner | [Krav för tillbakaskrivning av lösenord](authentication/howto-sspr-writeback.md) |
+| Identifiera PoC-användare som kommer att använda den här funktionen och kontrollera att de är medlemmar i en säkerhetsgrupp. Användarna måste vara icke-administratörer att fullständigt demonstrerar kapacitet | [Anpassa: Azure AD-lösenordshantering: begränsa åtkomst till återställning av lösenord](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Steg
@@ -412,7 +412,7 @@ Ungefärlig tid till slutförd: 10 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Identifiera POC-användare som använder MFA  |  |
-| Phone med mottagning för MFA-kontrollen  | [Vad är Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Phone med mottagning för MFA-kontrollen  | [Vad är Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Steg
 
@@ -421,7 +421,7 @@ Ungefärlig tid till slutförd: 10 minuter
 | Gå till ”användare och grupper” bladet i hanteringsportalen för Azure AD | [Hanteringsportalen för Azure AD: Användare och grupper](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Välj ”alla användare” bladet |  |
 | I överst raden Välj ”Multifaktorautentisering”-knapp | Direkt-URL för Azure MFA-portalen: https://aka.ms/mfaportal |
-| I inställningarna för ”användare” Välj PoC-användare och aktivera dem för MFA | [Användartillstånd i Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| I inställningarna för ”användare” Välj PoC-användare och aktivera dem för MFA | [Användartillstånd i Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Logga in som PoC användar- och gå igenom processen bevis upp  |  |
 
 ### <a name="considerations"></a>Överväganden
@@ -457,7 +457,7 @@ Ungefärlig tid till slutförd: 10 minuter
 
 ### <a name="considerations"></a>Överväganden
 
-Om du använder federation kan du använda lokala identitetsprovider (IdP) för att kommunicera tillståndet inuti/utanför företagets nätverk med anspråk. Du kan använda den här tekniken utan att behöva hantera listan över IP-adresser som kan vara komplicerade att utvärdera och hantera i stora organisationer. Du behöver konto på ”nätverket centrala”-scenariot (en användare som loggar från det interna nätverket och när du är inloggad växlar platser, till exempel ett kafé) och kontrollera att du förstår följderna i som installationsprogrammet. Läs mer: [skydda molnresurser med Azure Multi-Factor Authentication och AD FS: tillförlitliga IP-adresser för externa användare](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Om du använder federation kan du använda lokala identitetsprovider (IdP) för att kommunicera tillståndet inuti/utanför företagets nätverk med anspråk. Du kan använda den här tekniken utan att behöva hantera listan över IP-adresser som kan vara komplicerade att utvärdera och hantera i stora organisationer. Du behöver konto på ”nätverket centrala”-scenariot (en användare som loggar från det interna nätverket och när du är inloggad växlar platser, till exempel ett kafé) och kontrollera att du förstår följderna i som installationsprogrammet. Läs mer: [skydda molnresurser med Azure Multi-Factor Authentication och AD FS: tillförlitliga IP-adresser för externa användare](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 

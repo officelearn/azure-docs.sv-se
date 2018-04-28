@@ -6,19 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -60,7 +59,7 @@ Brandväggen för webbaserade program är förkonfigurerad med CRS 3.0 som stand
 * Skydd mot åtgärder som inte följer HTTP-protokollet
 * Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
 * Skydd mot robotar, crawlers och skannrar
-* Identifiering av vanliga felkonfigureringar i program (t.ex. Apache, IIS osv.)
+* Identifiering av vanliga felkonfigureringar i program (till exempel Apache, IIS och så vidare)
 
 En detaljerad lista över regler och deras skydd finns följande [Core Rule Sets](#core-rule-sets).
 
@@ -74,9 +73,7 @@ Core Rule Set 3.0 har 13 regelgrupper (se följande tabell). Var och en av dessa
 
 |RuleGroup|Beskrivning|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Innehåller regler för att skydda mot kända skräppostavsändare eller skadlig aktivitet.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Innehåller regler för att låsa metoder (PUT, PATCH< ..)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Innehåller regler för att skydda mot DoS-attacker.|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Innehåller regler för att skydda mot port- och miljöskannrar.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Innehåller regler för att skydda mot protokoll- och kodningsproblem.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Innehåller regler för att skydda mot huvudinmatning, dold begäran och delning av svar.|
@@ -166,7 +163,6 @@ Application Gateway WAF erbjuder detaljerad rapportering för varje hot som uppt
 
 Brandväggen för webbaserade program är tillgänglig i en ny WAF SKU. Denna SKU är endast tillgänglig i Azure Resource Manager-etableringsmodellen, inte i den klassiska distributionsmodellen. WAF SKU finns dessutom endast i Application Gateway-instansstorlekarna medel och stor. Alla begränsningar som gäller för Application Gateway gäller även för WAF SKU:n. Priserna är baserade på avgifter per gatewayinstans per timme och databearbetningsavgifter. Gatewaypriset per timme för WAF SKU skiljer sig från avgifterna för Standard-SKU (se [Priser för Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/)). Databearbetningsavgifterna är desamma. Avgifter per regel eller per regelgrupp finns inte. Du kan skydda flera webbprogram bakom samma brandvägg för webbaserade program utan extra avgifter. 
 
-Faktureringen för WAF börjar gälla från 5 maj 2017. Till dess debiteras WAF SKU-gateways enligt standardpriserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

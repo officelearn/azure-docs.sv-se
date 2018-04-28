@@ -1,8 +1,8 @@
 ---
-title: "Självstudier: Konfigurera Replicon för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Replicon."
+title: 'Självstudier: Konfigurera Replicon för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Replicon.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7ec58b0da3a918729733809d326e6f2e5916c9d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Replicon för automatisk användaretablering
 
@@ -109,13 +109,13 @@ Det här avsnittet hjälper dig att konfigurera Azure AD etableras för att skap
 
     *   I den **adminlösenord** och fylla det lösenord som motsvarar administratörsanvändarnamnet fältet.
 
-    *   I den **CompanyId** fältet, fylla CompanyId för din Replicon-klient. Exempel: CompanyID baserat på den under inloggning, är Contoso.
+    *   I den **CompanyId** fältet, fylla CompanyId för din Replicon-klient. Exempel: CompanyID baserat på Logga in nedan är Contoso.
 
     ![Replicon inloggning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
     *   I den **domän** fältet, Fyll i domänen, enligt beskrivningen i steg 6.
     
-6. Hämta **serviceEndpointRootURL** för din Replicon klient konto baserat på anvisningarna på, [Replicon hjälpen](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Vid hämta URL-Adressen i **domän** är underdomänen **serviceEndpointRootURL** som är markerade. 
+6. Hämta **serviceEndpointRootURL** för din Replicon klient konto baserat på stegen som anges i [Replicon hjälpen](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Vid hämta URL-Adressen i **domän** är underdomänen **serviceEndpointRootURL** som är markerade. 
 
     ![Replicon etablering](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 

@@ -13,77 +13,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervakning av användning och de uppskattade kostnaderna
 
-I övervakaren hubb för Azure-portalen på **användning och de uppskattade kostnaderna** sidor är utformad för att förstå användning från grundläggande övervakningsfunktioner som [avisering, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Logga Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Programinsikter](https://azure.microsoft.com/pricing/details/application-insights/). Detta omfattar även logganalys användning som köpts via insikter för kunder på alla tillgängliga innan April 2018 prisnivå planer och Analytics erbjuder.
+I övervakaren hubb för Azure-portalen på **användning och de uppskattade kostnaderna** sidan beskriver användningen av grundläggande övervakningsfunktioner som [avisering, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure logganalys ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Detta omfattar även logganalys användning som köpts via insikter för kunder på prisnivå planerna som är tillgängliga innan April 2018 och Analytics erbjuder.
 
-På den här sidan kan användare visa deras användning av dessa resurser för de senaste 31 dagarna samman per prenumeration med ökad-moduler för att visa användningsinformation trenden under denna tid. Det finns en mängd data som behövs för samman och göra den här uppskattning så att du ha tålamod när sidan läses in.
-Här är ett exempel på användning av övervakning och en uppskattning av kostnaderna för resulterande:
+På den här sidan kan användare visa sina resursanvändningen under de senaste 31 dagarna samman per prenumeration. Ökad-moduler Visa användningstrender över 31 dagar. Stora mängder data samlas för denna beräkning, så måste du ha tålamod när sidan läses in.
+
+Det här exemplet visar användning av övervakning och en uppskattning av kostnaderna för resulterande:
 
 ![Användnings- och uppskattade kostnaderna portal skärmbild](./media/monitoring-usage-and-estimated-costs/001.png)
 
-Klicka på länken i kolumnen månatlig användning öppnas ett diagram som visar användningstrender under de senaste 31 dagarna:
+Välj länken i kolumnen månatliga användningsdata för att öppna ett diagram som visar användningstrender över de senaste 31 dagarna:
 
-![Ingår per nod skärmbild 671.47 GB](./media/monitoring-usage-and-estimated-costs/002.png)
+![Ingår per nod liggande diagram skärmbild](./media/monitoring-usage-and-estimated-costs/002.png)
 
-Här är en annan liknande användning och kostnad sammanfattning i det här fallet för en prenumeration i nya April 2018 förbrukningsbaserad priserna. Observera bristen på någon nod-baserade fakturering och att datapåfyllning och lagring för Log Analytics och Application Insights rapporteras på en ny vanliga mätaren.
+Här är en annan liknande användning och kostnader sammanfattning. Det här exemplet visar en prenumeration i nya April 2018 förbrukningsbaserad priserna. Observera bristen på någon nod-baserade fakturering. Datapåfyllning och lagring för Log Analytics och Application Insights rapporteras på en ny vanliga mätaren.
 
-![Användnings- och uppskattade kostnaderna portal skärmbild](./media/monitoring-usage-and-estimated-costs/003.png)
+![Användnings- och uppskattade kostnaderna portal skärmbild - April 2018 priser](./media/monitoring-usage-and-estimated-costs/003.png)
 
 ## <a name="new-pricing-model"></a>Ny prissättningsmodell
 
-I April 2018 släpptes en ny övervakning prissättningsmodell.  Detta funktioner molnet eget, förbrukningsbaserad priser. Du betalar bara för det du använder, utan åtaganden baserat på noden. Information om nya priserna är tillgängliga för [avisering, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [logganalys](https://azure.microsoft.com/pricing/details/log-analytics/) och [Programinsikter](https://azure.microsoft.com/pricing/details/application-insights/).
+I April 2018 släpptes en ny övervakning prissättningsmodell. Den har molnet eget, förbrukningsbaserad priser. Du betalar bara för det du använder, utan åtaganden baserat på noden. Information om nya priserna är tillgängliga för [avisering, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [logganalys](https://azure.microsoft.com/pricing/details/log-analytics/), och [Programinsikter](https://azure.microsoft.com/pricing/details/application-insights/).
 
-För kunder att logganalys eller Application Insights efter den 2 April 2018 är nya priserna det enda alternativet. För kunder som redan har använt tjänsterna flyttar till nya priserna är valfritt.
+För kunder som börjar använda logganalys eller Application Insights efter den 2 April 2018 är nya priserna det enda alternativet. För kunder som redan använder dessa tjänster, flyttar till nya priserna är valfritt.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Utvärdera effekten av nya priserna
 
-Ny prissättningsmodell har olika konsekvenser för varje kund baserat på deras övervakning användningsmönster. För kunder som redan använder logganalys eller Application Insights innan April 2 2018, den **användnings- och uppskattade kostnaden** i Azure-Monitor ger ett sätt att beräkna ändringar i kostnaderna om du flyttar till en ny prissättningsmodell och ger den sätt att flytta en prenumeration till den nya modellen. Ny prissättningsmodell blir fördelaktigt för de flesta kunder, men för kunder med särskilt stor data användningsmönster eller högre kostnad regioner, kan detta inte är fallet.
+Ny prissättningsmodell har olika påverkan på varje kund baserat på deras övervakning användningsmönster. För kunder som använder logganalys eller Application Insights innan den 2 April 2018 den **användnings- och uppskattade kostnaden** sida i Azure-övervakaren beräknar ändringar i kostnaderna om de flyttar till nya priserna. Det ger sätt att flytta en prenumeration till den nya modellen. För de flesta kunder blir de nya priserna fördelaktigt. För kunder med särskilt stor data användningsmönster eller högre kostnad regioner, kan detta inte är fallet.
 
-Få en uppskattning av kostnaderna för prenumerationerna som du har valt på den **användning och de uppskattade kostnaderna** klickar du på den blå banderollen längst upp på sidan. Det är bäst att göra detta en prenumeration samtidigt, eftersom nivån då nya priserna kan antas.
+Få en uppskattning av kostnaderna för prenumerationerna som du valde på den **användning och de uppskattade kostnaderna** väljer blå listen längst upp på sidan. Det är bäst att göra detta en prenumeration samtidigt, eftersom det är den nivå där nya priserna kan antas.
 
-![Priser för modellen väljer skärmbild](./media/monitoring-usage-and-estimated-costs/004.png)
+![Övervaka användning och de uppskattade kostnaderna i nya prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/004.png)
 
-Nu visas en liknande version av den här sidan med en grön banderoll:
+Den nya sidan visas en liknande version av föregående sida med en grön banderoll:
 
-![Priser för modellen väljer skärmbild](./media/monitoring-usage-and-estimated-costs/005.png)
+![Övervaka användning och de uppskattade kostnaderna i aktuell prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/005.png)
 
-Här visas en annan uppsättning mätare – mätare som motsvarar nya priserna. Till exempel data införandet mätare som
+Sidan visar också en annan uppsättning mätare som motsvarar nya priserna. Den här listan är ett exempel:
 
-1. Insikt och Analytics\Overage per nod
-2. Insikt och Analytics\Included per nod
-3. Överförbrukning programdata för Insights\Basic
-4. Insights\Included programdata
+- Insikt och Analytics\Overage per nod
+- Insikt och Analytics\Included per nod
+- Överförbrukning programdata för Insights\Basic
+- Insights\Included programdata
 
-kombineras till en ny gemensamma data införandet mätare kallas **delade Services\Data införandet** eftersom nya priserna inte har rättigheter för per nod-ingår data.
+Ny prissättningsmodell saknar nod-baserade inkluderade data allokeringar. Därför kan dessa data införandet mätare kombineras till en ny gemensamma data införandet mätare kallas **delade Services\Data införandet**. 
 
-En annan ändring som visas är den data som inhämtas i logganalys eller Application Insights i områden med högre kostnader visas med de nya nationella mätare korrekt efter detta, exempelvis **”Datapåfyllning (USA, västra centrala)**.
+Det finns en annan ändring av data som inhämtas i logganalys- eller Application Insights i områden med högre kostnader. Data för regionerna hög kostnad visas med de nya nationella mätare. Ett exempel är **Datapåfyllning (oss Väst Central)**.
 
 > [!NOTE]
-> Per prenumeration-uppskattade kostnaderna inte factor till kontot nivå per nod rättigheter för prenumerationen Operations Management Suite (OMS). Kontakta din kontorepresentant för en mer detaljerad beskrivning av nya priserna i det här fallet.
+> Den uppskattade kostnaderna inte factor i kontonivå per nod rättigheter för prenumerationen Operations Management Suite (OMS) per prenumeration. Kontakta din kontorepresentant för en mer detaljerad beskrivning av nya priserna i det här fallet.
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nya priser modell och rättigheter för Operations Management Suite-prenumeration
 
-Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigad till per nod data införandet rättigheter för [logganalys](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) och [Programinsikter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Ta emot dessa rättigheter för Log Analytics arbetsytor eller Application Insights-resurser i en viss prenumeration att prenumerationen Prismodell måste vara i pre-April 2018 prisnivå modell var logganalys ”Per nod (OMS)” prisnivån och Application Insights ”Enterprise” priser plan är tillgängliga. Beroende på antalet noder i sviten som din organisation har köpt flytta några nya priserna prenumerationer kan fortfarande vara fördelaktigt, men detta kräver noggrant övervägande. 
+Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigad till per nod data införandet rättigheter för [logganalys](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) och [Programinsikter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Resurser för en viss prenumeration att prenumerationen Prismodell måste vara i pre-April 2018 priserna för att ta emot dessa rättigheter för Log Analytics arbetsytor eller Application Insights. Det är där logganalys ”Per nod (OMS)” prisnivå och Application Insights ”Enterprise” prissättning är tillgängliga. Flytta några prenumerationer att nya priserna kan fortfarande vara fördelaktigt beroende på antalet noder i sviten som din organisation har köpt. Men detta kräver noggrant övervägande.
 
-## <a name="changes-when-moving-to-the-new-pricing-model"></a>Ändringar när du flyttar till en ny prissättningsmodell
+## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Ändras när du flyttar till en ny prissättningsmodell
 
-Flytta en prenumeration till nya priserna ändrar prisnivån för varje logganalys till en ny nivå Per GB och flyttas alla (kallas ”pergb2018” i Azure Resource Manager). Flyttningen påverkar även Application Insights-resurser i Enterprise-plan för den grundläggande planen. Effekterna av att de visas på den uppskattning beskrivs ovan. 
+Flytta en prenumeration till nya priserna ändrar prisnivån för varje logganalys till en ny nivå Per GB och flyttas alla (kallas ”pergb2018” i Azure Resource Manager). Flyttningen påverkar även Application Insights-resurser i Enterprise-plan för den grundläggande planen. Uppskattningen se effekten av ändringarna.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Flytta till ny prissättningsmodell
 
-Om du har bestämt att införa nya priserna för en prenumeration, klickar du på den **priser vald modell** alternativet överst i den **användning och de uppskattade kostnaderna** sidan:
+Om du har valt att införa nya priserna för en prenumeration väljer du den **priser vald modell** alternativet överst i den **användning och de uppskattade kostnaderna** sidan:
 
-![Övervaka användningen en uppskattade kostnaderna i nya prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/006.png)
+![Övervaka användning och de uppskattade kostnaderna i nya prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/006.png)
 
-Öppnas den **priser vald modell** sidan visar en lista över alla prenumerationer som du tittade på tidigare sidan:
+Den **priser vald modell** öppnas. Den visar en lista över alla prenumerationer som du har visat på föregående sida:
 
 ![Priser för modellen val av skärmbild](./media/monitoring-usage-and-estimated-costs/007.png)
 
-Om du vill flytta en prenumeration till ny prissättningsmodell du bara markera kryssrutan och klicka på **spara**.  Du kan flytta tillbaka till äldre priserna på samma sätt. Kom ihåg att prenumerationen ägare eller deltagare behörigheter som krävs för att ändra priserna.
+Om du vill flytta en prenumeration till nya priserna, markera kryssrutan och välj sedan **spara**. Du kan flytta tillbaka till äldre priserna på samma sätt. Tänk på att prenumerationsägaren eller deltagarbehörighet krävs för att ändra prisnivå modellen.

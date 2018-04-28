@@ -1,11 +1,11 @@
 ---
-title: "Azure AD v2.0 .NET web app inloggning komma igång | Microsoft Docs"
-description: "Hur du skapar en .NET MVC-Webbapp som loggar användarna in med både personliga Account och arbets-eller skolkonton."
+title: Azure AD v2.0 .NET web app inloggning komma igång | Microsoft Docs
+description: Hur du skapar en .NET MVC-Webbapp som loggar användarna in med både personliga Account och arbets-eller skolkonton.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Lägga till inloggning till en .NET MVC-webbapp
 Du kan snabbt lägga till autentisering till dina webbappar med stöd för både personliga Microsoft-konton och arbets-eller skolkonton med v2.0-slutpunkten.  I ASP.NET-webbprogram, kan du göra detta med hjälp av Microsofts OWIN mellanprogram som ingår i .NET Framework 4.5.

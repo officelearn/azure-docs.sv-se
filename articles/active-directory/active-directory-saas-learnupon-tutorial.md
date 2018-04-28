@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med LearnUpon | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LearnUpon."
+title: 'Självstudier: Azure Active Directory-integrering med LearnUpon | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LearnUpon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 40e6df0db7651488642e774512f55fbd6805809a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2796f280b2f95504be5f9691098bff07fdd93393
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Självstudier: Azure Active Directory-integrering med LearnUpon
 
@@ -31,7 +31,7 @@ Integrera LearnUpon med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med LearnUpon, behöver du följande:
 
@@ -110,14 +110,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_url.png)
 
-    I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.learnupon.com/saml/consumer`
+    I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE] 
     > Observera att detta inte är det verkliga värdet. Du måste uppdatera det här värdet med det faktiska Reply-URL. Att hämta det här värdet Kontakta [LearnUpon supportteamet](https://www.learnupon.com/features/support/).
 
 
 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Raw)** och spara certifikatfilen på datorn.
+4. På den **SAML-signeringscertifikat** avsnittet, leta upp den **tumavtrycket** – detta kommer att läggas till dina LearnUpon SAML-inställningar.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 

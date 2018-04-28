@@ -1,13 +1,13 @@
 ---
-title: "Skaluppsättningar för virtuell dator i Azure kryptera diskar | Microsoft Docs"
-description: "Lär dig hur du krypterar anslutna diskar i skalningsuppsättningar i virtuella datorer."
+title: Skaluppsättningar för virtuell dator i Azure kryptera diskar | Microsoft Docs
+description: Lär dig hur du krypterar anslutna diskar i skalningsuppsättningar i virtuella datorer.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Kryptera OS och anslutna diskar i en skaluppsättning för virtuell dator
 Azure [skalningsuppsättningar i virtuella](/azure/virtual-machine-scale-sets/) stöd för Azure disk encryption (ADE).  Azure disk encryption kan aktiveras för Windows och Linux virtuella datorn anger att skydda och skydda skalan anger data vilande med industry standard krypteringsteknik. Mer information finns i Azure Disk Encryption för Windows och Linux-datorer.
@@ -42,7 +42,7 @@ Installera de senaste versionerna av [Azure Powershell](https://github.com/Azure
 Azure-diskkryptering för virtuella skala anger preview måste du registrera prenumerationen med följande PowerShell-kommandon: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

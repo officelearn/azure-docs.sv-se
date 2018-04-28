@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory direkt-autentisering
 
@@ -39,7 +39,7 @@ Du kan kombinera direkt-autentisering med den [sömlös enkel inloggning](active
 - *Bättre användarupplevelse*
   - Användare använda samma lösenord för att logga in på både lokala och molnbaserade program.
   - Användarna snabbare tala med IT supportavdelningen lösa lösenord-relaterade problem.
-  - Användarna kan utföra [självbetjäning lösenordshantering](../active-directory-passwords-overview.md) uppgifter i molnet.
+  - Användarna kan utföra [självbetjäning lösenordshantering](../authentication/active-directory-passwords-overview.md) uppgifter i molnet.
 - *Enkelt att distribuera och administrera*
   - Inget behov av komplexa lokala distributioner eller nätverkskonfigurationen.
   - Måste en förenklad agent vara installerad lokalt.
@@ -56,7 +56,7 @@ Du kan kombinera direkt-autentisering med den [sömlös enkel inloggning](active
 - Har stöd för användarinloggning i alla webbläsarbaserad webbprogram och i Microsoft Office-program som använder [modern autentisering](https://aka.ms/modernauthga).
 - Logga in användarnamn kan vara antingen lokalt Standardanvändarnamnet (`userPrincipalName`) eller ett annat attribut som konfigurerats i Azure AD Connect (kallas även `Alternate ID`).
 - Funktionen fungerar sömlöst med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner, till exempel Multi-Factor Authentication (MFA) för att skydda dina användare.
-- Integrerad med molnbaserad [självbetjäning lösenordshantering](../active-directory-passwords-overview.md), inklusive tillbakaskrivning av lösenord till lokala Active Directory och lösenordsskydd av förbjuda vanliga lösenord.
+- Integrerad med molnbaserad [självbetjäning lösenordshantering](../authentication/active-directory-passwords-overview.md), inklusive tillbakaskrivning av lösenord till lokala Active Directory och lösenordsskydd av förbjuda vanliga lösenord.
 - Miljöer med flera skogar stöds om det finns skogsförtroenden mellan AD-skogar och om routning är korrekt konfigurerad.
 - Det är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.
 - Den kan aktiveras [Azure AD Connect](active-directory-aadconnect.md).

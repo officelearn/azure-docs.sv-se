@@ -1,24 +1,24 @@
 ---
-title: "Skapa din första Azure-mikrotjänstapp i Linux med hjälp av C# | Microsoft Docs"
+title: Skapa din första Azure-mikrotjänstapp i Linux med hjälp av C# | Microsoft Docs
 description: Skapa och distribuera ett Service Fabric-program med C#
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 30ed7eb736b2012a0e9ed4c10d4bfd1aff35faac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
   ```bash
   sudo npm install -g yo
   ```
-3. Installera Service Fabric Yeo Java-programgeneratorn från NPM
+3. Installera Service Fabric Yeoman C#-appgenerator från NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp
@@ -105,7 +105,7 @@ Distributionen går till på samma sätt som för andra Service Fabric-program. 
 
 Du hittar parametrarna till de här kommandona i de genererade manifesten i programpaketet.
 
-När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på adressen [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
+När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.

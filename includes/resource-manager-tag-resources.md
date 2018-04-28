@@ -22,3 +22,10 @@
 7. Du kan välja den fästa taggen från instrumentpanelen för att visa resurserna med taggen.
 
      ![Fästa taggar på instrumentpanelen](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Att Massredigera tilldela taggar till flera resurser:
+1. Från en lista över resurser (t.ex. alla resurser, resursgrupp oveview);
+2. Markera kryssrutan för de resurser som du vill tilldela taggen.
+3. Välj alternativet för tilldela taggar.
+4. Lägg till namn och värden och väljer tilldela.

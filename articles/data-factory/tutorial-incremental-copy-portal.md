@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -299,7 +299,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**. 
     
     ![Kopieringsaktivitet – källa](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Välj **aktivitet för lagringsproceduren** i pipelinedesignen och byt namn till **StoredProceduretoWriteWatermarkActivity**. 
+24. Välj **Lagrad proceduraktivitet** i pipelinedesignern och ändra dess namn till **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Växla till fliken **SQL-konto** och välj *AzureSqlDatabaseLinkedService** som **Länkad tjänst**. 

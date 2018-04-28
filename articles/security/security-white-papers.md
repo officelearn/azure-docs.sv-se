@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-rapporter
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 |[Azure-nätverkssäkerhet](azure-network-security.md)|Ger en introduktion till mängd nätverkskontroller som du kan konfigurera för att förbättra säkerheten för de lösningar som du distribuerar i Azure. Fokus är kund-riktade säkerhetsåtgärder för nätverket.|
 |[Azure operativ säkerhet](azure-operational-security.md)|Ger en omfattande i kund-riktade operativa säkerhetstekniker och tjänster som är tillgängliga med Azure.|
 |[De tekniska funktionerna i Azure-säkerhet](azure-security-technical-capabilities.md)|Fokuserar på funktioner och funktionalitet som stöder Azure Storage, Azure SQL-databaser, virtuell dator i Azure-modell och verktyg och infrastruktur som hanterar allt.|
-|[Säkerhetsguide för Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |En översikt över alla säkerhetsfunktioner som kan användas med Azure Storage. Beskriver management plan säkerhet, plan datasäkerhet och kryptering i vila, kryptering i svarta och storage analytics.|
+|[Säkerhetsguide för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |En översikt över alla säkerhetsfunktioner som kan användas med Azure Storage. Beskriver management plan säkerhet, plan datasäkerhet och kryptering i vila, kryptering i svarta och storage analytics.|
 |[Dataklassificering för användning i molnet](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Det här nedladdningsbara dokumentet introducerar grunderna i dataklassificering och dess värde i kontexten för cloud computing. Organisationer bedöma cloud nytta computing för framtida användning eller organisationer som för närvarande använder molntjänster och söka metoder för att optimera data management kommer mest av det här dokumentet.|
 |[Styrning i Azure](governance-in-azure.md)|Beskriver de funktioner för säkerhet och styrning inbyggda i Azure. De huvudsakliga styrning problem som beskrivs är: principer, processer och procedurer implementering för din organisationsmål. säkerhet och kontinuerlig kompatibilitet med organisationens normer. övervakning och aviseringar.
 |[Isolera i det offentliga Azure-molnet](azure-isolation.md)|Beskriver hur Azure tillhandahåller isolering mot skadliga såväl som icke-skadliga användare. Fungerar som en guide för att bygga om molnlösningar genom att erbjuda olika alternativ för isolering arkitekter. Primära fokus är på säkerhetsåtgärder kund-riktade och försöker inte adressen SLA: er, prissättning modeller och DevOps överväganden.|

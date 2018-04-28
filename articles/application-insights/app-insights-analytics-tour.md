@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>En genomgång av Analytics i Application Insights
 [Analytics](app-insights-analytics.md) är kraftfull sökfunktionen i [Programinsikter](app-insights-overview.md). Dessa sidor beskrivs Log Analytics-frågespråket.
@@ -33,7 +33,7 @@ Låt oss ta ett gå igenom några enkla frågor för att komma igång.
 
 ![Öppna portal.azure.com, öppna Application Insights-resursen och klicka på Analytics.](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Ta](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): Visa n rader
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Ta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): Visa n rader
 Datapunkter som loggar användaren operations (vanligtvis HTTP-begäranden tas emot av ditt webbprogram) lagras i en tabell som kallas `requests`. Varje rad är en telemetri data togs emot från Application Insights SDK i din app.
 
 Låt oss börja med att undersöka några exempel raderna i tabellen:
@@ -68,7 +68,7 @@ Om du vill kombinera data från flera Application Insights-program kan använda 
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[TOP](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) och [sortera](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[TOP](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) och [sortera](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` är användbar för att få en snabb exempel på ett resultat, men den visar rader från tabellen i bokstavsordning. För att få en ordnad vy kan du använda `top` (till exempel) eller `sort` (över hela tabellen).
 
 Visa de första n raderna, sorterade efter en viss kolumn:
@@ -94,7 +94,7 @@ Resultatet blir detsamma, men körs det lite långsammare. (Du kan också skriva
 
 Kolumnrubrikerna i tabellvyn kan också användas för att sortera resultaten på skärmen. Men av kursen, om du har använt `take` eller `top` för att hämta bara en del av en tabell, klicka på kolumnrubriken kommer endast ordna poster som du har hämtat.
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Där](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrering på ett villkor
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Där](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): filtrering på ett villkor
 
 Låt oss se bara begäranden som returnerade en viss Resultatkod:
 
@@ -173,7 +173,7 @@ Andra exempel:
 [Datum och tider referens](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projektet](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): Välj, byta namn på och bearbetning kolumner
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Projektet](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): Välj, byta namn på och bearbetning kolumner
 Använd [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) att välja ut bara de kolumner som du vill:
 
 ```AIQL
@@ -207,7 +207,7 @@ Du kan också byta namn på kolumner och definiera nya:
 Uttryck kan innehålla alla vanliga operatorer (`+`, `-`,...), och det finns en uppsättning praktiska funktioner.
 
 ## <a name="extend"></a>Utöka
-Om du vill lägga till kolumner i befintliga använda [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+Om du vill lägga till kolumner i befintliga använda [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -216,7 +216,7 @@ Om du vill lägga till kolumner i befintliga använda [ `extend` ](https://docs.
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Med hjälp av [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) är mindre utförlig än [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) om du vill behålla de befintliga kolumnerna.
+Med hjälp av [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) är mindre utförlig än [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) om du vill behålla de befintliga kolumnerna.
 
 ### <a name="convert-to-local-time"></a>Omvandla till lokal tid
 
@@ -229,8 +229,7 @@ Tidsstämplar är alltid i UTC. Så om du är på oss Pacific kusten och det är
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Sammanfatta](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): aggregera grupper av rader
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Sammanfatta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): aggregera grupper av rader
 `Summarize` tillämpar en angiven *aggregeringsfunktionen* över grupper av rader.
 
 Till exempel överföringstiden för ditt webbprogram svara på en begäran rapporteras i fältet `duration`. Låt oss se genomsnittlig svarstid för alla begäranden:
@@ -268,7 +267,7 @@ Sammanfattningsvis itemCount därför ger en bra uppskattning av det ursprunglig
 
 Det finns också en `count()` aggregering (och ett antal åtgärden) i de fall där du verkligen vill räkna antalet rader i en grupp.
 
-Det finns en mängd [aggregeringsfunktioner](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+Det finns en mängd [aggregeringsfunktioner](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## <a name="charting-the-results"></a>Diagram resultaten
 ```AIQL
@@ -409,7 +408,7 @@ Den `where` satsen utesluter one-shot sessioner (sessionDuration == 0) och anger
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Percentiler](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Percentiler](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 Vilka områden för varaktigheter täcka olika delar av sessioner?
 
 Använda frågan ovan, men ersätt den sista raden:
@@ -470,7 +469,7 @@ Om du vill hitta undantag som rör en begäran som returnerade ett fel svar vi k
 Det är bra att använda `project` att välja bara de kolumner som vi behöver innan du utför kopplingen.
 I samma-satser vi Byt namn på kolumn för tidsstämpel.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Låt](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): tilldela en variabel ett resultat
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Låt](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): tilldela en variabel ett resultat
 
 Använd `let` att skilja ut delarna av uttrycket ovan. Resultatet är oförändrad:
 
@@ -541,7 +540,7 @@ Till exempel om appen innehåller:
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +553,6 @@ Så här extraherar värdena i Analytics:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Verifiera om en anpassad dimensionen är av en viss typ:
@@ -565,6 +563,18 @@ Verifiera om en anpassad dimensionen är av en viss typ:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Specialtecken
+
+För identifierare med specialtecken eller nyckelord i sina namn, måste du komma åt dem via `['` och `']` eller med hjälp av `["` och `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Refererar till identifieraren namngivningsregler](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Instrumentpaneler
 Du kan fästa resultaten till en instrumentpanel för att sätta samman alla dina viktigaste diagram och tabeller.

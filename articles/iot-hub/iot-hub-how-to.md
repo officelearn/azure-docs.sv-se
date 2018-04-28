@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT-hubb så | Microsoft Docs"
-description: "Som en utvecklare hur använder jag de olika funktionerna i IoT-hubb?"
+title: Azure IoT-hubb så | Microsoft Docs
+description: Som en utvecklare hur använder jag de olika funktionerna i IoT-hubb?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Hur du använder Azure IoT-hubb
 
@@ -52,7 +52,7 @@ Om du föredrar att lära dig om specifika IoT-hubb-funktioner genom att utföra
 
 - [Använd önskade egenskaper för att konfigurera enheter][lnk-properties-tutorial]. Den här kursen visar du hur för att använda enheten dubblas önskad och rapporterade egenskaper, till via fjärranslutning konfigurera din enhet.
 
-- [Använder enhet jobb för att initiera en firmware-uppdatering för enheten][lnk-jobs-tutorial]. Den här kursen visar hur du använder viktiga enhetshanteringsfunktioner, till exempel twins och direkt metoder. Du lär dig hur du använder dessa funktioner för fjärruppdatering enhetens inbyggda programvara.
+- [Använda hantering av enheter för att uppdatera enhetens inbyggda programvara][lnk-jobs-tutorial]. Den här kursen visar hur du använder viktiga enhetshanteringsfunktioner, till exempel twins och direkt metoder. Du lär dig hur du använder dessa funktioner för fjärruppdatering enhetens inbyggda programvara.
 
 - [Schema-och broadcast][lnk-schedule-tutorial]. Den här kursen visar hur du använder egenskaper och metoder som direkt för att interagera med flera enheter vid ett schemalagt klockslag.
 

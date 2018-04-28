@@ -1,8 +1,8 @@
 ---
-title: "Löpande export av telemetri från Application Insights | Microsoft Docs"
-description: "Exportera diagnostik och användningsdata till Microsoft Azure-lagring och ladda ned den därifrån."
+title: Löpande export av telemetri från Application Insights | Microsoft Docs
+description: Exportera diagnostik och användningsdata till Microsoft Azure-lagring och ladda ned den därifrån.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än standard kvarhållningsperioden? Eller bearbeta några särskilda sätt? Löpande Export är idealisk för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta data och skriva oavsett kod som du behöver för att bearbeta den.  
@@ -31,10 +31,11 @@ Innan du konfigurerar löpande export finns det några alternativ som du kanske 
 * [Analytics](app-insights-analytics.md) tillhandahåller kraftfulla frågespråk för telemetri. Det kan också exportera resultaten.
 * Om du tittar på [Utforska dina data i Power BI](app-insights-export-power-bi.md), kan du göra det utan att använda löpande Export.
 * Den [REST API för dataåtkomst](https://dev.applicationinsights.io/) kan du komma åt din telemetri programmässigt.
+* Du kan också använda installationsprogrammet [löpande export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 När löpande Export kopierar data till lagring (där den kan hålla för så länge du vill), är det fortfarande tillgängliga i Application Insights för de vanliga [kvarhållningsperioden](app-insights-data-retention-privacy.md).
 
-## <a name="setup"></a>Skapa en löpande Export
+## <a name="setup"></a> Skapa en löpande Export
 1. Öppna löpande Export i Application Insights-resurs för din app och välj **Lägg till**:
 
     ![Bläddra nedåt och klicka på löpande Export](./media/app-insights-export-telemetry/01-export.png)
@@ -71,7 +72,7 @@ Ta bort den om du vill stoppa exporten permanent. Gör det bort inte data från 
 ### <a name="cant-add-or-change-an-export"></a>Det går inte att lägga till eller ändra en export?
 * Om du vill lägga till eller ändra export, behöver du ägare, deltagare eller Application Insights deltagare åtkomsträttigheter. [Lär dig mer om roller][roles].
 
-## <a name="analyze"></a>Vilka händelser får du?
+## <a name="analyze"></a> Vilka händelser får du?
 Exporterade data är raw telemetri som vi får från programmet, förutom att vi lägga till lokaliseringsuppgifter som vi beräkna från klientens IP-adress.
 
 Data som har tagits bort av [provtagning](app-insights-sampling.md) ingår inte i den exporterade data.
@@ -85,7 +86,7 @@ Informationen omfattar även resultatet av alla [tillgänglighet webbtester](app
 >
 >
 
-## <a name="get"></a>Granska data
+## <a name="get"></a> Granska data
 Du kan inspektera lagring direkt på portalen. Klicka på **Bläddra**, Välj ditt lagringskonto och öppna sedan **behållare**.
 
 Om du vill granska Azure storage i Visual Studio, öppna **visa**, **Cloud Explorer**. (Om du inte har det menykommandot, måste du installera Azure SDK: öppna den **nytt projekt** dialogrutan Expandera Visual C# / molnet och välj **hämta Microsoft Azure SDK för .NET**.)
@@ -100,19 +101,19 @@ Här är formatet sökvägen:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-där
+Där
 
-* `blobCreationTimeUtc`tid då blob skapades i det interna är Förproduktion storage
-* `blobDeliveryTimeUtc`är den tid när blob kopieras till mållagringskontot export
+* `blobCreationTimeUtc` tid då blob skapades i det interna är Förproduktion storage
+* `blobDeliveryTimeUtc` är den tid när blob kopieras till mållagringskontot export
 
-## <a name="format"></a>Dataformatet
+## <a name="format"></a> Dataformatet
 * Varje blobb är en textfil som innehåller flera ' \n'-separated rader. Den innehåller telemetri bearbetas under en period av ungefär en halv minut.
 * Varje rad representerar en telemetri data, till exempel en vy för begäran eller sidan.
 * Varje rad är ett oformaterat JSON-dokument. Om du vill sitta och vårvädret den, öppna den i Visual Studio och väljer Redigera, Avancerat formatfilen:
 
 ![Visa telemetri med ett lämpligt verktyg](./media/app-insights-export-telemetry/06-json.png)
 
-Tidsvaraktigheter finns i tick, där 10 000 markeringar = 1ms. Till exempel visa dessa värden taget 1ms att skicka en begäran från webbläsaren, 3ms tar emot det och 1.8s att bearbeta en sida i webbläsaren:
+Tidsvaraktigheter finns i tick, där 10 000 markeringar = 1 ms. Till exempel värdena visa taget 1 ms att skicka en begäran från webbläsaren, 3 ms för att ta emot och 1.8 s för att bearbeta sida i webbläsaren:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},

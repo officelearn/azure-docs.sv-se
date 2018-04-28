@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d57c80e8e965e15d92736ec482247f02064f6009
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Självstudier: Azure Active Directory-integrering med OpsGenie
 
@@ -112,61 +112,41 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     I den **inloggnings-URL** textruta anger du URL: `https://app.opsgenie.com/auth/login`
 
-4. Klicka på **spara** knappen.
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-5. På den **OpsGenie Configuration** klickar du på **konfigurera OpsGenie** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML inloggning tjänst-URL för enkel** från avsnittet Snabbreferens.
+6. På den **OpsGenie Configuration** klickar du på **konfigurera OpsGenie** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML inloggning tjänst-URL för enkel** från avsnittet Snabbreferens.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
-
-6. Att generera den **URL för tjänstmetadata**, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
-     
-    d. Gå till egenskapssidan för **OpsGenie** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Öppna en annan instans för webbläsaren och sedan logga in på OpsGenie som administratör.
 
 8. Klicka på **inställningar**, och klicka sedan på den **enkel inloggning** fliken.
    
-    ![OpsGenie Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png)
+    ![OpsGenie enkel inloggning](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png)
 
 9. Välj för att aktivera enkel inloggning **aktiverad**.
    
-    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) 
+    ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) 
 
 10. I den **Provider** klickar du på den **Azure Active Directory** fliken.
    
-    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) 
+    ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) 
 
 11. På sidan för Azure Active Directory-dialogrutan utför du följande steg:
    
-    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
+    ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
     a. I den **SAML 2.0 Endpoint** textruta klistra in **inloggning på tjänst-URL för enkel**värde som du har kopierat från Azure-portalen.
     
-    b. I den **Url för tjänstmetadata:** textruta klistra in **URL för tjänstmetadata**värde som du har kopierat från Azure-portalen.
+    b. I den **Url för tjänstmetadata:** textruta klistra in **webbadress Federation Metadata** värde som du har kopierat från Azure-portalen.
     
     c. Klicka på **spara ändringar**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -207,13 +187,13 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. Gå till listan genom att klicka på **användaren** i den vänstra panelen.
    
-   ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
+   ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
 3. Klicka på **lägga till användare**.
 
 4. På den **Lägg till användare** dialogrutan, utför följande steg:
    
-   ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
+   ![OpsGenie inställningar](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
    
    a. I den **e-post** textruta e-postadressen sorts BrittaSimon åtgärdas i Azure Active Directory.
    

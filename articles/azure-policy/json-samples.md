@@ -1,26 +1,26 @@
 ---
-title: "Princip för mallen exempel | Microsoft Docs"
-description: "JSON-exempel för Azure-princip"
+title: Princip för mallen exempel | Microsoft Docs
+description: JSON-exempel för Azure-princip
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure-policy
 ms.devlang: na
 ms.topic: samples
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 01/17/2018
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="templates-for-azure-policy"></a>Mallar för Azure-princip
 
@@ -59,7 +59,7 @@ Följande tabell innehåller länkar till json-mallar för Azure-principen. De h
 | [Använd godkända undernät för Virtuellt nätverkskort](scripts/use-approved-subnet-vm-nics.md) | Kräver att nätverksgränssnitt använder ett godkända undernät. Du kan ange ID för godkända undernätet. |
 | [Använd godkända virtuella nätverk för Virtuella nätverkskort](scripts/use-approved-vnet-vm-nics.md) | Kräver att nätverksgränssnitt använder ett virtuellt nätverk som är godkända. Du kan ange ID för det virtuella nätverket som är godkända. |
 |**Taggar**||
-| [Fakturering taggar princip initiativ](scripts/billing-tags-policy-init.md) | Kräver angivna värden för kostnad center och produktens namn. Använder inbyggda principer för att tillämpa och tillämpa taggar som krävs. Du kan ange obligatoriska värden för taggar.  |
+| [Fakturering taggar princip initiativ](scripts/billing-tags-policy-init.md) | Kräver angivna värden för kostnad center och produktens namn. Använder inbyggda principer för att tillämpa och framtvinga taggar som krävs. Du anger de värden som krävs för taggar.  |
 | [Framtvinga taggen och dess värde på resursgrupper](scripts/enforce-tag-rg.md) | Kräver en tagg och värde i en resursgrupp. Du kan ange den obligatoriska taggnamn och värde.  |
 |**SQL**||
 | [Granska SQL DB-nivån granskning](scripts/audit-sql-db-audit-setting.md) | Granskningar SQL granskningsinställningar för databasen om dessa inställningar inte matchar en angiven nivå. Du kan ange ett värde som anger om granskningsinställningarna ska aktiveras eller inaktiveras.  |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Maskininlärning Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -47,7 +47,7 @@ Avvikelseidentifiering erbjudandet ingår användbara verktyg för att komma ig�
 För att kunna använda API: et, måste du distribuera den till din Azure-prenumeration där den kommer att finnas som en Azure Machine Learning-webbtjänst.  Du kan göra detta från den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två AzureML-webbtjänster (och deras relaterade resurser) till Azure-prenumeration - en för avvikelseidentifiering med säsongsvärdet identifiering och utan säsongsvärdet identifiering.  När distributionen är klar, kommer du att kunna hantera dina API: er från den [AzureML-webbtjänster](https://services.azureml.net/webservices/) sidan.  Du kommer att kunna hitta din slutpunkt platser, API-nycklar, samt kodexempel för att anropa API: et för den här sidan.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Skalning API: et
-Som standard har distributionen ett ledigt utveckling och testning faktureringsavtal som innehåller 1 000 transaktioner per månad och 2 beräkning timmar per månad.  Du kan uppgradera till en annan plan enligt dina behov.  Information om priser av olika planer finns [här](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) under ”priser för produktion webb-API”.
+Som standard har distributionen ett ledigt utveckling och testning faktureringsavtal som innehåller 1 000 transaktioner per månad och 2 beräkning timmar per månad.  Du kan uppgradera till en annan plan enligt dina behov.  Information om priser av olika planer finns [här](https://azure.microsoft.com/pricing/details/machine-learning/) under ”priser för produktion webb-API”.
 
 ## <a name="managing-aml-plans"></a>Hantera AML-planer 
 Du kan hantera faktureringsavtalet [här](https://services.azureml.net/plans/).  Namn för energischema kommer att baseras på resursgruppens namn du väljer när du distribuerar API: et plus en sträng som är unik för din prenumeration.  Instruktioner för hur du uppgraderar din plan finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) under avsnittet ”Hantera fakturering planer”.
@@ -122,8 +122,8 @@ Mer detaljerad information om dessa indataparametrar anges i tabellen nedan:
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Tidsserie beroende |
 | detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Både |Räkna upp |Båda toppar, korta |Både |
-| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |double |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |double |Ingen |3,25 5 (färre värden innebär mer känslig) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | zspikedetector.sensitivity |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Gäller inte |
@@ -161,14 +161,14 @@ Mer detaljerad information om dessa indataparametrar anges i tabellen nedan:
 | preprocess.replaceMissing |Värden som används för att sedan imputera data som saknas |lkv (senaste kända värdet) |Räkna upp |noll, lkv, medelvärde |Gäller inte |
 | detectors.historyWindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Tidsserie beroende |
 | detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Både |Räkna upp |Båda toppar, korta |Både |
-| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| negtrenddetector.sensitivity |Känslighet för negativa utvecklingen detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |double |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |double |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| negtrenddetector.sensitivity |Känslighet för negativa utvecklingen detektor. |3.25 |double |Ingen |3,25 5 (färre värden innebär mer känslig) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | zspikedetector.sensitivity |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | seasonality.enable |Om säsongsvärdet analys ska utföras |true |boolesk |SANT, FALSKT |Tidsserie beroende |
 | seasonality.numSeasonality |Maximalt antal periodiska cykler ska identifieras |1 |heltal |1, 2 |1-2 |
-| seasonality.transform |Om säsongsbaserade (och) trend komponenter bör tas bort innan du tillämpar avvikelseidentifiering |deseason |Räkna upp |none, deseason, deseasontrend |Gäller inte |
+| seasonality.transform |Om säsongsbaserade (och) trend komponenter bör tas bort innan du tillämpar avvikelseidentifiering |deseason |Räkna upp |Ingen, deseason deseasontrend |Gäller inte |
 | postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Gäller inte |
 
 ### <a name="output"></a>Resultat

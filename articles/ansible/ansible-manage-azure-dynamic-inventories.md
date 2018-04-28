@@ -1,6 +1,6 @@
 ---
-title: "Använd Ansible för att hantera dina Azure dynamiska inventeringar"
-description: "Lär dig hur du använder Ansible för att hantera dina Azure dynamiska inventeringar"
+title: Använd Ansible för att hantera dina Azure dynamiska inventeringar
+description: Lär dig hur du använder Ansible för att hantera dina Azure dynamiska inventeringar
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, dynamiska inventering
 author: tomarcher
@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f29f4ec64b79738cae2ad684610f4817739825a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använd Ansible för att hantera dina Azure dynamiska inventeringar
 Ansible kan användas för att hämta inventeringsinformation från olika källor (inklusive molnet källor, till exempel Azure) till en *dynamiska inventering*. I den här artikeln använder du den [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tagga en av de virtuella datorerna för att konfigurera en Ansible Azure dynamiska inventering som du skapar två virtuella datorer och installera Nginx på taggade virtuell dator.
@@ -27,7 +27,7 @@ Ansible kan användas för att hämta inventeringsinformation från olika källo
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Öppna [molnet Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+1. Öppna [molnet Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Skapa en Azure-resursgrupp för att lagra de virtuella datorerna i den här självstudiekursen.
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Netsuite | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite."
+title: 'Självstudier: Azure Active Directory-integrering med Netsuite | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Självstudier: Azure Active Directory-integrering med Netsuite
 
@@ -31,7 +31,7 @@ Integrera Netsuite med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Netsuite, behöver du följande:
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
-    I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+    I den **Reply URL** textruta Skriv en URL med följande mönster:   `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
     > Detta är inte verkliga värden. Uppdatera dessa värden med den faktiska Reply-URL. Kontakta [Netsuite supportteamet](http://www.netsuite.com/portal/services/support.shtml) att hämta dessa värden.
@@ -183,7 +183,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Klicka på **ny roll**.
 
-    d. Ange en **namn** för din nya rollen och välj den **enkel inloggning endast** kryssrutan.
+    d. Ange en **namn** för den nya rollen.
       
       ![Konfigurera enkel inloggning](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -193,11 +193,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
       
        ![Konfigurera enkel inloggning](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Välj **ställa in SAM Single Sign-on**, och klicka sedan på **Lägg till**.
+    g. Välj **ställa in SAML enkel inloggning**, och klicka sedan på **Lägg till**.
 
     h. Klicka på **Spara**.
 
-    Jag. Klicka på menyn övre navigeringsfältet **installationsprogrammet**, klicka på **installationsprogrammet**.
+    i. Klicka på menyn övre navigeringsfältet **installationsprogrammet**, klicka på **installationsprogrammet**.
       
        ![Konfigurera enkel inloggning](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
@@ -215,10 +215,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     m. Klicka på **Spara**.
     
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
@@ -290,7 +286,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-Om du vill testa dina inställningar för enkel inloggning, öppna åtkomstpanelen på [https://myapps.microsoft.com](https://myapps.microsoft.com/), logga in på kontot test och på **Netsuite**.
+Om du vill testa dina inställningar för enkel inloggning, öppna åtkomstpanelen på [ https://myapps.microsoft.com ](https://myapps.microsoft.com/), logga in på kontot test och på **Netsuite**.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

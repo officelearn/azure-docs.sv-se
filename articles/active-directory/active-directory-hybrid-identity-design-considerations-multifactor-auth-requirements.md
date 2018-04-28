@@ -1,11 +1,11 @@
 ---
-title: "Identitet hybridutformning - krav för multifaktorautentisering Azure | Microsoft Docs"
-description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet."
-documentationcenter: 
+title: Identitet hybridutformning - krav för multifaktorautentisering Azure | Microsoft Docs
+description: Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet.
+documentationcenter: ''
 services: active-directory
 author: femila
 manager: billmath
-editor: 
+editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Ange krav för multifaktorautentisering för dina hybrididentitetslösning
 I den här värld mobilitet, med användare som ansluter till data och program i molnet och från valfri enhet, blivit skydda den här informationen ytterst viktigt.  Varje dag är det en ny rubrik om ett intrång.  Även om det är inte säkert mot sådana överträdelser, ger multifaktorautentisering, ett ytterligare lager av säkerhet för att förhindra att dessa överträdelser.
 Börja med att utvärdera organisationer kraven för multifaktorautentisering. Det vill säga vad organisationen försöker skydda.  Denna utvärdering är viktigt att definiera de tekniska kraven för att installera och aktivera organisationer användare för multifaktorautentisering.
 
 > [!NOTE]
-> Om du inte är bekant med MFA och syfte, rekommenderas du läsa artikeln [vad är Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) före fortsätta läsa det här avsnittet.
+> Om du inte är bekant med MFA och syfte, rekommenderas du läsa artikeln [vad är Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) före fortsätta läsa det här avsnittet.
 > 
 > 
 

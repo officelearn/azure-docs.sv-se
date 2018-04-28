@@ -1,11 +1,11 @@
 ---
-title: "Konfigurationsinformation för nätverket för att arbeta med Expressroute"
-description: "Konfigurationsinformation för nätverket för att köra Apptjänstmiljöer i virtuella nätverk som är anslutna till en ExpressRoute-krets."
+title: Konfigurationsinformation för nätverket för att arbeta med Expressroute
+description: Konfigurationsinformation för nätverket för att köra Apptjänstmiljöer i virtuella nätverk som är anslutna till en ExpressRoute-krets.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: bb3e283e8a9327a9c66c8d8ded037cee5195ffc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fcb9fa9004039205fa49f63c50d5907a8029a079
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Information om nätverkskonfiguration för App Service-miljöer med ExpressRoute
 ## <a name="overview"></a>Översikt
@@ -127,7 +127,7 @@ Kom igång med Apptjänstmiljöer finns [introduktion till Apptjänst-miljö][In
 [UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[AzureDownloads]: http://azure.microsoft.com/en-us/downloads/ 
+[AzureDownloads]: http://azure.microsoft.com/downloads/ 
 [DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653  
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

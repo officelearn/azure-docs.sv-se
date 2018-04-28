@@ -1,6 +1,7 @@
-Du aktiverar inloggning till ditt program genom att först skapa en inloggningsprincip. Principen beskriver hur inloggningen går till för konsumenterna och innehållet i de token som programmet tar emot vid genomförda inloggningar.
+Om du vill aktivera bara logga in på ditt program kan du använda en **inloggning** princip. Den här principen beskriver de funktioner som kunder går igenom under inloggning och innehållet i token som ska ta emot programmet på lyckade inloggningar.
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)] Klicka på **Inloggningsprinciper**.
+[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
+Klicka på **inloggning principer**.
 
 Klicka på **+Lägg till** överst på bladet.
 

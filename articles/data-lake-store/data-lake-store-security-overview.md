@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Säkerhet i Azure Data Lake Store
 Många företag att utnyttja analyser av stordata för affärsinsikter hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras säkrare, med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Store är utformat för att uppfylla dessa säkerhetskrav. I den här artikeln lär dig mer om säkerhetsfunktioner för Data Lake Store, inklusive:
@@ -35,7 +35,7 @@ Autentisering är den process som användarens identitet har verifierats när an
 Varje Azure-prenumeration kan associeras med en instans av Azure Active Directory. Endast användare och tjänsteidentiteter som definieras i din Azure Active Directory-tjänst som har åtkomst till ditt Data Lake Store-konto med hjälp av Azure portal, kommandoradsverktyg, eller via klientprogram skapar organisationen med hjälp av Azure Data Lake Store SDK. Viktiga fördelar med att använda Azure Active Directory som en centraliserad åtkomstkontroll är:
 
 * Förenklad livscykel Identitetshantering. Identiteten för en användare eller en tjänst (en huvudnamn tjänstidentitet) kan skapas snabbt och snabbt återkallas genom att ta bort eller inaktiverar kontot i katalogen.
-* Multifaktorautentisering. [Multifaktorautentisering](../multi-factor-authentication/multi-factor-authentication.md) ger ett ytterligare lager av säkerhet för användarinloggningar och transaktioner.
+* Multifaktorautentisering. [Multifaktorautentisering](../active-directory/authentication/multi-factor-authentication.md) ger ett ytterligare lager av säkerhet för användarinloggningar och transaktioner.
 * Autentisering från en klient via en öppen standard protokoll, till exempel OAuth eller OpenID.
 * Federation med enterprise katalogtjänster och identitet molntjänstleverantörer.
 

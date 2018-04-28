@@ -8,7 +8,7 @@ Följande steg visar hur du ställer in en lösenordsautentisering för ett AD-p
 1. Logga in på Azure-prenumerationen med följande kommando:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla de Azure-prenumerationer som är kopplade till dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
@@ -17,7 +17,7 @@ Följande steg visar hur du ställer in en lösenordsautentisering för ett AD-p
     Get-AzureRMSubscription
     ```
 
-    Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandon för att hantera din IoT-hubb. Du kan använda prenumerationsnamn eller ID från utdata från det föregående kommandot:
+    Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandon för att hantera din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
 
     ```powershell
     Select-AzureRMSubscription `

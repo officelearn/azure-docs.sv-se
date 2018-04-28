@@ -1,25 +1,18 @@
 ---
-title: "Videor, exempel och självstudier i Azure Search | Microsoft Docs"
-description: "Central lista över alla videoklipp, prover, demonstrationer och självstudier som skapats för Azure Search, en värdbaserad molntjänst i MIcrosoft Azure."
-services: search
-documentationcenter: 
+title: Videor, exempel och självstudier i Azure Search | Microsoft Docs
+description: Central lista över alla videoklipp, prover, demonstrationer och självstudier som skapats för Azure Search, en värdbaserad molntjänst i Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure Search: kodexempel, demonstrationer, videor och självstudier
 Komma igång snabbare med följande videoklipp, demonstrationer, självstudier och exempelappar.
@@ -28,10 +21,10 @@ Komma igång snabbare med följande videoklipp, demonstrationer, självstudier o
 
 Börja här om du har använt Azure Search. Du kan granska alla resurser i ungefär en timme.
 
-| Rubrik | Beskrivning | Date |
+| Namn | Beskrivning | Date |
 |-------|-------------|------|
 | [Titta på den här videopresentation](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s introduktion till funktionerna, skapa en tjänst och frågor. | November 2016 |
-| [Skapa en tjänst](search-get-started-portal.md) | Steg för att ställa in Azure Search i portalen. | Februari 2017 |
+| [ Skapa en tjänst](search-get-started-portal.md) | Steg för att ställa in Azure Search i portalen. | Februari 2017 |
 | [Fråga en index](search-get-started-portal.md) | Skapa och fråga efter ett index med hjälp av inbyggda exempeldata. Verktyg i portalen är ett snabbt sätt att lära sig om frågetyper och söka parametrar. | Februari 2017 |
 | [Nästa steg:<br/> koden i .NET](search-howto-dotnet-sdk.md) | C# genomgången visar hur du ansluter, index- och fråga med Azure Search .NET-biblioteket. | November 2016 |
 | [Nästa steg:<br/> koden i REST](search-create-index-rest-api.md) | Granska REST-anrop och JSON-nyttolaster för att skapa ett Azure Search-index på alla plattformar och programmeringsspråket. | December 2016 |

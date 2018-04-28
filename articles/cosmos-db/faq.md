@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -114,7 +114,7 @@ PreferredLocations-värdet kan anges till någon Azure-regioner där Cosmos DB �
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Finns det något jag bör vara medveten om när du distribuerar data över hela världen via Azure-Datacenter? 
 Azure Cosmos-DB finns över alla Azure-regioner, som anges på den [Azure-regioner](https://azure.microsoft.com/regions/) sidan. Eftersom den är kärntjänsten har en Azure Cosmos DB förekomst varje ny datacenter. 
 
-Kom ihåg att Azure Cosmos DB respekterar statliga och offentliga moln när du ställer in en region. Som är om du skapar ett konto i en suveräna region, kan du replikera utanför suveräna regionen. På samma sätt kan du aktivera replikering till andra suveräna platser från ett utanför konto. 
+Kom ihåg att Azure Cosmos DB respekterar statliga och offentliga moln när du ställer in en region. Det vill säga om du skapar ett konto i en [suveräna region](https://azure.microsoft.com/global-infrastructure/), du kan inte replikeras utanför som [suveräna region](https://azure.microsoft.com/global-infrastructure/). På samma sätt kan du aktivera replikering till andra suveräna platser från ett utanför konto. 
 
 ## <a name="develop-against-the-sql-api"></a>Utveckla mot SQL-API
 
@@ -170,6 +170,9 @@ Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränd
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Är en lokal instans av SQL API tillgängligt?
 Ja. Den [Azure Cosmos DB emulatorn](local-emulator.md) ger en hög återgivning emulering av Cosmos-DB-tjänsten. Den stöder funktioner som är identisk med Azure Cosmos DB, inklusive stöd för att skapa och hämtning av JSON-dokument, etablering och skalning samlingar och köra lagrade procedurer och utlösare. Du kan utveckla och testa program med hjälp av Azure Cosmos DB-emulatorn och distribuera dem till Azure på global nivå genom att göra en enda konfigurationen av anslutningens slutpunkt för Azure Cosmos DB.
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Varför är långt flyttalsvärden i ett dokument avrundat från data explorer i portalen. 
+Detta är en begränsning i JavaScript. JavaScript använder dubbel precision flyttals formatera tal som anges i IEEE 754 och det på ett säkert sätt representera tal mellan-(253 - 1) och 253 – 1 (d.v.s. 9007199254740991) bara.
+
 ## <a name="develop-against-the-api-for-mongodb"></a>Utveckla mot API: et för MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Vad är Azure Cosmos DB API för MongoDB?
 Azure Cosmos DB API för MongoDB är ett lager för kompatibilitet som gör att program kan enkelt och transparent kommunicera med interna Azure Cosmos DB databasmotorn via befintliga, community-stödda Apache MongoDB APIs och drivrutiner. Utvecklare kan nu använda befintliga MongoDB verktyget kedjor och kunskaper för att bygga program som utnyttjar Azure Cosmos DB. Utvecklare nytta av de unika funktionerna i Azure Cosmos DB, bland annat underhåll för automatisk indexering, säkerhetskopiering, säkerhetskopieras ekonomiskt servicenivåavtal (SLA) och så vidare.
@@ -216,7 +219,7 @@ Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmo
 | REST-metoder | REST-slutpunkt/frågealternativet | Doc-URL: er | Förklaring |
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA OCH PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, analytics lagringskonfiguration och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
-| ALTERNATIV | /<table-resource-name> | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
+| ALTERNATIV | / < resurs-tabellnamn > | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
 | HÄMTA | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
 | HÄMTA OCH PLACERA | /mytable? comp = acl | [Hämta tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera delade åtkomst signaturer (SAS). Även om SAS stöds de ställs och hanteras annorlunda. |
 
@@ -228,8 +231,8 @@ För .NET SDK i synnerhet finns vissa klasser och metoder som Azure Cosmos DB in
 
 | Klass | Metoden stöds inte |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties* |
-|                  | \*ServiceStats* |
+| CloudTableClient | \*ServiceProperties * |
+|                  | \*ServiceStats * |
 | CloudTable | Behörighetsgruppbehörighet * |
 |            | GetPermissions * |
 | TableServiceContext | * (är den här klassen föråldrad faktiskt) |

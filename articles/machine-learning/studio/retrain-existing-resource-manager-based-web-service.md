@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Träna om en befintlig förutsägande webbtjänst
 Det här dokumentet beskriver omtränings för följande scenario:
@@ -26,8 +26,8 @@ Det här dokumentet beskriver omtränings för följande scenario:
 * Du har en träningsexperiment och en prediktivt experiment som du har distribuerat som en operationalized webbtjänst.
 * Du har nya data som du vill förutsägande webbtjänsten att utföra den bedömningen.
 
-> [!NOTE] 
-> Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md). 
+> [!NOTE]
+> Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md).
 
 Från och med din befintliga webbtjänsten och experiment, måste du följa dessa steg:
 
@@ -54,7 +54,7 @@ Så här uppdaterar experimentet utbildning:
 
 Kör experimentet.
 
-Därefter måste du distribuera utbildning experiment som en webbtjänst som producerar en tränad modell och utvärderingsresultat av modellen.  
+Därefter måste du distribuera utbildning experiment som en webbtjänst som producerar en tränad modell och utvärderingsresultat av modellen.
 
 Längst ned i arbetsytan för experimentet klickar du på **konfigurera Web Service**, och välj sedan **distribuera webbtjänsten [ny]**. Azure Machine Learning-webbtjänster portal öppnar den **distribuera webbtjänsten** sidan. Ange ett namn för webbtjänsten, väljer en betalningsplan och klicka sedan på **distribuera**. Du kan bara använda Batch Execution-metoden för att skapa tränade modeller.
 
@@ -84,7 +84,7 @@ Leta upp den **apikey** deklaration:
 I den **grundläggande förbrukning info** avsnitt i den **förbruka** , leta upp den primära nyckeln och kopiera den till den **apikey** deklaration.
 
 ### <a name="update-the-azure-storage-information"></a>Uppdatera Azure Storage-informationen
-Exempelkoden BES överför en fil från en lokal enhet (till exempel ”C:\temp\CensusIpnput.csv”) till Azure Storage, bearbetar den och skriver resultatet till Azure Storage.  
+Exempelkoden BES överför en fil från en lokal enhet (till exempel ”C:\temp\CensusIpnput.csv”) till Azure Storage, bearbetar den och skriver resultatet till Azure Storage.
 
 När du har kört experimentet bör resulterande arbetsflödet likna följande:
 
@@ -126,7 +126,7 @@ Följande är ett exempel på omtränings utdata:
 ## <a name="evaluate-the-retraining-results"></a>Utvärdera omtränings resultaten
 När du kör programmet innehåller utdata URL och delade signaturer åtkomsttoken som är nödvändiga för att komma åt utvärderingsresultaten.
 
-Du kan se prestandaresultat retrained modellen genom att kombinera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från resultatet för *output2* (som visas i föregående omtränings utdata avbildningen) och klistra in den fullständiga URL: en i webbläsarens adressfält.  
+Du kan se prestandaresultat retrained modellen genom att kombinera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från resultatet för *output2* (som visas i föregående omtränings utdata avbildningen) och klistra in den fullständiga URL: en i webbläsarens adressfält.
 
 Granska resultaten för att avgöra om den nyligen tränade modellen utför bra för att ersätta den befintliga versionen.
 
@@ -136,7 +136,7 @@ Kopiera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från resulta
 När du träna om en ny webbtjänst uppdatera förutsägande web service definition för att referera till den nya tränade modellen. Web service definition är en intern representation av den tränade modellen för webbtjänsten och kan inte ändras direkt. Kontrollera att du hämtar web service definition för experimentet förutsägbara och inte experimentet utbildning.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Logga in till Azure Resource Manager
-Du måste först logga in på ditt Azure-konto från PowerShell-miljö med hjälp av den [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+Du måste först logga in på ditt Azure-konto från PowerShell-miljö med hjälp av den [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## <a name="get-the-web-service-definition-object"></a>Hämta Web Service Definition objektet
 Hämta sedan Web Service Definition objektet genom att anropa den [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.

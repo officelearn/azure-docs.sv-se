@@ -1,8 +1,8 @@
 ---
-title: "Utveckla U-SQL-användardefinierade operatorer (UDO) | Microsoft Docs"
-description: "Lär dig mer om att utveckla användardefinierade operatorer som ska användas och återanvändas i Data Lake Analytics-jobb. "
+title: Utveckla U-SQL-användardefinierade operatorer (UDO) | Microsoft Docs
+description: 'Lär dig mer om att utveckla användardefinierade operatorer som ska användas och återanvändas i Data Lake Analytics-jobb. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: kfile
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla U-SQL-användardefinierade operatorer (UDO)
 Lär dig mer om att utveckla användardefinierade operatorer för att bearbeta data i ett U-SQL-jobb.
@@ -130,5 +130,5 @@ Instruktioner om hur du utvecklar allmänna sammansättningar för U-SQL finns i
 2. Expandera exempel utdata, och dubbelklicka sedan på **Drivers.csv**.
 
 ## <a name="see-also"></a>Se också
-* [Utöka U-SQL-uttryck med användar-kod](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [Utöka U-SQL-uttryck med användar-kod](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [Använd Data Lake-verktyg för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)

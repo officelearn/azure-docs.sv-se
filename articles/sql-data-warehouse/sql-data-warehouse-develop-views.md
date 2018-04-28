@@ -1,24 +1,23 @@
 ---
 title: Använda T-SQL-vyer i Azure SQL Data Warehouse | Microsoft Docs
-description: ccccc
-services: Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions.
+description: Tips för att använda T-SQL-vyer i Azure SQL Data Warehouse för utveckling av lösningar.
+services: sql-data-warehouse
 author: ronortloff
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/12/2018
+ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 249eaf07c5cd4ae918b6a95b1555f7198c7a23a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 28280a067e7008c20361e0a0041c81ba84e7f74c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Vyer i Azure SQL Data Warehouse
 Tips för att använda T-SQL-vyer i Azure SQL Data Warehouse för utveckling av lösningar. 
-
 
 ## <a name="why-use-views"></a>Varför använda vyer?
 Vyer kan användas i ett antal olika sätt att förbättra kvaliteten på din lösning.  Den här artikeln visar några exempel på hur du utöka din lösning med vyer, samt begränsningarna som måste beaktas.

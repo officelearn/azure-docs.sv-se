@@ -1,24 +1,23 @@
 ---
-title: "Skapa Azure webb- och arbetsroller roller för PHP | Microsoft Docs"
-description: "En guide för att skapa roller för PHP webb- och arbetsroller i ett Azure-molntjänst och konfigurera PHP-körning."
-services: 
+title: Skapa Azure webb- och arbetsroller roller för PHP
+description: En guide för att skapa roller för PHP webb- och arbetsroller i ett Azure-molntjänst och konfigurera PHP-körning.
+services: ''
 documentationcenter: php
-author: rmcmurray
-manager: erikre
-editor: 
+author: msangapu
+manager: cfowler
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/11/2018
+ms.author: msangapu
+ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Så här skapar du PHP webb- och arbetsroller roller
 ## <a name="overview"></a>Översikt

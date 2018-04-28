@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sngun
-ms.openlocfilehash: 6a9a60b9ba06e6a8fa9069e770613dc7d27de39f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 28b8f96e2f2ccc966e1832aebf854e4d7f7a04e4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en MongoDB API-konsolapp med Java och Azure Portal
 
@@ -49,9 +49,19 @@ Ge den nya databasen namnet **db** och den nya samlingen namnet **coll**.
 
 Nu ska vi klona en MongoDB API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna ett git-terminalfönster, till exempel git bash, och `cd` till en arbetskatalog.  
+1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
-2. Klona exempellagringsplatsen med följande kommando. 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till den nya mappen där du vill installera exempelappen.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
@@ -61,7 +71,9 @@ Nu ska vi klona en MongoDB API-app från github, ange anslutningssträngen och k
 
 ## <a name="review-the-code"></a>Granska koden
 
-Vi gör en snabb genomgång av vad som händer i appen. Öppna filen `Program.java` så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
+
+Följande kodfragment är alla hämtade från filen Program.java.
 
 * DocumentClient initieras.
 
@@ -115,10 +127,7 @@ Nu kan du använda [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongo
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg:
-
-1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

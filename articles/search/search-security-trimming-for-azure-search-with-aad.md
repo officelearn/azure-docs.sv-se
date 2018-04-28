@@ -1,24 +1,24 @@
 ---
-title: "Säkerhetsfilter för Azure Search resultat med hjälp av Active Directory identiteter trimning | Microsoft Docs"
-description: "Åtkomstkontroll på Azure Search-innehåll med hjälp av säkerhetsfilter och identiteter i Active Directory."
-services: search
+title: Säkerhetsfilter för Azure Search resultat med hjälp av Active Directory identiteter trimning | Microsoft Docs
+description: Åtkomstkontroll på Azure Search-innehåll med hjälp av säkerhetsfilter och identiteter i Active Directory.
 author: revitalbarletz
 manager: jlembicz
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att reducera Azure sökresultat med hjälp av Active Directory identiteter
 
 Den här artikeln visar hur du använder Azure Active Directory (AAD) säkerhet identiteter tillsammans med filter i Azure Search för att rensa sökresultat baserat på användarens gruppmedlemskap.
 
-Den här artikeln omfattar följande aktiviteter:
+Den här artikeln beskriver följande uppgifter:
 > [!div class="checklist"]
 - Skapa AAD grupper och användare
 - Koppla användaren till gruppen som du har skapat
@@ -29,7 +29,7 @@ Den här artikeln omfattar följande aktiviteter:
 >[!NOTE]
 > Exempel kodfragment i den här artikeln är skrivna i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt index i Azure Search måste ha en [informationssäkerhet](search-security-trimming-for-azure-search.md) till lagrar listan över gruppidentiteter har läsbehörighet till dokumentet. Den här användningsfall förutsätter en överensstämmelsen mellan ett skyddbara objekt (till exempel en persons universitet program) och ett fält för säkerhet som anger vem som har åtkomst till objektet (upptagande personal).
 
@@ -97,7 +97,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Steg 4: Cachelagra grupper identifierare
-Du kan också för att minska nätverkslatensen, kan du Cachelagra användargrupp kopplingarna så att när en sökbegäran grupper returneras från cache, spara en tur och RETUR till AAD. Du kan använda AAD Batch API () [https://developer.microsoft.com/graph/docs/concepts/json_batching] för att skicka en enskild Http-begäran med flera användare och skapa cachen.
+Du kan också för att minska nätverkslatensen, kan du Cachelagra användargrupp kopplingarna så att när en sökbegäran grupper returneras från cache, spara en tur och RETUR till AAD. Du kan använda (AAD Batch-API) [https://developer.microsoft.com/graph/docs/concepts/json_batching] att skicka en enskild Http-begäran med flera användare och skapa cachen.
 
 Microsoft Graph är utformat för att hantera ett stort antal begäranden. Microsoft Graph misslyckas om en överväldigande antal begäranden som görs på begäran med HTTP-statuskod 429. Mer information finns i [Microsoft Graph begränsning](https://developer.microsoft.com/graph/docs/concepts/throttling).
 
@@ -181,11 +181,11 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 Svaret innehåller en filtrerad lista över dokument som består av att användaren har behörighet att visa. Beroende på hur du skapar sökresultatsidan, kanske du vill inkludera visuella tips för att återspegla filtrerade resultatmängden.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 I den här genomgången du lärt dig tekniker för att filtrera dokument i Azure Search-resultaten med AAD inloggningar trimning resultaten av dokument som inte matchar det filter som tillhandahålls på begäran.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Identity-baserad åtkomstkontroll med Azure Search filter](search-security-trimming-for-azure-search.md)
 + [Filter i Azure Search](search-filters.md)

@@ -14,10 +14,10 @@ ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: c5e904c741c96808555718b0d90368e1bf770ecb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin diagram
 Har stöd för Azure Cosmos-DB [Apache Tinkerpop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Graph API för att skapa diagram entiteter och utför åtgärder i diagrammet frågan. Du kan använda Gremlin språk för att skapa diagram entiteter (formhörnen och kanter), ändra egenskaper i dessa enheter, utföra frågor och traversals och ta bort enheter. 
@@ -83,7 +83,7 @@ I följande tabell visas funktionerna TinkerPop som implementeras av Azure Cosmo
 | Vertex funktioner | Stöder RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Har stöd för att skapa, ändra och ta bort formhörnen |
 | Vertex egenskapen funktioner | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort vertex egenskaper |
 | Edge-funktioner | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Har stöd för att skapa, ändra och ta bort kanter |
-| Edge-egenskapen funktioner | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort gräns egenskaper |
+| Edge-egenskapen funktioner | Egenskaper för BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort gräns egenskaper |
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin kabelformat: GraphSON
 

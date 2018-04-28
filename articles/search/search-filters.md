@@ -1,24 +1,18 @@
 ---
 title: Filter i Azure Search | Microsoft Docs
-description: "Filtrera efter användaridentitet för säkerhet, språk, geografiska plats eller numeriska värden att minska sökresultat på frågorna i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure."
-services: search
-documentationcenter: 
+description: Filtrera efter användaridentitet för säkerhet, språk, geografiska plats eller numeriska värden att minska sökresultat på frågorna i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.openlocfilehash: 82da742e6512e0acc8278a255c7e4e0516eaa8cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="filters-in-azure-search"></a>Filter i Azure Search 
 
@@ -52,9 +46,9 @@ Följande: scenarier
 
 Om du vill ha en begränsad effekten i sökresultaten är filter inte ditt enda alternativ. Dessa alternativ kan vara en passar bättre, beroende på ditt mål:
 
- + `searchFields`Frågeparametern heller sökningen till specifika fält. Indexet innehåller olika fält för engelska och spanska beskrivningar, till exempel använda searchFields som mål vilka fält som ska användas för textsökning. 
+ + `searchFields` Frågeparametern heller sökningen till specifika fält. Indexet innehåller olika fält för engelska och spanska beskrivningar, till exempel använda searchFields som mål vilka fält som ska användas för textsökning. 
 
-+ `$select`används för att ange vilka fält som ska inkluderas i en resultatuppsättning, effektivt trimning svaret innan det skickas till det anropande programmet. Den här parametern inte förfina frågan eller minska mängden dokumentet, men om detaljerade svar är målet kan den här parametern är ett alternativ att överväga. 
++ `$select` används för att ange vilka fält som ska inkluderas i en resultatuppsättning, effektivt trimning svaret innan det skickas till det anropande programmet. Den här parametern inte förfina frågan eller minska mängden dokumentet, men om detaljerade svar är målet kan den här parametern är ett alternativ att överväga. 
 
 Mer information om antingen parametern finns [Sök dokument > begär > fråga parametrar](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
@@ -161,7 +155,7 @@ Textsträngar är skiftlägeskänsliga. Det finns inga nedre skiftläge alltid i
 
 | Metoden | Beskrivning | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som tillhandahåller en kommaavgränsad lista med strängar för ett visst fält. Strängarna utgör filtervillkoren som används på varje fält i omfånget för frågan. <br/><br/>`search.in(f, ‘a, b, c’)`motsvarar semantiskt `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, förutom att körs snabbare när listan över värden är stor.<br/><br/>Vi rekommenderar den **search.in** fungerar för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och för eventuella filter som består av rådata text som ska matchas på värdena i ett visst fält. Den här metoden är avsedd för hastighet. Du kan förvänta dig subsecond svarstid för hundratals till tusentals värden. När det finns ingen uttrycklig gräns för antalet objekt som du kan skicka till funktionen, ökar svarstiden i förhållande till antalet strängar som du anger. | 
+| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som tillhandahåller en kommaavgränsad lista med strängar för ett visst fält. Strängarna utgör filtervillkoren som används på varje fält i omfånget för frågan. <br/><br/>`search.in(f, ‘a, b, c’)` motsvarar semantiskt `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, förutom att körs snabbare när listan över värden är stor.<br/><br/>Vi rekommenderar den **search.in** fungerar för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och för eventuella filter som består av rådata text som ska matchas på värdena i ett visst fält. Den här metoden är avsedd för hastighet. Du kan förvänta dig subsecond svarstid för hundratals till tusentals värden. När det finns ingen uttrycklig gräns för antalet objekt som du kan skicka till funktionen, ökar svarstiden i förhållande till antalet strängar som du anger. | 
 | [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. Den gör att flera kombinationer av fråga filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng inom en större sträng. |  
 | [$filter = fältet operatorsträng](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Ett användardefinierat uttryck består av fält, operatorer och värden. | 
 
@@ -198,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Om du vill arbeta med fler exempel finns [syntaxen för OData-filtret uttryck > exempel](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Hur full textsökning fungerar i Azure Search](search-lucene-query-architecture.md)
 + [Sök dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

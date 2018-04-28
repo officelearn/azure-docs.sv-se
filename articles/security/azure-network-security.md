@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
@@ -124,7 +124,7 @@ Azure erbjuder intern namnmatchning för virtuella datorer och [molntjänster](h
 
 Du kan implementera flera Vnet i varje Azure [prenumeration](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) och Azure [region](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json). Varje virtuellt nätverk är isolerad från andra Vnet. För varje virtuellt nätverk kan du:
 
--   Ange en egen privata IP-adressutrymmet med hjälp av offentliga och privata (RFC 1918)-adresser. Azure tilldelar resurser anslutna till VNet en privat IP-adress från adressutrymmet kan du allokera.
+-   Ange ett anpassat privat IP-adressutrymme med offentliga och privata adresser (RFC 1918). Azure tilldelar resurser anslutna till VNet en privat IP-adress från adressutrymmet kan du allokera.
 
 -   Segmentera VNet i en eller flera undernät och tilldela en del av VNet-adressutrymmet för varje undernät.
 
@@ -160,17 +160,17 @@ Vnet kan anslutas till [lokalt](https://docs.microsoft.com/azure/virtual-network
 
 Du kan ansluta dina lokala nätverk till ett virtuellt nätverk med hjälp av följande alternativ:
 
-- **Punkt-till-plats virtuellt privat nätverk (VPN):** upprättas mellan en enda dator som är ansluten till nätverket och VNet. Den här anslutningen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs lite eller ingen ändringar i ditt befintliga nätverk. Anslutningen använder SSTP-protokollet för att tillhandahålla krypterad kommunikation via Internet mellan datorn och VNet. Svarstiden för en punkt-till-plats-VPN är oförutsägbart eftersom trafiken färdas genom Internet.
+- **Punkt-till-plats virtuellt privat nätverk (VPN):** upprättas mellan en enda dator som är ansluten till nätverket och VNet. Den här anslutningstypen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs få eller inga ändringar i ditt befintliga nätverk. Anslutningen använder SSTP-protokollet för att tillhandahålla krypterad kommunikation via Internet mellan datorn och VNet. Svarstiden för en punkt-till-plats-VPN är oförutsägbart eftersom trafiken färdas genom Internet.
 
 - **Plats-till-plats-VPN:** mellan din VPN-enhet och en Azure VPN-Gateway. Den här anslutningstypen gör att alla lokala resurser som du har behörighet att komma åt ett VNet. Anslutningen är en IPsec/IKE-VPN som tillhandahåller krypterad kommunikation via Internet mellan din lokala enhet och Azure VPN-gatewayen. Svarstiden för en plats-till-plats-anslutning är oförutsägbart eftersom trafiken färdas genom Internet.
 
-- **Azure ExpressRoute:** upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafik inte går över Internet. Svarstid för en ExpressRoute-anslutning är förutsägbar eftersom trafiken inte sker via Internet. Mer information om alla tidigare anslutningsalternativ den [anslutning Topologidiagram](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafik inte går över Internet. Svarstid för en ExpressRoute-anslutning är förutsägbar eftersom trafiken inte sker via Internet. Mer information om alla tidigare anslutningsalternativ den [anslutning Topologidiagram](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Trafikfiltrering**
 
 Molntjänster och Virtuella rollinstanser [nätverkstrafik](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) kan filtreras inkommande och utgående efter källans IP-adress och port, mål-IP-adress och port och protokoll.
 
-Du kan filtrera nätverkstrafiken mellan undernät med ett eller båda av följande alternativ:
+Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
 - **Nätverkssäkerhetsgrupper (NSG):** varje NSG kan innehålla flera inkommande och utgående säkerhetsregler som gör det möjligt att filtrera trafik genom käll- och IP-adress, port och protokoll. Du kan använda en NSG för varje nätverkskort på en virtuell dator. Du kan också använda en NSG till undernätet för ett nätverkskort eller andra Azure-resurs är ansluten till. Mer information om NSG: er i [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
@@ -180,7 +180,7 @@ Du kan filtrera nätverkstrafiken mellan undernät med ett eller båda av följa
 
 Alternativt kan du åsidosätta Azures standard routning genom att konfigurera egna vägar eller använda BGP-vägar via en nätverksgateway.
 
-Azure skapar routningstabeller som gör att resurser som är anslutna till alla undernät i alla virtuella nätverk för att kommunicera med varandra som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta standardvägar Azure skapar:
+Azure skapar routningstabeller som gör att resurser som är anslutna till alla undernät i alla virtuella nätverk för att kommunicera med varandra som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta de standardvägar som Azure skapar:
 
 - **Användardefinierade vägar:** kan du skapa anpassade routningstabeller med vägar som styr där trafik dirigeras till för varje undernät. Mer information om användardefinierade vägar i [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 

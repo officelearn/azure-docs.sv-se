@@ -1,12 +1,12 @@
 ---
-title: "Azure Storage för stacken: Skillnader och överväganden"
-description: "Förstå skillnaderna mellan Azure Stack Storage och Azure Storage, tillsammans med överväganden vid distribution av Azure-stacken."
+title: 'Azure Storage för stacken: Skillnader och överväganden'
+description: Förstå skillnaderna mellan Azure Stack Storage och Azure Storage, tillsammans med överväganden vid distribution av Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage för stacken: Skillnader och överväganden
 
@@ -47,6 +47,7 @@ Mjuk borttagning för blob-lagring|Förhandsversion|Stöds inte än.
 |Sidan blob maxstorlek|8 TB|1 TB
 |Sidstorleken för blob-sida|512 byte|4 KB
 |Tabell partitionsnyckel och rad nyckelstorlek|1 024 tecken (2 048 byte)|400 tecken (800 byte)
+|BLOB-ögonblicksbild|Max antal ögonblicksbilder av en blob är begränsad.|Max antal ögonblicksbilder av en blob är 1 000.|
 
 ### <a name="metrics"></a>Mått
 Det finns vissa skillnader i jämförelse med storage-mätvärden:
@@ -59,14 +60,14 @@ Följande versioner stöds med Azure Storage för Stack:
 Azure Storage services API: er:
 
 Uppdatera 1802 eller senare:
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Tidigare versioner:
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 
 Azure Storage services management API: er:
@@ -87,7 +88,7 @@ Följande klientbibliotek stöds med Azure Storage för Stack:
 | C++            | Från 2.4.0 till 3.1.0           | Nuget-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
 | PHP            | Från 0.15.0 till 1.0.0          | GitHub-versionen:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installera via Composer (Mer information finns nedan)                                                                                                                                                                                                                  | Anslutningsinställningar för sträng      |
 | Python         | Från 0.30.0 till 1.0.0          | GitHub-versionen:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Instansen tjänstedeklaration |
-| Ruby           | Från 0.12.1 till 1.0.1          | RubyGems paket:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |
+| Ruby           | Från 0.12.1 till 1.0.1          | RubyGems paket:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Kö: https://rubygems.org/gems/azure-storage-queue/<br>Tabell: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |
 
 ## <a name="next-steps"></a>Nästa steg
 

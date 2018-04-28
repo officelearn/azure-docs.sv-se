@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88254966c8aa16bf9fa182702c9c742d908851e1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Göra en virtuell datoravbildning tillgängligt i Azure-stacken
 
@@ -81,7 +81,7 @@ Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följa
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följa
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```
@@ -154,10 +154,10 @@ Remove-AzsVMImage `
 
 | Parameter | Beskrivning |
 | --- | --- |
-| **publisher** |Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
-| **offer** |Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
+| **Publisher** |Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
+| **Erbjudande** |Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
 | **sku** |SKU namn segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
-| **version** |Versionen av VM-avbildning som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
+| **Version** |Versionen av VM-avbildning som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
 | **osType** |OsType bildens måste vara antingen **Windows** eller **Linux**. |
 | **osDiskLocalPath** |Den lokala sökvägen till VHD som överförs som en VM-avbildning till Azure-stacken för OS-disken. |
 | **dataDiskLocalPaths** |En valfri matris med lokala sökvägar för datadiskar som kan överföras som en del av VM-avbildning. |
@@ -186,7 +186,7 @@ Bilder måste kunna refereras av en URI för Blob-lagring. Förbereda en Windows
 
    * När du överför den [Windows VM-avbildning](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), se till att ersätta den **inloggning till Azure** med den [konfigurera operatorn Stack Azure PowerShell-miljö](azure-stack-powershell-configure-admin.md) steg.  
 
-   * Anteckna Blob storage URI: N där du laddar upp avbildningen. URI för Blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*VHD.
+   * Anteckna Blob storage URI: N där du laddar upp avbildningen. URI för Blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
    * Om du vill göra blob anonymt tillgänglig, går du till kontot lagringsblobbehållare där VM-avbildning VHD överfördes. Välj **Blob**, och välj sedan **åtkomstprincip**. Alternativt kan kan du i stället Generera en signatur för delad åtkomst för behållaren och inkludera den som en del av blob-URI.
 

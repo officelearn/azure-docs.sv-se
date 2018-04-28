@@ -1,11 +1,11 @@
 ---
-title: "Registrera klienter för användning av spårning i Azure-stacken | Microsoft Docs"
-description: "Information om åtgärder som används för att hantera klient registreringar och hur klientanvändning spåras i Azure-stacken."
+title: Registrera klienter för användning av spårning i Azure-stacken | Microsoft Docs
+description: Information om åtgärder som används för att hantera klient registreringar och hur klientanvändning spåras i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera innehavare registrering i Azure-stacken
 
@@ -47,7 +47,7 @@ Observera att endast en Azure-prenumeration kan vara kopplad till en klient. Om 
 
 ### <a name="powershell"></a>PowerShell
 
-Använd cmdleten New-AzureRmResource för att uppdatera resursen för registrering. Logga in i Azure (`Login-AzureRMAccount`) med det konto som du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
+Använd cmdleten New-AzureRmResource för att uppdatera resursen för registrering. Logga in i Azure (`Add-AzureRmAccount`) med det konto som du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Hämta en lista över alla klienter som har lagts till en registrering.
 
 ### <a name="powershell"></a>PowerShell
 
-Använd cmdleten Get-AzureRmResovurce för att visa alla registrerade klienter. Logga in i Azure (`Login-AzureRMAccount`) med det konto som du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
+Använd cmdleten Get-AzureRmResovurce för att visa alla registrerade klienter. Logga in i Azure (`Add-AzureRmAccount`) med det konto som du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

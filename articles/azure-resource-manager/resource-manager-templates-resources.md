@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager mallstruktur och syntax | Microsoft Docs
-description: "Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med deklarativ JSON-syntax."
+title: Mallresurser med Azure Resource Manager-| Microsoft Docs
+description: Beskriver avsnittet resurser i Azure Resource Manager-mallar med deklarativ JSON-syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 74830a5220a75408398af2224204f8195ab27cc6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Avsnittet resurser i Azure Resource Manager-mallar
 
@@ -42,9 +42,9 @@ Du kan definiera resurser med följande struktur:
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -58,6 +58,21 @@ Du kan definiera resurser med följande struktur:
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -78,11 +93,14 @@ Du kan definiera resurser med följande struktur:
 | kopiera |Nej |Om mer än en instans krävs antalet resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurser som ska distribueras på samma gång. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. Om resurserna inte är beroende av varandra kan distribueras de parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i denna mall måste redan finnas. Undvik att lägga till onödiga beroenden som de långsamma distributionen och skapa Cirkelberoenden. Information om inställningen beroenden finns [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
 | properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris om du vill skapa flera instanser av en egenskap. |
+| SKU | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
+| typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange typen av Cosmos-Databsen ska skapa. |
+| plan | Nej | Vissa resurser kan värden som definierar planerar att distribuera. Du kan till exempel ange marketplace-avbildning för en virtuell dator. | 
 | resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts enligt schemat för den överordnade resursen. Den fullständigt kvalificerade typ av underordnade resursen innehåller resurstypen överordnade **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera sambandet. |
 
 ## <a name="resource-specific-values"></a>Resurs-specifika värden
 
-Den **apiVersion**, **typen**, och **egenskaper** är olika för varje resurstyp av. För att fastställa värden för dessa egenskaper finns [mallreferensen](/azure/templates/).
+Den **apiVersion**, **typen**, och **egenskaper** element är olika för varje resurstyp av. Den **sku**, **typ**, och **plan** element är tillgängliga för vissa typer av resurser, men inte alla. För att fastställa värden för dessa egenskaper finns [mallreferensen](/azure/templates/).
 
 ## <a name="resource-names"></a>Resursnamn
 I allmänhet kan arbeta du med tre typer av resursnamn i Resource Manager:

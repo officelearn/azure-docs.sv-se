@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Skapa mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ När du distribuerar ditt webbprogram, webbprogram på Linux, mobila serverdel o
 * Först distribuera en app till en plats och växla till produktion säkerställer att alla instanser av facket varmkörts innan som ska växlas över till produktion. Detta eliminerar avbrott när du distribuerar din app. Trafik för omdirigering är sömlös och inga begäranden tas bort på grund av byte åtgärder. Hela arbetsflödet kan automatiseras genom att konfigurera [automatiskt växla](#Auto-Swap) när före växlingen verifiering inte behövs.
 * Efter en växling har på plats med tidigare mellanlagrade appen nu tidigare produktionsprogrammet. Om ändringarna växlas över till produktionsplatsen är inte som du förväntade dig, kan du utföra samma växlingen direkt för att få igång ”senaste kända fungerande webbplatsen” tillbaka.
 
-Varje nivå för App Service-plan stöder olika antal distributionsplatser. Ta reda på antalet platser har stöd för din app-nivå, se [App Tjänstbegränsningarna](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
+Varje nivå för App Service-plan stöder olika antal distributionsplatser. Ta reda på antalet platser har stöd för din app-nivå, se [App Tjänstbegränsningarna](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
 
 * När appen har flera platser, kan du inte ändra nivån.
 * Skalning är inte tillgänglig för icke-produktoionsplats.
@@ -67,8 +67,8 @@ Det finns inget innehåll efter distributionen fack har skapats. Du kan distribu
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Konfigurationen för distributionsplatser
-När du klonar konfigurationen från en annan distributionsplats kan klonade konfigurationen redigeras. Dessutom följer vissa konfigurationselement innehållet över växlingsutrymme (inte port specifika) medan andra konfigurationselement behålls på samma plats efter en växling (specifika-port). Följande tabell visar den konfiguration som ändras när du växlar platser.
+## <a name="which-settings-are-swapped"></a>Vilka inställningar bytts?
+När du klonar konfigurationen från en annan distributionsplats kan klonade konfigurationen redigeras. Dessutom följer vissa konfigurationselement innehållet över växlingsutrymme (inte port specifika) medan andra konfigurationselement behålls på samma plats efter en växling (specifika-port). Följande tabell visar inställningarna som ändras när du växlar platser.
 
 **Inställningar som bytts**:
 
@@ -87,7 +87,7 @@ När du klonar konfigurationen från en annan distributionsplats kan klonade kon
 * Skalinställningarna
 * WebJobs planeringsprogram
 
-Om du vill konfigurera en app inställningen eller anslutningssträngen fästa till en plats (inte växlas) att komma åt den **programinställningar** bladet för en viss plats, välj sedan den **fack inställningen** för konfigurationen element som ska behålla på plats. Observera att markera en konfigurationselement som fack specifika har effekten av att etablera att element som inte kan över alla distributionsplatser som är associerat med appen.
+Om du vill konfigurera en app inställningen eller anslutningssträngen fästa till en plats (inte växlas) att komma åt den **programinställningar** bladet för en viss plats, välj sedan den **fack inställningen** för konfigurationen element som ska behålla på plats. Markera en konfigurationselement som fack specifika har effekten av att etablera att element som inte kan över alla distributionsplatser som är associerat med appen.
 
 ![Platsinställningar][SlotSettings]
 
@@ -123,13 +123,13 @@ För verksamhetskritiska arbetsbelastningar du vill validera som appen fungerar 
 
 När du använder den **växla med förhandsgranskning** alternativet (se [växla distributionsplatser](#Swap)), Apptjänst innehåller följande:
 
-- Behåller destinationsplatsen oförändrade så att befintliga arbetsbelastningen på platsen (t.ex. produktion) inte påverkas.
+- Behåller destinationsplatsen oförändrade så att befintliga arbetsbelastningen på platsen (till exempel produktion) inte påverkas.
 - Gäller konfigurationselement för destinationsplatsen till källplatsen, inklusive anslutningssträngar för plats-specifika och app-inställningar.
 - Startar om arbetsprocesser på källplatsen med hjälp av dessa ovannämnda konfigurationselement.
 - När du har slutfört växlingen: flyttar Förproduktion warmed upp källplatsen till destinationsplatsen. Destinationsplatsen flyttas till källplatsen som en manuell växling.
 - När du avbryter växlingen: tillämpa konfigurationselement för källplatsen till källplatsen.
 
-Du kan förhandsgranska exakt hur appen fungerar med konfigurationen på destinationsplatsen. När du har slutfört verifieringen slutföra växling i ett separat steg. Det här steget har lagts till fördelen med att källplatsen är redan varmkörts med önskad konfiguration och klienter får inte någon avbrottstid.  
+Du kan förhandsgranska exakt hur appen fungerar med konfigurationen på destinationsplatsen. När du har slutfört verifieringen slutföra växling i ett separat steg. Det här steget har lagts till fördelen med att källplatsen är redan varmkörts med önskad konfiguration och klienterna får inte några driftavbrott.  
 
 Prover för Azure PowerShell-cmdlets för flera fasen växlingen ingår i Azure PowerShell-cmdlets för distribution av platser.
 
@@ -146,7 +146,7 @@ Automatisk växling förenklar DevOps-scenarier där du vill distribuera appen m
 > [!NOTE]
 > Automatisk växling stöds inte i web apps i Linux.
 
-Det är enkelt att konfigurera automatisk växling för en plats. Följ stegen nedan:
+Det är enkelt att konfigurera automatisk växling för en plats. Följ de här stegen:
 
 1. I **Distributionsfack**, Välj en produktionsplatsen och välj **programinställningar** i resursbladet för den platsen.  
    
@@ -165,22 +165,32 @@ Det är enkelt att konfigurera automatisk växling för en plats. Följ stegen n
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Att återställa en produktionsapp efter växling
+## <a name="roll-back-a-production-app-after-swap"></a>Återställa en produktionsapp efter växling
 Om eventuella fel identifieras i produktion efter en växling fack återställa uttagen deras före växlingen tillstånd genom att byta samma två platser direkt.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Anpassade värmts före växlingen
-Vissa appar kan kräva anpassade värmts åtgärder. Den `applicationInitialization` konfigurationselementet i web.config kan du ange anpassade initieringen åtgärder kan utföras innan en begäran tas emot. Byte väntar på den här anpassade värmts ska slutföras. Här är ett exempel web.config-fragment.
+Vissa appar kan kräva anpassade värmts åtgärder. Den `applicationInitialization` konfigurationselementet i web.config kan du ange anpassade initieringen åtgärder kan utföras innan en begäran tas emot. Byte väntar på att den här anpassade värmts ska slutföras. Här är ett exempel web.config-fragment.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Övervaka förloppet för växlingsutrymme
+
+Ibland tar byte en stund att slutföra, till exempel när den app som växlas har en lång värmts tid. Du kan få mer information om växling åtgärder i den [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) i den [Azure-portalen](https://portal.azure.com).
+
+Välj i din appsida av portalen i det vänstra navigeringsfältet **aktivitetsloggen**.
+
+En växlingsåtgärd visas i loggen frågan som `Slotsswap`. Du kan expandera den och välja en katalogtjänstens eller fel om du vill se ytterligare information.
+
+![Aktivitetsloggen för fack växlingsutrymme](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Ta bort en distributionsplats
+## <a name="delete-a-deployment-slot"></a>Ta bort en distributionsplats
 Öppna bladet för den distributionsplatsen i bladet för en distributionsplats, klicka på **översikt** (standardsidan) och klicka på **ta bort** i kommandofältet.  
 
 ![Ta bort en distributionsplats][DeleteStagingSiteButton]
@@ -189,41 +199,47 @@ Vissa appar kan kräva anpassade värmts åtgärder. Den `applicationInitializat
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Azure PowerShell-cmdlets för distributionsplatser
+## <a name="automate-with-azure-powershell"></a>Automatisera med Azure PowerShell
+
 Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera Azure via Windows PowerShell, bland annat stöd för att hantera distributionsplatser i Azure App Service.
 
 * Information om att installera och konfigurera Azure PowerShell och på autentisera Azure PowerShell med Azure-prenumerationen finns [hur du installerar och konfigurerar Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Skapa en webbapp
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Skapa en distributionsplats
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Påbörja en växling med preview (flera fasen swap) och tillämpa mål platskonfigurationen på källplatsen
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Avbryta en väntande växling (swap med granskning) och återställa platskonfigurationen för källa
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Växla distributionsplatser
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Övervaka växlingen händelser i aktivitetsloggen
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,53 +253,14 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Azure-kommandoradsgränssnittet (Azure CLI)-kommandon för distributionsplatser
-Azure CLI tillhandahåller plattformsoberoende kommandon för att arbeta med Azure, inklusive stöd för att hantera App Service-distributionsplatser.
+## <a name="automate-with-azure-cli"></a>Automatisera med Azure CLI
 
-* Anvisningar för att installera och konfigurera Azure CLI, inklusive information om hur du ansluter Azure CLI på Azure-prenumerationen, finns [installera och konfigurera Azure CLI](../cli-install-nodejs.md).
-* Om du vill visa en lista med kommandon som är tillgängliga för Azure App Service i Azure CLI, anropa `azure site -h`.
-
-> [!NOTE] 
-> För [Azure CLI 2.0](https://github.com/Azure/azure-cli) kommandon för distributionsplatser, se [az webapp distributionsplatsen](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>Azure platslista
-Information om appar i den aktuella prenumerationen anropa **azure platslista**, som i följande exempel.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>Skapa Azure-webbplats
-Om du vill skapa en distributionsplats, anropa **azure plats skapa** och ange namnet på en befintlig app och namnet på fack för att skapa, som i följande exempel.
-
-`azure site create webappslotstest --slot staging`
-
-Om du vill aktivera källkontrollen för den nya platsen använder den **--git** enligt följande exempel.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>Azure site växlingsutrymme
-Använd för att göra uppdaterade distributionen fack produktionsprogrammet den **azure plats växlingen** kommando för att utföra en växlingsåtgärd, som i följande exempel. Produktionsprogrammet får inte någon stillestånd eller ska genomgå kallstart.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>ta bort Azure-webbplats
-Om du vill ta bort en distributionsplats som inte längre behövs, Använd den **ta bort azure site** kommandot, som i följande exempel.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Se hur en webbapp fungerar i praktiken. [Prova App Service](https://azure.microsoft.com/try/app-service/) omedelbart och skapa en tillfällig startapp – inget kreditkort behövs, inga åtaganden.
-> 
-> 
+För [Azure CLI](https://github.com/Azure/azure-cli) kommandon för distributionsplatser, se [az webapp distributionsplatsen](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Nästa steg
-[Azure App Service Web App – blockera Webbåtkomst till icke-produktion distributionsplatser](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[introduktion till App Service på Linux](../app-service/containers/app-service-linux-intro.md)
-[kostnadsfri utvärderingsversion av Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+[Azure App Service Web App – blockera Webbåtkomst till icke-produktion distributionsplatser](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Introduktion till App Service på Linux](../app-service/containers/app-service-linux-intro.md)  
+[Kostnadsfri utvärderingsversion av Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

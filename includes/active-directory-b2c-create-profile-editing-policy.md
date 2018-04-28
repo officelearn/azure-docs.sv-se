@@ -1,4 +1,4 @@
-Du aktiverar profilredigering i programmet genom att först skapa en princip för redigering av profil. Principen beskriver hur profilredigering går till för konsumenterna och innehållet i de token som programmet tar emot när åtgärden har slutförts.
+Om du vill aktivera profil redigering för ditt program kan du använda en **profil redigera** princip. Den här principen beskriver de funktioner som kunder går igenom under Redigera profil och innehållet i token som programmet ska ta emot genomförts på rätt sätt.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

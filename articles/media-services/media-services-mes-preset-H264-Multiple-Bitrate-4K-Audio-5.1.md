@@ -1,11 +1,11 @@
 ---
 title: 264 flera bithastighet 4K ljud 5.1 | Microsoft Docs
-description: "Avsnittet ger en översikt över de ** 264 Multibithastighet 4K ljud 5.1* * aktiviteten förinställda."
+description: Avsnittet ger en översikt över de **264 Multibithastighet 4K ljud 5.1** aktivitet förinställningen.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c8e0bd6a-86ef-481f-83fa-453bdb042df8
 ms.service: media-services
 ms.workload: media
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 10e5c41be42b73e3e1458adac9642547c182530b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fafaa24bece577952ec6c70c3f6bbd4d8ee5d7dd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Flera bithastighet 4K ljud 5.1
-`Media Encoder Standard`definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Det här avsnittet beskrivs de `H264 Multiple Bitrate 4K Audio 5.1` förinställda XML och JSON-format.  
   
  Den här förinställningen producerar en uppsättning 12 GOP-justerad MP4-filer, mellan 20000 kbit/s och 1 000 kbit/s och AAC 5.1 ljud. Detaljerad information om profilen bithastighet, provtagning hastighet, etc. Om detta förinställda ska undersöka XML- eller JSON som anges nedan. Förklaringar av vad varje element betyder och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Du bör få Premium reserverad enhet typ med 4K kodar. Mer information finns i [så skala kodning](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+>  Du bör få Premium reserverad enhet typ med 4K kodar. Mer information finns i [så skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
 >  När du ändrar den `Width` och `Height` värden i lager, se till att proportionerna förblir konsekvent. Till exempel: 1 920 x 1 080, minst 1 280 x 720, 1080 x 576 640 x 360. Du bör inte använda en blandning av proportioner, exempelvis: minst 1 280 x 720, 720 x 480, 640 x 360.  

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT-hubb Device etablering Service automatiskt-etablering för att registrera MXChip IoT DevKit med IoT-hubb
 
@@ -54,7 +54,7 @@ Att ansluta DevKit till enheten etablering service-instans som du skapade:
 4. Öppna Visual Studio Code, ansluta DevKit till din dator och öppna sedan den mapp som innehåller den kod som du har klonat.
 
 5. Öppna **DevKitDPS.ino**. Sök och Ersätt `[Global Device Endpoint]` och `[ID Scope]` med värden som du antecknade bara ned.
-  ![DP Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) du kan lämna den **registrationId** tomt. Genereras ett automatiskt baserat på MAC-adress och inbyggd programvara version. Om du vill anpassa registrerings-ID måste du bara använda alfanumeriska, gemener och bindestreck kombinationer med högst 128 tecken. Mer information finns i [hantera enhetsregistrering med Azure-portalen](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  ![DP Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) du kan lämna den **registrationId** tomt. Genereras ett automatiskt baserat på MAC-adress och inbyggd programvara version. Om du vill anpassa registrerings-ID måste du bara använda alfanumeriska, gemener och bindestreck kombinationer med högst 128 tecken. Mer information finns i [hantera enhetsregistrering med Azure-portalen](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. Använda snabb öppna i VS-kod (Windows: `Ctrl+P`, macOS: `Cmd+P`) och skriv *uppgift enheten överför* skapa och ladda upp koden till DevKit.
 

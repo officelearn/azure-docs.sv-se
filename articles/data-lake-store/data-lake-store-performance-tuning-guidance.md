@@ -1,8 +1,8 @@
 ---
-title: "Riktlinjer för prestandajustering Azure Data Lake Store | Microsoft Docs"
-description: "Riktlinjer för prestandajustering Azure Data Lake Store"
+title: Riktlinjer för prestandajustering Azure Data Lake Store | Microsoft Docs
+description: Riktlinjer för prestandajustering Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Justera Azure Data Lake Store för prestanda
 
@@ -42,7 +42,7 @@ Om du använder lokala datorer eller virtuella datorer i Azure, bör du noggrant
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Nätverksanslutningen till Azure Data Lake Store
 
-Nätverksanslutningen mellan datakällan och Azure Data Lake store kan ibland vara flaskhals. När datakällan är lokalt, Överväg att använda en dedikerad länk med [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . Om datakällan är i Azure, prestanda som är bäst när data är i samma Azure-region som Data Lake Store.
+Nätverksanslutningen mellan datakällan och Azure Data Lake store kan ibland vara flaskhals. När datakällan är lokalt, Överväg att använda en dedikerad länk med [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Om datakällan är i Azure, prestanda som är bäst när data är i samma Azure-region som Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurera Datapåfyllning verktyg för maximal parallellisering
 
@@ -142,6 +142,6 @@ Förutom de allmänna riktlinjerna ovan har olika parametrar som är tillgängli
 | [MapReduce på HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.Reduce.Memory</li><li>Mapreduce.Job.reduces</li></ul> |
 | [Storm på HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Antalet arbetsprocesser</li><li>Antalet instanser för kanal utförare</li><li>Antalet instanser av bulten utförare </li><li>Antalet aktiviteter som kanal</li><li>Antal bult uppgifter</li></ul>|
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 * [Kom igång med Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Microsoft Azure Active Directory enkel inloggning för JIRA."
+title: 'Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Microsoft Azure Active Directory enkel inloggning för JIRA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ade72311977d1a9f40eb0750afd9d906b883d6c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
 
 3. På den **Microsoft Azure Active Directory enkel inloggning JIRA domän och URL: er** avsnittet, utför följande steg:
@@ -128,29 +128,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Porten är valfria om det är en namngiven URL. Dessa värden tas emot under konfigurationen av Jira plugin som beskrivs senare i självstudierna.
- 
-4. Att generera den **Metadata** url, utför följande steg:
 
-    a. Klicka på **App registreringar**.
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
     
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\endpoint.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-msaadssojira-tutorial/tutorial_metadataurl.png)
      
-    d. Gå till egenskapssidan för **Microsoft Azure Active Directory enkel inloggning för JIRA** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` och kopiera det här värdet i anteckningar eftersom den används senare för konfiguration av plugin-programmet.
-
 5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
@@ -175,34 +159,30 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     > [!TIP]
     > Kontrollera att det finns bara ett certifikat mappas mot appen så att det finns inga fel vid matchning av metadata. Om det finns flera certifikat vid lösning av metadata, får administratör ett fel.
- 
-    a. I **URL för tjänstmetadata** klistra in den **URL för tjänstmetadata** genereras från Azure AD och klicka på den **lösa** knappen. Den läser IdP metadata-URL och fyller i informationen för fält.
+
+    a. I den **URL för tjänstmetadata** textruta klistra in **webbadress Federation Metadata** värde som du har kopierat från Azure-portalen och klicka på den **lösa** knappen. Den läser IdP metadata-URL och fyller i informationen för fält.
 
     b. Kopiera den **identifierare, svars-URL: en och URL: en inloggning** värden och klistra in dem i **identifierare, svars-URL: en och URL: en inloggning** textrutor respektive i **Microsoft Azure Active Directory enkel inloggning JIRA domän och URL: er** avsnitt på Azure-portalen.
 
     c. I **knappen inloggningsnamnet** skriver du namnet på knappen organisationen vill att användarna ska se på inloggningsskärmen.
 
-    d. I **SAML användar-ID platser** väljer du antingen **användar-ID är i elementet NameIdentifier i instruktionen ämne** eller **användar-ID är i ett element med attributet**.  Detta ID måste vara JIRA användar-id. Om det användar-id inte matchas sedan kan inte användare att logga in. 
+    d. I **SAML användar-ID platser** väljer du antingen **användar-ID är i elementet NameIdentifier i instruktionen ämne** eller **användar-ID är i ett element med attributet**.  Detta ID måste vara JIRA användar-id. Om det användar-id inte matchas sedan kan inte användare att logga in.
 
     > [!Note]
     > Standardplatsen för SAML användar-ID är namnidentifierare. Du kan ändra det till ett attributalternativ och ange lämpliga attributets namn.
 
-    e. Om du väljer **användar-ID är i ett element med attributet** alternativet i **attributnamn** textrutan anger du namnet på attributet som där användar-Id förväntas. 
+    e. Om du väljer **användar-ID är i ett element med attributet** alternativet i **attributnamn** textrutan anger du namnet på attributet som där användar-Id förväntas.
 
     f. Om du använder den federerade domänen (t.ex. AD FS etc.) med Azure AD, klicka på den **aktivera identifiering av startsfär** och konfigurera den **domännamn**.
     
     g. I **domännamn** anger du domännamnet här vid inloggningen ADFS-baserade.
 
-    h. Kontrollera **aktivera enkel inloggning ut** om du vill logga ut från Azure AD när en användare loggar från JIRA. 
+    h. Kontrollera **aktivera enkel inloggning ut** om du vill logga ut från Azure AD när en användare loggar från JIRA.
 
     i. Klicka på **spara** för att spara inställningarna.
 
     > [!NOTE]
     > Mer information om installation och felsökning finns [MS JIRA SSO Connector Admin guiden](ms-confluence-jira-plugin-adminguide.md) och det också [vanliga frågor och svar](ms-confluence-jira-plugin-faq.md) på förhand
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

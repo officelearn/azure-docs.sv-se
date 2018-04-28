@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använda Azure AD Graph API
 
@@ -29,16 +29,16 @@ För B2C-innehavare finns det två primära lägen kommunicera med Graph API.
 * För interaktiv, körs en gång aktiviteter, bör du fungerar som ett administratörskontot i B2C-klient när du utför uppgifterna. Det här läget kräver att en administratör att logga in med autentiseringsuppgifterna som administratören ska kunna utföra alla anrop för Graph API.
 * Du bör använda någon typ av tjänstkontot som att du förser med den behörighet som krävs för att utföra hanteringsuppgifter för automatisk, kontinuerlig uppgifter. Du kan göra detta genom att registrera ett program och autentisera till Azure AD i Azure AD. Detta görs med hjälp av en **program-ID** som använder den [OAuth 2.0 klientens autentiseringsuppgifter bevilja](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). I det här fallet fungerar programmet som själva inte som en användare att anropa Graph API.
 
-I den här artikeln diskuterar vi hur du utför automatiserade användningsfall. För att demonstrera, ska vi skapa en .NET 4.5 `B2CGraphClient` som utför användare skapa, läsa, uppdatera och ta bort CRUD-åtgärder. Klienten har en Windows-kommandoradsgränssnittet (CLI) som gör att du kan anropa olika metoder. Men är koden skriven ska bete sig i ett icke-interaktiv, automatiserat sätt.
+I den här artikeln får du lära dig hur du utför automatiserade användningsfall. Du skapar ett .NET 4.5 `B2CGraphClient` som utför användare skapa, läsa, uppdatera och ta bort CRUD-åtgärder. Klienten har en Windows-kommandoradsgränssnittet (CLI) som gör att du kan anropa olika metoder. Men är koden skriven ska bete sig i ett icke-interaktiv, automatiserat sätt.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Skaffa en Azure AD B2C-klient
-Innan du kan skapa program eller användare eller interagera med Azure AD alls, behöver du en Azure AD B2C-klient och ett globalt administratörskonto i klienten. Om du inte redan har en klient [Kom igång med Azure AD B2C](active-directory-b2c-get-started.md).
+Innan du kan skapa program eller användare, behöver du en Azure AD B2C-klient. Om du inte redan har en klient [Kom igång med Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Registrera ditt program i din klientorganisation
-När du har en B2C-klient, måste du registrera ditt program via den [Azure Portal](https://portal.azure.com).
+När du har en B2C-klient, måste du registrera programmet med hjälp av den [Azure-portalen](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Om du vill använda Graph-API med din B2C-klient, måste du registrera en dedikerad program med hjälp av allmänna *App registreringar* -menyn i Azure-portalen **inte** Azure AD B2C  *Program* menyn. Du kan inte återanvända de redan befintliga B2C-program som du har registrerat i Azure AD B2C *program* menyn.
+> Om du vill använda Graph-API med din B2C-klient, måste du registrera ett program som använder den *App registreringar* tjänsten i Azure-portalen **inte** Azure AD B2C *program*menyn. Följande instruktioner leder dig till rätt-menyn. Du kan inte återanvända befintliga B2C-program som du har registrerat i Azure AD B2C *program* menyn.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj din Azure AD B2C-klient genom att välja kontot i det övre högra hörnet på sidan.
@@ -47,7 +47,8 @@ När du har en B2C-klient, måste du registrera ditt program via den [Azure Port
     1. Välj **Webbapp / API** typen av program.    
     2. Ange **alla inloggnings-URL** (t.ex. https://B2CGraphAPI) eftersom den inte är relevanta för det här exemplet.  
 5. Det program kommer nu visas i listan med program, klickar du på den för att hämta den **program-ID** (även kallat klient-ID). Kopiera den som du behöver i ett senare avsnitt.
-6. I menyn inställningar klickar du på **nycklar** och lägga till en ny nyckel (även kallat klienthemlighet). Också kopiera den för användning i ett senare avsnitt.
+6. Klicka på menyn inställningar **nycklar**.
+7. I den **lösenord** avsnittet Ange viktiga beskrivning och välj en varaktighet, och klicka sedan på **spara**. Kopiera värdet för nyckeln (även kallat Klienthemlighet) för användning i ett senare avsnitt.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Konfigurera skapa, läsa och uppdatera behörigheterna för ditt program
 Nu måste du konfigurera ditt program att hämta alla behörigheter som krävs för att skapa, läsa, uppdatera och ta bort användare.

@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
 
+
 Den här artikeln är utformad för att hålla reda på de versioner som har släppts och att förstå om du behöver uppdatera till den senaste versionen eller inte.
 
 Det här är en lista över närliggande ämnen:
-
-
 
 Avsnitt |  Information
 --------- | --------- |
@@ -35,6 +34,21 @@ Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgra
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+Status 4/12/2018: publicerat endast för hämtning
+
+>[!NOTE]
+>Det här är en snabbkorrigering för Azure AD Connect
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect-synkronisering
+#### <a name="fixed-issues"></a>Fast problem
+Åtgärda ett problem där automatisk Azure instans identifiering för Kina klienter Ibland misslyckas.  
+
+### <a name="ad-fs-management"></a>AD FS-hantering
+#### <a name="fixed-issues"></a>Fast problem
+
+Det uppstod ett problem i den konfigurationen logik som skulle resultera i en ArgumentException om ”ett objekt med samma nyckel har redan lagts till”.  Detta innebär att alla försök åtgärder att misslyckas.
 
 ## <a name="117500"></a>1.1.750.0
 Status 2018-3/22: publicerat för automatisk uppgradering och nedladdning.
@@ -99,8 +113,7 @@ Status: Publicerat för att välja kunder
 Ändringarna tar hand om följande:
 1. Express-installationer
 2. Anpassade installationer med automatiskt skapa konto
-
-* Installationsprogrammet har ändrats så inte behöver SA privilegiet ren installation av Azure AD Connect
+3. Installationsprogrammet har ändrats så inte behöver SA privilegiet ren installation av Azure AD Connect
 
 * Lägga till ett nytt verktyg för felsökning av synkroniseringsproblem med för ett specifikt objekt. Den är tillgänglig under ”felsöka objektet ' synkroniseringsalternativ av Azure AD Connect guiden Felsöka ytterligare uppgift. För närvarande kontrollerar verktyget följande:
 
@@ -145,9 +158,9 @@ Tillåt    | SYSTEM                        | Fullständig behörighet         | 
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Domänadministratörer                 | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Administratörer                | Fullständig behörighet         | Det här objektet  |
-Tillåt    | Enterprise Domain Controllers | Lista innehåll        | Det här objektet  |
-Tillåt    | Enterprise Domain Controllers | Läsa alla egenskaper  | Det här objektet  |
-Tillåt    | Enterprise Domain Controllers | Läsbehörighet     | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Lista innehåll        | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Läsbehörighet     | Det här objektet  |
 Tillåt    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
 Tillåt    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
 Tillåt    | Autentiserade användare           | Läsbehörighet     | Det här objektet  |
@@ -501,7 +514,7 @@ CBool(
     * Användare: OnPremisesDistinguishedName
 
 * Skriptet ADSyncDomainJoinedComputerSync cmdlet har nu en ny valfri parameter med namnet AzureEnvironment. Parametern används för att ange vilken region som motsvarande Azure Active Directory-klienten finns i. Giltiga värden är:
-  * AzureCloud (default)
+  * AzureCloud (standard)
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment

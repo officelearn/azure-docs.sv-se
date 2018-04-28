@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure SQL
 
@@ -39,7 +39,7 @@ Den här kursen visar hur du använder en hanterad tjänst identitet (MSI) för 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Lägg sedan till den virtuella datorn MSI i gruppen.  Du måste MSI- **ObjectId**, som du kan hämta med hjälp av Azure PowerShell.  Hämta först [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Logga sedan in med `Login-AzureRmAccount`, och kör följande kommandon:
+Lägg sedan till den virtuella datorn MSI i gruppen.  Du måste MSI- **ObjectId**, som du kan hämta med hjälp av Azure PowerShell.  Hämta först [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Logga sedan in med `Connect-AzureRmAccount`, och kör följande kommandon:
 - Kontrollera din sessionskontexten är den önskade Azure-prenumerationen om du har flera.
 - Visa en lista med de tillgängliga resurserna i din Azure-prenumeration, kontrollera i rätt resursgrupp och VM-namn.
 - Hämta VM MSI-egenskaper, med lämpliga värden för `<RESOURCE-GROUP>` och `<VM-NAME>`.

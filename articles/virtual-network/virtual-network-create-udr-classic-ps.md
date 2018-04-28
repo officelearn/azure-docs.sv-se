@@ -3,7 +3,7 @@ title: Kontrollera routning i ett Azure Virtual Network - PowerShell - klassisk 
 description: Lär dig att styra routning i Vnet med PowerShell | Klassisk
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 870beabc3f238764e362dc99565f350a2329f4ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Kontrollera Routning och använder virtuella installationer (klassisk) med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Azure CLI](tutorial-create-route-table-cli.md)
-> * [Mall](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klassisk)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassisk)](virtual-network-create-udr-classic-cli.md)
 

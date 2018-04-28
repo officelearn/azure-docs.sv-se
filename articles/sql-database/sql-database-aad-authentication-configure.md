@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure Active Directory - SQL-autentisering | Microsoft Docs
-description: "Lär dig hur du ansluter till SQL-databas, hanterade-instans och SQL Data Warehouse med hjälp av Azure Active Directory-autentisering - när du har konfigurerat Azure AD."
+description: Lär dig hur du ansluter till SQL-databas, hanterade-instans och SQL Data Warehouse med hjälp av Azure Active Directory-autentisering - när du har konfigurerat Azure AD.
 services: sql-database
 author: GithubMirek
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utf�
 
    Sidan Active Directory visas alla medlemmar och grupper i Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. Visa en lista över stöds administratörer i [Azure AD-funktioner och begränsningar](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller bara för Azure-portalen och sprids inte till SQL Server.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![Lägg till administratör](./media/sql-database-aad-authentication/add-admin.png)
 
 8. Överst på sidan Active Directory, klickar du på **spara**.
 
@@ -100,7 +100,7 @@ Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utf�
 Följande två procedurer visar hur du etablerar en Azure Active Directory-administratör för din Azure SQL-server i Azure-portalen och med hjälp av PowerShell.
 
 ### <a name="azure-portal"></a>Azure Portal
-1. I den [Azure-portalen](https://portal.azure.com/), i det övre högra hörnet klickar du på anslutningen som du vill se en lista över möjliga Active kataloger. Välja rätt Active Directory som standard Azure AD. Det här steget länkar Prenumerationsassociationen med Active Directory med Azure SQL server att se till att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-server kan vara värd för Azure SQL Database eller Azure SQL Data Warehouse.)   
+1. I den [Azure-portalen](https://portal.azure.com/), i det övre högra hörnet klickar du på anslutningen som du vill se en lista över möjliga Active kataloger. Välja rätt Active Directory som standard Azure AD. Det här steget länkar prenumeration-associerade Active Directory med Azure SQL server att se till att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-server kan vara värd för Azure SQL Database eller Azure SQL Data Warehouse.)   
     ![Välj ad][8]   
     
 2. Välj i den vänstra banderollen **SQL-servrar**, Välj din **SQLServer**, och klicka sedan på den **SQL Server** klickar du på **Active Directory-administratör**.   
@@ -127,7 +127,7 @@ Om du vill köra PowerShell-cmdlets som du behöver ha Azure PowerShell installe
 
 Kör följande Azure PowerShell-kommandon för att etablera en Azure AD-administratör:
 
-* Add-AzureRmAccount
+* Ansluta AzureRmAccount
 * Select-AzureRmSubscription
 
 Cmdlets som används för att etablera och hantera Azure AD-administratör:
@@ -208,7 +208,7 @@ Du kan uppfylla dessa krav genom att:
 Azure Active Directory-autentisering kräver databasanvändare som ska skapas som oberoende databasanvändare. En innesluten databasanvändare baserat på en Azure AD-identitet är en databasanvändare som inte har en inloggning i master-databasen och som mappar till en identitet i Azure AD-katalog som är kopplad till databasen. Azure AD identity kan vara ett eget användarkonto eller en grupp. Läs mer om oberoende databasanvändare [innehöll databasanvändare-göra din databas bärbara](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av portalen. RBAC-roller sprids inte till SQL Server, SQL Database eller SQL Data Warehouse. Azure RBAC-roller som används för att hantera Azure-resurser och gäller inte för databasbehörighet. Till exempel den **SQL Server-deltagare** rollen ger inte behörighet att ansluta till SQL Database eller SQL Data Warehouse. Ha måste beviljats behörigheten åtkomst direkt i databasen med hjälp av Transact-SQL-uttryck.
+> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure portal. RBAC-roller sprids inte till SQL Server, SQL Database eller SQL Data Warehouse. Azure RBAC-roller som används för att hantera Azure-resurser och gäller inte för databasbehörighet. Till exempel den **SQL Server-deltagare** rollen ger inte behörighet att ansluta till SQL Database eller SQL Data Warehouse. Ha måste beviljats behörigheten åtkomst direkt i databasen med hjälp av Transact-SQL-uttryck.
 >
 
 Skapa en Azure AD-baserad finns databasanvändare (andra än serveradministratören som äger databasen), ansluta till databasen med en Azure AD-identitet som en användare med minst **ALTER ANY USER** behörighet. Sedan använder du följande Transact-SQL-syntax:
@@ -279,12 +279,13 @@ Använd den här metoden om du är inloggad Windows med Azure Active Directory-a
 
 ## <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
 
-Använd den här metoden när du ansluter med en Azure AD-huvudnamn med hjälp av Azure AD hanterade domän. Du kan också använda det för federerat konto utan åtkomst till domänen, till exempel när du arbetar via fjärranslutning.
+Använd den här metoden när du ansluter med en Azure AD-huvudnamn med hjälp av Azure AD hanterade domän. Du kan också använda den för federerade konton utan att ha tillgång till domänen, till exempel när du arbetar via fjärranslutning.
 
-Använd den här metoden om du är inloggad Windows med autentiseringsuppgifter från en domän som inte är federerat med Azure, eller när med Azure AD-autentisering med Azure AD utifrån första eller klient-domänen.
+Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för intern av externa Azure AD-användare.
+En intern användare är en explicit skapats i Azure AD och som autentiseras med hjälp av användarnamn och lösenord, när en federerad användare är en Windows-användare vars domän är federerat med Azure AD. Den andra metoden (med användare och lösenord) kan användas när en användare vill använda sina windows-autentiseringsuppgifter, men den lokala datorn inte är ansluten med domänen (d.v.s. med en RAS). I det här fallet en Windows-användare kan ange sina domänkontot och lösenord och kan autentiseras till SQL DB/DW med federerad autentiseringsuppgifter.
 
 1. Starta Management Studio eller Dataverktyg och i den **Anslut till Server** (eller **Anslut till databasmotor**) i dialogrutan den **autentisering** väljer  **Active Directory - lösenord**.
-2. I den **användarnamn** Skriv ditt Azure Active Directory-användarnamn i formatet  **username@domain.com** . Det här måste vara ett konto från Azure Active Directory eller ett konto från en domän federera med Azure Active Directory.
+2. I den **användarnamn** Skriv ditt Azure Active Directory-användarnamn i formatet **username@domain.com**. Det här måste vara ett konto från Azure Active Directory eller ett konto från en domän federera med Azure Active Directory.
 3. I den **lösenord** Skriv ditt användarnamn lösenord för Azure Active Directory-konto eller federerad domänkonto.
 
     ![Välj autentisering av AD-lösenord][12]

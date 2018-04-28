@@ -2,23 +2,19 @@
 title: Resurser för att utveckla ett data warehouse i Azure | Microsoft Docs
 description: Begrepp för utveckling, designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: barbkess
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: develop
-ms.date: 03/22/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: d9a272b2f43e080cd44b7179fe6f9dc55507142b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Designbeslut och kodning tekniker för SQL Data Warehouse
 Titta igenom dessa development artiklar för att bättre förstå viktiga designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
@@ -43,7 +39,7 @@ Dessa artiklar markera specifika kodning tekniker, tips och rekommendationer fö
 * [Etiketter][labels]
 * [vyer][views]
 * [temporära tabeller][temporary tables]
-* [dynamic SQL][dynamic SQL]
+* [Dynamisk SQL][dynamic SQL]
 * [slingor][looping]
 * [Gruppera efter alternativ][group by options]
 * [Variabeltilldelning][variable assignment]

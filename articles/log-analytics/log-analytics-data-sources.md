@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera datakällor i Azure Log Analytics | Microsoft Docs"
-description: "Datakällor definierar vilka data att logganalys samlar in från agenter och andra anslutna källor.  Den här artikeln beskriver konceptet med hur Log Analytics använder datakällor beskrivs detaljer om hur du konfigurerar dem och innehåller en översikt över olika datakällor."
+title: Konfigurera datakällor i Azure Log Analytics | Microsoft Docs
+description: Datakällor definierar vilka data att logganalys samlar in från agenter och andra anslutna källor.  Den här artikeln beskriver konceptet med hur Log Analytics använder datakällor beskrivs detaljer om hur du konfigurerar dem och innehåller en översikt över olika datakällor.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i logganalys
 Logganalys samlar in data från dina anslutna källor och lagrar den i logganalys-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i logganalys lagras som en uppsättning poster.  Varje datakälla skapar poster för en viss typ med varje typ med en egen uppsättning egenskaper.
@@ -29,16 +29,19 @@ Datakällor skiljer sig från [hanteringslösningar](log-analytics-add-solutions
 
 
 ## <a name="summary-of-data-sources"></a>Översikt över datakällor
-I följande tabell visas de datakällor som är tillgängliga i logganalys.  Varje har en länk till en separat artikel som tillhandahåller information för datakällan.
+I följande tabell visas de datakällor som är tillgängliga i logganalys.  Varje har en länk till en separat artikel som tillhandahåller information för datakällan.   Det ger också information på deras metod och frekvens för datainsamling till logganalys.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgänglig och att förstå de trafikflöde och anslutningen kraven för olika lösningar. Beskrivningar av kolumnerna som finns i [Data samling information om lösningar i Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| Datakälla | Händelsetyp | Beskrivning |
-|:--- |:--- |:--- |
-| [Anpassade loggar](log-analytics-data-sources-custom-logs.md) |\<Loggnamn\>_CL |Textfiler på Windows- eller Linux-agenter som innehåller informationen i felloggen. |
-| [Windows-händelseloggar](log-analytics-data-sources-windows-events.md) |Händelse |Händelser som samlas in från Windows-datorer händelsen inloggning. |
-| [Windows-prestandaräknare](log-analytics-data-sources-performance-counters.md) |Perf |Prestandaräknare som samlats in från Windows-datorer. |
-| [Linux-prestandaräknare](log-analytics-data-sources-performance-counters.md) |Perf |Prestandaräknare som samlats in från Linux-datorer. |
-| [IIS-loggar](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Internet Information Services loggar i W3C-format. |
-| [Syslog](log-analytics-data-sources-syslog.md) |Syslog |Syslog-händelser på Windows- eller Linux-datorer. |
+
+| Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Anpassade loggar](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | anländer |
+| [Anpassade loggar](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | anländer |
+| [IIS-loggar](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuter |
+| [Prestandaräknare](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Som planerat, minst 10 sekunder |
+| [Prestandaräknare](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Som planerat, minst 10 sekunder |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |från Azure storage: 10 minuter. från agent: anländer |
+| [Windows-händelseloggar](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | anländer |
+
 
 ## <a name="configuring-data-sources"></a>Konfigurera datakällor
 Du konfigurerar datakällor från den **Data** -menyn i logganalys **avancerade inställningar**.  Ingen konfiguration levereras till alla anslutna källor i arbetsytan.  Du kan för närvarande utesluta alla eventuella agenter från den här konfigurationen.

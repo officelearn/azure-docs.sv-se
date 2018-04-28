@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
-Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerad virtuell dator (VM). Stegen visas i procedurer använder Azure-portalen. Lagra säkerhetskopierade data för virtuell dator i en Recovery Services-valvet. Valvet innehåller säkerhetskopierade data för klassiska och Resource Manager-distribuerade virtuella datorer.
+Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerad virtuell dator (VM). Stegen visas i procedurer använder Azure-portalen. När du säkerhetskopierar en virtuell dator lagras säkerhetskopieringsdata eller återställningspunkter, i ett Recovery Services-valv. Recovery Services-valv lagra säkerhetskopierade data för klassiska och Resource Manager-distribuerade virtuella datorer.
 
 > [!NOTE]
 > Azure har två distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Innan du skyddar (eller säkerhetskopiera) en Resource Manager-distribuerad virtuell dator, kontrollera att dessa krav finns:
 
-* Skapa ett Recovery Services-valv (eller identifiera ett befintligt Recovery Services-valv) *i samma region som din virtuella dator*.
+* Skapa eller identifiera ett Recovery Services-valv *i samma region som din virtuella dator*.
 * Välj ett scenario, definiera princip för säkerhetskopiering och definiera objekt som ska skyddas.
-* Kontrollera installationen av en VM-agenten på den virtuella datorn.
+* Kontrollera installationen av VM-agenten (tillägg) på den virtuella datorn.
 * Kontrollera nätverksanslutningen.
 * För Linux virtuella datorer kan om du vill anpassa säkerhetskopiering programkonsekventa säkerhetskopior i miljön gör den [steg för att konfigurera inför ögonblicksbilden och efter ögonblickbild skript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,12 +51,12 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Säkerhetskopiera virtuella datorer med fler än 16 datadiskar stöds inte.
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypterade via Linux Unified nyckeln installationsprogrammet (LUKS)-kryptering stöds inte.
-* Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller konfiguration för klusterdelade volymer (CSV) eller en skalbar filserver. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbilden. Azure-säkerhetskopiering har inte stöd för flera Virtuella datorer. 
+* Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller konfiguration för klusterdelade volymer (CSV) eller en skalbar filserver. Om klar förväntas av CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbilden. Azure-säkerhetskopiering har inte stöd för flera Virtuella datorer. 
 * Säkerhetskopierade data innehåller monterade nätverksenheter kopplad till en virtuell dator.
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Återställningen misslyckas om du försöker återställa den virtuella datorn när den virtuella datorn finns.
 * Cross-region säkerhetskopiera och Återställ stöds inte.
-* Säkerhetskopiera och återställa virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk, stöds inte för kunder på den gamla säkerhetskopiering VM-stacken. 
 * När du konfigurerar tillbaka in, kontrollera att den **brandväggar och virtuella nätverk** storage-konto tillåter åtkomst från alla nätverk.
+* Valda nätverk, när du konfigurerar brandväggen och inställningarna för virtuella nätverk för ditt lagringskonto, Välj **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot** som undantag till Azure Backup-tjänsten för att aktivera åtkomst till nätverket begränsad lagringskontot.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga områden av Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds.) Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
 * Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer i [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapats via återställning arbetsflödet i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -167,7 +167,7 @@ Innan du registrerar en virtuell dator med ett Recovery Services-valv, köra ide
 
    ![Knappen ”Aktivera säkerhetskopiering”](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-När du har aktiverat säkerhetskopieringen, körs din princip för säkerhetskopiering enligt schema. Om du vill generera en på-begäran jobbet att säkerhetskopiera virtuella datorer nu se [utlösa säkerhetskopieringsjobbet](./backup-azure-arm-vms.md#triggering-the-backup-job).
+När du har aktiverat säkerhetskopieringen, körs din princip för säkerhetskopiering enligt schema. Om du vill generera en på-begäran jobbet att säkerhetskopiera virtuella datorer nu se [utlösa säkerhetskopieringsjobbet](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 Om du har problem med att registrera den virtuella datorn finns i följande information på VM-agenten installeras och nätverksanslutningen. Förmodligen behöver inte du följande information om du skyddar virtuella datorer som skapats i Azure. Men om du har migrerat virtuella datorer till Azure, se till att du installerade VM-agenten och att den virtuella datorn kan kommunicera med det virtuella nätverket.
 
@@ -208,6 +208,10 @@ Godkända Azure-datacenter IP-adressintervall, finns det [Azure-webbplatsen](htt
 Du kan tillåta anslutningar till lagring av specifik region med hjälp av [tjänsten taggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till lagringskontot har högre prioritet än den regel som blockerar Internetåtkomst. 
 
 ![NSG med lagring taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Följande videoklipp vägleder dig igenom de steg för steg om hur du konfigurerar tjänsten taggar: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > Storage service-taggar är bara tillgängliga i vissa regioner och finns i förhandsgranskningen. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).

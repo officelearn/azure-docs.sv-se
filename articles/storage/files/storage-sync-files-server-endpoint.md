@@ -1,8 +1,8 @@
 ---
-title: "Lägg till/ta bort en slutpunkt för server filsynkronisering i Azure (förhandsversion) | Microsoft Docs"
-description: "Lär dig vad du bör tänka på när du planerar för distribution av en Azure-filer."
+title: Lägg till/ta bort en slutpunkt för server filsynkronisering i Azure (förhandsversion) | Microsoft Docs
+description: Lär dig vad du bör tänka på när du planerar för distribution av en Azure-filer.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Lägg till/ta bort en Azure-filsynkronisering (förhandsgranskning) serverslutpunkt
 Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -49,7 +49,7 @@ Följande information krävs under **Lägg till serverslutpunkt**:
 Välj **skapa** att lägga till Serverslutpunkten. Filerna i ett namnområde för en grupp för synkronisering kommer nu att synkroniseras. 
 
 ## <a name="remove-a-server-endpoint"></a>Ta bort en serverslutpunkt för
-När aktiverat för en serverslutpunkt för, molnet lagringsnivåer kommer *nivå* filer till Azure-filresurser. Detta gör att lokala filresurser för att fungera som en cache i stället för en fullständig kopia av datauppsättningen, för att effektivt utnyttja utrymme på filservern. Men om en serverslutpunkt har tagits bort med nivåindelade filer fortfarande lokalt på servern, blir filerna tillgängliga. Därför måste fortsatt åtkomst till filen önskas, du återkalla alla nivåindelade filer från Azure-filer innan du fortsätter med avregistrering. 
+När aktiverat för en serverslutpunkt för, molnet lagringsnivåer kommer *nivå* filer till Azure-filresurser. Detta gör att lokala filresurser för att fungera som en cache i stället för en fullständig kopia av datauppsättningen, för att effektivt utnyttja utrymme på filservern. Dock **om en serverslutpunkt har tagits bort med nivåindelade filer fortfarande lokalt på servern, filerna blir otillgängliga**. Därför måste fortsatt åtkomst till filen önskas på lokala filresurser, du återkalla alla nivåindelade filer från Azure-filer innan du fortsätter med att ta bort Serverslutpunkten. 
 
 Detta kan göras med hjälp av PowerShell-cmdlet enligt nedan:
 

@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -46,10 +46,24 @@ Så skapar du en Apptjänst mobilserverdel antingen den [Snabbstartsguide] [ 3] 
 
 I den *Kom igång* bladet under **skapa en tabell API**, Välj **C#** som din **språk för serverdel**. Klicka på **hämta**extrahera de komprimerade projektfilerna till den lokala datorn och öppna lösningen i Visual Studio.
 
-### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>Skapa en .NET-serverdel med hjälp av Visual Studio 2013 och Visual Studio 2015
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>Skapa en .NET-serverdel med hjälp av Visual Studio 2017
+
+Installera Azure arbetsbelastningen via Visual Studio-installationsprogrammet för att publicera till Azure Mobile Apps-projekt från Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
+
+1. Öppna den **nytt projekt** dialogrutan (från **filen** > **ny** > **projekt...** ).
+2. Expandera **Visual C#** och välj **Web**.
+3. Välj **ASP.NET-webbprogram (.NET Framework)**.
+4. Fyll i projektets namn. Klicka sedan på **OK**.
+5. Välj **Azure Mobile App** från listan över mallar.
+6. Klicka på **OK** att skapa lösningen.
+7. Högerklicka på projektet i den **Solution Explorer** och välj **publicera...** , Välj **Apptjänst** som publishing mål.
+8. Följ anvisningarna för att autentisera och välj en ny eller befintlig Azure App Service att publicera.
+
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>Skapa en .NET-serverdel med hjälp av Visual Studio 2015
+
 Installera den [Azure SDK för .NET] [ 4] (version 2.9.0 eller senare) att skapa ett Azure Mobile Apps-projekt i Visual Studio. När du har installerat SDK kan du skapa ett ASP.NET-program med följande steg:
 
-1. Öppna den **nytt projekt** dialogrutan (från *filen* > **ny** > **projekt...** ).
+1. Öppna den **nytt projekt** dialogrutan (från **filen** > **ny** > **projekt...** ).
 2. Expandera **mallar** > **Visual C#**, och välj **Web**.
 3. Välj **ASP.NET-webbprogram**.
 4. Fyll i projektets namn. Klicka sedan på **OK**.

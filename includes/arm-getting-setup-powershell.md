@@ -26,7 +26,7 @@ Om du inte redan har en Azure-prenumeration, kan du aktivera din [MSDN-prenumera
 
 Öppna ett Azure PowerShell-Kommandotolken och logga in på Azure med det här kommandot.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Om du har flera Azure-prenumerationer, kan du visa din Azure-prenumerationer med det här kommandot.
 

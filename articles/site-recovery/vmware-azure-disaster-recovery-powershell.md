@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 2a0f183770a07cd05963e88c672452cfeb80e567
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell
 
@@ -42,10 +42,10 @@ Innan du börjar:
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Logga in på Microsoft Azure-prenumerationen
 
-Logga in på Azure-prenumerationen med cmdlet Login-AzureRmAccount
+Logga in på Azure-prenumerationen med cmdlet Connect-AzureRmAccount
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Välj den Azure-prenumeration du vill replikera dina virtuella datorer i VMware till. Använd cmdleten Get-AzureRmSubscription för att hämta listan över Azure-prenumerationer som du har åtkomst till. Välj den Azure-prenumerationen att arbeta med hjälp av cmdleten Select-AzureRmSubscription.
 
@@ -345,9 +345,9 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 Replikera nu följande virtuella datorer med hjälp av inställningarna i den här tabellen
 
 
-|Virtuell dator  |Process Server        |Lagringskonto              |Logga Storage-konto  |Princip           |Konto för installation av Mobilitetstjänsten service|Målresursgruppen  | Mål virtuellt nätverk  |Mål-undernät  |
+|Virtuell dator  |Processervern        |Lagringskonto              |Logga Storage-konto  |Princip           |Konto för installation av Mobilitetstjänsten service|Målresursgruppen  | Mål virtuellt nätverk  |Mål-undernät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |
+|Win2K12VM1       |ScaleOut-process|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Undernät 1       |   
 

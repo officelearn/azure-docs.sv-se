@@ -1,8 +1,8 @@
 ---
-title: "Skydda privilegierad åtkomst i Azure AD | Microsoft Docs"
-description: "Ett avsnitt som förklarar strategier för att skydda privilegierad åtkomst i Azure, Azure Active Directory och Microsoft Online Services."
+title: Skydda privilegierad åtkomst i Azure AD | Microsoft Docs
+description: Ett avsnitt som förklarar strategier för att skydda privilegierad åtkomst i Azure, Azure Active Directory och Microsoft Online Services.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Skydda privilegierad åtkomst i Azure AD
 Skydda privilegierad åtkomst är ett viktigt första steg för att skydda företagets tillgångar i en modern organisation. Privilegierade konton är konton som administrera och hantera IT-system. Cyber angripare mål dessa konton för att få åtkomst till företagets data och system. Om du vill skydda privilegierad åtkomst bör du isolera konton och system från risk att utsättas för en obehörig användare.
@@ -63,7 +63,7 @@ För att minska exponeringstid privilegier och öka din insyn i deras användnin
 Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer att autentisera en användare innan du tillåter åtkomst till ett program i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* Aktivera [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+* Aktivera [Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 * Aktivera [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Aktivera [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Aktivera [villkorlig åtkomstkontroll](../active-directory-conditional-access-azure-portal.md)

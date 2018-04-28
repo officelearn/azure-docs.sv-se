@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planera din Azure tid serien Insights-miljö
 
@@ -87,14 +87,14 @@ Du kan inte vet i förväg hur mycket data du förväntar dig att skicka. I det 
 Information om hur du hindrar begränsning och svarstid finns [minimera svarstiden och begränsning](time-series-insights-environment-mitigate-latency.md). 
 
 ## <a name="shaping-your-events"></a>Shaping händelserna
-Det är viktigt att kontrollera hur du skickar händelser till TSD stöds av storleken på den miljö du etablerar (däremot kan du mappa miljön till hur många händelser som TSD läser och storlek för varje händelse).  På samma sätt är det viktigt att tänka på de attribut som du kanske vill dela och filtrera efter när du frågar dina data.  Med detta i åtanke, föreslår vi granska JSON shaping avsnitt i vår *skicka händelser* dokumentation [dokumentation] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Det är längst ned på sidan.  
+Det är viktigt att kontrollera hur du skickar händelser till TSD stöds av storleken på den miljö du etablerar (däremot kan du mappa miljön till hur många händelser som TSD läser och storlek för varje händelse).  På samma sätt är det viktigt att tänka på de attribut som du kanske vill dela och filtrera efter när du frågar dina data.  Med detta i åtanke, föreslår vi granska JSON shaping avsnitt i vår *skicka händelser* dokumentation [dokumentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Det är längst ned på sidan.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Se till att du har referensdata på plats
 En referens datauppsättning är en samling objekt som utökar händelser från din händelsekälla. Tid serien insikter ingång motorn kopplar varje händelse från din händelsekällan med motsvarande dataraden i datauppsättningen referens. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på primärnyckeln kolumnerna som definierats i datauppsättningen referens.
 
 Observera att referensdata retroaktivt inte är ansluten. Detta innebär att endast aktuella och framtida ingång data är matchade och ansluten till uppsättningen med referens datum när den har konfigurerats och har överförts.  Om du planerar att skicka stora mängder historisk data till TSD och inte ladda upp eller skapa referensdata i TSD första, och du kan behöva nytt göra arbetet (tipset, inte roliga).  
 
-Mer information om hur du skapar, ladda upp och hantera dina referensdata i TSD, gå till vår *referensdata* dokumentation [dokumentation] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Mer information om hur du skapar, ladda upp och hantera dina referensdata i TSD, gå till vår *referensdata* dokumentation [dokumentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 
 ## <a name="next-steps"></a>Nästa steg

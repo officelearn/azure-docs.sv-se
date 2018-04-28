@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med autentisering för Mobile Apps i Xamarin-iOS"
-description: "Lär dig hur du använder Mobilappar för att autentisera användare av Xamarin iOS-app via en mängd olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft."
+title: Komma igång med autentisering för Mobile Apps i Xamarin-iOS
+description: Lär dig hur du använder Mobilappar för att autentisera användare av Xamarin iOS-app via en mängd olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Lägga till autentisering i en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ I det här avsnittet ska du ändra appen för att visas en inloggningsskärm inn
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Öppna **Info.plist** fil, gå till **URL typer** i den **Avancerat** avsnitt. Nu konfigurera den **identifierare** och **URL-scheman** URL-typen och klicka på **Lägg till URL-typen**. **URL-scheman** bör vara samma som {url_scheme_of_your_app}.
-7. I Visual Studio eller Xamarin Studio ansluten till din Xamarin skapa värd på en Mac som kör klientprojektet inriktning på en enhet eller emulator. Kontrollera att inga data visas i appen.
+7. I Visual Studio, ansluten till Mac-värden eller Visual Studio för Mac, kör klientprojektet inriktning på en enhet eller emulator. Kontrollera att inga data visas i appen.
    
     Utföra en uppdatering gest genom att dra nedåt i listan över objekt, vilket leder till inloggningssidan visas. När du har angett giltiga autentiseringsuppgifter, visas listan över todo-objekt och du kan göra uppdateringar till data.
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: davidmu1
-ms.openlocfilehash: 011426f3d8eab4eb2513270a9bcd1562e3c12b31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0329cb9e49196f77ba12940e5987487eb2b6fda9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Typer av program
-Azure AD (Active Directory Azure) B2C stöder autentisering för en rad olika moderna apparkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I det här dokumentet beskrivs kortfattat de olika typer av appar som du kan skapa, oberoende av plattform eller språk. Du får också förståelse för de övergripande scenarierna innan du [börjar utveckla program](active-directory-b2c-overview.md#get-started).
+Azure AD (Active Directory Azure) B2C stöder autentisering för en rad olika moderna apparkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I det här dokumentet beskrivs kortfattat de olika typer av appar som du kan skapa, oberoende av plattform eller språk. Du får också förståelse för de övergripande scenarierna innan du [börjar utveckla program](active-directory-b2c-overview.md).
 
 ## <a name="the-basics"></a>Grunderna
 Alla appar som använder Azure AD B2C måste vara registrerade i din [B2C-katalog](active-directory-b2c-get-started.md) via [Azure Portal](https://portal.azure.com/). Registreringsprocessen samlar in och tilldelar några värden till din app:
@@ -30,16 +30,9 @@ Alla appar som använder Azure AD B2C måste vara registrerade i din [B2C-katalo
 * En **omdirigerings-URI** som kan användas för att dirigera svar tillbaka till din app.
 * Eventuella andra scenariespecifika värden. Om du vill ha mer information lär du dig hur du [registrerar en app](active-directory-b2c-app-registration.md).
 
-När appen har registrerats kommunicerar den med Azure AD genom att skicka förfrågningar till Azure AD v2.0-slutpunkten:
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
-```
-
 Varje begäran som skickas till Azure AD B2C anger en **princip**. En princip styr beteendet i Azure AD. Du kan också använda dessa slutpunkter för att skapa ytterst anpassningsbara användarupplevelser. Exempel på vanliga principer är registrerings-, inloggnings- och profilredigeringsprinciper. Om du inte är bekant med principer bör du lära dig om [det expanderbara principramverket](active-directory-b2c-reference-policies.md) för Azure AD B2C innan du fortsätter.
 
-Interaktionen för alla appar med en v2.0-slutpunkt följer ett liknande övergripande mönster:
+Interaktionen för alla appar följer ett liknande övergripande mönster:
 
 1. Appen dirigerar användaren till v2.0-slutpunkten för att köra en [princip](active-directory-b2c-reference-policies.md).
 2. Användaren uppfyller principen enligt principdefinitionen.
@@ -49,7 +42,7 @@ Interaktionen för alla appar med en v2.0-slutpunkt följer ett liknande övergr
 6. Appen uppdaterar säkerhetstoken med jämna mellanrum.
 
 <!-- TODO: Need a page for libraries to link to -->
-Anvisningarna kan skilja sig något beroende på vilken typ av app som du utvecklar. Du kan ta hjälp av bibliotek med öppen källkod.
+Anvisningarna kan skilja sig något beroende på vilken typ av app som du utvecklar.
 
 ## <a name="web-apps"></a>Webbappar
 För webbappar (inklusive .NET, PHP, Java, Ruby, Python och Node.js) som finns på en server och öppnas via en webbläsare stöder Azure AD B2C [OpenID Connect](active-directory-b2c-reference-protocols.md) i alla användarmiljöer, till exempel inloggning, registrering och profilhantering. I Azure AD B2C-implementeringen av OpenID Connect initierar din webbapp dessa användarupplevelser genom att utfärda autentiseringsförfrågningar till Azure AD. Resultatet av begäran är en `id_token`. Den här säkerhetstoken representerar användarens identitet. Den tillhandahåller även information om användaren i form av anspråk:
@@ -75,7 +68,7 @@ I en webbapp utförs följande övergripande steg för varje körning av en [pri
 
 Valideringen av `id_token` med hjälp av en offentlig signeringsnyckel som fås från Azure AD är tillräckligt för att verifiera användarens identitet. Åtgärden konfigurerar även en sessions-cookie som kan användas för att identifiera användaren vid efterföljande sidförfrågningar.
 
-Om du vill se hur det här scenariot fungerar i praktiken provar du något av kodexemplen för inloggning med webbappar i [Komma igång-avsnittet](active-directory-b2c-overview.md#get-started).
+Om du vill se hur det här scenariot fungerar i praktiken provar du något av kodexemplen för inloggning med webbappar i [Komma igång-avsnittet](active-directory-b2c-overview.md).
 
 Förutom att underlätta enkel inloggning kan en webbserverapp också behöva åtkomst till en backend-webbtjänst. I detta fall kan webbappen köra ett något annorlunda [OpenID Connect-flöde](active-directory-b2c-reference-oidc.md) och hämta token genom att använda auktoriseringskoder och uppdateringstoken. Det här scenariot illustreras i följande avsnitt om [webb-API:er](#web-apis).
 
@@ -105,7 +98,7 @@ Ett webb-API kan ta emot token från många typer av klienter, inklusive webbapp
 
 Mer information om auktoriseringskoder, uppdateringstoken och stegen för att hämta token finns i [OAuth 2.0-protokollet](active-directory-b2c-reference-oauth-code.md).
 
-Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns i självstudiekurserna om webb-API:er i [Komma igång-avsnittet](active-directory-b2c-overview.md#get-started).
+Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns i självstudiekurserna om webb-API:er i [Komma igång-avsnittet](active-directory-b2c-overview.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobila och interna appar
 Appar som installeras på enheter, till exempel mobilappar och skrivbordsappar, behöver ofta åtkomst till backend-tjänster eller webb-API:er. Du kan lägga till anpassade identitetshanteringsmiljöer i dina interna appar och på ett säkert sätt anropa backend-tjänster med hjälp av Azure AD B2C och [OAuth 2.0-auktoriseringskodflödet](active-directory-b2c-reference-oauth-code.md).  

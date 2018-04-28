@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: e6d2891a8ea531bf5c7cc7e1c74b890e01f2b56b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cdfde0d888c8434443dcd05109f646eca8c0df19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
@@ -354,14 +354,14 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
-|**Riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
+|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar den tabell eller en entitet i funktionskoden. | 
 |**tableName** | **tableName** | Namnet på tabellen.| 
 |**PartitionKey** | **PartitionKey** |Valfri. Partitionsnyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**RowKey** |**RowKey** | Valfri. Raden nyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**take** |**ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**filter** |**Filter** | Valfri. En OData-filteruttrycket för tabellen indata i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**ta** |**ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**Filter** |**Filter** | Valfri. En OData-filteruttrycket för tabellen indata i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -390,7 +390,7 @@ Table storage inkommande bindningen stöder följande scenarion:
 Använd Azure Table storage utdata bindning skriva entiteter till en tabell i ett Azure Storage-konto.
 
 > [!NOTE]
-> Den här utdata bindningen stöder inte uppdatering befintliga entiteter. Använd den `TableOperation.Replace` åtgärden [från Azure Storage SDK: N](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) att uppdatera en befintlig entitet.   
+> Den här utdata bindningen stöder inte uppdatering befintliga entiteter. Använd den `TableOperation.Replace` åtgärden [från Azure Storage SDK: N](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) att uppdatera en befintlig entitet.   
 
 ## <a name="output---example"></a>Output - exempel
 
@@ -614,8 +614,8 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
-|**Riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
+|**riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar den tabell eller enhet. Ange till `$return` att referera till returvärde för funktion.| 
 |**tableName** |**tableName** | Namnet på tabellen.| 
 |**PartitionKey** |**PartitionKey** | Partitionsnyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 

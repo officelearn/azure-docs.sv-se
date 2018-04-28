@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: en ordlista med molnet terminologi för Azure-plattformen
 
 Ordlista för Microsoft Azure är en kort dictionary med molnet terminologi för Azure-plattformen. Se även:
 
-* [Microsoft Azure och Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definitioner av Azure-tjänster och motsvarigheterna AWS.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
+* [Microsoft Azure och Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definitioner av Azure-tjänster och motsvarigheterna AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Molnet databehandling villkoren](https://azure.microsoft.com/overview/cloud-computing-dictionary/) -Allmänt branschen molnet villkoren.
 
 ## <a name="account"></a>konto

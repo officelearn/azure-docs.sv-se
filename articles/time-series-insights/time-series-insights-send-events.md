@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 04/09/2018
-ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b418d1114cf6b906dcdee46bbf7e094cbc4a0521
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av Event Hub
 Den här artikeln beskriver hur du skapar och konfigurerar händelsehubb och kör ett exempelprogram push-händelser. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här kursen och visa din miljö i [tid serien insikter](https://insights.timeseries.azure.com).
@@ -59,7 +59,7 @@ Se till att du har referensdata på plats när du massimportera överför histor
 
 Om du vill hantera referensdata finns webbaserade användargränssnittet i TSD Explorer och det finns en programmässiga C#-API. TSD Explorer har en visual användarmiljö Överför filer eller klistra in befintliga referens datauppsättningar som JSON- eller CSV-format. Med API, kan du skapa en anpassad app när det behövs.
 
-Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Skapa händelsekälla för Time Series Insights
 1. Om du inte har skapat en händelsekälla följer du [dessa instruktioner](time-series-insights-how-to-add-an-event-source-eventhub.md) för att skapa en händelsekälla.
@@ -312,7 +312,7 @@ Om du trycker denna matris av händelser som en nyttolast till TSD, lagras den s
 
 chId mått enhet 24 motorn olja trycket PSI 25 BERÄKNA Pump hastighet bbl per minut
 
-Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 Ett annat problem med den första nyttolasten är tidsstämpeln är i millisekunder. TSD accepterar bara ISO-formaterat tidsstämplar. En lösning är att lämna tidsstämpel standardbeteendet i TSD, vilket är att använda köas tidsstämpel.
 

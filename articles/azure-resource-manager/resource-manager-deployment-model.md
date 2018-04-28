@@ -1,6 +1,6 @@
 ---
 title: Resource Manager och klassisk distribution | Microsoft Docs
-description: "Här beskrivs skillnaderna mellan distributionsmodell Resource Manager och klassiskt (eller Service Management) distributionsmodell."
+description: Här beskrivs skillnaderna mellan distributionsmodell Resource Manager och klassiskt (eller Service Management) distributionsmodell.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 06da24babd470e81bed9c45a32c59ad9cfd153fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager och klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser
 I den här artikeln får information du om Azure Resource Manager och klassiska distributionsmodeller. Resource Manager och klassiska distributionsmodeller representerar två olika sätt att distribuera och hantera dina Azure-lösningar. Du arbetar med dem via två uppsättningar API och distribuerade resurser kan innehålla viktiga skillnader. De två modellerna är inte kompatibla med varandra. Den här artikeln beskriver dessa skillnader.
@@ -108,7 +108,7 @@ I följande tabell beskrivs ändringar i hur beräknings-, nätverks- och Storag
 | Lagringskonton |Den virtuella datorn kräver ett lagringskonto som lagrar de virtuella hårddiskarna för operativsystemet, tillfällig och ytterligare datadiskar. |Den virtuella datorn kräver ett lagringskonto för att lagra diskarna i blob storage. |
 | Tillgänglighetsuppsättningar |Tillgänglighet till plattformen indikerades genom att konfigurera samma "AvailabilitySetName" på Virtual Machines. Det maximala antalet feldomäner var 2. |Tillgänglighetsuppsättning är en resurs som exponeras av Microsoft.Compute-providern. Virtuella datorer som kräver hög tillgänglighet måste inkluderas i tillgänglighetsuppsättningen. Det maximala antalet feldomäner är nu 3. |
 | Tillhörighetsgrupper |Tillhörighetsgrupper krävdes för virtuella nätverk. Men med introduktionen av regionala virtuella nätverk, krävs det inte längre. |Lite enklare sagt så existerar inte konceptet tillhörighetsgrupper i de API:er som exponeras via Azure Resource Manager. |
-| Belastningsutjämning |Skapandet av en molntjänst ger en implicit belastningsutjämnare för de virtuella datorer som distribueras. |Load Balancer är en resurs som exponeras av Microsoft.Network-providern. Det primära nätverksgränssnittet för Virtual Machines som måste belastningsutjämnas ska referera till belastningsutjämnaren. Belastningsutjämnare kan vara interna eller externa. En belastningen belastningsutjämnaren instans refererar till serverdelspoolen av IP-adresser med nätverkskort för en virtuell dator (valfritt) som refererar till en offentlig eller privat IP-belastningsutjämnaradress (valfritt). [Läs mer.](../virtual-network/resource-groups-networking.md) |
+| Belastningsutjämning |Skapandet av en molntjänst ger en implicit belastningsutjämnare för de virtuella datorer som distribueras. |Load Balancer är en resurs som exponeras av Microsoft.Network-providern. Det primära nätverksgränssnittet för Virtual Machines som måste belastningsutjämnas ska referera till belastningsutjämnaren. Belastningsutjämnare kan vara interna eller externa. En belastningen belastningsutjämnaren instans refererar till serverdelspoolen av IP-adresser med nätverkskort för en virtuell dator (valfritt) som refererar till en offentlig eller privat IP-belastningsutjämnaradress (valfritt). |
 | Virtuell IP-adress |Cloud Services får en standard-VIP (virtuell IP-adress) när en virtuell dator läggs till en tjänst i molnet. Den virtuella IP-adressen är den adress som är associerad med den implicita belastningsutjämnaren. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. Dynamiska offentliga IP-adresser kan tilldelas till en belastningsutjämnare. Offentliga IP-adresser kan skyddas med hjälp av säkerhetsgrupper. |
 | Reserverad IP-adress |Du kan reservera en IP-adress i Azure och koppla den till en molntjänst för att kontrollera att IP-adressen är fäst. |Offentlig IP-adress kan skapas i statiskt läge och den har samma funktion som en reserverad IP-adress. |
 | Offentlig IP-adress (PIP) per VM |Offentliga IP-adresser kan också vara kopplad till en virtuell dator direkt. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. |

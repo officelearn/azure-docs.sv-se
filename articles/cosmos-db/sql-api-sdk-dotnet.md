@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4d33fc513b3a2aaa70a3402a42b31efe63c62dd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0047ff742b4a2fd46739c40d08e7c07b69896fae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: hämta och viktig information
 > [!div class="op_single_selector"]
@@ -52,6 +52,12 @@ ms.lasthandoff: 04/16/2018
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
+
+* Tillagda ConsistencyLevel-egenskapen till FeedOptions.
+* Tillagda JsonSerializerSettings RequestOptions och FeedOptions.
+* Tillagda EnableReadRequestsFallback till ConnectionPolicy.
+
 ### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
 
 * Fast KeyNotFoundException för mellan partition order by-frågor i specialfall.
@@ -293,6 +299,7 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.22.0](#1.22.0) |19 april 2018 |--- |
 | [1.21.1](#1.20.1) |09 mars 2018 |--- |
 | [1.20.2](#1.20.1) |21 februari 2018 |--- |
 | [1.20.1](#1.20.1) |05 februari 2018 |--- |

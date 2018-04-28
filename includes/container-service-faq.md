@@ -84,13 +84,23 @@ Du hittar anslutningssträngen i Azure Portal eller med hjälp av Azure-kommando
 
 4. Det finns flera klusterlänkar under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudserver i klustret. 
 
-Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Exempel:
+Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Till exempel:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
 ```
 
 Mer information finns i [Ansluta till ett Azure Container Service-kluster](../articles/container-service/kubernetes/container-service-connect.md).
+
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS-namnmatchningen fungerar inte i Windows. Vad ska jag göra?
+
+Det finns en del kända problem i DNS på Windows som håller på att lösas. Kontrollera att du använder den senaste uppdaterade acs-motorn och Windows-versionen (med [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) och [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installerat) så att din miljö kan dra nytta av detta. Annars se tabellen nedan för migreringsstegen:
+
+| DNS-problem | Lösning  |
+|-------------|-------------|
+|När behållaren för arbetsbelastningen är instabil och kraschar, rensas namnrymden för nätverket | Distribuera om alla påverkade tjänster |
+| Tjänsten för VIP-åtkomst är nere | Konfigurera [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) så att alltid en normal (icke-privilegierad) pod körs |
+|När noden som behållaren körs på blir otillgänglig, misslyckas DNS-frågor, vilket resulterar i en post med negativ cache | Kör följande behållare som påverkas från insidan: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Om detta inte löser problemet, kan du prova att inaktivera DNS-cachen helt: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## <a name="next-steps"></a>Nästa steg
 

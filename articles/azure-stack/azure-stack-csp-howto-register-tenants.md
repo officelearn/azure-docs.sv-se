@@ -1,11 +1,11 @@
 ---
-title: "Lägg till klienter för användning och fakturering till Azure-stacken | Microsoft Docs"
-description: "De steg som krävs för att lägga till en slutanvändare till Azure-stacken som hanteras av en Molntjänstleverantör."
+title: Lägg till klienter för användning och fakturering till Azure-stacken | Microsoft Docs
+description: De steg som krävs för att lägga till en slutanvändare till Azure-stacken som hanteras av en Molntjänstleverantör.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering till Azure-stacken
 
@@ -58,7 +58,7 @@ Uppdatera registreringen med nya kundens prenumeration. Azure rapporterar kunden
 > Om du vill utföra det här steget måste du ha [registrerade Azure Stack](azure-stack-register.md).
 
 1. Öppna Windows PowerShell med en förhöjd behörighet och kör:  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Ange dina autentiseringsuppgifter för Azure.
 3. Kör i PowerShell-session:
 

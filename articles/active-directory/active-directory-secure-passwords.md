@@ -1,11 +1,11 @@
 ---
-title: "Azure AD nivåer lösenordssäkerhet | Microsoft Docs"
-description: "Förklarar hur Azure AD tillämpar starka lösenord och skyddar användarnas lösenord från cyber kriminella"
+title: Azure AD nivåer lösenordssäkerhet | Microsoft Docs
+description: Förklarar hur Azure AD tillämpar starka lösenord och skyddar användarnas lösenord från cyber kriminella
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>En metod med flera nivåer för säkerhet för Azure AD-lösenord
 
@@ -84,4 +84,4 @@ Information om lösenordsåterställning i Azure Active Directory finns i avsnit
 
 * [Uppdatera ditt eget lösenord](active-directory-passwords-update-your-own-password.md)
 * [Grunderna i Azures identitetshantering](fundamentals-identity.md)
-* [Återställningsaktivitet för rapporten på lösenord](active-directory-passwords-reporting.md)
+* [Återställningsaktivitet för rapporten på lösenord](authentication/howto-sspr-reporting.md)

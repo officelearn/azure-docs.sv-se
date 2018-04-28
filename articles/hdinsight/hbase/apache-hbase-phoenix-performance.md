@@ -1,28 +1,26 @@
 ---
 title: Phoenix prestanda i Azure HDInsight | Microsoft Docs
-description: "Metodtips för att optimera prestanda för Phoenix."
+description: Metodtips för att optimera prestanda för Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 42b95d6b67f3449a2de2619f0a25b3b8f798950d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 58ecf22fa0f9349a767455fe3ab08fca058d02da
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="phoenix-performance-best-practices"></a>Phoenix prestandarelaterade Metodtips
+# <a name="phoenix-performance-best-practices"></a>Metodtips för prestanda för Phoenix
 
 Den viktigaste aspekten av Phoenix prestanda är att optimera underliggande HBase. Phoenix skapar en relationsdata modell ovanpå HBase som konverterar SQL-frågor till HBase-åtgärder, till exempel genomsökningar. Design av tabellens schema, markeringen och ordning på fälten i din primära nyckel och din användning av alla index påverka Phoenix prestanda.
 
@@ -38,34 +36,34 @@ Den primära nyckeln som definierats i en tabell i Phoenix avgör hur data lagra
 
 En tabell för kontakter har till exempel den förnamn, senaste namn, telefonnummer och adress i samma kolumnfamilj. Du kan definiera en primärnyckel som baseras på en ökande sekvensnummer:
 
-|rowkey|       address|   telefon| Förnamn| Efternamn|
+|rowkey|       Adress|   Telefon| Förnamn| Efternamn|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Om du frågar ofta efter efternamn kan denna primärnyckel dock inte utföra, eftersom varje fråga kräver en fullständig tabellgenomsökning att läsa värdet för varje efternamn. I stället kan du definiera en primärnyckel på lastName, firstName och personnummer kolumner. Sista kolumnen är att undvika tvetydigheten två boende på samma adress med samma namn, till exempel en pappa och son.
 
-|rowkey|       address|   telefon| Förnamn| Efternamn| socialSecurityNum |
+|rowkey|       Adress|   Telefon| Förnamn| Efternamn| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Med den här nya primärnyckel raden är nycklar som genereras av Phoenix:
 
-|rowkey|       address|   telefon| Förnamn| Efternamn| socialSecurityNum |
+|rowkey|       Adress|   Telefon| Förnamn| Efternamn| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Dole John 111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 I den första raden ovan representeras data för rowkey som visas:
 
 |rowkey|       key|   värde| 
 |------|--------------------|---|
-|  Dole-John-111|address |1111 San Gabriel Dr.|  
-|  Dole-John-111|telefon |1-425-000-0002|  
-|  Dole-John-111|Förnamn |John|  
-|  Dole-John-111|Efternamn |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole John 111|Adress |1111 San Gabriel Dr.|  
+|  Dole John 111|Telefon |1-425-000-0002|  
+|  Dole John 111|Förnamn |John|  
+|  Dole John 111|Efternamn |Dole|  
+|  Dole John 111|socialSecurityNum |111| 
 
 Den här rowkey nu lagrar en kopia av data. Överväg att storlek och antalet kolumner som du inkluderar i primärnyckel, eftersom det här värdet ingår i varje cell i den underliggande HBase-tabellen.
 
@@ -120,9 +118,9 @@ Skyddad index är index som innehåller data från raden utöver de värden som 
 
 Till exempel kontakta tabell som du kan skapa ett sekundärt index på bara kolumnen socialSecurityNum i exemplet. Sekundär indexet skulle hastigheten som filtrerar enligt socialSecurityNum värden, men hämtar andra fältvärden kräver en annan läsa mot huvudtabellen.
 
-|rowkey|       address|   telefon| Förnamn| Efternamn| socialSecurityNum |
+|rowkey|       Adress|   Telefon| Förnamn| Efternamn| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Dole John 111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Om du vanligtvis vill leta upp det förnamn och efternamn som anges i socialSecurityNum kan du skapa ett omfattas index som inkluderar förnamn och efternamn som faktiska data i indextabellen:

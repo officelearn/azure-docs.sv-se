@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e1dfd7ec4a2475142423f00a457a909989a36bea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be7db6f8a69731dec83ba94aecc272bc1df17892
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa ett virtuellt nätverk peering - olika distributionsmodeller, samma prenumeration 
 
@@ -54,7 +54,7 @@ Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet]
 4. Klicka på **+ Ny**. I den **söka Marketplace** skriver *för virtuella nätverk*. Klicka på **för virtuella nätverk** när den visas i sökresultaten. 
 5. I den **för virtuella nätverk** bladet väljer **klassiska** i den **Välj en distributionsmodell** rutan och klicka på **skapa**.
 6. I den **skapa virtuellt nätverk** bladet anger, eller Välj värden för följande inställningar och sedan klickar du på **skapa**:
-    - **Name**: *myVnet2*
+    - **Namnet**: *myVnet2*
     - **Adressutrymmet**: *10.1.0.0/16*
     - **Undernätnamnet**: *standard*
     - **Adressintervall för gatewayundernät**: *10.1.0.0/24*
@@ -161,7 +161,7 @@ Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet]
 
     > [!WARNING]
     > Importera en konfigurationsfil för ändrade nätverket kan orsaka ändringar av befintliga virtuella nätverk (klassiskt) i din prenumeration. Se till att du bara lägga till det tidigare virtuella nätverket och att du inte ändra eller ta bort alla befintliga virtuella nätverk från prenumerationen. 
-5. Logga in till Azure för att skapa det virtuella nätverket (Resource Manager) genom att ange den `login-azurermaccount` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#requirements-and-constraints).
+5. Logga in till Azure för att skapa det virtuella nätverket (Resource Manager) genom att ange den `Connect-AzureRmAccount` kommando. Du loggar in med kontot måste ha behörighet för att skapa ett virtuellt nätverk som peering. En lista över behörigheter finns [virtuella nätverk peering behörigheter](virtual-network-manage-peering.md#requirements-and-constraints).
 6. Skapa en resursgrupp och ett virtuellt nätverk (Resource Manager). Kopiera skriptet, klistrar in den i PowerShell och tryck sedan på `Enter`.
 
     ```powershell

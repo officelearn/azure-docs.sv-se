@@ -1,24 +1,18 @@
 ---
-title: "Sök trafik Analytics för Azure Search | Microsoft Docs"
-description: "Aktivera sökning trafik analytics för Azure Search molnbaserade search-tjänsten på Microsoft Azure för att låsa upp insikter om dina användare och dina data."
+title: Sök trafik Analytics för Azure Search | Microsoft Docs
+description: Aktivera sökning trafik analytics för Azure Search molnbaserade search-tjänsten på Microsoft Azure för att låsa upp insikter om dina användare och dina data.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>Vad är Sök trafik analytics
 Sök trafik analytics är ett mönster för att implementera en feedback-slinga för din söktjänst. Det här mönstret beskriver nödvändiga data och hur du samlar in den med hjälp av Application Insights, marknadsledande för övervakning av tjänster på flera plattformar.
@@ -102,7 +96,7 @@ För andra språk och plattformar, se hela [listan](https://docs.microsoft.com/a
 
 Varje gång som en sökbegäran utfärdas av en användare, bör du logga som som en händelse för sökningen med följande schemat på en anpassad Application Insights-händelse:
 
-**ServiceName**: (sträng) för tjänsten söknamn **SearchId**: (guid) Unik identifierare för frågan (ingår i Sök-svaret) **indexnamn**: (sträng) tjänsten sökindex som ska frågas **QueryTerms**: (sträng) sökvillkor som anges av användaren **ResultCount**: (int) antal dokument som returnerades (ingår i Sök-svaret) **ScoringProfile**: (sträng) namnet på bedömningsprofilen används, i förekommande fall
+**ServiceName**: (sträng) för tjänsten söknamn **SearchId**: (guid) Unik identifierare för frågan (ingår i Sök-svaret) **indexnamn**: (sträng) tjänsten sökindex ska efterfrågade **QueryTerms**: (sträng) sökvillkor som anges av användaren **ResultCount**: (int) antal dokument som returnerades (ingår i Sök-svaret)  **ScoringProfile**: (sträng) namnet på bedömningsprofilen används, i förekommande fall
 
 > [!NOTE]
 > Begär antal på användargenererat frågor genom att lägga till $count = true till din fråga. Mer information [här](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
@@ -139,7 +133,7 @@ Varje gång som en sökbegäran utfärdas av en användare, bör du logga som so
 
 Varje gång en användare klickar på ett dokument som är en signal som ska loggas för sökningar för analys. Använd anpassade händelser för Application Insights loggar dessa händelser med följande schema:
 
-**ServiceName**: (sträng) för tjänsten söknamn **SearchId**: (guid) Unik identifierare för den relaterade sökfrågan **DocId**: dokument-ID (sträng) **Position**: (int) rangordningen för dokumentet i sökningen resultatsida
+**ServiceName**: (sträng) för tjänsten söknamn **SearchId**: (guid) Unik identifierare för den relaterade sökfrågan **DocId**: (sträng) dokument-ID **Position**: (int) rangordningen för dokumentet i sökningen resultatsida
 
 > [!NOTE]
 > Positionen refererar till den kardinalkurvelementets ordningen i ditt program. Du kan ange det här numret så länge det är alltid detsamma, så att för jämförelse.

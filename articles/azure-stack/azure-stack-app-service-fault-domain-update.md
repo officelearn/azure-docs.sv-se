@@ -1,12 +1,12 @@
 ---
-title: "Apptjänst Azure stacken: Fault-domänen | Microsoft Docs"
-description: "Hur du distribuerar Azure App Service på Azure-stacken över feldomäner"
+title: 'Apptjänst Azure stacken: Fault-domänen | Microsoft Docs'
+description: Hur du distribuerar Azure App Service på Azure-stacken över feldomäner
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 851747263879aa89fabe8b168876238a004ea8b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 34823b856b48af66ab81dda3359d2e50289f8d2f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Hur du distribuerar Azure App Service på Azure-stacken över feldomäner
 
@@ -55,7 +55,7 @@ Du måste utföra följande steg för varje skaluppsättning för att kunna dist
 2. Nästa skala ut varje uppsättning.  Till exempel om du har tre befintliga instanser i skaluppsättning måste du skalar upp till 6 så att de tre nya instanserna som ska etableras över feldomäner.
     a. [Konfigurera Azure Stack Admin-miljö i PowerShell](azure-stack-powershell-configure-admin.md) b. Använd det här exemplet för att skala ut skaluppsättning:
         ```powershell
-                Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
+                Connect-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"

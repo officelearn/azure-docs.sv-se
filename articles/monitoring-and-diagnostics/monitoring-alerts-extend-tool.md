@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Hur du utökar (kopiera) aviseringar från OMS till Azure
 Från **den 14 maj 2018**, alla kunder som använder aviseringar som har konfigurerats i [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), utökas till Azure. Aviseringar som har utökats till Azure fungerar på samma sätt som i OMS. Övervakningsfunktioner förblir intakta. Utöka aviseringar som skapats i OMS till Azure ger många fördelar. Mer information om fördelar och utöka aviseringar från OMS till Azure finns [utöka aviseringar från OMS till Azure](monitoring-alerts-extend.md).
@@ -236,6 +236,14 @@ Nedan visas steg för varje fel:
     a. När Scope låsa är aktiverat, att begränsa nya ändringar prenumeration eller resursgrupp som innehåller arbetsytan logganalys (OMS); systemet kan inte utöka (kopiera) aviseringar i Azure och skapa grupper för nödvändiga åtgärder.
     
     b. Lös genom att ta bort den *ReadOnly* Lås för prenumerationen eller resursen gruppen som innehåller arbetsytan; med Azure-portalen, Powershell, Azure CLI eller API. Mer information läser du artikeln på [Lås Resursanvändning](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. När löst enligt stegen som beskrivs i artikeln kommer OMS utökar aviseringarna till Azure i nästa dag schemalagda körning; utan att någon åtgärd eller initiering.
+
+3. **Fel: Principen finns på prenumerationen/resursgruppsnivå**: ![OMS aviseringsinställningar Portalsida med princip felmeddelande](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. När [Azure princip](../azure-policy/azure-policy-introduction.md) används, att begränsa en ny resurs i prenumeration eller resursgrupp som innehåller arbetsytan logganalys (OMS); systemet kan inte utöka (kopiera) aviseringar i Azure och skapa grupper för nödvändiga åtgärder.
+    
+    b. Lös genom att redigera principen orsakar *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fel, vilket förhindrar att skapa nya resurser på din prenumerationen eller resursen grupp som innehåller arbetsytan. Med hjälp av Azure portal, Powershell, Azure CLI eller API; Du kan granska åtgärder för att hitta den lämpliga principen som orsakar felet. Mer information läser du artikeln på [visa aktivitetsloggar om du vill granska åtgärder](../azure-resource-manager/resource-group-audit.md). 
     
     c. När löst enligt stegen som beskrivs i artikeln kommer OMS utökar aviseringarna till Azure i nästa dag schemalagda körning; utan att någon åtgärd eller initiering.
 

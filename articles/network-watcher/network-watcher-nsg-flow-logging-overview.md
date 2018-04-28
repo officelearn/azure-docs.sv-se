@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till flödet loggning för Nätverkssäkerhetsgrupper med Azure Nätverksbevakaren | Microsoft Docs"
-description: "Den här sidan förklarar hur du använder NSG flödet loggar en funktion i Azure Nätverksbevakaren"
+title: Introduktion till flödet loggning för nätverkssäkerhet grupper med Azure Nätverksbevakaren | Microsoft Docs
+description: Den här artikeln beskriver hur du använder funktionen NSG flödet loggar i Azure Nätverksbevakaren.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödet loggning för Nätverkssäkerhetsgrupper
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödet loggning för nätverkssäkerhetsgrupper
 
-Nätverkssäkerhetsgruppen flöde loggarna är en funktion i Nätverksbevakaren där du kan visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp. Loggarna flödet skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel, NIC flödet gäller för 5-tuppel information om flödet (källan/målet IP-källan/målet Port Protocol), och om trafiken tillåts eller nekas.
+Nätverket säkerhetsloggar grupp (NSG) flöde är en funktion i Nätverksbevakaren där du kan visa information om ingående och utgående IP-trafik via en NSG. Flödet loggar skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel, nätverksgränssnitt (NIC) flödet gäller, 5-tuppel information om flödet (källan/målet IP-källan/målet port och protokoll) och om trafiken var tillåts eller nekas.
 
-![Översikt över flödet-loggar][1]
+![Översikt över flödet-loggar](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Medan flödet loggar mål Nätverkssäkerhetsgrupper, som inte visas samma som de andra loggarna. Flödet loggfilerna lagras i ett lagringskonto och följa Loggningssökvägen som visas i följande exempel:
+Medan flödet loggar mål NSG: er, som inte visas samma som de andra loggarna. Flödet loggar lagras i ett lagringskonto och följ Loggningssökvägen som visas i följande exempel:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Samma bevarandeprinciper som visas på andra loggar gäller flödet loggar. Loggar har en bevarandeprincip som kan anges från dag 1 och 365 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
+Samma bevarandeprinciper för andra loggar gäller flödet loggar. Du kan ange princip för loggperiod mellan 1 dag och 365 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
 
 ## <a name="log-file"></a>Loggfil
 
-Flödet loggar har flera egenskaper. Nedan följer en lista över de egenskaper som returneras i loggen för NSG-flöde:
+Flödet loggar innehåller följande egenskaper:
 
 * **tid** - tid när händelsen loggades.
 * **system-ID** -Nätverkssäkerhetsgruppen resurs-ID.
-* **kategori** -kategorin av händelsen, är det alltid vara NetworkSecurityGroupFlowEvent
+* **kategori** -kategori för händelsen. Kategorin är alltid **NetworkSecurityGroupFlowEvent**
 * **ResourceId** -resurs-Id för NSG: N
 * **operationName** -alltid NetworkSecurityGroupFlowEvents
 * **Egenskaper för** – en samling av egenskaper i flöde
@@ -59,15 +59,14 @@ Flödet loggar har flera egenskaper. Nedan följer en lista över de egenskaper 
                     * **Infrastrukturtrafiken rör** -riktningen för trafikflödet. Giltiga värden är **jag** för inkommande och **O** för utgående.
                     * **Trafik** – oavsett om trafik tillåts eller nekas. Giltiga värden är **A** för tillåtna och **D** för nekad.
 
-
-Följande är ett exempel på en logg i flödet. Som du kan se att det finns flera poster som följer egenskapslistan som beskrivs i föregående avsnitt. 
+Den text som visas nedan är ett exempel på en logg i flödet. Som du ser finns det flera poster som följer egenskapslistan som beskrivs i föregående avsnitt.
 
 > [!NOTE]
-> Värden i egenskapen flowTuples är en kommaavgränsad lista.
+> Värdena i den **flowTuples* egenskapen är en kommaavgränsad lista.
  
 ```json
 {
-    "records": 
+    "records":
     [
         
         {
@@ -102,12 +101,6 @@ Följande är ett exempel på en logg i flödet. Som du kan se att det finns fle
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du aktiverar flödet loggarna genom att besöka [aktiverar flöda loggning](network-watcher-nsg-flow-logging-portal.md).
-
-Lär dig mer om NSG loggning genom att besöka [logga analytics för nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/virtual-network-nsg-manage-log.md).
-
-Ta reda på om trafik tillåts eller nekas på en virtuell dator genom att besöka [Kontrollera Kontrollera trafik med IP-flöde](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
-
+- Information om hur du aktiverar flödet loggar finns [aktiverar NSG flödet loggning](network-watcher-nsg-flow-logging-portal.md).
+- Läs mer om NSG loggning i [logga analytics för nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- För att fastställa om trafik tillåts eller nekas till eller från en virtuell dator, se [diagnostisera VM-trafik filter nätverksproblem](diagnose-vm-network-traffic-filtering-problem.md)

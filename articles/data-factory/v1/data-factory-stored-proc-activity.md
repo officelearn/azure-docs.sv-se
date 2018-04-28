@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer lagrade Proceduraktiviteten
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -161,7 +161,7 @@ Observera följande egenskaper:
 
 - Den **typen** egenskap är inställd på **SqlServerStoredProcedure**. 
 - Den **storedProcedureName** i typen egenskaper har angetts till **sp_sample** (namnet på den lagrade proceduren).
-- Den **storedProcedureParameters** avsnittet innehåller en parameter med namnet **DataTime**. Namn och skiftläge för parametern i JSON måste matcha namnet och versaler och gemener i parametern i definitionen för lagrade proceduren. Om du behöver lägga till null för en parameter, använder du syntax: `"param1": null` (gemener).
+- Den **storedProcedureParameters** avsnittet innehåller en parameter med namnet **DateTime**. Namn och skiftläge för parametern i JSON måste matcha namnet och versaler och gemener i parametern i definitionen för lagrade proceduren. Om du behöver lägga till null för en parameter, använder du syntax: `"param1": null` (gemener).
  
 1. Klicka på **... Flera** i kommandofältet och på **ny pipeline**.
 2. Kopiera och klistra in följande kodutdrag JSON:   

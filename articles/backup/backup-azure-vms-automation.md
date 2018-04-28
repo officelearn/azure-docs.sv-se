@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b5869e44e22fab1e996fcd58b4258849603a711
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
 
@@ -79,9 +79,9 @@ Börja:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Logga in på ditt Azure-konto med hjälp av **Login-AzureRmAccount**. Denna cmdlet öppnar en webbsida uppmanar dig att dina autentiseringsuppgifter: 
-    - Alternativt kan du inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Login-AzureRmAccount** cmdlet, med hjälp av den **-autentiseringsuppgifter** parameter.
-    - Om du är CSP-partner som arbetar för en klient måste du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller klienten. Till exempel: **Login-AzureRmAccount-klient ”fabrikam.com”**
+3. Logga in på ditt Azure-konto med hjälp av **Connect-AzureRmAccount**. Denna cmdlet öppnar en webbsida uppmanar dig att dina autentiseringsuppgifter: 
+    - Alternativt kan du inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect-AzureRmAccount** cmdlet, med hjälp av den **-autentiseringsuppgifter** parameter.
+    - Om du är CSP-partner som arbetar för en klient måste du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller klienten. Till exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
 4. Koppla den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
 
     ```PS

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/26/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-frånkopplade distribution planeringsbeslut för Azure-stacken integrerat system
 När du har valt [hur du ska integrera Azure Stack i molnmiljön hybrid](azure-stack-connection-models.md), du kan sedan slutföra din Azure-stacken distributionsbeslut.
@@ -47,7 +47,7 @@ Azure-stacken utformades fungerar bäst när du är ansluten till Azure, så det
 |Aviseringen reparation/minskning som refererar till en online reparation guide|Inte tillgänglig – alla avisering reparation länkar som använder en URL-adress inte kommer att fungera.|
 |Marketplace-syndikeringsfeed – möjlighet att välja och lägga till Gallery-paket direkt från Azure Marketplace|Nedsatt – när du distribuerar Azure Stack i frånkopplat läge (utan någon Internetanslutning) du kan inte hämta marketplace-objekt med hjälp av Azure Stack-portalen. Du kan använda den [marketplace syndikering verktyget](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) hämta marketplace-objekt till en dator som är ansluten till internet och överföra dem till Azure Stack-miljön.|
 |Hantera en Azure-Stack-distribution med hjälp av Azure Active Directory federation-konton|Inte tillgänglig – den här funktionen kräver anslutning till Azure. AD FS med en lokal Active Directory-instans måste användas i stället.|
-|Till exempel Webbappar och SQL-Resursprovidrar|Inte tillgänglig - Resursproviders som Webbappar och SQL kräver Internetåtkomst för innehåll.|
+|App Services|Nedsatt - kan Webbappar Internetåtkomst uppdaterat innehåll.|
 |Kommandoradsgränssnitt (CLI)|Nedsatt – har CLI nedsatt funktionalitet när det gäller autentisering och etablering av tjänst principer.|
 |Visual Studio – Cloud discovery|Nedsatt – Cloud Discovery identifierar antingen olika moln eller fungerar inte.|
 |Visual Studio – AD FS|Nedsatt – endast Visual Studio Enterprise stöder AD FS.

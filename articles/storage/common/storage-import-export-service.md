@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -29,7 +29,7 @@ Följ de nedanstående steg om data på disken som ska importeras till Azure Sto
 2.  Beroende på storleken på data anskaffa antalet krävs 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II eller III hårddiskar.
 3.  Koppla hårddiskar direkt med SATA eller med adaptrar för externa USB till en windows-dator.
 1.  Skapa en NTFS-volym på varje hårddisk och tilldela en enhetsbeteckning till volymen. Inga monteringspunkter.
-2.  Aktivera säker plats-bitarskryptering på volymen om du vill aktivera kryptering på windows-dator. Följ instruktionerna på https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Aktivera säker plats-bitarskryptering på volymen om du vill aktivera kryptering på windows-dator. Följ instruktionerna på https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Helt kopiera data till dessa krypterade enda NTFS-volymer på diskar med hjälp av kopiera och klistra in eller dra & släppa eller Robocopy eller något sådant verktyg.
 7.  Hämta WAImportExport V1 från https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Packa upp till standard mappen waimportexportv1. Till exempel C:\WaImportExportV1  

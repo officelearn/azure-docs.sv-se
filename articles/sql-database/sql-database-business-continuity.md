@@ -12,11 +12,11 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -37,7 +37,7 @@ I följande tabell jämförs infoga och Återställningspunktmål för varje tj�
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Använda point-in-time-återställning för att återställa en databas
 
-SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Dessa säkerhetskopior lagras i RA-GRS-lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. I den generella och kritiska tjänstnivåer för företag (förhandsversion) är säkerhetskopieringar kvarhållning Konfigurerbart upp till 35 dagar. Mer information finns i [tjänstnivåer](sql-database-service-tiers.md). Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-service-tiers.md). De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
+SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Om du använder den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md), och sedan dessa säkerhetskopior lagras i RA-GRS-lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Om du använder den [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md), kvarhållning säkerhetskopior är Konfigurerbart upp till 35 dagar i generella och företag kritiska nivåer. De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
 
 Om den högsta bevarandeperioden för stöds PITR inte räcker för ditt program, kan du utöka den genom att konfigurera en kvarhållningsprincip för långsiktig (LTR) för databaserna. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
@@ -97,8 +97,7 @@ Mer information och detaljerade anvisningar som beskriver hur du återställer e
 
 > [!IMPORTANT]
 > Om den logiska servern tas bort kan du inte återställa en borttagen databas.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Återställa säkerhetskopior från långsiktig kvarhållning
 

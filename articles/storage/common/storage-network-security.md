@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera brandväggar för Azure-lagring och virtuella nätverk | Microsoft Docs"
-description: "Konfigurera överlappande nätverkssäkerhet för ditt lagringskonto."
+title: Konfigurera brandväggar för Azure-lagring och virtuella nätverk | Microsoft Docs
+description: Konfigurera överlappande nätverkssäkerhet för ditt lagringskonto.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina lagringskonton för en specifik uppsättning tillåtna nätverk.  Om Nätverksregler är konfigurerade bara program från tillåtna nätverk kan komma åt ett lagringskonto.  Vid anrop från ett nätverk med tillåtna fortfarande program kräver att rätt behörighet (en giltig snabbtangent eller SAS-token) att komma åt lagringskontot.
@@ -37,11 +37,9 @@ När Nätverksregler tillämpas tillämpas de för alla begäranden.  SAS-token 
 
 Disk för virtuell dator-trafik (inklusive montera och demontera åtgärder och disk-i/o) **inte** påverkas av Nätverksregler.  REST-åtkomst till sidblobbar skyddas av Nätverksregler.
 
-> [!NOTE]
-> Säkerhetskopiering och återställning av virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk stöds inte för närvarande.  Mer information finns i [begränsningar när du säkerhetskopierar och återställer en virtuell dator](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 Klassiska lagringskonton **inte** stöd för brandväggar och virtuella nätverk.
+
+Säkerhetskopiering och återställning av virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk stöds via skapar ett undantag enligt beskrivningen i den [undantag](/storage/common/storage-network-security#exceptions) i den här artikeln.  Undantag i brandväggen kan inte användas med hanterade diskar som hanteras redan av Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Ändra standardåtkomstregel för nätverk
 Som standard godkänna lagringskonton anslutningar från klienter på ett nätverk.  Du måste ändra standardåtgärden som begränsar åtkomsten till valda nätverken.
@@ -291,6 +289,7 @@ När ”betrodda Microsoft Services” undantaget aktiveras har följande tjäns
 
 |Tjänst|Providernamn för resurs|Syfte|
 |:------|:---------------------|:------|
+|Azure Backup|Microsoft.Backup|Utför säkerhetskopiering och återställning av ohanterade diskar i IAAS-virtuella datorer. (inte krävs för hanterade diskar). [Läs mer](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Anpassad bild skapas och artefakt installation.  [Läs mer](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering för Blob Storage-händelse.  [Läs mer](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivering av data med Event Hubs avbilda.  [Lär dig mer](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

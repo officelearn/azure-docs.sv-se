@@ -1,8 +1,8 @@
 ---
 title: ApplicationInsights.config - referens i Azure | Microsoft Docs
-description: "Aktivera eller inaktivera data collection moduler och lägga till prestandaräknare och andra parametrar."
+description: Aktivera eller inaktivera data collection moduler och lägga till prestandaräknare och andra parametrar.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 editor: mrbullwinkle
 manager: carmonm
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ange telemetri *moduler* och *initierare* för automatiskt spåra telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ange parametrar för några av dem.
@@ -30,7 +30,7 @@ Det finns inte en motsvarande fil att styra den [SDK på en webbsida][client].
 Det här dokumentet beskrivs i avsnitt som du ser i konfigurationen fil, hur de styra komponenter av SDK, och vilka NuGet-paket att läsa in dessa komponenter.
 
 > [!NOTE]
-> ApplicationInsights.config- och XML-instruktioner gäller inte för .NET Core SDK. Ändringar i ett program med .NET Core använder vi vanligtvis appsettings.json-filen. Ett exempel på detta finns i den [ögonblicksbild Debugger-dokumentationen.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> ApplicationInsights.config- och XML-instruktioner gäller inte för .NET Core SDK. Ändringar i ett program med .NET Core använder vi vanligtvis appsettings.json-filen. Ett exempel på detta finns i den [ögonblicksbild Debugger-dokumentationen.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri moduler (ASP.NET)
 Varje telemetri modul samlar in en viss typ av data och använder core API för att skicka data. Modulerna som installeras av olika NuGet-paket, som också lägga till raderna som behövs i .config-filen.
@@ -263,6 +263,91 @@ Om du vill skicka en viss uppsättning händelser till en annan resurs anger du 
 ```
 
 Få en ny nyckel [skapar en ny resurs i Application Insights-portalen][new].
+
+
+
+## <a name="applicationid-provider"></a>ApplicationId Provider
+
+_Från och med v2.6.0_
+
+Syftet med den här providern är att söka efter ett program-Id som är baserat på en Instrumentation nyckel. Program-Id ingår i RequestTelemetry och DependencyTelemetry och används för att avgöra korrelation i portalen.
+
+Detta är tillgängligt genom att ange `TelemetryConfiguration.ApplicationIdProvider` i koden eller i konfig.
+
+### <a name="interface-iapplicationidprovider"></a>Gränssnittet: IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+Vi tillhandahåller två implementeringar i den [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) sdk: `ApplicationInsightsApplicationIdProvider` och `DictionaryApplicationIdProvider`.
+
+### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
+
+Det här är en omslutning runt vårt profil-Api. Det kommer begränsning begäranden och cache-resultat.
+
+Den här providern har lagts till i konfigurationsfilen när du installerar antingen [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) eller [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
+
+Den här klassen har en valfri egenskap `ProfileQueryEndpoint`.
+Detta är som standard `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
+Om du behöver konfigurera en proxyserver för den här konfigurationen rekommenderas proxyanslutning basen adress och inklusive ”/api/profiler/{0}/appId”. Observera att '{0}' ersätts med Instrumentation nyckel vid körning per begäran.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Exempel på konfiguration via ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Exempel på konfiguration via kod:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+
+Detta är en statisk provider som förlitar sig på din konfigurerade Instrumentation nyckel / värdepar för program-Id.
+
+Den här klassen har en egenskap `Defined` som är en Dictionary < sträng, sträng > Instrumentation nyckel till program-Id-par.
+
+Den här klassen har en valfri egenskap `Next` som kan användas för att konfigurera en annan provider som ska användas när en nyckel för Instrumentation begärs som inte finns i din konfiguration.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Exempel på konfiguration via ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Exempel på konfiguration via kod:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 [Mer information om API: et][api].

@@ -3,21 +3,20 @@ title: Transformera data med Hadoop Streaming activity i Azure Data Factory | Mi
 description: Beskriver hur du använder Hadoop Streaming Activity i Azure Data Factory för att omvandla data genom att köra Hadoop Streaming program på ett Hadoop-kluster.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7c882e6fd826adb415b0452c9b441405d2ff90d7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: c0143b4f2d6858883ac11df18f7844802c667404
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med Hadoop Streaming activity i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,7 +77,7 @@ Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data 
 | description       | Text som beskriver aktiviteten är det som används för | Nej       |
 | typ              | För Hadoop Streaming Activity är aktivitetstypen HDInsightStreaming | Ja      |
 | linkedServiceName | Referens till HDInsight-klustret registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel. | Ja      |
-| mapper            | Anger namnet på den körbara mapparen | Ja      |
+| Mapper            | Anger namnet på den körbara mapparen | Ja      |
 | Reducer           | Anger namnet på den körbara reducer | Ja      |
 | combiner          | Anger namnet på den körbara combiner | Nej       |
 | fileLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Mapper och Combiner Reducer program som ska köras. Om du inte anger den här länkade tjänsten används Azure länkade lagringstjänsten definieras i länkad HDInsight-tjänst. | Nej       |

@@ -1,6 +1,6 @@
 ---
 title: Skapa en Azure Application Gateway - mallar | Microsoft Docs
-description: "Den här sidan innehåller anvisningar för hur du skapar en programgateway i Azure med hjälp av Azure Resource Manager-mallen"
+description: Den här sidan innehåller anvisningar för hur du skapar en programgateway i Azure med hjälp av Azure Resource Manager-mallen
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ba100189cec2060efa97914a2c90f7b0cccbc33f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
 > * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
@@ -76,7 +76,7 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
    * **name**. Namn på den virtuella resursen. Observera användningen av `[parameters('applicationGatewayName')]`, vilket innebär att namnet har angetts som indata av dig eller en parameterfil under distributionen.
    * **properties**. Lista över egenskaper för resursen. Den här mallen använder det virtuella nätverket och den offentliga IP-adressen när programgatewayen skapas.
 
-1. Gå tillbaka till [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Gå tillbaka till [ https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/ ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klicka på **azuredeploy-parameters.json**, och klicka sedan på **RAW**.
 1. Spara filen i en lokal mapp på datorn.
 1. Öppna filen som du sparade och ändra parametrarnas värden. Använd följande värden för att distribuera programgatewayen från vårt scenario.
@@ -129,7 +129,7 @@ Om du aldrig har använt Azure PowerShell gå: [hur du installerar och konfigure
 1. Logga in till PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Kontrollera prenumerationerna för kontot.

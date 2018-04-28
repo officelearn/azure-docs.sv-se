@@ -1,32 +1,27 @@
 ---
-title: "Hur du sidan Sökresultat i Azure Search | Microsoft Docs"
-description: "Sidbrytning i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure."
-services: search
-documentationcenter: 
+title: Hur du sidan Sökresultat i Azure Search | Microsoft Docs
+description: Sidbrytning i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Arbeta med sökresultatsidor i Azure Search
 Den här artikeln innehåller råd om hur du använder den Azure Söktjänsts-REST API för att implementera standardelement för en sida med sökresultat, till exempel totalt antal, hämta dokument, sorteringsordningar och navigering.
 
-I samtliga fall som anges nedan, sidrelaterade som bidrar med data eller information på sidan med sökresultatet anges via den [Sök efter dokument](http://msdn.microsoft.com/library/azure/dn798927.aspx) förfrågningar som skickas till din Azure Search-tjänsten. Begäranden innefattar en GET-command, sökväg, och frågeparametrar som information om vad som efterfrågas tjänsten samt hur du formulera svaret.
+I samtliga fall som anges nedan, sidrelaterade som bidrar med data eller information på sidan med sökresultatet anges via den [Sök efter dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) förfrågningar som skickas till din Azure Search-tjänsten. Begäranden innefattar en GET-command, sökväg, och frågeparametrar som information om vad som efterfrågas tjänsten samt hur du formulera svaret.
 
 > [!NOTE]
-> En giltig begäran innehåller ett antal element, till exempel en URL: en och sökväg, HTTP-verb `api-version`och så vidare. Planeringsaspekter bort vi exempel för att fokusera på just den syntax som är relevant för sidbrytning. Finns det [Azure Söktjänsts-REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) dokumentationen för mer information om begäran-syntax.
+> En giltig begäran innehåller ett antal element, till exempel en URL: en och sökväg, HTTP-verb `api-version`och så vidare. Planeringsaspekter bort vi exempel för att fokusera på just den syntax som är relevant för sidbrytning. Finns det [Azure Söktjänsts-REST API](https://docs.microsoft.com/rest/api/searchservice) dokumentationen för mer information om begäran-syntax.
 > 
 > 
 
@@ -64,7 +59,7 @@ Returnera en delmängd av fält för en sida vid sida layout:
 
 Bilder och mediefiler är inte direkt sökbara och ska lagras i en annan plattform för lagring, till exempel Azure Blob storage att minska kostnaderna. Definiera ett fält som lagrar URL-adressen för det externa innehållet i index och dokument. Du kan sedan använda fältet som en bildreferens till en. URL till bilden som ska vara i dokumentet.
 
-Att hämta en beskrivning produktsidan för en **onClick** händelse, Använd [sökning dokumentet](http://msdn.microsoft.com/library/azure/dn798929.aspx) att skicka i dokumentet för att hämta nyckeln. Datatypen för nyckeln är `Edm.String`. I det här exemplet är det *246810*. 
+Att hämta en beskrivning produktsidan för en **onClick** händelse, Använd [sökning dokumentet](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) att skicka i dokumentet för att hämta nyckeln. Datatypen för nyckeln är `Edm.String`. I det här exemplet är det *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -73,7 +68,7 @@ Sorteringsordningar ofta standard relevans, men det är vanligt att skapa altern
 
  ![][3]
 
-I Azure Search sortering baseras på den `$orderby` uttryck för alla fält som indexeras som`"Sortable": true.`
+I Azure Search sortering baseras på den `$orderby` uttryck för alla fält som indexeras som `"Sortable": true.`
 
 Relevans är starkt kopplat till bedömningen profiler. Du kan använda standard bedömningen som bygger på text analys och statistik för att rangordnas ordning alla resultat med högre resultat ska dokument med flera eller starkare matchningar på en sökterm.
 
@@ -86,7 +81,7 @@ Du skapar en metod som accepterar valda sorteringsalternativet som indata och re
  ![][5]
 
 > [!NOTE]
-> Standard bedömningen är tillräcklig för många scenarier, rekommenderar vi basera relevans på en anpassad bedömningsprofilen i stället. En anpassad bedömningsprofilen ger dig ett sätt att förstärka-objekt som är bättre för ditt företag. Se [lägga till en bedömningsprofilen](http://msdn.microsoft.com/library/azure/dn798928.aspx) för mer information. 
+> Standard bedömningen är tillräcklig för många scenarier, rekommenderar vi basera relevans på en anpassad bedömningsprofilen i stället. En anpassad bedömningsprofilen ger dig ett sätt att förstärka-objekt som är bättre för ditt företag. Se [lägga till en bedömningsprofilen](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) för mer information. 
 > 
 > 
 
@@ -100,12 +95,12 @@ Du kan skicka ett filter med eller utan ett sökuttryck. Till exempel filtrerar 
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Se [Sök dokument (Azure Search-API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) för mer information om `$filter` uttryck.
+Se [Sök dokument (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för mer information om `$filter` uttryck.
 
 ## <a name="see-also"></a>Se även
-* [Azure Söktjänsts-REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Indexåtgärder](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Dokumentet åtgärder](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [Azure Söktjänsts-REST API](https://docs.microsoft.com/rest/api/searchservice)
+* [Indexåtgärder](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Dokumentet åtgärder](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Video och självstudier om Azure Search](search-video-demo-tutorial-list.md)
 * [Fasetterad navigering i Azure Search](search-faceted-navigation.md)
 

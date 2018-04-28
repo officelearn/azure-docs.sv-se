@@ -1,13 +1,13 @@
 ---
-title: "JavaScript-utvecklare för Azure Functions | Microsoft Docs"
-description: "Förstå hur du utvecklar funktioner med hjälp av JavaScript."
+title: JavaScript-utvecklare för Azure Functions | Microsoft Docs
+description: Förstå hur du utvecklar funktioner med hjälp av JavaScript.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur"
+editor: ''
+tags: ''
+keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarhandbok för Azure Functions JavaScript
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 JavaScript-upplevelsen för Azure Functions gör det enkelt att exportera en funktion som har skickats som en `context` objekt för att kommunicera med körningen och för att ta emot och skicka data via bindningar.
 
@@ -118,10 +117,10 @@ Gör att du kan skriva till direktuppspelningsloggar konsolen på standardnivå 
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Skriver till Felnivån loggningen eller lägre.   |
-| **warn(_message_)**    | Skriver till varningsnivå loggningen eller lägre. |
-| **info(_message_)**    | Skriver till info-nivån loggningen eller lägre.    |
-| **verbose(_message_)** | Skriver till nivån utförlig loggning.           |
+| **fel (_meddelandet_)**   | Skriver till Felnivån loggningen eller lägre.   |
+| **Varna (_meddelandet_)**    | Skriver till varningsnivå loggningen eller lägre. |
+| **Info (_meddelandet_)**    | Skriver till info-nivån loggningen eller lägre.    |
+| **utförlig (_meddelandet_)** | Skriver till nivån utförlig loggning.           |
 
 I följande exempel skriver till konsolen vid spårningsnivån varning:
 

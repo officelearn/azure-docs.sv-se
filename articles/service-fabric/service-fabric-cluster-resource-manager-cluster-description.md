@@ -1,11 +1,11 @@
 ---
-title: "Beskrivning av hanteraren för filserverresurser klustret | Microsoft Docs"
-description: "Som beskriver ett Service Fabric-kluster genom att ange Feldomäner, uppgradera domäner, nodegenskaper och kapacitet för noden för klustret Resource Manager."
+title: Beskrivning av hanteraren för filserverresurser klustret | Microsoft Docs
+description: Som beskriver ett Service Fabric-kluster genom att ange Feldomäner, uppgradera domäner, nodegenskaper och kapacitet för noden för klustret Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 07ddf1c2b76230c8d753426d70098603ff14ec4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
 Service Fabric klustret Resource Manager tillhandahåller mekanismer för att beskriva ett kluster. Under körning använder informationen i klustret Resource Manager för att garantera hög tillgänglighet för de tjänster som körs i klustret. Medan reglerna viktigt, försöker den också Optimera resursanvändningen i klustret.
@@ -39,7 +39,7 @@ Det är viktigt att Feldomäner har ställts in korrekt eftersom Service Fabric 
 > [!WARNING]
 > Det är viktigt att Feldomän informationen till Service Fabric är korrekt. Anta exempelvis att att din Service Fabric klusternoder körs inom 10 virtuella datorer som körs på fem fysiska värdar. I det här fallet, även om det finns 10 virtuella datorer, det finns endast 5 olika (toppnivå) fault-domäner. Delar samma fysiska värd gör att virtuella datorer att dela samma fel rotdomänen, eftersom de virtuella datorerna får samordnade fel om inte deras fysiska värden.  
 >
-> Service Fabric förväntar Feldomänen för en nod inte att ändra. Andra mekanismer för att säkerställa hög tillgänglighet för de virtuella datorerna som [hög tillgänglighet för virtuella datorer](https://technet.microsoft.com/en-us/library/cc967323.aspx) kan orsaka konflikter med Service Fabric eftersom de använder transparent migrering av virtuella datorer från en värd till en annan. Dessa mekanismer inte konfigurera om eller meddela köra kod inuti den virtuella datorn. Därför är **stöds inte** som miljöer för att köra Service Fabric-kluster. Service Fabric ska bara hög tillgänglighet tekniken anställda. Mekanismer som VM Direktmigrering, SAN-nätverk eller andra behövs inte. Om används tillsammans med Service Fabric metoderna _minska_ programmets tillgänglighet och tillförlitlighet eftersom de införa ytterligare komplexitet, lägga till centraliserad källor till felet och använda tillförlitlighet och tillgänglighet strategier som står i konflikt med de i Service Fabric. 
+> Service Fabric förväntar Feldomänen för en nod inte att ändra. Andra mekanismer för att säkerställa hög tillgänglighet för de virtuella datorerna som [hög tillgänglighet för virtuella datorer](https://technet.microsoft.com/library/cc967323.aspx) kan orsaka konflikter med Service Fabric eftersom de använder transparent migrering av virtuella datorer från en värd till en annan. Dessa mekanismer inte konfigurera om eller meddela köra kod inuti den virtuella datorn. Därför är **stöds inte** som miljöer för att köra Service Fabric-kluster. Service Fabric ska bara hög tillgänglighet tekniken anställda. Mekanismer som VM Direktmigrering, SAN-nätverk eller andra behövs inte. Om används tillsammans med Service Fabric metoderna _minska_ programmets tillgänglighet och tillförlitlighet eftersom de införa ytterligare komplexitet, lägga till centraliserad källor till felet och använda tillförlitlighet och tillgänglighet strategier som står i konflikt med de i Service Fabric. 
 >
 >
 
@@ -95,7 +95,8 @@ Det finns inga bästa besvara vilken layout som du väljer, var och en har vissa
 Den vanligaste modellen är matrisen FD/UD där FDs och UDs bildar en tabell och noder placeras startar längs diagonalen. Det här är den modell som används som standard i Service Fabric-kluster i Azure. Allt slutar ser ut som ovan kompakta matris mönstret för kluster med flera noder.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Fel- och uppgradera domän begränsningar och resultatet
-Klustret Resource Manager behandlar strävar efter att en tjänst som belastningsutjämnade över fel och uppgradera domäner som en begränsning. Du hittar mer information om begränsningar i [i den här artikeln](service-fabric-cluster-resource-manager-management-integration.md). Fel- och uppgradera domän begränsningar tillståndet ”: för en viss tjänst partition det ska aldrig vara skillnad *större än ett* i antal tjänstobjekt (tillståndslös tjänstinstanser eller tillståndskänslig service repliker) mellan två domäner ”. Detta förhindrar att vissa flyttar eller åtgärder som strider mot den här begränsningen.
+### <a name="default-approach"></a>*Standard-metoden*
+Som standard sparas klustret Resource Manager services belastningsutjämnade över fel och uppgradera domäner. Det här modelleras som en [begränsningen](service-fabric-cluster-resource-manager-management-integration.md). Fel- och uppgradera domän begränsningen tillstånden: ”för en viss tjänst partition det ska aldrig vara skillnad större än ett i antal tjänstobjekt (tillståndslös tjänstinstanser eller tillståndskänslig service repliker) mellan två domäner på samma nivå hierarkin ”. Anta att den här begränsningen ger en garanti för ”högsta skillnaden”. Fel- och uppgradera domän begränsningen förhindrar vissa flyttar eller åtgärder som bryter mot regeln som anges ovan. 
 
 Nu ska vi titta på ett exempel. Anta att vi har ett kluster med sex noder är konfigurerade med fem Feldomäner och fem uppgradera domäner.
 
@@ -106,6 +107,8 @@ Nu ska vi titta på ett exempel. Anta att vi har ett kluster med sex noder är k
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Konfiguration 1*
 
 Nu anta att vi skapa en tjänst med en TargetReplicaSetSize (eller för den tillståndslösa tjänsten en InstanceCount) fem. Repliker mark på N1 N5. I själva verket används N6 aldrig oavsett hur många tjänster så här du skapar. Men varför? Nu ska vi titta på skillnaden mellan den aktuella layouten och vad som skulle hända om N6 väljs.
 
@@ -120,6 +123,9 @@ Här visas layouten vi och det totala antalet repliker per fel- och uppgradera d
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Layout 1*
+
+
 Den här layouten balanseras vad gäller noder per fel och uppgradera domänen. Det är också balanserad vad gäller antal repliker per fel- och uppgradera domän. Varje domän har samma antal noder och samma antal repliker.
 
 Nu ska vi titta på vad som skulle hända om vi hade använt N6 i stället för N2. Hur skulle replikerna att distribueras sedan?
@@ -133,7 +139,10 @@ Nu ska vi titta på vad som skulle hända om vi hade använt N6 i stället för 
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Den här layouten strider mot vår definition av begränsningen Feldomän. FD0 har två repliker medan FD1 är noll, göra skillnaden mellan FD0 och FD1 totalt två. Klustret Resource Manager tillåter inte den här ordningen. På liknande sätt om vi plockats N2 och N6 (i stället för N1 och N2) skulle vi få:
+*Layout 2*
+
+
+Den här layouten strider mot vår definitionen för ”högsta skillnaden” säkerheten för begränsningen Feldomän. FD0 har två repliker medan FD1 är noll, göra skillnaden mellan FD0 och FD1 totalt två, vilket är större än den största skillnaden i en. Eftersom villkoret överskrids tillåter inte den här ordningen i klustret Resource Manager. På liknande sätt om vi plockats N2 och N6 (i stället för N1 och N2) skulle vi få:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -144,7 +153,85 @@ Den här layouten strider mot vår definition av begränsningen Feldomän. FD0 h
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Den här layouten balanseras vad gäller Feldomäner. Men nu den bryter mot begränsningen uppgraderingen domän. Det beror på att UD0 har noll repliker medan UD1 har två. Därför måste den här layouten också är ogiltigt och registreras inte av klustret Resource Manager. 
+*Layout 3*
+
+
+Den här layouten balanseras vad gäller Feldomäner. Men nu den bryter mot begränsningen uppgraderingen domän eftersom UD0 har noll repliker medan UD1 har två. Därför måste den här layouten också är ogiltigt och registreras inte av klustret Resource Manager.
+
+Den här metoden för distribution av tillståndskänslig repliker eller tillståndslösa instanser ger bästa möjliga feltolerans. I en situation när en domän kraschar går minimalt antal repliker/instanser förlorad. 
+
+Den här metoden kan å andra sidan är för begränsade och inte tillåter att klustret ska använda alla resurser. För vissa klusterkonfigurationer kan inte vissa noder användas. Detta kan leda till Service Fabric inte placera tjänsterna, vilket resulterar i varningsmeddelanden. Vissa av klusternoderna kan inte vara i det föregående exemplet används (N6 i angivna exempel). Även om du vill lägga till noder i klustret (N7 – N10), placeras repliker/instanser endast på N1 – N5 på grund av fel och uppgradera domän villkor. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Konfiguration 2*
+
+
+### <a name="alternative-approach"></a>*Alternativ metod*
+
+Klustret Resource Manager har stöd för en annan version av villkoret fel- och uppgradera domänen som gör att placering av samtidigt som fortfarande en lägsta nivå av säkerhet. Alternativa fel- och uppgradera domän begränsningen kan anges enligt följande: ”för en viss tjänst partition replik fördelningen mellan domäner bör se till att partitionen inte har drabbats en förlorar kvorum”. Anta att den här begränsningen innehåller ett ”kvorum säker” garanti. 
+
+> [!NOTE]
+>För en tillståndskänslig service vi definiera *förlorar kvorum* i en situation när en majoritet av replikerna partition är nere på samma gång. Om TargetReplicaSetSize är fem, representerar en uppsättning alla tre repliker kvorum. På liknande sätt, om TargetReplicaSetSize 6, fyra repliker krävs för kvorum. I båda fallen kan högst två repliker ligga nere samtidigt om partitionen vill fortsätta att fungera normalt. Det finns ingen sådan funktion som för en tillståndslös tjänst *förlorar kvorum* som tillståndslösa tjänster conitnue till functionate normalt även om en majoritet av instanser gå på samma gång. Därför kan fokuserar vi på tillståndskänsliga tjänster i resten av texten.
+>
+
+Vi går tillbaka till föregående exempel. Alla tre angivna layouter vara giltig med ”kvorum säker”-version av villkoret. Det beror på att även om det blir fel på FD0 i den andra layout eller UD1 i den tredje layouten, partitionen fortfarande skulle ha kvorum (en majoritet av dess repliker blir fortfarande in). Med denna version av villkoret kan N6 nästan alltid användas.
+
+Metoden ”kvorum säker” ger bättre flexibilitet än metoden som ”högsta skillnaden” eftersom det är lättare att hitta repliken distributioner som är giltiga i nästan alla klustertopologi. Men den här metoden kan inte garantera bästa felet tolerans egenskaper eftersom några fel är värre än andra. En majoritet av replikerna kan gå förlorade med fel på en domän och ytterligare en replik i värsta fall scenario. Till exempel i stället för 3 fel måste förlorar kvorum med 5 repliker eller instanser, du kan nu gå förlorade en majoritet med två fel. 
+
+### <a name="adaptive-approach"></a>*Anpassningsbar metod*
+Vi har introducerat en anpassad metod som kombinerar dessa två strategier eftersom båda dessa metoder har styrkor och svagheter.
+
+> [!NOTE]
+>Detta är standardbeteendet från och med Service Fabric Version 6.2. 
+>
+Den anpassade metoden använder ”högsta skillnaden” logik som standard och växlar till ”kvorum säker” logiken bara när det behövs. Klustret Resource Manager räknat automatiskt ut vilka strategi krävs genom att titta på hur de kluster och tjänster som är konfigurerade. För en viss tjänst: *om TargetReplicaSetSize är jämnt delbart med antalet Feldomäner och antalet uppgradera domäner **och** antalet noder som är mindre än eller lika med (antalet Feldomäner) * (den Antal uppgradera domäner), resurshanteraren klustret ska använda ”kvorum baserat” logiken för tjänsten.* Tänk dessutom på att klustret Resource Manager kommer att använda den här metoden för både tillståndslösa och tillståndskänsliga tjänster, trots förlorar kvorum som inte är relevanta för tillståndslösa tjänster.
+
+Vi går tillbaka till föregående exempel och förutsätter att 8 noder (klustret fortfarande är konfigurerad med fem Feldomäner och fem uppgradera domäner och TargetReplicaSetSize av en tjänst som finns på de klustret förblir fem) har nu ett kluster. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Konfiguration 3*
+
+Eftersom alla nödvändiga villkor uppfylls, använder Hanteraren för filserverresurser ”kvorum baserad” logiken i distribuerar tjänsten. Detta gör att användning av N6 – N8. En distribution av möjliga service i det här fallet kan se ut så:
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Layout 4*
+
+Om din tjänst TargetReplicaSetSize minskar till fyra (till exempel), Lägg märke till att klustret Resource Manager och fortsätta att använda ”högsta skillnaden” logiken eftersom TargetReplicaSetSize delbar med antalet FDs och UDs inte längre. Därför inträffar vissa replik förflyttningar för att distribuera återstående fyra repliker på noderna N1 N5 så att ”högsta skillnaden”-versionen av logiken Feldomän och uppgradering domän inte har överskridits. 
+
+Söker efter tillbaka den fjärde layouten och TargetReplicaSetSize fem. Antalet uppgradera domäner blir lika med fyra om N1 tas bort från klustret. Klustret Resource Manager startar igen med ”högsta skillnaden” logik som antalet UDs inte jämnt divideras med tjänstens TargetReplicaSetSize längre. Replik R1 när inbyggda igen och har därför att hamna på N4 så att fel- och domänbegränsningar uppgraderar inte överskrids.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |Gäller inte |Saknas |Saknas |Saknas |Saknas |Gäller inte |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Layout 5*
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Konfigurera fel- och uppgradera domäner
 Definiera Feldomäner och uppgradera domäner görs automatiskt i Azure värdbaserade Service Fabric-distributioner. Service Fabric hämtar och använder miljöinformation från Azure.
@@ -271,7 +358,7 @@ Värdet som anges i egenskapen nod kan vara en sträng, bool, eller signerat lä
 
 1) villkorliga kontroller för att skapa specifika instruktioner
 
-| Instruktionen | Syntax |
+| Meddelande | Syntax |
 | --- |:---:|
 | ”lika med” | "==" |
 | ”inte lika med” | "!=" |
@@ -282,7 +369,7 @@ Värdet som anges i egenskapen nod kan vara en sträng, bool, eller signerat lä
 
 2) Booleskt uttryck för gruppering och logiska åtgärder
 
-| Instruktionen | Syntax |
+| Meddelande | Syntax |
 | --- |:---:|
 | ”och” | "&&" |
 | ”eller” | "&#124;&#124;" |
@@ -515,7 +602,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om arkitektur och information om flödet inom klustret Resource Manager kolla [den här artikeln](service-fabric-cluster-resource-manager-architecture.md)
+* Information om arkitektur och information om flödet inom klustret Resource Manager kolla [den här artikeln ](service-fabric-cluster-resource-manager-architecture.md)
 * Definiera defragmentering mått är ett sätt att konsolidera belastningen på noder i stället för att sprida. Om du vill veta hur du konfigurerar defragmentering avser [i den här artikeln](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Börja från början och [få en introduktion till Service Fabric klustret Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Om du vill veta mer om hur klustret Resource Manager hanterar och balanserar belastningen i klustret kan ta en titt i artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-tjänstens kryptering av vilande data
 
@@ -72,7 +72,7 @@ S: Ja, om du [använder egna krypteringsnycklar](storage-service-encryption-cust
 
 **F: är Lagringstjänstens kryptering aktiverat som standard när jag skapar ett lagringskonto?**
 
-S: Ja är Storage Service-kryptering (med Microsoft-hanterad nycklar) aktiverat som standard för alla lagringskonton--Azure Resource Manager och klassisk. Den har aktiverats för alla tjänster samt--Blob storage, Table storage, Queue storage och Azure-filer.
+S: Ja är Storage Service-kryptering aktiverat som standard för alla lagringskonton och för alla Azure Storage-tjänster.
 
 **F: hur skiljer detta sig från Azure Disk Encryption?**
 

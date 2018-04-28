@@ -1,11 +1,11 @@
 ---
-title: "Säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar som använder Azure Backup | Microsoft Docs"
-description: "Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att säkerhetskopiera säkrare"
+title: Säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar som använder Azure Backup | Microsoft Docs
+description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att säkerhetskopiera säkrare
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar som använder Azure Backup
 Frågor om säkerhetsproblem som skadlig programvara, är en utpressningstrojan som och intrångsidentifiering, ökar. Dessa säkerhetsproblem kan vara kostsamma vad gäller både pengar och data. För att skydda mot sådana angrepp ger Azure Backup nu säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av en Azure Recovery Services-agenten och Azure Backup Server. Funktionerna är:
@@ -30,7 +30,7 @@ Frågor om säkerhetsproblem som skadlig programvara, är en utpressningstrojan 
 > [!NOTE]
 > Säkerhetsfunktioner bör inte aktiveras om du använder infrastruktur som en tjänst (IaaS) VM-säkerhetskopia. De här funktionerna finns ännu inte för IaaS VM säkerhetskopiering, så att de inte har någon effekt. Säkerhetsfunktioner ska aktiveras bara om du använder: <br/>
 >  * **Azure Backup-agenten**. Minsta agentversion 2.0.9052. När du har aktiverat dessa funktioner, bör du uppgradera till den agentversionen som ska utföra kritiska åtgärder. <br/>
->  * **Azure Backup Server**. Azure Backup agent minimiversionen 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
+>  * **Azure Backup-Server**. Azure Backup agent minimiversionen 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
 >  * **System Center Data Protection Manager**. Azure Backup agent minimiversionen 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller UR2 för Data Protection Manager 2016. <br/> 
 
 
@@ -55,7 +55,7 @@ Om du skapar ett Recovery Services-valv, kan du använda säkerhetsfunktionerna 
     ![Skärmbild av Recovery Services-valvet egenskaper](./media/backup-azure-security-feature/security-settings-update.png)
 
     Uppdateringslänken öppnar den **säkerhetsinställningar** som innehåller en översikt över funktionerna och du kan aktivera dem.
-5. Från den nedrullningsbara listan **har du konfigurerat Azure Multi-Factor Authentication?**, Välj ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Om den är aktiverad, uppmanas du att autentisera från en annan enhet (till exempel en mobiltelefon) när du loggar in på Azure-portalen.
+5. Från den nedrullningsbara listan **har du konfigurerat Azure Multi-Factor Authentication?**, Välj ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Om den är aktiverad, uppmanas du att autentisera från en annan enhet (till exempel en mobiltelefon) när du loggar in på Azure-portalen.
 
    Du måste ange en säkerhets-och PIN-kod på Azure-portalen när du utför kritiska åtgärder i säkerhetskopian. Aktivera Azure Multi-Factor Authentication ger en säkerhetsnivå. Endast behöriga användare med giltiga autentiseringsuppgifter för Azure och autentiseras från en annan enhet, kan komma åt Azure-portalen.
 6. Välj för att spara säkerhetsinställningar **aktivera** och på **spara**. Du kan välja **aktivera** bara när du har markerat ett värde från den **har du konfigurerat Azure Multi-Factor Authentication?** listan i föregående steg.
@@ -106,7 +106,7 @@ När en kritisk åtgärd utförs, vanligtvis skickas prenumeration admin ett e-p
 
 Säkerhetsfunktioner som nämns i denna artikel har funktioner för skydd mot riktade attacker. Det är viktigt om en attack inträffar dessa funktioner ger dig möjlighet att återställa dina data.
 
-## <a name="troubleshooting-errors"></a>Felsökning av fel
+## <a name="troubleshooting-errors"></a>Felsöka fel
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
 | Principändring |Det gick inte att ändra principen för säkerhetskopiering. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak:**<br/>Det här felet kommer när säkerhetsinställningar har aktiverats, försök att minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du är på version som inte stöds (versioner som stöds anges i första anteckningen i den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ställa in kvarhållningsperioden ovan minsta kvarhållning tidsperioden (sju dagar för varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) att gå vidare med principen relaterade uppdateringar. Du kan också är föredragen metod att uppdatera säkerhetskopieringsagent Azure Backup-Server och/eller DPM UR utnyttja alla säkerhetsuppdateringar. |

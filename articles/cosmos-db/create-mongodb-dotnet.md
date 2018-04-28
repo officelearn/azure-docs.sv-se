@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: sngun
-ms.openlocfilehash: ab14261e939063c5e50050774d1aae3edf1bef19
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a63a8577bda951613f60102475396f72ea1a4bdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: skapa en MongoDB-API-webbapp med .NET och Azure Portal
 
@@ -43,8 +43,19 @@ Om du inte redan har Visual Studio kan du hämta [Visual Studio 2017 Community E
 
 Hämta först MongoDB-API-exempelappen från GitHub. Den implementerar en uppgiftslista med MongoDB:s dokumentlagringsmodell.
 
-1. Öppna ett git-terminalfönster, till exempel git bash, och `cd` till en arbetskatalog.
-2. Klona exempellagringsplatsen med följande kommando. 
+1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till den nya mappen där du vill installera exempelappen.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
@@ -54,7 +65,9 @@ Om du inte vill använda git kan du [ladda ned projektet som en ZIP-fil](https:/
 
 ## <a name="review-the-code"></a>Granska koden
 
-Vi gör en snabb genomgång av vad som händer i appen. Öppna filen **Dal.cs** under katalogen **DAL** så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
+
+Följande kodavsnitt är alla hämtade från filen Dal.cs i katalogen DAL.
 
 * Initiera Mongo-klienten.
 
@@ -126,10 +139,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg:
-
-1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0-slutpunkten begränsningar och restriktioner | Microsoft Docs"
-description: "En lista över begränsningar och restriktioner för Azure AD v2.0-slutpunkten."
+title: Azure Active Directory v2.0-slutpunkten begränsningar och restriktioner | Microsoft Docs
+description: En lista över begränsningar och restriktioner för Azure AD v2.0-slutpunkten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Bör jag använda v2.0-slutpunkten?
 När du skapar program som integreras med Azure Active Directory, måste du bestämma om v2.0-slutpunkten och verifieringsprotokollen uppfyller dina behov. Azure Active Directorys ursprungliga slutpunkt stöds fortfarande helt och på vissa sätt, är fler funktioner än version 2.0. Dock v2.0-slutpunkten [introducerar betydande fördelar](active-directory-v2-compare.md) för utvecklare.
@@ -84,15 +84,6 @@ Du kan lägga till två senare eftersom de är underdomäner i första omdiriger
 Tänk också på, du kan ha högst 20 svars-URL: er för ett visst program.
 
 Information om hur du registrerar en app i portalen för registrering av program finns [hur du registrerar en app med v2.0-slutpunkten](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Begränsningar för tjänster och API: er
-Stöder för närvarande, v2.0-slutpunkten inloggningen för en app som är registrerad i portalen för registrering av program och som faller i listan över [stöds autentisering flöden](active-directory-v2-flows.md). De här apparna kan dock hämta OAuth 2.0-åtkomsttoken för en mycket begränsad uppsättning resurser. V2.0-slutpunkten problem åtkomst till token för:
-
-* Appen som begärt token. En app kan hämta en åtkomst-token för sig själv, om appen logiska består av flera olika komponenter eller nivåer. Om du vill se det här scenariot fungerar i praktiken Kolla in våra [komma igång](active-directory-appmodel-v2-overview.md#getting-started) självstudier.
-* Outlook-e-post, kalender och kontakter REST API: er, som finns på https://outlook.office.com. Information om hur du skriver en app som har åtkomst till dessa API: er finns i [Office komma igång](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) självstudier.
-* Microsoft Graph API: er. Du kan lära dig mer om [Microsoft Graph](https://graph.microsoft.io) och de data som är tillgängliga för dig.
-
-Inga andra tjänster stöds just nu. Flera Microsoft Online Services läggs i framtiden, förutom stöd för egna specialbyggt webb-API: er och tjänster.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Begränsningar för bibliotek och SDK
 Stöd för v2.0-slutpunkten är för närvarande begränsad. Om du vill använda v2.0-slutpunkten i ett produktionsprogram finns följande alternativ:

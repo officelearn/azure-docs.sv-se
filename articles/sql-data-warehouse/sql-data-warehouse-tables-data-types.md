@@ -1,40 +1,36 @@
 ---
-title: Datatyperna vägledning - Azure SQL Data Warehouse | Microsoft Docs
-description: Rekommendationer för att definiera datatyper som är kompatibla med SQL Data Warehouse.
+title: 'Definiera datatyper: Azure SQL Data Warehouse | Microsoft Docs'
+description: Rekommendationer för att definiera tabellen datatyper i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 03/17/2018
-ms.author: barbkess
-ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 4d8a222a6d4cfa4138fe833fb4e9cc895dbc5f65
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Riktlinjer för att definiera datatyper för tabeller i SQL Data Warehouse
-Använd de här rekommendationerna för att definiera tabellen datatyper som är kompatibla med SQL Data Warehouse. Förutom kompatibilitet förbättrar minimera storlek på datatyper för prestanda för frågor.
+# <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tabell datatyper i Azure SQL Data Warehouse
+Rekommendationer för att definiera tabellen datatyper i Azure SQL Data Warehouse. 
 
-SQL Data Warehouse stöder vanligaste de datatyper. En lista över datatyperna som stöds, se [datatyper](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) i CREATE TABLE-instruktion. 
+## <a name="what-are-the-data-types"></a>Vilka är datatyperna?
 
+SQL Data Warehouse stöder vanligaste de datatyper. En lista över datatyperna som stöds, se [datatyper](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) i CREATE TABLE-instruktion. 
 
 ## <a name="minimize-row-length"></a>Minimera radlängden
 Minimera storlek på datatyper för förkortar radlängden, vilket resulterar i bättre prestanda. Använd den minsta datatypen som fungerar för dina data. 
 
 - Undvik att definiera teckenkolumner med en stor standardlängden. Till exempel om det längsta värdet är 25 tecken, definiera kolumnen som VARCHAR(25). 
-- Undvik att använda [NVARCHAR] [ NVARCHAR] när du behöver bara VARCHAR.
+- Undvik att använda [NVARCHAR] [NVARCHAR] när du behöver bara VARCHAR.
 - När det är möjligt använda NVARCHAR(4000) eller VARCHAR(8000) i stället för NVARCHAR(MAX) eller VARCHAR(MAX).
 
-Om du använder Polybase för att läsa in tabellerna får inte tabellraden definierade längd överstiga 1 MB. När en rad med variabel längd överskrider 1 MB, kan du läsa in raden med BCP, men inte med PolyBase.
+Om du använder PolyBase externa tabeller för att läsa in tabellerna får inte tabellraden definierade längd överstiga 1 MB. När en rad med variabel längd överskrider 1 MB, kan du läsa in raden med BCP, men inte med PolyBase.
 
 ## <a name="identify-unsupported-data-types"></a>Identifiera datatyper
 Om du migrerar databasen från en annan SQL-databas, kan det uppstå datatyper som inte stöds i SQL Data Warehouse. Använd den här frågan för att identifiera datatyper i din befintliga SQL-schemat.
@@ -44,88 +40,30 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
  AND  y.[is_user_defined] = 1;
 ```
 
 
-## <a name="unsupported-data-types"></a>Använda lösningar för datatyper
+## <a name="unsupported-data-types"></a>Lösningar för datatyper
 
 I följande lista visas datatyperna som SQL Data Warehouse stöder inte och ger alternativ som du kan använda i stället för typerna av data som inte stöds.
 
 | Datatyp | Lösning |
 | --- | --- |
-| [geometri][geometry] |[varbinary][varbinary] |
-| [geografisk plats][geography] |[varbinary][varbinary] |
-| [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [image][ntext,text,image] |[varbinary][varbinary] |
-| [text][ntext,text,image] |[varchar][varchar] |
-| [ntext][ntext,text,image] |[nvarchar][nvarchar] |
-| [sql_variant][sql_variant] |Dela upp kolumn i flera strikt typkontroll kolumner. |
-| [Tabell][table] |Konvertera till temporära tabeller. |
-| [timestamp][timestamp] |Omarbeta kod för att använda [datetime2] [ datetime2] och `CURRENT_TIMESTAMP` funktion.  Endast konstanter stöds som standard, därför current_timestamp kan inte definieras som en default-begränsning. Om du behöver migrera version radvärden från en tidsstämpelkolumn skrivna använder [binära][BINARY](8) eller [VARBINARY][BINARY](8) för NOT NULL eller NULL version radvärden. |
-| [xml][xml] |[varchar][varchar] |
-| [användardefinierad typ][user defined types] |Konvertera tillbaka till den ursprungliga datatypen när det är möjligt. |
-| standardvärden | Standardvärden stöder literaler och endast konstanter.  Icke-deterministiska uttryck eller funktioner, t.ex `GETDATE()` eller `CURRENT_TIMESTAMP`, stöds inte. |
+| [geometri](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [geografisk plats](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)(4000) |
+| [Bild](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [Text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
+| [ntext](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
+| [sql_variant](/sql/t-sql/data-types/sql-variant-transact-sql) |Dela upp kolumn i flera strikt typkontroll kolumner. |
+| [Tabell](/sql/t-sql/data-types/table-transact-sql) |Konvertera till temporära tabeller. |
+| [tidsstämpel](/sql/t-sql/data-types/date-and-time-types) |Omarbeta kod för att använda [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) och [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) funktion. Endast konstanter stöds som standard, därför current_timestamp kan inte definieras som en default-begränsning. Om du behöver migrera version radvärden från en tidsstämpelkolumn skrivna använder [binära](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) eller [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) rad Versionsvärden för inte är NULL eller NULL. |
+| [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
+| [användardefinierad typ](/sql/relational-databases/native-client/features/using-user-defined-types) |Konvertera tillbaka till den ursprungliga datatypen när det är möjligt. |
+| standardvärden | Standardvärden stöder literaler och endast konstanter. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan läsa mer här:
-
-- [Metodtips för SQL Data Warehouse][SQL Data Warehouse Best Practices]
-- [Översikt över tabell][Overview]
-- [Distribuera en tabell][Distribute]
-- [Indexering av en tabell][Index]
-- [Partitionering en tabell][Partition]
-- [Underhåll av tabellstatistik][Statistics]
-- [Temporära tabeller][Temporary]
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[create table]: https://msdn.microsoft.com/library/mt203953.aspx
-[bigint]: https://msdn.microsoft.com/library/ms187745.aspx
-[binary]: https://msdn.microsoft.com/library/ms188362.aspx
-[bit]: https://msdn.microsoft.com/library/ms177603.aspx
-[char]: https://msdn.microsoft.com/library/ms176089.aspx
-[date]: https://msdn.microsoft.com/library/bb630352.aspx
-[datetime]: https://msdn.microsoft.com/library/ms187819.aspx
-[datetime2]: https://msdn.microsoft.com/library/bb677335.aspx
-[datetimeoffset]: https://msdn.microsoft.com/library/bb630289.aspx
-[decimal]: https://msdn.microsoft.com/library/ms187746.aspx
-[float]: https://msdn.microsoft.com/library/ms173773.aspx
-[geometry]: https://msdn.microsoft.com/library/cc280487.aspx
-[geography]: https://msdn.microsoft.com/library/cc280766.aspx
-[hierarchyid]: https://msdn.microsoft.com/library/bb677290.aspx
-[int]: https://msdn.microsoft.com/library/ms187745.aspx
-[money]: https://msdn.microsoft.com/library/ms179882.aspx
-[nchar]: https://msdn.microsoft.com/library/ms186939.aspx
-[nvarchar]: https://msdn.microsoft.com/library/ms186939.aspx
-[ntext,text,image]: https://msdn.microsoft.com/library/ms187993.aspx
-[real]: https://msdn.microsoft.com/library/ms173773.aspx
-[smalldatetime]: https://msdn.microsoft.com/library/ms182418.aspx
-[smallint]: https://msdn.microsoft.com/library/ms187745.aspx
-[smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
-[sql_variant]: https://msdn.microsoft.com/library/ms173829.aspx
-[sysname]: https://msdn.microsoft.com/library/ms186939.aspx
-[table]: https://msdn.microsoft.com/library/ms175010.aspx
-[time]: https://msdn.microsoft.com/library/bb677243.aspx
-[timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
-[tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
-[uniqueidentifier]: https://msdn.microsoft.com/library/ms187942.aspx
-[varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
-[varchar]: https://msdn.microsoft.com/library/ms186939.aspx
-[xml]: https://msdn.microsoft.com/library/ms187339.aspx
-[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
+Mer information om hur du utvecklar tabeller finns [tabell översikt](sql-data-warehouse-tables-overview.md).

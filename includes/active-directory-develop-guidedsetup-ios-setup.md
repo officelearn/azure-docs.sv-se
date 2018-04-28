@@ -2,7 +2,7 @@
 
 Det här avsnittet innehåller stegvisa instruktioner för hur du skapar ett nytt projekt för att demonstrera hur du integrerar en iOS-App (Swift) med *logga In med Microsoft* så att den kan fråga webb-API: er som kräver en token.
 
-> Om du vill hämta det här exemplet XCode-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) och gå vidare till den [konfigurationssteget](#create-an-application-express) konfigurera kodexemplet innan du kör.
+> Om du vill hämta det här exemplet XCode-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>Installera Carthage om du vill hämta och skapa MSAL

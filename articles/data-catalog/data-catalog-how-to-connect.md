@@ -1,12 +1,12 @@
 ---
-title: "Hur du ansluter till datakällor | Microsoft Docs"
-description: "Artikel markering av hur du ansluter till datakällor som identifierats med Azure Data Catalog."
+title: Hur du ansluter till datakällor | Microsoft Docs
+description: Artikel markering av hur du ansluter till datakällor som identifierats med Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Så här ansluter du till datakällor
 ## <a name="introduction"></a>Introduktion
@@ -47,8 +47,8 @@ När du använder den ”öppna i...” menyn för datakällor i Azure Data Cata
 | Excel (överst 1000) |.odc |Excel 2010 eller senare |
 | Power Query |.xlsx |Excel 2016 eller Excel 2010 eller Excel 2013 med Power Query för Excel-tillägg installeras |
 | Power BI Desktop |.pbix |Power BI Desktop juli 2016 eller senare |
-| SQL Server Data Tools |vsweb:// |Visual Studio 2013 uppdatering 4 eller senare med SQL Server tooling installerad |
-| Report Manager |http:// |Se [Webbläsarkrav för SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
+| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 uppdatering 4 eller senare med SQL Server tooling installerad |
+| Report Manager |http:// |Se [Webbläsarkrav för SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Dina data, din verktyg
 Alternativen i menyn beror på vilken typ av datatillgång markerade. Naturligtvis inte alla möjliga verktyg ska inkluderas i den ”öppna i...” menyn, men det är fortfarande enkelt att ansluta till datakällan med ett klientverktyg. När en datatillgång väljs i den **Azure Data Catalog** portalen fullständiga placering visas i egenskapsfönstret.

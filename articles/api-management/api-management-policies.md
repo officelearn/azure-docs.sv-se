@@ -1,11 +1,11 @@
 ---
 title: Azure API Management-principer | Microsoft Docs
-description: "Läs mer om principerna som är tillgängliga för användning i Azure API Management."
+description: Läs mer om principerna som är tillgängliga för användning i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 7304ade9c47034b6cb76eb87126f09fb5af65c8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](api-management-howto-policies.md).  
@@ -47,7 +47,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
     -   [Ange variabel](api-management-advanced-policies.md#set-variable) -bevara ett värde i en namngiven kontexten variabel för senare användning.  
     -   [Ange metoden](api-management-advanced-policies.md#SetRequestMethod) -kan du ändra HTTP-metoden för en begäran.  
     -   [Ange statuskoden](api-management-advanced-policies.md#SetStatus) -ändrar HTTP-statuskoden till det angivna värdet.  
-    -   [Spåra](api-management-advanced-policies.md#Trace) -lägger till en sträng i den [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) utdata.  
+    -   [Spåra](api-management-advanced-policies.md#Trace) -lägger till en sträng i den [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata.  
     -   [Vänta](api-management-advanced-policies.md#Wait) -väntar för omslutna [begäran om att skicka](api-management-advanced-policies.md#SendRequest), [hämta värdet från cache](api-management-caching-policies.md#GetFromCacheByKey), eller [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) principer för att slutföra innan du fortsätter.  
 -   [Autentiseringsprinciper](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autentisera med grundläggande](api-management-authentication-policies.md#Basic) -autentisering med en serverdelstjänst som använder grundläggande autentisering.  

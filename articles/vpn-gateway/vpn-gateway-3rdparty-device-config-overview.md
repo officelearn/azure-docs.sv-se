@@ -1,12 +1,12 @@
 ---
-title: "Samarbeta konfigurationer för VPN-enhet för att ansluta till Azure VPN-gatewayer | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över partner VPN enhetskonfigurationer för att ansluta till Azure VPN-gatewayer."
+title: Samarbeta konfigurationer för VPN-enhet för att ansluta till Azure VPN-gatewayer | Microsoft Docs
+description: Den här artikeln innehåller en översikt över partner VPN enhetskonfigurationer för att ansluta till Azure VPN-gatewayer.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9ca3937d688170798c42fce45dbcd7711773d1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Översikt över konfigurationen av partner VPN-enheter
 Den här artikeln innehåller en översikt över hur du konfigurerar lokala VPN-enheter för att ansluta till Azure VPN-gatewayer. Ett exempel på virtuella Azure-nätverket och installationsprogram för VPN-gateway används för att visa hur du ansluter till olika lokala VPN-enhetskonfigurationer med samma parametrar.
@@ -48,7 +48,7 @@ Det här avsnittet visas parametrarna som exempel som beskrivs i föregående av
 | * Lokala BGP ASN         | 65050                        |
 | * Lokala BGP-peer-IP     | 10.52.255.254                |
 
-\*Valfri parameter för BGP endast.
+\* Valfri parameter för BGP endast.
 
 ### <a name="sample-powershell-script"></a>PowerShell-exempelskript
 Det här avsnittet innehåller ett exempelskript för att komma igång. Detaljerade instruktioner finns [skapa S2S VPN-anslutningar med hjälp av PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
@@ -84,7 +84,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
@@ -124,7 +124,7 @@ Om VPN-enheter inte stöder alla-till-alla trafik väljare, till exempel väg el
 
 
 Exempelskript som skapar en IPsec/IKE-princip med de följande algoritmer och parametrar:
-* IKEv2: AES256, SHA384 DHGroup24
+* IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA1, PFS24, SA livstid 7,200 sekunder och 20,480,000 KB (20 GB)
 
 Skriptet använder IPsec/IKE-principen och gör den **UsePolicyBasedTrafficSelectors** alternativet på anslutningen.

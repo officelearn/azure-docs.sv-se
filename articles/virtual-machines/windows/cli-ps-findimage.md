@@ -1,11 +1,11 @@
 ---
-title: "Välj Windows VM-avbildningar i Azure | Microsoft Docs"
-description: "Lär dig hur du använder Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för Marketplace VM-avbildningar."
+title: Välj Windows VM-avbildningar i Azure | Microsoft Docs
+description: Lär dig hur du använder Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för Marketplace VM-avbildningar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 6d88eea96d95ac998575b9b034ac970eabc38913
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858b5976ef422ab410f42c44f94473aa4fd10970
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar i Azure Marketplace med Azure PowerShell
 
@@ -32,7 +32,7 @@ Kontrollera att du har installerat och konfigurerat senast [Azure PowerShell-mod
 ## <a name="table-of-commonly-used-windows-images"></a>Tabell med vanliga Windows-avbildningar
 | Utgivare | Erbjudande | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016 Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016 Datacenter med behållare |
 | MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
@@ -80,7 +80,7 @@ Fyll i ditt valda SKU namn och kör följande kommandon:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Från utdata från den `Get-AzureRMVMImage` kommandot kan du välja en version bild för att distribuera en ny virtuell dator.

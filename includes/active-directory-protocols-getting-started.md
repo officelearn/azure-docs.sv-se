@@ -11,23 +11,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/21/2016
+ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0b78ed6cdb1209d70cf0d561f74cfcddc09b2391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registrera ditt program med din AD-klient
-Först måste du registrera ditt program med din Azure Active Directory (Azure AD)-klient. Det ger dig en program-ID för ditt program och låter det ta emot tokens.
+Du måste först registrera programmet med din Azure Active Directory (Azure AD)-klient. Det ger dig en program-ID för ditt program och låter det ta emot tokens.
 
 * Logga in på [Azure Portal](https://portal.azure.com).
 * Välj din Azure AD-klient genom att klicka på ditt konto i det övre högra hörnet på sidan.
-* I det vänstra navigeringsfönstret, klickar du på **Azure Active Directory**.
-* Klicka på **Appregistreringar** och klicka på **Lägg till**.
+* I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**.
+* Klicka på **App registreringar** och klicka på **nya appregistrering**.
 * Följ anvisningarna och skapa ett nytt program. För den här kursen, spelar det ingen roll om det är en webbapp eller ett internt program, men om du behöver specifika exempel på webbprogram eller interna program kan du kolla vår [snabbstart](../articles/active-directory/develop/active-directory-developers-guide.md).
-  * För webbappar, anger du **inloggnings-URL** som är bas-URL:en för din app, där användare loggar in exempelvis `http://localhost:12345`.
+  * Webbprogram, ange den **inloggnings-URL**, vilket är den grundläggande Webbadressen för din app, där användarna kan logga in t.ex `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
-  * För interna program, anger du en **omdirigerings-URI**, som Azure AD använder för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
-* När du har slutfört registreringen, tilldelar Azure AD ditt program en unik klientidentifierare, program-ID:t. Du behöver det här värdet i nästa avsnitt, så kopiera det från programsidan.
+  * För interna program innehåller en **omdirigerings-URI**, som använder Azure AD för att returnera token svar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
+* När du har slutfört registreringen, Azure AD tilldelas programmet ett unikt klient-ID, den **program-ID**. Du behöver det här värdet i nästa avsnitt så kopiera den från appen på sidan.
+* Om du vill hitta ditt program i Azure-portalen klickar du på **App registreringar**, och klicka sedan på **visa alla program**.

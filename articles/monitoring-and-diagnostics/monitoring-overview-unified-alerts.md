@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Nya aviseringar uppstår i Azure-Monitor
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 Aviseringar har nya upplevelsen. Äldre aviseringar upplevelse är nu under fliken aviseringar (klassisk). Den nya aviseringar miljön har följande fördelar över aviseringar (klassisk)-upplevelse:
 
--   **Bättre meddelandesystem**: alla nya aviseringar använder [åtgärdsgrupper]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), som är namngiven grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Använd inte åtgärdsgrupper klassiska mått aviseringar och äldre logganalys-aviseringar. 
+-   **Bättre meddelandesystem**: alla nya aviseringar använder [åtgärdsgrupper]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), som är namngiven grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Använd inte åtgärdsgrupper klassiska mått aviseringar och äldre logganalys-aviseringar. 
 - **En enhetlig redigering miljö** – alla Varna skapande för statistik, loggar och aktiviteten logga via Azure-Monitor, Log Analytics och Application Insights finns på en plats. 
 - **Visa utlöses logganalys aviseringar i Azure-portalen** -du kan nu också se utlöses logganalys aviseringar i din prenumeration. Tidigare var dessa i en separat portal. 
 - **Uppdelning av Fired aviseringar och avisering regler** - avisering regler (definition av villkor som utlöser en avisering) och utlöses aviseringar (en instans av varningsregeln att) särskiljs så vyer för drift och konfiguration är åtskilda.
@@ -104,11 +104,11 @@ Aviseringar är tillgänglig över flera Azure övervaka tjänster. Information 
 | **Typen av signal** | **Övervakare för källa** | **Beskrivning** | 
 |-------------|----------------|-------------|
 | Mått | Övervakare för Azure | Kallas även [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md), de stöder utvärderar mått villkor så ofta som en minut och tillåter flera mått och flerdimensionellt mått regler. En lista över resurstyper som stöds är tillgänglig [här](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Mått | Övervakare för Azure | [Äldre klassiska mått aviseringar](monitoring-overview-alerts.md) stöds inte i den nya upplevelsen för aviseringar. Du hittar dem under aviseringar (klassisk) i Azure-portalen. Klassiska aviseringar stöd för vissa typer av mått som ännu inte har flyttats till de nya aviseringarna. En fullständig lista finns [mått som stöds](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
-| Loggar  | Log Analytics | Ta emot meddelanden eller köra automatiserade åtgärder när en logg sökfråga över mått och/eller händelse data uppfyller vissa villkor. Äldre logganalys aviseringar finns kvar, men är [kopieras till den nya upplevelsen](monitoring-alerts-extend.md). Dessutom kan en [förhandsgranskning av *logganalys loggar som mått* ](monitoring-alerts-extend-tool.md) är tillgänglig. Förhandsversionen kan du vidta vissa typer av loggar och omvandla dem till statistik, där du kan sedan meddela på dem med hjälp av den nya aviseringsdata upplevelsen. Förhandsgranskningen är användbart om du har Azure-loggar som du vill hämta tillsammans med intern Azure-Monitor mått. |
+| Mått | Övervakare för Azure | [Äldre klassiska mått aviseringar](monitoring-overview-alerts.md) stöds inte i den nya upplevelsen för aviseringar. Du hittar dem under aviseringar (klassisk) i Azure-portalen. Klassiska aviseringar stöd för vissa typer av mått som ännu inte har flyttats till de nya aviseringarna. En fullständig lista finns [mått som stöds](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| Logs  | Log Analytics | Ta emot meddelanden eller köra automatiserade åtgärder när en logg sökfråga över mått och/eller händelse data uppfyller vissa villkor. Äldre logganalys aviseringar finns kvar, men är [kopieras till den nya upplevelsen](monitoring-alerts-extend.md). Dessutom kan en [förhandsgranskning av *logganalys loggar som mått* ](monitoring-alerts-extend-tool.md) är tillgänglig. Förhandsversionen kan du vidta vissa typer av loggar och omvandla dem till statistik, där du kan sedan meddela på dem med hjälp av den nya aviseringsdata upplevelsen. Förhandsgranskningen är användbart om du har Azure-loggar som du vill hämta tillsammans med intern Azure-Monitor mått. |
 | Aktivitetslogg | Aktivitetsloggar (Allmänt) | Innehåller poster för alla skapa, uppdatera och ta bort åtgärder som utförs via det valda målet (resursen/resursgruppen grupp eller prenumeration). |
-| Aktivitetslogg  | Hälsotillstånd för tjänst | Stöds inte i den nya aviseringar upplevelsen. Se [Skapa aktivitet loggen aviseringar på tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md).  |
-| Loggar  | Application Insights | Innehåller loggar med prestandainformation om programmets. Du kan definiera villkoren för åtgärderna som vidtagits - baserat på programdata med analytics-fråga. |
+| Aktivitetslogg  | Service Health | Stöds inte i den nya aviseringar upplevelsen. Se [Skapa aktivitet loggen aviseringar på tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Logs  | Application Insights | Innehåller loggar med prestandainformation om programmets. Du kan definiera villkoren för åtgärderna som vidtagits - baserat på programdata med analytics-fråga. |
 | Mått | Application Insights | Stöds inte i den nya aviseringar upplevelsen. Se [mått aviseringar](../application-insights/app-insights-alerts.md) |
 | Tillgänglighetstester för webbprogram | Application Insights | Stöds inte i aviseringar upplevelse.  Se [Web test varningar](../application-insights/app-insights-monitor-web-app-availability.md). Tillgänglig för alla webbplatser som instrumenterats ska skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
 

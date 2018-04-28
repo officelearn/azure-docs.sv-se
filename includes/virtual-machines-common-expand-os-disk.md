@@ -22,7 +22,7 @@ I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp a
 1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration enligt följande:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Ange namn på resursgrupp och virtuell dator på följande sätt:
@@ -65,7 +65,7 @@ I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp a
 1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration enligt följande:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Ange namn på resursgrupp och virtuell dator på följande sätt:
@@ -109,7 +109,7 @@ I den här artikeln har vi använt Azure Resource Manager-modulerna i Powershell
 Unamanged diskar:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Hanterade diskar:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -141,7 +141,7 @@ Unamanged Disk:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Managed Disk:
+Hanterade diskar:
 ```Powershell
 $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
 $disk.DiskSizeGB = 1023

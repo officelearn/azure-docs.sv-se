@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b80ad9837939af5406989d08e18f6f3d9fe3064f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkrona Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -55,6 +55,16 @@ SQL API asynkrona Java SDK skiljer sig från SQL API Java SDK genom att tillhand
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Ytterligare belastning stöd lagts till i frågan.
+* Stöd har lagts till för partitions-id viktiga intervallet i frågan.
+* Åtgärda att tillåta större fortsättningstoken i huvudet i begäran (bugfix github #24).
+* netty beroende uppgraderas till 4.1.22.Final så JVM stängs av när huvudtråden har slutförts.
+* Korrigera att undvika att skicka sessionstoken vid läsning av master resurser.
+* Lägga till fler exempel.
+* Lägga till flera benchmarking scenarier.
+* Fast Java-rubrikfiler för generering av rätt javadoc.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA-SDK med stöd för slutpunkt till slutpunkt för icke-blockerande i/o med hjälp av den [Netty biblioteket](http://netty.io/) i gateway-läge. 
 
@@ -69,6 +79,7 @@ Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tj�
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |20 april 2018|--- |
 | [1.0.0](#1.0.0) |27 februari 2018|--- |
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

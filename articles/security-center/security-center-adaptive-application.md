@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 04/15/2018
 ms.author: yurid
-ms.openlocfilehash: ee15b602dc90b0e777b7ccd29572b9d560ee719b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 04f557d30f9b7f76bdb2a596bc3e96873876061f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Anpassningsbara programkontroller i Azure Security Center (förhandsversion)
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Vad är anpassningsbara programkontroller i Security Center?
-Med hjälp av anpassningsbara programkontroller kan du kontrollera vilka program som kan köras på din virtuella dator i Azure, vilket bland annat hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen. Den här funktionen förenklar processen avsevärt för att konfigurera och underhålla programs vitlistor, så att du kan:
+Med hjälp av anpassningsbara programkontroller kan du kontrollera vilka program som kan köras på din virtuella dator i Azure, vilket bland annat hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder maskininlärning för att analysera programmen som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen. Den här funktionen förenklar processen avsevärt för att konfigurera och underhålla programs vitlistor, så att du kan:
 
 - Blockera eller varna vid försök att köra skadliga program, inklusive de som annars kan missas av program mot skadlig kod
 - Uppfylla organisationens säkerhetsprincip som anger att bara licensierade program får användas.
@@ -45,37 +45,46 @@ Sidan **Anpassningsbara programkontroller** visas.
 
 ![kontroller](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
-Avsnittet **Resursgrupper** innehåller tre flikar:
+Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
-* **Konfigurerad**: lista över resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
-* **Rekommenderas**:  lista över resursgrupper som programkontroll rekommenderas för. Security Center använder Machine Learning för att identifiera virtuella datorer som är bra kandidater för programkontroll baserat på om de virtuella datorerna konsekvent kör samma program.
-* **Ingen rekommendation**: lista över resursgrupper som innehåller virtuella datorer utan rekommendationer för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
+* **Konfigurerad**: lista över grupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
+* **Rekommenderas**: lista över grupper som programkontroll rekommenderas för. Security Center använder Machine Learning för att identifiera virtuella datorer som är bra kandidater för programkontroll baserat på om de virtuella datorerna konsekvent kör samma program.
+* **Ingen rekommendation**: lista över grupper som innehåller virtuella datorer utan rekommendationer för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
+
+> [!NOTE]
+> Security Center använder egen klusteralgoritm för att skapa grupper med virtuella datorer och säkerställa att liknande virtuella datorer får den programkontrollsprincip som rekommenderas.
+>
+>
 
 ### <a name="configure-a-new-application-control-policy"></a>Konfigurera en ny princip för programkontroll
-1. Klicka på fliken **Rekommenderas** för att visa en lista över resursgrupper med rekommendationer för programkontroll:
+1. Klicka på fliken **Rekommenderas** för att visa en lista över grupper med rekommendationer för programkontroll:
 
   ![Rekommenderas](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
   Listan innehåller:
 
-  - **NAMN**: Namnet på prenumerationen och resursgruppen
-  - **Virtuella datorer**: antalet virtuella datorer i resursgruppen
+  - **NAMN**: namnet på prenumerationen och gruppen
+  - **Virtuella datorer**: antalet virtuella datorer i gruppen
   - **TILLSTÅND**: Rekommendationernas tillstånd, i de flesta fall öppet
   - **ALLVARLIGHETSGRAD**: Rekommendationernas allvarlighetsgrad
 
-2. Välj en resursgrupp för att öppna alternativet **Skapa regler för programkontroll**.
+2. Välj en grupp för att öppna alternativet **Skapa regler för programkontroll**.
 
   ![Kontrollregler för program](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. I **Välj processer för reglerna för lista över tillåtna** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda. Listan innehåller:
+3. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. Nu visas två listor:
 
-  - **NAMN**: den fullständiga programsökvägen
-  - **PROCESSER**: Hur många program som finns på varje sökväg
-  - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorerna i den här resursgruppen.
+  - **Rekommenderade program**: en lista över program som är vanliga på virtuella datorer i den här gruppen och därför rekommenderas för kontrollregler för program av Security Center.
+  - **Fler program**: en lista över program som är antingen är mindre vanligt förekommande på virtuella datorer i den här gruppen, eller program som kallas Exploitables (se mer nedan), och som du bör granska innan du tillämpar reglerna.
+
+4. Granska programmen i listorna och avmarkera de du inte vill ska tillämpas. Varje lista innehåller:
+
+  - **NAMN**: certifikatinformationen för program eller dess fullständiga programsökväg
+  - **FILTYPER**: filtypen för programmet. Det kan vara EXE, Script eller MSI.
   - **EXPLOATERBAR**: En varningsikon anger om programmen skulle kunna användas av en angripare för att kringgå listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
-  - **ANVÄNDARE**: Användare som får köra programmet
+  - **ANVÄNDARE**: användare som rekommenderas få tillåtelse att köra program
 
-4. När du är färdig med dina val klickar du på **Skapa**.
+5. När du är färdig med dina val klickar du på **Skapa**.
 
 Som standard aktiverar Security Center alltid programkontroll i läget *Granska*. När du har validerat att listan inte har haft någon negativ inverkan på din arbetsbelastning kan du ändra till läget *Tvinga*.
 
@@ -87,18 +96,18 @@ Security Center förlitar sig på minst två veckors data för att skapa en basl
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Redigera och övervaka en grupp som har konfigurerats med programkontroll
 
-1. Om du vill redigera och övervaka en grupp som har konfigurerats med programkontroll återgår du till sidan **Anpassningsbar programkontroll** och väljer **KONFIGURERAD** under **Resursgrupper**:
+1. Om du vill redigera och övervaka en grupp som har konfigurerats med programkontroll går du tillbaka till sidan **Anpassningsbar programkontroll** och väljer **KONFIGURERAD** under **Grupper av virtuella datorer**:
 
-  ![Resursgrupper](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+  ![Grupper](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
   Listan innehåller:
 
-  - **NAMN**: Namnet på prenumerationen och resursgruppen
-  - **Virtuella datorer**: antalet virtuella datorer i resursgruppen
-  - **LÄGE**: I granskningsläget loggas försök att köra program som inte tillåts, och blockeringen hindrar dem från att köras
+  - **NAMN**: namnet på prenumerationen och gruppen
+  - **Virtuella datorer**: antalet virtuella datorer i gruppen
+  - **LÄGE**: I granskningsläget loggas försök att köra program som inte är vitlistade, och med Tvinga hindras program som inte är vitlistade från att köras
   - **PROBLEM**: aktuella överträdelser
 
-2. Välj en resursgrupp att göra ändringar i på sidan för att **redigera principer för programkontroll**.
+2. Välj en grupp att göra ändringar i på sidan för att **redigera principer för programkontroll**.
 
   ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
@@ -118,7 +127,6 @@ Security Center förlitar sig på minst två veckors data för att skapa en basl
 
       - **ViolationsBlocked**: när lösningen är aktiverad i läget Tvinga och ett program som inte tillåts försöker köras.
       - **ViolationsAudited**: när lösningen är aktiverad i läget Granska och ett program som inte tillåts körs.
-      - **RulesViolatedManually**: när en användare har försökt att konfigurera regler manuellt på de virtuella datorerna och inte via ASC-hanteringsportalen.
 
  - **ANTAL VIRTUELLA DATORER**: antalet virtuella datorer med den här ärendetypen.
 
@@ -129,6 +137,7 @@ Security Center förlitar sig på minst två veckors data för att skapa en basl
   Under **Utgivare av regler för lista över tillåtna** innehåller listan följande:
 
   - **REGEL**: program för vilka en utgivarregel skapats baserat på den certifikatinformation som hittades för respektive program
+  - **FILTYP**: filtyper som omfattas av en specifik utgivarregel. Detta kan vara något av följande: EXE, Script eller MSI.
   - **ANVÄNDARE**: antalet användare som får köra respektive program
 
   Läs [Understanding Publisher Rules in Applocker](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker) (Förstå publiceringsregler i Applocker) för att få mer information.
@@ -137,7 +146,7 @@ Security Center förlitar sig på minst två veckors data för att skapa en basl
 
   Om du klickar på de tre punkterna i slutet av en rad kan du ta bort den specifika regeln eller redigera tillåtna användare.
 
-  I avsnittet **Sökväg för regler för lista över tillåtna** anges hela programsökvägen (inklusive den körbara filen) för de program som inte är signerade med ett digitalt certifikat, men som fortfarande finns med i reglerna för lista över tillåtna.
+  I avsnittet **Sökväg för regler för lista över tillåtna** anges hela programsökvägen (inklusive den specifika filtypen) för de program som inte är signerade med ett digitalt certifikat, men som fortfarande finns med i listan över tillåtna program.
 
   > [!NOTE]
   > Som standard försöker Security Center som ett säkerhetsregelverk alltid att skapa en utgivarregel för EXE-filerna som ska vitlistas, och endast om en EXE-fil inte har någon utgivarinformation (alltså inte signerad) skapas en sökvägsregel för den specifika EXE-filens fullständiga sökväg.
@@ -146,6 +155,7 @@ Security Center förlitar sig på minst två veckors data för att skapa en basl
 
   Listan innehåller:
   - **NAMN**: fullständig korrigering för den körbara filen
+  - **FILTYP**: filtyper som omfattas av en specifik sökväg. Detta kan vara något av följande: EXE, Script eller MSI.
   - **ANVÄNDARE**: antalet användare som får köra respektive program
 
   Om du klickar på de tre punkterna i slutet av en rad kan du ta bort den specifika regeln eller redigera tillåtna användare.
@@ -159,8 +169,8 @@ Security Center rekommenderar enbart att lägga till program i listan över till
 ![Rekommendation](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 Listan innehåller:
-- **NAMN**: Namnet på prenumerationen och resursgruppen
-- **Virtuella datorer**: antalet virtuella datorer i resursgruppen
+- **NAMN**: namnet på prenumerationen och gruppen
+- **Virtuella datorer**: antalet virtuella datorer i gruppen
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig att använda anpassningsbar programkontroll i Azure Security Center för att lista godkända program som körs i virtuella Azure-datorer. I följande avsnitt kan du lära dig mer om Azure Security Center:

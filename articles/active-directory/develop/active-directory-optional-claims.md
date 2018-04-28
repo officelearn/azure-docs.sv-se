@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
+ms.date: 04/24/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f87487c4ee56ae90eb5825b0e77610fac73bd3fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsgranskning)
 
@@ -49,7 +49,7 @@ Nedan visas en uppsättning valfria anspråk som är tillgängliga som standard 
 
 **Tabell 2: Standard valfria anspråksuppsättningen**
 
-| namn                     | Beskrivning                                                                                                                                                                                     | Tokentypen | Användartyp | Anteckningar                                                                                                                                                                                                                                                                                   |
+| Namn                     | Beskrivning                                                                                                                                                                                     | Tokentypen | Användartyp | Anteckningar                                                                                                                                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `auth_time`                | Tid när det senast autentisera användaren.  Se OpenID Connect-specifikationen.                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_region_scope`      | Region för resurs-klienten                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
@@ -65,13 +65,15 @@ Nedan visas en uppsättning valfria anspråk som är tillgängliga som standard 
 | `fwd`                      | IP-adress.  Lägger till den ursprungliga IPv4-adressen för den begärande klienten (inom ett VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Användarens land                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Resurs-klient land                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `upn`                      | UserPrincipalName claim.  Även om det här anspråket ingår automatiskt, kan du ange den som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende gästen användaren om. | JWT SAML  |           | Ytterligare egenskaper: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+| `acct`    | Status för användare i klienten.  Om användaren är medlem av klienten, är värdet `0`.  Om de är gäst är värdet `1`.  | JWT SAML | | |
+| `upn`                      | UserPrincipalName anspråk.  Även om det här anspråket ingår automatiskt, kan du ange den som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende gästen användaren om. | JWT SAML  |           | Ytterligare egenskaper: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>V2.0 valfria anspråk
 De här anspråken ska ingå alltid i v1.0 token, men tas bort från v2.0-token, såvida inte begär.  Dessa anspråk kan endast användas för JWTs (ID-token och åtkomst-token).  
 
 **Tabell 3: Endast V2.0 valfria anspråk**
 
-| JWT-anspråk     | namn                            | Beskrivning                                                                                                                    | Anteckningar |
+| JWT-anspråk     | Namn                            | Beskrivning                                                                                                                    | Anteckningar |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen loggade in från klienten.                                                                                      |       |
 | `onprem_sid`  | Säkerhetsidentifieraren för lokalt |                                                                                                                                |       |
@@ -157,7 +159,7 @@ Deklarerar valfria anspråk som begärs av ett program. Ett program kan konfigur
 
 **Tabell 5: OptionalClaims egenskaper**
 
-| namn        | Typ                       | Beskrivning                                           |
+| Namn        | Typ                       | Beskrivning                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Samling (OptionalClaim) | Valfria anspråk som returneras i ID för JWT-token.     |
 | `accessToken` | Samling (OptionalClaim) | Valfria anspråken returneras i JWT åtkomst-token. |
@@ -171,7 +173,7 @@ Du kan också ändra beteendet för OptionalClaim med hjälp av fältet Addition
 
 **Tabell 6: OptionalClaim egenskaper**
 
-| namn                 | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
+| Namn                 | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Namnet på valfri anspråket.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Källan (katalogobjekt) för anspråk. Det finns fördefinierade anspråk och anpassade anspråk från egenskaperna för tillägget. Om källvärdet är null är i anspråk ett fördefinierat valfria anspråk. Om källvärdet är användaren, är värdet i egenskapen name extension-egenskapen från användarobjektet. |

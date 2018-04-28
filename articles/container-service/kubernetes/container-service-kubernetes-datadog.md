@@ -1,25 +1,25 @@
 ---
-title: "Övervaka Azure Kubernetes kluster med Datadog"
-description: "Övervaka Kubernetes kluster i Azure Container Service med hjälp av Datadog"
+title: Övervaka Azure Kubernetes kluster med Datadog
+description: Övervaka Kubernetes kluster i Azure Container Service med hjälp av Datadog
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 96bbd88f163939b58263f2f3a94b7b4d90f85736
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Övervaka ett Azure Container Service-kluster med DataDog
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här genomgången förutsätter att du har [skapas ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Det förutsätts även att du har den `az` Azure cli och `kubectl` verktygen som installeras.
@@ -55,5 +55,5 @@ Det är perfekt för att köra övervakningsagenter.
 
 När du har loggat in på Datadog, kan du följa den [Datadog instruktioner](https://app.datadoghq.com/account/settings#agent/kubernetes) installera Datadog agenter på klustret med hjälp av en DaemonSet.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Klart! Du bör se data i konsolen för några minuter när agenterna är igång. Du kan besöka den integrerade [kubernetes instrumentpanelen](https://app.datadoghq.com/screen/integration/kubernetes) visas en sammanfattning av klustret.

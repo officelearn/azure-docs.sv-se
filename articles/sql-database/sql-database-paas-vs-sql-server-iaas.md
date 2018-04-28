@@ -10,23 +10,23 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: c42bdaf932c29d9e4505266099960dafb48be937
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 Azure har två alternativ för att hantera SQL Server-arbetsbelastningar i Microsoft Azure:
 
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): en SQL-databas inbyggd i molnet, kallas även för en plattform som tjänst-databas (PaaS) eller en databas som en tjänst (DBaaS) som är optimerad för apputveckling för programvara som en tjänst (SaaS). Den är kompatibel med de flesta funktioner i SQL Server. Mer information om PaaS finns i [Vad är PaaS?](https://azure.microsoft.com/overview/what-is-paas/)
 * [SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server som är installerad och ligger i molnet på virtuella Windows Server-datorer (VM:ar) och körs i Azure, vilket också kallas för infrastruktur som en tjänst (IaaS).
-  SQL Server på virtuella datorer i Azure är optimerat för migrering av befintliga SQL Server-program. Alla versioner och utgåvor av SQL Server är tillgängliga. Det är hundra procent kompatibelt med SQL Server så att du kan lägga till så många databaser du behöver och köra transaktioner mellan databaser. Du har fullständig kontroll i SQL Server och Windows.
+  SQL Server på Azure virtual machines är samma SQL Server-programvara som du installerar på din lokala server – den enda skillnaden är att den här servern är nu en virtuell dator i Azure som värd. SQL Server på Azure är optimerad för att migrera befintliga program för SQL Server och alla versioner och utgåvor av SQL Server är tillgängliga. Den gör att du kan vara värd för många databaser efter behov, stöder körs mellan databastransaktioner och ger fullständig kontroll över din SQL Server-instansen och Windows-Operativsystemet.
 
 Lär dig hur varje alternativ passar in i Microsofts dataplattform och få hjälp med att matcha rätt alternativ för dina verksamhetsbehov. Oavsett om du prioriterar kostnadsbesparingar eller en minimering av administration över allt annat, kan den här artikeln hjälpa dig att välja det angreppssätt som ger bäst resultat för de verksamhetskrav som är viktigast för dig.
 
 ## <a name="microsofts-data-platform"></a>Microsofts dataplattform
-En av de första sakerna man ska förstå när det gäller Azure kontra lokala SQL Server-databaser, är att det är möjligt att använda allt. Microsofts dataplattform utnyttjar SQL Server-teknologi och gör den tillgänglig på fysiska, lokala datorer, i privata molnmiljöer, tredjeparts privata molnmiljöer och det offentliga molnet. Med SQL Server på virtuella datorer i Azure kan du uppfylla unika och skilda affärsbehov genom en kombination av lokala och molnstyrda distributioner, samtidigt som du kan använda samma uppsättningar med serverprodukter, utvecklingsverktyg och expertis i alla dessa miljöer.
+En av de första sakerna man ska förstå när det gäller Azure kontra lokala SQL Server-databaser, är att det är möjligt att använda allt. Microsofts dataplattform utnyttjar SQL Server-teknologi och gör den tillgänglig på fysiska, lokala datorer, privata molnmiljöer, tredjeparts privata molnmiljöer och Microsofts offentligt moln. Med SQL Server på virtuella datorer i Azure kan du uppfylla unika och skilda affärsbehov genom en kombination av lokala och molnstyrda distributioner, samtidigt som du kan använda samma uppsättningar med serverprodukter, utvecklingsverktyg och expertis i alla dessa miljöer.
 
    ![SQL Server-molnalternativ: SQL-server på IaaS, eller SaaS-SQL-databas i molnet.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -56,7 +56,7 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 | **Bäst för:** | **Azure SQL Database** | **SQL Server på en virtuell Azure-dator** |
 | --- | --- | --- |
 |  |Nya molnbaserade program med tidsbegränsningar på utveckling och marknadsföring. |Befintliga program som kräver snabb migrering till molnet med minimala ändringar. Snabba utvecklings- och test-scenarier där du inte vill köpa lokal SQL Server-maskinvara som inte är för produktion. |
-|  | Team som behöver inbyggd hög tillgänglighet, haveriberedskap och uppgradering för databasen. |Team som kan konfigurera och hantera hög tillgänglighet, haveriberedskap och korrigeringar för SQL Server. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. | |
+|  | Team som du vill att Microsoft ska hantera sina databasen uppgraderingar, hög tillgänglighet och katastrofåterställning. |Team som kan konfigurera och hantera hög tillgänglighet, haveriberedskap och korrigeringar för SQL Server. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. | |
 |  | Team som inte vill hantera de underliggande operativsystemen och konfigurationsinställningarna. |Du behöver en anpassad miljö med fullständiga administrativa rättigheter. | |
 |  | Databaser på upp till 4 TB eller större databaser som kan vara [vågrätt eller lodrätt partitionerad](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) ett skalbara mönster. |SQL Server-instanser med upp till 64 TB lagring. Instansen har stöd för så många databaser som behövs. | |
 |  | | |
@@ -81,7 +81,7 @@ För nuvarande finns **SQL Database** tillgänglig i flera servicenivåer, där 
 
 Med **SQL Database** så konfigureras, korrigeras och uppgraderas databasens programvara automatiskt av Microsoft, vilket minskar dina administrationskostnader. Dessutom gör dess [inbyggda säkerhetskopierings](sql-database-automated-backups.md)-funktioner att du kan uppnå markanta kostnadsbesparingar, speciellt om du har ett stort antal databaser.
 
-Med **SQL Server på Azure Virtual Machines** kan du använda valfri SQL Server-avbildning som plattformen stöder (som omfattar en licens) eller använda din egen SQL Server-licens. Alla SQL Server-versioner (2008R2, 2012, 2014, 2016) och utgåvor (Developer, Express, Web, Standard, Enterprise) som stöds är tillgängliga. Det finns också BYOL-versioner (Bring-Your-Own-License) av avbildningarna. När du använder de avbildningar som Azure tillhandahåller beror driftskostnaderna på storleken på de virtuella datorerna samt vilken utgåva av SQL Server du väljer. Oavsett VM-storlek eller SQL Server-utgåva, betalar du licensieringskostnader per minut för SQL Server och Windows Server, tillsammans med kostnaden för Azure Storage för VM-diskarna. Betalningsalternativet per minut låter dig använda SQL Server så länge du behöver utan att köpa ytterligare SQL Server-licenser. Om du använder din egen SQL Server-licens i Azure, debiteras du bara för Windows Server och lagringskostnader. Mer information om att använda sin egen licensiering finns i [Licensera Mobility via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
+Med **SQL Server på Azure Virtual Machines** kan du använda valfri SQL Server-avbildning som plattformen stöder (som omfattar en licens) eller använda din egen SQL Server-licens. Alla SQL Server-versioner som stöds (2008R2, 2012, 2014, 2016, 2017) och utgåvor (utvecklare, snabb, webb, Standard, Enterprise) är tillgängliga. Det finns också BYOL-versioner (Bring-Your-Own-License) av avbildningarna. När du använder de avbildningar som Azure tillhandahåller beror driftskostnaderna på storleken på de virtuella datorerna samt vilken utgåva av SQL Server du väljer. Oavsett VM-storlek eller SQL Server-utgåva, betalar du licensieringskostnader per minut för SQL Server och Windows Server, tillsammans med kostnaden för Azure Storage för VM-diskarna. Betalningsalternativet per minut låter dig använda SQL Server så länge du behöver utan att köpa ytterligare SQL Server-licenser. Om du använder din egen SQL Server-licens i Azure, debiteras du bara för Windows Server och lagringskostnader. Mer information om att använda sin egen licensiering finns i [Licensera Mobility via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 #### <a name="calculating-the-total-application-cost"></a>Beräkna den totala programkostnaden
 När du börjar använda en molnplattform inkluderar kostnaden för att köra programmet även utvecklings- och administrationskostnaderna, samt plattformstjänstkostnaderna för det offentliga molnet.

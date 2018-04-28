@@ -1,12 +1,12 @@
 ---
-title: "Viktig information för Microsoft Azure Lagringsutforskaren (förhandsversion)"
-description: "Viktig information för Microsoft Azure Lagringsutforskaren (förhandsversion)"
+title: Microsoft Azure Lagringsutforskaren viktig information
+description: Viktig information för Microsoft Azure Lagringsutforskaren
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Viktig information för Microsoft Azure Lagringsutforskaren (förhandsversion)
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Lagringsutforskaren viktig information
 
 Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.6 (förhandsgranskning) samt viktig information för tidigare versioner.
 
-[Microsoft Azure Lagringsutforskaren (förhandsversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
+[Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
 ## <a name="version-096"></a>Version 0.9.6
-02/28/2018
+2018-02/28
 
 ### <a name="download-azure-storage-explorer-096-preview"></a>Hämta Azure Lagringsutforskaren 0.9.6 (förhandsgranskning)
 - [Azure Lagringsutforskaren 0.9.6 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
@@ -92,7 +92,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 * [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Version 0.9.5
-02/06/2018
+2018-02/06
 
 ### <a name="download-azure-storage-explorer-095-preview"></a>Hämta Azure Lagringsutforskaren 0.9.5 (förhandsgranskning)
 - [Azure Lagringsutforskaren 0.9.5 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
@@ -146,7 +146,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
     ```
 
 ## <a name="version-094-and-093"></a>Version 0.9.4 och 0.9.3
-01/21/2018
+2018-01/21
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Hämta Azure Lagringsutforskaren 0.9.4 (förhandsgranskning)
 * [Hämta Azure Lagringsutforskaren 0.9.4 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
@@ -227,7 +227,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 * Om du försöker öppna eller hämta en blob med ett ogiltigt namn på Windows-filen misslyckas åtgärden. Lagringsutforskaren nu identifierar om en blobbnamnet är ogiltigt och be om du vill koda den eller hoppa över blob. Lagringsutforskaren identifierar även om ett filnamn verkar vara kodad och be dig om att avkoda innan du laddar upp.
 * Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Problemet har åtgärdats.
 * Stöd för flera typer av anslutningssträngar och SAS-URI: er regressed. Vi har löst alla kända problem men skicka feedback om du får ytterligare problem.
-* Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Kända problem
 * Lagringsutforskaren stöder inte ADFS-konton.
@@ -281,7 +281,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 * Om du försöker öppna eller hämta en blob med ett ogiltigt namn på Windows-filen misslyckas åtgärden. Lagringsutforskaren nu identifierar om en blobbnamnet är ogiltigt och be om du vill koda den eller hoppa över blob. Lagringsutforskaren identifierar även om ett filnamn verkar vara kodad och be dig om att avkoda innan du laddar upp.
 * Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Problemet har åtgärdats.
 * Stöd för flera typer av anslutningssträngar och SAS-URI: er regressed. Vi har löst alla kända problem men skicka feedback om du får ytterligare problem.
-* Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/en-us/features/storage-explorer/)
+* Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Kända problem
 * Lagringsutforskaren stöder inte ADFS-konton.

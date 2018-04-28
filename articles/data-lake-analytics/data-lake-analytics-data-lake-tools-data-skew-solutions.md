@@ -1,12 +1,12 @@
 ---
-title: "Lösa problem med en förskjutning av data med hjälp av Azure Data Lake-verktyg för Visual Studio | Microsoft Docs"
-description: "Felsökning av möjliga lösningar för data-förskjutning av problem med Azure Data Lake-verktyg för Visual Studio."
+title: Lösa problem med en förskjutning av data med hjälp av Azure Data Lake-verktyg för Visual Studio | Microsoft Docs
+description: Felsökning av möjliga lösningar för data-förskjutning av problem med Azure Data Lake-verktyg för Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lösa problem med en förskjutning av data med hjälp av Azure Data Lake-verktyg för Visual Studio
 
@@ -49,13 +49,13 @@ I stället för endast _tillstånd_ som en partitionsnyckel kan du använda mer 
 
 ### <a name="option-4-use-round-robin-distribution"></a>Alternativ 4: Använd resursallokering
 
-Om du inte hittar en lämplig nyckel för partition och distribution, kan du försöka använda resursallokering. Resursallokering behandlas alla rader lika och placerar slumpmässigt dem i motsvarande buckets. Hämtar data jämnt fördelad, men det förlorar ort information nackdelen som kan också minska jobbet prestandan för vissa åtgärder. Om du gör sammanställning för nyckeln skeva ändå, behålls dessutom problemet förskjutning av data. Mer information om resursallokering finns i distributioner för U-SQL-tabellen i [CREATE TABLE (U-SQL): skapa en tabell med schemat](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+Om du inte hittar en lämplig nyckel för partition och distribution, kan du försöka använda resursallokering. Resursallokering behandlas alla rader lika och placerar slumpmässigt dem i motsvarande buckets. Hämtar data jämnt fördelad, men det förlorar ort information nackdelen som kan också minska jobbet prestandan för vissa åtgärder. Om du gör sammanställning för nyckeln skeva ändå, behålls dessutom problemet förskjutning av data. Mer information om resursallokering finns i distributioner för U-SQL-tabellen i [CREATE TABLE (U-SQL): skapa en tabell med schemat](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Lösning 2: Förbättra frågeplanen
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Alternativ 1: Använd instruktionen CREATE STATISTICS
 
-U-SQL ger instruktionen CREATE STATISTICS på tabeller. Den här instruktionen ger mer information till Frågeoptimeringen om, dataegenskaper som till exempel värdet distribution, som lagras i en tabell. För de flesta frågor genererar Frågeoptimeringen redan nödvändiga statistik för en frågeplan med hög kvalitet. Ibland kan behöva du förbättra frågeprestanda genom att skapa ytterligare statistik med CREATE STATISTICS eller genom att ändra frågans design. Mer information finns i [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) sidan.
+U-SQL ger instruktionen CREATE STATISTICS på tabeller. Den här instruktionen ger mer information till Frågeoptimeringen om, dataegenskaper som till exempel värdet distribution, som lagras i en tabell. För de flesta frågor genererar Frågeoptimeringen redan nödvändiga statistik för en frågeplan med hög kvalitet. Ibland kan behöva du förbättra frågeprestanda genom att skapa ytterligare statistik med CREATE STATISTICS eller genom att ändra frågans design. Mer information finns i [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) sidan.
 
 Exempel:
 

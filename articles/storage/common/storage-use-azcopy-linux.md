@@ -1,8 +1,8 @@
 ---
-title: "Kopiera eller flytta data till Azure Storage med AzCopy på Linux | Microsoft Docs"
-description: "Använd AzCopy på Linux-verktyget för att flytta eller kopiera data till och från blob- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage."
+title: Kopiera eller flytta data till Azure Storage med AzCopy på Linux | Microsoft Docs
+description: Använd AzCopy på Linux-verktyget för att flytta eller kopiera data till och från blob- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,48 +12,79 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy på Linux
 
-AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.  
+AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob och fillagring med enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
 
-Det finns två versioner av AzCopy som du kan hämta. AzCopy på Linux är byggd med .NET Core Framework, som riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. [AzCopy på Windows](../storage-use-azcopy.md) har skapats med .NET Framework och erbjuder kommandoradsalternativ för Windows-formatet. Den här artikeln beskriver AzCopy på Linux.
+Det finns två versioner av AzCopy som du kan hämta. AzCopy på Linux riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. [AzCopy på Windows](../storage-use-azcopy.md) erbjuder kommandoradsalternativ för Windows-formatet. Den här artikeln beskriver AzCopy på Linux. 
+
+> [!NOTE]  
+> Från och med version AzCopy 7.2 paketeras .NET Core beroenden med AzCopy-paketet. Om du använder 7,2 version eller senare, behöver du inte längre installera .NET Core som ett krav.
 
 ## <a name="download-and-install-azcopy"></a>Hämta och installera AzCopy
+
 ### <a name="installation-on-linux"></a>Installation på Linux
 
-Artikeln innehåller kommandon för olika versioner av Ubuntu.  Använd den `lsb_release -a` kommando för att bekräfta distributionsversion och kodnamnet. 
+> [!NOTE]
+> Du kan behöva installera .NET Core 2.1 beroenden som är markerat i den här [.NET Core förutsättningar artikel](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) beroende på din distribution. För vanlig distributioner som Ubuntu 16.04 och RHEL 7 behövs detta vanligtvis inte.
 
-AzCopy på Linux kräver .NET Core framework (version 2.0) på plattformen. Finns i installationsanvisningarna på den [.NET Core](https://www.microsoft.com/net/download/linux) sidan.
+Installera AzCopy på Linux (v7.2 eller senare) är lika enkelt som extraherar tar-paketet och kör installationsskriptet. 
 
-Exempelvis kan vi installera .NET Core på Ubuntu 16.04. Senaste installationsguiden finns [.NET Core på Linux](https://www.microsoft.com/net/download/linux) installationssidan.
-
-
+**RHEL 6 baserade distributioner**: [Hämta länk](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-När du har installerat .NET Core, hämta och installera AzCopy.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Du kan ta bort de extraherade filerna när AzCopy på Linux har installerats. Du kan också om du inte har superanvändare, kan du också köra AzCopy med kommandoskript 'azcopy' i den extraherade mappen. 
+**Alla andra Linux-distributioner**: [Hämta länk](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
 
+Du kan ta bort de extraherade filerna när AzCopy på Linux har installerats. Alternativt, om du inte har superanvändare du kan också köra `azcopy` använder azcopy för shell-skript i den extraherade mappen.
+
+### <a name="alternative-installation-on-ubuntu"></a>Alternativ Installation på Ubuntu
+
+**Ubuntu 14.04**
+
+Lägg till lgh källa för Microsoft Linux produkten lagringsplatsen och installera AzCopy:
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+Lägg till lgh källa för Microsoft Linux produkten lagringsplatsen och installera AzCopy:
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## <a name="writing-your-first-azcopy-command"></a>Skriva ditt första AzCopy-kommandot
 Den grundläggande syntaxen för AzCopy kommandon är:
@@ -193,7 +224,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Om den angivna Målbehållaren inte finns, skapar den AzCopy och överför filen till den.
+Om den angivna målbehållaren inte finns, så skapar AzCopy den och överför filen till den.
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Överför en fil till virtuell katalog
 
@@ -205,6 +236,14 @@ azcopy \
 ```
 
 Om den angivna virtuella katalogen inte finns, AzCopy överför filen så att den virtuella katalogen i blob-namnet (*t.ex.*, `vd/abc.txt` i exemplet ovan).
+
+### <a name="redirect-from-stdin"></a>Omdirigera från stdin
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/mydir/myarchive.tar.gz \
+    --dest-key <key>
+```
 
 ### <a name="upload-all-files"></a>Ladda upp alla filer
 
@@ -379,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy`kan skapa ytterligare utgång kostnaden jämfört med asynkron kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure VM, som finns i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
+`--sync-copy` kan skapa ytterligare utgång kostnaden jämfört med asynkron kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure VM, som finns i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
 
 ## <a name="file-download"></a>Fil: ladda ned
 ### <a name="download-single-file"></a>Hämta en fil
@@ -601,10 +640,31 @@ Alternativet `--parallel-level` anger antalet samtidiga kopieringsåtgärd. Som 
 >[!TIP]
 >Om du vill visa en fullständig lista över AzCopy parametrar kolla 'azcopy--Hjälp-menyn.
 
-## <a name="known-issues-and-best-practices"></a>Kända problem och bästa praxis
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Fel: .NET SDK 2.0 är inte hittas i systemet.
-AzCopy är beroende av .NET SDK 2.0 från och med version 7.0 för AzCopy. Innan den här versionen används AzCopy .NET Core 1.1. Om du får ett felmeddelande om att .NET Core 2.0 inte är installerat i systemet, kan du behöva installera eller uppgradera med hjälp av den [.NET Core Installationsinstruktioner](https://www.microsoft.com/net/learn/get-started/linuxredhat).
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Installationsstegen för AzCopy 7.1 och tidigare versioner
 
+AzCopy på Linux (v7.1 och tidigare) kräver .NET Core framework. Installationsinstruktioner som är tillgängliga på den [.NET Core-installation](https://www.microsoft.com/net/core#linuxubuntu) sidan.
+
+Till exempel börja med att installera .NET Core på Ubuntu 16,10. Senaste installationsguiden finns [.NET Core på Linux](https://www.microsoft.com/net/core#linuxubuntu) installationssidan.
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+När du har installerat .NET Core, hämta och installera AzCopy.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+Du kan ta bort de extraherade filerna när AzCopy på Linux har installerats. Du kan också om du inte har superanvändare, du kan också köra `azcopy` använder azcopy för shell-skript i den extraherade mappen.
+
+## <a name="known-issues-and-best-practices"></a>Kända problem och bästa praxis
 ### <a name="error-installing-azcopy"></a>Fel vid installation av AzCopy
 Om du får problem med installation av AzCopy kan du försöker köra AzCopy använda bash-skript på den extraherade `azcopy` mapp.
 
@@ -618,8 +678,26 @@ När du kopierar blobar eller filer med AzCopy, Tänk på att ett annat program 
 
 Om du inte hindra andra program från att skriva till filer eller blobbar när de kopieras sedan Kom ihåg att när jobbet har slutförts, kopiera resurserna kan inte längre har fullständig paritet med resurserna som källa.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Köra en AzCopy-instans på en dator.
-AzCopy är utformat för att maximera användningen av din datorresurser som påskyndar dataöverföringen rekommenderar vi du kör endast en AzCopy-instans på en dator och ange alternativet `--parallel-level` om du behöver fler samtidiga åtgärder. Mer information skriver du `AzCopy --help parallel-level` på kommandoraden.
+### <a name="running-multiple-azcopy-processes"></a>Flera AzCopy processer som körs
+Du kan köra flera AzCopy processer på en enskild klient att ange att du använder olika journalmappar. Med en enda journalmapp för flera AzCopy-processer stöds inte.
+
+1 process:
+```azcopy
+azcopy \
+    --source /mnt/myfiles1 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles1 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal1"
+```
+
+2 process:
+```azcopy
+azcopy \
+    --source /mnt/myfiles2 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles2 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal2"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Storage och AzCopy finns i följande resurser:
@@ -627,7 +705,7 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 ### <a name="azure-storage-documentation"></a>Azure Storage-dokumentation:
 * [Introduktion till Azure Storage](../storage-introduction.md)
 * [Skapa ett lagringskonto](../storage-create-storage-account.md)
-* [Hantera blobbar med Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [Hantera blobar med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Med hjälp av Azure CLI 2.0 med Azure Storage](../storage-azure-cli.md)
 * [Hur du använder Blob storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Blob Storage från Java](../blobs/storage-java-how-to-use-blob-storage.md)

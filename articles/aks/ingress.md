@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1fe8a52a946b7e70a845e26b80dec94176c346f0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-ingång på Azure Container Service (AKS)
 
@@ -23,11 +23,11 @@ Det här dokumentet vägleder genom en exempeldistribution av den [NGINX ingång
 
 ## <a name="prerequisite"></a>Krav
 
-Installera Helm CLI - finns Helm CLI [dokumentationen] [helm cli] för installationsanvisningar.
+Installera Helm CLI - finns Helm CLI [dokumentationen] [ helm-cli] för installationsanvisningar.
 
 ## <a name="install-an-ingress-controller"></a>Installera ett meddelande om ingångs-domänkontrollant
 
-Använd Helm för att installera NGINX ingång domänkontrollant. Finns NGINX ingång controller [dokumentationen] [ nginx-ingress] detaljerad distributionsinformation. 
+Använd Helm för att installera NGINX ingång domänkontrollant. Finns NGINX ingång controller [dokumentationen] [ nginx-ingress] detaljerad distributionsinformation.
 
 Uppdatera schema-databasen.
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Om det behövs, kör du följande kommando för att hämta det fullständiga Domännamnet. Uppdatera värdet för IP-adress med det ingång-styrenhet.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-Meddelanden om ingångs-domänkontrollant är nu tillgänglig via FQDN.
+Nu bör ingång controller tillgängligt via FQDN.
 
 ## <a name="install-kube-lego"></a>Installera KUBE LEGO
 
@@ -181,13 +175,14 @@ Observera också att anslutningen är krypterad och att ett certifikat utfärdat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om programmet visas i det här dokumentet. 
+Läs mer om programmet visas i det här dokumentet.
 
+- [Helm CLI][helm-cli]
 - [NGINX ingång domänkontrollant][nginx-ingress]
 - [KUBE LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-client]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

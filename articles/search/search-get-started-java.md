@@ -1,24 +1,18 @@
 ---
-title: "Komma igång med Azure Search i Java| Microsoft Docs"
-description: "Här lär du dig hur du skapar ett värdbaserat sökprogram i molnet med Azure och Java som programmeringsspråk."
+title: Komma igång med Azure Search i Java| Microsoft Docs
+description: Här lär du dig hur du skapar ett värdbaserat sökprogram i molnet med Azure och Java som programmeringsspråk.
 services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
-ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
-ms.translationtype: HT
+ms.author: jjed
+ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
@@ -91,7 +85,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 ## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och API-nyckel
 1. I **Project Explorer** dubbelklickar du på **config.properties** för att redigera konfigurationsinställningarna som innehåller servernamnet och API-nyckeln.
 2. Följ stegen ovan i den här artikeln, där du letade upp tjänstens URL och API-nyckeln på [Azure Portal](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
-3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Därefter ska tjänstnamnet (den första delen av URL:en http://servicename.search.windows.net) ersätta ”service name” i samma fil.
+3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Sedan, tjänstens namn (den första komponenten i URL: en http://servicename.search.windows.net) ersätter ”Tjänstenamn” i samma fil.
    
     ![][5]
 

@@ -1,11 +1,11 @@
 ---
-title: "Ansluta säkert till ett Azure Service Fabric-kluster | Microsoft Docs"
-description: "Beskriver hur du autentiserar klientåtkomst till ett Service Fabric-kluster och hur för säker kommunikation mellan klienter och ett kluster."
+title: Ansluta säkert till ett Azure Service Fabric-kluster | Microsoft Docs
+description: Beskriver hur du autentiserar klientåtkomst till ett Service Fabric-kluster och hur för säker kommunikation mellan klienter och ett kluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0ce01b62fde690934d97fdefb7720e1be5512f4a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 
@@ -89,25 +89,32 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till en säker kluster som använder ett klientcertifikat
-Kör följande PowerShell-kommando för att ansluta till en säker kluster som använder klientcertifikat för att auktorisera administratörsåtkomst. Ange tumavtrycket kluster och tumavtrycket för det klientcertifikat som har beviljats behörigheter för klusterhantering. Certifikatinformation måste matcha ett certifikat på klusternoderna.
+Kör följande PowerShell-kommando för att ansluta till en säker kluster som använder klientcertifikat för att auktorisera administratörsåtkomst. 
+
+#### <a name="connect-using-certificate-common-name"></a>Ansluta med certifikatets unika namn
+Ange klustret certifikatets unika namn och namnet på det klientcertifikat som har beviljats behörigheter för klusterhantering. Certifikatinformation måste matcha ett certifikat på klusternoderna.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
-
-*ServerCertThumbprint* är tumavtrycket för certifikatet installeras på klusternoderna. *FindValue* är tumavtrycket för admin-klientcertifikat.
-När parametrarna är ifyllda ser kommandot ut som i följande exempel: 
-
+*ServerCommonName* är namnet på certifikatet installeras på klusternoderna. *FindValue* är namnet på administratören klientcertifikatet. När parametrarna är ifyllda ser kommandot ut som i följande exempel:
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Ansluta till en säker kluster med hjälp av Windows Active Directory

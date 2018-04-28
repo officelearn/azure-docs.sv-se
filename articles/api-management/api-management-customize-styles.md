@@ -1,11 +1,11 @@
 ---
-title: "Anpassa sidan formatet på Azure API Management developer-portalen | Microsoft Docs"
-description: "Följ stegen i den här snabbstarten att anpassa stil för elementen på Azure API Management developer-portalen."
+title: Anpassa sidstilen i utvecklarportalen i Azure API Management | Microsoft Docs
+description: Följ stegen i den här snabbstarten för att anpassa stilen för elementen i utvecklarportalen för Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,74 +14,72 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa formatet för utvecklare portalens sidor
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklarportalens sidor
 
-Det finns tre vanligaste sätt att anpassa Developer-portalen i Azure API Management:
+Det finns tre vanliga sätt att anpassa utvecklarportalen i Azure API Management:
  
-* [Redigera innehållet i statiska sidor och layout sidelement](api-management-modify-content-layout.md)
-* Uppdatera de formatmallar som används för sidelement över developer-portalen (beskrivs i den här guiden)
-* [Ändra mallarna som används för sidor som genereras av portalen](api-management-developer-portal-templates.md) (till exempel API docs produkter, autentisering av användare)
+* [Redigera innehållet på statiska sidor och sidlayoutelement](api-management-modify-content-layout.md)
+* Uppdatera stilarna som används för sidelement i utvecklarportalen (förklaras i den här guiden)
+* [Ändra mallarna som används för sidor som genereras av portalen](api-management-developer-portal-templates.md) (t.ex. API-dokumentation, produkter, användarautentisering)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Anpassa formatet för elementen på sidorna i den **Developer** portal
+> * Anpassa stilen på elementen på sidorna i **utvecklarportalen**
 > * Visa din ändring
 
-![Anpassa format](./media/modify-developer-portal-style/developer_portal.png)
+![anpassa stil](./media/modify-developer-portal-style/developer_portal.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-+ Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
-+ Dessutom slutföra följande kursen: [Import och publicera din första API](import-and-publish.md).
++ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+## <a name="customize-the-developer-portal"></a>Anpassa utvecklarportalen
 
-## <a name="customize-the-developer-portal"></a>Anpassa Developer-portalen
+1. Välj **Översikt**.
+2. Klicka på knappen för **utvecklarportalen** upptill i fönstret **Översikt**. Du kan också klicka på länken för **URL:en för utvecklarportalen**.
+3. Upptill på den vänstra sidan av skärmen visas en ikon med två penslar. Hovra över ikonen för att öppna menyn för anpassning av portalen.
 
-1. Välj **översikt**.
-2. Klicka på den **Developer-portalen** knappen ovanpå på den **översikt** fönster. Du kan också klicka på **Developer-portalen URL** länk.
-3. Övre till vänster på skärmen visas en ikon som består av två penslar. Hovra över ikonen för att öppna menyn anpassning av portalen.
+    ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. Välj **Stilar** från menyn för att öppna fönstret för anpassning av stilar.
 
-    ![Anpassa format](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
-4. Välj **formatmallar** från menyn för att öppna fönstret formatmalls-anpassning.
+    Alla element som du kan anpassa med **stilar** visas på sidan
+5. Ange färg för rubriker i fältet **Change variable values to customize developer portal appearance:** (Anpassa variabelvärden för att anpassa utvecklarportalens utseende).
 
-    Alla element som du kan anpassa med **formatmallar** visas på sidan
-5. Ange ”rubriker färg” i den **ändra variabelvärden anpassa developer portal utseende:** fält.
+    Elementen **@headings-color** visas på sidan. Den här variabeln anger färgen på texten.
 
-    Den  **@headings-color**  elementet visas på sidan. Den här variabeln anger färgen på texten.
-
-    ![Anpassa format](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
+    ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klicka på fältet för den  **@headings-color**  variabeln. 
+6. Klicka på fältet för variabeln **@headings-color**. 
     
-    Färgväljaren nedrullningsbara öppnas.
-7. Välj en ny färg färgväljare listrutan.
+    En nedrullningsbar meny för val av färg öppnas.
+7. Välj en ny färg i den nedrullningsbara menyn för val av färg.
 
     > [!TIP]
-    > Realtid förhandsgranskningen är tillgänglig för alla ändringar. En förloppsindikator längst upp i fönstret anpassning. Efter några sekunder ändras rubriktexten i färg till den valda.
+    > Alla ändringar visas i realtid i förhandsgranskningen. En förloppsindikator visas upptill i anpassningsfönstret. Efter några sekunder ändras rubriktexten till den färg du valde.
 
-8. Välj **publicera** från längst ned till vänster på anpassning meny.
-9. Välj **publicera anpassningar** att göra ändringarna tillgängliga för allmänheten.
+8. Välj **Publicera** nedtill i den vänstra sidan i fönstret med anpassningsmenyn.
+9. Välj **Publicera anpassningar** för att göra ändringarna offentligt tillgängliga.
 
 ## <a name="view-your-change"></a>Visa din ändring
 
-1. Gå till Developer-portalen.
-2. Du kan se ändringen som du har gjort.
+1. Gå till utvecklarportalen.
+2. Ändringen du gjorde visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Anpassa formatet för elementen på sidorna i den **Developer** portal
+> * Anpassa stilen på elementen på sidorna i **utvecklarportalen**
 > * Visa din ändring
 
 > [!div class="nextstepaction"]
-> [Anpassa Azure API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md)
+> [Anpassa utvecklarportalen i Azure API Management med mallar](api-management-developer-portal-templates.md)

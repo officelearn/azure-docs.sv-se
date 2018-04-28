@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b948721c9190b38d0770fd38739d53d252f513d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -53,13 +53,17 @@ Vi erbjuder några inbyggda principer som är tillgängliga för dig som standar
 - **Tvinga fram tagg med värde**: Den här principen tvingar fram en obligatorisk tagg och dess värde på en resurs.
 - **Otillåtna resurstyper**: Med den här principen kan du ange vilka resurstyper som inte får distribueras i organisationen.
 
-Du kan tilldela de här principerna via Azure Portal, PowerShell eller Azure CLI.
+Du kan tilldela de här principerna via Azure Portal, PowerShell eller Azure CLI. När du har gjort ändringar i en principdefinition sker omvärdering av principen ungefär en gång i timmen.
 
 Mer information om principdefinitionernas strukturer finns i den här artikeln – [Struktur för principdefinitioner](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Principtilldelning
 
-En principtilldelning är en principdefinition som tilldelas att äga rum inom ett specifikt område. Området kan vara allt från en hanteringsgrupp till en resursgrupp. Termen *område* avser alla resursgrupper, prenumerationer eller hanteringsgrupper som principdefinitionen har tilldelats. Principtilldelningar ärvs av alla underordnade resurser. Så om en princip används för en resursgrupp tillämpas den på alla resurser i den resursgruppen. Du kan dock utesluta ett delområde från principtilldelningen. Du kan till exempel tilldela en princip som förhindrar skapande av nätverksresurser i ett prenumerationsområde. Men du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar åtkomst till den här nätverksresursgruppen till användare som du litar på för att skapa nätverksresurser.
+En principtilldelning är en principdefinition som tilldelas att äga rum inom ett specifikt område. Området kan vara allt från en hanteringsgrupp till en resursgrupp. Termen *område* avser alla resursgrupper, prenumerationer eller hanteringsgrupper som principdefinitionen har tilldelats. Principtilldelningar ärvs av alla underordnade resurser. Så om en princip används för en resursgrupp tillämpas den på alla resurser i den resursgruppen. Du kan dock utesluta ett delområde från principtilldelningen.
+
+Du kan till exempel tilldela en princip som förhindrar skapande av nätverksresurser i ett prenumerationsområde. Men du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar åtkomst till den här nätverksresursgruppen till användare som du litar på för att skapa nätverksresurser.
+
+I ett annat exempel kanske du vill tilldela en princip för tillåtna resurstyper på hanteringsgruppsnivån. Och sedan tilldela en mer tillåtande princip (som tillåter fler resurstyper) för en underordnad hanteringsgrupp eller till och med direkt för prenumerationer. Det här exemplet fungerar dock inte eftersom principen är ett system för uttryckligt nekande. Du måste i stället utesluta den underordnade hanteringsgruppen eller prenumerationen från principtilldelningen på hanteringsgruppsnivån. Tilldela sedan den mer tillåtande principen på nivån för den underordnade hanteringsgruppen eller prenumerationen. Sammanfattat innebär det att om en princip leder till att en resurs nekas är det enda sättet att tillåta resursen att ändra den nekande principen.
 
 Mer information om att ange principdefinitioner och tilldelningar finns i [Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön](assign-policy-definition.md).
 

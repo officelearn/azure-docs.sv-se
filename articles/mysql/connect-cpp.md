@@ -1,6 +1,6 @@
 ---
-title: "Ansluta till Azure Database for MySQL från C++"
-description: "Den här snabbstarten innehåller ett kodexempel i C++ som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL."
+title: Ansluta till Azure Database for MySQL från C++
+description: Den här snabbstarten innehåller ett kodexempel i C++ som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -10,12 +10,12 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 41a56e1325c62a71880395c666e67c740742c3f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/12/2018
+ms.openlocfilehash: 8394fbf5146a268bad464dc1a11d0772359c9acb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Connector/C++ för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i C++ och att du saknar erfarenhet av Azure Database for MySQL.
@@ -40,12 +40,12 @@ I stegen i det här avsnittet förutsätter vi att du har erfarenhet av att utve
    2. Kör installationsprogrammet och följ anvisningarna för att slutföra installationen.
 
 ### <a name="configure-visual-studio"></a>**Konfigurera Visual Studio**
-1. Från Visual Studio, projektegenskap > konfigurationsegenskaper > C/C++ > länkare > allmänt > ytterligare bibliotekskataloger, lägg till katalogen lib\opt (t.ex.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) av c++ connector.
-2. Från Visual Studio, projektegenskap > konfigurationsegenskaper > C/C++ > allmänt > ytterligare inkluderingskataloger:
-   - Lägg till katalogen include/ för c++ connector (t.ex.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
-   - Lägg till Boost-biblioteksrotkatalog (t.ex.: C:\boost_1_64_0\).
-3. Från Visual Studio, projektegenskap > konfigurationsegenskaper > C/C++ > länkare > Indata> Ytterligare beroenden, lägger du till mysqlcppconn.lib i textfältet.
-4. Antingen kopierar du mysqlcppconn.dll från C++ connector-biblioteksmappen i steg 3 till samma katalog som den körbara programfilen eller lägger till den i miljövariabeln så att programmet kan hitta den.
+1. Från Visual Studio: Projekt -> Egenskaper -> Linker -> Allmänt -> Ytterligare bibliotekskataloger, lägg till katalogen lib\opt (t.ex.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) för C++-anslutningsprogrammet.
+2. Från Visual Studio: Projekt -> Egenskaper -> C/C++ -> Allmänt > Ytterligare inkluderingskataloger:
+   - Lägg till katalogen \include för c++-anslutningsprogrammet (t.ex.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Lägg till Boost-bibliotekets rotkatalog (C:\boost_1_64_0\).
+3. Från Visual Studio: Projekt -> Egenskaper -> Linker -> Indata -> Ytterligare beroenden, lägg till **mysqlcppconn.lib** i textfältet.
+4. Antingen kopierar du **mysqlcppconn.dll** från biblioteksmappen C++ connector i steg 3 till samma katalog som den körbara programfilen eller lägger till den i miljövariabeln så att programmet kan hitta den.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
@@ -72,6 +72,11 @@ Ersätt parametrarna Host, DBName, User och Password med de värden som du angav
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
+
 int main()
 {
     sql::Driver *driver;
@@ -82,44 +87,46 @@ int main()
     try
     {
         driver = get_driver_instance();
-        //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
 
-    stmt = con>createStatement();
-    stmt>execute("DROP TABLE IF EXISTS inventory");
+    //please create database "quickstartdb" ahead of time
+    con->setSchema("quickstartdb");
+
+    stmt = con->createStatement();
+    stmt->execute("DROP TABLE IF EXISTS inventory");
     cout << "Finished dropping table (if existed)" << endl;
-    stmt>execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+    stmt->execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
     cout << "Finished creating table" << endl;
     delete stmt;
 
-    pstmt = con>prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
-    pstmt>setString(1, "banana");
-    pstmt>setInt(2, 150);
-    pstmt>execute();
+    pstmt = con->prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
+    pstmt->setString(1, "banana");
+    pstmt->setInt(2, 150);
+    pstmt->execute();
     cout << "One row inserted." << endl;
 
-    pstmt>setString(1, "orange");
-    pstmt>setInt(2, 154);
-    pstmt>execute();
+    pstmt->setString(1, "orange");
+    pstmt->setInt(2, 154);
+    pstmt->execute();
     cout << "One row inserted." << endl;
 
-    pstmt>setString(1, "apple");
-    pstmt>setInt(2, 100);
-    pstmt>execute();
+    pstmt->setString(1, "apple");
+    pstmt->setInt(2, 100);
+    pstmt->execute();
     cout << "One row inserted." << endl;
-    
-    delete pstmt;   
+
+    delete pstmt;
     delete con;
     system("pause");
     return 0;
-
+}
 ```
 
 ## <a name="read-data"></a>Läsa data
@@ -128,7 +135,7 @@ Använd följande kod för att ansluta och läsa data med SQL-instruktionen **SE
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
-```csharp
+```c++
 #include <stdlib.h>
 #include <iostream>
 #include "stdafx.h"
@@ -139,6 +146,11 @@ Ersätt parametrarna Host, DBName, User och Password med de värden som du angav
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 using namespace std;
+
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
 
 int main()
 {
@@ -151,24 +163,26 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
-    }   
+    }
 
-//  select  
-    pstmt = con>prepareStatement("SELECT * FROM inventory;");
-    result = pstmt>executeQuery();  
-    
-    while (result>next())
-        printf("Reading from table=(%d, %s, %d)\n", result>getInt(1), result>getString(2).c_str(), result>getInt(3));   
-    
+    con->setSchema("quickstartdb");
+
+    //select  
+    pstmt = con->prepareStatement("SELECT * FROM inventory;");
+    result = pstmt->executeQuery();
+
+    while (result->next())
+        printf("Reading from table=(%d, %s, %d)\n", result->getInt(1), result->getString(2).c_str(), result->getInt(3));
+
     delete result;
-    delete pstmt;   
+    delete pstmt;
     delete con;
     system("pause");
     return 0;
@@ -180,7 +194,7 @@ Använd följande kod för att ansluta och läsa data med SQL-instruktionen **UP
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
-```csharp
+```c++
 #include <stdlib.h>
 #include <iostream>
 #include "stdafx.h"
@@ -188,8 +202,14 @@ Ersätt parametrarna Host, DBName, User och Password med de värden som du angav
 #include "mysql_connection.h"
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
+#include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 using namespace std;
+
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
 
 int main()
 {
@@ -201,22 +221,24 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
-    }   
+    }
+    
+    con->setSchema("quickstartdb");
 
     //update
-    pstmt = con>prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
-    pstmt>setInt(1, 200);
-    pstmt>setString(2, "banana");
-    pstmt>executeQuery();
+    pstmt = con->prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
+    pstmt->setInt(1, 200);
+    pstmt->setString(2, "banana");
+    pstmt->executeQuery();
     printf("Row updated\n");
-    
+
     delete con;
     delete pstmt;
     system("pause");
@@ -230,7 +252,7 @@ Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DE
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
-```csharp
+```c++
 #include <stdlib.h>
 #include <iostream>
 #include "stdafx.h"
@@ -241,6 +263,11 @@ Ersätt parametrarna Host, DBName, User och Password med de värden som du angav
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 using namespace std;
+
+//for demonstration only. never save your password in the code!
+const string server = "tcp://yourservername.mysql.database.azure.com:3306";
+const string username = "username@servername";
+const string password = "yourpassword";
 
 int main()
 {
@@ -253,19 +280,21 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
+        con = driver->connect(server, username, password);
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
+    
+    con->setSchema("quickstartdb");
         
     //delete
-    pstmt = con>prepareStatement("DELETE FROM inventory WHERE name = ?");
-    pstmt>setString(1, "orange");
-    result = pstmt>executeQuery();
+    pstmt = con->prepareStatement("DELETE FROM inventory WHERE name = ?");
+    pstmt->setString(1, "orange");
+    result = pstmt->executeQuery();
     printf("Row deleted\n");    
     
     delete pstmt;

@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: b45e1434d648096a67c2f12046960926d2c7640d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -39,7 +39,7 @@ För andra sätt att kryptera dina data, kan du överväga:
 Identifiering av data och klassificering (för närvarande i förhandsversion) innehåller avancerade funktioner finns inbyggda i Azure SQL Database för identifiering, klassificering, etiketter och skydda känsliga data i databasen. Identifiera och klassificera dina största känsliga data (företag för finansiella, hälsovård, personligt identifierbar information, etc.) kan en nyckelroll i din organisation Information protection status. Den kan fungera som infrastrukturen för:
 
 - Olika säkerhetsscenarier, till exempel övervakning (granskning) och aviseringar om avvikande tillgång till känsliga data.
-- Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller mycket känslig data.
+- Kontrollera åtkomst till och Härdning av säkerheten för, databaser som innehåller mycket känslig data.
 - Hjälper att uppfylla data sekretess normer och regelefterlevnad krav.
 
 Mer information finns i [Kom igång med SQL DB Data Discovery & klassificering](sql-database-data-discovery-and-classification.md). 
@@ -66,7 +66,7 @@ Auktorisering hänvisar till vad en användare kan göra inom en Azure SQL-datab
 Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext). Mer information finns i [Säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131).
 
 ### <a name="dynamic-data-masking"></a>Dynamisk datamaskning 
-SQL-databas dynamisk datamaskning begränsar exponering av känsliga data genom att maskera till icke-privilegierade användare. Dynamisk datamaskering automatiskt identifierar potentiellt känsliga data i Azure SQL Database och innehåller tillämplig rekommendationer att maskera fälten med minimal påverkan på programnivån. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) kan användas för att begränsa exponering av känsliga data.
+SQL-databas dynamisk datamaskning begränsar exponering av känsliga data genom att maskera till icke-privilegierade användare. Dynamisk datamaskering automatiskt identifierar potentiellt känsliga data i Azure SQL Database och innehåller tillämplig rekommendationer att maskera fälten med minimal påverkan på programnivån. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md).
 
 ## <a name="proactive-monitoring"></a>Proaktiv övervakning
 SQL Database skyddar dina data genom att tillhandahålla funktioner för granskning och hotidentifiering. 

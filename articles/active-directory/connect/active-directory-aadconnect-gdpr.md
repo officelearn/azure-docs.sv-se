@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect och allmänna Data Protection förordning | Microsoft Docs
+title: Azure AD Connect och användaren sekretess | Microsoft Docs
 description: Det här dokumentet beskriver hur du skaffar BNPR kompatibilitet med Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>BNPR efterlevnad och Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>Användarnas integritet och Azure AD Connect 
 
-I kan 2018, Europeiska sekretesslagstiftning den [allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), upphör att gälla. BNPR inför nya regler på företag, myndigheter, icke-vinst och andra organisationer att erbjudande varor och tjänster till personer i Europeiska unionen (EU), eller att samla in och analysera data som är knutna till Europa boende. BNPR gäller oavsett där du befinner dig. 
-
-Microsoftprodukter och tjänster finns i dag som hjälper dig att uppfylla kraven BNPR. Läs mer om Microsoft Privacy-policy på [Säkerhetscenter](https://www.microsoft.com/trustcenter)
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->Den här artikeln handlar om Azure AD Connect och BNPR kompatibilitet.  Information om Azure AD Connect Health och BNPR kompatibilitet finns i artikeln [här](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>Den här artikeln handlar om Azure AD Connect och användarens integritet.  Information om Azure AD Connect Health och användaren sekretess finns i artikeln [här](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-Allmänna Data Protection förordning kompatibilitet för Azure AD Connect installationer kan nås på två sätt:
+Sekretess-efterlevnad för Azure AD Connect installationer kan nås på två sätt:
 
 1.  Extrahera data för en person på begäran, och ta bort data från den personen från installationer
 2.  Se till att inga data sparas 48 timmar.
 
 Azure AD Connect-teamet rekommenderar det andra alternativet eftersom det är mycket enklare att implementera och underhålla.
 
-En Azure AD Connect sync-servern lagrar följande data som ingår i omfånget för BNPR kompatibilitet:
+En Azure AD Connect sync-servern lagrar följande sekretess användardata:
 1.  Data om en person i den **Azure AD Connect-databas**
 2.  Data i den **Windows-händelseloggen** filer som kan innehålla information om en person
 3.  Data i den **Azure AD Connect installationsloggfiler** som kan innehålla om en person
 
-Azure AD Connect-kunder bör ska BNPR kompatibla, Använd följande riktlinjer:
+Azure AD Connect-kunder bör du använda följande riktlinjer när du tar bort användardata:
 1.  Ta bort innehållet i den mapp som innehåller Azure AD Connect installationsloggfilerna regelbundet – var 48 timmarna
 2.  Den här produkten kan också skapa händelseloggar.  Mer information om händelseloggar loggar finns i [partitionsdokumentation](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
@@ -82,5 +80,5 @@ Använd följande steg om du vill schemalägga skriptet ska köras varje 48 timm
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
-- [Azure AD Connect Health och BNPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [Granska Microsoft Privacy-policy på Säkerhetscenter](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health och sekretess för alla användare](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

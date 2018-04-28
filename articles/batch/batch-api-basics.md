@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -79,10 +79,15 @@ Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuer
 
 ## <a name="azure-storage-account"></a>Azure-lagringskonto
 
-De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler.  
+De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler. Till exempel brukar Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) definiera resursfiler som finns i ett lagringskonto.
 
-Batch stöder för närvarande endast allmänna lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/common/storage-create-storage-account.md). Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) måste definiera resursfiler som finns i allmänna lagringskonton.
+Batch har stöd för följande [kontoalternativ](../storage/common/storage-account-options.md) för Azure Storage:
 
+* GPv2-konton (General-purpose v2) 
+* GPv1-konton (General-purpose v1)
+* Blob Storage-konton
+
+Du kan associera ett lagringskonto till Batch-kontot när du skapar Batch-kontot, eller senare. Betänk dina kostnads- och prestandakrav när du väljer lagringskonto. Till exempel har alternativen med GPv2- och blob storage-konto stöd för större [kapacitet och skalbarhet](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) jämfört med GPv1. (Kontakta Azure-supporten för att begära en ökning av en lagringsgräns.) De här alternativen kan förbättra prestandan för Batch-lösningar som innehåller ett stort antal parallella uppgifter som kan läsa från eller skriva till lagringskontot.
 
 ## <a name="compute-node"></a>Beräkningsnod
 En beräkningsnod är en virtuell Azure-dator eller molntjänstdator som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med Azure Cloud Services eller Marketplace-avbildningar för [Azure Virtual Machines][vm_marketplace] eller anpassade avbildningar du förbereder. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
@@ -252,7 +257,7 @@ När du skapar en aktivitet kan du ange:
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     Om dina aktiviteter måste köra ett program eller skript som inte finns i nodens `PATH` eller referensmiljövariabler anropar du gränssnittet uttryckligen på aktivitetens kommandorad.
-* **Resursfiler** som innehåller de data som ska bearbetas. Dessa filer kopieras automatiskt till noden från Blob Storage i ett allmänt Azure Storage-konto innan uppgiftens kommandorad körs. Mer information finns i avsnitten [Startaktivitet](#start-task) och [Filer och kataloger](#files-and-directories).
+* **Resursfiler** som innehåller de data som ska bearbetas. Dessa filer kopieras automatiskt till noden från Blob Storage i ett Azure Storage-konto innan aktivitetens kommandorad körs. Mer information finns i avsnitten [Startaktivitet](#start-task) och [Filer och kataloger](#files-and-directories).
 * **Miljövariablerna** som krävs av programmet. Mer information finns i avsnittet [Miljöinställningar för aktiviteter](#environment-settings-for-tasks).
 * **Begränsningarna** som aktiviteten ska köras under. Begränsningarna omfattar t.ex. den längsta tid som aktiviteten kan köras, det högsta antal omförsök som ska göras för en aktivitet som misslyckats, samt den längsta tid som filer i aktivitetens arbetskatalog ska bevaras.
 * **Programpaket** för distribution till beräkningsnoden som aktiviteten har schemalagts att köra på. Med [programpaket](#application-packages) blir det lättare att distribuera och hantera versionerna av de program som dina aktiviteter kör. Programpaket på aktivitetsnivå är särskilt användbara i miljöer med delade pooler där olika jobb körs i en pool och där poolen inte tas bort när ett jobb har slutförts. Om jobbet har färre aktiviteter än noder i poolen kan programpaket för aktiviteter minimera dataöverföringen eftersom ditt program bara distribueras till noderna som kör aktiviteterna.

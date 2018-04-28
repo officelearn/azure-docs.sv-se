@@ -1,11 +1,11 @@
 ---
 title: OS- och runtime korrigering i Azure App Service | Microsoft Docs
-description: "Beskriver hur Azure App Service uppdateringarna OS-körningar, och hur du får uppdatera meddelanden."
+description: Beskriver hur Azure App Service uppdateringarna OS-körningar, och hur du får uppdatera meddelanden.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 869bd0e3f684ff4a2291e189cf247daedfb74922
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- och runtime korrigering i Azure App Service
 
@@ -93,7 +93,7 @@ I följande tabell visas hur de versioner av Windows och language runtime som k�
 | Python-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör följande kommando i Kommandotolken: <br> `python --version` |
 
 > [!NOTE]
-> Åtkomst till registerplats `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, där information om [”KB” korrigeringsfiler]((https://technet.microsoft.com/security/bulletins.aspx)) lagras, är låst.
+> Åtkomst till registerplats `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, där information om [”KB” korrigeringsfiler]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) lagras, är låst.
 >
 >
 

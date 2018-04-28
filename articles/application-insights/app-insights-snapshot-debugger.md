@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights ögonblicksbild felsökare för .NET-appar | Microsoft Docs"
-description: "Felsöka ögonblicksbilder automatiskt samlas in när undantag utlöstes i produktion .NET appar"
+title: Azure Application Insights ögonblicksbild felsökare för .NET-appar | Microsoft Docs
+description: Felsöka ögonblicksbilder automatiskt samlas in när undantag utlöstes i produktion .NET appar
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: pharring
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsöka ögonblicksbilder på undantag i .NET-appar
 
@@ -42,7 +42,7 @@ Följande miljöer stöds:
 
 1. [Aktivera Application Insights i ditt webbprogram](app-insights-asp-net.md), om du inte gjort det ännu.
 
-2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app. 
+2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
 3. Granska standardalternativen som paketet lagts till i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -92,10 +92,18 @@ Följande miljöer stöds:
 
 3. Ändra programmets `Startup` klassen för att lägga till och konfigurera ögonblicksbild insamlarens telemetri processor.
 
+    Lägg till följande using-instruktioner till `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Lägg till följande `SnapshotCollectorTelemetryProcessorFactory` undergrupp till `Startup` klass.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ Följande miljöer stöds:
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Lägg till den `SnapshotCollectorConfiguration` och `SnapshotCollectorTelemetryProcessorFactory` startade pipeline-tjänster:
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ Följande miljöer stöds:
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
 Ägarna av Azure-prenumeration kan inspektera ögonblicksbilder. Andra användare måste beviljas behörighet genom en ägare.
@@ -208,7 +216,7 @@ I vyn Debug ögonblicksbild ser du en anropsstacken och en variabler rutan. När
 Ögonblicksbilder kan innehålla känslig information, och som standard är de inte kan visas. Om du vill visa ögonblicksbilder, måste du ha den `Application Insights Snapshot Debugger` roll som tilldelats dig.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Felsöka ögonblicksbilder med Visual Studio 2017 Enterprise
-1. Klicka på den **hämta ögonblicksbild** för att hämta en `.diagsession` fil som kan öppnas i Visual Studio 2017 Enterprise. 
+1. Klicka på den **hämta ögonblicksbild** för att hämta en `.diagsession` fil som kan öppnas i Visual Studio 2017 Enterprise.
 
 2. Öppna den `.diagsession` -fil, måste du först [ladda ned och installera tillägget ögonblicksbild felsökare för Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -312,7 +320,7 @@ Du ska tillåta för minst två samtidiga ögonblicksbilder.
 Till exempel om 1 GB totala arbetsminnet används i ditt program bör du kontrollera att det finns minst 2 GB diskutrymme för lagring av ögonblicksbilder.
 Följ dessa steg om du vill konfigurera din roll i Molntjänsten med en dedikerad lokal resurs för ögonblicksbilder.
 
-1. Lägga till en ny lokal resurs i din molntjänst genom att redigera Cloud Service-definitionsfil (.csdf). I följande exempel definieras en resurs med namnet `SnapshotStore` med en storlek på 5 GB.
+1. Lägga till en ny lokal resurs i din molntjänst genom att redigera Cloud Service-definitionsfil (.csdef). I följande exempel definieras en resurs med namnet `SnapshotStore` med en storlek på 5 GB.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ Om du fortfarande inte ser ett undantag med detta ID för ögonblicksbild rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ange snappoints i koden](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) att hämta ögonblicksbilder utan att vänta på ett undantag.
-* [Diagnostisera undantag i web apps](app-insights-asp-net-exceptions.md) förklarar hur du se flera undantag till Application Insights. 
+* [Diagnostisera undantag i web apps](app-insights-asp-net-exceptions.md) förklarar hur du se flera undantag till Application Insights.
 * [Identifiering för smartkort](app-insights-proactive-diagnostics.md) upptäcker automatiskt prestandaavvikelser.

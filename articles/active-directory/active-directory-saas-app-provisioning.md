@@ -1,11 +1,11 @@
 ---
-title: "Automatisk SaaS app användaretablering i Azure AD | Microsoft Docs"
-description: "En introduktion till hur du kan använda Azure AD för att automatiskt etablera avetablera och kontinuerligt uppdatera användarkonton över flera SaaS-program från tredje part."
+title: Automatisk SaaS app användaretablering i Azure AD | Microsoft Docs
+description: En introduktion till hur du kan använda Azure AD för att automatiskt etablera avetablera och kontinuerligt uppdatera användarkonton över flera SaaS-program från tredje part.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 56af1915326429b37f87dbaa397e1c9b832c675a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -176,7 +176,7 @@ Etableringsjobbet för den tas bort från karantän efter alla felaktiga fel fas
 
 Prestanda är olika beroende på om din Etableringsjobbet genomför en inledande synkronisering eller en inkrementell synkronisering.
 
-För inledande synkronisering är den tid det tar för att slutföra direkt beroende av hur många användare, grupper och medlemmar i gruppen finns i källsystemet. Mycket små källsystem hundratals objekt kan slutföra inledande synkronisering på bara några minuter. Dock kan källsystem hundratals tusentals eller miljontals kombinerade objekt ta mycket lång tid.
+För inledande synkronisering är den tid det tar för att slutföra direkt beroende av hur många användare, grupper och medlemmar i gruppen finns i källsystemet. Mycket små källsystem hundratals objekt kan slutföra inledande synkronisering på bara några minuter. Dock tar källsystem hundratals tusentals eller miljontals kombinerade objekt längre tid.
 
 Den tid det tar beror på antalet ändringar som har påträffats i den sync cykeln för inkrementell synkronisering. Om det finns mindre än 5 000 användare eller ändringar i gruppmedlemskap upptäckt, kan dessa ofta synkroniseras inom en cykel 40 minuter. 
 

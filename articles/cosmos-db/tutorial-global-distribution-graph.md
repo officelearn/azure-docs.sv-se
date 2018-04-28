@@ -1,11 +1,11 @@
 ---
-title: "Azure DB Cosmos global distributionsplatsen självstudier för Graph API | Microsoft Docs"
-description: "Lär dig hur du ställer in Azure Cosmos DB global distributionsplatsen med hjälp av Graph API."
+title: Självstudie för global distribution i Azure Cosmos DB för Graph API | Microsoft Docs
+description: Lär dig att konfigurera global distribution i Azure Cosmos DB med Graph API.
 services: cosmos-db
-keywords: Global distributionsplatsen, diagram, gremlin
-documentationcenter: 
+keywords: global distribution, graph, gremlin
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 273b5aeafbf67016259da787f4dfef078ec0a669
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av Graph-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Så här konfigurerar du global distribution i Azure Cosmos DB med Graph API
 
-I den här artikeln visar vi hur du använder Azure-portalen för att konfigurera Azure Cosmos DB global distributionsplatsen och sedan ansluta med Graph API.
+I den här artikeln visar vi hur du kan konfigurera global distribution i Azure Cosmos DB med Azure Portal och sedan ansluta med hjälp av Graph API.
 
-Den här artikeln omfattar följande aktiviteter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
-> * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med hjälp av den [Graph API: er](graph-introduction.md)
+> * Konfigurera global distribution med Azure Portal
+> * Konfigurera global distribution med [Graph API](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Ansluter till en önskad region med Graph-API med .NET SDK
+## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Ansluta till en önskad region med hjälp av Graph API och .NET SDK
 
-Graph API exponeras som ett tillägg bibliotek ovanpå SQL-API.
+Graph API exponeras som ett tilläggsbibliotek ovanpå SQL API.
 
-För att kunna dra nytta av [global distributionsplatsen](distribute-data-globally.md), klientprogram kan ange beställda inställningar listan över regioner som används för att utföra åtgärder för dokumentet. Detta kan göras genom att ställa in principen. Baserat på konfigurationen av Azure DB som Cosmos-kontot, aktuella regional tillgänglighet och inställningar listan som anges, kommer den mest optimala slutpunkten väljas av SDK, för att utföra skrivåtgärder och läsåtgärder.
+I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta gör du genom att konfigurera anslutningspolicyn. Utifrån Azure Cosmos DB-kontokonfigurationen, den aktuella regionala tillgängligheten och den angivna listan med inställningar, väljs den mest optimala slutpunkten för skriv- och läsåtgärder av SDK:n.
 
-Den här inställningen listan anges när du initierar en anslutning med SDK: erna. SDK: erna acceptera en valfri parameter ”PreferredLocations” som en sorterad lista över Azure-regioner.
+Denna lista med inställningar anges när en anslutning initieras med SDK:erna. SDK:erna accepterar den valfria parametern PreferredLocations, som är en sorterad lista över Azure-regioner.
 
-* **Skriver**: SDK skickar automatiskt alla skrivningar till det aktuella området för skrivning.
-* **Läser**: alla Läs skickas till den första tillgängliga regionen i listan över PreferredLocations. Om begäran inte klienten inte ned i listan och nästa region och så vidare. SDK: erna endast försök att läsa från de regioner som anges i PreferredLocations. Så till exempel hanteras om Cosmos-DB-konto finns i tre regioner, men klienten anger endast två av-write-regioner för PreferredLocations, utan läsning utanför området skrivåtgärder även vid redundans.
+* **Skriver**: SDK:n skickar automatiskt alla skrivningar till den aktuella skrivregionen.
+* **Läser**: Alla läsningar skickas till den första tillgängliga regionen i PreferredLocations-listan. Om begäran misslyckas fortsätter klienten nedåt i listan till nästa region osv. SDK:erna försöker endast läsa från de regioner som anges i PreferredLocations. Det innebär att om Cosmos DB-kontot t.ex. är tillgängligt i tre regioner men klienten enbart anger två av de skrivskyddade regionerna för PreferredLocations, så hanteras inga läsningar från skrivregionen även om en redundans sker.
 
-Programmet kan verifiera den aktuella write-slutpunkten och läsa slutpunkt som valts av SDK genom att kontrollera två egenskaper, WriteEndpoint och ReadEndpoint, finns i SDK-version 1.8 och senare. Om egenskapen PreferredLocations inte har angetts visas alla förfrågningar från det aktuella området för skrivning.
+Programmet kan verifiera den aktuella skrivslutpunkt och lässlutpunkt som valts av SDK:n genom att kontrollera de två egenskaperna WriteEndpoint och ReadEndpoint, som är tillgängliga i SDK-version 1.8 och senare. Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från den aktuella skrivregionen.
 
 ### <a name="using-the-sdk"></a>Med SDK
 
-Till exempel i .NET-SDK på `ConnectionPolicy` parameter för den `DocumentClient` konstruktorn har en egenskap som kallas `PreferredLocations`. Den här egenskapen kan anges till en lista över regionnamn. Visningsnamnen för [Azure-regioner] [ regions] kan anges som en del av `PreferredLocations`.
+I .NET SDK har exempelvis parametern `ConnectionPolicy` för konstruktorn `DocumentClient` en egenskap som kallas `PreferredLocations`. Den här egenskapen kan anges som en lista med regionnamn. Visningsnamnen för [Azure-regioner][regions] kan anges som en del av `PreferredLocations`.
 
 > [!NOTE]
-> URL: er för slutpunkterna ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. SDK hanterar automatiskt den här ändringen.
+> Slutpunkternas URL:er ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. SDK:n hanterar sådana ändringar automatiskt.
 >
 >
 
@@ -79,17 +79,17 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-Det är den som Slutför den här kursen. Du kan lära dig hur du hanterar konsekvensen för globalt replikerade kontot genom att läsa [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Och för mer information om hur globala databasreplikering fungerar i Azure Cosmos DB, se [distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
+Och med detta är den här självstudiekursen klar. Mer information om hur du kan hantera ditt globalt replikerade kontos konsekvens finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Mer information om hur global databasreplikering fungerar i Azure Cosmos DB finns i [Distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med SQL-API: er
+> * Konfigurera global distribution med Azure Portal
+> * Konfigurera global distribution med SQL-API:erna
 
-Du kan nu fortsätta till nästa kurs att lära dig hur du utvecklar lokalt med hjälp av lokala Azure DB som Cosmos-emulatorn.
+Du kan nu fortsätta till nästa självstudiekurs och lära dig hur du utvecklar lokalt med hjälp av den lokala Azure Cosmos DB-emulatorn.
 
 > [!div class="nextstepaction"]
 > [Utveckla lokalt med emulatorn](local-emulator.md)

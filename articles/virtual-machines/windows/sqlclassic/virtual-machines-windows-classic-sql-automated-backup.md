@@ -1,11 +1,11 @@
 ---
-title: "Automatisk säkerhetskopiering i SQL Server-datorer (klassisk) | Microsoft Docs"
-description: "Beskriver funktionen automatisk säkerhetskopiering för SQL Server som körs i Azure Virtual Machines med Resource Manager. "
+title: Automatisk säkerhetskopiering i SQL Server-datorer (klassisk) | Microsoft Docs
+description: 'Beskriver funktionen automatisk säkerhetskopiering för SQL Server som körs i Azure Virtual Machines med Resource Manager. '
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bca1c6c357527a32de499ac9207b1bb734dad7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automatisk säkerhetskopiering för SQLServer på virtuella Azure-datorer (klassisk)
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Automatisk säkerhetskopiering konfigurerar automatiskt [hanterad säkerhetskopi
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> Automatisk säkerhetskopiering för SQL Server 2016 stöds med Resource Manager-datorer. Mer information finns i [automatisk säkerhetskopiering v2 för SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
+> Automatisk säkerhetskopiering för SQL Server 2016 stöds med Resource Manager-datorer. Mer information finns i [automatisk säkerhetskopiering v2 för SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Databaskonfiguration**:
 
@@ -69,7 +69,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 | --- | --- | --- |
 | **Automatisk säkerhetskopiering** |Aktivera/inaktivera (inaktiverat) |Aktiverar eller inaktiverar automatisk säkerhetskopiering för en Azure-dator som kör SQL Server 2014 Standard eller Enterprise. |
 | **Kvarhållningsperioden** |1 – 30 dagar (30 dagar) |Antal dagar att behålla en säkerhetskopia. |
-| **Storage-konto** |Azure storage-konto (lagringskonto som skapats för den angivna virtuella datorn) |Ett Azure storage-konto som ska användas för att lagra filer för automatisk säkerhetskopiering i blob storage. En behållare skapas på denna plats att lagra säkerhetskopior. Namngivningskonventionen för säkerhetskopian innehåller datum, tid och namnet på datorn. |
+| **Lagringskonto** |Azure storage-konto (lagringskonto som skapats för den angivna virtuella datorn) |Ett Azure storage-konto som ska användas för att lagra filer för automatisk säkerhetskopiering i blob storage. En behållare skapas på denna plats att lagra säkerhetskopior. Namngivningskonventionen för säkerhetskopian innehåller datum, tid och namnet på datorn. |
 | **Kryptering** |Aktivera/inaktivera (inaktiverat) |Aktiverar eller inaktiverar kryptering. När kryptering är aktiverat finns certifikat som används för att återställa säkerhetskopian i det angivna lagringskontot i samma automaticbackup behållare med samma namngivningskonvention. Om lösenordet ändras, skapas ett nytt certifikat med lösenordet, men det gamla certifikatet finns kvar för att återställa tidigare säkerhetskopior. |
 | **Lösenord** |Lösenord text (ingen) |Ett lösenord för krypteringsnycklar. Detta är endast krävs om kryptering är aktiverat. Du måste ha rätt lösenord och relaterade certifikatet som användes när säkerhetskopian skapades för att återställa en krypterad säkerhetskopiering. | **Säkerhetskopieringssystem databaser** | Aktivera/inaktivera (inaktiverat) | Ta och fullständiga säkerhetskopieringar av Master, Model och MSDB |
 | **Konfigurera schemat för säkerhetskopiering** | Manuell/automatisk (automatisk) | Välj **automatisk** automatiskt fullständig och loggsäkerhetskopior baserat på loggen tillväxt. Välj **manuell** att ange schemat för fullständig och loggsäkerhetskopior. |

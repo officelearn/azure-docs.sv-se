@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera en fristående Azure Service Fabric-kluster i Windows Server | Microsoft Docs"
-description: "Uppgradera Azure Service Fabric-kod och/eller konfiguration som kör ett fristående Service Fabric-klustret, inklusive inställning uppdateringsläget klustret."
+title: Uppgradera en fristående Azure Service Fabric-kluster i Windows Server | Microsoft Docs
+description: Uppgradera Azure Service Fabric-kod och/eller konfiguration som kör ett fristående Service Fabric-klustret, inklusive inställning uppdateringsläget klustret.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3354fab5f664391520e721586712e5035ff79cb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uppgradera fristående Azure Service Fabric-kluster i Windows Server 
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Följ dessa instruktioner för den manuella processen.
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-kommandot](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Se till att uppdatera clusterConfigurationVersion om du i din JSON innan du börjar uppgradera konfiguration.
+Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-kommandot](https://msdn.microsoft.com/library/mt788302.aspx). Se till att uppdatera clusterConfigurationVersion om du i din JSON innan du börjar uppgradera konfiguration.
 
 ```powershell
 

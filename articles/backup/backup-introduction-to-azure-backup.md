@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -219,7 +219,7 @@ Några vanliga exempel på skyddade instanser är virtuella datorer, programserv
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Vad är ett Recovery Services-valv?
-Ett Recovery Services-valv är en onlinelagringsentitet i Azure som används för att lagra data, som säkerhetskopior, återställningspunkter och principer för säkerhetskopiering. Du kan använda Recovery Services-valv till att lagra säkerhetskopierade data för Azure-tjänster, lokala servrar och arbetsstationer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. För varje Azure-prenumeration kan du skapa upp till 25 Recovery Services-valv per Azure-region. När du överväger var du vill lagra dina data ska du tänka på att alla regioner inte är likadana. Se [Geografiskt redundant lagring](../storage/common/storage-redundancy-grs.md) för att få information om regionskopplingar och ytterligare överväganden för lagring.
+Ett Recovery Services-valv är en onlinelagringsentitet i Azure som används för att lagra data, som säkerhetskopior, återställningspunkter och principer för säkerhetskopiering. Du kan använda Recovery Services-valv till att lagra säkerhetskopierade data för Azure-tjänster, lokala servrar och arbetsstationer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. För varje Azure-prenumeration kan du skapa upp till 500 Recovery Services-valv per Azure-region. När du överväger var du vill lagra dina data ska du tänka på att alla regioner inte är likadana. Se [Geografiskt redundant lagring](../storage/common/storage-redundancy-grs.md) för att få information om regionskopplingar och ytterligare överväganden för lagring.
 
 Säkerhetskopieringsvalv, som baseras på Azure Service Manager, var den första valvversionen. Recovery Services-valv, som lägger till funktioner från Azure Resource Manager-modellen, är den andra versionen. I artikeln [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Översikt över Recovery Services-valv) ges en fullständig beskrivning av funktionsskillnaderna. Du kan inte längre skapa Backup-valv, och alla befintliga Backup-valv har uppgraderats till Recovery Services-valv. Du kan använda Azure-portalen för att hantera valv som har uppgraderats till Recovery Services-valv.
 

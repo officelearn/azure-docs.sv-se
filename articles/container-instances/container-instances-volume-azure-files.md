@@ -1,19 +1,19 @@
 ---
 title: Montera en Azure-filer i Azure Container instanser
-description: "Lär dig hur du monterar en volym för Azure-filer för att bevara tillstånd med Azure Container instanser"
+description: Lär dig hur du monterar en volym för Azure-filer för att bevara tillstånd med Azure Container instanser
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 239150c1e752ce6a4f2a19fa1192cd1a910ebea9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montera en Azure-filresursen i Azure Container instanser
 
@@ -83,7 +83,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-Den `--dns-name-label` värdet måste vara unikt i Azure-regionen du skapar behållaren-instans. Uppdatera värdet i kommandot ovan om du får en **DNS-namnetikett** felmeddelande när du kör kommandot.
+Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar behållarinstansen. Uppdatera värdet i kommandot ovan om du får en **DNS-namnetikett** felmeddelande när du kör kommandot.
 
 ## <a name="manage-files-in-mounted-volume"></a>Hantera filer i monterade volymer
 

@@ -1,4 +1,26 @@
-
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d407b015699925a6a3ce6ef9108ace1e9900303f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
 I det här avsnittet skapar du ett nytt projekt för att demonstrera hur du integrerar Windows Desktop .NET-program (XAML) med *logga In med Microsoft* så att programmet kan fråga webb-API: er som kräver en token.
@@ -6,7 +28,7 @@ I det här avsnittet skapar du ett nytt projekt för att demonstrera hur du inte
 Det program som du skapar med den här guiden visar en knapp som används för att anropa ett diagram, ett område för att visa resultat på skärmen och en knapp för utloggning.
 
 > [!NOTE]
-> Om du vill hämta det här exemplet Visual Studio-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), och gå vidare till den [konfigurationssteget](#create-an-application-express) konfigurera kodexemplet innan du kan köra den.
+> Om du vill hämta det här exemplet Visual Studio-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kan köra den.
 >
 
 För att skapa ditt program, gör du följande:
@@ -51,6 +73,7 @@ I det här steget skapar du en klass för att hantera interaktion med MSAL, till
     ```
 
 ## <a name="create-the-application-ui"></a>Skapa UI-programmet
+
 Det här avsnittet visar hur ett program kan fråga en skyddad backend-server, till exempel Microsoft Graph. 
 
 En *MainWindow.xaml* fil automatiskt ska skapas som en del av projektmallen för. Öppna den här filen och Ersätt ditt programs  *\<rutnät >* nod med följande kod:

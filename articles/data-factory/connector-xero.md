@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 09a1bfc47cd048e371575f80933f5bfd0116bf8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 131f147e2c445e8cfef12288d4d0d29f6fd7fe01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Kopiera data från Xero med hjälp av Azure Data Factory (Beta)
 
@@ -55,7 +55,7 @@ Följande egenskaper stöds för Xero länkade tjänsten:
 | typ | Egenskapen type måste anges till: **Xero** | Ja |
 | värd | Slutpunkten för Xero-server (`api.xero.com`).  | Ja |
 | consumerKey | Konsumenten nyckeln som associeras med Xero-programmet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| privateKey | Den privata nyckeln från PEM-filen som har genererats för tillämpningsprogrammet Xero privata finns [skapa ett offentligt/privat nyckelpar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Inkludera alla text från filen .pem inklusive Unix rad endings(\n), se exemplet nedan.<br/>Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| privateKey | Den privata nyckeln från PEM-filen som har genererats för tillämpningsprogrammet Xero privata finns [skapa ett offentligt/privat nyckelpar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera privatekey.pem med numbits på 512** med `openssl genrsa -out privatekey.pem 512`; 1024 stöds inte. Inkludera alla text från filen .pem inklusive Unix rad endings(\n), se exemplet nedan.<br/><br/>Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet krävs i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
 | usePeerVerification | Anger om att verifiera identiteten för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

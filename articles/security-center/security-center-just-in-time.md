@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 04/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c2a7e723d21f79f21e92da31fbc4fd49d64fd37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera virtuella åtkomst med hjälp av precis i tid
 
@@ -119,6 +119,16 @@ Att begära åtkomst till en virtuell dator:
 
 4. Under **begära åtkomst**, konfigurera för varje virtuell portar öppna tillsammans med som porten är öppen på käll-IP och tidsfönstret porten är öppen. Du kan begära åtkomst till de portar som konfigurerats i den bara i tid princip. Varje port har en högsta tillåtna tid som härletts från den bara i tid princip.
 5. Välj **öppna portarna**.
+
+> [!NOTE]
+> När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva har begäran godkänts.
+>
+>
+
+> [!NOTE]
+> Om en användare som begär åtkomst är bakom en proxyserver, fungerar inte alternativet ”Mina-IP. Det kan finnas behov av att fastställa en fullständig uppsättning organisationen.
+>
+>
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Redigera bara i tid åtkomstprincip
 

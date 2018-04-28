@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standardbehörigheterna för användare i Azure Active Directory
 
-Alla användare som beviljas en uppsättning standardbehörigheter som i Azure Active Directory (AD Azure). En användares behörighet består typ av användare, deras [rollmedlemskap](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal), och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av medlem och Gäst användarens standardinställningar.
+Alla användare som beviljas en uppsättning standardbehörigheter som i Azure Active Directory (AD Azure). En användares behörighet består typ av användare, deras [rollmedlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av medlem och Gäst användarens standardinställningar.
 
 ## <a name="member-and-guest-users"></a>Medlemmen och Gäst-användare
 Behörigheter som standard emot beror på om användaren är medlem interna innehavarens (medlemsanvändare) eller om användaren är B2B-samarbete gäst (gästanvändaren). Läs mer om B2B-samarbete [vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md) mer information om gästanvändare). 

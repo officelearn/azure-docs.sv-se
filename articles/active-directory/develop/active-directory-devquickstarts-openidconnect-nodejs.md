@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/20/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 477056581b847693ae115f94c2f6466036add765
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp komma igång
 Här kan vi använda Passport:
@@ -331,7 +331,7 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
 
 2. Skapa `/routes/user.js`-vägen under rotkatalogen.
 
-                ```JavaScript
+    ```JavaScript
                 /*
                  * GET users listing.
                  */
@@ -339,7 +339,7 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-                ```
+    ```
 
  Dessa skicka vidare förfrågan till vår vyer, inklusive användaren om den finns.
 
@@ -356,7 +356,7 @@ Nu `app.js` är klar. Vi behöver bara lägga till vägarna och vyerna som visar
     <% } %>
     ```
 
-4. Skapa den `/views/account.ejs` vyn under rotkatalogen så att vi kan visa ytterligare information som `passport-azuread` har satt i användarens begäran.
+4. Skapa den `/views/account.ejs` vyn under rotkatalogen så att vi kan visa ytterligare information som `passport-azure-ad` har satt i användarens begäran.
 
     ```Javascript
     <% if (!user) { %>

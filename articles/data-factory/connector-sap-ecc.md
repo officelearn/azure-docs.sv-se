@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: abd3ef00148795f4b3e79e2ed64dd35f56946455
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 68e3775be36b434acb5c25b522f9e28bec1b6125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Kopiera data från SAP ECC med Azure Data Factory
 
@@ -124,7 +124,7 @@ Om du vill kopiera data från SAP ECC anger källa i kopieringsaktiviteten till 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **SapEccSource** | Ja |
-| DocumentDB | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: (url som anges i den länkade tjänsten) / (sökväg har angetts i dataset)? (fråga som anges i aktiviteten kopieringskälla). Referera till [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Ja |
+| DocumentDB | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: (url som anges i den länkade tjänsten) / (sökväg har angetts i dataset)? (fråga som anges i aktiviteten kopieringskälla). Referera till [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel:**
 
@@ -170,7 +170,7 @@ När du kopierar data från SAP ECC används följande mappningar från OData-da
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Dubbel |
-| Edm.Single | Ogift |
+| Edm.Single | Enkel |
 | Edm.Guid | Sträng |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: e68f8d4405ae82cfaae59b1e4d9dcea8b361baff
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (gemensamma Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här anslutningen Dynamics stöder följande versioner av Dynamics och typer
 
 | Dynamics versioner | Autentiseringstyper | Länkad tjänst-exempel |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM Online | Office365 | [Dynamics online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
+| Dynamics 365 online <br> Dynamics CRM Online | Office 365 | [Dynamics online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 lokalt med IFD <br> Dynamics CRM 2016 lokalt med IFD <br> Dynamics CRM 2015 lokalt med IFD | IFD | [Dynamics lokalt med IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 För Dynamics 365 mer specifikt kan stöds följande programtyper:
@@ -63,7 +63,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”Online”** för Dynamics online. | Ja |
-| Organisationsnamn | Organisationsnamn Dynamics-instans. | Nej, ska anges om det finns fler än en Dynamics instanser som är associerade med användaren |
+| serviceUri | Tjänsten URL-Adressen till din Dynamics instans, t.ex. `https://adfdynamics.crm.dynamics.com`. | Ja |
 | AuthenticationType | Autentiseringstypen som ansluter till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till Dynamics. | Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -71,6 +71,9 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 >[!IMPORTANT]
 >Standard Azure Integration Runtime kan inte användas för att köra kopia när du kopierar data till Dynamics. Med andra ord om käll-länkad-tjänsten inte har en angiven integration runtime explicit [skapa en Azure Integration körning](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics-instans. Koppla den i den länkade tjänsten Dynamics som i följande exempel.
+
+>[!NOTE]
+>Dynamics-kopplingen används för att använda valfri ”organisationsnamn”-egenskapen för att identifiera din Dynamics CRM/365 Online-instans. Medan den håller fungerar rekommenderas för att ange egenskapen ”serviceUri” i stället för att få bättre prestanda för instans identifiering.
 
 **Exempel: Dynamics online med Office 365-autentisering**
 
@@ -82,7 +85,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -106,7 +109,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”OnPremisesWithIfd”** för Dynamics lokalt med IFD.| Ja |
-| hostName | Värdnamnet på den lokala Dynamics servern. | Ja |
+| Värdnamn | Värdnamnet på den lokala Dynamics servern. | Ja |
 | port | Porten för lokal Dynamics server. | Nej, standard är 443 |
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Ja |
 | AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |

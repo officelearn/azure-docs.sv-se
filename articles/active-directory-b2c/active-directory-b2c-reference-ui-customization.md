@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: ea33fa95aa7b73668aeee313a9d71a7f78e89a77
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Anpassa Azure AD B2C-användargränssnittet (UI)
 
@@ -341,7 +341,8 @@ Om du planerar att använda sidan anpassning gränssnittsfunktionen granska föl
 * Inte kopiera innehållet i Azure AD B2C standard och försök att ändra den. Det är bäst att skapa ditt HTML5-innehåll från början och Använd standardinnehåll som referens.
 * Av säkerhetsskäl att inte vi du kan använda alla JavaScript i ditt innehåll. De flesta av vad du behöver ska vara tillgänglig direkt. Om inte, Använd [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) att begära nya funktioner.
 * Versioner av webbläsare som stöds:
-  * Internet Explorer 11, 10, Edge
+  * Internet Explorer 11, 10, kant
   * Begränsat stöd för Internet Explorer 9, 8
   * Google Chrome 42.0 och senare
   * Mozilla Firefox 38.0 och senare
+* Se till att du inte inkluderar `<form>` i din HTML-taggar som detta stör POST-åtgärder som genererats av inmatat HTML från Azure AD B2C.

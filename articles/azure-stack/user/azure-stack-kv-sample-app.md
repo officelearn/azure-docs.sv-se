@@ -1,11 +1,11 @@
 ---
-title: "Tillåter att program att hämta Azure Stack Key Vault hemligheter | Microsoft Docs"
-description: "Använda en exempelapp för att arbeta med Azure-stacken Key Vault"
+title: Tillåter att program att hämta Azure Stack Key Vault hemligheter | Microsoft Docs
+description: Använda en exempelapp för att arbeta med Azure-stacken Key Vault
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: mabrigg
-ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: c32667f240c9e825a82b1e9623c672b00ac999ed
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Exempelprogram som använder nycklar och hemligheter som lagras i ett nyckelvalv
 
 I den här artikeln hur vi du kör ett exempelprogram (HelloKeyVault) som hämtar nycklar och hemligheter från nyckelvalvet i Azure-stacken.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Kör följande förutsättningar antingen från den [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller från en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -72,7 +72,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Login-AzureRmAccount `
+Connect-AzureRmAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
   

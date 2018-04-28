@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management konfigurerar resurser för Azure - inställningar | Microsoft Docs
+title: Konfigurera inställningar för serverrollen med hjälp av för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
 description: Beskriver hur du konfigurerar inställningar för PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 0fe986d8cdace301fde4045b16d299ba8395457d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---configure"></a>Privileged Identity Management - resursroller - konfigurera
+# <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Konfigurera inställningar för serverrollen med hjälp av för Azure-resurser med hjälp av Privileged Identity Management 
 
-Konfigurera inställningar för serverrollen definierar standardvärdena tilldelningar i PIM-miljö. Välj fliken Inställningar från det vänstra navigeringsfönstret eller knappen rollen inställningar från Åtgärdsfältet någon roll som du vill visa aktuella alternativ för att definiera dessa för din resurs.
+När du konfigurerar rollinställningar för kan du definiera de standardinställningar som tillämpas på tilldelningar i Privileged Identity Management (PIM)-miljö. Ange inställningarna för din resurs, välja den **rollinställningar** fliken i den vänstra rutan. Du kan också välja knappen rollen inställningar från Åtgärdsfältet (i någon roll) för att visa aktuella alternativ.
 
 
 ## <a name="select-a-role"></a>Välj en roll
-Välj en roll som du vill ändra. Välj sedan redigera att göra ändringar i befintliga inställningar.
+Välj en roll som du vill göra en ändring. Välj sedan om du vill ändra några befintliga inställningar **redigera**.

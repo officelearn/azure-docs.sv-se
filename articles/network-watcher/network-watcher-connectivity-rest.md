@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 26acb70ac5ac017fc8162e8abeec48b8b9ecfa7f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Nätverksbevakaren med hjälp av Azure REST API
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/05/2018
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
-> - [Azure REST API](network-watcher-connectivity-rest.md)
+> - [Azure REST-API](network-watcher-connectivity-rest.md)
 
 Lär dig hur du använder anslutning felsöka för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
 
@@ -468,7 +468,7 @@ I följande exempel är svaret från kör tidigare API-anrop. När kontrollen ä
 
 Lär dig att automatisera insamlingar paket med virtuella aviseringar genom att visa [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md).
 
-Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](network-watcher-check-ip-flow-verify-portal.md).
+Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](diagnose-vm-network-traffic-filtering-problem.md).
 
 
 

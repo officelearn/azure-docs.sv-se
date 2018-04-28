@@ -1,59 +1,59 @@
 ---
 title: 'Azure Cosmos DB: Utveckla med Graph API i .NET | Microsoft Docs'
-description: "Lär dig att utveckla med Azure Cosmos DB SQL-API med hjälp av .NET"
+description: Lär dig utveckla med Azure Cosmos DB:s SQL API med .NET
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Utveckla med Graph API i .NET
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och hur du skapar ett diagram databas och en behållare. Sedan skapar ett enkelt sociala nätverk med fyra personer som använder den [Graph API](graph-sdk-dotnet.md), sedan passerar och frågar diagrammet med Gremlin.
+Den här självstudien visar hur du skapar ett Azure Cosmos DB-konto med hjälp av Azure Portal, samt hur du skapar en grafdatabas och behållare. Programmet skapar sedan ett enkelt socialt nätverk med fyra personer med hjälp av [Graph API](graph-sdk-dotnet.md). Därefter går det vidare och frågar i grafen med hjälp av Gremlin.
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Cosmos DB-konto 
-> * Skapa ett diagram databas och en behållare
+> * Skapa en grafdatabas och en behållare
 > * Serialisera hörn och kanter till .NET-objekt
-> * Lägg till hörn och kanter
-> * Fråga diagrammet med Gremlin
+> * Lägga till hörn och kanter
+> * Fråga i grafen med Gremlin
 
-## <a name="graphs-in-azure-cosmos-db"></a>Diagram i Azure Cosmos DB
-Du kan använda Azure Cosmos DB att skapa, uppdatera och fråga diagram med hjälp av den [Microsoft.Azure.Graphs](graph-sdk-dotnet.md) bibliotek. Microsoft.Azure.Graph-bibliotek innehåller en enda metod `CreateGremlinQuery<T>` ovanpå det `DocumentClient` klassen för att köra Gremlin frågor.
+## <a name="graphs-in-azure-cosmos-db"></a>Grafer i Azure Cosmos DB
+Du kan använda Azure Cosmos DB till att skapa, uppdatera och fråga i grafer med hjälp av biblioteket [Microsoft.Azure.Graphs](graph-sdk-dotnet.md). Microsoft.Azure.Graph-biblioteket innehåller en enda tilläggsmetod `CreateGremlinQuery<T>` ovanpå `DocumentClient`- klassen för att kunna köra Gremlin-frågor.
 
-Gremlin är en funktionell programmeringsspråk som stöder skriva åtgärder (DML) och fråga och traversal-åtgärder. Vi igenom några exempel i den här artikeln för att få din igång med Gremlin. Se [Gremlin frågor](gremlin-support.md) en detaljerad genomgång av Gremlin av funktionerna i Azure Cosmos DB. 
+Gremlin är ett funktionellt datorspråk som stöder skrivåtgärder (DML) samt frågor och bläddring. Vi visar några exempel i den här artikeln för att du ska komma igång med Gremlin. Se [Gremlin-frågor](gremlin-support.md) för en detaljerad genomgång av Gremlin-funktionerna i Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
-    * Du kan också använda den [lokala emulatorn](local-emulator.md) för den här självstudiekursen.
+    * Du kan också använda [den lokala emulatorn](local-emulator.md) i den här självstudien.
 * [Visual Studio](http://www.visualstudio.com/).
 
-## <a name="create-database-account"></a>Skapa konto
+## <a name="create-database-account"></a>Skapa ett databaskonto
 
-Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.  
+Vi ska börja med att skapa ett Azure Cosmos DB-konto i Azure-portalen.  
 
 > [!TIP]
-> * Redan har ett Azure DB som Cosmos-konto? I så fall, gå vidare till [konfigurera Visual Studio-lösning](#SetupVS)
-> * Om du använder Azure Cosmos DB-emulatorn, följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) konfigurera emulatorn och gå vidare till [ställa in din Visual Studio-lösning](#SetupVS). 
+> * Har du redan ett Azure Cosmos DB-konto? I sådana fall kan du hoppa vidare till [Konfigurera din Visual Studio-lösning](#SetupVS)
+> * Om du använder Azure Cosmos DB-emulatorn följer du stegen i [Azure Cosmos DB-emulatorn](local-emulator.md) för att konfigurera emulatorn och hoppa vidare till [Konfigurera din Visual Studio-lösning](#SetupVS). 
 >
 > 
 
@@ -62,33 +62,33 @@ Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.
 ## <a id="SetupVS"></a>Konfigurera din Visual Studio-lösning
 1. Öppna **Visual Studio** på datorn.
 2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
-3. I den **nytt projekt** markerar **mallar** / **Visual C#** / **Konsolapp (.NET Framework)**namnge projektet och klicka sedan på **OK**.
+3. I dialogen **Nytt projekt**, väljer du **Mallar** / **Visual C#** / **Konsolapp (.NET Framework)**. Namnge ditt projekt och klicka sedan på **OK**.
 4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning, och klickar sedan på **Hantera NuGet-paket ...**
-5. I den **NuGet** klickar du på **Bläddra**, och skriv **Microsoft.Azure.Graphs** i sökrutan och kontrollera den **är förhandsversioner**.
-6. I resultatet hitta **Microsoft.Azure.Graphs** och på **installera**.
+5. På fliken **NuGet** klickar du på **Bläddra** och skriver **Microsoft.Azure.Graphs** i sökrutan. Markera alternativet för att **ta med förhandsutgåvor**.
+6. Leta reda på **Microsoft.Azure.Graphs** i resultatet och klicka på **Installera**.
    
    Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
    
-    Den `Microsoft.Azure.Graphs` -bibliotek innehåller en enda metod `CreateGremlinQuery<T>` för att köra Gremlin åtgärder. Gremlin är en funktionell programmeringsspråk som stöder skriva åtgärder (DML) och fråga och traversal-åtgärder. Vi igenom några exempel i den här artikeln för att få din igång med Gremlin. [Gremlin frågor](gremlin-support.md) har en detaljerad genomgång av Gremlin funktioner i Azure Cosmos DB.
+    Biblioteket `Microsoft.Azure.Graphs` innehåller enbart tilläggsmetoden `CreateGremlinQuery<T>` för att köra Gremlin-åtgärder. Gremlin är ett funktionellt datorspråk som stöder skrivåtgärder (DML) samt frågor och bläddring. Vi visar några exempel i den här artikeln för att du ska komma igång med Gremlin. [Gremlin-frågor](gremlin-support.md) innehåller en detaljerad genomgång av Gremlin-funktionerna i Azure Cosmos DB.
 
-## <a id="add-references"></a>Anslut appen
+## <a id="add-references"></a>Anslut din app
 
-Lägg till nedanstående två konstanter och dina *klienten* variabeln i ditt program. 
+Lägg till de här två konstanterna och din *klient*variabel i programmet. 
 
 ```csharp
 string endpoint = ConfigurationManager.AppSettings["Endpoint"]; 
 string authKey = ConfigurationManager.AppSettings["AuthKey"]; 
 ``` 
-Därefter head tillbaka till den [Azure-portalen](https://portal.azure.com) att hämta dina slutpunkts-URL och primärnyckel. Slutpunkts-URL:en och den primära nyckeln behövs för att programmet ska veta vart ditt program ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning. 
+Gå sedan tillbaka till [Azure Portal](https://portal.azure.com) för att hämta slutpunkts-URL:en och primärnyckeln. Slutpunkts-URL:en och den primära nyckeln behövs för att programmet ska veta vart ditt program ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning. 
 
-Navigera till ditt Azure DB som Cosmos-konto i Azure-portalen klickar du på **nycklar**, och klicka sedan på **skrivskyddad nycklar**. 
+I Azure Portal, går du till ditt Azure Cosmos DB-konto, klickar på **Nycklar** och klickar sedan på **Läs-skriv nycklar**. 
 
-Kopiera URI: N från portalen och via `Endpoint` i slutpunktsegenskapen. Kopiera den PRIMÄRNYCKELN från portalen och klistrar in det i den `AuthKey` egenskapen ovan. 
+Kopiera URI:n från portalen och klistra in den över `Endpoint` i slutpunktsegenskapen ovan. Kopiera sedan PRIMÄRNYCKEL från portalen och klistra in den i `AuthKey`-egenskapen ovan. 
 
-![Skärmbild av Azure portal som används av kursen för att skapa ett C#-program. Visar en Cosmos-databas med Azure-konto knappen nycklar markerad i navigeringen till Azure Cosmos DB och värdena URI och PRIMÄRNYCKEL markerade i bladet nycklar](./media/tutorial-develop-graph-dotnet/keys.png) 
+![Skärmbild av Azure Portal som används i självstudien för att skapa ett C#-program. Visar ett Azure Cosmos DB-konto med knappen NYCKLAR markerad i Azure Cosmos DB-navigeringen, och där värdena URI och PRIMÄRNYCKEL är markerade på blader Nycklar](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Skapa en instans av DocumentClient 
-Skapa sedan en ny instans av den **DocumentClient**.  
+Skapa nu en ny instans av **DocumentClient**.  
 
 ```csharp 
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); 
@@ -96,15 +96,15 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Skapa en databas 
 
-Nu skapa en Azure-Cosmos-DB [databasen](sql-api-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den  **DocumentClient** klass från den [SQL .NET SDK](sql-api-sdk-dotnet.md).  
+Nu ska du skapa en Azure Cosmos DB-[databas](sql-api-resources.md#databases) med metoderna [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) i klassen **DocumentClient** från [.NET-SDK:n i SQL](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
 ``` 
  
-## <a name="create-a-graph"></a>Skapa ett diagram 
+## <a name="create-a-graph"></a>Skapa en graf 
 
-Därefter skapa en behållare för diagram med hjälp av den med hjälp av den [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) metod eller [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) metod för den **DocumentClient** klass. En samling är en behållare för diagram entiteter. 
+Nu ska du skapa en grafbehållare med hjälp av metoderna [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) eller [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) i klassen **DocumentClient**. En samling är en behållare med grafentiteter. 
 
 ```csharp 
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
@@ -114,14 +114,14 @@ DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync
 ``` 
 
 ## <a id="serializing"></a>Serialisera hörn och kanter till .NET-objekt
-Använder Azure Cosmos-DB i [GraphSON kabelformat](gremlin-support.md), som definierar en JSON-schema för formhörnen, kanter och egenskaper. Azure Cosmos DB .NET SDK innehåller JSON.NET som ett beroende och detta gör att vi kan serialisering/deserialisering GraphSON i .NET-objekt som vi kan arbeta med kod.
+Azure Cosmos DB använder ett [GraphSON-kabelformat](gremlin-support.md), som definierar ett JSON-schema för hörn, kanter och egenskaper. Azure Cosmos DB .NET SDK innehåller JSON.NET som ett beroende. Detta innebär att vi kan serialisera/deserialisera GraphSON till .NET-objekt där vi kan arbeta med kod.
 
-Exempelvis vi arbeta med ett enkelt sociala nätverk med fyra personer. Vi titta på hur du skapar `Person` formhörnen, lägga till `Knows` relationer mellan dem, och sedan fråga och passerar i diagrammet för att söka efter ”vän vän” relationer. 
+Vi kan exempelvis arbeta med ett enkelt socialt nätverk med fyra personer. Vi tittar på hur man skapar `Person`-hörn, lägger till `Knows`-relationer mellan dem och frågar sedan samt går vidare i grafen för att hitta ”vän-till-vän”-relationer. 
 
-Den `Microsoft.Azure.Graphs.Elements` namnområde ger `Vertex`, `Edge`, `Property` och `VertexProperty` klasser för avserialisering av GraphSON svar väldefinierade .NET-objekt.
+Namnområdet `Microsoft.Azure.Graphs.Elements` ger klasserna `Vertex`, `Edge`, `Property` och `VertexProperty` för deserialisering av GraphSON-svar på väldefinierade .NET-objekt.
 
-## <a name="run-gremlin-using-creategremlinquery"></a>Kör Gremlin med CreateGremlinQuery
-Gremlin som SQL, stöder Läs-, Skriv- och frågor. Till exempel följande utdrag visar hur du skapar formhörnen kanter utföra vissa exempelfrågor som använder `CreateGremlinQuery<T>`, och asynkront gå igenom dessa resultat med hjälp av `ExecuteNextAsync` och ' HasMoreResults.
+## <a name="run-gremlin-using-creategremlinquery"></a>Köra Gremlin med CreateGremlinQuery
+Gremlin, precis som SQL, stöder läs-, skriv- och frågeåtgärder. Till exempel visar följande kodfragment hur du skapar hörn, kanter, utför vissa exempelfrågor med `CreateGremlinQuery<T>`, samt asynkront itererar dessa resultat med hjälp av `ExecuteNextAsync` och 'HasMoreResults.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
@@ -166,9 +166,9 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 }
 ```
 
-## <a name="add-vertices-and-edges"></a>Lägg till hörn och kanter
+## <a name="add-vertices-and-edges"></a>Lägga till hörn och kanter
 
-Nu ska vi titta på Gremlin-instruktioner som visas i föregående avsnitt detalj. Första vi vissa formhörnen med Gremlin's `addV` metod. Följande kodutdrag skapar en ”Thomas Andersen” nod av typen ”Person”, med egenskaper för förnamn, efternamn och ålder.
+Nu ska vi titta mer detaljerat på de Gremlin-instruktioner som visades i föregående avsnitt. Först har vi några hörn som använder Gremlins `addV`-metod. Följande kodfragment skapar ett ”Thomas Andersen”-hörn av typen ”Person”, med egenskaper för förnamn, efternamn och ålder.
 
 ```cs
 // Create a vertex
@@ -182,7 +182,7 @@ while (createVertexQuery.HasMoreResults)
 }
 ```
 
-Vi skapa vissa kanter mellan dessa formhörnen med Gremlin's `addE` metod. 
+Vi skapar sedan några kanter mellan dessa hörn med hjälp av Gremlins `addE`-metod. 
 
 ```cs
 // Add a "knows" edge
@@ -196,7 +196,7 @@ while (create.HasMoreResults)
 }
 ```
 
-Vi kan uppdatera en befintlig vertex med `properties` steg i Gremlin. Vi hoppar över anropet för att köra frågan via `HasMoreResults` och `ExecuteNextAsync` för resten av exemplen.
+Vi kan uppdatera ett befintligt hörn med steget `properties` i Gremlin. Vi hoppar över anropet för att köra frågan via `HasMoreResults` och `ExecuteNextAsync` i resten av exemplen.
 
 ```cs
 // Update a vertex
@@ -205,7 +205,7 @@ client.CreateGremlinQuery<Vertex>(
     "g.V('thomas').property('age', 45)");
 ```
 
-Du kan släppa kanter och formhörnen med Gremlin's `drop` steg. Här är ett kodfragment som visar hur du tar bort en nod och en kant. Observera att släppa en nod utför borttagningsåtgärder associerade kanter.
+Du kan släppa kanter och hörn med Gremlins `drop`-steg. Här är ett kodfragment som visar hur du tar bort ett hörn och en kant. Observera att släppa ett hörn utför en sammanhängande borttagning av de associerade kanterna.
 
 ```cs
 // Drop an edge
@@ -215,15 +215,15 @@ client.CreateGremlinQuery(graphCollection, "g.E('thomasKnowsRobin').drop()");
 client.CreateGremlinQuery(graphCollection, "g.V('robin').drop()");
 ```
 
-## <a name="query-the-graph"></a>Frågan i diagrammet
+## <a name="query-the-graph"></a>Fråga i grafen
 
-Du kan utföra frågor och traversals som också använder Gremlin. Till exempel visar följande utdrag hur du räkna antalet formhörnen i diagrammet:
+Du kan även utföra frågor och bläddringar med Gremlin. Följande kodfragment visar hur du räknar antalet hörn i grafen:
 
 ```cs
 // Run a query to count vertices
 IDocumentQuery<int> countQuery = client.CreateGremlinQuery<int>(graphCollection, "g.V().count()");
 ```
-Du kan utföra filter med Gremlin's `has` och `hasLabel` steg och kombinera dem med hjälp av `and`, `or`, och `not` att skapa fler komplexa filter:
+Du kan använda filter med Gremlins `has`- och `hasLabel`-steg, samt kombinera dem med hjälp av `and`, `or` och `not` för att skapa mer komplexa filter:
 
 ```cs
 // Run a query with filter
@@ -232,7 +232,7 @@ IDocumentQuery<Vertex> personsByAge = client.CreateGremlinQuery<Vertex>(
   "g.V().hasLabel('person').has('age', gt(40))");
 ```
 
-Du kan projicera vissa egenskaper i frågeresultatet med hjälp av den `values` steg:
+Du kan projicera vissa egenskaper i frågeresultaten med hjälp av steget `values`:
 
 ```cs
 // Run a query with projection
@@ -241,7 +241,7 @@ IDocumentQuery<string> firstNames = client.CreateGremlinQuery<string>(
   $"g.V().hasLabel('person').values('firstName')");
 ```
 
-Hittills har sett vi endast frågeoperatorer som fungerar i en databas. Diagram är snabb och effektiv för traversal åtgärder när du behöver att navigera till relaterade kanter och formhörnen. Vi ska hitta alla vänner till Thomas. Vi kan göra detta med hjälp av Gremlin's `outE` steg för att söka efter alla de kanter ut från Thomas och sedan bläddra till de i formhörnen från dessa kanter med Gremlin's `inV` steg:
+Hittills har vi endast sett frågeoperatorer som fungerar i alla databaser. Diagram är snabba och effektiva vid bläddringsåtgärder när du behöver navigera till relaterade kanter och hörn. Nu ska vi hitta alla Thomas vänner. Vi kan göra detta med hjälp av Gremlins `outE`-steg för att söka efter alla ut-kanter från Thomas och sedan bläddra till in-hörnen från dessa kanter med Gremlins `inV`-steg:
 
 ```cs
 // Run a traversal (find friends of Thomas)
@@ -250,7 +250,7 @@ IDocumentQuery<Vertex> friendsOfThomas = client.CreateGremlinQuery<Vertex>(
   "g.V('thomas').outE('knows').inV().hasLabel('person')");
 ```
 
-Nästa fråga utför två hopp för att söka efter alla Thomas' ”vänner till vänner”, genom att anropa `outE` och `inV` två gånger. 
+Nästa fråga utför två hopp för att hitta alla Thomas ”vänner till vänner”, genom att anropa `outE` och `inV` två gånger. 
 
 ```cs
 // Run a traversal (find friends of friends of Thomas)
@@ -259,9 +259,9 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   "g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-Du kan skapa mer komplexa frågor och implementera kraftfulla diagrammet traversal logik med Gremlin, inklusive blanda filteruttryck, utför slingor med hjälp av den `loop` steg och implementera villkorlig navigering med hjälp av den `choose` steg. Mer information om vad du kan göra med [Gremlin stöd](gremlin-support.md)!
+Du kan skapa mer komplexa frågor och implementera kraftfull bläddringslogik i diagrammet med Gremlin, inklusive att blanda filteruttryck, utföra loopar med hjälp av `loop`-steget och implementera villkorlig navigering med hjälp av `choose`-steget. Läs mer om vad du kan göra med [Gremlin-support](gremlin-support.md)!
 
-Det, självstudierna Azure Cosmos DB är klar! 
+Det var allt – självstudien för Azure Cosmos DB är klar! 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -272,14 +272,14 @@ Om du inte planerar att använda den här appen mer följer du stegen nedan för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Skapa ett Azure DB som Cosmos-konto 
-> * Skapa ett diagram databas och en behållare
-> * Serialiserade hörn och kanter till .NET-objekt
-> * Tillagda hörn och kanter
-> * Frågas diagrammet med Gremlin
+> * Skapat ett Azure Cosmos DB-konto 
+> * Skapat en grafdatabas och en behållare
+> * Serialiserat hörn och kanter till .NET-objekt
+> * Lagt till hörn och kanter
+> * Frågat i grafen med Gremlin
 
 Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
 

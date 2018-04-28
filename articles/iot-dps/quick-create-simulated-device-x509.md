@@ -5,25 +5,25 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 12/20/2017
+ms.date: 04/16/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 484b82b79d796536a2c9a527b42e90f4e37c7bda
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5fe9282dd10bd6bdc41c63718a884a92da4d7c6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med C-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör Windows OS och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
-Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen) innan du fortsätter.
+Om du inte är bekant med processen för automatisk etablering ska du även läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen) innan du fortsätter. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
@@ -51,7 +51,7 @@ Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with 
     cd cmake
     ```
 
-6. Kör följande kommando för att skapa Visual Studio-lösningen för etableringsklienten.
+6. I kodexemplet används ett X.509-certifikat för att tillhandahålla attestering via X.509-autentisering. Kör följande kommando för att skapa en version av SDK:t som är specifik för plattformen för din utvecklingsklient och din [attesteringsmetod](concepts-security.md#attestation-mechanism) (X.509-certifikat). Det genererar även en Visual Studio-lösning för den simulerade enheten. 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
@@ -62,7 +62,7 @@ Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with 
 
 <a id="portalenroll"></a>
 
-## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Skapa en post för enhetsregistrering i Device Provisioning-tjänsten
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Skapa ett självsignerat X.509-enhetscertifikat och en post för enskild registrering
 
 1. Öppna den lösning som har genererats i mappen *cmake* med namnet `azure_iot_sdks.sln`, och skapa den i Visual Studio.
 
@@ -72,18 +72,18 @@ Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with 
 
 4. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna din distributionstjänst.
 
-4. Öppna bladet **Hantera registreringar** för din tjänst. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. 
+5. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. 
 
-5. Under posten för att **lägga till registreringslista** anger du följande information:
+6. Under panelen för att **lägga till registrering** anger du följande information:
     - Välj **X.509** som identitet för bestyrkande *mekanism*.
-    - Under filen *Certificate .pem eller .cer* väljer du certifikatfilen **_X509testcert.pem_** som skapades i föregående steg med widgeten *Utforskaren*.
+    - Under *den primära .pem- eller .cer-certifikatfilen* klickar du på *Välj en fil* för att välja certifikatfilen **X509testcert.pem** som skapades i föregående steg.
     - Du kan även ange följande information:
-        - Välj en IoT hub som är länkad till din etableringstjänst.
-        - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
-        - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+      - Välj en IoT hub som är länkad till din etableringstjänst.
+      - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
+      - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
     - Klicka på knappen **Spara** när det är klart. 
 
-    ![Ange information för X.509-enhetsregistrering på portalbladet](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
+    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
 
    Om registreringen har lyckats visas din X.509-enhet som **riot-device-cert** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 

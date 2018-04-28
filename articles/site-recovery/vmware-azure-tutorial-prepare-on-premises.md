@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
@@ -25,9 +25,12 @@ Den här självstudien visar hur du förbereder din lokala VMware-infrastruktur 
 > * Granska VMware-serverkraven
 > * Granska VMware-kraven för virtuella datorer
 
-I den här självstudieserien visar vi hur du säkerhetskopierar en enda virtuell dator med hjälp av Azure Site Recovery. Om du planerar att skydda flera virtuella VMware-datorer, bör du hämta [verktyget Distributionshanteraren](https://aka.ms/asr-deployment-planner) för VMware-replikering. Det här verktyget samlar in information om VM-kompatibilitet, diskar per virtuell dator och dataomsättningen per disk. Verktyget kontrollerar även kraven på nätverksbandbredd och vilken Azure-infrastruktur som krävs för en lyckad replikering och testning av redundans. [Lär dig mer](site-recovery-deployment-planner.md) om hur du kör verktyget.
+I den här självstudieserien visar vi hur du replikerar en enda virtuell dator med hjälp av Azure Site Recovery. 
 
 Det här är den andra självstudien i serien. Se till att du har [konfigurerat Azure-komponenterna](tutorial-prepare-azure.md) enligt beskrivningen i föregående självstudie.
+
+Om du ska replikera flera virtuella datorer bör du hämta [verktyget Distributionshanteraren](https://aka.ms/asr-deployment-planner) för VMware-replikering. [Läs mer](site-recovery-deployment-planner.md).
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Förbereda ett konto för automatisk identifiering
 

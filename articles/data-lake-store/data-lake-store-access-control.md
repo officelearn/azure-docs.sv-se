@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Åtkomstkontroll i Azure Data Lake Store
 
@@ -150,7 +150,7 @@ I Azure har ett Data Lake Store-konto flera Azure-roller, inklusive:
 * Deltagare
 * Läsare
 
-Alla i rollen **Ägare** för ett Data Lake Store-konto är automatiskt en superanvändare för det kontot. Läs mer i [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md).
+Alla i rollen **Ägare** för ett Data Lake Store-konto är automatiskt en superanvändare för det kontot. Läs mer i [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
 Om du vill skapa en anpassad rollbaserad åtkomstkontroll(RBAC)-roll som har superanvändarbehörigheter så måste den ha följande behörigheter:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ Den ägande gruppen kan ändras av:
 * Den ägande användaren, om den ägande användaren också är medlem i målgruppen.
 
 > [!NOTE]
-> Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.
+> Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.  Även om den ägande gruppen har angetts till användaren som skapade kontot för rotmappen i **Fall 1** ovan, är ett enda användarkonto inte giltigt för att ge behörighet via den ägande gruppen.  Du kan tilldela den här behörigheten till en giltig användargrupp, om det är lämpligt.
 
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
 

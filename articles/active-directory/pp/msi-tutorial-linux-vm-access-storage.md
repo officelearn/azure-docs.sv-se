@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: dd82f1757d9c5a5fc8fb110cc36ec9f4bbd73e8a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4a1a2d0c40012649f6cd89193fd3f704f325e38a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Använd en Användartilldelad hanteras Service identitet (MSI) på en Linux-VM för att få åtkomst till Azure Storage
 
@@ -96,10 +96,10 @@ Först skapar du en ny Linux VM. Du kan också aktivera MSI på en befintlig vir
 
 Till skillnad från en automatiskt genererad MSI kan en Användartilldelad MSI användas av klienter på Azure-resurser. Den här kursen kan tilldela du den till en enda virtuell dator. Du kan också tilldela den till mer än en virtuell dator.
 
-Tilldela din Linux VM som använder Användartilldelad MSI [az tilldela-identitet för](/cli/azure/vm#az_vm_assign_identity). Se till att ersätta den `<RESOURCE GROUP>` och `<VM NAME>` parametervärden med egna värden. Använd den `id` egenskapen returneras i föregående steg för den `--identities` parametervärdet:
+Tilldela din Linux VM som använder Användartilldelad MSI [az tilldela-identitet för](/cli/azure/vm#az-vm-identity-assign). Se till att ersätta den `<RESOURCE GROUP>` och `<VM NAME>` parametervärden med egna värden. Använd den `id` egenskapen returneras i föregående steg för den `--identities` parametervärdet:
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 

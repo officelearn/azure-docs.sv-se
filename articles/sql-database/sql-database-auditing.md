@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -120,7 +120,7 @@ Det finns flera metoder du kan använda för att visa blob granskningsloggar:
 
 * Använd den [synkronisera programmet](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) som vi har skapat. Den körs i Azure och använder logganalys offentliga API: er för att skicka SQL-granskningsloggar till logganalys. Synkronisera program push-meddelanden SQL granskningsloggar i logganalys för förbrukning via instrumentpanelen logganalys.
 
-* Use Power BI. Du kan visa och analysera granskningsdata i Power BI. Lär dig mer om [Power BI och åtkomst till en mall för nedladdningsbar](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Använd Powerbi. Du kan visa och analysera granskningsdata i Power BI. Lär dig mer om [Power BI och åtkomst till en mall för nedladdningsbar](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Hämta loggfilerna från din Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Lagringsutforskaren](http://storageexplorer.com/).
     * När du har hämtat en loggfil lokalt, dubbelklickar du på filen för att öppna, visa och analysera loggar i SSMS.
@@ -165,8 +165,18 @@ Det är sannolikt att uppdatera din lagringsnycklar regelbundet i produktionen. 
 3. Gå tillbaka till bladet granskning configuration växla lagringsåtkomstnyckel från sekundär till primär och klicka sedan på **OK**. Klicka på **spara** längst upp på bladet granskning konfiguration.
 4. Gå tillbaka till bladet storage-konfiguration och återskapa den sekundära åtkomstnyckeln (som förberedelse för nyckeln nästa uppdateringscykeln).
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Hantera SQL database auditing med hjälp av Azure PowerShell
+## <a name="additional-information"></a>Extra information
 
+* Mer information om loggen formatera hierarki av lagringsmappen och namngivningskonventioner, finns det [Blobbreferens till granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Azure SQL-databasen och Audit lagrar 4 000 tecken för Teckenfält i en granskningspost. När den **instruktionen** eller **data_sensitivity_information** värden som returneras från en granskningsbar åtgärd innehåller fler än 4 000 tecken blir alla data utöver de första 4 000 tecken  **trunkerad och inte granskas**.
+
+* Granskningsloggar skrivs till **Tilläggsblobbar** i ett Azure Blob storage på din Azure-prenumeration.
+   * **Premium-lagring** är för närvarande **stöds inte** av Tilläggsblobbar.
+   * **Lagring i VNet** är för närvarande **stöds inte**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Hantera SQL database auditing med hjälp av Azure PowerShell
 
 * **PowerShell-cmdlets**:
 

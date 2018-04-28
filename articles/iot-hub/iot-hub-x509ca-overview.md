@@ -1,12 +1,12 @@
 ---
-title: "Översikt över Azure IoT-hubb X.509 CA-säkerheten | Microsoft Docs"
-description: "Översikt – så att autentisera enheter till IoT-hubb med X.509-certifikatutfärdare."
+title: Översikt över Azure IoT-hubb X.509 CA-säkerheten | Microsoft Docs
+description: Översikt – så att autentisera enheter till IoT-hubb med X.509-certifikatutfärdare.
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 080c83fd0c34bdcb8978edf0ba4f783402a88b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autentisering med X.509-certifikat
 
@@ -69,7 +69,7 @@ Läs mer här så [registrera ditt CA-certifikat](iot-hub-security-x509-get-star
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Så här skapar du en enhet på IoT-hubb
 
-Om du vill hindra enheten personifiering måste IoT-hubb du låta det vet vilka enheter du kan förvänta dig.  Det gör du genom att skapa en enhetspost i enhetsregistret för IoT-hubben.  Den här processen sker automatiskt när du använder IoT-hubb [enhet Etableringstjänsten](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DP). 
+Om du vill hindra enheten personifiering måste IoT-hubb du låta det vet vilka enheter du kan förvänta dig.  Det gör du genom att skapa en enhetspost i enhetsregistret för IoT-hubben.  Den här processen sker automatiskt när du använder IoT-hubb [enhet Etableringstjänsten](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DP). 
 
 Läs mer här så [manuellt skapa en enhet i IoT-hubb](iot-hub-security-x509-get-started.md#createdevice).
 
@@ -85,4 +85,4 @@ Läs mer här så [slutföra det här steget för anslutning av enheten](iot-hub
 
 Lär dig mer om [värdet för autentisering med X.509 CA](iot-hub-x509ca-concept.md) i IoT.
 
-Kom igång med IoT-hubb [enhet Etableringstjänsten](https://docs.microsoft.com/en-us/azure/iot-dps/).
+Kom igång med IoT-hubb [enhet Etableringstjänsten](https://docs.microsoft.com/azure/iot-dps/).

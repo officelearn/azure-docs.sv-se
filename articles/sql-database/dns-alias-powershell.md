@@ -1,6 +1,6 @@
 ---
-title: "PowerShell för DNS-alias Azure SQL | Microsoft Docs"
-description: "PowerShell-cmdlets som ny AzureRMSqlServerDNSAlias kan du omdirigera nya klientanslutningar till en annan Azure SQL Database-server utan att behöva touch klientkonfiguration."
+title: PowerShell för DNS-alias Azure SQL | Microsoft Docs
+description: PowerShell-cmdlets som ny AzureRMSqlServerDNSAlias kan du omdirigera nya klientanslutningar till en annan Azure SQL Database-server utan att behöva touch klientkonfiguration.
 keywords: DNS-sql-databas
 services: sql-database
 author: MightyPen
@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: dmalik
-ms.openlocfilehash: 2aae669364c3de2e9b00ffe8e28b1521d3a781e8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 06c27a2fda79afe5a7f4a0e9efdbc51e171bcbda
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-Alias till Azure SQL-databas
 
@@ -82,7 +82,7 @@ Write-Host " ";
 $yesno = Read-Host '[yes/no]  Do you need to log into Azure now?';
 if ('yes' -eq $yesno)
 {
-    Login-AzureRmAccount -SubscriptionName $SubscriptionName;
+    Connect-AzureRmAccount -SubscriptionName $SubscriptionName;
 }
 
 $SubscriptionGuid_Get = Get-AzureRmSubscription `

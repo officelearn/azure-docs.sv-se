@@ -1,25 +1,22 @@
 ---
-title: "Azure Application Gateway Brandvägg för webbaserade program CR regel grupper och regler | Microsoft Docs"
-description: "Den här sidan innehåller information om web brandväggen CR regeln programgrupper och regler."
+title: Azure Application Gateway Brandvägg för webbaserade program CR regel grupper och regler
+description: Den här sidan innehåller information om web brandväggen CR regeln programgrupper och regler.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista med web brandväggen CR regeln programgrupper och regler
 
@@ -27,28 +24,8 @@ Brandvägg för programmet Gateway webbaserade program (Brandvägg) skyddar webb
 
 Följande tabeller är regelgrupper och regler som är tillgängliga när du använder Application Gateway med Brandvägg för webbaserade program.  Varje tabell representerar de regler som finns i en grupp för en viss CR-version.
 
-##<a name="owasp30"></a>OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">BEGÄRAN-910-IP-RYKTE</p>
-
-|ruleId|Beskrivning|
-|---|---|
-|910011|Regeln 910011|
-|910012|Regeln 910012|
-|910000|Begäran från kända skadliga klient (beroende på den tidigare trafik överträdelser).|
-|910100|Klienten IP är från en hög Risk land plats.|
-|910120|Regeln 910120|
-|910130|Regeln 910130|
-|910150|HTTP-svartlistat matchar sökningen motorn IP|
-|910160|HTTP-svartlistat matchar som skickar IP|
-|910170|HTTP-svartlistat matchning för misstänkta IP|
-|910180|HTTP-svartlistat matchning för skördetröska IP|
-|910013|Regeln 910013|
-|910014|Regeln 910014|
-|910015|Regeln 910015|
-|910016|Regeln 910016|
-|910017|Regeln 910017|
-|910018|Regeln 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">BEGÄRAN-911-METODEN-TVINGANDE</p>
 
@@ -64,26 +41,6 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |911017|Regeln 911017|
 |911018|Regeln 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">BEGÄRAN 912-DOS-SKYDD</p>
-
-|ruleId|Beskrivning|
-|---|---|
-|912100|Regeln 912100|
-|912012|Regeln 912012|
-|912120|Attack denial of Service (DoS) identifieras från % @{tx.real_ip} (% @{tx.dos_block_counter} träffar sedan senaste varning)|
-|912130|Regeln 912130|
-|912140|Regeln 912140|
-|912150|Regeln 912150|
-|912160|Regeln 912160|
-|912170|Potentiell Denial of Service (DoS) Attack från % @{tx.real_ip} - # för att begära Bursts = % @{ip.dos_burst_counter}|
-|912013|Regeln 912013|
-|912014|Regeln 912014|
-|912019|Regeln 912019|
-|912171|Potentiell Denial of Service (DoS) Attack från % @{tx.real_ip} - # för att begära Bursts = % @{ip.dos_burst_counter}|
-|912015|Regeln 912015|
-|912016|Regeln 912016|
-|912017|Regeln 912017|
-|912018|Regeln 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">BEGÄRAN 913-SKANNER-IDENTIFIERING</p>
 
@@ -334,9 +291,9 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |943017|Regeln 943017|
 |943018|Regeln 943018|
 
-##<a name="owasp229"></a>OWASP_2.2.9
+##<a name="owasp229"></a> OWASP_2.2.9
 
-### <a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs20"></a> crs_20_protocol_violations
 
 |ruleId|Beskrivning|
 |---|---|
@@ -362,7 +319,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |960901|Ogiltigt tecken i begäran|
 |960018|Ogiltigt tecken i begäran|
 
-### <a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs21"></a> crs_21_protocol_anomalies
 
 |ruleId|Beskrivning|
 |---|---|
@@ -375,7 +332,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |960904|Begäran som innehåller innehåll men saknar Content-Type-huvud|
 |960017|Värdadressen är en numerisk IP-adress|
 
-### <a name="crs23"></a>crs_23_request_limits
+### <a name="crs23"></a> crs_23_request_limits
 
 |ruleId|Beskrivning|
 |---|---|
@@ -386,7 +343,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |960342|Överförda filen är för stor|
 |960343|Totalt antal överförda filer är för stort|
 
-### <a name="crs30"></a>crs_30_http_policy
+### <a name="crs30"></a> crs_30_http_policy
 
 |ruleId|Beskrivning|
 |---|---|
@@ -396,7 +353,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |960035|URL-filnamnstillägget begränsas av princip|
 |960038|HTTP-huvudet är begränsad av princip|
 
-### <a name="crs35"></a>crs_35_bad_robots
+### <a name="crs35"></a> crs_35_bad_robots
 
 |ruleId|Beskrivning|
 |---|---|
@@ -405,7 +362,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |990902|Begäran anger en Säkerhetsskannern genomsöks platsen|
 |990012|Falsk webbplats crawler|
 
-### <a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs40"></a> crs_40_generic_attacks
 
 |ruleId|Beskrivning|
 |---|---|
@@ -434,7 +391,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |958976|PHP Injection Attack|
 |958977|PHP Injection Attack|
 
-### <a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
 |ruleId|Beskrivning|
 |---|---|
@@ -471,7 +428,7 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |981253|Identifierar MySQL och PostgreSQL lagrad procedur eller funktion injektioner|
 |981251|Identifierar MySQL UDF injection och andra datastruktur/modifiering försöker|
 
-### <a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs41xss"></a> crs_41_xss_attacks
 
 |ruleId|Beskrivning|
 |---|---|
@@ -576,13 +533,13 @@ Följande tabeller är regelgrupper och regler som är tillgängliga när du anv
 |973329|IE XSS filter - Attack upptäcktes.|
 |973328|IE XSS filter - Attack upptäcktes.|
 
-### <a name="crs42"></a>crs_42_tight_security
+### <a name="crs42"></a> crs_42_tight_security
 
 |ruleId|Beskrivning|
 |---|---|
 |950103|Sökvägen Traversal Attack|
 
-### <a name="crs45"></a>crs_45_trojans
+### <a name="crs45"></a> crs_45_trojans
 
 |ruleId|Beskrivning|
 |---|---|

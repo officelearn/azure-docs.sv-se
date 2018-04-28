@@ -1,11 +1,11 @@
 ---
-title: "Felsöka en distribuerad virtuell StorSimple-enhet | Microsoft Docs"
-description: "Beskriver hur du diagnostisera och åtgärda fel som uppstår på en StorSimple-enhet som är för tillfället distribuerade och fungerar."
+title: Felsöka en distribuerad virtuell StorSimple-enhet | Microsoft Docs
+description: Beskriver hur du diagnostisera och åtgärda fel som uppstår på en StorSimple-enhet som är för tillfället distribuerade och fungerar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cf037f7f1c1384b654a7144485d38f569eb7c167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Felsöka en operativa StorSimple-enhet
 > [!NOTE]
-> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Översikt
 Den här artikeln innehåller användbar felsökningsinformation för att lösa konfigurationsproblem som kan uppstå när din StorSimple-enhet är distribuerade och fungerar. Här beskrivs vanliga problem, möjliga orsaker och rekommenderade steg för att hjälpa dig att lösa problem som kan uppstå när du kör Microsoft Azure StorSimple. Den här informationen gäller både den lokala fysiska StorSimple-enheten och den virtuella StorSimple-enheten.
@@ -65,5 +65,5 @@ Fel visas i numerisk ordning.
 ## <a name="next-steps"></a>Nästa steg
 Om det inte går att lösa problemet och [kontaktar Microsoft Support](storsimple-contact-microsoft-support.md) om du behöver hjälp. 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/%5Clibrary/Dn715782(v=WPS.630).aspx

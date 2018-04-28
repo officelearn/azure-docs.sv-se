@@ -2,18 +2,19 @@
 title: Resursklasser för hantering av arbetsbelastning - Azure SQL Data Warehouse | Microsoft Docs
 description: Riktlinjer för att använda resursklasser för att hantera samtidighet och beräkna resurser för frågor i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/11/2018
-ms.author: kevin
-ms.reviewer: jrj
-ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Hantering av arbetsbelastning med resursklasser i Azure SQL Data Warehouse
 Riktlinjer för att använda resursklasser för att hantera minne och samtidighet för frågor i din Azure SQL Data Warehouse.  

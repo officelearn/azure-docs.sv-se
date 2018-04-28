@@ -1,12 +1,12 @@
 ---
-title: "Vanliga frågor och svar om säkerhetskopiering av virtuella datorer i Azure | Microsoft Docs"
-description: "Svar på vanliga frågor om hur virtuell Azure-säkerhetskopiering fungerar, begränsningar och vad som händer när principen ändras"
+title: Vanliga frågor och svar om säkerhetskopiering av virtuella datorer i Azure | Microsoft Docs
+description: Svar på vanliga frågor om hur virtuell Azure-säkerhetskopiering fungerar, begränsningar och vad som händer när principen ändras
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "säkerhetskopiering av virtuella datorer i azure, återställning av virtuell dator i azure, säkerhetskopieringspolicy"
+editor: ''
+keywords: säkerhetskopiering av virtuella datorer i azure, återställning av virtuell dator i azure, säkerhetskopieringspolicy
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Gå igenom [operativsystem](backup-azure-arm-vms-prepare.md#supported-operating-
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Varför kan jag inte se min virtuella dator i guiden Konfigurera säkerhetskopiering?
 Konfigurera säkerhetskopiering i guiden för visas Azure Backup endast virtuella datorer som är:
-  * Du kan inte redan skyddad för att kontrollera status för säkerhetskopiering av en virtuell dator genom att gå till VM-bladet och kontrollera status för säkerhetskopiering från menyn Inställningar. Lär dig mer om att [Kontrollera status för säkerhetskopiering av en virtuell dator](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * Du kan inte redan skyddad för att kontrollera status för säkerhetskopiering av en virtuell dator genom att gå till VM-bladet och kontrollera status för säkerhetskopiering från menyn Inställningar. Lär dig mer om att [Kontrollera status för säkerhetskopiering av en virtuell dator](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Tillhör samma region som den virtuella datorn
 
 ## <a name="backup"></a>Backup
@@ -78,7 +78,7 @@ Powershell-cmdlets finns [här](backup-azure-vms-automation.md#restore-an-azure-
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Vad händer om jag ändrar en säkerhetskopieringspolicy på virtuella datorer?
-När en ny princip tillämpas på virtuella datorer, följs schema och lagring av den nya principen. Om kvarhållning utökas markeras befintliga återställningspunkter för att hålla dem enligt ny princip. Om kvarhållning minskar är de markerad för rensning i nästa rensningsjobbet och därefter tas bort. 
+När en ny princip tillämpas på virtuella datorer, följs schema och lagring av den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort. 
 
 ### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hur kan jag flytta en virtuell dator har registrerats i Azure-säkerhetskopiering mellan resursgrupper?
 Följ de nedanstående steg för att flytta den virtuella datorn säkerhetskopierade till målresursgruppen 

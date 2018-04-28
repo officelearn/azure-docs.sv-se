@@ -1,6 +1,6 @@
 ---
-title: "Hur du hanterar Azure tid serien Insights miljön med hjälp av Azure Resource Manager-mallar | Microsoft Docs"
-description: "Den här artikeln beskriver hur du hanterar Azure tid serien Insights miljön via programmering med Azure Resource Manager."
+title: Hur du hanterar Azure tid serien Insights miljön med hjälp av Azure Resource Manager-mallar | Microsoft Docs
+description: Den här artikeln beskriver hur du hanterar Azure tid serien Insights miljön via programmering med Azure Resource Manager.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa tid serien Insights-resurser med hjälp av Azure Resource Manager-mallar
 
@@ -153,7 +153,7 @@ Mer information finns i [parametrar](../azure-resource-manager/resource-group-te
 Kör följande kommando från en PowerShell-kommandotolk:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Du uppmanas att logga in på ditt Azure-konto. Kör följande kommando för att visa tillgängliga prenumerationer efter inloggningen:
@@ -266,7 +266,8 @@ Outputs                 :
 
 Mallen quickstart startsidan på GitHub innehåller också en **till Azure** knappen. Om du klickar på den öppnas en anpassad distribution sida i Azure-portalen. Den här sidan kan du ange eller Välj värden för var och en av parametrarna från den [obligatoriska parametrar](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) eller [valfria parametrar](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabeller. När du fyller i inställningar, klicka på **inköp** knappen initierar mallen distribueras.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
 title: Ta bort ett Site Recovery-valv
-description: "Lär dig hur du tar bort en Azure Site Recovery-valvet, baserat på scenariot Site Recovery."
+description: Lär dig hur du tar bort en Azure Site Recovery-valvet, baserat på scenariot Site Recovery.
 service: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 62792747b4efe2de4c22af6f0886503d7d63ed44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Ta bort ett Site Recovery-valv
 Beroenden kan hindra dig från att ta bort en Azure Site Recovery-valvet. Du behöver vidta åtgärder kan variera, beroende på Site Recovery-scenario: VMware till Azure, Hyper-V (med och utan System Center Virtual Machine Manager) till Azure och Azure Backup. Om du vill ta bort ett valv som används i Azure Backup finns [ta bort ett säkerhetskopieringsvalv i Azure](../backup/backup-azure-delete-vault.md).
@@ -65,7 +65,7 @@ Följ rekommenderade åtgärder för ditt scenario om du vill ta bort valvet.
 
 Ta bort Site Recovery-valvet även om det finns skyddade objekt genom att använda dessa kommandon:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 

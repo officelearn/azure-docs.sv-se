@@ -12,46 +12,51 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 5446f00b698fbe1fe1bae9c52bf3e73fe0d1c506
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Skapa en virtuell Linux-dator med hjälp av PowerShell i Azure-stacken 
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en virtuell dator Linux server med PowerShell i Azure-stacken
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure PowerShell används för att skapa och hantera resurser i Azure-stacken från en kommandorad eller i skript.  Den här guiden information med PowerShell för att skapa en virtuell dator som kör Ubuntu server i Azure-stacken.
+Du kan skapa en virtuell Ubuntu Server 16.04 LTS-dator med hjälp av PowerShell för Azure-stacken. Följ stegen i den här artikeln för att skapa och använda en virtuell dator.  Den här artikeln kan du också stegen för att:
 
-## <a name="prerequisites"></a>Förutsättningar 
+* Ansluta till den virtuella datorn med en fjärransluten klient.
+* Rensa oanvända resurser.
 
-* Kontrollera att Azure Stack-operator har lagt till ”Ubuntu Server 16.04 LTS” bilden Stack för Azure marketplace.  
+## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-stacken kräver en viss version av Azure PowerShell för att skapa och hantera resurser. Om du inte har konfigurerats för stacken Azure PowerShell, logga in på den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) och följ stegen för att [ installera](azure-stack-powershell-install.md) och [konfigurera](azure-stack-powershell-configure-user.md) PowerShell.    
+* **En Linux-avbildning i Azure-stacken marketplace**
 
-* En offentlig SSH-nyckel med namnet id_rsa.pub ska skapas i katalogen .ssh på din Windows-användarprofil. Detaljerad information om hur du skapar SSH-nycklar finns [skapa SSH-nycklar i Windows](../../virtual-machines/linux/ssh-from-windows.md).  
+   Stacken för Azure marketplace innehåller inte en Linux-avbildning som standard. Hämta Azure Stack-operatorn för att ange den **Ubuntu Server 16.04 LTS** bilden som du behöver. Operatorn kan använda stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure-stacken](../azure-stack-download-azure-marketplace-item.md) artikel.
+
+* Azure-stacken kräver en viss version av Azure PowerShell för att skapa och hantera resurser. Om du inte har konfigurerats för stacken Azure PowerShell, logga in på den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) och följ stegen för att [ installera](azure-stack-powershell-install.md) och [konfigurera](azure-stack-powershell-configure-user.md) PowerShell.
+
+* En offentlig SSH-nyckel med namnet-id_rsa.pub sparas i katalogen .ssh på din Windows-användarprofil. Detaljerad information om hur du skapar SSH-nycklar finns [skapa SSH-nycklar i Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare i vilka Azure-stacken resurser distribueras och hanteras. Kör följande kodblock om du vill skapa en resursgrupp från din development kit eller Azure-stacken integrerat system. Vi har tilldelat värden för alla variabler i det här dokumentet kan du använda dem som är eller tilldela ett annat värde.
+En resursgrupp är en logisk behållare där du kan distribuera och hantera resurser i Azure-stacken. Kör följande kodblock om du vill skapa en resursgrupp från din development kit eller Azure-stacken integrerat system. Tilldelar värden för alla variabler i det här dokumentet kan du använda dessa värden eller tilldela nya värden.
 
 ```powershell
 # Create variables to store the location and resource group names.
 $location = "local"
-$ResourceGroupName = "myResourceGroup" 
+$ResourceGroupName = "myResourceGroup"
 
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location $location 
+  -Location $location
 ```
 
 ## <a name="create-storage-resources"></a>Skapa storage-resurser
 
-Skapa ett lagringskonto och en lagringsbehållare för lagring av Ubuntu Server 16.04 LTS avbildningen.
+Skapa ett lagringskonto och sedan skapa en lagringsbehållare för Ubuntu Server 16.04 LTS avbildningen.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -73,7 +78,7 @@ Set-AzureRmCurrentStorageAccount `
 $containerName = 'osdisks'
 $container = New-AzureStorageContainer `
   -Name $containerName `
-  -Permission Blob 
+  -Permission Blob
 ```
 
 ## <a name="create-networking-resources"></a>Skapa nätverksresurser
@@ -106,7 +111,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Skapa en nätverkssäkerhetsgrupp och en regel för nätverkssäkerhetsgrupp
 
-Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av regler för inkommande och utgående. Nu ska vi skapa en regel för inkommande trafik för port 3389 för att tillåta inkommande anslutningar till fjärrskrivbord och en inkommande regel för port 80 för att tillåta inkommande webbtrafik.
+Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av regler för inkommande och utgående. Skapa en regel för inkommande trafik för port 3389 för att tillåta inkommande anslutningar till fjärrskrivbord och en inkommande regel för port 80 för att tillåta inkommande webbtrafik.
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -125,6 +130,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Skapa ett nätverkskort för den virtuella datorn
+
 Nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och offentlig IP-adress.
 
 ```powershell
@@ -135,11 +141,12 @@ $nic = New-AzureRmNetworkInterface `
   -Location $location `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
-  -NetworkSecurityGroupId $nsg.Id 
+  -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används vid distribution av den virtuella datorn, t.ex. den virtuella datorns avbildning, storlek och konfiguration för verifiering.
+
+Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används när du distribuerar den virtuella datorn. Till exempel: användarautentiseringsuppgifter, storlek och avbildningen av virtuella datorn.
 
 ```powershell
 # Define a credential object.
@@ -152,13 +159,13 @@ $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
   -VMName $VmName `
-  -VMSize $VmSize 
+  -VMSize $VmSize
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
-  -Credential $cred 
+  -Credential $cred
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
@@ -173,13 +180,13 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine. 
+# Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
   -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
-  Add-AzureRmVMNetworkInterface -Id $nic.Id 
+  Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
@@ -193,27 +200,28 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
-  -VM $VirtualMachine 
+  -VM $VirtualMachine
 ```
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-När distributionen har slutförts kan du skapa en SSH-anslutning med den virtuella datorn. Använd kommandot [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) för att returnera den offentliga IP-adressen för den virtuella datorn.
+När den virtuella datorn har distribuerats kan du konfigurera en SSH-anslutning för den virtuella datorn. Använd kommandot [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) för att returnera den offentliga IP-adressen för den virtuella datorn.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Från ett system med SSH installerat, använder du följande kommando för att ansluta till den virtuella datorn. Om du arbetar med Windows, kan du använda [Putty](http://www.putty.org/) att skapa anslutningen.
+Från en klientdator med SSH installerat, använder du följande kommando för att ansluta till den virtuella datorn. Om du arbetar med Windows, kan du använda [Putty](http://www.putty.org/) att skapa anslutningen.
 
 ```
 ssh <Public IP Address>
 ```
 
-När du uppmanas är användaren inloggningsnamnet azureuser. Om du angav en lösenfras när du skapade SSH-nycklar måste du även ange den.
+När du uppmanas, anger du azureuser som användarens inloggning. Om du använder en lösenfras när du har skapat SSH-nycklar, har du att ange lösenfrasen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du inte längre behövs kan du använda den [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) kommandot för att ta bort resursgruppen VM, och alla relaterade resurser:
+
+Rensa de resurser som du inte behöver längre. Du kan använda den [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) kommando för att ta bort dessa resurser. Ta bort resursgruppen och alla dess resurser genom att köra följande kommando:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -221,4 +229,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat en enkel virtuell Linux-dator i den här snabbstarten. Om du vill veta mer om Azure-stacken virtuella datorer kan fortsätta att [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).
+I den här snabbstarten distribuerade virtuell dator för grundläggande Linux-server. Om du vill veta mer om Azure-stacken virtuella datorer kan du gå till [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).

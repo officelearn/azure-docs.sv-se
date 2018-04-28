@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenariot i varaktiga funktioner - väder watcher exempel
 
@@ -38,7 +38,7 @@ Det här exemplet övervakar aktuella väder för en plats och en användare av 
 * Övervakare kan säga upp när vissa villkor är uppfyllt eller avslutas med en annan process.
 * Övervakare kan ta parametrar. Exemplet visar hur samma process för övervakning av väder kan tillämpas på alla begärda platsen och telefonnummer.
 * Övervakare kan skalas. Eftersom varje Övervakare är en orchestration-instans, kan du skapa flera bildskärmar utan att behöva skapa nya funktioner eller definiera mer kod.
-* Övervakare integrera enkelt större arbetsflöden. En Övervakare kan vara en del av en mer komplex orchestration-funktion eller en [underordnade orchestration](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Övervakare integrera enkelt större arbetsflöden. En Övervakare kan vara en del av en mer komplex orchestration-funktion eller en [underordnade orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## <a name="configuring-twilio-integration"></a>Konfigurera Twilio-integrering
 

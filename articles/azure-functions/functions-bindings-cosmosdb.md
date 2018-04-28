@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -38,7 +38,7 @@ Cosmos-DB-bindningar för funktioner version 1.x finns i den [Microsoft.Azure.We
 
 ## <a name="trigger"></a>Utlösare
 
-Azure Cosmos DB utlösaren använder den [Azure Cosmos DB ändra Feed](../cosmos-db/change-feed.md) att lyssna efter ändringar i partitioner. Ändra feeden publicerar infogningar och uppdateringar, inte borttagningar. 
+Azure Cosmos DB utlösaren använder den [Azure Cosmos DB ändra Feed](../cosmos-db/change-feed.md) att lyssna efter ändringar i partitioner. Ändra feeden publicerar infogningar och uppdateringar, inte borttagningar. Utlösaren anropas för varje insert eller update i samlingen som övervakas. 
 
 ## <a name="trigger---example"></a>Utlösaren - exempel
 
@@ -159,18 +159,24 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** || måste anges till `cosmosDBTrigger`. |
-|**Riktning** || måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**typ** || måste anges till `cosmosDBTrigger`. |
+|**riktning** || måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** || Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. | 
-|**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller den anslutningssträng som används för att ansluta till Azure DB som Cosmos-kontot som övervakas. |
-|**databaseName**|**DatabaseName**  | Namnet på Azure DB som Cosmos-databasen med den samling som övervakas. |
+|**ConnectionStringSetting**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller den anslutningssträng som används för att ansluta till Azure DB som Cosmos-kontot som övervakas. |
+|**DatabaseName**|**DatabaseName**  | Namnet på Azure DB som Cosmos-databasen med den samling som övervakas. |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på samlingen som övervakas. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till tjänsten som innehåller lease-samling. När inte har angetts i `connectionStringSetting` värdet används. Den här parametern anges automatiskt när bindning skapas i portalen. Anslutningssträngen för samlingen lån måste ha skrivbehörighet.|
+|**LeaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till tjänsten som innehåller lease-samling. När inte har angetts i `connectionStringSetting` värdet används. Den här parametern anges automatiskt när bindning skapas i portalen. Anslutningssträngen för samlingen lån måste ha skrivbehörighet.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på databasen som innehåller den samling som används för att lagra lån. Om inte värdet, för den `databaseName` inställningen används. Den här parametern anges automatiskt när bindning skapas i portalen. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra lån. Om värdet inte, `leases` används. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Valfritt) Om värdet är `true`, samlingen lån skapas automatiskt när den inte redan finns. Standardvärdet är `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Valfritt) Definierar mängden begära enheter tilldelas när samlingen lån skapas. Den här inställningen är endast användas när `createLeaseCollectionIfNotExists` är inställd på `true`. Den här parametern anges automatiskt när bindning har skapats med hjälp av portalen.
-| |**LeaseOptions** | Konfigurera alternativ genom att ange egenskaper i en instans av den [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) klass.
+|**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (Valfritt) Definierar mängden begära enheter tilldelas när samlingen lån skapas. Den här inställningen är endast användas när `createLeaseCollectionIfNotExists` är inställd på `true`. Den här parametern anges automatiskt när bindning har skapats med hjälp av portalen.
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Valfritt) När inställningen läggs ett prefix till lån som skapats i samlingen lån för den här funktionen så effektivt att två separata Azure-funktioner att dela samma lån samling genom att använda olika prefix.
+|**FeedPollDelay**| **FeedPollDelay**| (Valfritt) När alla aktuella ändringar är att ta slut när mängd definierar, i millisekunder, fördröjning mellan avsöker en partition för nya ändringar i denna feed. Standardvärdet är 5000 (5 sekunder).
+|**LeaseAcquireInterval**| **LeaseAcquireInterval**| (Valfritt) När inställningen definierar, i millisekunder intervallet som startar en aktivitet för att beräkna om partitioner fördelas jämnt mellan kända värddatorinstanser. Standardvärdet är 13000 (13 sekunder).
+|**LeaseExpirationInterval**| **LeaseExpirationInterval**| (Valfritt) När inställningen definierar, i millisekunder det intervall som lånet utförs på ett lån som representerar en partition. Om lånet inte förnyas inom intervallet, kommer den att gälla och ägare för partitionen flyttas till en annan instans. Standardvärdet är 60000 (60 sekunder).
+|**LeaseRenewInterval**| **LeaseRenewInterval**| (Valfritt) När inställningen definierar, i millisekunder, förnyelseintervall för alla lån för partitioner som för tillfället hålls av en instans. Standardvärdet är 17000 (17 sekunder).
+|**CheckpointFrequency**| **CheckpointFrequency**| (Valfritt) När inställningen definierar, i millisekunder, intervallet mellan lån kontrollpunkter. Standardvärdet är alltid efter en lyckad funktionsanrop.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Valfritt) När inställningen anpassar den den maximala mängden objekt tas emot varje funktionsanrop.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -474,12 +480,12 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ**     || måste anges till `documentdb`.        |
-|**Riktning**     || måste anges till `in`.         |
+|**typ**     || måste anges till `documentdb`.        |
+|**riktning**     || måste anges till `in`.         |
 |**Namn**     || Parameterns namn bindning som representerar dokumentet i funktionen.  |
-|**databaseName** |**DatabaseName** |Den databas som innehåller dokumentet.        |
+|**DatabaseName** |**DatabaseName** |Den databas som innehåller dokumentet.        |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på den samling som innehåller dokumentet. |
-|**id**    | **Id** | ID för dokumentet ska hämtas. Den här egenskapen stöder [bindningsuttryck](functions-triggers-bindings.md#binding-expressions-and-patterns). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
+|**ID**    | **Id** | ID för dokumentet ska hämtas. Den här egenskapen stöder [bindningsuttryck](functions-triggers-bindings.md#binding-expressions-and-patterns). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
 |**Anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 |**PartitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|
@@ -492,7 +498,7 @@ I C# och F # funktioner, när funktionen avslutas, sparas ändringar som görs t
 
 I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Finns det [JavaScript exempel](#input---javascript-example).
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 Azure Cosmos DB utdata bindning kan skriva du ett nytt dokument till en Azure Cosmos-DB-databas. 
 
@@ -746,14 +752,14 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ**     || måste anges till `documentdb`.        |
-|**Riktning**     || måste anges till `out`.         |
+|**typ**     || måste anges till `documentdb`.        |
+|**riktning**     || måste anges till `out`.         |
 |**Namn**     || Parameterns namn bindning som representerar dokumentet i funktionen.  |
-|**databaseName** | **DatabaseName**|Den databas som innehåller den samling där dokumentet har skapats.     |
+|**DatabaseName** | **DatabaseName**|Den databas som innehåller den samling där dokumentet har skapats.     |
 |**Samlingsnamn** |**Samlingsnamn**  | Namnet på den samling där dokumentet har skapats. |
 |**CreateIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när det inte finns. Standardvärdet är *FALSKT* eftersom skapas nya samlingar med reserverat dataflöde, vilket har kostnad effekter. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**PartitionKey**|**PartitionKey** |När `CreateIfNotExists` är true, definierar partition Nyckelsökväg för samlingen som har skapats.|
-|**collectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` är true, definierar den [genomströmning](../cosmos-db/set-throughput.md) för samlingen som har skapats.|
+|**CollectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` är true, definierar den [genomströmning](../cosmos-db/set-throughput.md) för samlingen som har skapats.|
 |**Anslutning**    |**ConnectionStringSetting** |Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -769,7 +775,7 @@ När du skriver till Utdataparametern i din funktion skapas ett dokument i datab
 
 | Bindning | Referens |
 |---|---|
-| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Nästa steg
 

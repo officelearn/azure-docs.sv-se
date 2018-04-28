@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: En helper verktyg som används för att demonstrera funktionen sidan för anpassning av användaren-användargränssnittet (UI)
 Den här artikeln är en medlem i den [Huvudartikel för UI-anpassning](active-directory-b2c-reference-ui-customization.md) i Azure Active Directory (AD Azure) B2C. Följande steg beskriver hur utöva sidan anpassning gränssnittsfunktionen med hjälp av HTML- och CSS exemplen som vi tillhandahåller.
@@ -29,7 +29,7 @@ Exemplen som vi tillhandahåller kan användas för att customze två sidor i en
 ## <a name="register-an-application"></a>Registrera ett program
 Du behöver [registrera ett program](active-directory-b2c-app-registration.md) i din B2C-klient som kan användas för att köra din princip. När du har registrerat ditt program har du några alternativ som du kan använda för att faktiskt kör principen för registrering:
 
-* Skapa en Azure AD B2C som Snabbstart, starta program som anges i avsnittet ”Kom igång” i [registrera och logga in användare i dina program](active-directory-b2c-overview.md#get-started).
+* Skapa en Azure AD B2C som Snabbstart, starta program som anges i avsnittet ”Kom igång” i [registrera och logga in användare i dina program](active-directory-b2c-overview.md).
 * Använd det fördefinierade [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) program. Om du väljer att använda playground måste du registrera ett program i B2C-klienten med hjälp av den **omdirigerings-URI** `https://aadb2cplayground.azurewebsites.net/`.
 * Använd den **kör nu** knappen principen i den [Azure-portalen](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Om du vill anpassa utseendet och känslan av principen måste du först skapa HT
 Vid tillämpningen av den här kursen vi redan skapat några exemplen och finns på Azure Blob Storage. Exemplen är en grundläggande anpassning i temat för vårt fiktiva företag, ”Wingtip Toys”. Om du vill testa den i din egen policy, gör du följande:
 
 1. Logga in på din klient i den [Azure-portalen](https://portal.azure.com/) och gå till B2C-funktionsbladet.
-2. Klicka på **principer för registrering eller inloggning** och klicka sedan på din princip (till exempel ”b2c\_1\_logga\_in\_logga\_i”).
+2. Klicka på **principer för registrering eller inloggning**, klicka på din princip och klicka på Redigera (till exempel ”b2c\_1\_logga\_in\_logga\_i”).
 3. Klicka på **Page UI anpassning** och sedan **Unified registrering eller inloggning sidan**.
 4. Växla den **Använd anpassad sida** växla till **Ja**. I den **anpassad sidan URI** anger `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Klicka på **OK**.
 5. Klicka på **registreringssidan för lokalt konto**. Växla den **Använd anpassad mall** växla till **Ja**. I den **anpassad sidan URI** anger `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

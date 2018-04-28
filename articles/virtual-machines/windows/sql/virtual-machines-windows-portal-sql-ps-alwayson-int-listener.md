@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera alltid på tillgänglighetsgruppens lyssnare – Microsoft Azure | Microsoft Docs"
-description: "Konfigurera tillgänglighet Tillgänglighetsgruppslyssnarnas på Azure Resource Manager-modellen med hjälp av en intern belastningsutjämnare med en eller flera IP-adresser."
+title: Konfigurera alltid på tillgänglighetsgruppens lyssnare – Microsoft Azure | Microsoft Docs
+description: Konfigurera tillgänglighet Tillgänglighetsgruppslyssnarnas på Azure Resource Manager-modellen med hjälp av en intern belastningsutjämnare med en eller flera IP-adresser.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera alltid på tillgänglighet tillgänglighetsgruppslyssnarnas - Resource Manager
 Det här avsnittet beskrivs hur du:
@@ -48,10 +48,10 @@ Konfigurera Windows-brandväggen för att tillåta åtkomst för SQL Server. Bra
 > 
 > 
 
-Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar regler för belastningsutjämning och anger en IP-adress för belastningsutjämnaren. Kör skriptet, öppna Windows PowerShell ISE och klistra in skriptet i skriptfönstret. Använd `Login-AzureRMAccount` att logga in i PowerShell. Om du har flera Azure-prenumerationer, Använd `Select-AzureRmSubscription ` att ställa in prenumerationen. 
+Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar regler för belastningsutjämning och anger en IP-adress för belastningsutjämnaren. Kör skriptet, öppna Windows PowerShell ISE och klistra in skriptet i skriptfönstret. Använd `Connect-AzureRmAccount` att logga in i PowerShell. Om du har flera Azure-prenumerationer, Använd `Select-AzureRmSubscription ` att ställa in prenumerationen. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ Frontend porten är den port som används av program för att ansluta till SQL S
 Följande skript lägger till en ny IP-adress till en befintlig belastningsutjämnare. ILB använder porten för lyssnare för frontend-port för belastningsutjämning. Den här porten kan vara porten som SQL-servern lyssnar på. För standardinstanser av SQL Server-porten är 1433. Regel för en tillgänglighetsgrupp för belastningsutjämning kräver en flytande IP (direkt serverreturnering) så backend-porten är samma som frontend-porten. Uppdatera variablerna för din miljö. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

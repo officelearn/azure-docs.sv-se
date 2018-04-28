@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Active Directory B2C för användarautentisering i en ASP.NET webbapp – självstudier
+title: Självstudiekurs – Aktivera en webbapp för autentisering med konton med hjälp av Azure Active Directory B2C | Microsoft Docs
 description: Självstudie som lär dig använda Azure Active Directory B2C för att tillhandahålla en användarinloggning till en ASP.NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
@@ -8,17 +8,17 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Självstudier: Autentisera användare med Azure Active Directory B2C i en ASP.NET webbapp
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Självstudie:Aktivera en webbapp för autentisering med konton med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ASP.NET webbapp. Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera en ASP.NET exempelwebbapp i en Azure AD B2C-klientorganisation.
@@ -40,22 +40,22 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Välj **Azure AD B2C** i listan över tjänster i Azure Portal.
+1. Välj **Azure AD B2C** i listan över tjänster i Azure Portal. 
 
-2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**.
+2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**. 
 
     Registrera exempelwebbappen i klientorganisationen med följande inställningar:
 
     ![Lägg till en ny app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Namn** | Min exempelwebbapp | Ange ett **Namn** som beskriver appen för konsumenterna. | 
     | **Ta med webbapp/webb-API** | Ja | Välj **Ja** om det är en webbapp. |
     | **Tillåt implicit flöde** | Ja | Välj **Ja** eftersom appen använder [OpenID Connect-inloggning](active-directory-b2c-reference-oidc.md). |
     | **Svarswebbadress** | `https://localhost:44316` | Svarswebbadresser är slutpunkter där Azure AD B2C returnerar de token som appen begär. I den här självstudien körs exemplet lokalt (lokal värd) och lyssnar på port 44316. |
-    | **Inbyggd klient** | Nej | Eftersom det här är en webbapp och inte en intern klient väljer du Nej. |
-
+    | **Inkludera intern klient** | Nej | Eftersom det här är en webbapp och inte en intern klient väljer du Nej. |
+    
 3. Klicka på **Skapa** för att registrera din app.
 
 Registrerade appar visas i programlistan för Azure AD B2C-klientorganisationen. Välj webbapp i listan. Webbappens egenskapsruta visas.
@@ -70,7 +70,7 @@ Azure AD B2C använder OAuth2-auktorisering för [klientprogram](../active-direc
 
 1. Välj sidan Nycklar för den registrerade webbappen och klicka på **Generera nyckel**.
 
-2. Klicka på **Spara** och visa nyckeln.
+2. Klicka på **Spara** så visas appnyckeln.
 
     ![sidan nycklar för allmänna appar](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -112,7 +112,7 @@ Om du vill att användarna själva ska kunna återställa informationen i sin an
     | **Namn** | SiPe | Ange ett **Namn** för principen. Principens namn har prefixet **b2c_1_**. Använd det fullständiga principnamnet **b2c_1_SiPe** i exempelkoden. | 
     | **Identitetsprovider** | Inloggning på lokalt konto | Den identitetsprovider som används för att unikt identifiera användaren. |
     | **Profilattribut** | Visningsnamn och Postnummer | Välj de attribut en användare kan ändra under profilredigering. |
-    | **Programanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) efter en lyckad profilredigering. |
+    | **Programanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) efter en lyckad profilredigering. |
 
 2. Klicka på **Skapa** för att skapa principen. 
 
@@ -134,7 +134,7 @@ Om du vill kunna aktivera lösenordsåterställning i programmet måste du skapa
 
 ## <a name="update-web-app-code"></a>Uppdatera webbappens kod
 
-När du nu registrerat en webbapp och skapat principer måste du konfigurera appen så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du en exempelwebbapp. 
+När du nu registrerat en webbapp och skapat principer måste du konfigurera appen så att den använder din Azure AD B2C-klientorganisation. I den här självstudien får konfigurera en exempelwebbapp som du kan ladda ned från GitHub. 
 
 [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
@@ -142,7 +142,7 @@ När du nu registrerat en webbapp och skapat principer måste du konfigurera app
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-ASP.NET exempelwebbappen är en enkel app som kan skapa och uppdatera en uppgiftslista. Appen använder [Microsoft OWIN mellanprogramkomponenter](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) och låter användare registrera sig för att använda appen i din Azure AD B2C-klientorganisation. Genom att skapa en Azure AD B2C-princip kan användare använda ett konto för sociala media eller skapa ett konto för att kunna använda appen. 
+ASP.NET exempelwebbappen är en enkel app som kan skapa och uppdatera en uppgiftslista. Appen använder [Microsoft OWIN mellanprogramkomponenter](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) och låter användare registrera sig för att använda appen i din Azure AD B2C-klientorganisation. Genom att skapa en Azure AD B2C-princip kan användare använda ett konto för sociala media eller skapa ett konto för att kunna använda appen. 
 
 Exempellösningen innehåller två projekt:
 
@@ -154,7 +154,7 @@ Du måste ändra appen om du vill använda appregistreringen i din klient, som i
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 
-2. I webbapprojektet **TaskWebApp** öppnar du **Web.config**-filen och gör följande uppdateringar:
+2. I webbapprojektet **TaskWebApp** öppnar du **Web.config**-filen och gör följande uppdateringar av befintliga nycklar:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ Du måste ändra appen om du vill använda appregistreringen i din klient, som i
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. Uppdatera principinställningarna med det namn som skapades när du skapade principerna.
+3. Uppdatera de befintliga nycklarna med värdena för de principnamn du skapade i föregående steg. Kom ihåg att ta med prefixet *b2c_1_*.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

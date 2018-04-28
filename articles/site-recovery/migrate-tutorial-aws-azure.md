@@ -1,6 +1,6 @@
 ---
-title: "Migrera virtuella datorer från AWS till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du migrerar virtuella Windows-datorer som körs i Amazon Web Services (AWS) till Azure, med hjälp av Azure Site Recovery."
+title: Migrera virtuella datorer från AWS till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du migrerar virtuella Windows-datorer som körs i Amazon Web Services (AWS) till Azure, med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
-I de här självstudierna får du lära dig hur du migrerar virtuella AWS-datorer (Amazon Web Services) till virtuella Azure-datorer med Site Recovery. När du migrerar EC2-instanser till Azure, behandlas de virtuella datorerna som om de är fysiska, lokala datorer. I den här guiden får du lära dig hur man:
+I de här självstudierna får du lära dig hur du migrerar virtuella AWS-datorer (Amazon Web Services) till virtuella Azure-datorer med Site Recovery. När du migrerar EC2-instanser till Azure, behandlas de virtuella datorerna som om de är fysiska, lokala datorer. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+> * Kontrollera förutsättningar
 > * Förbereda Azure-resurser
 > * Förbereda AWS EC2-instanser för migrering
 > * Distribuera en konfigurationsserver
@@ -29,6 +30,22 @@ I de här självstudierna får du lära dig hur du migrerar virtuella AWS-datore
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds, som 
+    - 64-bitarsversionen av Windows Server 2008 R2 SP1 eller senare, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (endast HVM-virtualiserade instanser) med enbart Citrix PV- eller AWS PV-drivrutiner. Instanser som kör RedHat PV-drivrutiner stöds **inte**.
+
+- Mobilitetstjänsten måste installeras på varje virtuell dator du vill replikera. 
+
+> [!IMPORTANT]
+> Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för den virtuella datorn. För automatisk installation måste du förbereda ett konto på EC2-instanserna som Site Recovery använder för att komma åt den virtuella datorn. Du kan använda en domän eller lokalt konto. 
+> - För Linux-datorer måste kontot vara en rot på Linux-källservern. 
+> - Om du inte använder ett domänkonto för virtuella datorer i Windows ska du inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn: I registret, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, lägger du till DWORD-posten **LocalAccountTokenFilterPolicy** och ställer in värdet på 1.
+
+- Du behöver en separat EC2-instans som du kan använda som Site Recovery konfigurationsserver. Den här instansen måste köra Windows Server 2012 R2.
 
 ## <a name="prepare-azure-resources"></a>Förbereda Azure-resurser
 
@@ -74,19 +91,6 @@ När de virtuella Azure-datorerna skapats efter migreringen (redundans) är de a
 8. Lämna standardinställningarna för **Undernät** som de är, både **Namn** och **IP-intervall**.
 9. Låt **Tjänstens slutpunkter** vara inaktiverat.
 10. Klicka på **Skapa** när du är klar.
-
-
-## <a name="prepare-the-ec2-instances"></a>Förbereda EC2-instanserna
-
-Du behöver en eller flera virtuella datorer som du vill migrera. Dessa EC2-instanser bör köra 64-bitarsversionen av Windows Server 2008 R2 SP1 eller senare, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 eller Red Hat Enterprise Linux 6.7 (endast HVM-virtualiserade instanser). Servern får bara ha Citrix PV- eller AWS PV-drivrutiner. Instanser som kör RedHat PV-drivrutiner stöds inte.
-
-Mobilitetstjänsten måste installeras på varje virtuell dator du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för den virtuella datorn. För automatisk installation måste du förbereda ett konto på EC2-instanserna som Site Recovery använder för att komma åt den virtuella datorn.
-
-Du kan använda en domän eller lokalt konto. För Linux-datorer måste kontot vara en rot på Linux-källservern. För virtuella Windows-datorer måste du, om du inte använder ett domänkonto, inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn:
-
-  - I registret, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, lägger du till DWORD-posten **LocalAccountTokenFilterPolicy** och sätter värdet till 1.
-
-Du behöver också en separat EC2-instans som du kan använda som Site Recovery konfigurationsserver. Den här instansen måste köra Windows Server 2012 R2.
 
 
 ## <a name="prepare-the-infrastructure"></a>Förbered infrastrukturen

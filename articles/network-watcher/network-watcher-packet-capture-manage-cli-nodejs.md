@@ -1,11 +1,11 @@
 ---
-title: "Hantera paket insamlingar med Nätverksbevakaren Azure - Azure CLI 1.0 | Microsoft Docs"
-description: "Den här sidan förklarar hur du hanterar funktionen paket avbildning i Nätverksbevakaren som använder Azure CLI 1.0"
+title: Hantera paket insamlingar med Nätverksbevakaren Azure - Azure CLI 1.0 | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar funktionen paket avbildning i Nätverksbevakaren som använder Azure CLI 1.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2124dadd1fc6b5d57250c09d31155a4b421fac26
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c74d1a94971495f7cd5f5bed42b33869fa9710d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-10"></a>Hantera paket insamlingar med Azure Nätverksbevakaren använder Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> - [Azure-portalen](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
@@ -76,7 +76,7 @@ För att säkerställa att agenten är installerad, kör den `vm extension get` 
 azure vm extension get -g resourceGroupName -m virtualMachineName
 ```
 
-I följande exempel är ett exempel på svar från att köras`azure vm extension get`
+I följande exempel är ett exempel på svar från att köras `azure vm extension get`
 
 ```
 info:    Executing command vm extension get
@@ -208,7 +208,7 @@ azure network watcher packet-capture delete -g resourceGroupName -w networkWatch
 
 ## <a name="download-a-packet-capture"></a>Hämta en paketinsamling
 
-När paketet avbildningssessionen är klar, kan avbilda filen laddas upp till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketinsamling har definierats vid skapandet av sessionen. Ett enkelt verktyg för att komma åt dessa avbilda filer som sparats till ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här: http://storageexplorer.com/
+När paketet avbildningssessionen är klar, kan avbilda filen laddas upp till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketinsamling har definierats vid skapandet av sessionen. Ett enkelt verktyg för att komma åt dessa avbilda filer som sparats till ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här:  http://storageexplorer.com/
 
 Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
 
@@ -220,6 +220,6 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Lär dig att automatisera insamlingar paket med virtuella aviseringar genom att visa [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md)
 
-Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](network-watcher-check-ip-flow-verify-portal.md)
+Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->

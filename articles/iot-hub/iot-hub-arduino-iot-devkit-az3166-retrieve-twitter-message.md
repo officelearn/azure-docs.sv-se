@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8bcc1b2c76ff1e312d1435997ef6d677656510d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka i en Tweet – hämta ett Twitter-meddelande med Azure Functions!
 
@@ -33,7 +33,7 @@ Slutför den [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/io
 
 En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någon av följande metoder:
 
-* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/en-us/free/)
+* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/free/)
 * Anspråk din [Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) om du prenumererar på MSDN eller Visual Studio
 
 ## <a name="open-the-project-folder"></a>Öppna projektmappen
@@ -44,10 +44,6 @@ En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någo
 - Starta VS-kod.
 - Anslut DevKit till datorn.
 
-VS koden automatiskt hittar din DevKit och visar startsidan:
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > När den startas VS-koden får ett felmeddelande som Arduino IDE- eller relaterade board paketet inte kan hittas. Om det här felet uppstår Stäng VS-kod och starta Arduino IDE igen. VS-koden ska nu hitta Arduino IDE-sökvägen på rätt sätt.
 
@@ -57,7 +53,8 @@ Expandera vänster **ARDUINO exempel** bläddrar du till **exempel MXCHIP AZ3166
 
 ![Mini-solution-exempel](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Om du råkar stänga fönstret kan du öppna det igen. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
+> [!NOTE]
+> Du kan också öppna exempel kommandot paletten. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
 
 ## <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
@@ -68,7 +65,7 @@ I terminalen VS kod hjälper dig att etablera nödvändiga Azure-tjänster i en 
 ![etablera moln](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Om sidan låser sig statusen lästes in när du försöker logga in på Azure, [vanliga frågor och svar steg] ({{”/docs/faq/#page-hangs-when-log-in-azure” | 
+> Om sidan låser sig statusen lästes in när du försöker logga in på Azure, [vanliga frågor och svar steg](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## <a name="modify-the-hashtag"></a>Ändra #hashtag
 
@@ -84,7 +81,7 @@ Ersätt strängen `iot` inom klamrarna med din önskade hashtaggar. DevKit hämt
 
 Använd `Ctrl+P` (macOS: `Cmd+P`) att köra `task cloud-deploy` att börja distribuera Azure Functions-koden:
 
-![cloud-deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
+![distribuera moln](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
 > Ibland kan fungerar Azure-funktionen inte korrekt. Markera det här alternativet för att lösa problemet när det uppstår, [vanliga frågor och svar steg](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
@@ -122,7 +119,7 @@ Använd `Ctrl+P` (macOS: `Cmd+P`) att köra `task cloud-deploy` att börja distr
 Efter app initialisering klickar du på och släpper knappen A sedan försiktigt skaka DevKit-kort. Den här åtgärden hämtar en slumpmässig tweet som innehåller hashtaggar som du angav tidigare. Inom några sekunder visas en tweet på skärmen DevKit:
 
 ### <a name="arduino-application-initializing"></a>Arduino program initierar...
-![Arduino-application-initializing](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
+![Arduino program initiering](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
 
 ### <a name="press-a-to-shake"></a>Trycka skaka...
 ![Tryck på A att skaka](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-2.png)
@@ -134,15 +131,15 @@ Efter app initialisering klickar du på och släpper knappen A sedan försiktigt
 ![Bearbetning](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
 
 ### <a name="press-b-to-read"></a>Tryck på B för att läsa...
-![Press-B-to-read](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-5.png)
+![Tryck på B-att läsa](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-5.png)
 
 ### <a name="display-a-random-tweet"></a>Visa en slumpmässig tweet...
-![Display-a-random-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
+![Visa-en-slumpmässiga-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
 
 - Tryck på knappen A igen och sedan skaka för en ny tweet.
 - Tryck på knappen B för att rulla igenom resten av tweet.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 ![diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -167,7 +164,7 @@ För testning, använder den här exempelprojektet en förkonfigurerad Twitter �
   string authHeader = "Bearer " + "[your own token]";
   ...
   ```
-  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+  ![Twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Spara filen och klicka på **kör**.
 
@@ -186,7 +183,7 @@ Detta tillstånd inträffar normalt för första gången du distribuera och kör
 
 Om det andra problem, referera till [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss från följande kanaler:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg

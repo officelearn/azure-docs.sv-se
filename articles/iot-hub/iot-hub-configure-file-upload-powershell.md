@@ -1,11 +1,11 @@
 ---
-title: "Använd Azure PowerShell för att konfigurera ladda upp filen | Microsoft Docs"
-description: "Hur du använder Azure PowerShell-cmdlets för att konfigurera din IoT-hubb för att aktivera filen filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar målet Azure storage-konto."
+title: Använd Azure PowerShell för att konfigurera ladda upp filen | Microsoft Docs
+description: Hur du använder Azure PowerShell-cmdlets för att konfigurera din IoT-hubb för att aktivera filen filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar målet Azure storage-konto.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22d331342504aa7cc3d4fe86777ef9c2595a27ac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurera IoT-hubb filöverföringar med hjälp av PowerShell
 
@@ -35,12 +35,12 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Logga in och ange ditt Azure-konto
 
-Logga in på ditt Azure-konto och välja din prenumeration.
+Logga in på ditt Azure-konto och välj din prenumeration.
 
-1. I PowerShell-Kommandotolken kör den **Login-AzureRmAccount** cmdlet:
+1. I PowerShell-Kommandotolken kör den **Connect-AzureRmAccount** cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla de Azure-prenumerationer som är kopplade till dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
@@ -49,7 +49,7 @@ Logga in på ditt Azure-konto och välja din prenumeration.
     Get-AzureRMSubscription
     ```
 
-    Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandon för att hantera din IoT-hubb. Du kan använda prenumerationsnamn eller ID från utdata från det föregående kommandot:
+    Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandon för att hantera din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -136,7 +136,7 @@ Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT-hub
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 * [Skydda din IoT-lösning från grunden upp][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md

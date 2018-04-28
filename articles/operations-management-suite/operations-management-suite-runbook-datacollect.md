@@ -1,11 +1,11 @@
 ---
-title: "Insamling av data från logganalys med en runbook i Azure Automation | Microsoft Docs"
-description: "Stegvis självstudiekurs som går igenom hur du skapar en runbook i Azure Automation för att samla in data i OMS-databas för analys av logganalys."
+title: Insamling av data från logganalys med en runbook i Azure Automation | Microsoft Docs
+description: Stegvis självstudiekurs som går igenom hur du skapar en runbook i Azure Automation för att samla in data i OMS-databas för analys av logganalys.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i logganalys med en Azure Automation-runbook
 Du kan samla in data i logganalys mycket från olika källor, till exempel [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier men där du behöver samla in data som inte är tillgängligt via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API: et](../log-analytics/log-analytics-data-collector-api.md) att skriva data till logganalys från valfri REST API-klient.  En vanlig metod för att utföra den här Datasamlingen använder en runbook i Azure Automation.   
@@ -26,7 +26,7 @@ Du kan samla in data i logganalys mycket från olika källor, till exempel [data
 Den här kursen går igenom processen för att skapa och schemalägga en runbook i Azure Automation för att skriva data till logganalys.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här scenariot kräver följande resurser som konfigurerats i din Azure-prenumeration.  Båda kan vara ett kostnadsfritt konto.
 
 - [Logga Analytics-arbetsyta](../log-analytics/log-analytics-get-started.md).
@@ -97,7 +97,7 @@ Azure Automation har en redigerare i portalen där du kan redigera och testa din
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -187,7 +187,7 @@ Det vanligaste sättet att starta en runbook som samlar in övervakningsdata är
 | Namn | AutomationJobs-varje timme |
 | Startar | Välj när minst 5 minuter efter den aktuella tiden. |
 | Upprepning | Återkommande |
-| Upprepas var | 1 timme |
+| Återkommer varje | 1 timme |
 | Ange förfallodatum | Nej |
 
 När schemat skapas måste du ange parametervärden som kommer att användas varje gång det här schemat startar runbook.

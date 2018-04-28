@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: bf09e4b7866a2320b1a26c7164565d5c2f9c4d0a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 47e05c5acbcd0c36efb7fcef2f0997aac4f46470
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor authentication för SQL Server Management Studio och Azure AD
 
@@ -24,7 +24,7 @@ En översikt över Azure SQL Database multifaktorautentisering finns [Universal 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 
 1. **Konfigurera ett Azure Active Directory** – mer information finns i [administrera Azure AD-katalogen](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrera dina lokala identiteter med Azure Active Directory](../active-directory/active-directory-aadconnect.md), [ Lägga till ett eget domännamn i Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure stöder nu federation med Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), och [hantera Azure AD med hjälp av Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Konfigurera MFA** - stegvisa anvisningar finns i [vad är Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md), [villkorlig åtkomst (MFA) med Azure SQL Database och datalagret](sql-database-conditional-access.md). (Fullständig villkorlig åtkomst kräver en Premium Azure Active Directory (AD Azure). Begränsad MFA är tillgängligt med en Azure AD som standard.)
+2. **Konfigurera MFA** - stegvisa anvisningar finns i [vad är Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [villkorlig åtkomst (MFA) med Azure SQL Database och datalagret](sql-database-conditional-access.md). (Fullständig villkorlig åtkomst kräver en Premium Azure Active Directory (AD Azure). Begränsad MFA är tillgängligt med en Azure AD som standard.)
 3. **Konfigurera SQL Database eller SQL Data Warehouse för Azure AD Authentication** - stegvisa anvisningar finns i [ansluta till SQL Database eller SQL Data Warehouse med hjälp av Azure Active Directory Authentication](sql-database-aad-authentication.md).
 4. **Hämta SSMS** - på klientdatorn, ladda ned den senaste SSMS från [Hämta SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). För alla funktioner i det här avsnittet Använd minst version 17,2 juli 2017.  
 
@@ -33,25 +33,25 @@ En översikt över Azure SQL Database multifaktorautentisering finns [Universal 
 Följande steg visar hur du ansluter till SQL Database eller SQL Data Warehouse med hjälp av den senaste SSMS.
 
 1. Att ansluta med Universal autentisering på den **Anslut till Server** dialogrutan **Active Directory - Universal med stöd för MFA**. (Om du ser **Active Directory Universal autentisering** du inte är den senaste versionen av SSMS.)  
-   ![1mfa-universal-connect][1]  
+   ![1mfa universal ansluta][1]  
 2. Slutför den **användarnamn** rutan med Azure Active Directory-autentiseringsuppgifterna i formatet `user_name@domain.com`.  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
 3. Om du ansluter som gästanvändare, måste du klicka **alternativ**, och på den **Anslutningsegenskapen** dialogrutan fullständig den **AD domän namn eller klient-ID** rutan. Mer information finns i [Universal autentisering med SQL Database och SQL Data Warehouse (SSMS stöd för MFA)](sql-database-ssms-mfa-authentication.md).
-   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
-4. Som vanligt för SQL Database och SQL Data Warehouse, måste du klicka på **alternativ** och ange databasen på den **alternativ** dialogrutan. (Om den anslutna användaren är en gästanvändare (d.v.s. joe@outlook.com), måste du markera kryssrutan och lägga till namnet på aktuella AD-domän eller klient-ID som en del av alternativen. Se [Universal autentisering med SQL Database och SQL Data Warehouse (SSMS stöd för MFA)]()(sql-databasen-ssms-mfa-authentication.md. Klicka på **Anslut**.  
+   ![mfa-klient-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+4. Som vanligt för SQL Database och SQL Data Warehouse, måste du klicka på **alternativ** och ange databasen på den **alternativ** dialogrutan. (Om den anslutna användaren är en gästanvändare (d.v.s. joe@outlook.com), måste du markera kryssrutan och lägga till namnet på aktuella AD-domän eller klient-ID som en del av alternativen. Se [Universal autentisering med SQL Database och SQL Data Warehouse (SSMS stöd för MFA)]()(sql-databasen-ssms-mfa-authentication.md. Klicka sedan på **Anslut**.  
 5. När den **logga in på ditt konto** i dialogrutan Ange konto och lösenord för din Azure Active Directory-identitet. Inget lösenord krävs om en användare är en del av en domän som federerade med Azure AD.  
-   ![2mfa-sign-in][2]  
+   ![2mfa-inloggning][2]  
 
    > [!NOTE]
    > För Universal autentisering med ett konto som inte kräver MFA, ansluter du nu. För användare som kräver MFA, fortsätter du med följande steg:
    >  
    
 6. Två MFA dialogrutor visas. En gång åtgärden beror på MFA-administratören ställa in och kan därför valfria. För en domän för MFA är aktiverat i det här steget ibland är fördefinierad (till exempel domänen kräver att användare använder ett smartkort och PIN-kod).  
-   ![3mfa-setup][3]  
+   ![3mfa-installationen][3]  
 7. Andra möjliga en gång dialogrutan kan du välja information om din autentiseringsmetod. Möjliga alternativ har konfigurerats av administratören.  
-   ![4mfa-verify-1][4]  
+   ![4mfa kontrollera 1][4]  
 8. Azure Active Directory skickar bekräfta informationen till dig. När du har fått verifieringskoden anger du det i den **ange verifieringskoden** och på **logga in**.  
-   ![5mfa-verify-2][5]  
+   ![5mfa Kontrollera 2][5]  
 
 När verifieringen är klar ansluter SSMS normalt förutsatt att giltiga autentiseringsuppgifter och åtkomst för brandväggen.
 

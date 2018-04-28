@@ -2,7 +2,7 @@
 title: Azure Data Lake Store Hive prestandajustering riktlinjer | Microsoft Docs
 description: Azure Data Lake Store Hive prestandajustering riktlinjer
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Prestandajustering för Hive i HDInsight och Azure Data Lake Store
 
 Standardinställningarna har ställts in för att tillhandahålla goda prestanda i många olika användningsfall.  För i/o-intensiva frågor, kan du justera Hive för att få bättre prestanda med ADLS.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Store-konto**. Anvisningar om hur du skapar en finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett Data Lake Store-konto. Se [skapar ett HDInsight-kluster med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Kontrollera att du kan aktivera Fjärrskrivbord för klustret.
-* **Kör Hive i HDInsight**.  Läs om hur du kör Hive-jobb i HDInsight i [använda Hive i HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Kör Hive i HDInsight**.  Läs om hur du kör Hive-jobb i HDInsight i () [använda Hive i HDInsight]https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Prestandajustering riktlinjer för ADLS**.  Allmänna prestanda begrepp finns [Data Lake Store justera Prestandaråd](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametrar
@@ -88,6 +88,6 @@ Om du vill kontrollera om du har komma begränsats, måste du Aktivera felsökni
 ## <a name="further-information-on-hive-tuning"></a>Mer information om Hive-inställning
 
 Här följer några bloggar som hjälper dig att finjustera Hive-frågor:
-* [Optimera Hive-frågor för Hadoop i HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Optimera Hive-frågor för Hadoop i HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Felsökning av Hive frågeprestanda](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 * [Ignite prata på optimera Hive i HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
 Den här artikeln innehåller prestanda och resursen förslag på hur du planerar din infrastruktur för säkerhetskopiering av VM. Den definierar även viktiga aspekter av säkerhetskopieringstjänsten; dessa aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förbereda din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i [virtuella datorer dokumentationen](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -43,7 +43,7 @@ När dataöverföringen har slutförts tas ögonblicksbilden bort och en återst
 
 ### <a name="data-consistency"></a>Datakonsekvens
 Säkerhetskopiera och återställa företag kritiska data komplicerade av att affärskritiska data måste säkerhetskopieras när de program som ger data körs. För att lösa det Azure Backup har stöd för programkonsekvent säkerhetskopiering för både Windows- och Linux virtuella datorer
-#### <a name="windows-vm"></a>Windows VM
+#### <a name="windows-vm"></a>Virtuell Windows-dator
 Azure Backup tar Fullständig VSS-säkerhetskopiering på virtuella Windows-datorer (Läs mer om [Fullständig VSS-säkerhetskopiering](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Följande registernyckel måste anges för den virtuella datorn om du vill aktivera VSS-säkerhetskopior.
 
 ```
@@ -99,7 +99,8 @@ När säkerhetskopieringen oftast används till att läsa och kopiera data, andr
 
 * Tid som krävs för att [installera eller uppdatera säkerhetskopiering tillägget](backup-azure-arm-vms.md).
 * Snapshot-tid, vilket är den tid det tar att utlösa en ögonblicksbild. Ögonblicksbilder utlöses nära schemalagd tid för säkerhetskopiering.
-* Kötid. Eftersom Backup-tjänsten bearbetar säkerhetskopior från flera kunder, kanske kopiera säkerhetskopierade data från ögonblicksbilden till säkerhetskopiering eller Recovery Services-valvet inte startar omedelbart. Läsa i tidpunkter för belastning, Väntetid kan sträcka ut på grund av hur många säkerhetskopior som bearbetas av upp till åtta timmar. Total tid för VM-säkerhetskopiering är dock mindre än 24 timmar för principer för daglig säkerhetskopiering.
+* Kötid. Eftersom Backup-tjänsten bearbetar säkerhetskopior från flera kunder, kanske kopiera säkerhetskopierade data från ögonblicksbilden till säkerhetskopiering eller Recovery Services-valvet inte startar omedelbart. Läsa i tidpunkter för belastning, Väntetid kan sträcka ut på grund av hur många säkerhetskopior som bearbetas av upp till åtta timmar. Total tid för VM-säkerhetskopiering är dock mindre än 24 timmar för principer för daglig säkerhetskopiering. <br>
+**Det innehåller giltig endast för inkrementella säkerhetskopieringar och inte för den första säkerhetskopieringen. Tid för första säkerhetskopiering är proportionell och kan vara större än 24 timmar, beroende på storleken på data och gång säkerhetskopieringen utförs.**
 * Dataöverföringstid, tid som krävs för säkerhetskopieringstjänsten för att beräkna inkrementella ändringar från tidigare säkerhetskopia och överför ändringarna till valvet lagring.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Varför jag sett longer(>12 hours) Säkerhetskopiera tid?

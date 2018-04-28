@@ -1,27 +1,23 @@
 ---
-title: "moreLikeThis i Azure Search (förhandsversion) | Microsoft Docs"
-description: "Preliminär dokumentation för funktionen moreLikeThis (förhandsgranskning), visas i Azure Search REST API."
-services: search
-documentationCenter: na
+title: moreLikeThis i Azure Search (förhandsversion) | Microsoft Docs
+description: Preliminär dokumentation för funktionen moreLikeThis (förhandsgranskning), visas i Azure Search REST API.
 authors: mhko
 manager: jlembicz
-editor: na
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: nateko
-ms.openlocfilehash: 20f6a1166d47799f15275cb5b6a9ea4934ae57e2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 29d9a478ca2e91e658d7d0f52e7a193ba694bc16
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis i Azure Search (förhandsgranskning)
 
-`moreLikeThis=[key]`är en frågeparameter i den [Sök API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Genom att ange den `moreLikeThis` parameter i en sökning som du kan hitta dokument som liknar det dokument som anges av dokumentnyckeln. När en sökning har begärts med `moreLikeThis`, en fråga genereras med sökord som extraheras från dokumentet som bäst beskriver det dokumentet. Genererade frågan används sedan för att göra sökningen igen. Som standard innehållet i alla `searchable` fält anses såvida inte den `searchFields` används för att begränsa fälten. Den `moreLikeThis` parametern kan inte användas med parametern Sök `search=[string]`.
+`moreLikeThis=[key]` är en frågeparameter i den [Sök API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Genom att ange den `moreLikeThis` parameter i en sökning som du kan hitta dokument som liknar det dokument som anges av dokumentnyckeln. När en sökning har begärts med `moreLikeThis`, en fråga genereras med sökord som extraheras från dokumentet som bäst beskriver det dokumentet. Genererade frågan används sedan för att göra sökningen igen. Som standard innehållet i alla `searchable` fält anses såvida inte den `searchFields` används för att begränsa fälten. Den `moreLikeThis` parametern kan inte användas med parametern Sök `search=[string]`.
 
 ## <a name="examples"></a>Exempel 
 

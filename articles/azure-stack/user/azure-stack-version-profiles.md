@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 452ed1de0588b380747edaa44dd0cc3805c51392
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ea65c9c1f69c8eec77eb498a5963b0d77ce57f1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera profiler för API-version i Azure-stacken
 
@@ -38,15 +36,28 @@ Det här avsnittet hjälper dig att:
 ## <a name="summary-of-api-profiles"></a>Översikt över API-profiler
 
 - API profiler används för att representera en uppsättning Azure resursproviders och deras API-versioner.
-- API-profiler har skapats för utvecklare att skapa mallar över flera Azure-moln. De har utformats för att uppfylla behovet av en kompatibel och stabil gränssnitt.
+- API-profiler har skapats för utvecklare att skapa mallar över flera Azure-moln. De har utformats för att uppfylla behovet av ett kompatibelt och stabil gränssnitt.
 - Profiler släpps fyra gånger per år.
 - Namnkonventioner för tre profil är:
-    - **latest**  
+    - **senaste**  
         Den senaste API-versioner släpps i Azure.
-    - **yyyy-mm-dd-hybrid**  
-    Publicerat på vartannat år takt den här versionen fokuserar på konsekvent och stabil mellan flera moln.
-    - **yyyy-mm-dd-profile**  
+    - **åååå-mm-dd-hybrid**  
+    Publicerat på vartannat år takt den här versionen fokuserar på konsekvent och stabil mellan flera moln. Den här profilen mål optimala Azure Stack-kompatibilitet. 
+    - **åååå-mm-dd-profil**  
     Placeras mellan optimala stabilitet och de senaste funktionerna.
+
+### <a name="api-profiles-and-azure-stack-compatibility"></a>API-profiler och Azure Stack-kompatibilitet
+
+De senaste API-profilerna är inte kompatibla med Azure-stacken. Namnkonventionerna hjälper dig att identifiera profilerna som ska användas i Azure Stack-lösningar.
+
+**senaste**  
+Den här profilen är de senaste API-versioner som finns i globala Azure, som inte fungerar i Azure-stacken. Den här profilen har det största antalet viktiga förändringar. Profilen placerar reserverats stabilitet och kompatibilitet med andra moln. Om du försöker använda den senaste API-versioner är den profil som du ska använda.
+
+**Åååå-mm-dd-hybrid**  
+Den här profilen ges ut mars och September varje år. Den här profilen har optimala stabilitet och kompatibilitet med olika moln. Den här profilen är utformat för att rikta både globala Azure och Azure-stacken. Azure API-versioner som anges i den här profilen ska vara samma som de som visas på Azure-stacken. Du kan använda den här profilen för att utveckla kod för hybrid molnlösningar.
+
+**åååå-mm-dd-profil**  
+Den här profilen släpps för globala Azure i juni och December. Den här profilen fungerar inte mot Azure Stack; Det blir många viktiga förändringar. När den befinner sig bakom optimala stabilitet och senaste funktionerna är skillnaden mellan senaste och den här profilen att senaste alltid består av de senaste API-versionerna oavsett när API: et släpptes. Om en ny API-version har skapats för Compute-API i framtiden, visas i den senaste profilen att API-version, men inte i profilen åååå-mm-dd-profil som den här profilen har upprättats i förväg. Det täcker de senaste versionerna som getts ut före juni eller December.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager API-profiler
 
@@ -67,14 +78,13 @@ Som utvecklare kan fokusera du på att skriva din lösning. I stället för att 
 Du kan hitta kodexempel som hjälper dig att integrera din lösning med ditt språk med Azure Stack med hjälp av profiler. För närvarande kan hittar du anvisningar och exempel för följande språk:
 
 - **PowerShell**  
-Du kan använda den **AzureRM.Bootstrapper** modul som är tillgängliga via PowerShell-galleriet för att hämta PowerShell-cmdlets som krävs för att arbeta med profiler för API-version.  
-Mer information finns i [Använd API-version profiler för PowerShell](azure-stack-version-profiles-powershell.md).
+Du kan använda den **AzureRM.Bootstrapper** modul som är tillgängliga via PowerShell-galleriet för att hämta PowerShell-cmdlets som krävs för att arbeta med profiler för API-version. Mer information finns i [Använd API-version profiler för PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI 2.0**  
-Du kan uppdatera din miljö konfiguration om du vill använda Azure Stack API-version profilen.  
-Mer information finns i [Använd API-version profiler för Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
-- **GO**  
-I gå-SDK är en profil en kombination av olika resurstyper med olika versioner från olika tjänster. profiler är tillgängliga under profilerna / sökväg med deras version i den **åååå-MM-DD** format.  
-Mer information finns i [Använd API-version profiler för Gå](azure-stack-version-profiles-go.md).
+Du kan uppdatera din miljö konfiguration om du vill använda Azure Stack API-version profilen. Mer information finns i [Använd API-version profiler för Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+- **GÅ**  
+I gå-SDK är en profil en kombination av olika resurstyper med olika versioner från olika tjänster. profiler är tillgängliga under profilerna / sökväg med deras version i den **åååå-MM-DD** format. Mer information finns i [Använd API-version profiler för Gå](azure-stack-version-profiles-go.md).
+- **Ruby**  
+Ruby-SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursproviders i SDK innehåller beräkning, virtuella nätverk och lagring med Ruby språk. Mer information finns i [Använd API-version profiler med Ruby](azure-stack-version-profiles-ruby.md)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md)

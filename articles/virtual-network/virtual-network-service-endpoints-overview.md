@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -29,7 +29,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och regioner
 
 - **Azure Storage**: – Allmänt tillgänglig. Alla regioner i det offentliga Azure-molnet och Azure Government.
 - **Azure SQL Database**: Generellt tillgänglig i alla Azure-regioner. 
-- **Azure SQL Datawarehouse**: Förhandsversion. Alla regioner i det offentliga Azure-molnet.
+- **Azure SQL Data Warehouse**: Förhandsversion. Alla regioner i det offentliga Azure-molnet.
 
 De mest uppdaterade meddelandena om förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -87,6 +87,7 @@ Tjänstslutpunkter har följande fördelar:
 - **Peerkopplade, anslutna eller flera virtuella nätverk**: om du vill skydda Azure-tjänster i flera undernät inom ett virtuellt nätverk eller i flera virtuella nätverk kan du aktivera tjänstslutpunkter i vart och ett av dessa undernät separat och skydda Azure-tjänstresurser i samtliga undernät.
 - **Filtrering av utgående trafik från ett virtuellt nätverk till Azure-tjänster**: om du vill granska eller filtrera trafiken till en Azure-tjänst från ett virtuellt nätverk kan du distribuera en virtuell nätverksinstallation inom det virtuella nätverket. Du kan sedan använda tjänstslutpunkter för undernätet där den virtuella nätverksinstallationen är distribuerad och endast skydda Azure-tjänstresurser i det här undernätet. Det här scenariot kan vara användbart om du vill begränsa Azure-tjänståtkomst från ditt virtuella nätverk till endast specifika Azure-resurser, med hjälp av filtrering i den virtuella nätverksinstallationen. Mer information finns i [Utgående trafik med virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Skydda Azure-resurser för tjänster som distribuerats direkt i ett virtuellt nätverk**: olika Azure-tjänster kan distribueras direkt i specifika undernät i ett virtuellt nätverk. Du kan skydda Azure-tjänstresurser i undernät med [hanterade tjänster](virtual-network-for-azure-services.md) genom att konfigurera en tjänstslutpunkt i undernätet med hanterade tjänster.
+- **Disktrafik från en virtuell Azure-dator**: Virtuell datordisktrafik (inklusive montering, demontering, diskIO), för hanterade/ohanterade diskar, påverkas inte av tjänstslutpunkternas ändrade routning för Azure Storage. Du kan begränsa REST-åtkomst till sidblobar för att välja nätverk via slutpunkter och [Azure Storage-nätverksregler](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Loggning och felsökning
 
@@ -105,7 +106,7 @@ När tjänstslutpunkterna har konfigurerats för en specifik tjänst verifierar 
 
 Tjänstslutpunkter kan konfigureras i virtuella nätverk separat, av en användare med skrivbehörighet för det virtuella nätverket. För att kunna skydda Azure-tjänstresurser i ett virtuellt nätverk måste behörigheten *Microsoft.Network/JoinServicetoaSubnet* för undernäten läggas till för användaren. Den här behörigheten ingår som standard i de inbyggda tjänstadministratörsrollerna och kan ändras genom att skapa anpassade roller.
 
-Lär dig mer om [inbyggda roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och att tilldela specifika behörigheter till [anpassade roller](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och att tilldela specifika behörigheter till [anpassade roller](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om det virtuella nätverket och Azure-tjänstresurser finns i olika prenumerationer måste resurserna finnas under samma AD-klientorganisation (Active Directory). 
 

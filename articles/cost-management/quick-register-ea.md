@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f0769340ca15f2b60cbcb2669e1a5cf9beef6b8e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrera ett Azure Enterprise-avtal och visa kostnadsdata
 
@@ -24,7 +24,7 @@ Du kan använda ditt Azure Enterprise-avtal för att registrera dig för Azure C
 
 - Logga in på Azure Portal på http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Skapa en utvärderingsregistrering
+## <a name="register-with-azure-cost-management"></a>Registrera dig för Azure Cost Management
 
 1. Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal.
 2. Klicka på **Kostnadshantering** under **Översikt**  

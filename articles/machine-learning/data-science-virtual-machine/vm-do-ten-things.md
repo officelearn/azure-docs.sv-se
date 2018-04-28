@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Tio saker som du kan göra med datavetenskap, virtuell dator
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på den Windows datavetenskap virtuella datorn
 
-Microsoft Data vetenskap virtuell dator (DSVM) är en kraftfull datavetenskap utvecklingsmiljö där du kan utföra olika uppgifter för data från kartläggning av naturresurser och modellering. Miljön kommer redan inbyggda och anpassade med flera populära data analytics verktyg som gör det lättare att snabbt komma igång med din analys för lokalt, molnet eller hybriddistribution. DSVM användas tillsammans med många Azure-tjänster och kan läsa och bearbeta data som redan har sparats på Azure, Azure SQL Data Warehouse, Azure Data Lake, Azure Storage eller Azure Cosmos DB. Det kan också använda andra verktyg för analys, till exempel Azure Machine Learning och Azure Data Factory.
+Windows Data vetenskap virtuell dator (DSVM) är en kraftfull datavetenskap utvecklingsmiljö där du kan utföra olika uppgifter för data från kartläggning av naturresurser och modellering. Miljön kommer redan inbyggda och anpassade med flera populära data analytics verktyg som gör det lättare att snabbt komma igång med din analys för lokal moln eller hybrid-distributioner. DSVM användas tillsammans med många Azure-tjänster och kan läsa och bearbeta data som redan har sparats på Azure, Azure SQL Data Warehouse, Azure Data Lake, Azure Storage eller Azure Cosmos DB. Det kan också använda andra verktyg för analys, till exempel Azure Machine Learning och Azure Data Factory.
 
 I den här artikeln får du lära dig hur du använder din DSVM att utföra olika uppgifter i datavetenskap och interagera med andra Azure-tjänster. Här följer några av de saker som du kan göra på DSVM:
 
@@ -208,7 +208,7 @@ Datavetare kan dela stora datamängder, kod eller andra resurser i teamet. DSVM 
 Du kan använda Azure Powershell för att skapa en Azure File Service-resurs. Här är skriptet som ska köras under Azure PowerShell för att skapa en Azure-tjänsten fildelning.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.

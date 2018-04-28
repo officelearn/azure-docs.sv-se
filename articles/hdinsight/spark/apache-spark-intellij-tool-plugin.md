@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 726b062aecc11db738926586cdede045eae3a61e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -73,7 +71,7 @@ Användare kan antingen [logga in på Azure-prenumeration](#sign-in-to-your-azur
    
     ![En expanderad klusternamnet nod](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Länka ett kluster
+<h2 id="linkcluster">Länka ett kluster</h2>
 Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka ett säkerhet hadoop-kluster med hjälp av användarnamn (exempel: user1@contoso.com). 
 1. Klicka på **länka ett kluster** från **Azure Explorer**.
 
@@ -287,7 +285,7 @@ Dessa fel inträffa eftersom heap-storlek inte är tillräckligt stor för Spark
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 För att skicka ett program till Azure Data Lake Store, Välj **interaktiv** läge under processen för Azure-inloggning. Om du väljer **automatisk** läge, du får ett felmeddelande.
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Interaktiv inloggning](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Nu ska löste vi problemet. Du kan välja ett Azure Data Lake-kluster att skicka ditt program med valfri metod för inloggning.
 

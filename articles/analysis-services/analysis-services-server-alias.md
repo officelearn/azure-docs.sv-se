@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: edd13e9372643769060f43e952737154d812292d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>Alias servernamn
 
@@ -25,7 +25,7 @@ Alias-servernamn är bra för:
 - Dirigera användarna till olika servrar vid olika tidpunkter på dagen. 
 - Dirigera användarna i olika regioner till förekomster som geografiskt närmare, t.ex. när du använder Azure Traffic Manager. 
 
-HTTP-slutpunkt som returnerar ett giltigt namn för Azure Analysis Services-server kan fungera som ett alias.
+HTTPS-slutpunkt som returnerar ett giltigt namn för Azure Analysis Services-server kan fungera som ett alias. Slutpunkten måste ha stöd för HTTPS via port 443 och porten får inte anges i URI: N.
 
 ![Alias formatet länk](media/analysis-services-alias/aas-alias-browser.png)
 

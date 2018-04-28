@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:
@@ -58,7 +58,7 @@ Den [konto](#active-directory-account) skapas för läsning och skrivning till A
 
 | Behörighet | Används för |
 | --- | --- |
-| <li>Replikera katalogändringar</li><li>Replikera katalogen ändras alla |Lösenordssynkronisering |
+| <li>Replikera katalogändringar</li><li>Replikera katalogen ändras alla |Lösenordets hash-synkronisering |
 | Läs/Skriv alla egenskaper för användaren |Import- och Exchange-hybrid |
 | Läs/Skriv alla egenskaper iNetOrgPerson |Import- och Exchange-hybrid |
 | Gruppen för läsning och skrivning alla egenskaper |Import- och Exchange-hybrid |
@@ -77,7 +77,7 @@ Azure AD Connect version 1.1.524.0 och senare har alternativet för att låta Az
 | AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
 | Webbprogramproxyservrarna |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
 | Autentiseringsuppgifter för proxyförtroende |Federationstjänsten förtroende autentiseringsuppgifter (autentiseringsuppgifter proxyn använder för att registrera ett betrodda certifikat från en FS |Domänkonto som är lokal administratör på AD FS-servern |Första registreringen av FS WAP betrott certifikat. |
-| Sidan för AD FS-tjänstkontot, ”använda kontoalternativet en domän användare” |Autentiseringsuppgifter för användarkontot AD |Domain user |AD-användarkontot vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
+| Sidan för AD FS-tjänstkontot, ”använda kontoalternativet en domän användare” |Autentiseringsuppgifter för användarkontot AD |Domänanvändare |AD-användarkontot vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
 
 ### <a name="create-the-ad-ds-account"></a>Skapa AD DS-konto
 Kontot du anger på den **Anslut dina kataloger** sidan måste finnas i Active Directory före installationen.  Det måste också ha beviljats behörighet. Installationsguiden verifierar inte behörigheterna och eventuella problem endast hittades under synkroniseringen.
@@ -87,10 +87,10 @@ Vilka behörigheter som du behöver beror på de valfria funktionerna aktiveras.
 | Funktion | Behörigheter |
 | --- | --- |
 | msDS-ConsistencyGuid funktion |Skrivbehörigheter till attributet msDS-ConsistencyGuid dokumenterade i [designbegrepp - med msDS-ConsistencyGuid som sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Lösenordssynkronisering |<li>Replikera katalogändringar</li>  <li>Replikera katalogen ändras alla |
+| Lösenordets hash-synkronisering |<li>Replikera katalogändringar</li>  <li>Replikera katalogen ändras alla |
 | Exchange-hybridinstallation |Skrivbehörigheter till attribut i [Exchange hybrid tillbakaskrivning](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) för användare, grupper och kontakter. |
 | Offentlig mapp för Exchange-e-post |Läsbehörighet till de attribut som beskrivs i [offentlig mapp för Exchange-e-post](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) för offentliga mappar. | 
-| Tillbakaskrivning av lösenord |Skrivbehörigheter till attribut i [komma igång med lösenordshantering](../active-directory-passwords-writeback.md) för användare. |
+| Tillbakaskrivning av lösenord |Skrivbehörigheter till attribut i [komma igång med lösenordshantering](../authentication/howto-sspr-writeback.md) för användare. |
 | Tillbakaskrivning av enheter |Behörigheterna med ett PowerShell-skript som beskrivs i [tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md). |
 | Tillbakaskrivning av grupp |Läsa, skapa, uppdatera och ta bort grupp objekt för synkroniserats **Office 365-grupper**.  Mer information finns i [tillbakaskrivning av grupp](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -146,7 +146,7 @@ Förklaringen:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
 | --- | --- | --- | --- |
 | **fristående eller arbetsgrupp datorn** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
-| **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
+| **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA gMSA | **gMSA**</br>Domänkonto |
 | **Domänkontrollant** | **Domänkonto** | *gMSA*</br>**Domänkonto**</br>sMSA| *gMSA*</br>**Domänkonto**|
 
 #### <a name="virtual-service-account"></a>Virtuella tjänstkonto

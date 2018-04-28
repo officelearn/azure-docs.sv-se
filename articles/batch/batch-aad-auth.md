@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera Batch tjänstelösningar med Active Directory
 
@@ -65,7 +65,7 @@ Använd den **Azure Batch resurs endpoint** att hämta en token för att autenti
 
 Det första steget i att använda Azure AD för autentisering är registrera ditt program i en Azure AD-klient. Registrera ditt program kan du anropa Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) från din kod. ADAL tillhandahåller ett API för att autentisera med Azure AD från ditt program. Registrera ditt program krävs om du planerar att använda integrerad autentisering eller ett huvudnamn för tjänsten.
 
-När du registrerar ditt program kan ange du information om ditt program till Azure AD. Azure AD sedan innehåller ett program-ID som används för att associera ditt program med Azure AD under körning. Mer information om program-ID finns [program och tjänstens huvudnamn objekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+När du registrerar ditt program kan ange du information om ditt program till Azure AD. Azure AD sedan innehåller ett program-ID (kallas även en *klient-ID*) att du använder för att associera ditt program med Azure AD under körning. Mer information om program-ID finns [program och tjänstens huvudnamn objekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
 Om du vill registrera din Batch-program, följer du stegen i den [lägga till ett program](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) i avsnittet [integrera program med Azure Active Directory][aad_integrate]. Om du registrerar ditt program som det ursprungliga programmet kan du ange en giltig URI för den **omdirigerings-URI**. Det behöver inte vara en verklig slutpunkt.
 
@@ -81,7 +81,7 @@ Klient-ID identifierar Azure AD-klient som tillhandahåller autentiseringstjäns
 
 1. Välj din Active Directory i Azure-portalen.
 2. Klicka på **Egenskaper**.
-3. Kopiera GUID-värde som angetts för directory-ID. Det här värdet kallas även för klient-ID.
+3. Kopiera GUID-värde som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
 
 ![Kopiera katalog-ID](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -97,17 +97,17 @@ När du har [registrerade programmet](#register-your-application-with-an-azure-a
 
     ![Sök efter programnamnet](./media/batch-aad-auth/search-app-registration.png)
 
-3. Öppna den **inställningar** bladet för ditt program. I den **API-åtkomst** väljer **nödvändiga behörigheter**.
+3. Klicka på programmet och på **inställningar**. I den **API-åtkomst** väljer **nödvändiga behörigheter**.
 4. I den **nödvändiga behörigheter** bladet, klickar du på den **Lägg till** knappen.
-5. I steg 1 ska söka efter Batch-API. Sök efter var och en av de här strängarna tills du hittar API:t:
+5. I **väljer en API**, Sök efter Batch-API. Sök efter var och en av de här strängarna tills du hittar API:t:
     1. **MicrosoftAzureBatch**.
     2. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
     3. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 
-6. När du har hittat Batch-API, markerar du den och klicka på den **Välj** knappen.
-6. I steg 2, markerar du kryssrutan bredvid **Azure Batch-tjänsten för dataåtkomst** och klicka på den **Välj** knappen.
-7. Klicka på den **klar** knappen.
+6. När du har hittat Batch-API och på **Välj**.
+7. I **Välj behörigheter**, markera kryssrutan bredvid **Azure Batch-tjänsten för dataåtkomst** och på **Välj**.
+8. Klicka på **Klar**.
 
-Den **nödvändiga behörigheter** bladet nu visar att din Azure AD-program har åtkomst till både ADAL och batchen service API. Behörigheter som ADAL automatiskt när du först registrera din app med Azure AD.
+Den **nödvändiga behörigheter** windows nu visar att din Azure AD-program har åtkomst till både ADAL och batchen service API. Behörigheter som ADAL automatiskt när du först registrera din app med Azure AD.
 
 ![Bevilja API-behörigheter](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -126,7 +126,7 @@ Följ dessa steg i Azure-portalen:
 
 1. I det vänstra navigeringsfönstret i Azure portal väljer **alla tjänster**. Klicka på **App registreringar**.
 2. Sök efter namnet på programmet i listan över app registreringar.
-3. Visa den **inställningar** bladet. I den **API-åtkomst** väljer **nycklar**.
+3. Klicka på programmet och på **inställningar**. I den **API-åtkomst** väljer **nycklar**.
 4. Ange en beskrivning av nyckeln för att skapa en nyckel. Välj sedan en varaktighet för nyckeln för en eller två år. 
 5. Klicka på den **spara** för att skapa och visa nyckeln. Kopiera värdet för nyckeln till en säker plats som du inte åtkomst till den igen när du lämnar bladet. 
 
@@ -152,14 +152,14 @@ Klient-ID identifierar Azure AD-klient som tillhandahåller autentiseringstjäns
 
 1. Välj din Active Directory i Azure-portalen.
 2. Klicka på **Egenskaper**.
-3. Kopiera GUID-värde som angetts för directory-ID. Det här värdet kallas även för klient-ID.
+3. Kopiera GUID-värde som angetts för den **katalog-ID**. Det här värdet kallas även för klient-ID.
 
 ![Kopiera katalog-ID](./media/batch-aad-auth/aad-directory-id.png)
 
 
 ## <a name="code-examples"></a>Kodexempel
 
-Kodexemplen i det här avsnittet visar hur du autentisera med Azure AD med hjälp av integrerad autentisering och ett huvudnamn för tjänsten. Dessa kodexempel använda .NET, men begrepp som är liknande för andra språk.
+Kodexemplen i det här avsnittet visar hur du autentisera med Azure AD med hjälp av integrerad autentisering och ett huvudnamn för tjänsten. De flesta av dessa kodexempel använda .NET, men begrepp som är liknande för andra språk.
 
 > [!NOTE]
 > En Azure AD authentication token upphör att gälla efter en timme. När du använder en långlivade **BatchClient** objekt, rekommenderar vi att du hämtar en token från ADAL för varje begäran att säkerställa att du alltid har en giltig token. 
@@ -205,7 +205,7 @@ Ange program-ID (klient-ID) för ditt program. Program-ID är tillgänglig från
 private const string ClientId = "<application-id>";
 ```
 
-Också kopiera omdirigerings-URI som du angav under registreringen. Omdirigerings-URI som angetts i din kod måste matcha omdirigerings-URI som du angav när du registrerade programmet:
+Kopiera omdirigerings-URI som du angav även om du har registrerat ditt program som det ursprungliga programmet. Omdirigerings-URI som angetts i din kod måste matcha omdirigerings-URI som du angav när du registrerade programmet:
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
@@ -296,7 +296,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Skapa en **BatchTokenCredentials** objekt som tar ombudet som en parameter. Använd dessa autentiseringsuppgifter för att öppna en **BatchClient** objekt. Du kan sedan använda **BatchClient** objekt för efterföljande åtgärder mot Batch-tjänsten:
+Skapa en **BatchTokenCredentials** objekt som tar ombudet som en parameter. Använd dessa autentiseringsuppgifter för att öppna en **BatchClient** objekt. Använd som **BatchClient** objekt för efterföljande åtgärder mot Batch-tjänsten:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -308,6 +308,65 @@ public static async Task PerformBatchOperations()
         await client.JobOperations.ListJobs().ToListAsync();
     }
 }
+```
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exempel: med hjälp av en Azure AD-tjänstens huvudnamn med Batch Python
+
+Om du vill autentisera med ett huvudnamn för tjänsten från Batch Python, installera och referera till den [azure batch](https://pypi.org/project/azure-batch/) och [azure gemensamma](https://pypi.org/project/azure-common/) moduler.
+
+
+```python
+from azure.batch import BatchServiceClient
+from azure.common.credentials import ServicePrincipalCredentials
+```
+
+När du använder ett huvudnamn för tjänsten, måste du ange klient-ID. Om du vill hämta klient-ID, Följ stegen som beskrivs i [hämta klient-ID för Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
+
+```python
+TENANT_ID = "<tenant-id>";
+```
+
+Resursen tjänstslutpunkten Batch-referens:  
+
+```python
+RESOURCE = "https://batch.core.windows.net/";
+```
+
+Referera till Batch-kontot:
+
+```python
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+```
+
+Ange program-ID (klient-ID) för ditt program. Program-ID är tillgänglig från din appregistrering i Azure-portalen:
+
+```python
+CLIENT_ID = "<application-id>";
+```
+
+Ange den hemliga nyckeln som du kopierade från Azure portal:
+
+```python
+SECRET = "<secret-key>";
+```
+
+Skapa en **ServicePrincipalCredentials** objekt:
+
+```python
+credentials = ServicePrincipalCredentials(
+    client_id=CLIENT_ID,
+    secret=SECRET,
+    tenant=TENANT_ID,
+    resource=RESOURCE
+)
+```
+
+Använda service principal autentiseringsuppgifter för att öppna en **BatchServiceClient** objekt. Använd som **BatchServiceClient** objekt för efterföljande åtgärder mot Batch-tjänsten.
+
+```python
+    batch_client = BatchServiceClient(
+    credentials,
+    base_url=BATCH_ACCOUNT_URL
+)
 ```
 
 ## <a name="next-steps"></a>Nästa steg

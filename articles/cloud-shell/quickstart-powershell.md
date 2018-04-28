@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3e59395b7066169b8a7863f45a446051b830a71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
 
@@ -274,13 +274,13 @@ Generera nyckelpar för privat-offentligt moln Shell för att autentisera till s
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Med hjälp av en anpassad profil för att bevara GIT och SSH-inställningar
 
-Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` katalogen `CloudDrive` eller skapa en symlink molnet Shell hämtar startades.
-Lägg till följande kodfragment i din profile.ps1 för att skapa en symlink till CloudDrive.
+Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` katalogen `clouddrive` eller skapa en symlink molnet Shell hämtar startades.
+Lägg till följande kodfragment i din profile.ps1 för att skapa en symlink till `clouddrive`.
 
 ``` PowerShell
 # Check if the .ssh directory exists
-if( -not (Test-Path $home\CloudDrive\.ssh)){
-    mkdir $home\CloudDrive\.ssh
+if( -not (Test-Path $home\clouddrive\.ssh)){
+    mkdir $home\clouddrive\.ssh
 }
 
 # .ssh path relative to this script
@@ -347,21 +347,21 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-files-to-store-your-data"></a>Använda Azure-filer för att lagra dina data
 
-Du kan skapa ett skript, säg `helloworld.ps1`, och spara den till din `CloudDrive` att använda över shell-sessioner.
+Du kan skapa ett skript, säg `helloworld.ps1`, och spara den till din `clouddrive` att använda över shell-sessioner.
 
 ``` PowerShell
-cd C:\users\ContainerAdministrator\CloudDrive
-PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+cd C:\users\ContainerAdministrator\clouddrive
+PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
 Hello World!
 ```
 
-Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `CloudDrive` katalog som monterar filer för Azure-resurs.
+Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `clouddrive` katalog som monterar filer för Azure-resurs.
 
 ## <a name="use-custom-profile"></a>Använd anpassad profil
 
-Du kan anpassa din PowerShell-miljö genom att skapa PowerShell eller profilerna - `profile.ps1` eller `Microsoft.PowerShell_profile.ps1`. Spara den under den `CloudDrive` så att den kan läsas in i varje PowerShell-session när du startar gränssnittet molnet.
+Du kan anpassa din PowerShell-miljö genom att skapa PowerShell eller profilerna - `profile.ps1` eller `Microsoft.PowerShell_profile.ps1`. Spara den under den `clouddrive` så att den kan läsas in i varje PowerShell-session när du startar gränssnittet molnet.
 
 Hur du skapar en profil avser [om profiler][profile].
 
@@ -373,7 +373,7 @@ Om du vill klona en Git-lagringsplatsen i molnet-gränssnittet, måste du skapa 
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Eftersom sessioner i molnet Shell inte sparas när du loggar ut eller sessionen gör timeout, finns inte i konfigurationsfilen Git vid nästa inloggning. Om du vill bevara Git config, måste du spara dina .gitconfig till din `CloudDrive` och kopiera den eller skapa en symlink molnet Shell hämtar startades. Använd följande kodavsnitt i din profile.ps1 för att skapa en symlink till `CloudDrive`.
+Eftersom sessioner i molnet Shell inte sparas när du loggar ut eller sessionen gör timeout, finns inte i konfigurationsfilen Git vid nästa inloggning. Om du vill bevara Git config, måste du spara dina .gitconfig till din `clouddrive` och kopiera den eller skapa en symlink molnet Shell hämtar startades. Använd följande kodavsnitt i din profile.ps1 för att skapa en symlink till `clouddrive`.
 
  ``` PowerShell
  

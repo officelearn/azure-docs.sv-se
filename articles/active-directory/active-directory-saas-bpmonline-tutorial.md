@@ -1,10 +1,10 @@
 ---
 title: "Självstudier: Azure Active Directory-integrering med Bpm'online | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bpm'online."
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bpm'online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9359fc76d2198cab8e61b151fcd8672cb6b65b6e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Självstudier: Azure Active Directory-integrering med Bpm'online
 
@@ -32,7 +32,7 @@ Integrera Bpm'online med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Bpm'online, behöver du följande:
 
@@ -101,54 +101,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
 3. På den **Bpm'online domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![URL: er och Bpm'online domän med enkel inloggning information](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<client site name>.bpmonline.com/`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<client site name>.bpmonline.com/`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och Bpm'online domän med enkel inloggning information](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<client site name>.bpmonline.com/`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<client site name>.bpmonline.com/`
      
-    > [!NOTE] 
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [Bpm'online klienten supportteamet](mailto:support@bpmonline.com) att hämta dessa värden. 
 
-5. Att generera den **Metadata** url, utför följande steg:
-
-    a. Klicka på **App registreringar**.
+5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
     
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-bpmonline-tutorial/tutorial_metadataurl.png)
      
-    d. Gå till egenskapssidan för **Bpm'online** och kopiera den **program-ID** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
-
-     e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
 6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
     
-8. Konfigurera enkel inloggning på **Bpm'online** sida, måste du skicka den **URL för tjänstmetadata** till [Bpm'online supportteamet](mailto:support@bpmonline.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Konfigurera enkel inloggning på **Bpm'online** sida, måste du skicka den **webbadress Federation Metadata** till [Bpm'online supportteamet](mailto:support@bpmonline.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

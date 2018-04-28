@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med ServiceNow | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ServiceNow."
+title: 'Självstudier: Azure Active Directory-integrering med ServiceNow | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc5b41da83f183aaf62723212f7197fb50dc536d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Självstudier: Azure Active Directory-integrering med ServiceNow
 
@@ -119,37 +119,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du behöver uppdatera dessa värden från faktiska inloggnings-URL och identifierare som beskrivs senare i självstudierna.
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+4. På den **SAML-signeringscertifikat** avsnittet, utför följande steg: 
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+    a. Klicka på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar, som den här appen Federation Metadata-Url som ska användas senare under kursen.
+
+    b. Klicka på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
 5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. Att generera den **Metadata** url, utför följande steg:
+6. Logga in på ditt ServiceNow-program som administratör.
 
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-    
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-    d. Gå till **ServiceNow** egenskaper och kopiera den **program-ID** med **kopiera** knappen och klistra in den i anteckningar.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Kopiera det genererade värdet i anteckningar som dessa metadata URL kommer att användas senare under kursen.
-
-7. Logga in på ditt ServiceNow-program som administratör.
-
-8. Aktivera den **integrering – flera enkel inloggning installationsprogrammet för providern** plugin-programmet genom att följa nästa steg:
+7. Aktivera den **integrering – flera enkel inloggning installationsprogrammet för providern** plugin-programmet genom att följa nästa steg:
 
     a. Sök i navigeringsfönstret till vänster **System Definition** avsnittet från sökfältet och klicka sedan på **plugin-program**.
 
@@ -163,9 +147,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Klicka på den **aktivera** knappen.
 
-9. Det finns två sätt som **ServiceNow** kan vara konfigurerade automatisk och manuell.
+8. Det finns två sätt som **ServiceNow** kan vara konfigurerade automatisk och manuell.
 
-10. För att konfigurera **ServiceNow** automatiskt i nedanstående steg
+9. För att konfigurera **ServiceNow** automatiskt i nedanstående steg
 
     a. Gå tillbaka till den **ServiceNow** Signle-inloggningssidan i Azure-portalen.
 
@@ -201,15 +185,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     * Klicka på **aktivera** i det övre högra hörnet på sidan.
 
-11. För att konfigurera **ServiceNow** manuellt följer den nedanstående steg
+10. För att konfigurera **ServiceNow** manuellt följer den nedanstående steg
 
-12. Logga in på ditt ServiceNow-program som administratör.
+11. Logga in på ditt ServiceNow-program som administratör.
 
-13. Sök i navigeringsfönstret till vänster **flera providern SSO** avsnittet från sökfältet och klicka sedan på **egenskaper**.
+12. Sök i navigeringsfönstret till vänster **flera providern SSO** avsnittet från sökfältet och klicka sedan på **egenskaper**.
 
     ![Konfigurera app-URL](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "konfigurera app-URL")
 
-14. På den **flera egenskaper för SSO** dialogrutan, utför följande steg:
+13. På den **flera egenskaper för SSO** dialogrutan, utför följande steg:
 
     ![Konfigurera app-URL](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "konfigurera app-URL")
 
@@ -265,7 +249,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Välj **URL** alternativet i **Importera identitet providern Metadata** dialogruta.
 
-    b. Ange den **URL för tjänstmetadata** genereras från Azure-portalen.
+    b. Ange den **webbadress Federation Metadata** som du har kopierat från Azure-portalen.
 
     c. Klicka på **Importera**.
 
@@ -358,7 +342,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. Klicka på **spara** knappen.
 
@@ -459,11 +443,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > Du kan konfigurera Azure AD för att generera Azure AD användar-ID (användarens huvudnamn) eller e-postadressen som den unika identifieraren i SAML-token genom att gå till den **ServiceNow > attribut > enkel inloggning** på Azure portal och mappa det önskade fältet som ska den **nameidentifier** attribut. Värdet för det markerade attributet i Azure AD (till exempel användarens huvudnamn) måste överensstämma med värdet som lagras i ServiceNow för det angivna fältet (till exempel användarnamn)
 
     f. Klicka på **Spara**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen! När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
+ 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.

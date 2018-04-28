@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management resurser för Azure - Aktivera roller | Microsoft Docs
+title: Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
 description: Beskriver hur du aktiverar roller i PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,38 +13,39 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 3e5456e7a632639cb82d7ba2b2e073938b1798ef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a985e67cc566cc45b3ee6b8dc98e91a8f34abd1b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---activate"></a>Aktivera Privileged Identity Management - resursroller-
-Aktivera roller för Azure-resurser introducerar en ny upplevelse som berättigade rollmedlemmar kan schemalägga aktivering för framtida datum/tid och välj en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Lär dig mer om [aktivera Azure AD-roller här](../active-directory-privileged-identity-management-how-to-activate-role.md).
+# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management
+Privileged Identity Management (PIM) introducerar en ny upplevelse i Aktivera roller för Azure-resurser. Berättigad rollmedlemmar kan schemalägga aktivering för framtida datum och tid. De kan också välja en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Mer information finns i [så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## <a name="activate-roles"></a>Aktivera roller
-Navigera till den min roller avsnittet i det vänstra navigeringsfältet. Klicka på ”Aktivera” för den roll som du vill aktivera i.
-![](media/azure-pim-resource-rbac/rbac-roles.png)
+Bläddra till den **min roller** avsnitt i den vänstra rutan. Välj **aktivera** för den roll som du vill aktivera.
 
-Ange önskade startdatum och tidpunkt för att aktivera rollen från menyn aktiveringar. Du kan också minska varaktigheten aktivering (hur lång tid rollen är aktiv) och ange en motivering om det behövs; Klicka på Aktivera.
+![Fliken ”berättigade roller” i den ”min roller”-rutan.](media/azure-pim-resource-rbac/rbac-roles.png)
 
-Om startdatum och starttid inte har ändrat, aktiveras rollen inom några sekunder. En roll i kö för aktivering Banderollmeddelandet på Mina rollsidan visas. Klicka på Uppdatera om du vill avmarkera det här meddelandet.
+Från den **aktiveringar** -menyn, ange datumet och tid för att aktivera rollen. Du kan också minska varaktigheten aktivering (tidslängd som rollen är aktiv) och ange en motivering om det behövs. Markera **aktivera**.
 
-![](media/azure-pim-resource-rbac/rbac-activate-notification.png)
+Om inte ändrat startdatum och starttid, aktiveras rollen i sekunder. I den **min roller** fönstret Banderollmeddelandet visar att en roll i kö för aktivering. Klicka på Uppdatera om du vill ta bort det här meddelandet.
 
-Om aktiveringen är schemalagd vid en senare tid, visas en väntande begäran på fliken väntande begäranden i den vänstra navigeringsmenyn. Om rollaktivering krävs inte längre, kan användaren avbryta begäran genom att klicka på knappen Avbryt till höger på sidan.
+![”Min roller” fönstret med Banderollmeddelandet och ett meddelande om en väntar på godkännande](media/azure-pim-resource-rbac/rbac-activate-notification.png)
 
-![](media/azure-pim-resource-rbac/rbac-activate-pending.png)
+Om aktiveringen är schemalagd för framtida datum och tid, väntande begäran visas på den **väntande begäranden** fliken i det vänstra fönstret. Om det krävs inte längre rollaktivering, kan du avbryta begäran genom att välja den **Avbryt** knappen.
+
+![Lista över väntande begäranden med ”Avbryt” knappar](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
 
-## <a name="just-enough-administration"></a>Bara tillräckligt med administration
+## <a name="apply-just-enough-administration-practices"></a>Använd bara tillräckligt Administration praxis
 
-Med din resurs rolltilldelningar bara tillräckligt med bästa praxis för administration (JEA) är enkelt med PIM för Azure-resurser. Användare och medlemmar i gruppen med tilldelningar i Azure-prenumerationer eller resursgrupper kan aktivera sina befintliga rolltilldelning i projektets omfattning. 
+Det är enkelt med PIM för Azure-resurser med din resurs rolltilldelningar bara tillräckligt Administration JEA () bästa praxis. Användare och medlemmar i gruppen med tilldelningar i Azure-prenumerationer eller resursgrupper kan aktivera sina befintliga rolltilldelning i projektets omfattning. 
 
 Hitta den underordnade resursen som du behöver hantera från sidan Sök efter.
 
-![](media/azure-pim-resource-rbac/azure-resources-02.png)
+![Att välja en resurs](media/azure-pim-resource-rbac/azure-resources-02.png)
 
-Välj min roller från den vänstra navigeringsmenyn och väljer sedan rätt roll för att aktivera. Meddelande Tilldelningstypen ärvs eftersom tilldelades rollen på prenumerationen i stället för resursgrupp, enligt nedan.
+Välj **min roller** i den vänstra rutan och väljer sedan rätt roll för att aktivera. Tilldelningstypen är **ärvda** eftersom rollen tilldelades på prenumerationen i stället för vid resursgruppen.
 
-![](media/azure-pim-resource-rbac/my-roles-02.png)
+![Lista över tillgängliga rolltilldelningar med Tilldelningstypen markerat](media/azure-pim-resource-rbac/my-roles-02.png)

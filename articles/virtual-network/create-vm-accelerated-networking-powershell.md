@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f3c8853331121fc1e267f6c569279f7d8df907b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med snabbare nätverk
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Virtuella datorer måste skapas med snabbare nätverk aktiverad. Den här funktionen kan inte aktiveras på befintliga virtuella datorer. Utför följande steg för att möjliggöra snabbare nätverksfunktioner:
 >   1. Ta bort den virtuella datorn
 >   2. Skapa den virtuella datorn med snabbare nätverksfunktioner som är aktiverad
@@ -52,7 +52,7 @@ Snabbare nätverksfunktioner stöds på mest generella och beräknings-optimerad
 Mer information om VM-instanser finns [Windows VM-storlekar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>Regioner
-Tillgänglig i alla offentliga Azure-regioner och Azure Government-molnet. 
+Tillgänglig i alla offentliga Azure-regioner och Azure Government-molnet.
 
 ## <a name="limitations"></a>Begränsningar
 Följande begränsningar gäller när du använder den här funktionen:
@@ -65,7 +65,7 @@ Följande begränsningar gäller när du använder den här funktionen:
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Installera [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 eller senare. Du hittar din nuvarande installerade versionen genom att köra `Get-Module -ListAvailable AzureRM`. Om du behöver installera eller uppgradera, installera den senaste versionen av AzureRM-modul från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureRM). Logga in i PowerShell-session till en Azure-konto med hjälp av [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Installera [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 eller senare. Du hittar din nuvarande installerade versionen genom att köra `Get-Module -ListAvailable AzureRM`. Om du behöver installera eller uppgradera, installera den senaste versionen av AzureRM-modul från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureRM). Logga in i PowerShell-session till en Azure-konto med hjälp av [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNic*, och *myVM*.
 
@@ -200,13 +200,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Bekräfta drivrutinen är installerad i operativsystemet
 
-När du skapar den virtuella datorn i Azure kan ansluta till den virtuella datorn och bekräfta att drivrutinen är installerat i Windows. 
+När du skapar den virtuella datorn i Azure kan ansluta till den virtuella datorn och bekräfta att drivrutinen är installerat i Windows.
 
 1. Öppna en webbläsare på Azure [portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 2. I rutan som innehåller texten *söka resurser* längst upp i Azure-portalen, Skriv *myVm*. När **myVm** visas i sökresultaten klickar du på den. Om **skapa** visas under den **Anslut** knappen Azure inte ännu har skapar den virtuella datorn. Klicka på **Anslut** i det övre vänstra hörnet i översikten när du inte längre se **skapa** under den **Anslut** knappen.
 3. Ange användarnamnet och lösenordet du angav i [skapa den virtuella datorn](#create-the-virtual-machine). Om du aldrig har anslutit till en Windows-dator i Azure, se [Anslut till den virtuella datorn](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Högerklicka på Start och klicka på **Enhetshanteraren**. Expandera den **nätverkskort** nod. Bekräfta att den **Mellanox ConnectX 3 virtuella funktionen Ethernet-nätverkskort** visas som i följande bild:
-   
+
     ![Enhetshanteraren](./media/create-vm-accelerated-networking/device-manager.png)
 
 Snabbare nätverksfunktioner har nu aktiverats för den virtuella datorn.

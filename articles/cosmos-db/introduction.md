@@ -2,9 +2,8 @@
 title: Introduktion till Azure Cosmos DB | Microsoft Docs
 description: Läs om Azure Cosmos DB. Den här globalt distribuerade databasen med flera modeller har skapats för låg svarstid, elastisk skalbarhet och hög tillgänglighet.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 04/08/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -36,7 +35,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
 * **Nyckelfärdig global distribution**
     * Du kan [distribuera dina data](distribute-data-globally.md) till valfritt antal [Azure-regioner](https://azure.microsoft.com/regions/) genom att [klicka på en knapp](tutorial-global-distribution-sql-api.md). På så sätt kan du placera dina data där dina användare finns, och säkerställa minsta möjliga tidsfördröjning till dina kunder. 
     * Med hjälp av Azure Cosmos DB som har flera API:er registrerar appen alltid var den närmaste regionen finns och skickar begäranden till närmaste datacenter. Allt detta är möjligt utan konfigurationsändringar. Du ställer in skrivregion och så många skrivskyddade regioner som du vill och resten hanteras åt dig.
-    * När du lägger till och tar bort regioner i Cosmos DB-databasen behöver programmet inte distribueras om utan fortsätter att ha hög tillgänglighet tack vare API-funktionen med flera värdar.
+    * När du lägger till och tar bort regioner i Azure Cosmos DB-databasen behöver programmet inte distribueras om utan fortsätter att ha hög tillgänglighet tack vare API-funktionen med flera värdar.
 
 * **Flera datamodeller och populära API:er för att komma åt och fråga efter data**
     * En atom-postsekvensbaserad (ARS) datamodell som Azure Cosmos DB bygger på internt stöd för flera datamodeller, inklusive men inte begränsat till dokument, diagram, nyckelvärde, tabeller och datamodeller för kolumnfamiljer.
@@ -44,9 +43,9 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
         * [SQL API](sql-api-introduction.md): En JSON-databasmotor utan schema med omfattande SQL-frågemöjligheter.
         * [MongoDB API](mongodb-introduction.md): En mycket skalbar *MongoDB som en tjänst* som drivs på Azure Cosmos DB-plattformen. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för MongoDB.
         * [Cassandra API](cassandra-introduction.md): En globalt distribuerad Cassandra som en tjänst som drivs på Azure Cosmos DB-plattformen. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för [Apache Cassandra](https://cassandra.apache.org/).
-        * [Graph (Gremlin) API](graph-introduction.md): En fullständigt hanterad, vågrätt skalbar grafdatabastjänst som gör det enkelt att skapa och köra program som fungerar med mycket anslutna datauppsättningar med stöd för Open Graph-API:er (baserade på [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin (Graph) API](graph-introduction.md): En fullständigt hanterad, vågrätt skalbar grafdatabastjänst som gör det enkelt att skapa och köra program som fungerar med mycket anslutna datauppsättningar med stöd för Open Graph-API:er (baserade på [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Tabell-API](table-introduction.md): En nyckel/värde-databastjänst som skapats för att tillhandahålla premium-funktioner (till exempel automatisk indexering, garanteras snabb svarstid, global distribution) till befintliga Azure Table Storage-program utan att göra några ändringar i appen.
-        * Ytterligare datamodeller kommer snart!
+        * Ytterligare datamodeller och API:er kommer snart!
 
 * **Skala dataflöde och lagring elastiskt och oberoende på begäran över hela världen**
     * Skala enkelt databasflödet med [sekundprecision](request-units.md) och ändra inställningarna när som helst. 
@@ -65,7 +64,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
     * Fem väldefinierade, praktiska och intuitiva [konsekvensmodeller](consistency-levels.md) ger ett spektrum av stark SQL-liknande konsekvens hela vägen till en avslappnad NoSQL-liknande eventuell konsekvens och allt däremellan. 
   
 * **Pengarna tillbaka-garanti**
-    * Branschledande och omfattande [serviceavtal](https://aka.ms/acdbsla) med ekonomisk garanti för tillgänglighet, svarstid, dataflöde och konsekvens för dina verksamhetskritiska data. 
+    * Branschledande och omfattande [serviceavtal](https://aka.ms/acdbsla) (SLA) med ekonomisk garanti för tillgänglighet, svarstid, dataflöde och konsekvens för dina verksamhetskritiska data. 
 
 * **Ingen hantering av databasscheman/-index**
     * Iterera snabbt schemat för ditt program utan att behöva oroa dig om hantering av databasschema och/eller index.
@@ -77,7 +76,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
 
 ## <a name="capability-comparison"></a>Jämförelse av funktioner
 
-Azure Cosmos DB erbjuder de bästa funktionerna för relations- och icke-relationsdatabaser.
+Azure Cosmos DB erbjuder de bästa funktionerna för traditionella relations- och icke-relationsdatabaser.
 
 | Funktioner | Relationsdatabaser   | Icke-relationella databaser (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |

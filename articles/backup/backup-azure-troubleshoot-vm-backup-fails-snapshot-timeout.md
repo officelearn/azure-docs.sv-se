@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -63,7 +63,8 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Det går inte att säkerhetskopiera eftersom VM-agenten inte svarar
 
-Felmeddelande: ”Det går inte att utföra åtgärden eftersom den Virtuella Datoragenten inte svarar”
+Felmeddelande: ”Det går inte att utföra åtgärden eftersom den Virtuella Datoragenten inte svarar” <br>
+Felkod: ”GuestAgentSnapshotTaskStatusError”
 
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:  
 **Orsak 1: [agenten är installerad på den virtuella datorn, men det är inte svarar (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -72,7 +73,8 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 
 ## <a name="backup-fails-with-an-internal-error"></a>Säkerhetskopiering misslyckas med ett internt fel
 
-Felmeddelande: ”Det gick inte att säkerhetskopiera med ett internt fel - försök igen om några minuter”
+Felmeddelande: ”Det gick inte att säkerhetskopiera med ett internt fel - försök igen om några minuter” <br>
+Felkod: ”BackUpOperationFailed” / ”BackUpOperationFailedV2”
 
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:  
 **Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
@@ -97,6 +99,8 @@ För att lösa problemet, försök med något av följande metoder:
 Du kan använda [tjänsten taggar](../virtual-network/security-overview.md#service-tags) att tillåta anslutningar till lagring av specifik region. Kontrollera att den regel som tillåter åtkomst till lagringskontot har högre prioritet än regeln som blockerar Internetåtkomst. 
 
 ![Nätverkssäkerhetsgruppen med lagring taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+För att förstå de steg för steg om hur du konfigurerar tjänsten taggar kan du titta på [den här videon](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > Storage service-taggar finns i förhandsgranskningen. De är endast tillgängliga i vissa regioner. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).

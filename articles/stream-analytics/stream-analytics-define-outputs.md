@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 8d984c17ab373428b13ed59a598ca8ae4e88136a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Strömma Analytics utdata: alternativ för lagring och analys
 När du redigerar ett Stream Analytics-jobb kan du överväga hur resulterande data används. Hur kan du visa resultatet av Stream Analytics-jobbet och där kan du lagra den?
@@ -290,6 +290,8 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 | Format |Gäller endast för JSON-typen. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. |
 
+Antalet partitioner är [baserat på Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.
+
 ## <a name="service-bus-topics"></a>Avsnitt om Service Bus
 När Service Bus-köer innehåller en kommunikationsmetod för en till en från avsändaren och mottagaren, [Service Bus-ämnen](https://msdn.microsoft.com/library/azure/hh367516.aspx) tillhandahålla en en-till-många-kommunikation.
 
@@ -305,6 +307,8 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Händelsen serialiseringsformat |Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
  | Encoding |Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är endast stöds Kodningsformatet just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
+
+Antalet partitioner är [baserat på Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos-DB](https://azure.microsoft.com/services/documentdb/) är en global och flera olika modeller databas tjänsten att obegränsad erbjuder elastisk utskalning runt världen, omfattande frågan och automatisk indexering via schema-oberoende datamodeller garanteras låg latens och branschledande omfattande serviceavtal. Mer information om Cosmos DB samling alternativ för Stream Analytics, referera till den [Stream Analytics med Cosmos DB som utdata](stream-analytics-documentdb-output.md) artikel.
@@ -326,7 +330,7 @@ I följande tabell beskrivs egenskaperna för att skapa ett Azure DB som Cosmos-
 | Partitionsnyckel | Valfri. Det här krävs bara om du använder en {partition}-token i din samlingsnamnsmönstret.<br/> Partitionsnyckeln är namnet på fältet i utdatahändelserna används för att ange nyckel för att partionera utdata över samlingarna.<br/> Enda samling utdata för kan en godtycklig utdatakolumnen användas till exempel PartitionId. |
 | Dokument-ID |Valfri. Namnet på fältet i utdatahändelserna används för att ange den primära nyckeln operations baseras på vilka insert eller update.  
 
-## <a name="azure-functions-in-preview"></a>Azure Functions (under förhandsgranskning)
+## <a name="azure-functions"></a>Azure Functions
 Azure Functions är en serverlös beräkningstjänst som gör det möjligt köra kod på begäran utan att behöva installera eller hantera infrastruktur. Gör det möjligt att implementera kod som utlöses av händelser i Azure eller tjänster från tredje part.  Den här möjligheten i Azure Functions för att svara på utlösare gör det fysiska utdata för ett Azure Stream Analytics. Den här utdataadapter tillåter användare att ansluta Stream Analytics till Azure Functions och köra ett skript eller kodavsnitt som svar på en mängd olika händelser.
 
 Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Det nya Azure funktionen utdata-kortet är tillgänglig med följande konfigurerbara egenskaper:
@@ -342,6 +346,23 @@ Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Det nya Azure
 Observera att när Azure Stream Analytics tar emot 413 (http-begäran entiteten för stort) undantag från Azure-funktion, minskar storleken på batchar skickar den till Azure Functions. I din Azure Funktionskoden använder du det här undantaget för att se till att Azure Stream Analytics inte skicka stora batchar. Kontrollera också att högsta batch antal och storlek värden som används i funktionen stämmer överens med de värden som anges i Stream Analytics-portalen. 
 
 Även i en situation där det finns ingen händelse hamnar i ett tidsfönster, inga utdata skapas. Därför kallas inte computeResult-funktionen. Det här beteendet är konsekvent med de inbyggda mängdfunktionerna.
+
+## <a name="partitioning"></a>Partitionering
+
+I följande tabell sammanfattas partition support och antalet utdata-skrivare för varje Utdatatyp av:
+
+| Utdatatyp | Partitionering | Partitionsnyckeln  | Antal utdata-skrivare | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | Ja | Använd {date} och {time}-token i prefix sökvägar. Välj datumformat, till exempel ÅÅÅÅ-MM/DD, DD/MM/ÅÅÅÅ-MM-DD-ÅÅÅÅ. HH används för tidsformat. | Samma som indata. | 
+| Azure SQL Database | Nej | Ingen | Inte tillämpligt. | 
+| Azure Blob Storage | Ja | Använd {date} och {time}-token i sökväg-mönster. Välj datumformat, till exempel ÅÅÅÅ-MM/DD, DD/MM/ÅÅÅÅ-MM-DD-ÅÅÅÅ. HH används för tidsformat. | Samma som indata. | 
+| Azure Event Hub | Ja | Ja | Samma som utdata Event Hub-partitioner. |
+| Power BI | Nej | Ingen | Inte tillämpligt. | 
+| Azure Table Storage | Ja | Alla utdata-kolumnen.  | Samma som indata eller föregående steg. | 
+| Azure Service Bus-ämne | Ja | Valt automatiskt. Antalet partitioner baseras på den [storlek och Service Bus SKU](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.| Samma som utdata.  |
+| Azure Service Bus-kö | Ja | Valt automatiskt. Antalet partitioner baseras på den [storlek och Service Bus SKU](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.| Samma som utdata. |
+| Azure Cosmos DB | Ja | Använd {partition}-token i samlingsnamnsmönstret. {partition} värdet baseras på PARTITION BY-sats i frågan. | Samma som indata. |
+| Azure Functions | Nej | Ingen | Inte tillämpligt. | 
 
 
 ## <a name="get-help"></a>Få hjälp

@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Använda Beeline klienten med Apache Hive
 
@@ -252,10 +252,17 @@ Du hittar det fullständigt kvalificerade domännamnet för en headnode genom at
 
 Spark innehåller sin egen implementering av HiveServer2, som ibland kallas Spark Thrift-servern. Den här tjänsten använder Spark SQL för att lösa frågor i stället för Hive och kan ge bättre prestanda beroende på din fråga.
 
-Anslut till Spark Thrift-servern i ett Spark på HDInsight-kluster genom att använda port `10002` i stället för `10001`. Till exempel `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+Den __anslutningssträngen__ används när det är något annorlunda att ansluta via internet. I stället för som innehåller `httpPath=/hive2` är det `httpPath/sparkhive2`. Följande är ett exempel på ansluter via internet:
 
-> [!IMPORTANT]
-> Spark Thrift-servern är inte tillgänglig direkt via internet. Du kan bara ansluta till den från en SSH-session eller i Azure samma virtuella nätverk som HDInsight-klustret.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+När du ansluter direkt från klustrets huvudnod eller från en resurs i Azure samma virtuella nätverk som HDInsight-kluster, port `10002` ska användas för Spark Thrift-servern i stället för `10001`. Följande är ett exempel på att du ansluter direkt till huvudnoden:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Nästa steg
 

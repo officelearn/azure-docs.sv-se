@@ -1,7 +1,7 @@
 ---
 title: Övervaka Azure-program och resurser | Microsoft Docs
 description: Översikt över Microsoft-tjänster och funktioner som bidrar till en fullständig övervakning strategi för dina Azure-tjänster och program.
-author: robb
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: c20e97e445dc79bdb65dcde40d323989005f5f5d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
@@ -63,9 +63,9 @@ Mått är tillgängliga som ger prestandastatistik för olika resurser och även
 Du kan också skicka dessa mätvärden och loggar Azure Log Analytics för trender och detaljerad analys eller skapa ytterligare Varningsregler proaktivt meddelar om kritiska problem på grund av att analys.  
 
 > [!NOTE]
-> Skicka flerdimensionell mått till logganalys via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+> Skicka flerdimensionell mått till logganalys via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när du exporterar till logganalys mått representeras av alla inkommande meddelanden i alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. Men när du exporterar till logganalys mått representeras av alla inkommande meddelanden i alla köer i hubben.
 >
 >
 
@@ -161,6 +161,6 @@ Efter en rapporterade avbrott använda Tjänstkarta för dataforensik för att i
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om:
 
-* [Azure-Monitor](https://azure.microsoft.com/en-us/services/monitor/) att komma igång med övervakning mätvärden och -varningar.
+* [Azure-Monitor](https://azure.microsoft.com/services/monitor/) att komma igång med övervakning mätvärden och -varningar.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) om du försöker att diagnostisera problem i din App Service webbapp.
 * [Logga Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) för analys av loggar och insamlade övervakningsdata.

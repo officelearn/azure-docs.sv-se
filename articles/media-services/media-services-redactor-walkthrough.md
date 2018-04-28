@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d287206d30c05289679c83636ba5f968a5fcbcbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redigera bort personerna bakom Azure Media Analytics genomgång
 
@@ -30,7 +30,7 @@ Mer information om **Azure Media Redactor**, finns det [ansikte bortredigering �
 
 Det här avsnittet innehåller steg-för-steg-instruktioner på hur du kör en fullständig bortredigering arbetsflöde med hjälp av Azure Media Services Explorer (AMSE) och Azure Media Redactor Visualizer (Verktyg för öppen källkod).
 
-Mer information finns i [detta](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blogg.
+Mer information finns i [detta](https://azure.microsoft.com/blog/redaction-preview-available-globally) blogg.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services Explorer-arbetsflöde
 
@@ -97,7 +97,7 @@ Om du utvecklar skulle parsas anteckningen JSON-data, kan du titta på Models.Me
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. Run AzureMediaRedactor.exe. 
+4. Kör AzureMediaRedactor.exe. 
 
 ### <a name="use-the-tool"></a>Använd verktyget
 
@@ -127,7 +127,7 @@ Om du utvecklar skulle parsas anteckningen JSON-data, kan du titta på Models.Me
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

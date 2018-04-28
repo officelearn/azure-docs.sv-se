@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor för Programgateway
 
@@ -53,7 +53,7 @@ Serverdelspooler kan bestå av nätverkskort, skalningsuppsättningar i virtuell
 
 **FRÅGOR. Vilka regioner är tjänsten?**
 
-Programgateway är tillgänglig i alla regioner för globala Azure. Det är också tillgängliga i [Azure Kina](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Programgateway är tillgänglig i alla regioner för globala Azure. Det är också tillgängliga i [Azure Kina](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **FRÅGOR. Är detta en dedikerad distribution för min prenumeration eller delas mellan kunder?**
 
@@ -329,4 +329,4 @@ Den vanligaste orsaken är åtkomst till serverdelen blockeras av en NSG eller a
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Programgateway besök [introduktion till Programgateway](application-gateway-introduction.md).
+Mer information om Programgateway besök [vad är Azure Application Gateway?](overview.md)

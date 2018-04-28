@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Topologier som stöds | Microsoft Docs"
-description: "Det här avsnittet beskrivs topologier som stöds respektive inte stöds för Azure AD Connect"
+title: 'Azure AD Connect: Topologier som stöds | Microsoft Docs'
+description: Det här avsnittet beskrivs topologier som stöds respektive inte stöds för Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: MT
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokalt och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller både stöds och som inte stöds.
@@ -35,6 +35,11 @@ Här är förklaring för bilder i artikeln:
 | Azure AD Connect sync-servern, detaljerad |![Azure AD Connect sync-servern, detaljerad](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Scenario som inte stöds |![Scenario som inte stöds](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Microsoft stöder inte ändra eller operativsystemet Azure AD Connect-synkronisering utanför konfigurationer eller åtgärder som dokumenteras formellt. Något av dessa konfigurationer eller åtgärder kan resultera i tillståndet inkonsekvent eller som inte stöds av Azure AD Connect-synkronisering. Därför kan Microsoft inte tillhandahålla teknisk support för sådana distributioner.
+
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Enkel skog, ett Azure AD-klient
 ![Topologi för en enda skog och en enskild klient](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

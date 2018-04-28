@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera lokal villkorlig åtkomst i Azure Active Directory | Microsoft Docs"
-description: "Stegvisa instruktioner för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2."
+title: Konfigurera lokal villkorlig åtkomst i Azure Active Directory | Microsoft Docs
+description: Stegvisa instruktioner för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (AD Azure) enhetsregistreringstjänsten kan sina enheter markeras som kända för din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.
@@ -89,7 +89,7 @@ Följ stegen i checklistan om du vill aktivera och konfigurera enhetsregistrerin
 | Slutföra två tillhör ”aktivera tillbakaskrivning av enheter i Azure AD Connect”. Återgå till den här guiden när du avslutar den. |[Aktivera tillbakaskrivning av enheter i Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Valfritt] Del 4: Aktivera Multi-Factor Authentication
-Vi rekommenderar starkt att du konfigurerar ett av flera alternativ för Multifaktorautentisering. Om du vill kräva Multifaktorautentisering [väljer säkerhetslösning Multi-Factor Authentication för du](../multi-factor-authentication/multi-factor-authentication-get-started.md). Den innehåller en beskrivning av varje lösning och länkar som hjälper dig att konfigurera lösningen för ditt val.
+Vi rekommenderar starkt att du konfigurerar ett av flera alternativ för Multifaktorautentisering. Om du vill kräva Multifaktorautentisering [väljer säkerhetslösning Multi-Factor Authentication för du](authentication/concept-mfa-whichversion.md). Den innehåller en beskrivning av varje lösning och länkar som hjälper dig att konfigurera lösningen för ditt val.
 
 ## <a name="part-5-verification"></a>Del 5: verifiering
 Distributionen är slutförd och du kan testa vissa scenarier. Använd följande länkar om du vill experimentera med tjänsten och bekanta dig med dess funktioner.
@@ -156,7 +156,7 @@ Det finns många olika sätt att förmedla denna URL till dina användare. En me
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Ansluta till en Windows 8.1-enhet med hjälp av Azure Active Directory-enhetsregistrering
 1. På din Windows 8.1-enhet väljer **datorinställningar** > **nätverk** > **arbetsplats**.
-2. Ange ditt användarnamn i UPN-format. till exempel  **dan@contoso.com** .
+2. Ange ditt användarnamn i UPN-format. till exempel **dan@contoso.com**.
 3. Välj **ansluta**.
 4. När du uppmanas logga in med dina autentiseringsuppgifter. Enheten är nu ansluten.
 
@@ -186,7 +186,7 @@ Följande steg visar hur du implementerar det här scenariot.
 1. Öppna verktyget AD FS-MMC och välj sedan **AD FS** > **förtroenden** > **förtroende för förlitande part**.
 2. Leta reda på programmet som den här nya regeln gäller. Högerklicka på programmet och välj sedan **redigera Anspråksregler**.
 3. Välj den **auktoriseringsregler** och välj sedan **Lägg till regel**.
-4. Från den **anspråksregel** mall listrutan, Välj **bevilja eller neka användare baserat på ett inkommande anspråk**. Välj sedan **nästa**.
+4. Från den **anspråksregel** mall listrutan, Välj **bevilja eller neka användare baserat på ett inkommande anspråk**. Välj sedan **Nästa**.
 5. I den **Regelnamn för anspråk** anger **tillåta åtkomst från registrerade enheter**.
 6. Från den **inkommande Anspråkstyp** listrutan, Välj **är registrerad användare**.
 7. I den **inkommande anspråksvärde** anger **SANT**.

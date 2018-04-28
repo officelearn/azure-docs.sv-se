@@ -1,12 +1,12 @@
 ---
-title: "Slingor - processen matriser eller Upprepa åtgärder - Azure Logic Apps | Microsoft Docs"
-description: "Bearbeta matriser med ”för varje” loopar eller Upprepa åtgärder förrän särskilda villkor uppfylls i logikappar"
+title: Slingor - processen matriser eller Upprepa åtgärder - Azure Logic Apps | Microsoft Docs
+description: Bearbeta matriser med ”för varje” loopar eller Upprepa åtgärder förrän särskilda villkor uppfylls i logikappar
 services: logic-apps
-keywords: "för varje slingor"
-documentationcenter: 
+keywords: för varje slingor
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Slingor: Bearbeta matriser eller Upprepa åtgärder tills ett villkor uppfylls
 
@@ -154,9 +154,6 @@ Om du vill upprepa åtgärder tills villkor eller vissa tillstånd har ändrats,
 * Anropa en slutpunkt förrän du får svar som du vill.
 * Skapa en post i en databas, vänta tills ett visst fält i att posten har godkänts och fortsätta bearbetningen. 
 
-> [!NOTE]
-> ”Tills” slingor inte får innehålla ”Foreach” loopar eller andra ”till” slingor.
-
 Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills variabelns värde är lika med 10. Sedan skickar logikappen ett e-postmeddelande bekräftar det aktuella värdet. Även om det här exemplet använder Office 365 Outlook kan du använda valfri e-provider som stöds av Logic Apps ([granska kopplingarna listas här](https://docs.microsoft.com/connectors/)). Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något. 
 
 1. Skapa en tom logikapp. Sök efter ”återkommande” i logik App Designer och välj den här utlösaren: **schema - upprepning** 
@@ -217,7 +214,7 @@ Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills var
     | -------- | ----- | ----------- | 
     | **Till** | *<email-address@domain>* | mottagarens e-postadress. För att testa, använder du e-postadress. | 
     | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange ämnet för e-post. Se till att du inkluderar det här exemplet i **gränsen** variabeln. | 
-    | **Brödtext** | <*email-content*> | Ange e-postmeddelande innehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
+    | **Brödtext** | <*e-postinnehåll*> | Ange e-postmeddelande innehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
     |||| 
 
 11. Spara din logikapp. Om du vill testa logikappen i verktygsfältet designer manuellt välja **kör**.

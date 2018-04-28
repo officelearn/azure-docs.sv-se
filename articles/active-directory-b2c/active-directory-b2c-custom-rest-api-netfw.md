@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Med Identity upplevelse Framework, som ligger till grund för Azure Active Directory B2C (Azure AD B2C) som du kan integrera med en RESTful-API i en resa för användaren. I den här genomgången får lära du dig hur Azure AD B2C samverkar med .NET Framework RESTful-tjänster (webb-API).
 
 ## <a name="introduction"></a>Introduktion

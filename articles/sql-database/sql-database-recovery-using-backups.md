@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med automatisk databassäkerhetskopieringar
 SQL-databas finns följande alternativ för databas återställning med hjälp av [automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) och [säkerhetskopieringar i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
@@ -50,7 +50,7 @@ Tiden för återställning för att återställa en databas med hjälp av automa
   
   För en stor och/eller mycket aktiv databas kan återställningen ta flera timmar. Om det är långvariga avbrott i en region, är det möjligt att det finns ett stort antal geo-återställning begäranden som bearbetas av andra regioner. När det finns många begäranden, kan öka återställningstiden för databaser i den regionen. De flesta databasen återställs fullständig inom 12 timmar.
 
-För en enda prenumeration, det finns vissa begränsningar för antalet samtidiga återställning förfrågningar (inklusive punkt i tidpunkt för återställning, geo återställning och återställning från en säkerhetskopia för långsiktig kvarhållning) som har skickats och fortsatte:
+För en enda prenumeration finns vissa begränsningar för antalet samtidiga återställning förfrågningar (inklusive punkt i tidpunkt för återställning, geo återställning och återställning från en säkerhetskopia för långsiktig kvarhållning) som har skickats och fortsatte:
 |  | **Högsta antal samtidiga begäranden som bearbetas** | **Högsta antal samtidiga förfrågningar som skickas** |
 | :--- | --: | --: |
 |Enskild databas (per prenumeration)|10|60|
@@ -97,12 +97,12 @@ Du kan återställa en borttagen databas till borttagningstid för en borttagen 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Återställa en borttagen databas under dess [kvarhållningsperioden](sql-database-service-tiers.md) med Azure-portalen, öppna sidan för din server och i området för åtgärder, klickar du på **bort databaser**.
+Återställa en borttagen databas under dess [DTU-baserade modellen kvarhållningsperiod](sql-database-service-tiers-dtu.md) eller [vCore-baserade modellen kvarhållningsperiod](sql-database-service-tiers-vcore.md) med Azure-portalen, öppna sidan för din server och i området för åtgärder, klickar du på **Bort databaser**.
 
-![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
+![ta bort-databasen-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
 
-![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
+![ta bort-databasen-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 ## <a name="geo-restore"></a>Geo-återställning
 Du kan återställa en SQL-databas på en server i Azure-region från de senaste georeplikerad fullständig och differentiell säkerhetskopieringarna. GEO-återställning använder geo-redundant säkerhetskopia som källa och kan användas för att återställa en databas, även om databasen eller datacenter inte är tillgänglig på grund av ett avbrott. 
@@ -123,7 +123,7 @@ Point-in-time-återställning på en geo sekundär stöds inte för närvarande.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Att geo-återställning för en databas under dess [kvarhållningsperioden](sql-database-service-tiers.md) med Azure-portalen, öppna sidan SQL-databaser och klicka sedan på **Lägg till**. I den **Välj källa** textruta, Välj **säkerhetskopiering**. Ange säkerhetskopian som du vill återställa i region och på servern du väljer. 
+Att geo-återställning för en databas under dess [DTU-baserade modellen kvarhållningsperiod](sql-database-service-tiers-dtu.md) eller [vCore-baserade modellen kvarhållningsperiod](sql-database-service-tiers-vcore.md) med Azure-portalen, öppna sidan SQL-databaser och klicka sedan på **Lägg till** . I den **Välj källa** textruta, Välj **säkerhetskopiering**. Ange säkerhetskopian som du vill återställa i region och på servern du väljer. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Programmässigt utföra återställning med hjälp av automatisk säkerhetskopiering
 Som tidigare vi nämnt, utöver Azure portal, kan återställning av databasen utföras via programmering med hjälp av Azure PowerShell eller REST API. I följande tabeller beskrivs uppsättningen kommandon som är tillgängliga.
@@ -137,10 +137,10 @@ Som tidigare vi nämnt, utöver Azure portal, kan återställning av databasen u
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Återställer en SQL-databas. |
 |  | |
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 | API | Beskrivning |
 | --- | --- |
-| [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Återställer en databas |
+| [REST (createMode = återställning)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Återställer en databas |
 | [Hämta skapa eller uppdatera databasens Status](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Returnerar status under en återställning |
 |  | |
 

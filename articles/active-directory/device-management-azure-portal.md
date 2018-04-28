@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure portal
 
@@ -74,7 +74,7 @@ Inställningssidan kan du konfigurera:
 
 - **Användarna kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen om du vill tillåta att enheterna ska [registrerade](device-management-introduction.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera om de inte Azure AD ansluten eller hybrid anslutna Azure AD. Registrering med Microsoft Intune eller hantering av mobilenheter (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** är markerad och **NONE** är inte tillgänglig...
 
-- **Kräva Multifaktorautentisering ansluta enheter** -du kan välja om användare måste ange en andra autentiseringsfaktor till [koppling](device-management-introduction.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering vid registrering av en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns [komma igång med Azure Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Kräva Multifaktorautentisering ansluta enheter** -du kan välja om användare måste ange en andra autentiseringsfaktor till [koppling](device-management-introduction.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering vid registrering av en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns [komma igång med Azure Multi-Factor authentication](authentication/concept-mfa-whichversion.md). 
 
 - **Högsta antal enheter** -den här inställningen kan du välja det högsta antalet enheter som en användare kan ha i Azure AD. Om användarna når den här kvoten, de är inte lägga till fler enheter förrän ett eller flera av de befintliga enheterna har tagits bort. Enheten citattecken räknas för alla enheter som är Azure AD ansluten eller Azure AD som registrerade idag. Standardvärdet är **20**.
 

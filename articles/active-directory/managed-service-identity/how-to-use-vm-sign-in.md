@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder hanterade tjänstidentiteten en Azure VM för inloggning"
-description: "Stegvisa anvisningar och exempel för med en Azure VM MSI tjänstens huvudnamn för skript-klient loggar in och resurs för åtkomst till."
+title: Hur du använder hanterade tjänstidentiteten en Azure VM för inloggning
+description: Stegvisa anvisningar och exempel för med en Azure VM MSI tjänstens huvudnamn för skript-klient loggar in och resurs för åtkomst till.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Hur du använder en Azure VM hanterade tjänsten identitet (MSI) för inloggning 
 
@@ -51,7 +51,7 @@ Följande skript visar hur du:
 2. Anropa Azure Resource Manager och hämta den virtuella datorn service principal-ID. CLI hand tar om hanteringen token förvärv/Använd åt dig automatiskt. Se till att ersätta ditt namn på virtuell dator för `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -61,20 +61,11 @@ Följande skript visar hur du:
 
 Följande skript visar hur du:
 
-1. Hämta en MSI-åtkomsttoken för den virtuella datorn.  
-2. Använd den åtkomst-token för att logga in på Azure AD under motsvarande MSI tjänstens huvudnamn.   
-3. Anropa en Azure Resource Manager-cmdlet för att få information om den virtuella datorn. PowerShell hand tar om hanteringen token används åt dig automatiskt.  
+1. logga in på Azure AD under den virtuella datorn MSI-tjänstens huvudnamn  
+2. Anropa en Azure Resource Manager-cmdlet för att få information om den virtuella datorn. PowerShell hand tar om hanteringen token används åt dig automatiskt.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>

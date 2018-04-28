@@ -1,11 +1,11 @@
 ---
-title: "Tilldela en MSI-åtkomst till en Azure-resurs, med hjälp av PowerShell"
-description: "Steg för steg instruktioner för att tilldela en MSI på en resurs som har åtkomst till en annan resurs, med hjälp av PowerShell."
+title: Tilldela en MSI-åtkomst till en Azure-resurs, med hjälp av PowerShell
+description: Steg för steg instruktioner för att tilldela en MSI på en resurs som har åtkomst till en annan resurs, med hjälp av PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 36b95a1de64fe49a1225bd647ca963c8957fe160
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7074aeddaf5ff3e64c4ccb12c3bfbb53b54eea33
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Tilldela en hanterad tjänst identitet (MSI) åtkomst till en resurs med hjälp av PowerShell
 
@@ -35,10 +35,10 @@ Dessutom installera [Azure PowerShell version 4.3.1](https://www.powershellgalle
 
 När du har aktiverat MSI på en Azure-resurs [, till exempel en Azure VM](qs-configure-powershell-windows-vm.md):
 
-1. Logga in på Azure med hjälp av `Login-AzureRmAccount` cmdlet. Använd ett konto som är associerade med Azure-prenumeration som du har konfigurerat MSI:
+1. Logga in på Azure med hjälp av `Connect-AzureRmAccount` cmdlet. Använd ett konto som är associerade med Azure-prenumeration som du har konfigurerat MSI:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. I det här exemplet ger vi en virtuell dator i Azure-åtkomst till ett lagringskonto. Första vi använder [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) att hämta tjänstens huvudnamn för den virtuella datorn med namnet ”myVM” som skapades när vi har aktiverat MSI. Vi använder sedan [ny AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) om du vill ge den virtuella datorn ”Reader” åtkomst till ett lagringskonto med namnet ”myStorageAcct”:
 

@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använda profiler för API-version med gå i Azure-stacken
 
@@ -129,7 +127,7 @@ Authorizer måste anges som authorizer för resurs-klienten. Det finns olika met
 
 Det här avsnittet presenteras ett vanligt sätt att hämta authorizer token på Azure-stacken genom att använda klientens autentiseringsuppgifter:
 
-  1. Om det finns ett huvudnamn för tjänsten med ägarrollen på prenumerationen kan du hoppa över detta steg. Annars skapar ett huvudnamn för tjänsten [instruktioner]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) och tilldela den en ”ägare”-roll som är begränsade till din prenumeration [instruktioner]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Spara tjänstens huvudnamn program-ID och hemlighet. 
+  1. Om det finns ett huvudnamn för tjänsten med ägarrollen på prenumerationen kan du hoppa över detta steg. Annars skapar ett huvudnamn för tjänsten [instruktioner]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) och tilldela den en ”ägare”-roll som är begränsade till din prenumeration [instruktioner]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Spara tjänstens huvudnamn program-ID och hemlighet. 
 
   2. Importera **adal** paket från gå AutoRest i koden. 
   

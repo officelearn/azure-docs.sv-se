@@ -1,25 +1,20 @@
 ---
 title: Indexering av en Azure Cosmos DB-datakälla för Azure Search | Microsoft Docs
 description: Den här artikeln visar hur du skapar en indexerare för Azure Search med en Azure Cosmos DB-datakälla.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: ''
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: search
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 165402f5147224cd355f0ae14642069a3de58f19
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos-databas med Azure Search med indexerare
 
@@ -182,12 +177,12 @@ Kontrollera att schemat för mål-index är kompatibel med schemat för JSON-kä
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Search-datatyper
 | JSON-datatyp | Kompatibel index fältet måltyper |
 | --- | --- |
-| Booleskt |Edm.Boolean, Edm.String |
+| Booleskt |Edm.Boolean Edm.String |
 | Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
-| Siffror som ser ut som flytande punkter |Edm.Double, Edm.String |
+| Siffror som ser ut som flytande punkter |Edm.Double Edm.String |
 | Sträng |Edm.String |
 | Matriser av primitiva typer, till exempel [”a”, ”b”, ”c”] |Collection(Edm.String) |
-| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
+| Strängar som ser ut som datum |Edm.DateTimeOffset Edm.String |
 | GeoJSON objekt, till exempel {”typ”: ”Point”, ”coordinates”: [long, lat]} |Edm.GeographyPoint |
 | Andra JSON-objekt |Gäller inte |
 

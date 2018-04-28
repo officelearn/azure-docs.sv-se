@@ -1,25 +1,19 @@
 ---
-title: "Lucene fråga exempel för Azure Search | Microsoft Docs"
-description: "Lucene frågesyntaxen för fuzzy sökning, närhet sökning, termen förstärkning, reguljära uttryck och sökning med jokertecken."
-services: search
-documentationcenter: 
+title: Lucene fråga exempel för Azure Search | Microsoft Docs
+description: Lucene frågesyntaxen för fuzzy sökning, närhet sökning, termen förstärkning, reguljära uttryck och sökning med jokertecken.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene fråga syntaxexemplen för att skapa frågor i Azure Search
 När man skapar frågor för Azure Search kan du använda antingen standard [enkel frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller alternativt [Lucene Frågeparsern i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Frågeparsern Lucene stöder mer komplex fråga konstruktioner fältet omfång frågor, fuzzy sökning, närhet sökning, termen förstärkning och reguljärt uttryck för sökning.
@@ -117,7 +111,7 @@ Ett reguljärt uttryck hittas matchar baserat på innehållet mellan snedstreck 
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-URL-Adressen för det här exemplet kommer inte att återge korrekt på sidan. Kopiera Webbadressen nedan och klistra in den i webbläsaren URL-adressen som en lösning:`http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+URL-Adressen för det här exemplet kommer inte att återge korrekt på sidan. Kopiera Webbadressen nedan och klistra in den i webbläsaren URL-adressen som en lösning: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Jokertecken Sök-exempel
 Du kan använda allmänt erkända syntax för flera (\*) eller enstaka jokertecken med tecken (?). Observera frågeparsern Lucene stöder användning av dessa symboler med en enda term och inte en fras.
@@ -134,6 +128,6 @@ Försök att ange Frågeparsern Lucene i din kod. Följande länkar beskriver hu
 * [Fråga ditt Azure Search Index med .NET SDK](search-query-dotnet.md)
 * [Fråga ditt Azure Search Index med hjälp av REST-API](search-query-rest-api.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Hur full textsökning fungerar i Azure Search](search-lucene-query-architecture.md)

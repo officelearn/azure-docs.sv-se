@@ -1,8 +1,8 @@
 ---
 title: Jokertecken program i Azure Active Directory application proxy | Microsoft Docs
-description: "Lär dig hur du använder jokertecken program i Azure Active Directory-programproxy."
+description: Lär dig hur du använder jokertecken program i Azure Active Directory-programproxy.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokertecken program i Azure Active Directory application proxy 
 
@@ -42,7 +42,7 @@ Du kan skapa ett program med jokertecken (*) om du har en grupp av program med s
 
 Du kan publicera program med jokertecken om både interna och externa URL: er finns i följande format:
 
-> http(s)://*.\<domain\>
+> http (s) :/ / *. \<domän\>
 
 Till exempel: `http(s)://*.adventure-works.com`. Medan de interna och externa URL: er kan använda olika domäner som bästa praxis, måste de vara detsamma. När du publicerar programmet kan ett felmeddelande visas om en av URL: erna inte har ett jokertecken.
 
@@ -70,7 +70,7 @@ När du använder anpassade domäner, måste du skapa en DNS-post med en CNAME-p
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) på en av målslutpunkter, till exempel `expenses.adventure-works.com`.  Svaret ska inkludera redan nämnda alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) på en av målslutpunkter, till exempel `expenses.adventure-works.com`.  Svaret ska inkludera redan nämnda alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Överväganden
@@ -80,12 +80,12 @@ Bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](h
 
 För program med jokertecken, den **Intern URL** måste formateras som `http(s)://*.<domain>`. 
 
-![AppId](./media/active-directory-application-proxy-wildcard\22.png)
+![appId](./media/active-directory-application-proxy-wildcard\22.png)
 
 
 När du konfigurerar en **externa URL: en**, måste du använda följande format: `https://*.<custom domain>` 
 
-![AppId](./media/active-directory-application-proxy-wildcard\21.png)
+![appId](./media/active-directory-application-proxy-wildcard\21.png)
 
 Andra ställen jokertecknet, flera jokertecken eller andra regex-strängar stöds inte och orsakar fel.
 
@@ -104,7 +104,7 @@ Du kan också begränsa jokertecken fungerar endast för specifika program via D
 
 Om du använder det här alternativet måste du också en annan CNAME-post för värdet `AppId.domain`, till exempel `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, även peka på samma plats. Du hittar den **AppId** på egenskapssidan program av programmet med jokertecken:
 
-![AppId](./media/active-directory-application-proxy-wildcard\01.png)
+![appId](./media/active-directory-application-proxy-wildcard\01.png)
 
 
 
@@ -165,7 +165,7 @@ Genom att publicera programmet med jokertecken, du kan nu komma åt dina tre pro
 
 Konfigurationen implementerar följande struktur:
 
-![AppId](./media/active-directory-application-proxy-wildcard\05.png)
+![appId](./media/active-directory-application-proxy-wildcard\05.png)
 
 | Färg | Beskrivning |
 | ---   | ---         |

@@ -1,6 +1,6 @@
 ---
-title: "PowerShell för slutpunkter för virtuellt nätverk och regler i SQL | Microsoft Docs"
-description: "Innehåller PowerShell-skript för att skapa och hantera virtuella slutpunkter för din Azure SQL-databas."
+title: PowerShell för slutpunkter för virtuellt nätverk och regler i SQL | Microsoft Docs
+description: Innehåller PowerShell-skript för att skapa och hantera virtuella slutpunkter för din Azure SQL-databas.
 services: sql-database
 author: MightyPen
 manager: jhubbard
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fcf33d3d54b118c1c25f1467a496da3644a2345
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Använda PowerShell för att skapa en virtuell tjänstslutpunkten och regeln för Azure SQL Database
 
@@ -50,6 +50,9 @@ I följande lista visas de andra *större* cmdletar som du måste köra för att
 - Du kan redan logga in till Azure, såsom via den [Azure-portalen][http-azure-portal-link-ref-477t].
 - Du kan redan köra PowerShell-skript.
 
+> [!NOTE]
+> Kontrollera att Tjänsteslutpunkter är aktiverade för Vnet/undernät som du vill lägga till servern på annat sätt skapa brandväggsregeln Vnet kommer att misslyckas.
+
 #### <a name="one-script-divided-into-four-chunks"></a>Ett skript som är indelat i fyra segment
 
 Vår demonstration PowerShell-skript är uppdelat i en sekvens med mindre skript. Divisionen underlättar learning och ger flexibilitet. Skripten måste köras i den angivna aktivitetssekvensen. Om du inte har nu tid för att köra skripten visas våra faktiska testet av utdata efter skriptet 4.
@@ -79,7 +82,7 @@ Det här första PowerShell-skriptet tilldelar variabler värden. Följande skri
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -519,7 +522,7 @@ Det här PowerShell script uppdateras inte något, såvida inte svarar du på Ja
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

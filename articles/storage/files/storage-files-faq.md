@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -27,7 +27,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 1. Avsnittet kommentarer i den här artikeln.
 2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
+4. Microsoft-supporten. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
@@ -171,9 +171,9 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 * <a id="afs-files-excluded"></a>
 **Vilka filer och mappar undantas automatiskt av Azure filen synkronisering?**  
     Som standard omfattar Azure filsynkronisering inte följande filer:
-    * desktop.ini
-    * thumbs.db
-    * ehthumbs.db
+    * Desktop.ini
+    * thumbs.DB
+    * ehthumbs.DB
     * ~$\*.\*
     * \*.laccdb
     * \*tmp
@@ -182,7 +182,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
     Följande mappar undantas också som standard:
 
     * \System volume Information
-    * \$RECYCLE.BIN
+    * \$ÅTERANVÄND. BIN
     * \SyncShareState
 
 * <a id="afs-os-support"></a>
@@ -257,7 +257,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
     Ja. Azure Files kan behålla högst 200 resursen ögonblicksbilder. Dela ögonblicksbilder räknas inte in i filresursens kvot så att det finns ingen gräns per resurs totalt utrymme som används av alla ögonblicksbilder för resursen. Lagringskontogränser gäller fortfarande. Efter 200 resursen ögonblicksbilder, måste du ta bort äldre ögonblicksbilder för att skapa nya ögonblicksbilder som resursen.
 * <a id="snapshot-cost"></a>
 **Hur mycket delar ögonblicksbild kostnaden?**  
-    Standard transaktionen och lagringskostnaden är standard gäller för ögonblicksbilder. Ögonblicksbilder är inkrementell till sin natur. Grundläggande ögonblicksbilden är resursen sig själv. Alla efterföljande ögonblicksbilder är inkrementell och kommer bara att lagra diff från den tidigare ögonblicksbilden. Det innebär att deltaändringar som visas i växeln blir minimal om omsättning av arbetsbelastning är minimal. Se [priser sidan](https://azure.microsoft.com/en-us/pricing/details/storage/files/) för Azure standardfiler prisinformation. Idag sättet att titta på storleken som används av filresursen ögonblicksbild är genom att jämföra fakturerade kapacitet med används kapacitet. Vi arbetar på tooling för att förbättra reporting.
+    Standard transaktionen och lagringskostnaden är standard gäller för ögonblicksbilder. Ögonblicksbilder är inkrementell till sin natur. Grundläggande ögonblicksbilden är resursen sig själv. Alla efterföljande ögonblicksbilder är inkrementell och kommer bara att lagra diff från den tidigare ögonblicksbilden. Det innebär att deltaändringar som visas i växeln blir minimal om omsättning av arbetsbelastning är minimal. Se [priser sidan](https://azure.microsoft.com/pricing/details/storage/files/) för Azure standardfiler prisinformation. Idag sättet att titta på storleken som används av filresursen ögonblicksbild är genom att jämföra fakturerade kapacitet med används kapacitet. Vi arbetar på tooling för att förbättra reporting.
 
 
 ### <a name="create-share-snapshots"></a>Skapa resursen ögonblicksbilder

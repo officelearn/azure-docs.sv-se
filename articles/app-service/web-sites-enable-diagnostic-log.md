@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för web apps i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -84,7 +84,7 @@ När alla tre lagringsplatser ange samma grundläggande information för loggade
 > Information som lagras i **tabell lagring** eller **blob storage** kan bara användas med en storage-klient eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska tabell eller blob storage och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som har åtkomst till Azure Storage med hjälp av en av de [Azure SDK](/downloads/#).
 >
 > [!NOTE]
-> Diagnostiken kan även aktiveras från Azure PowerShell med hjälp av den **Set AzureWebsite** cmdlet. Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Diagnostiken kan även aktiveras från Azure PowerShell med hjälp av den **Set AzureWebsite** cmdlet. Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ Starta en ny instans av Azure PowerShell för att hämta filerna, och använder 
 Detta kommando sparar loggar för webbprogram som anges av den **-namnet** parameter till en fil med namnet **logs.zip** i den aktuella katalogen.
 
 > [!NOTE]
-> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ För att hämta filerna med hjälp av Azure-kommandoradsgränssnittet, öppna en
 Detta kommando sparar loggar för webbprogrammet med namnet 'webappname' till en fil med namnet **diagnostics.zip** i den aktuella katalogen.
 
 > [!NOTE]
-> Om du inte har installerat Azure-kommandoradsgränssnittet (Azure CLI) eller inte har konfigurerat den att använda Azure-prenumeration, se [hur du använder Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Om du inte har installerat Azure-kommandoradsgränssnittet (Azure CLI) eller inte har konfigurerat den att använda Azure-prenumeration, se [hur du använder Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -224,7 +224,7 @@ När de loggar till tabellagring används ytterligare egenskaper som för att un
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
 | EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
 | Instans-ID |Instans av webbappen som den även inträffade |
-| Pid |Process-ID |
+| Process-ID |Process-ID |
 | tid |Tråd-ID för tråden som skapades av händelsen |
 | Meddelande |Detaljerat meddelande |
 
@@ -234,13 +234,13 @@ När loggning för att blob storage, lagras data i fil med kommaavgränsade vär
 
 | Egenskapsnamn | Value-format |
 | --- | --- |
-| Datum |Datum och tid då händelsen inträffade |
+| Date |Datum och tid då händelsen inträffade |
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
 | ApplicationName |Webbprogramnamnet |
 | Instans-ID |Instans av webbappen som händelsen inträffade |
 | EventTickCount |Datum och tid då händelsen inträffade i Tick-format (större precision) |
 | EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
-| Pid |Process-ID |
+| Process-ID |Process-ID |
 | tid |Tråd-ID för tråden som skapades av händelsen |
 | Meddelande |Detaljerat meddelande |
 

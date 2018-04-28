@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 8ea768c6ba8b404978b78f2cbd272f98af3fa70b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c2233ab32314655c510c8c884641293ae3325ef5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux på distributioner godkända av Azure
-Partners ger Linux bilder i Azure Marketplace. Vi arbetar med olika Linux communities att lägga till ytterligare varianter i listan över godkända Distribution. Under tiden för distributioner som inte är tillgängliga från Marketplace, du kan alltid ta egna Linux genom att följa riktlinjerna i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic).
+Partners ger Linux bilder i Azure Marketplace. Vi arbetar med olika Linux communities att lägga till ytterligare varianter i listan över godkända Distribution. Under tiden för distributioner som inte är tillgängliga från Marketplace, du kan alltid ta egna Linux genom att följa riktlinjerna i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## <a name="supported-distributions-and-versions"></a>Distributioner som stöds och versioner
 I följande tabell visas de Linux-distributioner och versioner som stöds på Azure. Referera till [stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) mer detaljerad information om stöd för Linux och öppenkällteknik i Azure.

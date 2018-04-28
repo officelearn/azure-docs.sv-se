@@ -2,46 +2,46 @@
 title: ta med fil
 description: ta med fil
 services: cdn
-author: dksimpson
+author: SyntaxC4
 ms.service: cdn
 ms.topic: include
-ms.date: 04/04/2018
-ms.author: rli; v-deasim
+ms.date: 04/13/2018
+ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 0db5f571324694f0518ffc4e92af985e5125d755
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 ## <a name="create-a-new-cdn-profile"></a>Skapa en ny CDN-profil
 
-En CDN-profil är en behållare för CDN-slutpunkter och anger en prisnivå.
+En CDN-profil är en behållare för CDN-slutpunkter och den anger en prisnivå.
 
-1. Välj i Azure-portalen i det övre vänstra **skapar du en resurs**.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
     
-    Den **ny** visas.
+    Fönstret **Ny** visas.
    
-2. Välj **webb + mobilt**, sedan **CDN**.
+2. Välj **Webb och mobilt**och välj **CDN**.
    
     ![Välj CDN-resurs](./media/cdn-create-profile/cdn-new-resource.png)
 
-    Den **CDN-profilen** visas.
+    Fönstret **CDN-profil** visas.
 
-    Använd de inställningar som anges i tabellen enligt bilden.
+    Använd inställningarna i tabellen på bilden.
    
     ![Ny CDN-profil](./media/cdn-create-profile/cdn-new-profile.png)
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **Namn** | Ange *min-cdn-profil-123* för ditt profilnamn. Det här namnet måste vara globalt unika. Om den redan används, kan du ange en annan. |
-    | **Prenumeration** | Välj en Azure-prenumeration från den nedrullningsbara listan.|
-    | **Resursgrupp** | Välj **Skapa nytt** och ange *min-resurs-grupp-123* för din resursgruppens namn. Det här namnet måste vara globalt unika. Om den redan används, kan du ange en annan. | 
-    | **Resursgruppens plats** | Välj **centrala USA** från den nedrullningsbara listan. |
-    | **prisnivå** | Välj **Standard Verizon** från den nedrullningsbara listan. |
-    | **Skapa en ny CDN-slutpunkt nu** | Lämna inte är markerad. |  
+    | **Namn** | Ange *my-cdn-profile-123* som profilnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. |
+    | **Prenumeration** | Välj en Azure-prenumeration i listrutan.|
+    | **Resursgrupp** | Välj **Skapa ny** och ange *my-resource-group-123* som namn på resursgruppen. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. | 
+    | **Resursgruppsplats** | Välj **USA, centrala** i listrutan. |
+    | **Prisnivå** | Välj **Standard Verizon** i listrutan. |
+    | **Skapa en ny CDN-slutpunkt nu** | Lämna det avmarkerat. |  
    
-3. Välj **fäst på instrumentpanelen** att spara profilen på instrumentpanelen när den har skapats.
+3. Spara profilen på instrumentpanelen när den har skapats genom att välja **Fäst på instrumentpanelen**.
     
-4. Välj **skapa** att skapa profilen. 
+4. Välj **Skapa** för att skapa profilen. 
 

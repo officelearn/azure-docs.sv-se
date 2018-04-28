@@ -1,12 +1,12 @@
 ---
-title: "HTTP-API: er i varaktiga funktioner – Azure"
-description: "Lär dig hur du implementerar HTTP APIs i tillägget varaktiga funktioner för Azure Functions."
+title: 'HTTP-API: er i varaktiga funktioner – Azure'
+description: Lär dig hur du implementerar HTTP APIs i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure-funktioner)
 
@@ -55,13 +55,13 @@ Här är ett exempelsvar:
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -87,7 +87,7 @@ Alla HTTP APIs som implementerats av tillägget vidta följande parametrar. Data
 
 | Parameter  | Parametertypen  | Beskrivning |
 |------------|-----------------|-------------|
-| instanceId | URL             | ID för orchestration-instans. |
+| InstanceId | URL             | ID för orchestration-instans. |
 | taskHub    | Frågesträng    | Namnet på den [aktivitet hubb](durable-functions-task-hubs.md). Om inget annat anges, antas hubbnamnet för den aktuella funktionsapp aktivitet. |
 | anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inget annat anges, antas standardanslutningssträngen för funktionen appen. |
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
@@ -113,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Svar
@@ -133,7 +133,7 @@ Nyttolasten i svar för den **HTTP 200** och **HTTP 202** fall är en JSON-objek
 | Indata           | JSON      | JSON-data som används för att initiera instansen. |
 | utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
 | createdTime     | sträng    | Tiden då instansen har skapats. Använder ISO 8601 utökad notation. |
-| lastUpdatedTime | sträng    | Tiden då instansen senast sparade. Använder ISO 8601 utökad notation. |
+| LastUpdatedTime | sträng    | Tiden då instansen senast sparade. Använder ISO 8601 utökad notation. |
 | historyEvents   | JSON      | En JSON-matris som innehåller körningstiden orchestration. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern är inställd på `true`.  | 
 
 Här är ett exempel svar nyttolast inklusive orchestration körning historik och aktivitet utdata (formaterad för att läsa):
@@ -207,14 +207,14 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
 | Fält       | Parametertypen  | Data tType | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| eventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
+| EventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
 | {innehåll}   | Begär innehåll | JSON      | JSON-formaterad händelsenyttolasten. |
 
 #### <a name="response"></a>Svar
@@ -253,14 +253,14 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?r
 Funktioner 2.0-format har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Begäran om parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
 
 | Fält       | Parametertypen  | Datatyp | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| reason      | Frågesträng    | sträng    | Valfri. Orsak till avslutar orchestration-instans. |
+| orsak      | Frågesträng    | sträng    | Valfri. Orsak till avslutar orchestration-instans. |
 
 #### <a name="response"></a>Svar
 

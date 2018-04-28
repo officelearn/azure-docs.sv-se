@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ac0b82c4683f5a1b09d7e6102a7b70361e1fbce2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit AZ3166 med Azure-funktion och kognitiva tjänster för att göra en språk översättare
 
@@ -35,7 +35,7 @@ Slutför den [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/io
 
 En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någon av följande två metoder:
 
-* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/en-us/free/)
+* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/free/)
 * Anspråk din [Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) om du prenumererar på MSDN eller Visual Studio
 
 ## <a name="step-1-open-the-project-folder"></a>Steg 1. Öppna projektmappen
@@ -46,17 +46,14 @@ En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någo
 - Starta VS-kod
 - Anslut DevKit till datorn.
 
-VS koden automatiskt hittar DevKit och öppnas startsidan:
-
-![Introduktionssida](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Öppna mappen Arduino exempel
 
 Expandera vänster **ARDUINO exempel > exempel MXCHIP AZ3166 > AzureIoT**, och välj **DevKitTranslator**. Ett nytt fönster för VS kod öppnas med DEVKITTRANSLATOR projektmappen i den.
 
 ![IoT DevKit-exempel](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-Om du råkar stänga fönstret kan du öppna det igen. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
+> [!NOTE]
+> Du kan också öppna exempel kommandot paletten. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
 
 ## <a name="step-2-provision-azure-services"></a>Steg 2. Etablera Azure-tjänster
 
@@ -113,9 +110,9 @@ På skärmen översättning resultatet kan du:
 - Tryck på knappen A och B för att bläddra och Välj språk för källa.
 - Tryck på knappen B för att kommunicera, så att skicka rösten och hämta översättning texten
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
-![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
+![Mini-Solution-Voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 Arduino skiss poster rösten skickar sedan en HTTP-begäran till utlösaren Azure Functions. Azure Functions anropar kognitiva service tal översättare API för att göra översättningen. När Azure Functions hämtar Översättningstext, skickar meddelandet C2D till enheten. Översättningen visas på skärmen.
 
@@ -127,7 +124,7 @@ Standard-enhets-ID som registrerats i Azure IoT Hub är **AZ3166**. Om du vill �
 
 Om du stöter på problem, läser du [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller nå oss från följande kanaler:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -143,4 +140,4 @@ Nu kan du göra IoT DevKit som en översättare med hjälp av Azure-funktion och
 Gå vidare till andra självstudiekurser att lära dig:
 
 > [!div class="nextstepaction"]
-> [Ansluta IoT DevKit AZ3166 till Azure IoT Suite för övervakning av fjärråtkomst](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Ansluta IoT DevKit AZ3166 till Azure IoT Suite för övervakning av fjärråtkomst](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

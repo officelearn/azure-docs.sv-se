@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Azure Storage-mätvärden i Azure-Monitor (förhandsgranskning)
 
@@ -28,17 +28,17 @@ Azure-Monitor ger enhetlig användargränssnitt för övervakning över olika Az
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure-Monitor finns flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure övervakaren API: er (REST och .net) och lösningar för analys, till exempel logganalys och Event Hub. Mer information finns i [mått för Azure-Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure-Monitor finns flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure övervakaren API: er (REST och .net) och lösningar för analys, till exempel åtgärden Management Suite och Händelsehubbar. Mer information finns i [mått för Azure-Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna av data. Du kan arkivera mått data till ett Azure Storage-konto om du vill behålla data under en längre tidsperiod. Detta är konfigurerat i [diagnostikinställningar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) i Azure-Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Åtkomst till mätvärden i Azure-portalen
 
-Du kan övervaka mått med tiden i Azure-portalen. Följande är ett exempel som visar hur du visar **UsedCapacity** på kontonivå.
+Du kan övervaka mått med tiden i Azure-portalen. I följande exempel visas hur du visar **UsedCapacity** på kontonivå.
 
 ![Skärmbild av åtkomst till mätvärden i Azure-portalen](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-För statistik som stöd för dimensioner, måste du filtrera med värdet för önskade dimensionen. Följande är ett exempel som visar hur du visar **transaktioner** på kontonivå med **lyckade** svarstyp.
+För statistik som stöd för dimensioner, måste du filtrera med värdet för önskade dimensionen. I följande exempel visas hur du visar **transaktioner** på kontonivå med **lyckade** svarstyp.
 
 ![Skärmbild av åtkomst till mått med dimension i Azure-portalen](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -139,9 +139,151 @@ Följande svaret innehåller måttvärden i JSON-format:
 
 ```
 
-## <a name="billing-for-metrics"></a>Fakturering för mått
+### <a name="access-metrics-with-the-net-sdk"></a>Åtkomst mått med .net SDK
 
-Med hjälp av mätvärden i Azure-Monitor för tillfället är ledigt. Om du använder ytterligare lösningar mata in metrics data måste debiteras du dock av dessa lösningar. Till exempel debiteras du av Azure Storage om du arkiverar mått data till ett Azure Storage-konto. Eller du debiteras av logganalys om direktuppspelning av mätvärdesdata till logganalys för avancerad analys.
+Azure övervakning ger [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) att läsa mått definition och värden. Den [exempelkoden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK: N med andra parametrar. Du måste använda `0.18.0-preview` eller senare version för storage-mätvärden. Resurs-ID används i .net SDK. Mer information finns [förstå resurs-ID för tjänster i lagring](#understanding-resource-id-for-services-in-storage).
+
+I följande exempel visas hur du använder Azure övervaka .net SDK för att läsa måtten för lagring.
+
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listan konto nivån mått definition med .net SDK
+
+I följande exempel visas hur du listar mått definition på nivån för kontot:
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+Om du vill visa en lista med mått definitioner för blob-, tabell-, fil- eller kön måste du ange olika resurs-ID för varje tjänst med API.
+
+#### <a name="read-metric-values-with-the-net-sdk"></a>Läs måttvärden med .net SDK
+
+I följande exempel visas hur du läser `UsedCapacity` data på nivån för kontot:
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+I ovanstående exempel måste om du vill läsa måttvärden för blob, tabell-, fil- eller kö, du ange olika resurs-ID för varje tjänst med API.
+
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Läsa flerdimensionella måttvärden med .net SDK
+
+För flerdimensionella statistik måste du definiera filter för meta-data om du vill läsa mått data på en specifik dimensionsvärde.
+
+I följande exempel visas hur du läser mått data på det mått som stöder flera dimension:
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Förstå resurs-ID för tjänster i Azure Storage
 
@@ -187,8 +329,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## <a name="capacity-metrics"></a>Kapacitet mått
-
-Kapacitet mått-värden skickas till Azure-Monitor varje timme. Värdet uppdateras dagligen. Tidskornet definierar det tidsintervall som mått värden anges. Stöds tidsenhet för alla kapacitetsdata är en timme (PT1H).
+Kapacitet mått-värden skickas till Azure-Monitor varje timme. Värdena uppdateras dagligen. Tidskornet definierar det tidsintervall som mått värden anges. Stöds tidsenhet för alla kapacitetsdata är en timme (PT1H).
 
 Azure Storage tillhandahåller följande kapacitetsdata i Azure-Monitor.
 
@@ -196,7 +337,7 @@ Azure Storage tillhandahåller följande kapacitetsdata i Azure-Monitor.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| UsedCapacity | Mängden lagringsutrymme som används av storage-konto. Standard storage-konton är det summan av kapacitet som används av blob-, tabell-, fil- och kön. Detta är samma som BlobCapacity för premium storage-konton och Blob storage-konton. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
+| UsedCapacity | Mängden lagringsutrymme som används av storage-konto. Standard storage-konton är det summan av kapacitet som används av blob-, tabell-, fil- och kön. Det är samma som BlobCapacity för premium-lagringskonton och Blob storage-konton. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
@@ -252,16 +393,16 @@ Azure Storage har stöd för följande dimensioner för mätvärden i Azure-Moni
 | Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
 | BlobType | Typ av blob för endast Blob-mått. Värdena som stöds är **BlockBlob** och **PageBlob**. Lägg till Blob ingår i BlockBlob. |
-| ResponseType | Transaktionstyp för svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla serversidan fel förutom beskrivs de </li> <li> ServerBusyError: Begäran som returnerade ett HTTP 503-statuskoden. (Stöds inte ännu) </li> <li> ServerTimeoutError: Timeout begäran som returnerade en HTTP 500-statuskod. Timeout uppstod på grund av ett serverfel. </li> <li> ThrottlingError: Summan av klientsidan och serversidan bandbreddsbegränsning fel (den tas bort när ServerBusyError och ClientThrottlingError stöds) </li> <li> AuthorizationError: Begäran som misslyckades på grund av obehörig åtkomst av data eller ett auktoriseringsfel. </li> <li> NetworkError: Begäran som misslyckades på grund av nätverksfel. Inträffar oftast när en klient stänger en anslutning innan tidsgränsen upphör att gälla för tidigt. </li> <li>  ClientThrottlingError: Klientsidan bandbreddsbegränsning fel (stöds inte ännu) </li> <li> ClientTimeoutError: Timeout begäran som returnerade en HTTP 500-statuskod. Om klientens nätverk eller timeout för begäranden har angetts till ett lägre värde än förväntat genom att lagringstjänsten är en förväntad timeout. Annars rapporteras den som en ServerTimeoutError. </li> <li> ClientOtherError: Alla klientsidan fel utom beskrivs de. </li> <li> Lyckades: Lyckade begäranden|
+| ResponseType | Transaktionstyp för svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla serversidan fel förutom beskrivs de </li> <li> ServerBusyError: Begäran som returnerade ett HTTP 503-statuskoden. </li> <li> ServerTimeoutError: Timeout begäran som returnerade en HTTP 500-statuskod. Timeout uppstod på grund av ett serverfel. </li> <li> AuthorizationError: Begäran som misslyckades på grund av obehörig åtkomst av data eller ett auktoriseringsfel. </li> <li> NetworkError: Begäran som misslyckades på grund av nätverksfel. Inträffar oftast när en klient stänger en anslutning innan tidsgränsen upphör att gälla för tidigt. </li> <li>    ClientThrottlingError: Klientsidan bandbreddsbegränsning fel. </li> <li> ClientTimeoutError: Timeout begäran som returnerade en HTTP 500-statuskod. Om klientens nätverk eller timeout för begäranden har angetts till ett lägre värde än förväntat genom att lagringstjänsten är en förväntad timeout. Annars rapporteras den som en ServerTimeoutError. </li> <li> ClientOtherError: Alla klientsidan fel utom beskrivs de. </li> <li> Lyckades: Lyckade begäranden|
 | GeoType | Transaktion från primär eller sekundär kluster. Tillgängliga värden är primär och sekundär. Det gäller läsbehörighet Geo-Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
 | apiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
-För dimensionen mått-stöd måste du ange dimensionsvärdet om du vill se motsvarande mått värden. Om du tittar på exempelvis **transaktioner** värdet för lyckad svar du vill filtrera den **ResponseType** med **lyckade**. Eller om du tittar på **BlobCount** värdet för Blockblob, måste du filtrera den **BlobType** med **BlockBlob**.
+För mått stödjande dimensioner måste du ange dimensionsvärdet om du vill se motsvarande mått värden. Om du tittar på exempelvis **transaktioner** värdet för lyckad svar du vill filtrera den **ResponseType** med **lyckade**. Eller om du tittar på **BlobCount** värdet för Blockblob, måste du filtrera den **BlobType** med **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Kontinuitet för äldre mått
 
-Äldre är tillgängligt parallellt med Azure-Monitor hanteras. Stöd för att hålla samma tills Azure Storage avslutar tjänsten på äldre mått. Vi kommer att meddela den sista planen när vi släpper Azure-Monitor hanteras mått officiellt.
+Äldre är tillgängligt parallellt med Azure-Monitor hanteras. Stöd för att hålla samma tills Azure Storage avslutar tjänsten på äldre mått.
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)

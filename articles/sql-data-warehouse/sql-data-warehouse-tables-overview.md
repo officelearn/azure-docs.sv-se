@@ -1,30 +1,26 @@
 ---
-title: Tabellen design introduktion - Azure SQL Data Warehouse | Microsoft Docs
+title: Utforma tabeller - Azure SQL Data Warehouse | Microsoft Docs
 description: Introduktion till skapar tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Introduktion till skapar tabeller i Azure SQL Data Warehouse
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>Skapar tabeller i Azure SQL Data Warehouse
 
 Läs om viktiga begrepp för att utforma tabeller i Azure SQL Data Warehouse. 
 
-## <a name="determining-table-category"></a>Bestämma tabellkategori 
+## <a name="determine-table-category"></a>Bestämma tabellkategori 
 
 En [stjärnschema](https://en.wikipedia.org/wiki/Star_schema) organiserar data i fakta-och dimensionstabeller. Vissa tabeller som används för integrering eller mellanlagring data innan den flyttas till en tabell med fakta eller dimension. När du utformar en tabell kan du bestämma om tabelldata tillhör i en faktum, dimension eller integration tabell. Det här beslutet informerar lämpliga tabellstrukturen och distribution. 
 
@@ -46,9 +42,9 @@ CREATE SCHEMA wwi;
 Om du vill visa organisationen för tabellerna i SQL Data Warehouse, kan du använda fakta och dimension int som prefix tabellnamnen. Följande tabell visar några av namnen på schema och tabellen för WideWorldImportersDW. Den jämför namnen i SQL Server med namnen i SQL Data Warehouse. 
 
 | WideWorldImportersDW tabell  | Tabelltypen | SQL Server | SQL Data Warehouse |
-|:-----|:-----|:------|
-| Ort | Dimensionen | Dimension.City | wwi.DimCity |
-| Ordning | Fakta | Fact.Order | wwi.FactOrder |
+|:-----|:-----|:------|:-----|
+| Ort | Dimensionen | Dimension.City | wwi. DimCity |
+| Ordning | Fakta | Fact.Order | wwi. FactOrder |
 
 
 ## <a name="table-persistence"></a>Tabell beständiga 
@@ -70,7 +66,7 @@ Det finns endast en tillfällig tabell för hela sessionen. Du kan använda en t
 En extern tabell pekar på data som finns i Azure Storage blob eller Azure Data Lake Store. När den används tillsammans med instruktionen CREATE TABLE AS SELECT, importerar välja från en extern tabell data till SQL Data Warehouse. Externa tabeller kan därför användbart för att läsa in data. En självstudiekurs inläsning finns [Använd PolyBase för att läsa in data från Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Datatyper
-SQL Data Warehouse stöder vanligaste de datatyper. En lista över datatyperna som stöds, se [datatyper i CREATE TABLE-referens](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) i CREATE TABLE-instruktion. Minimera storlek på datatyper för hjälper till att förbättra frågeprestanda. Anvisningar om hur du använder datatyper finns [datatyper](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse stöder vanligaste de datatyper. En lista över datatyperna som stöds, se [datatyper i CREATE TABLE-referens](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) i CREATE TABLE-instruktion. Minimera storlek på datatyper för hjälper till att förbättra frågeprestanda. Anvisningar om hur du använder datatyper finns [datatyper](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Distribuerade tabeller
 En grundläggande funktion i SQL Data Warehouse är som den kan lagra och fungerar på tabeller över 60 [distributioner](massively-parallel-processing-mpp-architecture.md#distributions).  Tabellerna distribueras med en metod för resursallokering, hash eller replikering.
@@ -106,7 +102,7 @@ En partitionerad tabell lagrar och utför åtgärder på tabellraderna enligt da
 ## <a name="columnstore-indexes"></a>Columnstore-index
 Som standard lagrar en tabell i SQL Data Warehouse som ett grupperat columnstore-index. Det här formuläret för datalagring uppnår hög komprimering och frågeprestanda för stora tabeller.  Grupperade columnstore-indexet är vanligtvis det bästa valet, men i vissa fall ett grupperat index eller en heap är lämplig lagringsstruktur.
 
-En lista över columnstore-funktioner, se [vad är nytt för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). För att förbättra prestanda för columnstore-index, se [maximera radgrupps kvalitet för columnstore-index](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+En lista över columnstore-funktioner, se [vad är nytt för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-whats-new). För att förbättra prestanda för columnstore-index, se [maximera radgrupps kvalitet för columnstore-index](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statistik
 Frågeoptimeringen använder statistik på kolumnnivå när den skapar plan för att köra en fråga. Om du vill förbättra frågeprestanda är det viktigt att skapa statistik på enskilda kolumner, särskilt de kolumner som används i frågan kopplar. Skapa och uppdatera statistik sker inte automatiskt. [Skapa statistik](/sql/t-sql/statements/create-statistics-transact-sql) när du har skapat en tabell. Uppdatera statistiken efter att ett stort antal rader läggs till eller ändras. Till exempel uppdatera statistiken efter att en belastning. Mer information finns i [statistik vägledning](sql-data-warehouse-tables-statistics.md).
@@ -143,7 +139,7 @@ SQL Data Warehouse stöder många, men inte alla, tabell-funktioner som erbjuds 
 - [Användardefinierade typer](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Tabell storlek frågor
-Ett enkelt sätt att identifiera utrymme och rader som används av en tabell i var och en av de 60-distributioner är att använda [DBCC PDW_SHOWSPACEUSED] [DBCC PDW_SHOWSPACEUSED].
+Ett enkelt sätt att identifiera utrymme och rader som används av en tabell i var och en av de 60-distributioner är att använda [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -342,4 +338,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-När du skapar tabeller för ditt data warehouse, är nästa steg att läsa in data i tabellen.  En självstudiekurs inläsning finns [läsa in data från Azure blob storage med PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
+När du skapar tabeller för ditt data warehouse, är nästa steg att läsa in data i tabellen.  En självstudiekurs inläsning finns [läser in data till SQL Data Warehouse](load-data-wideworldimportersdw.md).

@@ -1,30 +1,31 @@
 ---
-title: "Konfigurera Azure Stack användarens PowerShell-miljö | Microsoft Docs"
-description: "Konfigurera Azure Stack användarens PowerShell-miljö"
+title: Konfigurera Azure Stack användarens PowerShell-miljö | Microsoft Docs
+description: Konfigurera Azure Stack användarens PowerShell-miljö
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 4/26/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.reviewer: Balsu.G
+ms.openlocfilehash: e17fc85de3d11034889c39fd205b7ddc8cb344cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Konfigurera Azure Stack användarens PowerShell-miljö
 
 Du kan konfigurera din Azure-stacken Development Kit's PowerShell-miljö som en Azure-Stack-användare. När du har konfigurerat, du kan använda PowerShell för att hantera Azure-stacken resurser som prenumererar på erbjudanden, skapa virtuella datorer kan distribuera Azure Resource Manager-mallar, osv. Det här avsnittet är begränsad för att använda med användaren miljöer endast, om du vill konfigurera PowerShell för operatorn molnmiljö referera till den [konfigurera operatorn Stack Azure PowerShell-miljö](../azure-stack-powershell-configure-admin.md) artikel. 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Kör följande förutsättningar antingen från den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller från en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 

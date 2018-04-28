@@ -1,6 +1,6 @@
 ---
-title: Provköra en Azure AD B2C-aktiverad skrivbordsapp
-description: Snabbstart för att testa ett exempel på en ASP.NET-skrivbordsapp som använder Azure Active Directory B2C för användarinloggningen.
+title: Snabbstart – Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C | Microsoft Docs
+description: Kör en ASP.NET-exempelskrivbordsapp som använder Azure Active Directory B2C för användarinloggningen.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a312169217ac5476a503d5ad5a9126674f999eac
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Snabbstart: Provköra en Azure AD B2C-aktiverad skrivbordsapp
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C 
 
 Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i molnet för att skydda dina program, ditt företag och dina kunder. Med Azure AD B2C kan appar autentisera med konton på sociala medier och företagskonton med öppna protokoll.
 

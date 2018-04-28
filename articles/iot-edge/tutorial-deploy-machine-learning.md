@@ -9,17 +9,17 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en gräns för IoT-modul - förhandsgranskning
 
 Du kan använda IoT kant-moduler för att distribuera kod som implementerar affärslogiken direkt till IoT Edge-enheter. Den här självstudiekursen vägleder dig genom att distribuera en Azure Machine Learning-modul som beräknar när en enhet inte baserat på sensordata på simulerade IoT gränsenheten som du skapade i den [distribuera Azure IoT kanten på en simulerad enhet i Windows] [ lnk-tutorial1-win] eller [Linux] [ lnk-tutorial1-lin] självstudier. 
 
-I den här guiden får du lära dig hur man: 
+I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
 > * Skapa en Azure Machine Learning-modul
@@ -33,8 +33,8 @@ Azure Machine Learning-modul som du skapar i den här kursen läser miljön data
 
 * Azure IoT gränsenheten som du skapade i Snabbstart eller första självstudierna.
 * IoT-hubb anslutningssträngen för IoT-hubb som din IoT insticksenhet ansluter till.
-* Ett Azure Machine Learning-konto. Om du vill skapa ett konto, följ instruktionerna i [skapa Azure Machine Learning-konton och installera Azure Machine Learning arbetsstationen](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera programmet arbetsstationen för den här självstudiekursen. 
-* Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto, följ instruktionerna i [installation av hantering av modellen](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+* Ett Azure Machine Learning-konto. Om du vill skapa ett konto, följ instruktionerna i [skapa Azure Machine Learning-konton och installera Azure Machine Learning arbetsstationen](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera programmet arbetsstationen för den här självstudiekursen. 
+* Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto, följ instruktionerna i [installation av hantering av modellen](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
 
 Azure Machine Learning-modulen stöder inte ARM-processorer. 
 
@@ -66,9 +66,9 @@ Kontrollera att behållaren avbildningen skapades och lagras i Azure-behållaren
 6. Välj **machinelearningmodule**
 7. Nu har du fullständig avbildning på behållaren. Anteckna denna avbildningssökväg för nästa avsnitt. Det bör se ut så här: **< registry_name >.azureacr.io/machinelearningmodule:1**
 
-## <a name="add-registry-credentials-to-your-edge-device"></a>Lägg till registret autentiseringsuppgifter i Edge-enhet
+## <a name="add-registry-credentials-to-your-edge-device"></a>Lägg till autentiseringsuppgifter för registret i din Edge-enhet
 
-Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på datorn där du kör Edge-enhet. Det här kommandot ger runtime-åtkomst till pull-behållaren.
+Lägg till autentiseringsuppgifterna för ditt register i Edge-runtimen på den dator där du kör din Edge-enhet. Det här kommandot ger runtime-åtkomst till pull-behållaren.
 
 Linux:
    ```cmd
@@ -86,17 +86,17 @@ Windows:
 1. Gå till **IoT Edge (förhandsversion)** och välj IoT Edge-enhet.
 1. Välj **Ange moduler**.
 1. Om du har redan distribuerats modulen tempSensor till din IoT insticksenhet, får den autopopulate. Om det inte redan finns i listan över moduler, kan du lägga till den.
-    1. Välj **lägga till IoT kant modul**.
-    2. I den **namn** anger `tempSensor`.
-    3. I den **avbildningen URI** anger `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+    1. Välj **Lägg till IoT Edge-modul**.
+    2. I **Namn**-fältet skriver du `tempSensor`.
+    3. I **URI för avbildning**-fältet skriver du `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Välj **Spara**.
 1. Lägg till datorn lärmodulen som du skapade.
-    1. Välj **lägga till IoT kant modul**.
+    1. Välj **Lägg till IoT Edge-modul**.
     1. I den **namn** anger `machinelearningmodule`
     1. I den **bild** , ange din adress bild, till exempel `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Välj **Spara**.
 1. I steget **Lägg till moduler** väljer du **Nästa**.
-1. I den **ange vägar** steg, kopiera JSON nedan i textrutan. Första vägen transporter meddelanden från temperatursensor till datorn lärmodulen via slutpunkten ”amlInput”, vilket är den slutpunkt som använder alla moduler i Azure Machine Learning. Andra vägen transporter meddelanden från machine learning-modulen till IoT-hubb. I den här vägen '' amlOutput'' slutpunkten med alla Azure Machine Learning-moduler som utdata och '' uppströms$ '' anger IoT-hubb. 
+1. I steget **Ange vägar** kopierar du den JSON nedanför till textrutan. Första vägen transporter meddelanden från temperatursensor till datorn lärmodulen via slutpunkten ”amlInput”, vilket är den slutpunkt som använder alla moduler i Azure Machine Learning. Andra vägen transporter meddelanden från machine learning-modulen till IoT-hubb. I den här vägen '' amlOutput'' slutpunkten med alla Azure Machine Learning-moduler som utdata och '' uppströms$ '' anger IoT-hubb. 
 
     ```json
     {

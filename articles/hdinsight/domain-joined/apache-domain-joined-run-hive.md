@@ -1,26 +1,22 @@
 ---
-title: Konfigurera principer för Hive i HDInsight med domänanslutna - Azure | Microsoft Docs
+title: Konfigurera principer för Hive i HDInsight med domänanslutna - Azure
 description: Läs mer ...
 services: hdinsight
-documentationcenter: ''
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/25/2016
-ms.author: saurinsh
-ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Konfigurera principer för Hive i HDInsight-domänansluten
 Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.

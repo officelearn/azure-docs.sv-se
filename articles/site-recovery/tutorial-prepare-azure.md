@@ -1,28 +1,29 @@
 ---
-title: "Skapa resurser som ska användas med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du förbereder Azure för replikering av lokala datorer med hjälp av Azure Site Recovery."
+title: Skapa resurser som ska användas med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du förbereder Azure för replikering av lokala datorer med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
 
  [Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-Den här självstudien visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig hur man:
+Den här självstudien visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Kontrollera att ditt konto har replikeringsbehörighet.
-> * Skapa ett Azure-lagringskonto.
+> * Kontrollera att ditt Azure-konto har replikeringsbehörighet.
+> * Skapa ett Azure-lagringskonto. Replikerade data lagras i det.
+> * Skapa ett Recovery Services-valv.
 > * Konfigurera ett Azure-nätverk. När de virtuella Azure-datorerna skapats efter redundansen, är de anslutna till det här Azure-nätverket.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
@@ -39,7 +40,7 @@ Om du nyligen skapade ditt kostnadsfria Azure-konto är du administratör för p
 - Skapa en virtuell dator i det valda virtuella nätverket.
 - Skriva till det valda lagringskontot.
 
-Den inbyggda rollen Virtuell datordeltagare har dessa behörigheter. Du behöver också behörighet för att hantera åtgärder i Site Recovery. Rollen Site Recovery-bidragsgivare har alla behörigheter som krävs för att hantera Site Recovery-åtgärder i ett Recovery Services-valv.
+För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll som virtuell datordeltagare. För att hantera Site Recovery-åtgärder i ett valv, måste ditt konto också tilldelas en inbyggd roll som Site Recovery-deltagare.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 

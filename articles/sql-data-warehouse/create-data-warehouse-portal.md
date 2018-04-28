@@ -1,20 +1,20 @@
 ---
-title: Skapa och skicka en fråga till ett Azure SQL Data Warehouse – Azure Portal | Microsoft Docs
-description: Skapa ett Azure SQL Data Warehouse i Azure Portal och skicka sedan en fråga till det.
+title: 'Snabbstart: Skapa och fråga Azure SQL Data Warehouse - Azure-portalen | Microsoft Docs'
+description: Skapa och läsa ett data warehouse med Azure SQL Data Warehouse i Azure-portalen.
 services: sql-data-warehouse
-author: hirokib
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.topic: quickstart
-ms.component: implement
-ms.date: 03/28/2018
-ms.author: elbutter
-ms.reviewer: jrj
-ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart:Skapa och skicka frågor till ett Azure SQL informationslager i Azure-portalen
 
@@ -22,9 +22,14 @@ Skapa snabbt och skicka frågor till ett Azure SQL Data Warehouse med hjälp av 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
+> [!NOTE]
+> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information finns på [prissidan för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+>
+>
+
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -32,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
-Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](performance-tiers.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server). 
 
 Följ de här stegen för att skapa ett SQL Data Warehouse som innehåller exempeldatabasen AdventureWorksDW. 
 
@@ -67,15 +72,15 @@ Följ de här stegen för att skapa ett SQL Data Warehouse som innehåller exemp
 
 5. Klicka på **Välj**.
 
-6. Klicka på **Prestandanivå** för att ange prestandakonfigurationen för informationslagret.
+6. Klicka på **prestandanivå** ska kunna ange konfigurationen för prestanda för datalagret.
 
-7. För den här kursen ska du välja prestandanivån **Optimerad för Elasticity**. Skjutreglaget är som standard är inställt på **DW400**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. Den här kursen väljer **Gen2**. Skjutreglaget, som standard är inställt på **DW1000c**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klicka på **Använd**.
 
-9. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
+9. Nu när du har slutfört formuläret SQL Data Warehouse, klicka på **skapa** att tillhandahålla databasen. Etableringen tar några minuter. 
 
     ![klicka på skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,7 +96,7 @@ Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindra
 > SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver-20171113.database.windows.net**) och alternativ för ytterligare konfiguration. 
+1. När distributionen är klar klickar du på **SQL-informationslager** från den vänstra menyn och klicka sedan på **mySampleDatabase** på den **SQL-informationslager** sidan. På översiktssidan för din databas öppnas och visar fullständigt kvalificerade servernamnet (exempelvis **mynewserver 20180430.database.windows.net**) och innehåller alternativ för ytterligare konfiguration. 
 
 2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Öppna serverinställningarna genom att klicka på servernamnet.
 
@@ -122,8 +127,8 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20171113.database.windows.net. 
+2. Välj **SQL-informationslager** från den vänstra menyn och klicka på datalager på den **SQL datawarehouses** sidan. 
+3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20180430.database.windows.net. 
 
     ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -138,7 +143,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver 20171113.database.windows.net**. |
+   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver 20180430.database.windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
@@ -192,7 +197,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 2. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-3. Om du vill ta bort den SQL-server som du har skapat klickar du på **mynewserver 20171113.database.windows.net** i föregående bild och sedan på **Ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+3. Ta bort SQL-server som du har skapat, klicka på **mynewserver 20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
 4. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 

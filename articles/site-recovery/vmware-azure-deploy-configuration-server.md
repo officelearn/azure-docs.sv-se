@@ -1,6 +1,6 @@
 ---
-title: "Distribuera konfigurationsservern för VMware katastrofåterställning med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du distribuerar en konfigurationsserver för VMware katastrofåterställning med Azure Site Recovery"
+title: Distribuera konfigurationsservern för VMware katastrofåterställning med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du distribuerar en konfigurationsserver för VMware katastrofåterställning med Azure Site Recovery
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 99b368ca364bd7c5bebfc00c2df0f04333293388
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -108,6 +108,11 @@ Om du vill lägga till en extra NIC på konfigurationsservern lägger du till de
 8. I **Konfigurera virtuella autentiseringsuppgifter**, ange användarnamn och lösenord som används för att automatiskt installera Azure Site Recovery Mobility-tjänsten på datorer när replikeringen är aktiverad. För Windows-datorer måste kontot ha lokal administratörsbehörighet på de datorer som du vill replikera. För Linux anger du information för rotkontot.
 9. Välj **Slutför konfigurationen** att slutföra registreringen. 
 10. När registreringen är klar i Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på sidan **Källa** i valvet. Välj sedan **OK** för att konfigurera målinställningarna.
+
+
+## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
+
+Läs anvisningarna för att uppgradera konfigurationsservern till den senaste versionen, [här](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
 
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem

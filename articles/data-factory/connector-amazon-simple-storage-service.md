@@ -8,13 +8,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bb0b9e3db4637a6b872c7fed9653a16457b848db
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,14 +94,14 @@ Ange typegenskapen för dataset för att kopiera data från Amazon S3, **AmazonS
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **AmazonS3Object** |Ja |
 | bucketName | S3-Bucketnamn. |Ja |
-| key | S3 objekt nyckeln. Gäller bara när prefix har inte angetts. |Nej |
-| prefix | Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller bara när nyckeln har inte angetts. |Nej |
+| key | Den **namn eller jokertecken-filtret** S3 objekt nyckel under en angiven bucket. Gäller bara när ”prefixet”-egenskap har inte angetts. <br/><br/>Wildcard-filtret har endast stöd för filen Namndelen men som inte finns i mappen. Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"` |Nej |
+| prefix | Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när ”key”-egenskap inte har angetts. |Nej |
 | version | Versionen av objektet S3 om S3 versionshantering är aktiverad. |Nej |
-| format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
+| Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
-> [!NOTE]
-> **bucketName + nyckeln** anger platsen för S3 objekt, där bucket är Rotbehållare för S3 objekt och nyckeln är den fullständiga sökvägen till S3 objekt.
+>[!TIP]
+>Kopiera alla filer i en mapp genom att ange **bucketName** för bucket och **prefix** för mappen.<br>Om du vill kopiera en enstaka fil med ett angivet namn, ange **bucketName** för bucket och **nyckeln** för en del plus filen mappnamn.<br>Om du vill kopiera en delmängd av filer på en mapp, ange **bucketName** för bucket och **nyckeln** för mappen del plus jokertecken-filtret.
 
 **Exempel: med prefix**
 

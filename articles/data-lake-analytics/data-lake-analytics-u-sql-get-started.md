@@ -1,8 +1,8 @@
 ---
-title: "Kom igång med U-SQL-språket | Microsoft Docs"
-description: "Lär dig grunderna om U-SQL-språket."
+title: Kom igång med U-SQL-språket | Microsoft Docs
+description: Lär dig grunderna om U-SQL-språket.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>Kom igång med U-SQL
 U-SQL är ett språk som kombinerar deklarativ SQL med tvingande C# för att du ska bearbeta data i alla skalor. Via skalbara, distribuerade frågan möjligheterna för U-SQL, kan du effektivt analysera data i relationella butiker, till exempel Azure SQL Database. Du kan bearbeta Ostrukturerade data genom att använda schemat vid läsning och lägga till egen kod och UDF: er med U-SQL. Dessutom innehåller U-SQL utökningsbarhet som ger detaljerad kontroll över hur du utför i större skala. 
@@ -29,7 +29,7 @@ U-SQL är ett språk som kombinerar deklarativ SQL med tvingande C# för att du 
 * Detaljerad information om den **U-SQL-syntaxen för anspråksregelspråket**, finns det [U-SQL-Språkreferens](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Att förstå den **U-SQL-designfilosofin**, bloggposten Visual Studio [introduktion till U-SQL – ett språk som är stort databearbetning enkelt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du går igenom U-SQL-exemplen i det här dokumentet, läsa och slutföra [Självstudier: utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Den här kursen beskrivs säkerhetsnivån med hjälp av U-SQL med Azure Data Lake-verktyg för Visual Studio.
 
@@ -60,8 +60,8 @@ Observera data frågetecken skriver i den `Duration` fältet. Det innebär att d
 
 ### <a name="key-concepts"></a>Viktiga begrepp
 * **Raduppsättningen variabler**: varje frågeuttryck som producerar en raduppsättning kan tilldelas till en variabel. U-SQL följer T-SQL variabeln namngivningsmönstret (`@searchlog`, till exempel) i skriptet.
-* Den **EXTRAHERA** nyckelordet läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv`är en inbyggd U-SQL-extraktor för fliken värden filer. Du kan utveckla anpassade juicepressar.
-* Den **utdata** skriver data från en raduppsättning till en fil. `Outputters.Csv()`är en inbyggd U-SQL-outputter att skapa en CSV-värdefil. Du kan utveckla anpassade outputters.
+* Den **EXTRAHERA** nyckelordet läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv` är en inbyggd U-SQL-extraktor för fliken värden filer. Du kan utveckla anpassade juicepressar.
+* Den **utdata** skriver data från en raduppsättning till en fil. `Outputters.Csv()` är en inbyggd U-SQL-outputter att skapa en CSV-värdefil. Du kan utveckla anpassade outputters.
 
 ### <a name="file-paths"></a>Sökvägar
 
@@ -226,7 +226,7 @@ MED U-SQL-instruktion kan användas för att begränsa resultatet till grupper s
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Avancerade aggregering scenarier finns i referensdokumentationen för U-SQL-för [sammanställa, analytiska och referera till funktioner](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+Avancerade aggregering scenarier finns i referensdokumentationen för U-SQL-för [sammanställa, analytiska och referera till funktioner](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

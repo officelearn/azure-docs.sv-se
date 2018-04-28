@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 88a9f5988d1fe3f4de4fe10da23a5f713e3f3370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5520781c9f687e5e32ad1d8c38922a456bb5e3ce
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Konfigurera rollen anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 
@@ -80,7 +80,7 @@ Om ditt program förväntar anpassade roller som ska skickas i SAML-svar, måste
 
     f. Öppna Azure AD-generatorn och utföra följande steg-
 
-    ![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+    ![Azure AD-Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
     
     Ange **rollnamn**, **Rollbeskrivning**, och **roll värdet**. Klicka på **Lägg till** att lägga till rollen
     
@@ -250,7 +250,7 @@ Om ditt program förväntar anpassade roller som ska skickas i SAML-svar, måste
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [dokumentationen till App ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) ytterligare anvisningar.
+Se [dokumentationen till App ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) ytterligare anvisningar.
 
 <!--Image references-->
 <!--Image references-->

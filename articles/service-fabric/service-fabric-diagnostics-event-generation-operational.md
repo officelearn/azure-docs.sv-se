@@ -1,34 +1,218 @@
 ---
-title: Azure Service Fabric operativa kanalen | Microsoft Docs
-description: "Omfattande lista över loggar som genereras i operativa kanalen av Azure Service Fabric-kluster."
+title: Azure Service Fabric-händelselistan | Microsoft Docs
+description: Omfattande lista över händelser som tillhandahålls av Azure Service Fabric för att övervaka kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 712679b8fae9059df602881f28a1b74f7244fca3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 8426218cf8f0819f20c78d9d84e202541d025b60
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="operational-channel"></a>Operativa kanalen 
+# <a name="list-of-service-fabric-events"></a>Lista över händelser som Service Fabric 
 
-Den operativa kanalen består av loggar från övergripande åtgärder som utförs av Service Fabric på noderna och klustret. När ”-diagnostik är aktiverat för ett kluster, Azure-diagnostik-agent har distribuerats på klustret och är som standard konfigurerad för att läsa i loggar från den operativa kanalen. Läs mer om hur du konfigurerar den [Azure Diagnostics agent](service-fabric-diagnostics-event-aggregation-wad.md) att ändra konfigurationen för diagnostik av klustret för att hämta mer loggar eller prestandaräknare. 
+Service Fabric Exponerar en primär uppsättning klusterhändelser att meddela dig om status för klustret som [Service Fabric händelser](service-fabric-diagnostics-events.md). Dessa är baserade på åtgärder som utförs av Service Fabric på noderna och klustret eller beslut om livscykelhantering av klustret ägare/operator. Dessa händelser kan nås genom att fråga den [EventStore](service-fabric-diagnostics-eventstore.md) i klustret eller via operativa kanalen. På Windows-datorer, är operativa kanalen också kopplat till EventLog - så att du kan se Service Fabric-händelser i Loggboken. 
 
-## <a name="operational-channel-logs"></a>Operativa kanalen loggar 
+>[!NOTE]
+>En lista över Service Fabric-händelser för kluster i versioner < 6.2, finns i följande avsnitt. 
 
-Här är en omfattande lista över loggarna som tillhandahålls av Service Fabric i den operativa kanalen. 
+Här är en lista över alla händelser i den plattform sorterad efter den enhet som de mappas till.
 
-| Händelse-ID | Namn | Källa (aktivitet) | Nivå |
+## <a name="cluster-events"></a>Klusterhändelser
+
+**Uppgradera klusterhändelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 29627 | ClusterUpgradeStartOperational | CM | Information | C1 |
+| 29628 | ClusterUpgradeCompleteOperational | CM | Information | 1 |
+| 29629 | ClusterUpgradeRollbackStartOperational | CM | Information | 1 |
+| 29630 | ClusterUpgradeRollbackCompleteOperational | CM | Information | 1 |
+| 29631 | ClusterUpgradeDomainCompleteOperational | CM | Information | 1 |
+
+**Klustret hälsa rapporten händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 54428 | ProcessClusterReportOperational | HM | Information | 1 |
+| 54437 | ExpiredClusterEventOperational | HM | Information | 1 |
+
+**Chaos tjänsten-händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 50021 | ChaosStartedEvent | Möjlighet att testa | Information | 1 |
+| 50023 | ChaosStoppedEvent | Möjlighet att testa | Information | 1 |
+
+## <a name="node-events"></a>Nod-händelser
+
+**Noden Livscykelhändelser** 
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 18602 | DeactivateNodeCompletedOperational | FM | Information | 1 |
+| 18603 | NodeUpOperational | FM | Information | 1 |
+| 18604 | NodeDownOperational | FM | Information | 1 |
+| 18605 | NodeAddedOperational | FM | Information | 1 |
+| 18606 | NodeRemovedOperational | FM | Information | 1 |
+| 18607 | DeactivateNodeStartOperational | FM | Information | 1 |
+| 25620 | NodeOpening | FabricNode | Information | 1 |
+| 25621 | NodeOpenedSuccess | FabricNode | Information | 1 |
+| 25622 | NodeOpenedFailed | FabricNode | Information | 1 |
+| 25623 | NodeClosing | FabricNode | Information | 1 |
+| 25624 | NodeClosed | FabricNode | Information | 1 |
+| 25625 | NodeAborting | FabricNode | Information | 1 |
+| 25626 | NodeAborted | FabricNode | Information | 1 |
+
+**Noden hälsa rapporten händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 54423 | ProcessNodeReportOperational | HM | Information | 1 |
+| 54432 | ExpiredNodeEventOperational | HM | Information | 1 |
+
+**Chaos nod händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 50033 | ChaosRestartNodeFaultScheduledEvent | Möjlighet att testa | Information | 1 |
+| 50087 | ChaosRestartNodeFaultCompletedEvent | Möjlighet att testa | Information | 1 |
+
+## <a name="application-events"></a>Programhändelser
+
+**Livscykel för programhändelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 29620 | ApplicationCreatedOperational | CM | Information | 1 |
+| 29625 | ApplicationDeletedOperational | CM | Information | 1 |
+| 23083 | ProcessExitedOperational | Värd för | Information | 1 |
+
+**Uppgradera programhändelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 29621 | ApplicationUpgradeStartOperational | CM | Information | 1 |
+| 29622 | ApplicationUpgradeCompleteOperational | CM | Information | 1 |
+| 29623 | ApplicationUpgradeRollbackStartOperational | CM | Information | 1 |
+| 29624 | ApplicationUpgradeRollbackCompleteOperational | CM | Information | 1 |
+| 29626 | ApplicationUpgradeDomainCompleteOperational | CM | Information | 1 |
+
+**Programhändelser hälsa rapport**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 54425 | ProcessApplicationReportOperational | HM | Information | 1 |
+| 54426 | ProcessDeployedApplicationReportOperational | HM | Information | 1 |
+| 54427 | ProcessDeployedServicePackageReportOperational | HM | Information | 1 |
+| 54434 | ExpiredApplicationEventOperational | HM | Information | 1 |
+| 54435 | ExpiredDeployedApplicationEventOperational | HM | Information | 1 |
+| 54436 | ExpiredDeployedServicePackageEventOperational | HM | Information | 1 |
+
+**Chaos programhändelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 50053 | ChaosRestartCodePackageFaultScheduledEvent | Möjlighet att testa | Information | 1 |
+| 50101 | ChaosRestartCodePackageFaultCompletedEvent | Möjlighet att testa | Information | 1 |
+
+## <a name="service-events"></a>Tjänsten-händelser
+
+**Livscykelhändelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 18602 | ServiceCreatedOperational | FM | Information | 1 |
+| 18658 | ServiceDeletedOperational | FM | Information | 1 |
+
+**Tjänstens hälsa rapporten händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 54424 | ProcessServiceReportOperational | HM | Information | 1 |
+| 54433 | ExpiredServiceEventOperational | HM | Information | 1 |
+
+## <a name="partition-events"></a>Partitionen händelser
+
+**Partitionen flytta händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 18940 | ReconfigurationCompleted | RA | Information | 1 |
+
+**Partitionen hälsa rapporten händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 54422 | ProcessPartitionReportOperational | HM | Information | 1 |
+| 54431 | ExpiredPartitionEventOperational | HM | Information | 1 |
+
+**Chaos partition händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 50069 | ChaosMovePrimaryFaultScheduledEvent | Möjlighet att testa | Information | 1 |
+| 50077 | ChaosMoveSecondaryFaultScheduledEvent | Möjlighet att testa | Information | 1 |
+
+**Händelser för analys av partition**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 65003 | PrimaryMoveAnalysisEvent | Möjlighet att testa | Information | 1 |
+
+## <a name="replica-events"></a>Replik-händelser
+
+**Replik hälsa rapporten händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 54429 | ProcessStatefulReplicaReportOperational | HM | Information | 1 |
+| 54430 | ProcessStatelessInstanceReportOperational | HM | Information | 1 |
+| 54438 | ExpiredStatefulReplicaEventOperational | HM | Information | 1 |
+| 54439 | ExpiredStatelessInstanceEventOperational | HM | Information | 1 |
+
+**Chaos replik händelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 50047 | ChaosRestartReplicaFaultScheduledEvent | Möjlighet att testa | Information | 1 |
+| 50051 | ChaosRemoveReplicaFaultScheduledEvent | Möjlighet att testa | Information | 1 |
+| 50093 | ChaosRemoveReplicaFaultCompletedEvent | Möjlighet att testa | Information | 1 |
+
+## <a name="container-events"></a>Behållaren händelser
+
+**Behållaren Livscykelhändelser** 
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 23074 | ContainerActivatedOperational | Värd för | Information | 1 |
+| 23075 | ContainerDeactivatedOperational | Värd för | Information | 1 |
+| 23082 | ContainerExitedOperational | Värd för | Information | 1 |
+
+## <a name="other-events"></a>Andra händelser
+
+**Korrelationshändelser**
+
+| EventId | Namn | Källa (aktivitet) | Nivå | Version |
+| --- | --- | --- | --- | --- |
+| 65011 | CorrelationOperational | Möjlighet att testa | Information | 1 |
+
+## <a name="events-prior-to-version-62"></a>Händelser före version 6.2
+
+Här är en omfattande lista över händelser som tillhandahålls av Service Fabric före version 6.2.
+
+| EventId | Namn | Källa (aktivitet) | Nivå |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Information |
 | 25621 | NodeOpenedSuccess | FabricNode | Information |

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -118,7 +118,7 @@ Utvärdera de konton som är tilldelade eller är tillämpliga för rollen globa
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera multifaktorautentisering och registrera alla andra mycket Privilegierade användare ofedererad administratörskonton 
 
-Kräver Azure Multi-Factor Authentication (MFA) vid inloggning för enskilda användare som är permanent tilldelade till en eller flera av Azure AD-administratörsroller: Global administratör, administratör av Privilegierade roller, administratör i Exchange Online och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörskonton](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) och se till att alla användare har registrerats på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Mer information finns under steg 2 och 3 i guiden [skydda åtkomst till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräver Azure Multi-Factor Authentication (MFA) vid inloggning för enskilda användare som är permanent tilldelade till en eller flera av Azure AD-administratörsroller: Global administratör, administratör av Privilegierade roller, administratör i Exchange Online och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörskonton](authentication/howto-mfa-userstates.md) och se till att alla användare har registrerats på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Mer information finns under steg 2 och 3 i guiden [skydda åtkomst till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Steg 2: Minimera teknikerna som används mest attack
 
@@ -164,8 +164,8 @@ Azure AD rekommenderar att du kräva multifaktorautentisering (MFA) för alla an
 
 Aktivera:
 
-* [MFA för hög exponering konton](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) , till exempel konton för verkställande polis i en organisation 
-* [MFA för varje administratörskonto som är associerade med en enskild användare](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) för andra anslutna SaaS-appar 
+* [MFA för hög exponering konton](authentication/multi-factor-authentication-security-best-practices.md) , till exempel konton för verkställande polis i en organisation 
+* [MFA för varje administratörskonto som är associerade med en enskild användare](authentication/howto-mfa-userstates.md) för andra anslutna SaaS-appar 
 * MFA för alla administratörer för Microsoft SaaS-appar, inklusive administratörer i roller hanteras i Exchange Online och Office-portalen
 
 Om du använder Windows Hello för företag, kan MFA krav uppfyllas med hjälp av Windows Hello tecknet i upplevelsen. Mer information finns i [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 

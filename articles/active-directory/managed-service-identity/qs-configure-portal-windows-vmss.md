@@ -13,45 +13,50 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: af17bf716ce22bc7c02d40def36248facb6fbcc4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en Azure Virtual Machine Scale ange hanteras Service identitet (MSI) med Azure-portalen
+# <a name="configure-a-vmss-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en VMSS hanteras Service identitet (MSI) med Azure-portalen
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan autentiseringsuppgifter i koden. 
 
-I den här artikeln du lär dig hur du aktiverar och ta bort MSI för en skaluppsättning för virtuell dator i Azure med Azure-portalen.
+I den här artikeln får du lära dig hur du aktiverar och inaktiverar tilldelats identitet för en VMSS med Azure-portalen. Tilldela och ta bort användare som tilldelats identiteter från en Azure-VMSS stöds inte för närvarande via Azure Portal.
+
+> [!NOTE]
+> För närvarande stöds inte användaren som har tilldelats identitet åtgärder via Azure Portal. Sök igen efter uppdateringar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="enable-msi-during-creation-of-azure-virtual-machine-scale-set"></a>Aktivera MSI under skapandet av skaluppsättning för virtuell Azure-dator
+- Om du är bekant med hanterade tjänstidentiteten kan ta en titt på [översiktsavsnittet](overview.md).
+- Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
-Från och med när detta skrivs stöds aktivera MSI under skapandet av en virtuell dator skala i Azure portal inte. I stället finns i följande virtuella Azure-datorn scale set skapa Quickstart artikel först skapa en skaluppsättning för virtuell dator i Azure:
+## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Hanterade tjänstidentiteten under skapandet av en skaluppsättning för virtuell Azure-dator
+
+Skapa en virtuell dator via Azure portal stöder för närvarande inte hanteras tjänstidentiteten åtgärder. I stället finns i följande virtuella Azure-datorn scale set skapa Quickstart artikel först skapa en skaluppsättning för virtuell dator i Azure:
 
 - [Skapa en Virtual Machine Scale Set i Azure-portalen](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Gå sedan vidare till nästa avsnitt för mer information om hur du aktiverar MSI på virtuella datorns skaluppsättning.
 
-## <a name="enable-msi-on-an-existing-azure-vmms"></a>Aktivera MSI på en befintlig Azure-VMMS
+## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Aktivera hanterade tjänstidentiteten på en befintlig Azure-VMMS
 
-Om du har en skaluppsättning för virtuell dator som ursprungligen har etablerats utan en MSI:
+Tilldelad identiteten på en virtuell dator som ursprungligen var etablerad utan den så att systemet:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
 
 2. Navigera till önskade virtuella datorns skaluppsättning.
 
-3. Klicka på den **Configuration** sidan, aktivera MSI på virtuella datorns skaluppsättning genom att välja **Ja** under ”hanterade tjänstidentiteten” Klicka **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Aktivera som tilldelats Systemidentiteten på den virtuella datorn genom att välja ”Ja” under ”hanterade tjänstidentiteten” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   ![Konfiguration av sidan skärmbild](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)  
+   [![Konfiguration av sidan skärmbild](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>Ta bort MSI från en skaluppsättning för virtuell Azure-dator
+## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort hanterade tjänstidentiteten från en skaluppsättning för virtuell Azure-dator
 
 Om du har en skaluppsättning för virtuell dator som inte längre behöver en MSI:
 
@@ -59,13 +64,16 @@ Om du har en skaluppsättning för virtuell dator som inte längre behöver en M
 
 2. Navigera till önskade virtuella datorns skaluppsättning.
 
-3. Klicka på den **Configuration** sidan tar du bort MSI från virtuella datorns skaluppsättning genom att välja **Nej** under **hanterade tjänstidentiteten**, klicka på **spara** . Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Inaktivera tilldelats identiteten på den virtuella datorn genom att välja ”Nej” under ”hanterade tjänstidentiteten” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
    ![Konfiguration av sidan skärmbild](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
+## <a name="related-content"></a>Relaterat innehåll
+
+- En översikt över hanterade tjänstidentiteten finns [översikt](overview.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
 - Med Azure-portalen, ge en virtuell dator i Azure skaluppsättning MSI [åtkomst till en annan Azure-resurs](howto-assign-access-portal.md).
 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.

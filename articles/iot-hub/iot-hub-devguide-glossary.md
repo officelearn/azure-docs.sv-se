@@ -1,11 +1,11 @@
 ---
 title: Azure IoT-hubb ordlista | Microsoft Docs
-description: "Utvecklarhandbok - en ordlista över vanliga villkoren för Azure IoT Hub."
+description: Utvecklarhandbok - en ordlista över vanliga villkoren för Azure IoT Hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ordlista IoT-hubb
 Den här artikeln innehåller några av de vanliga termer som används i IoT-hubb-artiklar.
@@ -110,6 +110,9 @@ Den [enheten identiteter REST API](https://docs.microsoft.com/rest/api/iothub/io
 ## <a name="device-identity"></a>Enhetsidentitet
 Enhetens identitet är den unika identifieraren som tilldelats varje enhet som registrerats i den [identitetsregistret](#identity-registry).
 
+## <a name="module-identity"></a>Modulen identitet
+Modulen identiteten är den unika identifieraren som tilldelats varje modul som hör till en enhet. Modulen identitet också registreras i den [identitetsregistret](#identity-registry).
+
 ## <a name="device-management"></a>Enhetshantering
 Enhetshantering omfattar hela livscykeln som är associerade med hantering av enheter i IoT-lösningen inklusive planering, etablering, konfigurera, övervaka och borttagning.
 
@@ -125,14 +128,17 @@ Enhetsetableringen är en process för att lägga till första [enhetsdata](#dev
 ## <a name="device-twin"></a>Enhetstvilling
 En [enheten dubbla](iot-hub-devguide-device-twins.md) är JSON-dokument som lagrar tillstånd enhetsinformation som metadata, konfigurationer och villkor. [IoT-hubb](#iot-hub) kvarstår en enhet dubbla för varje enhet som du etablerar i din IoT-hubb. Enheten twins gör det möjligt att synkronisera [villkor som enheten](#device-condition) och konfigurationer mellan enheten och lösningen serverdel. Du kan fråga enheten twins att söka efter specifika enheter och fråga status för långvariga åtgärder.
 
-## <a name="device-twin-queries"></a>Enheten dubbla frågor
-[Enheten dubbla frågor](iot-hub-devguide-query-language.md) använder frågespråket i SQL-liknande IoT-hubb för att hämta information från din enhet twins. Du kan använda samma IoT-hubb-frågespråket för att hämta information om [jobb](#job) körs i din IoT-hubb.
+## <a name="module-twin"></a>Modulen dubbla
+Precis som dubbla enhet, en modul dubbla är JSON-dokument som lagras modulen tillståndsinformation som metadata, konfigurationer och villkor. IoT-hubb kvarstår en modul dubbla för varje modul-identitet som du etablerar under en enhetsidentitet i din IoT-hubb. Modulen twins kan du synkronisera modulen villkor och konfigurationer mellan modulen och lösningens serverdel. Du kan fråga modulen twins att söka efter specifika moduler och fråga status för långvariga åtgärder.
+
+## <a name="twin-queries"></a>Dubbla frågor
+[Enheten och modulen dubbla frågor](iot-hub-devguide-query-language.md) använder frågespråket i SQL-liknande IoT-hubb för att hämta information från din enhet twins eller modulen twins. Du kan använda samma IoT-hubb-frågespråket för att hämta information om [jobb](#job) körs i din IoT-hubb.
 
 ## <a name="device-twin-rest-api"></a>Enheten dubbla REST API
 Du kan använda den [enheten dubbla REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) från lösningen serverdel för att hantera din enhet twins. API: et kan du hämta och uppdatera [enheten dubbla](#device-twin) egenskaper och anropa [direkt metoder](#direct-method). Normalt bör du använda en av de högre [SDK-tjänsten](#azure-iot-service-sdks) som visas i IoT-hubb självstudier.
 
-## <a name="device-twin-synchronization"></a>Dubbla synkronisering
-Synkronisering av dubbla använder den [önskade egenskaper](#desired-properties) i din enhet twins att konfigurera dina enheter och hämta [rapporterade egenskaper](#reported-properties) från dina enheter kan lagra i enheten dubbla.
+## <a name="twin-synchronization"></a>Dubbla synkronisering
+Dubbla synkronisering använder den [önskade egenskaper](#desired-properties) i enheten twins eller modulen twins för att konfigurera enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från dem ska lagras i dubbla.
 
 ## <a name="direct-method"></a>Direkt metod
 En [direkt metod](iot-hub-devguide-direct-methods.md) är ett sätt att utlösa en metod som ska köras på en enhet genom att anropa API för din IoT-hubb.

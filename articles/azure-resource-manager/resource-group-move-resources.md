@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -121,7 +121,6 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -135,7 +134,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Media Services
 * Mobile Engagement
 * Notification Hubs
-* Åtgärdsinformation
+* Operational Insights
 * Operations Management
 * Power BI
 * Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
@@ -154,7 +153,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Virtuella datorer (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Skaluppsättningar för virtuell dator - finns [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella nätverk - finns [begränsningar för virtuella nätverk](#virtual-networks-limitations)
-* VPN-gateway
+* VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Tjänster som inte kan flyttas
 
@@ -163,11 +162,14 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * AD DS
 * AD-Hybrid-tjänsten för hälsotillstånd
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
+* Certifikat - Apptjänstcertifikat kan flyttas, men överförda certifikat har [begränsningar](#app-service-limitations).
 * Container Service
-* Express Route
+* Data Factory
 * DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
 * Dynamics LCS
+* Express Route
 * Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Hanterade program
 * Hanterade diskar - Se [begränsningar för virtuella datorer](#virtual-machines-limitations)

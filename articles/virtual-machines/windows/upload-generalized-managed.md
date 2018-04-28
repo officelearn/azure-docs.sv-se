@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 919b1bef1f1337ad188e26476da8c5a5ef029224
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 133c09ad1f81a122d089485f8793d7dddbd1488a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Överför en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
@@ -100,14 +100,14 @@ Det här kommandot kan ta en stund att slutföra beroende på nätverksanslutnin
 Du kan också ladda upp en virtuell Hårddisk till ditt lagringskonto med hjälp av något av följande:
 
 - [AzCopy](http://aka.ms/downloadazcopy)
-- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage kopiera Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure Storage Explorer överför Blobbar](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API-referens](https://msdn.microsoft.com/library/dn529096.aspx)
 -   Du rekommenderas att använda Import/Export Service om överföring tid är längre än 7 dagar. Du kan använda [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) att uppskatta storlek och överför dataenheten tidpunkt. 
     Import/Export kan användas för att kopiera till ett standardlagringskonto. Du måste kopiera från standardlagring till premium storage-konto med ett verktyg som AzCopy.
 
 > [!IMPORTANT]
-> Om du använder AzCopy överför den virtuella Hårddisken till Azure, kontrollerar du att du har angett [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) överför innan du kör skriptet. Om målet är en blob och det här alternativet inte anges som standard skapas en blockblobb AzCopy.
+> Om du använder AzCopy överför den virtuella Hårddisken till Azure, kontrollerar du att du har angett [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) överför innan du kör skriptet. Om målet är en blob och det här alternativet inte anges som standard skapas en blockblobb AzCopy.
 > 
 > 
 

@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a340cb3d73e0aaa86a5b7beb555133daed39d8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services skalbar
 
@@ -22,7 +22,7 @@ Med skalbar, klientfrågor kan fördelas mellan flera *fråga repliker* i poolen
 
 I en typisk serverdistribution fungerar en servern som både bearbetning servern och frågeservern. Om antalet klientfrågor modeller på servern överskrider den fråga bearbetning av enheter (QPU) för din server-plan eller modellbearbetning sker samtidigt som hög frågan arbetsbelastningar, kan försämra prestanda. 
 
-Med skalbar, kan du skapa en fråga pool med upp till sju ytterligare fråga repliker (åtta totalt, inklusive din server). Du kan skala antalet frågan repliker att uppfylla krav på QPU kritisk tiden och du kan dela en bearbetning server från poolen frågan när som helst. 
+Med skalbar, kan du skapa en fråga pool med upp till sju ytterligare fråga repliker (åtta totalt, inklusive din server). Du kan skala antalet frågan repliker att uppfylla krav på QPU kritisk tiden och du kan dela en bearbetning server från poolen frågan när som helst. Alla frågan repliker skapas i samma region som din server.
 
 Oavsett vilket antal av frågan repliker i en pool med frågan fördelas bearbetningsbelastningar inte mellan frågan repliker. En enda server som fungerar som server för bearbetning. Frågan repliker fungerar endast frågor modeller synkroniseras mellan varje replik i poolen för frågan. 
 
@@ -73,11 +73,17 @@ Använd den **sync** igen.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-För att kunna köra synkronisering från PowerShell [uppdatera till senast](https://github.com/Azure/azure-powershell/releases) 5.01 eller högre AzureRM-modulen. Använd [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Innan du använder PowerShell [installera eller uppdatera modulen senaste AzureRM](https://github.com/Azure/azure-powershell/releases). 
+
+Ange antal frågan repliker [Set AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Ange det valfria `-ReadonlyReplicaCount` parameter.
+
+Kör synkronisering med [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>Anslutningar
 
-Det finns två servernamn på översiktssidan för din server. Om du ännu inte har konfigurerat skalbar för en server fungerar på samma sätt både servernamn. När du har konfigurerat skalbar för en server behöver du att ange namnet på lämplig server beroende på vilken typ av anslutning. 
+Det finns två servernamn på översiktssidan för din server. Om du ännu inte har konfigurerat skalbar för en server fungerar på samma sätt både servernamn. När du konfigurerar skalbar för en server, måste du ange namnet på lämplig server beroende på vilken typ av anslutning. 
 
 För slutanvändaren klientanslutningar som används för Power BI Desktop-, Excel- och anpassade appar **servernamn**. 
 

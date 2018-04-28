@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exempel på vanliga Stream Analytics användningsmönster fråga
+
 ## <a name="introduction"></a>Introduktion
-Frågorna i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. De här frågorna dokumenteras i den [Stream Analytics fråga Språkreferens](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. Den här artikeln beskrivs lösningar på flera vanliga frågemönster, baserat på verkliga scenarier. Det är ett pågående arbete och fortsätter att uppdateras med nya mönster kontinuerligt.
+Frågorna i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språkkonstruktioner dokumenteras i den [Stream Analytics fråga Språkreferens](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. 
+
+Frågedesigntillståndet kan snabba och enkla direkt logik för att flytta händelsedata från en indataström till en annan utdata-datalagret. Det kan göra eller omfattande mönster matchande och temporal analys för att beräkna mängder över olika tidsfönster som i exemplet TollApp. Du kan ansluta till data från flera inmatningar för kombinera strömning händelser och gör sökningar mot statiska referensdata att utöka händelsevärden. Du kan också skriva data till flera utdata.
+
+Den här artikeln beskrivs lösningar på flera vanliga frågemönster, baserat på verkliga scenarier. Det är ett pågående arbete och fortsätter att uppdateras med nya mönster kontinuerligt.
 
 ## <a name="query-example-convert-data-types"></a>Frågan exempel: konvertera-datatyper
 **Beskrivning**: definiera vilka typer av egenskaper på Indataströmmen.
@@ -359,7 +364,7 @@ Till exempel 2 på varandra följande bilar från samma Se angett avgift väg in
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
 | Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Utdata**:
@@ -463,18 +468,18 @@ Till exempel generera en händelse var femte sekund som rapporter nyligen upptä
 
 **Indata**:
 
-| t | värde |
+| T | värde |
 | --- | --- |
-| "2014-01-01T06:01:00" |1 |
-| "2014-01-01T06:01:05" |2 |
-| "2014-01-01T06:01:10" |3 |
-| "2014-01-01T06:01:15" |4 |
-| "2014-01-01T06:01:30" |5 |
-| "2014-01-01T06:01:35" |6 |
+| ”2014-01-01T06:01:00” |1 |
+| ”2014-01-01T06:01:05” |2 |
+| ”2014-01-01T06:01:10” |3 |
+| ”2014-01-01T06:01:15” |4 |
+| ”2014-01-01T06:01:30” |5 |
+| ”2014-01-01T06:01:35” |6 |
 
 **Utdata (första 10 raderna)**:
 
-| windowend | lastevent.t | lastevent.value |
+| windowend | lastevent.t | lastevent.Value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -508,30 +513,30 @@ Till exempel i IoT scenario för hem ugnar vill vi Generera en avisering när fl
 
 | time | deviceId | sensorName | värde |
 | --- | --- | --- | --- |
-| "2018-01-01T16:01:00" | ”Oven1” | ”temp” |120 |
-| "2018-01-01T16:01:00" | ”Oven1” | "power" |15 |
-| "2018-01-01T16:02:00" | ”Oven1” | ”temp” |100 |
-| "2018-01-01T16:02:00" | ”Oven1” | "power" |15 |
-| "2018-01-01T16:03:00" | ”Oven1” | ”temp” |70 |
-| "2018-01-01T16:03:00" | ”Oven1” | "power" |15 |
-| "2018-01-01T16:04:00" | ”Oven1” | ”temp” |50 |
-| "2018-01-01T16:04:00" | ”Oven1” | "power" |15 |
-| "2018-01-01T16:05:00" | ”Oven1” | ”temp” |30 |
-| "2018-01-01T16:05:00" | ”Oven1” | "power" |8 |
-| "2018-01-01T16:06:00" | ”Oven1” | ”temp” |20 |
-| "2018-01-01T16:06:00" | ”Oven1” | "power" |8 |
-| "2018-01-01T16:07:00" | ”Oven1” | ”temp” |20 |
-| "2018-01-01T16:07:00" | ”Oven1” | "power" |8 |
-| "2018-01-01T16:08:00" | ”Oven1” | ”temp” |20 |
-| "2018-01-01T16:08:00" | ”Oven1” | "power" |8 |
+| ”2018-01-01T16:01:00” | ”Oven1” | ”temp” |120 |
+| ”2018-01-01T16:01:00” | ”Oven1” | ”power” |15 |
+| ”2018-01-01T16:02:00” | ”Oven1” | ”temp” |100 |
+| ”2018-01-01T16:02:00” | ”Oven1” | ”power” |15 |
+| ”2018-01-01T16:03:00” | ”Oven1” | ”temp” |70 |
+| ”2018-01-01T16:03:00” | ”Oven1” | ”power” |15 |
+| ”2018-01-01T16:04:00” | ”Oven1” | ”temp” |50 |
+| ”2018-01-01T16:04:00” | ”Oven1” | ”power” |15 |
+| ”2018-01-01T16:05:00” | ”Oven1” | ”temp” |30 |
+| ”2018-01-01T16:05:00” | ”Oven1” | ”power” |8 |
+| ”2018-01-01T16:06:00” | ”Oven1” | ”temp” |20 |
+| ”2018-01-01T16:06:00” | ”Oven1” | ”power” |8 |
+| ”2018-01-01T16:07:00” | ”Oven1” | ”temp” |20 |
+| ”2018-01-01T16:07:00” | ”Oven1” | ”power” |8 |
+| ”2018-01-01T16:08:00” | ”Oven1” | ”temp” |20 |
+| ”2018-01-01T16:08:00” | ”Oven1” | ”power” |8 |
 
 **Utdata**:
 
 | EventTime | deviceId | Temp | alertmessage som | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
-| "2018-01-01T16:05:00" | ”Oven1” |30 | ”Kort krets uppvärmning element” |15 |
-| "2018-01-01T16:06:00" | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
-| "2018-01-01T16:07:00" | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
+| ”2018-01-01T16:05:00” | ”Oven1” |30 | ”Kort krets uppvärmning element” |15 |
+| ”2018-01-01T16:06:00” | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
+| ”2018-01-01T16:07:00” | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
 
 **Lösningen**:
 
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Förklaring**: den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensor för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan för att hitta värdet för power i fönstret senaste relevanta för den aktuella händelsen. Och sedan om villkoren är uppfyllda, en varning ska genereras för enheten.
+**Förklaring**: den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensor för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan för att hitta värdet för power i fönstret senaste relevanta för den aktuella händelsen. Och sedan om villkoren är uppfyllda, en varning ska genereras för enheten.
 
 
 ## <a name="get-help"></a>Få hjälp

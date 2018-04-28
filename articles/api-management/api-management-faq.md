@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management vanliga frågor och svar | Microsoft Docs"
-description: "Svar på vanliga frågor och svar (FAQ) mönster och bästa praxis i Azure API Management."
+title: Azure API Management vanliga frågor och svar | Microsoft Docs
+description: Svar på vanliga frågor och svar (FAQ) mönster och bästa praxis i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och bästa praxis för Azure API Management.
@@ -88,7 +88,7 @@ Här är hur du lägger till en användare i gruppen Administratörer:
 
 Den nyligen tillagda deltagaren kan nu använda Azure PowerShell [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx). Här är hur du loggar in som administratör:
 
-1. Använd den `Login-AzureRmAccount` för att logga in.
+1. Använd den `Connect-AzureRmAccount` för att logga in.
 2. Ange sedan kontexten för den prenumeration som har tjänsten med hjälp av `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Få en URL för enkel inloggning med hjälp av `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Använda Webbadressen för att få åtkomst till administrationsportal.

@@ -1,11 +1,11 @@
 ---
 title: Skapa och registrera publisher konto | Microsoft Docs
-description: "Instruktioner för att skapa ett Microsoft Developer-konto så vid godkännande kommer du säljer olika erbjuder typer på Azure Marketplace."
+description: Instruktioner för att skapa ett Microsoft Developer-konto så vid godkännande kommer du säljer olika erbjuder typer på Azure Marketplace.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 Den här artikeln vägleder dig genom de nödvändiga konto skapas och registreringen ska bli en godkända Microsoft Developer för Azure Marketplace.
@@ -37,7 +37,7 @@ Adressen som utgör användarnamnet ska finnas på din domän och styrs av din I
 När du skapar ett företagskonto, följer du dessa riktlinjer om mer än en person behöver åtkomst till kontot genom att logga in med Microsoft-konto som har öppnat kontot.
 
 > [!Important]
-> Tillåt flera användare att komma åt ditt konto Dev Center viktigt att, bör du använda Azure Active Directory för att tilldela roller till enskilda användare som har åtkomst till kontot genom att logga in med sina individuella autentiseringsuppgifter för Azure AD. Mer information finns i [hantera kontoanvändare](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Tillåt flera användare att komma åt ditt konto Dev Center viktigt att, bör du använda Azure Active Directory för att tilldela roller till enskilda användare som har åtkomst till kontot genom att logga in med sina individuella autentiseringsuppgifter för Azure AD. Mer information finns i [hantera kontoanvändare](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Skapa ditt Microsoft-konto med hjälp av en e-postadress som hör till företagets domän, men inte till enskilda användare, till exempel windowsapps@fabrikam.com.
 * Begränsa åtkomsten till den här Microsoft-konto av minsta möjliga antal utvecklare.
@@ -49,7 +49,7 @@ När du skapar ett företagskonto, följer du dessa riktlinjer om mer än en per
 
 Ditt utvecklarkonto ska användas i första hand från betrodda datorer. Detta är viktigt eftersom det finns en gräns för hur många koder som genererats per konto per vecka. Det gör också smidigast inloggning.
 
-Mer information om ytterligare developer konto riktlinjer och säkerhet, klickar du på [här](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Mer information om ytterligare developer konto riktlinjer och säkerhet, klickar du på [här](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instruktioner
 1. Öppna en ny Chrome Incognito eller Internet Explorer InPrivate-surfning session för att säkerställa att du inte är inloggad till ett befintligt konto.

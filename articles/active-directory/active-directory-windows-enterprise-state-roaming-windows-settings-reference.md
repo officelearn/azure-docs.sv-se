@@ -1,9 +1,9 @@
 ---
-title: "Windows 10 roaming-inställningar | Microsoft Docs"
-description: "En fullständig lista över alla inställningar som kommer att flyttade eller säkerhetskopierade i Windows 10."
+title: Windows 10 roaming-inställningar | Microsoft Docs
+description: En fullständig lista över alla inställningar som kommer att flyttade eller säkerhetskopierade i Windows 10.
 services: active-directory
-keywords: "företagsroaming, windows-moln"
-documentationcenter: 
+keywords: företagsroaming, windows-moln
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 Följande är en fullständig lista över alla inställningar som kommer att flyttade eller säkerhetskopierade i Windows 10. 
@@ -27,7 +27,7 @@ Följande är en fullständig lista över alla inställningar som kommer att fly
 ## <a name="devices-and-endpoints"></a>Enheter och slutpunkter
 Se följande tabell för en sammanfattning av de enheter och typer som stöds av sync, säkerhetskopiering, och Återställ ramverk i Windows 10.
 
-| Kontotyp och åtgärd | Skrivbordsprogram | Mobil |
+| Kontotyp och åtgärd | Skrivbord | Mobil |
 | --- | --- | --- |
 | Azure Active Directory: synkronisering |Ja |Nej |
 | Azure Active Directory: säkerhetskopiering/återställning |Nej |Nej |
@@ -47,11 +47,15 @@ Följande inställningsgrupper med är tillgängliga för slutanvändarna att ak
 * Hjälpmedel: Skärmläsaren, Skärmtangentbordet Skärmförstoraren 
 * Andra Windows-inställningar: information om Windows-inställningar finns
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Edge webbläsare inställningen group (Favoriter, läsning lista) synkroniserar kan aktiveras eller inaktiveras av slutanvändare via Edge-webbläsaren menyalternativet för inställningar.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+För Windows 10 version 1803 eller senare, Internet Explorer i gruppen (Favoriter, angav URL: er) synkroniserar kan aktiveras eller inaktiveras av slutanvändare via Internet Explorer-inställningar. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Information om Windows-inställningar
 I följande tabell andra poster i kolumnen grupp med inställningar som refererar till inställningar som kan inaktiveras genom att gå till Inställningar > konton > Synkronisera dina inställningar > andra Windows-inställningar. 
@@ -59,7 +63,7 @@ I följande tabell andra poster i kolumnen grupp med inställningar som referera
 Interna poster i kolumnen Enhetsinställningsgruppen refererar till inställningar och appar som kan endast inaktiveras synkroniseras i själva appen eller genom att inaktivera synkronisering för hela enheten med hjälp av hantering av mobila enheter (MDM) eller inställningarna för Grupprincip.
 Inställningar som inte flyttas eller synkronisering kommer inte tillhör en grupp.
 
-| Inställningar | Skrivbordsprogram | Mobil | Grupp |
+| Inställningar | Skrivbord | Mobil | Grupp |
 | --- | --- | --- | --- |
 | **Konton**: kontobild |Synkronisering |X |Tema |
 | **Konton**: andra kontoinställningar |X |X | |

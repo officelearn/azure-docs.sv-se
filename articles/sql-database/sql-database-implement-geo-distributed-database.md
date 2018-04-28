@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementera en geo-distribuerad databas
 
@@ -380,4 +380,17 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Active geo-replication and failover groups](sql-database-geo-replication-overview.md) (Aktiv geo-replikering och redundansgrupper).
+I den här självstudiekursen har du lärt dig att konfigurera en Azure SQL-databas och ett program för redundansväxling till en fjärregion och sedan testa din redundansplan.  Du har lärt dig att: 
+
+> [!div class="checklist"]
+> * Skapa databasanvändare och ge dem behörigheter
+> * Skapa en brandväggsregel på databasnivå
+> * Skapa en redundansgrupp för geo-replikering
+> * Skapa och kompilera ett Java-program för att fråga en Azure SQL-databas
+> * Utföra ett programåterställningstest
+
+Gå vidare till nästa självstudie där du får lära dig att skapa anpassade avbildningar för hanterade enheter.
+
+> [!div class="nextstepaction"]
+>[Skapa en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md)
+

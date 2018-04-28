@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Konfigurera Salesforce för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce."
+title: 'Självstudier: Konfigurera Salesforce för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användaretablering
 
@@ -27,9 +27,13 @@ Syftet med den här kursen är att visa steg som krävs för att utföra i Sales
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
-*   En Azure Active directory-klient.
-*   Du måste ha en giltig klient för Salesforce för arbets- eller Salesforce för utbildning. Du kan använda ett kostnadsfritt utvärderingskonto för antingen service.
-*   Ett användarkonto i Salesforce-teamet administratörsbehörigheter.
+*   En Azure Active directory-klient
+*   En Salesforce.com-klient
+
+>[!IMPORTANT] 
+>Om du använder ett utvärderingskonto för Salesforce.com sedan kan du inte konfigurera automatisk användaretablering. Utvärderingskonton har inte den behörighet som krävs av API aktiveras förrän de har köpts. Du kan komma runt denna begränsning med hjälp av ett gratis [utvecklarkonto](https://developer.salesforce.com/signup) till den här kursen.
+
+Om du använder Salesforce begränsat läge, finns det [Salesforce Sandbox integration kursen](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Tilldela användare till Salesforce
 
@@ -89,7 +93,7 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 10. Kopiera token, gå till Azure AD-fönstret och klistrar in det i den **hemlighet Token** fältet.
 
-11. Den **klient URL** måste anges om Salesforce-instansen är i Salesforce offentliga moln. Annars är valfria. Ange klient-URL i formatet https://your-instance.my.salesforce.com, ersätta din-instans med namnet på ditt Salesforce-instans.
+11. Den **klient URL** måste anges om Salesforce-instansen är i Salesforce offentliga moln. Annars är valfria. Ange klient-URL i formatet av https://your-instance.my.salesforce.com, ersätta din-instans med namnet på ditt Salesforce-instans.
 
 12. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till ditt Salesforce-app.
 

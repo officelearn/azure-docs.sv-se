@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Etablera en djup Learning virtuell dator på Azure 
 
@@ -44,9 +44,9 @@ Här följer stegen för att skapa en instans av djup Learning virtuell dator:
       6. **Plats**: Välj datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast den fysiska platsen för snabbaste nätverksåtkomst. 
       
 > [!NOTE]
-> Eftersom DLVM har etablerats på Azure NC-serien GPU VM-instanser måste du välja någon av platser i Azure som har GPU-kort. För närvarande platser som har GPU virtuella datorer är: **östra USA, norra centrala USA, södra centrala USA, västra USA 2, Nordeuropa, Västeuropa**. Den senaste listan Kontrollera den [Azure produkter efter Region sidan](https://azure.microsoft.com/en-us/regions/services/) och leta efter **NC-serien** under **Compute**. 
+> DLVM stöder alla NC och ND serien GPU VM-instanser. Vid etablering av DLVM, måste du välja någon av platser i Azure som har GPU-kort. Kontrollera den [Azure produkter efter Region sidan](https://azure.microsoft.com/regions/services/) för tillgängliga platser och leta efter **NC-serien**, **NCv2-serien**, **NCv3-serien** , eller **ND-serien** under **Compute**. 
 
-   2. **Inställningar för**: Välj en storlek för NC-serien GPU virtuell dator som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
+   2. **Inställningar för**: Välj något av NC-serien (NC NCv2, NCv3) eller ND serie GPU storlekar för virtuella datorer som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
    
    3. **Sammanfattning**: Kontrollera att all information du angett är korrekt.
    5. **Köpa**: Klicka på **köpa** att starta etableringen. En länk som villkoren i transaktionen. Den virtuella datorn inte har några ytterligare kostnader utöver beräkning för server-storlek som du har valt i den **storlek** steg. 

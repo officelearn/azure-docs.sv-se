@@ -1,8 +1,8 @@
 ---
-title: "Profilen live-webbappar på Azure med Application Insights Profiler | Microsoft Docs"
-description: "Identifiera hot sökvägen i koden web server med en låg storleken profiler."
+title: Profilen live-webbappar på Azure med Application Insights Profiler | Microsoft Docs
+description: Identifiera hot sökvägen i koden web server med en låg storleken profiler.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilen live Azure-webbappar med Application Insights
 
@@ -63,7 +63,7 @@ Mer information finns i [förhandsversionen av Profiler för Azure-beräkningsre
 
 ## <a name="view-profiler-data"></a>Visa profiler data
 
-Kontrollera att ditt program tar emot trafik. Om du göra ett experiment kan du generera begäranden till din web app med hjälp av [Application Insights prestandatester](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Om du nyligen har aktiverat Profiler, kan du köra ett kort belastningstest under cirka 15 minuter som ska generera profiler-spårningar. Om du har haft profileraren redan aktiverat på ett tag hålla på att profileraren slumpmässigt körs två gånger i timmen och en varaktighet på två minuter varje gång den körs. Vi rekommenderar att du först kör belastningstest för en timme för att kontrollera att du får exempel profiler-spårningar.
+Kontrollera att ditt program tar emot trafik. Om du göra ett experiment kan du generera begäranden till din web app med hjälp av [Application Insights prestandatester](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du nyligen har aktiverat Profiler, kan du köra ett kort belastningstest under cirka 15 minuter som ska generera profiler-spårningar. Om du har haft profileraren redan aktiverat på ett tag hålla på att profileraren slumpmässigt körs två gånger i timmen och en varaktighet på två minuter varje gång den körs. Vi rekommenderar att du först kör belastningstest för en timme för att kontrollera att du får exempel profiler-spårningar.
 
 När programmet tar emot viss trafik, går du till den **prestanda** väljer **vidta åtgärder** att visa profiler-spårningar och välj sedan den **Profiler-spårningar** knappen.
 

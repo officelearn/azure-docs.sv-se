@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management resurser för Azure - tilldela roller | Microsoft Docs
+title: Tilldela roller för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
 description: Beskriver hur du tilldelar roller i PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,64 +13,64 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 9a9046afe2ee1e578333ff9d29f6fb21e95a0f22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 501f063992d2f5c7769a5c9059b346aa2b5c2bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---assign"></a>Privileged Identity Management - resursroller - tilldela
+# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Tilldela roller för Azure-resurser med hjälp av Privileged Identity Management
 
 ## <a name="assign-roles"></a>Tilldela roller
 
-Om du vill tilldela en användare eller grupp till en roll, Välj rollen (om visar roller) 
+Tilldela en användare eller grupp till en roll när du visar den **roller** rutan, Välj rollen och välj sedan **Lägg till användare**. 
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+![Fönstret med knappen ”Lägg till användare” i ”roller”](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
 
-eller klicka på Lägg till från Åtgärdsfältet (på vyn medlemmar).
+Du kan också välja **Lägg till användare** från den **medlemmar** fönstret.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+![”Medlem” rutan med knappen ”Lägg till användare”](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
 
 
-Om att lägga till en användare eller grupp från fliken medlemmar, måste du: 
+Om du vill lägga till en användare eller grupp från den **medlemmar** rutan som du behöver: 
 
-1. Välj en roll på menyn Lägg till innan du kan välja en användare eller grupp.
+1. Välj en roll från den **Välj en roll** fönstret innan du kan välja en användare eller grupp.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+   ![”Välj en roll” fönstret](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
 
 2. Välj en användare eller grupp från katalogen.
 
-3. Välj lämplig Tilldelningstypen från listrutan. 
+3. Välj lämplig Tilldelningstypen nedrullningsbara menyn: 
 
-    - **Precis i Tidstilldelning:** den ger användare eller grupp medlemmar berättigade men inte beständig åtkomst till rollen under en viss tid eller på obestämd tid (om konfigurerad i rollinställningar). 
-    - **Direkttilldelning:** kräver inte medlemmarna användare eller grupp för att aktivera rolltilldelning (kallas även permanent åtkomst). Microsoft rekommenderar att du använder direkttilldelning för kortvarig användning, till exempel på anrop SKIFT eller tid känsliga aktiviteter, där åtkomst inte är nödvändiga när uppgiften har slutförts.
+   - **Precis i tid**: ger användaren eller gruppen medlemmar berättigade men inte beständig åtkomst till rollen för en angiven period eller på obestämd tid (om konfigurerad i rollinställningar). 
+   - **Direkt**: kräver inte medlemmarna användare eller grupp för att aktivera rolltilldelning (kallas även permanent åtkomst). Vi rekommenderar att du använder direkttilldelning för kortvarig användning, där åtkomst inte är nödvändiga när uppgiften har slutförts. Exempel är SKIFT-samtal och tidskritiska aktiviteter.
 
-En kryssruta under listrutan för tilldelning av typen kan du ange om tilldelningen vara permanenta (permanent berättigad att aktivera precis i tid tilldelning/permanent active för Direkttilldelning).
+4. Om tilldelningen ska vara permanent (permanent tillämplig för en tilldelning av just-in-time eller permanent aktiv för en tilldelning av direct), markera kryssrutan nedan i **Tilldelningstyp** rutan.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+   ![”Medlem” inställningsfönstret med rutorna ”Tilldelningstyp” och relaterade](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
 
->[!NOTE]
->Kryssrutan kanske unmodifiable om en annan administratör har angett maximalt tilldelning varaktighet för varje Tilldelningstyp av i rollinställningarna för.
+   >[!NOTE]
+   >Kryssrutan kanske unmodifiable om en annan administratör har angett maximalt tilldelning varaktighet för varje Tilldelningstyp av i rollinställningarna för.
 
- Avmarkera kryssrutan om du vill ange en viss tilldelning varaktighet och ändrar start och avsluta datum och tid.
+   Avmarkera kryssrutan om du vill ange en viss tilldelning varaktighet och ändra start och/eller slutet datum och tid rutorna.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+   ![”Medlem” inställningsfönstret med kryssrutorna för startdatum, starttid, slutdatum och sluttid](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
 
 
 ## <a name="manage-role-assignments"></a>Hantera rolltilldelningar
 
-Administratörer kan hantera rolltilldelningar genom att välja roller eller medlemmar i det vänstra navigeringsfönstret. Att välja roller kan administratörer att definiera omfattningen av sina administrativa uppgifter till en specifik roll, medan medlemmar visas alla användare och grupper rolltilldelningar för resursen.
+Administratörer kan hantera rolltilldelningar genom att välja antingen **roller** eller **medlemmar** i den vänstra rutan. Att välja **roller** kan administratörer att definiera omfattningen av sina administrativa uppgifter till en specifik roll. Att välja **medlemmar** visar alla användare och grupper rolltilldelningar för resursen.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+![Fönstret ”roller”](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+![”Medlem” fönstret](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
 
 >[!NOTE]
-Om du har en roll väntande aktivering visas en meddelandebanderoll överst på sidan när du visar medlemskap.
+Om du har en roll väntande aktivering visas en meddelandebanderoll överst i fönstret när du visar medlemskap.
 
 
 ## <a name="modify-existing-assignments"></a>Ändra befintliga tilldelningar
 
-Välj Åtgärdsfältet överst på sidan Ändra inställningar för att ändra befintliga tilldelningar från detaljvy användare/grupp. Ändra tilldelning till bara i tid-tilldelning eller Direkttilldelning.
+Om du vill ändra befintliga tilldelningar från detaljvy användare/grupp, Välj **ändra inställningar** från Åtgärdsfältet. Ändra Tilldelningstypen till **precis i tid** eller **direkt**.
 
-![](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+![”Användare” informationsfönstret med knappen ”Inställningar”](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)

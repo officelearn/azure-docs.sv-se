@@ -1,24 +1,19 @@
 ---
-title: "Uppgradera till den Azure Söktjänsts-REST API version 2016-09-01 | Microsoft Docs"
-description: "Uppgradera till den Azure Söktjänsts-REST API version 2016-09-01"
-services: search
-documentationcenter: 
+title: Uppgradera till den Azure Söktjänsts-REST API version 2016-09-01 | Microsoft Docs
+description: Uppgradera till den Azure Söktjänsts-REST API version 2016-09-01
 author: brjohnstmsft
-manager: pablocas
-editor: 
-ms.assetid: 6183fa6c-48bb-4af7-adae-4be3bc43c3ed
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: ea901462677d42d90007a2130825bd3b382407f2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Uppgradera till den Azure Söktjänsts-REST API version 2016-09-01
 Om du använder version 2015-02-28 eller 2015-02-28-Preview av den [Azure Söktjänsts-REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), den här artikeln hjälper dig att uppgradera ditt program att använda den nästa allmänt tillgänglig API-versionen 2016-09-01.
@@ -61,7 +56,7 @@ Om din kod använder dessa funktioner, kan du inte uppgradera till 2016-09-01 ut
 > 
 > 
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Om du vill ha mer information om hur du använder Azure Search Service REST-API finns nyligen uppdaterat [API-referens](https://msdn.microsoft.com/library/azure/dn798935.aspx) på MSDN.
 
 Vi uppskattar din feedback på Azure Search. Om du får problem passa på att be om hjälp oss på den [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) eller [StackOverflow](http://stackoverflow.com/). Om begär du en fråga om Azure Search på StackOverflow, kontrollerar du att märka den med `azure-search`.

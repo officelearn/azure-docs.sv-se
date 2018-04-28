@@ -1,11 +1,11 @@
 ---
-title: "Så här konfigurerar du lösenord för enkel inloggning för en icke-galleriet applicationn | Microsoft Docs"
-description: "Så här konfigurerar du ett anpassat program icke-galleriet för säkra lösenordsbaserade enkel inloggning när det inte visas i Azure AD Application Gallery"
+title: Så här konfigurerar du lösenord för enkel inloggning för en icke-galleriet applicationn | Microsoft Docs
+description: Så här konfigurerar du ett anpassat program icke-galleriet för säkra lösenordsbaserade enkel inloggning när det inte visas i Azure AD Application Gallery
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett program för icke-galleriet
 
@@ -112,6 +112,8 @@ Följ dessa steg om du vill konfigurera enkel inloggning för ett program:
 10. Tilldela användare till programmet.
 
 11. Dessutom kan du också ange autentiseringsuppgifter för användarens räkning genom att markera rader användare och klicka på **referenser uppdatering** och ange användarnamn och lösenord för användarna. Annars uppmanas användarna att ange autentiseringsuppgifterna sig vid start.
+
+12. **Valfritt:** för vissa sociala media-program som Twitter och Facebook finns också alternativet att aktivera automatisk förnyelse av lösenordet för program med en frekvens som är markerade. Att aktivera den här Välj **jag vill använda Azure AD för att hantera den här användaren eller gruppen lösenord automatiskt** när du skriver in autentiseringsuppgifterna för en användare eller grupp. Välj sedan den **förnyelse frekvens (i veckor)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Tilldela en användare till ett program direkt
 

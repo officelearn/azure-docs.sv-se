@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Träna om en ny Resource Manager-baserat webbtjänst med hjälp av Machine Learning Management PowerShell-cmdlets
-När du träna om en ny webbtjänst uppdatera förutsägande web service definition för att referera till den nya tränade modellen.  
+När du träna om en ny webbtjänst uppdatera förutsägande web service definition för att referera till den nya tränade modellen.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Du måste skapa ett experiment utbildning och prediktivt experiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md). 
+Du måste skapa ett experiment utbildning och prediktivt experiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> Prediktivt experiment måste distribueras som en Azure Resource Manager (nya) baserad machine learning-webbtjänst. Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md). 
+> Prediktivt experiment måste distribueras som en Azure Resource Manager (nya) baserad machine learning-webbtjänst.
+> Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md).
 
 Ytterligare information om distribuera webbtjänster finns [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
 
@@ -48,7 +49,7 @@ Du vidta åtgärder är:
 6. Uppdatera webbtjänsten med nya Web Service Definition
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>Logga in på Azure Resource Manager-konto
-Du måste först logga in på ditt Azure-konto från i PowerShell-miljö med den [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+Du måste först logga in på ditt Azure-konto från i PowerShell-miljö med den [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## <a name="get-the-web-service-definition"></a>Hämta Web Service Definition
 Hämta sedan webbtjänsten genom att anropa den [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. Web Service Definition är en intern representation av den tränade modellen för webbtjänsten och kan inte ändras direkt. Kontrollera att du hämtar Web Service Definition för experimentet förutsägbara och inte experimentet utbildning.

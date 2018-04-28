@@ -1,25 +1,20 @@
 ---
 title: Hantera Azure Search med Powershell-skript | Microsoft Docs
-description: "Hantera din Azure Search-tjänst med PowerShell-skript. Skapa eller uppdatera en Azure Search-tjänst och hantera Azure Search admin nycklar"
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+description: Hantera din Azure Search-tjänst med PowerShell-skript. Skapa eller uppdatera en Azure Search-tjänst och hantera Azure Search admin nycklar
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Hantera din Azure Search-tjänst med PowerShell
 > [!div class="op_single_selector"]
@@ -29,7 +24,7 @@ ms.lasthandoff: 12/21/2017
 > 
 
 Det här avsnittet beskrivs de PowerShell-kommandona för att utföra många av de administrativa uppgifterna för Azure Search-tjänster. Vi kommer att gå igenom hur du skapar en söktjänst, skalning och hantera dess API-nycklar.
-Dessa kommandon parallell vilka hanteringsalternativ som finns tillgängliga i den [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
+Dessa kommandon parallell vilka hanteringsalternativ som finns tillgängliga i den [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Du måste ha Azure PowerShell 1.0 eller senare. Instruktioner finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
@@ -37,7 +32,7 @@ Dessa kommandon parallell vilka hanteringsalternativ som finns tillgängliga i d
 
 Först måste du logga in till Azure med det här kommandot:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Ange den e-postadressen för kontot och lösenordet i dialogrutan för Microsoft Azure-inloggning.
 

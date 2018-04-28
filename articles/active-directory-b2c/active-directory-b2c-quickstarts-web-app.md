@@ -1,6 +1,6 @@
 ---
-title: Testköra en Azure AD B2C-aktiverad webbapp
-description: Snabbstart för att testa en exempelwebbapp för ASP.NET som använder Azure Active Directory B2C för att tillhandahålla användarinloggning.
+title: Snabbstart – Konfigurera inloggning för ett ASP.NET-program med Azure Active Directory B2C | Microsoft Docs
+description: Kör en ASP.NET-exempelwebbapp som använder Azure Active Directory B2C för användarinloggningen.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4342e8c58c9bb20580d8428a6c9869f9a3b893cb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Snabbstart: Testköra en Azure AD B2C-aktiverad webbapp
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för ett ASP.NET-program med Azure Active Directory B2C
 
 Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i molnet för att skydda dina program, ditt företag och dina kunder. Med Azure AD B2C kan appar autentisera med konton på sociala medier och företagskonton med öppna protokoll.
 

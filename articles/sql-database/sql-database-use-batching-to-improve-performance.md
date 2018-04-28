@@ -9,11 +9,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmens prestanda för SQL-databas
 Batchbearbetning operations till Azure SQL Database avsevärt bättre prestanda och skalbarhet. Den första delen av den här artikeln innehåller några exempel på testresultat som jämför sekventiella och batch-förfrågningar till en SQL-databas för att förstå fördelarna. Resten av artikeln visar tekniker, scenarier och överväganden som hjälper dig att använda batchbearbetning har i din Azure-program.
@@ -32,9 +32,9 @@ En av fördelarna med att använda SQL-databas är att du inte behöver hantera 
 Den första delen av dokumentet undersöker olika batching tekniker för .NET-program som använder SQL-databas. De sista två avsnitt beskriver batchbearbetning riktlinjer och scenarier.
 
 ## <a name="batching-strategies"></a>Batchbearbetning strategier
-### <a name="note-about-timing-results-in-this-topic"></a>Observera om tidsinställning resultat i det här avsnittet
+### <a name="note-about-timing-results-in-this-article"></a>Observera om tidsinställning resultat i den här artikeln
 > [!NOTE]
-> Resultatet är inte prestandamått men är avsedda att visa **relativa prestandan**. Tidsinställningar baseras på ett genomsnitt av minst 10 testkörningar. Åtgärder som infogar i en tom tabell. Dessa tester har uppmätta pre-V12 och de inte nödvändigtvis motsvarar dataflödet som kan uppstå i en V12-databas med den nya [tjänstnivåer](sql-database-service-tiers.md). Relativa fördelen att batching tekniken bör vara densamma.
+> Resultatet är inte prestandamått men är avsedda att visa **relativa prestandan**. Tidsinställningar baseras på ett genomsnitt av minst 10 testkörningar. Åtgärder som infogar i en tom tabell. Dessa tester har uppmätta pre-V12 och de inte nödvändigtvis motsvarar dataflödet som kan uppstå i en V12-databas med den nya [DTU tjänstnivåer](sql-database-service-tiers-dtu.md) eller [vCore tjänstnivåer](sql-database-service-tiers-vcore.md). Relativa fördelen att batching tekniken bör vara densamma.
 > 
 > 
 
@@ -209,7 +209,7 @@ SQL-masskopiering är ett annat sätt att infoga stora mängder data i en målda
         }
     }
 
-Det finns tillfällen där masskopiering är att föredra över tabellvärdeparametrar. Se jämförelsetabellen av tabellvärdeparametrar jämfört med BULK INSERT åtgärder i avsnittet [Table-Valued parametrar](https://msdn.microsoft.com/library/bb510489.aspx).
+Det finns tillfällen där masskopiering är att föredra över tabellvärdeparametrar. Se jämförelsetabellen av tabellvärdeparametrar jämfört med BULK INSERT åtgärder i artikeln [Table-Valued parametrar](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Följande ad hoc-testresultaten visar prestanda för batchbearbetning med **SqlBulkCopy körs** i millisekunder.
 
@@ -309,7 +309,7 @@ I våra tester fanns det vanligtvis ingen fördel med att dela upp stora batchar
 > 
 > 
 
-Du kan se att bästa prestanda för 1000 översta raderna är att skicka dem på samma gång. Det uppstod små prestandafördelar att dela en 10000 raden batch i två grupper med 5000 i andra tester (visas inte här). Men tabellschemat för dessa tester är relativt enkla, så du bör utföra tester på specifika data och batch-storlekar för att verifiera dessa resultat.
+Du kan se att bästa prestanda för 1000 översta raderna är att skicka dem på samma gång. I andra testerna (visas inte här) uppstod små prestandafördelar att dela en 10000 raden batch i två grupper med 5000. Men tabellschemat för dessa tester är relativt enkla, så du bör utföra tester på specifika data och batch-storlekar för att verifiera dessa resultat.
 
 En annan faktor är att om den totala batchen blir för stor, SQL-databas kan begränsa vägrar att bekräfta batchen. Testa din situation för att fastställa om det finns en perfekt batchstorlek för bästa resultat. Se batchstorleken konfigureras vid körningen för snabba justeringar utifrån prestanda eller fel.
 
@@ -592,7 +592,7 @@ Sedan skapar en lagrad procedur eller skriva kod som använder MERGE-instruktion
 Mer information finns i dokumentation och exempel för MERGE-instruktion. Även om samma arbets kunde utföras i en flera steg lagras proceduranropet med separata INSERT och UPDATE-åtgärder, MERGE-instruktionen är effektivare. Databaskod kan också skapa Transact-SQL-anrop som MERGE-instruktion direkt utan att två databasanrop för INSERT och UPDATE.
 
 ## <a name="recommendation-summary"></a>Rekommendation sammanfattning
-Följande lista innehåller en sammanfattning av batching rekommendationerna som beskrivs i det här avsnittet:
+I följande lista ger en översikt över batching rekommendationerna i den här artikeln:
 
 * Använd buffring och batchbearbetning för att öka prestanda och skalbarhet SQL-databas.
 * Förstå kompromisser mellan batchbearbetning/buffring och återhämtning. Vid fel, roll, kan risken för att förlora en obearbetat batch affärskritiska data uppväger prestandafördelarna batchbearbetning.

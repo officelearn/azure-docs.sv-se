@@ -1,23 +1,19 @@
 ---
 title: Uppgradera till Azure Search .NET SDK version 1.1 | Microsoft Docs
 description: Uppgradera till Azure Search .NET SDK version 1.1
-services: search
-documentationcenter: 
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 387a052a116388cc9ad816ec8b339347d5c28322
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ccefd21e2aa89a2b46129956b3c4417d548cbf32
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Uppgradera till Azure Search .NET SDK version 1.1
 
@@ -54,9 +50,9 @@ Slutligen när du har åtgärdat eventuella build-fel, kan du göra ändringar i
 I följande lista är sorterade efter sannolikheten att påverkas av programkoden.
 
 #### <a name="indexbatch-and-indexaction-changes"></a>IndexBatch och IndexAction ändringar
-`IndexBatch.Create`har bytt namn till `IndexBatch.New` och har inte längre en `params` argumentet. Du kan använda `IndexBatch.New` för batchar som blanda olika typer av åtgärder (sammanslagningar, borttagningar osv.). Dessutom finns nya statiska metoder för att skapa batchar där alla åtgärder är samma: `Delete`, `Merge`, `MergeOrUpload`, och `Upload`.
+`IndexBatch.Create` har bytt namn till `IndexBatch.New` och har inte längre en `params` argumentet. Du kan använda `IndexBatch.New` för batchar som blanda olika typer av åtgärder (sammanslagningar, borttagningar osv.). Dessutom finns nya statiska metoder för att skapa batchar där alla åtgärder är samma: `Delete`, `Merge`, `MergeOrUpload`, och `Upload`.
 
-`IndexAction`Offentliga konstruktorer har inte längre och dess egenskaper är nu inte ändras. Du bör använda de nya statiska metoderna för att skapa åtgärder för olika ändamål: `Delete`, `Merge`, `MergeOrUpload`, och `Upload`. `IndexAction.Create`har tagits bort. Om du använde överlagring som tar endast ett dokument, se till att använda `Upload` i stället.
+`IndexAction` Offentliga konstruktorer har inte längre och dess egenskaper är nu inte ändras. Du bör använda de nya statiska metoderna för att skapa åtgärder för olika ändamål: `Delete`, `Merge`, `MergeOrUpload`, och `Upload`. `IndexAction.Create` har tagits bort. Om du använde överlagring som tar endast ett dokument, se till att använda `Upload` i stället.
 
 ##### <a name="example"></a>Exempel
 Om din kod ser ut så här:
@@ -152,7 +148,7 @@ Från och med version 1.1, ordnar .NET SDK för Azure Search åtgärden metoder 
 
 * Valfria parametrar finns nu modelleras som standard parametrar snarare än ytterligare en metod överlagringar. Detta minskar antalet metoden överlagringar ibland dramatiskt.
 * Tilläggsmetoder dölja nu mycket extra information om HTTP från anroparen. Till exempel äldre versioner av SDK returnerade ett svarsobjekt med en HTTP-statuskod som ofta inte behöver du kontrollera eftersom åtgärden metoder som resulterar i `CloudException` för varje statuskod som indikerar ett fel. De nya metoderna för tillägget returnera bara modellobjekt, vilket sparar dig att packa upp dem i din kod.
-* Grundläggande gränssnitt däremot nu exponera metoder som ger dig större kontroll på HTTP-nivå om det behövs. Du kan nu skicka in egna HTTP-rubriker som ska ingå i begäranden och den nya `AzureOperationResponse<T>` returtyp ger direktåtkomst till det `HttpRequestMessage` och `HttpResponseMessage` för åtgärden. `AzureOperationResponse`har definierats i den `Microsoft.Rest.Azure` namnområde och ersätter `Hyak.Common.OperationResponse`.
+* Grundläggande gränssnitt däremot nu exponera metoder som ger dig större kontroll på HTTP-nivå om det behövs. Du kan nu skicka in egna HTTP-rubriker som ska ingå i begäranden och den nya `AzureOperationResponse<T>` returtyp ger direktåtkomst till det `HttpRequestMessage` och `HttpResponseMessage` för åtgärden. `AzureOperationResponse` har definierats i den `Microsoft.Rest.Azure` namnområde och ersätter `Hyak.Common.OperationResponse`.
 
 #### <a name="scoringparameters-changes"></a>ScoringParameters ändringar
 En ny klass med namnet `ScoringParameter` har lagts till i den senaste SDK: N gör det lättare att ange parametrar för att poängberäkningen profiler i en sökfråga. Tidigare den `ScoringProfiles` -egenskapen för den `SearchParameters` klassen angavs som `IList<string>`; Nu det skrivs som `IList<ScoringParameter>`.
@@ -178,10 +174,10 @@ Du kan ändra den till det rätta till eventuella build-fel:
 #### <a name="model-class-changes"></a>Klassen Modelländringar
 På grund av signatur-ändringar som beskrivs i [igen metoden ändringar](#OperationMethodChanges), många klasser i den `Microsoft.Azure.Search.Models` namnområde har ändrats eller tagits bort. Exempel:
 
-* `IndexDefinitionResponse`har ersatts av`AzureOperationResponse<Index>`
+* `IndexDefinitionResponse` har ersatts av `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` har bytt namn till `DocumentSearchResult`
 * `IndexResult` har bytt namn till `IndexingResult`
-* `Documents.Count()`Returnerar nu en `long` med dokumentantal i stället för en`DocumentCountResponse`
+* `Documents.Count()` Returnerar nu en `long` med dokumentantal i stället för en `DocumentCountResponse`
 * `IndexGetStatisticsResponse` har bytt namn till `IndexGetStatisticsResult`
 * `IndexListResponse` har bytt namn till `IndexListResult`
 

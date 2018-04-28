@@ -1,43 +1,43 @@
 ---
-title: 'Azure Cosmos DB: Utveckla med Cassandra API i Java | Microsoft Docs'
-description: "Lär dig att utveckla med Azure Cosmos DB Cassandra API: et med Java"
+title: 'Azure Cosmos DB: Utveckla med API för Cassandra i Java | Microsoft Docs'
+description: Lär dig utveckla med Azure Cosmos DB:s API för Cassandra med Java
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-tags: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+tags: ''
 ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 11/15/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 8a4b26227b162268afd965f89ab2806b530e75be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB: Utveckla med Cassandra API i Java
+# <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB: Utveckla med API för Cassandra i Java
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och sedan skapa en Cassandra Table(sql-api-partition-data.md#partition-keys) med hjälp av den [Cassandra API](cassandra-introduction.md). Genom att definiera en primär nyckel när du skapar en tabell kan är ditt program beredd att skala utan problem när dina data växer. 
+Den här självstudien visar hur du skapar ett Azure Cosmos DB-konto med Azure Portal och sedan skapar en Cassandra-tabell (sql-api-partition-data.md#partition-keys) med hjälp av [API för Cassandra](cassandra-introduction.md). Genom att definiera en primärnyckel när du skapar en tabell, är ditt program förberett att skala utan problem allteftersom dina data växer. 
 
-Den här kursen ingår följande uppgifter med hjälp av Cassandra-API:
+Den här självstudien beskriver följande uppgifter som använder API för Cassandra:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Cosmos DB-konto
-> * Skapa en keyspace och en tabell med en primärnyckel
+> * Skapa ett Keyspace och en tabell med en primärnyckel
 > * Infoga data
 > * Frågedata
-> * Granska servicenivåavtal
+> * Granska serviceavtal
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Åtkomst till förhandsgranskningsprogrammet för Azure Cosmos DB Cassandra-API. Om du inte har ansökt om åtkomst än kan du [registrera dig nu](https://aka.ms/cosmosdb-cassandra-signup).
 
@@ -221,14 +221,14 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du gör följande i denna Snabbstart:
+I den här snabbstarten har du lärt dig att göra följande:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Cosmos DB-konto
-> * Skapa en keyspace och en tabell med en primärnyckel
+> * Skapa ett Keyspace och en tabell med en primärnyckel
 > * Infoga data
 > * Frågedata
-> * Reivew servicenivåavtal
+> * Granska serviceavtal
 
 Du kan nu importera ytterligare data till Azure Cosmos DB-samlingen. 
 

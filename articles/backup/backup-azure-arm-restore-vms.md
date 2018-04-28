@@ -1,12 +1,12 @@
 ---
-title: "Azure-säkerhetskopiering: Återställa virtuella datorer med hjälp av Azure portal | Microsoft Docs"
-description: "Återställa en virtuell Azure-dator från en återställningspunkt med hjälp av Azure portal"
+title: 'Azure-säkerhetskopiering: Återställa virtuella datorer med hjälp av Azure portal | Microsoft Docs'
+description: Återställa en virtuell Azure-dator från en återställningspunkt med hjälp av Azure portal
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "återställa en säkerhetskopia. Så här återställer du; återställningspunkten;"
+editor: ''
+keywords: återställa en säkerhetskopia. Så här återställer du; återställningspunkten;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använda Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av data vid angivna intervall. Dessa kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -113,7 +113,7 @@ Portalen innehåller en **Snabbregistrering** alternativ för en återställd VM
 
     b. **Namn på virtuell dator**. Ange ett namn för den virtuella datorn. Namnet måste vara unikt för resursgrupp (för en Azure Resource Manager-distribuerad virtuell dator) eller tjänst i molnet (för en klassisk virtuell dator). Du kan ersätta den virtuella datorn om det finns redan i prenumerationen.
 
-    c. **Resursgruppen**. Använd en befintlig resursgrupp eller skapa en ny. Om du återställa en klassisk virtuell dator, kan du använda det här fältet för att ange namnet på en ny molntjänst. Om du skapar en ny grupp/molntjänst för resursen, måste namnet vara globalt unika. Molntjänstnamnet är vanligtvis kopplad till en offentlig URL-adress: till exempel [cloudservice]. cloudapp.net. Om du försöker använda ett namn för Molntjänsten resurs grupp eller ett moln som redan används, tilldelar Azure resource/molntjänst med samma namn som den virtuella datorn. Azure visar resurs grupper/molntjänster och virtuella datorer som inte är associerad med någon tillhörighetsgrupper. Mer information finns i [hur du migrerar från tillhörighetsgrupper till ett regionalt virtuellt nätverk](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+    c. **Resursgrupp**. Använd en befintlig resursgrupp eller skapa en ny. Om du återställa en klassisk virtuell dator, kan du använda det här fältet för att ange namnet på en ny molntjänst. Om du skapar en ny grupp/molntjänst för resursen, måste namnet vara globalt unika. Molntjänstnamnet är vanligtvis kopplad till en offentlig URL-adress: till exempel [cloudservice]. cloudapp.net. Om du försöker använda ett namn för Molntjänsten resurs grupp eller ett moln som redan används, tilldelar Azure resource/molntjänst med samma namn som den virtuella datorn. Azure visar resurs grupper/molntjänster och virtuella datorer som inte är associerad med någon tillhörighetsgrupper. Mer information finns i [hur du migrerar från tillhörighetsgrupper till ett regionalt virtuellt nätverk](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
     d. **Virtuellt nätverk**. Välj det virtuella nätverket när du skapar den virtuella datorn. Fältet innehåller alla virtuella nätverk som är associerade med prenumerationen. Resursgruppen för den virtuella datorn visas inom parentes.
 
@@ -211,7 +211,7 @@ Azure Backup kan återställning av säkerhetskopierade virtuella datorer till p
 ## <a name="restore-domain-controller-vms"></a>Återställa domänkontrollant virtuella datorer
 Säkerhetskopiering av en domänkontrollant (DC) är ett scenario som stöds med säkerhetskopiering för virtuella datorer. Du måste dock vara försiktig under återställningsprocessen. Med rätt återställningsprocessen beror på strukturen för domänen. I det enklaste fallet har du en Domänkontrollant i en domän. Ofta för produktion belastningar ha du en enda domän med flera domänkontrollanter, exempelvis med vissa domänkontrollanter lokalt. Slutligen kan du ha en skog med flera domäner. 
 
-Från ett Active Directory-perspektiv är Azure VM som andra Virtuella på en modern hypervisor som stöds. Med lokala hypervisorer största skillnaden är att det finns ingen VM-konsol i Azure. En konsol krävs för vissa scenarier, till exempel återställning med hjälp av en bare metal recovery (BMR)-typen säkerhetskopiering. Återställning av virtuell dator från valvet är dock en fullständig ersättning för BMR. Directory återställningsläge för katalogtjänster (DSRM) är också tillgängliga, så att alla Active Directory-återställningsscenarier är användbart. Mer information finns i [överväganden för säkerhetskopiering och återställning för virtualiserade domänkontrollanter](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) och [planering för Active Directory-skogsåterställning](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+Från ett Active Directory-perspektiv är Azure VM som andra Virtuella på en modern hypervisor som stöds. Med lokala hypervisorer största skillnaden är att det finns ingen VM-konsol i Azure. En konsol krävs för vissa scenarier, till exempel återställning med hjälp av en bare metal recovery (BMR)-typen säkerhetskopiering. Återställning av virtuell dator från valvet är dock en fullständig ersättning för BMR. Directory återställningsläge för katalogtjänster (DSRM) är också tillgängliga, så att alla Active Directory-återställningsscenarier är användbart. Mer information finns i [överväganden för säkerhetskopiering och återställning för virtualiserade domänkontrollanter](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) och [planering för Active Directory-skogsåterställning](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
 ### <a name="single-dc-in-a-single-domain"></a>Domänkontrollant i en domän
 Den virtuella datorn kan återställas (som andra Virtuella) från Azure-portalen eller med hjälp av PowerShell.
@@ -242,7 +242,7 @@ Följ dessa steg för att fullständigt återskapa de virtuella datorerna när d
 
    a. Skapa en virtuell dator i Molntjänsten med en [intern belastningsutjämnare](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Skapa en virtuell dator att ansluta till en [Internetriktade belastningsutjämnare](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Skapa en virtuell dator att ansluta till en [Internetriktade belastningsutjämnare](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Skapa en virtuell dator med [flera nätverkskort](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 

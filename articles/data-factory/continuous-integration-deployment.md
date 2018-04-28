@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f44d8cc48d6bfee909c04b20136cd2be6f828a0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
@@ -92,7 +92,7 @@ Här följer stegen för att ställa in en VSTS version så att du kan automatis
 
     a.  Lägg till hemligheterna i parameterfilen:
 
-        -   Skapa en kopia av filen parametrar som överförs till grenen publicera och ange värden för parametrarna som du vill hämta från nyckelvalvet med följande format:
+       -   Skapa en kopia av filen parametrar som överförs till grenen publicera och ange värden för parametrarna som du vill hämta från nyckelvalvet med följande format:
 
         ```json
         {
@@ -102,24 +102,24 @@ Här följer stegen för att ställa in en VSTS version så att du kan automatis
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   När du använder den här metoden är hemligheten som hämtas från nyckelvalvet automatiskt.
+       -   När du använder den här metoden är hemligheten som hämtas från nyckelvalvet automatiskt.
 
-        -   Parameterfilen måste vara i grenen publicera.
+       -   Parameterfilen måste vara i grenen publicera.
 
     b.  Lägg till en [Azure Key Vault uppgiften](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Välj den **uppgifter** , skapa en ny uppgift och söka efter **Azure Key Vault** och lägga till den.
+       -   Välj den **uppgifter** , skapa en ny uppgift och söka efter **Azure Key Vault** och lägga till den.
 
-        -   Välj den prenumeration där du skapade nyckelvalvet i Key Vault-aktivitet, ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
+       -   Välj den prenumeration där du skapade nyckelvalvet i Key Vault-aktivitet, ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Lägg till en aktivitet med Azure Resource Manager-distribution:
 

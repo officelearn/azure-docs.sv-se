@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -514,11 +514,11 @@ När du har skapat ditt erbjudande och SKU, ska du ange avbildningsinformation s
 
 |Problem|Felmeddelande|Korrigera|Länk till dokumentation|
 |---|---|---|---|
-|Det gick inte att kopiera bilder - ””? hittades inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med rekommenderade verktyg|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera bilder - ”a” och ”se” parametrar inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med Start- och slutdatum på den|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri|Uppdatera SAS-Url med behörigheter som har angetts som ”läsa” och ”lista|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - SAS-url har blanksteg i vhd-namn|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url utan blanksteg|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar – Url-auktorisering för SAS-fel|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av Behörighetsfel|Återskapa SAS-Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera bilder - ””? hittades inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med rekommenderade verktyg|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera bilder - ”a” och ”se” parametrar inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med Start- och slutdatum på den|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri|Uppdatera SAS-Url med behörigheter som har angetts som ”läsa” och ”lista|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - SAS-url har blanksteg i vhd-namn|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url utan blanksteg|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar – Url-auktorisering för SAS-fel|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av Behörighetsfel|Återskapa SAS-Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Det gick inte att kopiera avbildningar – SAS-Url: ”a” och ”se” parametrar har inte datum tid specifikation|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av felaktig SAS-Url |SAS-URL: en Start- och slutdatum parametrar (”a”, ”SA”) måste ha fullständig datum / tid-specifikationen som 11-02-2017T00:00:00Z, och inte bara datum eller kortare versioner för tiden. Det är möjligt att få det här scenariot använder Azure CLI 2.0 (az kommandot). Se till att ange specifikationen datum tid och återskapa SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Nästa steg

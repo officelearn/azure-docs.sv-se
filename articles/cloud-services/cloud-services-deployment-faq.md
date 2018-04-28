@@ -1,11 +1,11 @@
 ---
-title: "Distributionsproblem för Microsoft Azure Cloud Services FAQ | Microsoft Docs"
-description: "Den här artikeln innehåller vanliga frågor om Microsoft Azure Cloud Services-distribution."
+title: Distributionsproblem för Microsoft Azure Cloud Services FAQ | Microsoft Docs
+description: Den här artikeln innehåller vanliga frågor om Microsoft Azure Cloud Services-distribution.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributionsproblem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -79,4 +79,4 @@ Eftersom Molntjänsten är en klassisk resurs som inte är direkt kompatibla med
 
 Paketet har överförts till API hanteringslager direkt i den klassiska portalen och API-lagret skulle tillfälligt publicera sedan paketet till en intern storage-konto.  Detta leder till problem med prestanda och skalbarhet eftersom API-lagret inte har utformats för att en tjänst för överföringen av filen.  I Azure-portalen (Resource Manager-modellen), har vi över mellanliggande steg första överför API-lagret som resulterar i snabbare och mer tillförlitlig distributioner. 
 
-Det är mycket små som kostnad, och du kan återanvända samma lagringskonto i alla distributioner. Du kan använda den [kostnaden lagringsberäknaren](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ladda ned CSPKG för att fastställa kostnaden för att överföra servicepaket (CSPKG), och ta sedan bort CSPKG. 
+Det är mycket små som kostnad, och du kan återanvända samma lagringskonto i alla distributioner. Du kan använda den [kostnaden lagringsberäknaren](https://azure.microsoft.com/pricing/calculator/#storage1) ladda ned CSPKG för att fastställa kostnaden för att överföra servicepaket (CSPKG), och ta sedan bort CSPKG. 

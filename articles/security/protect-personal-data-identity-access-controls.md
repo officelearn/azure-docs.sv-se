@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory och Multi-Factor Authentication: skydda personuppgifter med identitets- och kontroller
 
@@ -125,7 +125,7 @@ Om användarna har licenser som innehåller Azure Multi-Factor Authentication, d
 
 ![MFA är aktiverat användare](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Om du för närvarande inte har licenser som du behöver gå igenom processen att avgöra den lämpligaste distributionstypen för ditt scenario. Du kan börja genom att titta i artikeln [välja Azure Multi-Factor Autehntication-lösning för dig](../multi-factor-authentication/multi-factor-authentication-get-started.md). Om du bestämmer dig för att du behöver skapa en Multi-Factor Authentication-server. Du kan starta genom att följa dessa steg:
+Om du för närvarande inte har licenser som du behöver gå igenom processen att avgöra den lämpligaste distributionstypen för ditt scenario. Du kan börja genom att titta i artikeln [välja Azure Multi-Factor Autehntication-lösning för dig](../active-directory/authentication/concept-mfa-whichversion.md). Om du bestämmer dig för att du behöver skapa en Multi-Factor Authentication-server. Du kan starta genom att följa dessa steg:
 
 1. Välj **Active Directory** i Azure-portalen (logga in som administratör).
 
@@ -137,7 +137,7 @@ Om du för närvarande inte har licenser som du behöver gå igenom processen at
 
 4. Klicka på **Spara**
 
-I det här fönstret har också möjlighet att hämta MFA-Server. Du kan få ytterligare information om hur du planerar distributionen genom att granska artikeln och storlek [komma igång med Azure Multi-Factor Authentication-server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+I det här fönstret har också möjlighet att hämta MFA-Server. Du kan få ytterligare information om hur du planerar distributionen genom att granska artikeln och storlek [komma igång med Azure Multi-Factor Authentication-server](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 Mer information om hur du hanterar din leverantör av Multifaktorautent finns [komma igång med en Azure leverantör av Multifaktorautent.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 

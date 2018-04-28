@@ -2,23 +2,20 @@
 title: Hur du skapar filtersträngar för tabelldesign | Microsoft Docs
 description: Hur du skapar filtersträngar för tabelldesign
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/18/2016
 ms.author: ghogen
-ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7390e8f463d14f2e74e05263e970665a0199029a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Hur du skapar Filtersträngar för tabelldesign
 ## <a name="overview"></a>Översikt
@@ -31,7 +28,7 @@ Följande logiska operatorer stöds för alla egenskapstyper av:
 
 | Logisk operator | Beskrivning | Exempel Filtersträngen |
 | --- | --- | --- |
-| eq |Lika med |Stad eq 'Redmond' |
+| EQ |Lika med |Stad eq 'Redmond' |
 | gt |Större än |Priset gt 20 |
 | ge |Större än eller lika med |Pris-ge 10 |
 | lt |Mindre än |Priset lt 20 |

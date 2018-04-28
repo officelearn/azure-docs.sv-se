@@ -14,15 +14,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autentisera med Mobile Engagement REST API: er
 > [!IMPORTANT]
-> Azure Mobile Engagement upphör på 3/31/2018. Den här sidan tas bort strax efter.
+> Azure Mobile Engagement dras tillbaka den 31 mars 2018. Den här sidan tas bort strax efter det.
 > 
 
 ## <a name="overview"></a>Översikt
@@ -67,7 +67,7 @@ Alternativt kan du också följa instruktionerna i den [manuell installation](mo
         Import-Module Azure
 3. Logga in till Azure Resource Manager via PowerShell genom att köra följande kommando. Ange användarnamn och lösenord för kontot: 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. Om du har flera prenumerationer, gör du följande:
 
     a. Hämta en lista över alla prenumerationer. Kopiera den **SubscriptionId** för den prenumeration som du vill använda. Kontrollera att den här prenumerationen har Mobile Engagement-app. Du ska använda appen för att interagera med API: erna. 
@@ -85,7 +85,7 @@ Alternativt kan du också följa instruktionerna i den [manuell installation](mo
 
 7. När skriptet är klar visas följande fyra värdena. Glöm inte att kopiera dem, eftersom du behöver dem för att autentisera programmässigt med Active Directory: 
 
-   - **TenantId**
+   - **Klient-ID**
    - **prenumerations-ID**
    - **ApplicationId**
    - **Hemlighet**

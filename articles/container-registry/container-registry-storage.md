@@ -3,16 +3,16 @@ title: Bildlagring i registret för Azure-behållare
 description: Information om hur dina Docker behållare avbildningar lagras i registret för Azure-behållare, inklusive säkerhet, redundans och kapacitet.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: marsma
-ms.openlocfilehash: df46712889a3eba54f1a2288ba93c82b21b92deb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Behållaren bildlagring i registret för Azure-behållare
 
@@ -22,7 +22,7 @@ Varje [Basic, Standard och Premium](container-registry-skus.md) Azure-behållare
 
 Alla behållare bilder i registret är krypterat i vila. Azure automatiskt krypterar en avbildning innan de lagras och dekrypterar dem på direkt när du eller ditt program och tjänster pull-avbildningen.
 
-## <a name="geo-redundant-storage"></a>Geografiskt redundant lagring.
+## <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
 
 Azure använder ett schema för geo-redundant lagring som skyddar mot förlust av bilderna behållare. Azure Container registret replikerar automatiskt bilderna behållare till flera geografiskt avlägsna Datacenter hindrar sina går förlorade vid fel regionala lagring.
 

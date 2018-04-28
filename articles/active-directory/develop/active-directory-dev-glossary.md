@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory Developer ordlista | Microsoft Docs
-description: "En lista över villkor för vanliga begrepp för utvecklare av Azure Active Directory och funktioner."
+description: En lista över villkor för vanliga begrepp för utvecklare av Azure Active Directory och funktioner.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,16 +15,16 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer ordlista
 Den här artikeln innehåller definitioner för några av de Azure Active Directory (AD) developer grundbegrepp, vilket underlättar vid utbildning om programutveckling för Azure AD.
 
-## <a name="access-token"></a>Åtkomst-token
+## <a name="access-token"></a>åtkomsttoken
 En typ av [säkerhetstoken](#security-token) utfärdats av en [auktorisering server](#authorization-server), och används av en [klientprogrammet](#client-application) för att komma åt en [skyddade resursservern](#resource-server). Vanligtvis i form av en [JSON-Webbtoken (JWT)][JWT], token innehåller det tillstånd som beviljats till klienten med den [resursägare](#resource-owner), för en begärda åtkomstnivå. Token som innehåller alla tillämpliga [anspråk](#claim) om ämnet, aktivera klientprogram att använda den som en form av autentiseringsuppgifter vid åtkomst till en viss resurs. Detta även eliminerar behovet för resursägare att exponera autentiseringsuppgifter till klienten.
 
 Åtkomsttoken är ibland kallas ”användare + App” eller ”App-Only” beroende på de autentiseringsuppgifter som representeras. Till exempel när ett klientprogram använder den:
@@ -79,7 +79,7 @@ Som definieras av den [OAuth2 auktorisering Framework][OAuth2-Role-Def], server 
 
 När det gäller Azure AD-integrering för programmet, Azure AD implementerar serverrollen auktorisering för Azure AD-program och Microsoft service API: er, till exempel [Microsoft Graph API: er][Microsoft-Graph].
 
-## <a name="claim"></a>Anspråk
+## <a name="claim"></a>anspråk
 En [säkerhetstoken](#security-token) innehåller anspråk som innehåller intyg om en enhet (som en [klientprogrammet](#client-application) eller [resursägare](#resource-owner)) till en annan entitet (som den [resursservern](#resource-server)). Anspråk är namn/värde-par som vidarebefordrar fakta om token område (till exempel det säkerhetsobjekt som autentiseras av den [auktorisering server](#authorization-server)). Anspråk finns i en viss token är beroende av flera variabler, inklusive typ av token, vilken typ av autentiseringsuppgift som används för att autentisera ämne, konfiguration, osv.
 
 Se [Azure AD tokenreferens] [ AAD-Tokens-Claims] för mer information.
@@ -105,7 +105,7 @@ Se [loggar in alla Azure AD-användare med flera innehavare programmönster] [ A
 ## <a name="native-client"></a>-klienten
 En typ av [klientprogrammet](#client-application) som internt är installerad på en enhet. Eftersom all kod som körs på en enhet anses en ”offentliga” klient på grund av att det inte att lagra autentiseringsuppgifter privat/konfidentiellt. Se [OAuth2 klienten typer och profiler] [ OAuth2-Client-Types] för mer information.
 
-## <a name="permissions"></a>Behörigheter
+## <a name="permissions"></a>behörigheter
 En [klientprogrammet](#client-application) får åtkomst till en [resursservern](#resource-server) genom att deklarera behörighetsbegäranden. Det finns två typer:
 
 * ”Delegerad” behörigheter, som anger [scope-baserade](#scopes) använda delegerad behörighet från den inloggade [resursägare](#resource-owner), presenteras för resursen vid körning som [”scp” anspråk](#claim) i klientens [åtkomsttoken](#access-token).
@@ -147,7 +147,7 @@ När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], p
 
 Se [program och tjänstens huvudnamn objekt] [ AAD-App-SP-Objects] för mer information.
 
-## <a name="sign-in"></a>Logga in
+## <a name="sign-in"></a>inloggning
 Processen för en [klientprogrammet](#client-application) initierar slutanvändaren autentisering och samlar in relaterade tillstånd, för att förvärva en [säkerhetstoken](#security-token) och scope program-session till det aktuella tillståndet. Tillstånd kan innehålla artefakter, till exempel användarens profilinformation och information som har härletts från token anspråk.
 
 Funktionen logga in i ett program används vanligtvis för att implementera enkel inloggning (SSO). Det kan också föregås av en funktion som ”registrering” som startpunkt för en användare att få tillgång till ett program (vid första inloggningen). Registrerar funktionen används för att samla in och beständiga ytterligare tillstånd som är specifika för användaren och kan kräva [användargodkännande](#consent).
@@ -155,7 +155,7 @@ Funktionen logga in i ett program används vanligtvis för att implementera enke
 ## <a name="sign-out"></a>utloggning
 Processen för icke autentiserande slutanvändaren frånkoppling användarens tillstånd som associeras med den [klientprogrammet](#client-application) session under [inloggning](#sign-in)
 
-## <a name="tenant"></a>Klient
+## <a name="tenant"></a>klient
 En instans av en Azure AD-katalog kallas för en Azure AD-klient. Det innehåller flera funktioner, inklusive:
 
 * registry-tjänsten för integrerade program
@@ -203,7 +203,7 @@ Använd kommentarer nedan för att ge feedback och hjälp oss att förbättra oc
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

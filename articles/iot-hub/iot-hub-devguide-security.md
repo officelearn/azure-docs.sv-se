@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -137,7 +137,7 @@ Här är de förväntade värdena:
 | {signatur} |En HMAC SHA256 signatur sträng med formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktiga**: nyckeln avkoda från base64 och används som nyckel för att utföra HMAC SHA256-beräkningen. |
 | {resourceURI} |URI-prefix (av segment) slutpunkter som kan användas med denna token som börjar med värdnamnet för IoT-hubb (ingen protocol). Till exempel, `myHub.azure-devices.net/devices/device1` |
 | {utgången} |UTF8 strängar för antal sekunder sedan epok 00:00:00 UTC på 1 januari 1970. |
-| {URL-encoded-resourceURI} |Lägre fall URL-kodning av gemen resurs-URI |
+| {URL-kodade-resourceURI} |Lägre fall URL-kodning av gemen resurs-URI |
 | {policyName} |Namnet på den princip för delad åtkomst som den här variabeln refererar. Inte fram om avser token enhetsregistret autentiseringsuppgifter. |
 
 **Observera på prefixet**: URI: N prefix beräknas av segment och inte av tecken. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
@@ -358,7 +358,7 @@ Den [Azure IoT Service SDK för C#] [ lnk-service-sdk] (version 1.0.8+) har stö
 
 ### <a name="c-support"></a>C\# stöd
 
-Den **RegistryManager** klassen innehåller en programmässiga sättet att registrera en enhet. I synnerhet de **AddDeviceAsync** och **UpdateDeviceAsync** metoder kan du registrera och uppdatera en enhet i IoT-hubb identitetsregistret. Dessa två metoder ta en **enhet** instansen som indata. Den **enhet** klassen innehåller en **autentisering** egenskap som kan du ange primära och sekundära X.509-certifikattumavtryck. Certifikatets tumavtryck representerar en SHA-1-hash för X.509-certifikat (som lagras med hjälp av binär kodning DER). Du har möjlighet att ange tumavtryck för en primär eller sekundär tumavtryck eller båda. Primära och sekundära tumavtryck stöds för att hantera scenarier för förnyelse av certifikat.
+Den **RegistryManager** klassen innehåller en programmässiga sättet att registrera en enhet. I synnerhet de **AddDeviceAsync** och **UpdateDeviceAsync** metoder kan du registrera och uppdatera en enhet i IoT-hubb identitetsregistret. Dessa två metoder ta en **enhet** instansen som indata. Den **enhet** klassen innehåller en **autentisering** egenskap som kan du ange primära och sekundära X.509-certifikattumavtryck. Certifikatets tumavtryck representerar en SHA256-hash för X.509-certifikat (som lagras med hjälp av binär kodning DER). Du har möjlighet att ange tumavtryck för en primär eller sekundär tumavtryck eller båda. Primära och sekundära tumavtryck stöds för att hantera scenarier för förnyelse av certifikat.
 
 Här följer ett exempel på C\# kodfragmentet att registrera en enhet med ett X.509-tumavtryck för certifikat:
 
@@ -427,7 +427,7 @@ Följande referensavsnitt ge mer information om hur du styr åtkomst till din Io
 
 I följande tabell visas de behörigheter som du kan använda för att styra åtkomsten till din IoT-hubb.
 
-| Behörigheter | Anteckningar |
+| Behörighet | Anteckningar |
 | --- | --- |
 | **RegistryRead** |Ger läsbehörighet till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
 | **RegistryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |

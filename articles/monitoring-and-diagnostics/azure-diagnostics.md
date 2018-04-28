@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Azure Diagnostics | Microsoft Docs"
-description: "Använda Azure-diagnostik för felsökning, mäta prestanda, övervakning, trafikanalyser i molntjänster, virtuella datorer och service fabric"
+title: Översikt över Azure Diagnostics | Microsoft Docs
+description: Använda Azure-diagnostik för felsökning, mäta prestanda, övervakning, trafikanalyser i molntjänster, virtuella datorer och service fabric
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
 ms.service: multiple
 ms.workload: na
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0231a6c1d78818b948bb24d0c406fb2f2da17a0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Vad är Azure-diagnostik
-Azure-diagnostik är funktion i Azure som möjliggör insamling av diagnostikdata på ett distribuerat program. Du kan använda tillägget diagnostik från ett antal olika källor. Stöds för närvarande är Azure Cloud Service webb- och arbetsroller, Azure virtuella datorer som kör Microsoft Windows och Service Fabric. Andra Azure-tjänster har sina egna separata diagnostik.
+Azure-diagnostik är funktion i Azure som möjliggör insamling av diagnostikdata på ett distribuerat program. Du kan använda tillägget diagnostik från ett antal olika källor. Stöds för närvarande är Azure Cloud Service (klassisk) webb- och arbetsroller, virtuella datorer, skaluppsättningar för den virtuella datorn och Service Fabric. Andra Azure-tjänster har olika diagnostik-metoder. Se [översikt över övervakning i Azure](monitoring-overview.md). 
 
 ## <a name="data-you-can-collect"></a>Du kan samla in data
 Azure Diagnostics kan samla in följande typer av data:
@@ -34,20 +34,17 @@ Azure Diagnostics kan samla in följande typer av data:
 | Händelsekällan för .NET |Kod med hjälp av .NET-händelser skrivs [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) klass |
 | IIS-loggar |Information om IIS-webbplatser |
 | Manifestet baserat ETW |Event Tracing for Windows-händelser som genererats av någon annan process |
-| Krasch minnesdumpar |Information om tillståndet hos processen om ett program kraschar |
-| Anpassade fel |Loggarna som skapas i programmet eller tjänsten |
+| Kraschdumpar |Information om tillståndet hos processen om ett program kraschar |
+| Anpassa felloggar |Loggarna som skapas i programmet eller tjänsten |
 | Azure-diagnostik infrastrukturen loggar |Information om diagnostik själva |
 
-Azure diagnostics-tillägget kan överföra data till ett Azure storage-konto eller skicka det till tjänster som [Programinsikter](../application-insights/app-insights-cloudservices.md). Du kan använda informationen för felsökning och felsökning, mäta prestanda, övervaka Resursanvändning, trafik analys och kapacitetsplanering och granskning.
+Azure diagnostics-tillägget kan överföra data till ett Azure storage-konto eller skicka den till [Programinsikter](../application-insights/app-insights-cloudservices.md). Du kan också strömmas till [Händelsehubb](../event-hubs/event-hubs-what-is-event-hubs.md), som sedan kan du skicka den till Azure-Övervakningscentral tjänster. Du kan använda informationen för felsökning och felsökning, mäta prestanda, övervaka Resursanvändning, trafik analys och kapacitetsplanering och granskning.
 
 ## <a name="versioning"></a>Versionshantering
 Se [Azure Diagnostics version historia](azure-diagnostics-versioning-history.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Välj vilken tjänst som du vill samla in diagnostik och Använd följande artiklar för att komma igång. Använd allmän Azure diagnostics länkarna för referens för specifika uppgifter.
-
-## <a name="web-apps"></a>Web Apps
-Observera att Web Apps inte använder Azure-diagnostik. Hitta motsvarande information på [Web Apps](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Molntjänster med hjälp av Azure-diagnostik
 * Om du använder Visual Studio, se [använda Visual Studio för att spåra ett molntjänster program](../vs-azure-tools-debug-cloud-services-virtual-machines.md) att komma igång. Annars går du till

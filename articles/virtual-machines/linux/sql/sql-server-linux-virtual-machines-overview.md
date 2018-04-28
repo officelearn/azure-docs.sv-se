@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.author: jroth
-ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Översikt över SQL Server i Azure Virtual Machines (Linux)
 
@@ -24,27 +24,16 @@ ms.lasthandoff: 03/23/2018
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Det här ämnet beskriver dina alternativ när du kör en SQL Server på virtuella Azure Linux-datorer, tillsammans med [länkar till portalavbildningar](#create).
+Med SQL Server på Azure Virtual Machines kan du använda fullständiga versioner av SQL Server i molnet utan att behöva hantera lokal maskinvara. Virtuella SQL Server-datorer kan även förenkla licensieringskostnaderna när du betalar per användning.
 
-> [!NOTE]
-> Om du redan är bekant med SQL Server och bara vill se hur man distribuerar en virtuell SQL Server Linux-dator i Windows, hittar du mer information i [Etablera en virtuell Linux SQL Server-dator i Azure](provision-sql-server-linux-virtual-machine.md). Eller om du vill skapa en virtuell Windows-dator med SQL Server finns information i [Etablera en virtuell Windows SQL Server-dator i Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
+Virtuella Azure-datorer körs i många olika [geografiska regioner](https://azure.microsoft.com/regions/) runtom i världen. De också erbjuder även en mängd olika [datorstorlekar](../sizes.md). I bildgalleriet för virtuella datorer kan du skapa en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Det här innebär att virtuella datorer är ett bra alternativ för många olika SQL Server-arbetsbelastningar.
 
-Om du är en databasadministratör eller en utvecklare, kan Azure VM:ar ge dig ett sätt att flytta dina lokala SQL Server-arbetsbelastningar och program till molnet.
+## <a id="create"></a> Komma igång med virtuella SQL-datorer
 
-## <a name="scenarios"></a>Scenarier
-
-Det finns flera skäl att välja att ha sin data i Azure. Om du utvecklar eller migrerar programmet till Azure kan du förbättra prestanda genom att även placera ursprungsdata i Azure. Du får automatiskt tillgång till flera datacenter för en global närvaro och haveriberedskap. Din data är också mycket säker och beständig.
-
-SQL Server som kör på Azure VM:ar är ett alternativ för att lagra din relationsdata i Azure. Du kan även välja att använda Azure SQL Database-tjänsten. Mer information om att välja mellan SQL Server på virtuella datorer och Azure SQL Database finns i [Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på virtuella Azure-datorer (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
-
-## <a id="create"></a>Skapa en ny virtuell SQL-dator
-
-Du hittar stegvisa anvisningar för hur du skapar en ny virtuell SQL-dator i självstudien [Etablera en virtuell Linux SQL Server-dator i Azure](provision-sql-server-linux-virtual-machine.md).
-
-Följande tabell innehåller en matris med de senaste SQL Server-avbildningarna i galleriet för virtuella datorer. Klicka på en länk om du vill skapa en ny virtuell dator med SQL med den version, den utgåva och det operativsystem du angett.
+För att komma igång väljer du en avbildning av en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Följande avsnitt innehåller direktlänkar till Azure Portal för galleriavbildningarna för virtuella datorer med SQL Server.
 
 > [!TIP]
-> Om du vill förstå prissättningen för den virtuella datorn och SQL för dessa avbildningar kan du se [prissidan för virtuella Linux SQL Server-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> Mer information om prissättningen för SQL-avbildning finns i [prissättningssidan för virtuella Linux SQL Server-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
@@ -65,6 +54,33 @@ När du konfigurerar SQL Server på Linux installerar du databasmotorns paket oc
 | SLES | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![nej](./media/sql-server-linux-virtual-machines-overview/no.png) | ![nej](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
+## <a name="related-products-and-services"></a>Relaterade produkter och tjänster
+
+### <a name="linux-virtual-machines"></a>Virtuella Linux-datorer
+
+* [Översikt över virtuella datorer](../overview.md)
+
+### <a name="storage"></a>Lagring
+
+* [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
+
+### <a name="networking"></a>Nätverk
+
+* [Översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md)
+* [IP-adresser i Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Skapa ett fullständigt domännamn i Azure-portalen](../portal-create-fqdn.md)
+
+### <a name="sql"></a>SQL
+
+* [Dokumentation om SQL Server på Linux](https://docs.microsoft.com/sql/linux)
+* [Jämförelse med Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du konfigurerar och använder SQL Server på Linux finns i [Översikt över SQL Server på Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview).
+Kom igång med SQL Server på virtuella Linux-datorer i Azure:
+
+* [Skapa en virtuell SQL Server-dator på Azure Portal](provision-sql-server-linux-virtual-machine.md)
+
+Få svar på vanliga frågor om virtuella SQL-datorer på Linux:
+
+* [Vanliga frågor och svar om SQL Server på virtuella Linux-datorer i Azure](sql-server-linux-faq.md)

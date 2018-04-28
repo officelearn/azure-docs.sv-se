@@ -1,11 +1,11 @@
 ---
-title: "Om VPN-gateway för Azure-Stack | Microsoft Docs"
-description: "Lär dig mer om och konfigurera VPN-gatewayer som du använder med Azure-stacken."
+title: Om VPN-gateway för Azure-Stack | Microsoft Docs
+description: Lär dig mer om och konfigurera VPN-gatewayer som du använder med Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Om VPN-gateway för Azure-Stack
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
@@ -26,11 +26,11 @@ ms.lasthandoff: 12/02/2017
 
 Innan du kan skicka nätverkstrafik mellan dina virtuella Azure-nätverket och den lokala platsen, måste du skapa en virtuell nätverksgateway för det virtuella nätverket.
 
-En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad trafik över en offentlig anslutning. Du kan använda VPN-gatewayer för att skicka trafik på ett säkert sätt mellan ett virtuellt nätverk i Azure-stacken och ett virtuellt nätverk i Azure, eller mellan ett virtuellt nätverk och ett annat nätverk som är ansluten till en VPN-enhet.
+En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad trafik över en offentlig anslutning. Du kan använda VPN-gatewayer för att skicka trafik på ett säkert sätt mellan ett virtuellt nätverk i Azure-stacken och ett virtuellt nätverk i Azure. Du kan också skicka trafik på ett säkert sätt mellan ett virtuellt nätverk och ett annat nätverk som är ansluten till en VPN-enhet.
 
 När du skapar en virtuell nätverksgateway anger du vilken typ av gateway som du vill skapa. Azure-stacken stöd för en typ av virtuell nätverksgateway: 'Vpn-typen.
 
-Varje virtuellt nätverk kan ha två virtuella nätverksgatewayer, men bara en av varje typ. Du kan skapa flera anslutningar till en enda VPN-gateway beroende på de inställningar som du väljer. Ett exempel på detta är en konfiguration med anslutning till flera platser.
+Varje virtuellt nätverk kan ha två virtuella nätverksgatewayer, men bara en av varje typ. Du kan skapa flera anslutningar till en enda VPN-gateway beroende på de inställningar som du väljer. Ett exempel är en konfiguration med flera plats-anslutning.
 
 > [!NOTE]
 > I Azure, måste bandbredden genomströmning för VPN-Gateway-SKU som du väljer delas över alla anslutningar som är anslutna till den.  I Azure-stacken används värdet för bandbredd för VPN-Gateway-SKU till varje anslutning resurs som är ansluten till den.     
@@ -39,17 +39,17 @@ Varje virtuellt nätverk kan ha två virtuella nätverksgatewayer, men bara en a
 
 > I Azure-stacken *varje* anslutning till grundläggande VPN-Gateway-SKU hämtar allokerade 100 Mbit/s genomströmning.
 
-## <a name="configuring-a-vpn-gateway"></a>Konfigurera en VPN-gateway
+## <a name="configuring-a-vpn-gateway"></a>Konfigurera en VPN Gateway
 En anslutning för VPN-gateway är beroende av flera resurser som är konfigurerade med specifika inställningar. De flesta resurserna kan konfigureras separat, även om de måste konfigureras i en viss ordning i vissa fall.
 
 ### <a name="settings"></a>Inställningar
 De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN-Gateway finns [om VPN-gateway-inställningar för Azure-stacken](azure-stack-vpn-gateway-settings.md). Du kan hitta information som hjälper dig att förstå gateway-typer, VPN-typer, anslutningstyper, gateway-undernät, lokala nätverksgatewayer och andra resursinställningar som du kanske vill.
 
 ### <a name="deployment-tools"></a>Distributionsverktyg
-Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsverktyg, till exempel Azure Portal. Du kan senare bestämma dig för att växla till ett annat verktyg, som PowerShell, för att konfigurera ytterligare resurser eller ändra befintliga resurser i tillämpliga fall. För närvarande går det inte att konfigurera alla resurser och resursinställningar på Azure Portal. Anvisningarna i artiklarna för varje anslutningstopologi anger om ett specifikt konfigurationsverktyg behövs.
+Du kan skapa och konfigurera resurser med hjälp av en konfiguration med till exempel Azure-portalen. Senare kan du växla till ett annat verktyg som PowerShell för att konfigurera ytterligare resurser eller ändra befintliga resurser när så är tillämpligt. För närvarande går det inte att konfigurera alla resurser och resursinställningar på Azure Portal. Anvisningarna i artiklarna för varje anslutningstopologi anger om ett specifikt konfigurationsverktyg behövs.
 
 ## <a name="connection-topology-diagrams"></a>Topologidiagram för anslutning
-Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: följande avsnitt innehåller tabeller som visar:
+Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Bestämma vilken konfiguration som bäst passar dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: följande avsnitt innehåller tabeller som visar:
 
 - tillgänglig distributionsmodell
 - tillgängliga konfigurationsverktyg
@@ -78,22 +78,23 @@ När du väljer en högre gateway SKU som Standard över Basic eller HighPerform
 
 Azure-stacken stöder inte UltraPerformance gateway SKU som uteslutande används tillsammans med Expressroute.
 
-När du väljer en SKU bör du överväga följande:
+Tänk på följande när du väljer SKU:
 - Azure-stacken har inte stöd för principbaserad gateways.
 - Border Gateway Protocol (BGP) stöds inte på den grundläggande SKU: N.
 - ExpressRoute-VPN-Gateway samexistera konfigurationer stöds inte i Azure-stacken
-- S2S VPN-gateway-anslutningar av typen aktiv-aktiv kan enbart konfigureras på HighPerformance SKU.
+- S2S VPN Gateway-anslutningar av typen aktiv-aktiv kan enbart konfigureras på HighPerformance SKU.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Beräknat aggregerat dataflöde av SKU
 Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter gateway-SKU.
 
-|   | VPN Gateway-genomströmning *(1)* |VPN-Gateway, Max. IPsec-tunnlar |
+|   | VPN Gateway-genomströmning *(1)* | VPN-Gateway, Max. IPsec-tunnlar *(2)* |
 |-------|-------|-------|
-|**Grundläggande SKU** ***(2)***    | 100 Mbit/s  | 10    |
+|**Grundläggande SKU** ***(3)***    | 100 Mbit/s  | 10    |
 |**Standard-SKU**       | 100 Mbit/s  | 10    |
-|**Högpresterande SKU** | 200 Mbit/s    | 30    |
+|**Högpresterande SKU** | 200 Mbit/s    | 5 |
 ***(1)***  VPN-genomströmning är inte en garanterad genomströmning för anslutningar mellan platser över Internet. Värdet utgör dock högsta möjliga genomflöde.  
-***(2)***  BGP stöds inte för grundläggande SKU: N.
+***(2)***  Max tunnlar talet är det totala antalet per distribution av Azure-Stack för alla prenumerationer.  
+***(3)***  BGP stöds inte för grundläggande SKU: N.  
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [inställningar för VPN-gatewayer](azure-stack-vpn-gateway-settings.md) för Azure-stacken.

@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -102,7 +102,7 @@ Den nedan stöd gäller för alla arbetsbelastningar som körs på nämnda OS.
 16.04 LTS | 9.11 | 4.4.0-21-Generic till 4.4.0-83-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-27-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic till 4.4.0-96-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-Generic till 4.4.0-104-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-Generic till 4.4.0-112-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-32-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1009-azure |
+16.04 LTS | 9.14 | 4.4.0-21-Generic till 4.4.0-112-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-32-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1009-azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Debian kernel-versioner som stöds för virtuella Azure-datorer
@@ -142,20 +142,20 @@ Kina | Kina Öst, Kina Nord
 **Konfiguration** | **Stöds/stöds ej** | **Kommentarer**
 --- | --- | ---
 Storlek | Alla Virtuella Azure-datorstorleken med minst 2 CPU-kärnor och 1 GB RAM-minne | Referera till [storlekar för virtuella Azure-datorn](../virtual-machines/windows/sizes.md)
-Tillgänglighetsuppsättningar | Stöds | Om du använder alternativet ”Aktivera replikering' steget i portalen är tillgänglighetsuppsättningen automatiskt skapa baserat på källan region konfiguration. Du kan ändra tillgänglighetsuppsättning för målet i ' replikerade objekt > Inställningar > beräkning och nätverk > tillgänglighetsuppsättning som helst.
-Hybrid Använd förmånen (NAV) virtuella datorer | Stöds | Om den Virtuella källdatorn har hubb licens aktiverad, använder testa redundans eller Failover VM också HUB-licens.
+Tillgänglighetsuppsättningar | Stöds | Om mål-undernätet inte har samma IP-Adressen finns är en tillgänglig IP-adresser i undernätet reserverad för den här virtuella datorn. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '.
+Du kan markera nätverkskortet och ange undernät och IP-önskat. | Stöds | Dynamisk IP
 Skalningsuppsättningar för virtuella datorer | Stöds inte |
-Azure Galleriavbildningar - Microsoft publicerat | Stöds | Så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery som stöds
-Azure-galleriet bilder - publicerade från tredje part | Stöds | Stöd för så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery.
-Anpassad bilder - publicerade från tredje part | Stöds | Stöd för så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery.
-Virtuella datorer migreras med hjälp av Site Recovery | Stöds | Om det är en VMware/fysiska datorn har migrerat till Azure med Site Recovery måste du avinstallera den äldre versionen av mobilitetstjänsten och starta om datorn innan du replikerar till en annan Azure-region.
+Om nätverkskortet på den Virtuella källdatorn har dynamisk IP-konfiguration, nätverkskortet på failover VM är också dynamisk som standard. | Stöds | Du konfigurera din traffic manager så att trafiken dirigeras till slutpunkten i källan region regelbundet och slutpunkten i målregionen vid redundans.
+Azure hanterade DNS | Stöds | Oautentiserad Proxy
+Referera till nätverk riktlinjerna. | Stöds | Oautentiserad Proxy
+Autentiserad proxyserver | Stöds | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med hjälp av Azure Site Recovery.
 
-## <a name="support-for-storage-configuration"></a>Stöd för konfiguration för lagring
+## <a name="support-for-storage-configuration"></a>Plats-till-plats-VPN med lokalt (med eller utan ExpressRoute)
 
 **Konfiguration** | **Stöds/stöds ej** | **Kommentarer**
 --- | --- | ---
-Maximal storlek för OS-disk | 2048 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Maximal datadiskstorleken | 4095 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Se till att udr: er och NSG: er har konfigurerats så att Site recovery trafik inte dirigeras till lokalt. | VIRTUELLA NÄTVERK PÅ VNET-ANSLUTNING | Lär dig mer om [nätverk vägledning för att replikera virtuella Azure-datorer](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Börja skydda dina arbetsbelastningar av replikering av virtuella Azure-datorer | 4095 GB | Lär dig mer om [nätverk vägledning för att replikera virtuella Azure-datorer](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Antalet datadiskar | Upp till 64 som stöds av en viss Azure VM-storlek | Referera till [storlekar för virtuella Azure-datorn](../virtual-machines/windows/sizes.md)
 Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har exkluderats från replikering alltid. Du bör inte spärra beständiga data diskutrymme enligt vägledning för Azure. Referera till [diskutrymme på Azure Virtual Machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) för mer information.
 Förändringstakten för data på disken | Högst 10 Mbit/s per disk för Premium-lagring och 2 Mbit/s per disk för standardlagring | Om förändringstakten genomsnittlig data på disken är utöver 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) kontinuerligt, kommer inte replikeringen att fånga upp. Om det är en databearbetning burst och förändringstakten för data som är större än 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) under en viss tid och kommer, fånga replikering upp. I det här fallet kan du se något fördröjd återställningspunkter.
@@ -168,6 +168,8 @@ Kryptering i vila (SSE) | Stöds | Du kan välja ett lagringskonto för SSE akti
 Azure Disk Encryption (ADE) | Stöds inte |
 Varm Lägg till/ta bort disken | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktivera replikering för den virtuella datorn igen.
 Uteslut disk | Stöds inte|   Tillfällig disklagring har exkluderats som standard.
+Lagringsutrymmen direkt  | Stöds inte|
+Skalbar filserver  | Stöds inte|
 LRS | Stöds |
 GRS | Stöds |
 RA-GRS | Stöds |
@@ -192,7 +194,7 @@ NSG för den virtuella datorn (klassisk)| Stöds | Du måste koppla NSG till nä
 Reserverade IP: N (statisk IP) / behålla käll-IP | Stöds | Om nätverkskortet på den Virtuella källdatorn har en statisk IP-konfiguration och mål-undernät har samma IP-Adressen tillgänglig, tilldelas redundans VM. Om mål-undernätet inte har samma IP-Adressen finns är en tillgänglig IP-adresser i undernätet reserverad för den här virtuella datorn. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '. Du kan markera nätverkskortet och ange undernät och IP-önskat.
 Dynamisk IP| Stöds | Om nätverkskortet på den Virtuella källdatorn har dynamisk IP-konfiguration, nätverkskortet på failover VM är också dynamisk som standard. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '. Du kan markera nätverkskortet och ange undernät och IP-önskat.
 Traffic Manager-integrering | Stöds | Du konfigurera din traffic manager så att trafiken dirigeras till slutpunkten i källan region regelbundet och slutpunkten i målregionen vid redundans.
-Azure managed DNS | Stöds |
+Azure hanterade DNS | Stöds |
 Anpassad DNS  | Stöds |    
 Oautentiserad Proxy | Stöds | Referera till [nätverk riktlinjerna.](site-recovery-azure-to-azure-networking-guidance.md)    
 Autentiserad proxyserver | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med hjälp av Azure Site Recovery.    

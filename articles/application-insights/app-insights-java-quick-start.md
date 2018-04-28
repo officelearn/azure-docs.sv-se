@@ -1,8 +1,8 @@
 ---
 title: Snabbstart med Azure Application Insights | Microsoft Docs
-description: "Innehåller instruktioner för att snabbt konfigurera en Java-webbapp för övervakning med Application Insights"
+description: Innehåller instruktioner för att snabbt konfigurera en Java-webbapp för övervakning med Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -26,7 +26,7 @@ Snabbstarten guidar dig genom processen att lägga till Application Insights SDK
 
 För att slutföra den här snabbstarten behöver du:
 
-- Installera Oracle JRE 1.6 eller senare eller Zulu JRE 1.6 eller senare
+- Installera JRE 1.7 eller 1.8
 - Installera [Kostnadsfria Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/). Den här snabbstarten använder Eclipse Oxygen (4.7)
 - Du behöver en Azure-prenumeration och ett befintligt dynamiskt Java-webbprojekt
  

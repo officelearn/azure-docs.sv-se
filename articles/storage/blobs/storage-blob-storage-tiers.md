@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: Nivåer för frekvent lagring, lågfrekvent lagring och arkivlagring
+# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: nivåer för frekvent lagring, lågfrekvent lagring och arkivlagring
 
 ## <a name="overview"></a>Översikt
 
@@ -34,7 +34,7 @@ För varje scenario finns en lagringsnivå som är optimerad för motsvarande å
 
 För användning av olika lagringsnivåer (frekvent, lågfrekvent eller arkivlagring) krävs ett Blob Storage eller GPv2-konto (General Purpose v2). GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [Alternativ för Azure Storage-konton](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-På Blob Storage- och GPv2-konton visas attributet för **åtkomstnivå** på kontonivå, vilket innebär att du kan ange standardlagringsnivån som frekvent eller lågfrekvent för alla blobbar i lagringskontot där nivån inte har angetts på objektnivå. För objekt där nivån har ställts in på objektnivå används inte nivåinställningen för kontot. Nivån arkivlagring kan endast anges på objektnivå. Du kan växla mellan dessa lagringsnivåer när som helst.
+På Blob Storage- och GPv2-konton visas attributet för **åtkomstnivå** på kontonivå, vilket innebär att du kan ange standardlagringsnivån som frekvent eller lågfrekvent för alla blobar i lagringskontot där nivån inte har angetts på objektnivå. För objekt där nivån har ställts in på objektnivå används inte nivåinställningen för kontot. Nivån arkivlagring kan endast anges på objektnivå. Du kan växla mellan dessa lagringsnivåer när som helst.
 
 ## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
 
@@ -147,7 +147,7 @@ Ja. Attributet **Åtkomstnivå** på kontonivå används som standardlagringsniv
 
 **Kan jag ändra standardlagringsnivå för mitt Blob- eller GPv2-lagringskonto?**
 
-Ja, du kan ändra standardlagringsnivå med attributet **Åtkomstnivå** för lagringskontot. Ändringar av lagringsnivån gäller för alla objekt som lagras i kontot som inte har en uttryckligen inställd nivå. Om du ändrar lagringsnivå från frekvent till lågfrekvent tillkommer kostnader för skrivåtgärder (per 10 000) för alla blobbar utan en angiven lagringsnivå (gäller endast GPv2-konton). Om du ändrar nivå från lågfrekvent till frekvent tillkommer kostnader för läsåtgärder (per 10 000) och datahämtning (per GB) för alla blobbar i Blob Storage- och GPv2-konton.
+Ja, du kan ändra standardlagringsnivå med attributet **Åtkomstnivå** för lagringskontot. Ändringar av lagringsnivån gäller för alla objekt som lagras i kontot som inte har en uttryckligen inställd nivå. Om du ändrar lagringsnivå från frekvent till lågfrekvent tillkommer kostnader för skrivåtgärder (per 10 000) för alla blobar utan en angiven lagringsnivå (gäller endast GPv2-konton). Om du ändrar nivå från lågfrekvent till frekvent tillkommer kostnader för läsåtgärder (per 10 000) och datahämtning (per GB) för alla blobar i Blob Storage- och GPv2-konton.
 
 **Kan jag ange arkivlagring som standardnivå för mitt konto?**
 
@@ -159,7 +159,7 @@ Frekvent och lågfrekvent lagring och blobnivåindelning är tillgängligt i all
 
 **Beter sig blobarna på lågfrekvent lagringsnivå annorlunda än på frekvent lagringsnivå?**
 
-Blobbar på frekvent lagringsnivå har samma svarstid som blobbar i GPv1-, GPv2- och Blob Storage-konton. Blobbar på lågfrekvent lagringsnivå har liknande svarstid (i millisekunder) som blobbar i GPv1-, GPv2- och Blob Storage-konton. Blobbar på arkivlagringsnivå har flera timmars svarstid i GPv1-, GPv2- och Blob Storage-konton.
+Blobar på frekvent lagringsnivå har samma svarstid som blobbar i GPv1-, GPv2- och Blob Storage-konton. Blobar på lågfrekvent lagringsnivå har liknande svarstid (i millisekunder) som blobbar i GPv1-, GPv2- och Blob Storage-konton. Blobar på arkivlagringsnivå har flera timmars svarstid i GPv1-, GPv2- och Blob Storage-konton.
 
 Blobbar på lågfrekvent lagringsnivå har något lägre tillgänglighetsnivå (enligt SLA) än blobbar som lagras på frekvent lagringsnivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
 

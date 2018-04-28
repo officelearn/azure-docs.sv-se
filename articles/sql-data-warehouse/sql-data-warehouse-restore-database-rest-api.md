@@ -1,87 +1,51 @@
 ---
-title: "Återställa en Azure SQL Data Warehouse (REST-API) | Microsoft Docs"
-description: "REST API-uppgifterna för att återställa en Azure SQL Data Warehouse."
+title: Återställa en Azure SQL Data Warehouse - REST API | Microsoft Docs
+description: 'Återställa en Azure SQL Data Warehouse med hjälp av REST API: er.'
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: fca922c6-b675-49c7-907e-5dcf26d451dd
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: backup-restore
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 8739429342d3c8bbe0f09041976758276a9c3228
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 2e1874fdf7c11d98d369072739c5937caffe6e96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>Återställa en Azure SQL Data Warehouse (REST-API)
-> [!div class="op_single_selector"]
-> * [Översikt över][Overview]
-> * [Portal][Portal]
-> * [PowerShell][PowerShell]
-> * [REST][REST]
-> 
-> 
-
-I den här artikeln får du lära dig hur du återställer en Azure SQL Data Warehouse med hjälp av REST-API.
+# <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Återställa en Azure SQL Data Warehouse med REST API: er
+Återställa en Azure SQL Data Warehouse med hjälp av REST API: er.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-**Kontrollera DTU-kapacitet.** Varje SQL Data Warehouse finns på en SQLServer (t.ex. myserver.database.windows.net) som har en standard DTU-kvot.  Innan du kan återställa en SQL Data Warehouse, kontrollera att den SQL-servern har tillräckligt med återstående DTU-kvot för databasen som återställs. Information om hur du beräkna DTU behövs eller begära mer DTU finns [begär en ändring för DTU-kvot][Request a DTU quota change].
+**Kontrollera DTU-kapacitet.** Varje SQL Data Warehouse finns på en logisk SQLServer (t.ex. myserver.database.windows.net) som har ett standardvärde [DTU-kvot](../sql-database/sql-database-what-is-a-dtu.md).  Innan du kan återställa en SQL Data Warehouse, kontrollera att den SQL-servern har tillräckligt med återstående DTU-kvot för databasen som återställs. Om du vill begära mer DTU, kan du [skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="restore-an-active-or-paused-database"></a>Återställa en databas för aktiva eller pausats
-Att återställa en databas:
+## <a name="restore-an-active-or-paused-data-warehouse"></a>Återställa en aktiv eller pausat datalagret
+Att återställa ett datalager:
 
 1. Hämta listan över återställningspunkter i databasen med hjälp av återställningspunkter för Get-databasen igen.
-2. Börja din återställning med hjälp av den [skapandebegäran om återställning av databas] [ Create database restore request] igen.
-3. Spåra statusen för återställningspunkten med hjälp av den [databasen Åtgärdsstatus] [ Database operation status] igen.
+2. Börja din återställning med hjälp av den [skapandebegäran om återställning av databas](https://msdn.microsoft.com/library/azure/dn509571.aspx) igen.
+3. Spåra statusen för återställningspunkten med hjälp av den [databasen Åtgärdsstatus](https://msdn.microsoft.com/library/azure/dn720371.aspx) igen.
 
 > [!NOTE]
-> När återställningen har slutförts kan du konfigurera din återställda databas genom att följa [konfigurera databasen efter återställningen][Configure your database after recovery].
+> När återställningen har slutförts kan du konfigurera ditt återställda data warehouse genom att följa [konfigurera databasen efter återställningen](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 > 
 > 
 
-## <a name="restore-a-deleted-database"></a>Återställa en borttagen databas
-Att återställa en borttagen databas:
+## <a name="restore-a-deleted-data-warehouse"></a>Återställa en borttagen datalagret
+Att återställa borttagna datalager:
 
-1. Lista över alla dina återställningsbara borttagna databaser med hjälp av den [lista återställningsbara bort databaser] [ List restorable dropped databases] igen.
-2. Hämta information för den borttagna databasen som du vill återställa med hjälp av den [Get återställningsbara släppa databasen] [ Get restorable dropped database] igen.
-3. Börja din återställning med hjälp av den [skapandebegäran om återställning av databas] [ Create database restore request] igen.
-4. Spåra statusen för återställningspunkten med hjälp av den [databasen Åtgärdsstatus] [ Database operation status] igen.
+1. Lista över alla distributionslager återställningsbara borttagna data med hjälp av den [lista återställningsbara bort databaser](https://msdn.microsoft.com/library/azure/dn509562.aspx) igen.
+2. Hämta information för borttagna datalagret som du vill återställa med hjälp av [Get återställningsbara borttagna] [Get återställningsbara borttagna databasen] Databasåtgärden.
+3. Börja din återställning med hjälp av den [skapandebegäran om återställning av databas](https://msdn.microsoft.com/library/azure/dn509571.aspx) igen.
+4. Spåra statusen för återställningspunkten med hjälp av den [databasen Åtgärdsstatus](https://msdn.microsoft.com/library/azure/dn720371.aspx) igen.
 
 > [!NOTE]
-> För att konfigurera databasen efter återställningen har slutförts, se [konfigurera databasen efter återställningen][Configure your database after recovery].
+> Om du vill konfigurera ditt data warehouse när återställningen har slutförts, se [konfigurera databasen efter återställningen](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om funktionerna för verksamhetskontinuitet Azure SQL Database version, Läs den [översikt över verksamhetskontinuitet i Azure SQL Database][Azure SQL Database business continuity overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-
-<!--MSDN references-->
-[Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
-[Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
-[List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+Mer information om funktionerna för verksamhetskontinuitet Azure SQL Database version, Läs den [översikt över verksamhetskontinuitet i Azure SQL Database](../sql-database/sql-database-business-continuity.md).

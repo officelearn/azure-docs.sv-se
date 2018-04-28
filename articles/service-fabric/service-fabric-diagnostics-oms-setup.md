@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Ställ in Log Analytics för ett kluster
 
-Du kan ställa in en logganalys-arbetsytan via Azure Resource Manager, PowerShell eller Azure Marketplace. Om du sparar en uppdaterad Resource Manager-mall för distributionen för framtida användning kan använda samma mall för att ställa in din OMS-miljö. Distribution via Marketplace är enklare om du redan har ett kluster som distribueras med diagnostik aktiverad. Om du inte har prenumeration behörighet för kontot som du distribuerar OMS distribuera med hjälp av PowerShell eller Resource Manager-mallen.
+Logganalys är vår rekommendation att övervaka klusterhändelser. Du kan ställa in logganalys-arbetsytan via Azure Resource Manager, PowerShell eller Azure Marketplace. Om du sparar en uppdaterad Resource Manager-mall för distributionen för framtida användning kan använda samma mall för att ställa in logganalys-miljö. Distribution via Marketplace är enklare om du redan har ett kluster som distribueras med diagnostik aktiverad. Om du inte har prenumerationen behörighet för kontot som du distribuerar till, distribuera med hjälp av PowerShell eller Resource Manager-mallen.
 
 > [!NOTE]
-> Om du vill konfigurera logganalys att övervaka klustret som du behöver ha diagnostik aktiverad för att visa händelser för kluster- eller plattform-nivå.
+> Om du vill konfigurera logganalys att övervaka klustret som du behöver ha diagnostik aktiverad för att visa händelser för kluster- eller plattform-nivå. Referera till [hur du ställer in diagnostik i Windows-kluster](service-fabric-diagnostics-event-aggregation-wad.md) och [hur du ställer in diagnostik i Linux-kluster](service-fabric-diagnostics-event-aggregation-lad.md) mer
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Distribuera OMS med hjälp av Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Distribuera en logganalys-arbetsytan med hjälp av Azure Marketplace
 
-Om du vill lägga till en OMS-arbetsyta när du har distribuerat ett kluster, gå till Azure Marketplace i portalen och Sök efter **Service Fabric Analytics**:
+Om du vill lägga till logganalys-arbetsytan när du har distribuerat ett kluster, gå till Azure Marketplace i portalen och Sök efter **Service Fabric Analytics**. Detta är en anpassad lösning för Service Fabric-distributioner som innehåller data som är specifika för Service Fabric. I den här processen skapar du både arbetsytan (sammanställning av underliggande kluster) och lösningen (instrumentpanelen för att visa insikter).
 
 1. Välj **ny** på den vänstra navigeringsmenyn. 
 
@@ -39,7 +39,7 @@ Om du vill lägga till en OMS-arbetsyta när du har distribuerat ett kluster, g�
 
     ![OMS SA analyser i Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. I fönstret Service Fabric Analytics skapa Välj **Välj en arbetsyta** för den **OMS-arbetsytan** fältet och sedan **skapa en ny arbetsyta**. Fyll i posterna som krävs. Det enda kravet är att prenumerationen för Service Fabric-kluster och OMS-arbetsyta är samma. När posterna har validerats börjar distribuera din OMS-arbetsyta. Distributionen tar bara några minuter.
+4. I fönstret Service Fabric Analytics skapa Välj **Välj en arbetsyta** för den **OMS-arbetsytan** fältet och sedan **skapa en ny arbetsyta**. Fyll i posterna som krävs. Det enda kravet är att prenumerationen för Service Fabric-kluster och arbetsytan är samma. När posterna har validerats börjar distribuera din arbetsyta. Distributionen tar bara några minuter.
 
 5. När du är klar väljer **skapa** igen längst ned i fönstret Skapa Service Fabric Analytics. Kontrollera att den nya arbetsytan visas under **OMS-arbetsytan**. Den här åtgärden lägger till lösningen arbetsytans.
 
@@ -48,9 +48,9 @@ Om du använder Windows, fortsätter du med följande steg för att ansluta OMS 
 >[!NOTE]
 >Aktivera upplevelsen för Linux-kluster är inte tillgänglig ännu. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Ansluta OMS-arbetsytan till ditt kluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ansluta Log Analytics-arbetsyta i klustret 
 
-1. Arbetsytan måste vara anslutna till diagnostikdata från klustret. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Välj **ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan. Därifrån kan du ändra inställningar för lösning, arbetsytan inställningar, och åtkomst till OMS-portalen.
+1. Arbetsytan måste vara anslutna till diagnostikdata från klustret. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Välj **ServiceFabric\<nameOfWorkspace\>**  och gå till dess översiktssidan. Därifrån kan du ändra inställningar för lösning, arbetsytan inställningar, och åtkomst till OMS-portalen.
 
 2. På den vänstra navigeringsmenyn under **arbetsytan datakällor**väljer **lagringskonton loggar**.
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

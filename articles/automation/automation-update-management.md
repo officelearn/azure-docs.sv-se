@@ -5,21 +5,21 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4b05044b0894e565ec4136f368314cb22041a7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
-Lösning för hantering av uppdateringar i Azure automation kan du hantera uppdateringar av operativsystemet säkerheten för din Windows- och Linux-datorer som distribueras i Azure, lokala miljöer eller andra molntjänstleverantörer av. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
+Lösning för hantering av uppdateringar i Azure automation kan du hantera uppdateringar av operativsystemet för Windows och Linux-datorer distribueras i Azure, lokala miljöer eller andra molntjänstleverantörer av. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 Du kan aktivera uppdateringshantering för virtuella datorer direkt via ditt [Azure Automation](automation-offering-get-started.md)-konto.
-Information om hur du aktiverar uppdateringshantering för virtuella datorer via ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md).
+Information om hur du aktiverar uppdateringshantering för virtuella datorer via ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera uppdateringshantering för en enskild virtuell dator från sidan virtuell dator i Azure-portalen. Det här scenariot är tillgängliga för båda [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuella datorer.
 
 ## <a name="solution-overview"></a>Lösningsöversikt
 
@@ -46,16 +46,16 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
 
 ### <a name="supported-client-types"></a>Typer av klient som stöds
 
-I följande tabell visas en lista över operativsystem som stöds: 
+I följande tabell visas en lista över operativsystem som stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdatera bedömningar         |
-|Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4.0 eller senare krävs ([hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) rekommenderas för ökad tillförlitlighet.         |
+|Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4.0 eller senare krävs ([hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) rekommenderas för ökad tillförlitlighet.         |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 12.04 LTS och senare x86/x64       |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
 ### <a name="unsupported-client-types"></a>Typer av klient som inte stöds
 
@@ -122,7 +122,7 @@ Heartbeat
 
 Du kan granska följande för att verifiera agent logganalys på en Windows-dator:
 
-1. Öppna Microsoft Monitoring Agent på Kontrollpanelen och på den **Azure logganalys** fliken agenten visas ett meddelande om: **i Microsoft Monitoring Agent har anslutits till logganalys** .   
+1. Öppna Microsoft Monitoring Agent på Kontrollpanelen och på den **Azure logganalys** fliken agenten visas ett meddelande om: **i Microsoft Monitoring Agent har anslutits till logganalys** .
 2. Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning. Dessa händelser anger datorn har registrerats med logganalys-arbetsytan och tar emot konfigurationen.
 
 Om agenten är inte kan kommunicera med logganalys och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, bekräftar du att servern brandvägg eller proxyserver har konfigurerats korrekt genom att granska [nätverkskonfigurationen för Windows-agenten](../log-analytics/log-analytics-agent-windows.md) eller [nätverkskonfigurationen för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
@@ -145,7 +145,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | Windows-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Windows-agenter och initierar installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Linux-agenter och initierar installationen av nödvändiga uppdateringar för distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br>En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data skickas från hanteringsgruppen till logganalys-arbetsytan. |
+| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.</br>En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data skickas från hanteringsgruppen till logganalys-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -196,6 +196,30 @@ Skapa en ny uppdatera distribution genom att klicka på den **schema uppdatering
 |Inställningar för schemaläggning|Välj tid för start och välj antingen en gång eller återkommande för återkommande|
 | Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet kan inte vara mindre än 30 minuter och mer än 6 timmar |
 
+## <a name="update-classifications"></a>Klassificering av uppdatering
+
+Följande tabeller innehåller en lista över uppdateringsklassificeringar i uppdateringshantering tillsammans med en definition för varje klassificering.
+
+### <a name="windows"></a>Windows
+
+|Klassificering  |Beskrivning  |
+|---------|---------|
+|Kritiska uppdateringar     | En uppdatering för ett specifikt problem som åtgärdar en kritisk, ej säkerhetsrelaterad bugg.        |
+|Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
+|Samlade uppdateringar     | En kumulativ uppsättning med snabbkorrigeringar som är packade tillsammans för enkel distribution.        |
+|Funktionspaket     | Nya produktfunktioner som distribueras utanför en produktlansering.        |
+|Service pack     | En kumulativ uppsättning snabbkorrigeringar som tillämpas på ett program.        |
+|Definitionsuppdateringar     | En uppdatering av virus- eller andra definitionsfiler.        |
+|Verktyg     | Ett verktyg eller en funktion som hjälper till att slutföra en eller flera uppgifter.        |
+|Uppdateringar     | En uppdatering för ett program eller en fil som är installerad för närvarande.        |
+
+### <a name="linux"></a>Linux
+
+|Klassificering  |Beskrivning  |
+|---------|---------|
+|Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett specifikt problem eller en produktspecifik, säkerhetsrelaterad fråga.         |
+|Övriga uppdateringar     | Alla andra uppdateringar som inte är nödvändiga i karaktär eller säkerhet för uppdateringar.        |
+
 ## <a name="search-logs"></a>Sökloggar
 
 Förutom de information som finns i portalen kan sökningar göras mot loggarna. Med den **ändringsspårning** öppen, klicka på **logganalys**, öppnas den **loggen Sök** sidan
@@ -206,13 +230,13 @@ Följande tabell innehåller exempel loggen söker efter uppdateringen innehåll
 
 | Fråga | Beskrivning |
 | --- | --- |
-|Uppdatering<br>&#124;där UpdateState == ”krävs” och valfria == false<br>&#124;projektet dator, avdelning, KBID, klassificering, PublishedDate |Alla datorer med saknade uppdateringar<br>Lägg till ett av följande för att begränsa OS:<br>OSType = ”Windows”<br>OSType == ”Linux- |
-| Uppdatering<br>&#124;där UpdateState == ”krävs” och valfria == false<br>&#124;Om datorn == ”ContosoVM1.contoso.com”<br>&#124;projektet dator, avdelning, KBID, produkt, PublishedDate |Saknade uppdateringar fören specifik dator (ersätt värdet med namnet på din egen dator)|
-| Händelse<br>&#124;där EventLevelName == ”error” och datorer i ((uppdatering &#124; var (klassificering == ”säkerhetsuppdateringar” eller klassificering == ”kritiska uppdateringar”)<br>&#124;där UpdateState == ”krävs” och valfria == false <br>&#124;distinkta dator)) |Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |
-| Uppdatering<br>&#124;där UpdateState == ”krävs” och valfria == false<br>&#124;unikt namn |Separata, saknade uppdateringar bland samtliga datorer |
-| UpdateRunProgress<br>&#124;där InstallationStatus == ”misslyckades” <br>&#124;Sammanfatta AggregatedValue = count() av datorn, avdelning, UpdateRunName |Datorer med uppdateringar som misslyckades under en uppdateringskörning<br>Lägg till ett av följande för att begränsa OS:<br>OSType = ”Windows”<br>OSType == ”Linux- |
-| Uppdatering<br>&#124;där OSType == ”Linux-<br>&#124;där UpdateState! = ”behövs inte” och (klassificering == ”kritiska uppdateringar” eller klassificering == ”säkerhetsuppdateringar”)<br>&#124;Sammanfatta AggregatedValue = count() per dator |Lista över alla Linux datorer, som har en tillgänglig Paketuppdatering, som åtgärdar problem kritiskt eller säkerhet | 
-| UpdateRunProgress<br>&#124;där UpdateRunName == ”DeploymentName”<br>&#124;Sammanfatta AggregatedValue = count() per dator|Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn | 
+|Uppdatering</br>&#124;där UpdateState == ”krävs” och valfria == false</br>&#124;projektet dator, avdelning, KBID, klassificering, PublishedDate |Alla datorer med saknade uppdateringar</br>Lägg till ett av följande för att begränsa OS:</br>OSType = ”Windows”</br>OSType == ”Linux- |
+| Uppdatering</br>&#124;där UpdateState == ”krävs” och valfria == false</br>&#124;Om datorn == ”ContosoVM1.contoso.com”</br>&#124;projektet dator, avdelning, KBID, produkt, PublishedDate |Saknade uppdateringar fören specifik dator (ersätt värdet med namnet på din egen dator)|
+| Händelse</br>&#124;där EventLevelName == ”error” och datorer i ((uppdatering &#124; var (klassificering == ”säkerhetsuppdateringar” eller klassificering == ”kritiska uppdateringar”)</br>&#124;där UpdateState == ”krävs” och valfria == false </br>&#124;distinkta dator)) |Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |
+| Uppdatering</br>&#124;där UpdateState == ”krävs” och valfria == false</br>&#124;unikt namn |Separata, saknade uppdateringar bland samtliga datorer |
+| UpdateRunProgress</br>&#124;där InstallationStatus == ”misslyckades” </br>&#124;Sammanfatta AggregatedValue = count() av datorn, avdelning, UpdateRunName |Datorer med uppdateringar som misslyckades under en uppdateringskörning</br>Lägg till ett av följande för att begränsa OS:</br>OSType = ”Windows”</br>OSType == ”Linux- |
+| Uppdatering</br>&#124;där OSType == ”Linux-</br>&#124;där UpdateState! = ”behövs inte” och (klassificering == ”kritiska uppdateringar” eller klassificering == ”säkerhetsuppdateringar”)</br>&#124;Sammanfatta AggregatedValue = count() per dator |Lista över alla Linux datorer, som har en tillgänglig Paketuppdatering, som åtgärdar problem kritiskt eller säkerhet |
+| UpdateRunProgress</br>&#124;där UpdateRunName == ”DeploymentName”</br>&#124;Sammanfatta AggregatedValue = count() per dator|Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrera med System Center Configuration Manager
 
@@ -248,18 +272,18 @@ Om det uppstår problem när du försöker integrera lösningen eller en virtuel
 
 | Meddelande | Orsak | Lösning |
 |----------|----------|----------|
-| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>System.InvalidOperationException: {"Meddelande":"Datorn har redan<br>registrerats för ett annat konto. "} | Datorn har redan integrerats på en annan arbetsyta för uppdateringshantering. | Rensa gamla artefakter genom att [ta bort hybridrunbookgruppen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---><br>System.Net.WebException: Den underliggande anslutningen<br>stängdes: Ett oväntat fel<br>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:<br>Klienten och servern kan inte kommunicera<br>eftersom de inte har en gemensam algoritm. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
-| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
-| Certifikatet som presenterades av tjänsten <wsid>.oms.opinsights.azure.com<br>utfärdades inte av en certifikatutfärdare<br>som används för Microsoft-tjänster. Kontakt<br>nätverksadministratören för att se om de kör en proxy som hindrar<br>TLS/SSL-kommunikation. |Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
-| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Det gick inte att skapa ett självsignerat certifikat. ---><br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har<br>läsbehörighet till mappen:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA **|
+| Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>System.InvalidOperationException: {"Meddelande":"Datorn har redan</br>registrerats för ett annat konto. "} | Datorn har redan integrerats på en annan arbetsyta för uppdateringshantering. | Rensa gamla artefakter genom att [ta bort hybridrunbookgruppen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Det gick inte att registrera datorn för uppdateringshantering, registrering misslyckades med undantaget</br>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---></br>System.Net.WebException: Den underliggande anslutningen</br>stängdes: Ett oväntat fel</br>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:</br>Klienten och servern kan inte kommunicera</br>eftersom de inte har en gemensam algoritm. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
+| Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
+| Certifikatet som presenterades av tjänsten \<wsid\>. oms.opinsights.azure.com</br>utfärdades inte av en certifikatutfärdare</br>som används för Microsoft-tjänster. Kontakt</br>nätverksadministratören för att se om de kör en proxy som hindrar</br>TLS/SSL-kommunikation. |Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
+| Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Det gick inte att skapa ett självsignerat certifikat. ---></br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har</br>läsbehörighet till mappen:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA **|
 
 ## <a name="next-steps"></a>Nästa steg
 
 Fortsätta att guiden för att lära dig hur du hanterar uppdateringar för Windows-datorer.
 
 > [!div class="nextstepaction"]
-> [Hantera uppdateringar och korrigeringsfiler för virtuella datorerna i Windows Azure](automation-tutorial-troubleshoot-changes.md)
+> [Hantera uppdateringar och korrigeringsfiler för virtuella datorerna i Windows Azure](automation-tutorial-update-management.md)
 
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) som visas när viktiga uppdateringar saknas på datorer eller när automatiska uppdateringar är inaktiverade för en dator.

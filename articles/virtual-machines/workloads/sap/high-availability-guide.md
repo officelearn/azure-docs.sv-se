@@ -1,13 +1,13 @@
 ---
-title: "Azure virtuella datorer hög tillgänglighet för SAP NetWeaver | Microsoft Docs"
-description: "Hög tillgänglighet guide för SAP NetWeaver på Azure Virtual Machines"
+title: Azure virtuella datorer hög tillgänglighet för SAP NetWeaver | Microsoft Docs
+description: Hög tillgänglighet guide för SAP NetWeaver på Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 643db63b077d243617b8a54c6835aa560007d51b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines
 
@@ -366,7 +366,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP produkten tillgänglighet matris)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -420,7 +420,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -700,9 +700,9 @@ _**Figur 11:** ange parametrar för SAP hög tillgänglighet Azure Resource Mana
     * DBMS-kluster: <*SAPSystemSID*> - db - <*tal*>
 
   * **Nätverkskort för alla virtuella datorer med tillhörande IP-adresser**:
-    * <*SAPSystemSID*>-nic-di-<*Number*>
-    * <*SAPSystemSID*>-nic-ascs-<*Number*>
-    * <*SAPSystemSID*>-nic-db-<*Number*>
+    * <*SAPSystemSID*> - nic - di - <*tal*>
+    * <*SAPSystemSID*> - nic - ascs - <*tal*>
+    * <*SAPSystemSID*> - nic - db - <*tal*>
 
   * **Azure storage-konton**
 
@@ -888,7 +888,7 @@ I vårt exempel har DNS-tjänsten installerats och konfigurerats på dessa virtu
 | Rollen virtuell dator | Värdnamn för virtuell dator | Namn på nätverkskort | Statisk IP-adress |
 | --- | --- | --- | --- |
 | Första DNS-servern |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
-| Andra DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
+| Andra DNS-server |domcontr 1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
 ### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Värdnamn och statiska IP-adresser för SAP ASCS/SCS klustrade instansen och DBMS klustrad instans
 
@@ -897,7 +897,7 @@ För lokal distribution måste dessa reserverade värdnamn och IP-adresser:
 | Virtuell värd namn roll | Virtuella värdnamn | Virtuell statisk IP-adress |
 | --- | --- | --- |
 | SAP ASCS/SCS första klustret virtuellt värdnamn (för hantering av kluster) |PR1-ascs-vir |10.0.0.42 |
-| SAP ASCS/SCS virtuell värd instansnamn |pr1-ascs-sap |10.0.0.43 |
+| SAP ASCS/SCS virtuell värd instansnamn |PR1-ascs-sap |10.0.0.43 |
 | SAP DBMS andra kluster virtuellt värdnamn (hantering) |pr1-dbms-vir |10.0.0.32 |
 
 När du skapar klustret kan du skapa virtuella värdnamn **pr1-ascs-vir** och **pr1-dbms-vir** och associerade IP-adresser som hantera själva klustret. Information om hur du gör detta finns [samla in klusternoder i en klusterkonfiguration][sap-ha-guide-8.12.1].
@@ -925,12 +925,12 @@ I vårt exempel har vi dessa virtuella datorer och statiska IP-adresser:
 
 | Rollen virtuell dator | Värdnamn för virtuell dator | Namn på nätverkskort | Statisk IP-adress |
 | --- | --- | --- | --- |
-| Första SAP Application Server-instansen |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| Andra SAP Application Server-instans |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| Första SAP Application Server-instansen |PR1-di-0 |pr1-nic-di-0 |10.0.0.50 |
+| Andra SAP Application Server-instans |PR1-di-1 |PR1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| Senaste SAP Application Server-instans |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
-| Första klusternoden för ASCS/SCS-instans |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
-| Andra klusternod för ASCS/SCS-instans |PR1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
+| Senaste SAP Application Server-instans |PR1-di-5 |PR1-nic-di-5 |10.0.0.55 |
+| Första klusternoden för ASCS/SCS-instans |PR1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
+| Andra klusternod för ASCS/SCS-instans |PR1-ascs-1 |PR1-nic-ascs-1 |10.0.0.41 |
 | Första klusternoden för DBMS-instans |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
 | Andra klusternod för DBMS-instans |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
@@ -959,7 +959,7 @@ I vårt exempel har vi två Azure interna belastningsutjämnare som har dessa st
 | Azure interna belastningsutjämnarrollen | Azure interna belastningsutjämnarens namn | Statisk IP-adress |
 | --- | --- | --- |
 | Interna belastningsutjämnare för SAP ASCS/SCS-instans |ascs-lb-PR1 |10.0.0.43 |
-| SAP DBMS intern belastningsutjämnare |pr1-lb-dbms |10.0.0.33 |
+| SAP DBMS intern belastningsutjämnare |PR1-lb-dbms |10.0.0.33 |
 
 
 ### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Standard ASCS/SCS belastningsutjämningsregler för Azure interna belastningsutjämnare
@@ -981,10 +981,10 @@ Om du vill skapa nödvändiga intern belastningsutjämning slutpunkter först sk
 | Internt ABAP meddelande / *lbrule3900* |39 <*InstanceNumber*> |3900 |
 | Serverns HTTP-meddelandet / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | SAP Start Service ASCS HTTP / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
-| SAP Start Service ASCS HTTPS / *Lbrule50014* |5<*InstanceNumber*>14 |50014 |
-| Sätta replikering / *Lbrule50016* |5<*InstanceNumber*>16 |50016 |
+| SAP Start Service ASCS HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
+| Sätta replikering / *Lbrule50016* |5 <*InstanceNumber*> 16 |50016 |
 | SAP Start Service ÄNDARE HTTP *Lbrule51013* |5 <*InstanceNumber*> 13 |51013 |
-| SAP Start Service ÄNDARE HTTP *Lbrule51014* |5<*InstanceNumber*>14 |51014 |
+| SAP Start Service ÄNDARE HTTP *Lbrule51014* |5 <*InstanceNumber*> 14 |51014 |
 | Win RM *Lbrule5985* | |5985 |
 | Filresurs *Lbrule445* | |445 |
 
@@ -999,10 +999,10 @@ Skapa sedan dessa slutpunkter för SAP NetWeaver Java SCS-portar för belastning
 | Java Message Server / *lbrule3900* |39 <*InstanceNumber*> |3901 |
 | Serverns HTTP-meddelandet / *Lbrule8101* |81 <*InstanceNumber*> |8101 |
 | SAP Start Service SCS HTTP / *Lbrule50113* |5 <*InstanceNumber*> 13 |50113 |
-| SAP Start Service SCS HTTPS / *Lbrule50114* |5<*InstanceNumber*>14 |50114 |
-| Sätta replikering / *Lbrule50116* |5<*InstanceNumber*>16 |50116 |
+| SAP Start Service SCS HTTPS / *Lbrule50114* |5 <*InstanceNumber*> 14 |50114 |
+| Sätta replikering / *Lbrule50116* |5 <*InstanceNumber*> 16 |50116 |
 | SAP Start Service ÄNDARE HTTP *Lbrule51113* |5 <*InstanceNumber*> 13 |51113 |
-| SAP Start Service ÄNDARE HTTP *Lbrule51114* |5<*InstanceNumber*>14 |51114 |
+| SAP Start Service ÄNDARE HTTP *Lbrule51114* |5 <*InstanceNumber*> 14 |51114 |
 | Win RM *Lbrule5985* | |5985 |
 | Filresurs *Lbrule445* | |445 |
 
@@ -1050,9 +1050,9 @@ För att lägga till poster i registret på båda klusternoderna för SAP ASCS/S
 | Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveTime` |
-| Variabeltyp |REG_DWORD (Decimal) |
+| Variabeltyp |REG_DWORD (decimalt) |
 | Värde |120000 |
-| Länka till dokumentationen |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Länka till dokumentationen |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabell 3:** ändra den första parametern för TCP/IP_
 
@@ -1061,9 +1061,9 @@ Lägg sedan till den här Windows-registerposter på båda klusternoderna i Wind
 | Sökväg | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveInterval` |
-| Variabeltyp |REG_DWORD (Decimal) |
+| Variabeltyp |REG_DWORD (decimalt) |
 | Värde |120000 |
-| Länka till dokumentationen |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Länka till dokumentationen |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabell 4:** ändra andra TCP/IP-parameter_
 
@@ -1233,7 +1233,7 @@ När du konfigurerar ett kluster filresursvittne inkluderar dessa uppgifter:
 
   _**Bild 38:** bekräfta att klustret har konfigurerats om_
 
-När du har installerat Windows-redundanskluster har förändringar som måste göras för vissa tröskelvärden för att anpassa redundans identifiering till villkoren i Azure. Parametrarna för att ändra dokumenteras i den här bloggen: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Förutsatt att din två virtuella datorer som bygger Windows klusterkonfigurationen för ASCS/SCS är i samma undernät, måste följande parametrar ändras till dessa värden:
+När du har installerat Windows-redundanskluster har förändringar som måste göras för vissa tröskelvärden för att anpassa redundans identifiering till villkoren i Azure. Parametrarna för att ändra dokumenteras i den här bloggen: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Förutsatt att din två virtuella datorer som bygger Windows klusterkonfigurationen för ASCS/SCS är i samma undernät, måste följande parametrar ändras till dessa värden:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 

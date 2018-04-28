@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -29,7 +29,7 @@ Du kan skapa ett VNet innan du skapar en virtuell dator eller så kan du när du
 Utöver dessa grundläggande resurser bör du även överväga dessa valfria resurser:
 
 - Nätverkssäkerhetsgrupper
-- Belastningsutjämning 
+- Belastningsutjämnare 
 
 ## <a name="network-interfaces"></a>Nätverksgränssnitt
 
@@ -48,7 +48,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa ett nätve
 | Azure Portal | När du skapar en virtuell dator i Azure Portal skapas automatiskt ett nätverksgränssnitt åt dig (du kan inte använda ett NIC som du skapar separat). Portalen skapar en virtuell dator med bara ett NIC. Om du vill skapa en virtuell dator med mer än ett NIC måste du skapa det med en annan metod. |
 | [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Använd [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) med parametern **-PublicIpAddressId** för att ange identifierare av den offentliga IP-adress som du skapade tidigare. |
 | [Azure CLI](../articles/virtual-machines/linux/multiple-nics.md) | För att ange identifierare av den offentliga IP-adress som du skapade tidigare använder du [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) med parametern **--public-ip-address**. |
-| [Mall](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Använd [Nätverksgränssnitt i ett virtuellt nätverk med offentliga IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) som en vägledning för att distribuera ett nätverksgränssnitt med en mall. |
+| [Mall](../articles/virtual-network/template-samples.md) | Använd [Nätverksgränssnitt i ett virtuellt nätverk med offentliga IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) som en vägledning för att distribuera ett nätverksgränssnitt med en mall. |
 
 ## <a name="ip-addresses"></a>IP-adresser 
 
@@ -70,7 +70,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en IP-adre
 | [Azure Portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Som standard är offentliga IP-adresser dynamiska och den adress som är associerad med dem kan ändras när den virtuella datorn har stoppats eller tagits bort. För att garantera att den virtuella datorn alltid använder samma offentliga IP-adress skapar du en statisk offentlig IP-adress. Som standard tilldelar portalen en dynamisk privat IP-adress till ett NIC när du skapar en virtuell dator. Du kan ändra den här IP-adress till statisk när den virtuella datorn har skapats.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Du använder [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) med parametern **- AllocationMethod** som dynamisk eller statisk. |
 | [Azure CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Du använder [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) med parametern **--allocation-method** som dynamisk eller statisk. |
-| [Mall](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Använd [Nätverksgränssnitt i ett virtuellt nätverk med offentliga IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) som en vägledning för att distribuera en offentlig IP-adress med en mall. |
+| [Mall](../articles/virtual-network/template-samples.md) | Använd [Nätverksgränssnitt i ett virtuellt nätverk med offentliga IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) som en vägledning för att distribuera en offentlig IP-adress med en mall. |
 
 När du skapat en offentlig IP-adress kan du associera den med en virtuell dator genom att tilldela den ett NIC.
 
@@ -112,9 +112,9 @@ Den här tabellen anger de metoder som du kan använda för att skapa en nätver
 | [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | När du skapar en virtuell dator i Azure-portalen skapas en NSG automatiskt och kopplas till det NIC som portalen skapar. Namnet på denna NSG är en kombination av namnet på den virtuella datorn och **-nsg**. Denna NSG innehåller en inkommande regel med prioritet 1000, tjänst inställd på RDP, protokoll inställt på TCP, port inställd på 3389 och åtgärd inställd på Tillåt. Om du vill tillåta annan inkommande trafik till den virtuella datorn måste du lägga till ytterligare regler i NSG. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Använd [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) och ange nödvändig regelinformation. Använd [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) för att skapa NSG. Använd [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) för att konfigurera NSG för undernätet. Använd [Set AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) för att lägga till NSG till VNet. |
 | [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Använd [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) för att först skapa NSG. Använd [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) för att lägga till regler i NSG. Använd [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) för att lägga till NSG i undernätet. |
-| [Mall](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Använd [Skapa en nätverkssäkerhetsgrupp ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) som en vägledning för att distribuera en säkerhetsgrupp i nätverket med hjälp av en mall. |
+| [Mall](../articles/virtual-network/template-samples.md) | Använd [Skapa en nätverkssäkerhetsgrupp ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) som en vägledning för att distribuera en säkerhetsgrupp i nätverket med hjälp av en mall. |
 
-## <a name="load-balancers"></a>Belastningsutjämning
+## <a name="load-balancers"></a>Belastningsutjämnare
 
 [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. En belastningsutjämnare kan konfigureras för att [balansera inkommande internettrafik](../articles/load-balancer/load-balancer-internet-overview.md) till virtuella datorer eller [balansera trafik mellan virtuella datorer i ett VNet](../articles/load-balancer/load-balancer-internal-overview.md). En belastningsutjämnare kan även balansera trafik mellan lokala datorer och virtuella datorer mellan lokala nätverk eller vidarebefordra extern trafik till en specifik virtuell dator.
 

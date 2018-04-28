@@ -1,8 +1,8 @@
 ---
-title: "Självstudier: Konfigurera BlueJeans för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till BlueJeans."
+title: 'Självstudier: Konfigurera BlueJeans för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till BlueJeans.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9b071d166f741df523d6343ba771b7a29cd4a303
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Självstudier: Konfigurera BlueJeans för automatisk användaretablering
 
@@ -112,7 +112,7 @@ Det här avsnittet hjälper dig att konfigurera Azure AD etableras för att skap
 
     ![BlueJeans etablering](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. I den **e-postmeddelande** anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan **skicka ett e-postmeddelande när ett fel uppstår**.
+7. I den **e-postmeddelande** anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![BlueJeans etablering](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -143,6 +143,10 @@ Det här avsnittet hjälper dig att konfigurera Azure AD etableras för att skap
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfång** i den **inställningar** avsnitt. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter som Azure AD Etablerar-tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapport som beskriver alla åtgärder som utförs av Azure AD-tjänsten på BlueJeans-etablering.
 
 Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](./active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Begränsningar för kopplingen
+
+* Bluejeans tillåter inte användarnamn som överskrider 30 tecken.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

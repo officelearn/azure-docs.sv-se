@@ -1,6 +1,6 @@
 ---
-title: "Kör Ansible med Bash i Azure-molnet Shell"
-description: "Lär dig hur du utför olika uppgifter för Ansible med Bash i Azure Cloud Shell"
+title: Kör Ansible med Bash i Azure-molnet Shell
+description: Lär dig hur du utför olika uppgifter för Ansible med Bash i Azure Cloud Shell
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Kör Ansible med Bash i Azure-molnet Shell
 
@@ -24,7 +24,7 @@ I kursen får lära du att utföra olika uppgifter för Ansible från Bash i mol
 
 - **Autentiseringsuppgifter för Azure** - [skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Konfigurera Azure Cloud Shell** - om du är nybörjare på Azure-molnet Shell, artikeln [Snabbstart för Bash i Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) visar hur du kan starta och konfigurera molnet Shell. Starta en dedikerad webbplats för molnet Shell här:
+- **Konfigurera Azure Cloud Shell** - om du är nybörjare på Azure-molnet Shell, artikeln [Snabbstart för Bash i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) visar hur du kan starta och konfigurera molnet Shell. Starta en dedikerad webbplats för molnet Shell här:
 
 [![Starta molnet Shell](https://shell.azure.com/images/launchcloudshell.png "starta molnet Shell")](https://shell.azure.com)
 

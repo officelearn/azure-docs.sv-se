@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 2ea8c3119366d86c3aabf1faa0d71f1ba3610f41
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universal autentisering med SQL Database och SQL Data Warehouse (SSMS stöd för MFA)
 Azure SQL Database och Azure SQL Data Warehouse stöder anslutningar från SQL Server Management Studio (SSMS) med hjälp av *Active Directory Universal autentisering*. 
@@ -25,13 +25,13 @@ Azure SQL Database och Azure SQL Data Warehouse stöder anslutningar från SQL S
 
 - `Active Directory - Universal with MFA` autentisering är en interaktiv metod som också stöder *Azure Multi-Factor Authentication* (MFA). Azures MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering med ett antal alternativ för enkel verifiering (telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp), så att användare kan välja metoden som de själva föredrar. Interaktiv MFA med Azure AD kan resultera i en dialogruta för verifiering.
 
-En beskrivning av Multi-Factor Authentication finns [Multifaktorautentisering](../multi-factor-authentication/multi-factor-authentication.md).
+En beskrivning av Multi-Factor Authentication finns [Multifaktorautentisering](../active-directory/authentication/multi-factor-authentication.md).
 Konfigurationssteg finns [konfigurera Azure SQL Database Multi-Factor authentication för SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD domain name eller klient ID-parametern   
 
 Från och med [SSMS version 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), kan användare som har importerats till den aktuella Active Directory från andra Azure Active kataloger som gästanvändare, ange domännamnet för Azure AD eller klient-ID när de ansluter. Gästanvändare innehåller användare som bjudits in från andra Azure Active Directory, Microsoft-konton som outlook.com, hotmail.com, live.com eller andra konton som gmail.com. Den här informationen kan **Active Directory Universal med MFA autentisering** att identifiera rätt autentiseringsutfärdare saknas. Det här alternativet krävs också stöd för Microsoft-konton (MSA), till exempel outlook.com, hotmail.com, live.com eller andra mejlkonton än Microsoft-konton. Dessa användare som vill autentiseras med hjälp av Universal autentisering måste ange sina Azure AD-domän eller klient-ID. Den här parametern representerar den aktuella Azure AD domain namn/klient-ID Azure-servern är kopplad till. Om Azure-Server som är associerad med Azure AD-domänen till exempel `contosotest.onmicrosoft.com` där användaren `joe@contosodev.onmicrosoft.com` värdbaserad som en importerad användare från Azure AD-domänen `contosodev.onmicrosoft.com`, domännamnet krävs för att autentisera den här användaren är `contosotest.onmicrosoft.com`. När användaren är en inbyggd länkad till Azure Server Azure AD-användare och är inte en MSA-konto, krävs ingen domän namn eller klient-ID. Att ange parametern (som börjar med SSMS version 17,2), i den **Anslut till databas** dialogrutan Fyll i dialogrutan Markera **Active Directory - Universal med MFA** autentisering, klickar du på  **Alternativ**, fullständig den **användarnamn** rutan och klicka på den **anslutningsegenskaper** fliken. Kontrollera den **AD domän namn eller klient-ID** rutan och ange autentiseringsutfärdare saknas, till exempel namnet på en domän (**contosotest.onmicrosoft.com**) eller GUID för klient-ID.  
-   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+   ![mfa-klient-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD-stöd för företag   
 Azure AD-användare som stöds i Azure AD B2B-scenarier som gästanvändare (se [vad är Azure B2B-samarbete](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) kan ansluta till SQL Database och SQL Data Warehouse endast som en del av medlemmar i en grupp som skapats i aktuell Azure AD och mappa manuellt med hjälp av Transact-SQL `CREATE USER` instruktionen i en viss databas. Till exempel om `steve@gmail.com` uppmanas att Azure AD `contosotest` (med Azure Ad-domänen `contosotest.onmicrosoft.com`), en Azure AD gruppen som `usergroup` måste skapas i Azure AD som innehåller den `steve@gmail.com` medlem. Sedan den här gruppen måste skapas för en viss databas (d.v.s. mindatabas) av Azure AD-SQL-administratör eller Azure AD DBO genom att köra Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` instruktionen. När databasanvändaren har skapats kan sedan användaren `steve@gmail.com` kan logga in på `MyDatabase` med alternativet SSMS autentisering `Active Directory – Universal with MFA support`. Usergroup, har som standard bara behörigheten connect och eventuella ytterligare åtkomst till data som måste beviljas på normalt sätt. Observera att användaren `steve@gmail.com` som gästanvändare måste du kryssrutan och lägga till domännamn AD `contosotest.onmicrosoft.com` i SSMS **Anslutningsegenskapen** dialogrutan. Den **AD domän namn eller klient-ID** alternativet stöds bara för Universal med MFA anslutningsalternativ, annars den är nedtonat.

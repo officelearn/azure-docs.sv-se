@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 6602a4ab8f6081c1b96c7da3bc94291d05d79862
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL Database DTU-baserade modellen gränserna
 
@@ -30,7 +30,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximala DTU:er | 5 |
 | Ingår lagringsutrymme (GB) | 2 |
 | Maximalt antal lagringsalternativ (GB) | 2 |
-| Maximal InMemory-OLTP-lagring (GB) |Saknas |
+| Maximal InMemory-OLTP-lagring (GB) |Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden) | 30 |
 | Maximalt antal samtidiga inloggningar | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
@@ -39,10 +39,10 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 ### <a name="standard-service-tier"></a>Standardtjänstenivå
 | **Prestandanivå** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Max dtu: er ** | 10 | 20 | 50 | 100 |
+| Maximala DTU:er | 10 | 20 | 50 | 100 |
 | Ingår lagringsutrymme (GB) | 250 | 250 | 250 | 250 |
 | Maximalt antal lagringsalternativ (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |
+| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga inloggningar | 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
@@ -51,10 +51,10 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 ### <a name="standard-service-tier-continued"></a>Standard-tjänstnivå (fortsättning)
 | **Prestandanivå** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Max dtu: er ** | 200 | 400 | 800 | 1600 | 3000 |
+| Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
 | Ingår lagringsutrymme (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximalt antal lagringsalternativ (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |Saknas |
+| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Saknas |Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga inloggningar | 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
@@ -78,8 +78,6 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 >
 >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Max Dtu per databas startar 200 dtu: er och högre i Standard finns i förhandsgranskningen.
->
 
 
 ## <a name="single-database-change-storage-size"></a>Databas: ändra lagringsstorlek
@@ -97,7 +95,7 @@ Följande videoklipp visar dynamiskt ändra nivå för prestanda för att öka t
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-När du ändrar servicenivån och/eller prestandanivån för en databas skapas en replik av den ursprungliga databasen på den nya prestandanivån och sedan växlas anslutningar över till repliken. Inga data förloras under den här processen men under kort tidsperiod när vi växlar över till repliken är anslutningar till databasen inaktiverade, så vissa transaktioner som sker då kan återställas. Hur lång tid för switch-over varierar, men är vanligtvis under 4 sekunder är mindre än 30 sekunder 99% av tiden. Om det finns stora mängder transaktioner som rör sig vid anslutningar för tillfället är inaktiverade, hur lång tid för switch-over kanske inte längre. 
+När du ändrar servicenivån och/eller prestandanivån för en databas skapas en replik av den ursprungliga databasen på den nya prestandanivån och sedan växlas anslutningar över till repliken. Inga data förloras under den här processen men under kort tidsperiod när vi växlar över till repliken är anslutningar till databasen inaktiverade, så vissa transaktioner som sker då kan återställas. Hur lång tid för switch-over varierar, men är mindre än 30 sekunder 99% av tiden. Om det finns stora mängder transaktioner som rör sig vid anslutningar för tillfället är inaktiverade, hur lång tid för switch-over kanske inte längre. 
 
 Hur lång tid processen att skala upp tar beror på databasens storlek och tjänstnivå före och efter ändringen. Till exempel bör en 250 GB-databas som ändras till, från eller inom en Standard-tjänstnivå slutföras inom sex timmar. Skala upp bör slutföras inom tre timmar för en databas med samma storlek som ändrar prestandanivåer inom premiumnivån.
 
@@ -139,7 +137,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Ingår lagringsutrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Maximalt antal lagringsalternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Gäller inte |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -155,7 +153,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Ingår lagringsutrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Maximalt antal lagringsalternativ per pool (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | 
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Gäller inte | 
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
@@ -171,7 +169,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |:---|---:|---:|---:| ---: | ---: |
 | Ingår lagringsutrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Maximalt antal lagringsalternativ per pool (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | 
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Gäller inte | 
 | Maximalt antal databaser per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga inloggningar per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
@@ -229,7 +227,7 @@ I följande tabell beskrivs egenskaperna för pool-databaser.
 |:--- |:--- |
 | Maximalt antal eDTU:er per databas |Det högsta antalet eDTU:er som en databas i poolen kan använda, om de är tillgängliga beroende på användningen av andra databaser i poolen. Det högsta antalet eDTU:er per databas utgör ingen resursgaranti för en databas. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Ange ett högsta antal eDTU:er per databas som är tillräckligt högt för att hantera toppar i databasanvändningen. En viss grad av övertilldelning är att förvänta eftersom poolen normalt arbetar efter ett mönster med frekvent och lågfrekvent användning av databaser där inte alla databaser har aktivitetstoppar samtidigt. Anta exempelvis att toppanvändningen per databas är 20 eDTU:er och att endast 20 % av de 100 databaserna i poolen har hög belastning samtidigt. Om det högsta antalet eDTU:er per databas har angetts till 20 eDTU:er är det rimligt att övertilldela poolen med 5 gånger så mycket och ange eDTU:erna per pool till 400. |
 | Minimalt antal eDTU:er per databas |Det minsta antalet eDTU:er som en databas i poolen är garanterad. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Det minsta antalet eDTU:er per databas kan anges till 0, vilket även är standardvärdet. Den här egenskapen anges till ett värde mellan 0 och den genomsnittliga eDTU-användningen per databas. Produkten av antalet databaser i poolen och det minsta antalet eDTU:er per databas får inte överskrida antalet eDTU:er per pool. Om en pool till exempel har 20 databaser och det minsta antalet eDTU:er per databas har angetts till 10 eDTU:er så måste antalet eDTU:er per pool vara minst 200 eDTU:er. |
-| Maximalt lagringsutrymme per databas |Den maximala databasstorleken anges av användaren för en databas i en pool. Grupperade databaser dela allokerade poolen lagring, så att en databas kan nå storlek är begränsad till mindre återstående poolens lagringsutrymme och databasstorlek. Max databasens storlek avser den maximala storleken för datafiler och innehåller inte det utrymme som används av loggfiler. |
+| Maximalt lagringsutrymme per databas |Den maximala databasstorleken anges av användaren för en databas i en pool. Dock dela grupperade databaser allokerade poolens lagringsutrymme. Även om totala maximal lagringskapacitet **per databas* anges måste vara större än det totala tillgängliga lagringsutrymmet **utrymmet i poolen*, det totala utrymmet som faktiskt används av alla databaserna inte överskrida den tillgängliga poolen gräns. Max databasens storlek avser den maximala storleken för datafiler och innehåller inte det utrymme som används av loggfiler. |
 |||
  
 ## <a name="elastic-pool-change-storage-size"></a>Elastisk pool: ändra lagringsstorlek
@@ -271,7 +269,7 @@ När den påträffar hög beräkning användning inkluderar minskning alternativ
 - Öka prestandanivåerna för databasen eller elastisk pool för att ge databasen mer dtu: er eller edtu: er. Se [enskild databas: ändra dtu: er](#single-database-change-dtus) och [elastisk pool: ändra edtu: er](#elastic-pool-change-edtus).
 - Optimera frågor för att minska resursanvändningen för varje fråga. Mer information finns i [frågan finjustera/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 När databasutrymme används når den maximala storleksgränsen, infogas i databasen och uppdateringar som ökar storleken på data misslyckas och klienter tar emot en [felmeddelande](sql-database-develop-error-messages.md). Databasen väljer och BORTTAGNINGAR fortsätter att fungera.
 

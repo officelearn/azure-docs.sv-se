@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datauppsättningar och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Följande länkade tjänst är en länkad Azure Storage-tjänst. Observera att t
 }
 ```
 
-## <a name="dataset-json"></a>Dataset JSON
+## <a name="dataset-json"></a>Datauppsättnings-JSON
 En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 
 ```json
@@ -193,7 +193,7 @@ Egenskap | Beskrivning | Krävs
 namn | Namnet på kolumnen. | Ja
 typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Boolean, String, Guid, Datetime, Datetimeoffset och Timespan** | Nej
 Kultur | . NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum och tid formatsträngar](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du datetime-format. | Nej
+Format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum och tid formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du datetime-format. | Nej
 
 ### <a name="example"></a>Exempel
 I följande exempel anta källan Blob-data är i CSV-format och innehåller tre kolumner: användar-ID, namn och lastlogindate. De är av typen Int64, String och Datetime med anpassade datetime-format med hjälp av förkortade franska namn för dag i veckan.

@@ -1,8 +1,8 @@
 ---
-title: "Säkerhetskopiera din app i Azure"
-description: "Lär dig hur du skapar säkerhetskopior av dina appar i Azure App Service."
+title: Säkerhetskopiera din app i Azure
+description: Lär dig hur du skapar säkerhetskopior av dina appar i Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du enkelt skapa app säkerhetskopiering manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -35,9 +35,9 @@ Apptjänst kan säkerhetskopiera följande information till en Azure storage-kon
 * Databas som är ansluten till din app
 
 Följande databaslösningar stöds med funktionen för säkerhetskopiering: 
-   - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Azure-databas för MySQL (förhandsgranskning)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Azure-databas för PostgreSQL (förhandsgranskning)](https://azure.microsoft.com/en-us/services/postgres)
+   - [SQL Database](https://azure.microsoft.com/services/sql-database/)
+   - [Azure-databas för MySQL (förhandsgranskning)](https://azure.microsoft.com/services/mysql)
+   - [Azure-databas för PostgreSQL (förhandsgranskning)](https://azure.microsoft.com/services/postgres)
    - [MySQL i appen](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

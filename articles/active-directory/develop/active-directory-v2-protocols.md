@@ -1,29 +1,28 @@
 ---
-title: "Lär dig mer om auktorisering-protokoll som stöds av Azure AD v2.0 | Microsoft Docs"
-description: "En guide till protokoll som stöds av Azure AD v2.0-slutpunkten."
+title: Lär dig mer om auktorisering-protokoll som stöds av Azure AD v2.0 | Microsoft Docs
+description: En guide till protokoll som stöds av Azure AD v2.0-slutpunkten.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29d9e2d9ee05b755ef40179e0e75fb0c8a6b010b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokoll - OAuth 2.0 & OpenID Connect
-V2.0-slutpunkten kan använda Azure AD identity-as-a-service med standardprotokollen, OpenID Connect och OAuth 2.0.  När tjänsten är standardkompatibel kan finnas det skillnader mellan två implementeringar av dessa protokoll.  Den här informationen kan vara användbart om du väljer att skriva koden genom att skicka direkt & hanterar HTTP-begäranden eller Använd en 3 part Öppna källa biblioteket i stället för att använda någon av våra bibliotek med öppen källkod.
-<!-- TODO: Need link to libraries above -->
+V2.0-slutpunkten kan använda Azure AD identity-as-a-service med standardprotokollen, OpenID Connect och OAuth 2.0.  När tjänsten är standardkompatibel kan finnas det skillnader mellan två implementeringar av dessa protokoll.  Informationen här kan vara användbart om du väljer att skriva koden genom att skicka direkt & hanterar HTTP-begäranden eller använda ett 3 part öppen källkod bibliotek i stället för att använda någon av våra [öppna bibliotek källkod](active-directory-v2-libraries.md).
 
 > [!NOTE]
 > Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten.  Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).

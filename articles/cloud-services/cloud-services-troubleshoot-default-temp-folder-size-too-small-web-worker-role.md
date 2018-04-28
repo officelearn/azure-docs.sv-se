@@ -1,11 +1,11 @@
 ---
-title: "Standard TEMP-mappen är för litet för en roll | Microsoft Docs"
-description: "En rolltjänst för molnet har en begränsad mängd utrymme för TEMP-mappen. Den här artikeln innehåller några förslag på hur du undviker utrymmet tar slut."
+title: Standard TEMP-mappen är för litet för en roll | Microsoft Docs
+description: En rolltjänst för molnet har en begränsad mängd utrymme för TEMP-mappen. Den här artikeln innehåller några förslag på hur du undviker utrymmet tar slut.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ab0a7c43393aab10abbce095f801afc4ebaf6b87
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 177438c4d6b416584f1797ec1ce744fc484ef688
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standardstorleken TEMP-mappen är för liten för en cloud service web/worker roll
 Den tillfälliga standardkatalogen av en cloud service worker eller webbplats roll har en maximal storlek på 100 MB, som kan bli fullständig vid en viss tidpunkt. Den här artikeln beskriver hur du undviker slut på diskutrymme för den temporära katalogen.
@@ -72,6 +72,6 @@ namespace WorkerRole1
 ## <a name="next-steps"></a>Nästa steg
 Läser en blogg som beskriver [så här ökar du storleken på Azure Web rollen ASP.NET tillfällig mapp](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Visa mer [felsökning artiklar](/?tag=top-support-issue&product=cloud-services) för molntjänster.
+Visa mer [felsökning artiklar](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) för molntjänster.
 
 Lär du dig hur du felsöker cloud service rollen problem med hjälp av Azure PaaS datorn diagnostikdata [Kevin Williamson bloggserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

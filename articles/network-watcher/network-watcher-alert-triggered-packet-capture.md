@@ -1,11 +1,11 @@
 ---
-title: "Använd paketinsamling för att göra proaktiv nätverksövervakning med varningar och Azure Functions | Microsoft Docs"
-description: "Den här artikeln beskriver hur du skapar en avisering utlösta paketinsamling med Azure Nätverksbevakaren"
+title: Använd paketinsamling för att göra proaktiv nätverksövervakning med varningar och Azure Functions | Microsoft Docs
+description: Den här artikeln beskriver hur du skapar en avisering utlösta paketinsamling med Azure Nätverksbevakaren
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c96ca70b9b6a82dcccec443ac0b1e06f96a2396
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använd paketinsamling för proaktiv nätverksövervakning med varningar och Azure Functions
 
@@ -76,9 +76,9 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
     |**Appens namn**|PacketCaptureExample|Namnet på funktionen appen.|
     |**Prenumeration**|[Din prenumeration] Prenumerationen för att skapa funktionen appen.||
     |**Resursgrupp**|PacketCaptureRG|Resursgruppen som innehåller funktionen appen.|
-    |**Värd för planen**|Förbrukningsplan| Typ av planera din app använder för funktionen. Alternativen är förbrukning eller Azure App Service-plan. |
+    |**Värdplan**|Förbrukningsplan| Typ av planera din app använder för funktionen. Alternativen är förbrukning eller Azure App Service-plan. |
     |**Plats**|Centrala USA| Den region där du skapar den funktionen.|
-    |**Storage-konto**|{namn} automatiskt| Lagringskontot som Azure Functions måste för allmänna lagring.|
+    |**Lagringskonto**|{namn} automatiskt| Lagringskontot som Azure Functions måste för allmänna lagring.|
 
 3. På den **PacketCaptureExample funktionen appar** bladet väljer **funktioner** > **anpassad funktionen**  >  **+**.
 
@@ -86,7 +86,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
     |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
-    |**Scenario**|Experimentell|Typen av scenario|
+    |**scenario**|Experimentell|Typen av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
     |**Åtkomstnivå**|Funktion|Åtkomstnivå för funktionen|
 
@@ -289,7 +289,7 @@ I följande exempel är PowerShell-kod som kan användas i funktionen. Det finns
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert
@@ -345,7 +345,7 @@ Gå till en befintlig virtuell dator och sedan lägga till en varningsregel. Mer
   |**Namn**|TCP_Segments_Sent_Exceeded|Namnet på regeln.|
   |**Beskrivning**|TCP-segment skickas överskred tröskeln|Beskrivning för regeln.||
   |**Mått**|TCP-segment som skickats| Måttet som du använder för att utlösa aviseringen. |
-  |Villkor|Större än| Villkoret du vill använda vid utvärdering av måttet.|
+  |**Villkor**|Större än| Villkoret du vill använda vid utvärdering av måttet.|
   |**Tröskelvärde**|100| Värdet för det mått som utlöser varningen. Det här värdet ska anges till ett giltigt värde för din miljö.|
   |**Period**|Under de senaste fem minuterna| Anger den period som ska sökas efter tröskelvärdet för måttet.|
   |**Webhook**|[Webhooksadressen från funktionsapp]| Webhooksadressen från funktionsapp som skapades i föregående steg.|

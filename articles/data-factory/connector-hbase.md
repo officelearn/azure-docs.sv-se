@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba2317e588b570acc1a4f24c89e892729f29b54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med hjälp av Azure Data Factory 
 
@@ -45,9 +45,9 @@ Följande egenskaper stöds för HBase länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **HBase** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på HBase-server. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Ja |
-| port | TCP-porten som HBase-instans som används för att lyssna efter anslutningar. Standardvärdet är 9090.  | Nej |
-| httpPath | Partiell URL som motsvarar HBase-server. (i.e. /gateway/sandbox/hbase/version)  | Nej |
+| värd | IP-adressen eller värdnamnet namnet på HBase-server. (d.v.s. 192.168.222.160 [klusternamn]. azurehdinsight.NET .net)  | Ja |
+| port | TCP-porten som HBase-instans som används för att lyssna efter anslutningar. Standardvärdet är 9090. Om du ansluter till Azure HDInsights ange porten som 443. | Nej |
+| httpPath | Partiell URL som motsvarar HBase-server. (d.v.s. /gateway/sandbox/hbase/version)  | Nej |
 | AuthenticationType | Autentiseringsmekanism för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |

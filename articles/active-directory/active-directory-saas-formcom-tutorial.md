@@ -1,10 +1,10 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Form.com | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Form.com."
+title: 'Självstudier: Azure Active Directory-integrering med Form.com | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Form.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Självstudier: Azure Active Directory-integrering med Form.com
 
@@ -32,7 +32,7 @@ Integrera Form.com med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Form.com, behöver du följande:
 
@@ -101,16 +101,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. På den **Form.com domän och URL: er** avsnittet, utför följande steg:
 
     ![URL: er och form.com domän med enkel inloggning information](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.wa-form.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.wa-form.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.form.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.form.com`
 
     c. I den **Reply URL** textruta Skriv en URL med följande mönster:
     | |
@@ -118,46 +118,26 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL, Reply URL och identifierare. Kontakta [Form.com klienten supportteamet](https://form.com/about/company/contact-us/) att hämta dessa värden. 
- 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL, Reply URL och identifierare. Kontakta [Form.com klienten supportteamet](https://form.com/about/company/contact-us/) att hämta dessa värden.
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Att generera den **URL för tjänstmetadata**, utför följande steg:
-
-    a. Klicka på **App registreringar**.
+4. På den **SAML-signeringscertifikat** avsnittet, utför följande steg:
     
-    ![Konfigurera appreg](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera Endpointcon](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera slutpunkt](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Klicka på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+
+    b. Klicka på **certifikat (Base64)** och spara certifikatfilen på datorn.
      
-    d. Gå till egenskapssidan för **Form.com** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera appid](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Klicka på **spara** knappen.
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. På den **Form.com Configuration** klickar du på **konfigurera Form.com** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **Form.com Configuration** klickar du på **konfigurera Form.com** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
     ![Form.com konfiguration](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Konfigurera enkel inloggning på **Form.com** sida, måste du skicka den hämtade **certifikat (Base64)**, **URL för tjänstmetadata**, och **SAML enkel inloggning Tjänst-URL** till [Form.com supportteamet](https://form.com/about/company/contact-us/). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Konfigurera enkel inloggning på **Form.com** sida, måste du skicka den hämtade **certifikat (Base64)**, **webbadress Federation Metadata**, och **SAML Enkel inloggning Tjänstwebbadress** till [Form.com supportteamet](https://form.com/about/company/contact-us/). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

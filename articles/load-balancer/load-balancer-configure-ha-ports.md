@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar för hög tillgänglighet för en intern belastningsutjämnare
 
@@ -39,12 +39,6 @@ Bilden visar exempel för distribution som beskrivs i den här artikeln följand
 ![Exempel på distribution portar för hög tillgänglighet](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>Förhandsgranska registrering
-
-Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 eller PowerShell för att delta i förhandsversionen av funktionen portar för hög tillgänglighet i Standard Azure belastningsutjämnare. Registrera prenumerationen för [Standard belastningen belastningsutjämnaren Preview](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->Registrering av Standard belastningen belastningsutjämnaren Preview kan ta upp till en timme.
 
 ## <a name="configure-high-availability-ports"></a>Konfigurera portar för hög tillgänglighet
 

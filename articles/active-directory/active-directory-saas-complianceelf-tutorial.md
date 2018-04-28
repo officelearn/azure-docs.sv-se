@@ -1,10 +1,10 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med efterlevnad Tomtenisse | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och kompatibilitet Tomtenisse."
+title: 'Självstudier: Azure Active Directory-integrering med efterlevnad Tomtenisse | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och kompatibilitet Tomtenisse.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 32cb676393558079baad9bb0fc26d2c4daaa3519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Självstudier: Azure Active Directory-integrering med efterlevnad Tomtenisse
 
@@ -32,7 +32,7 @@ Integrera Tomtenisse kompatibilitet med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med efterlevnad Tomtenisse behöver du följande:
 
@@ -101,52 +101,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. På den **kompatibilitet Tomtenisse domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![URL: er och kompatibilitet Tomtenisse domän med enkel inloggning information](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_url.png)
 
-    I den **identifierare** textruta Skriv en URL som:`https://sso.cordium.com`
+    I den **identifierare** textruta Skriv en URL som: `https://sso.cordium.com`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och kompatibilitet Tomtenisse domän enkel inloggning](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.complianceelf.com`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera den här värden med den faktiska inloggnings-URL. Kontakta [kompatibilitet Tomtenisse supportteamet](mailto:support@complianceelf.com) att hämta det här värdet.
 
-5. Klicka på **spara** knappen.
+5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. Att generera den **Metadata** url, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. Gå till egenskapssidan för **kompatibilitet Tomtenisse** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Konfigurera enkel inloggning på **kompatibilitet Tomtenisse** sida, måste du skicka den **URL för tjänstmetadata** till [kompatibilitet Tomtenisse supportteamet](mailto:support@complianceelf.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Konfigurera enkel inloggning på **kompatibilitet Tomtenisse** sida, måste du skicka den **webbadress Federation Metadata** till [kompatibilitet Tomtenisse supportteamet](mailto:support@complianceelf.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

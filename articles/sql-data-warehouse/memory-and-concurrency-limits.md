@@ -2,18 +2,19 @@
 title: Minne och samtidighet gränser - Azure SQL Data Warehouse | Microsoft Docs
 description: Visa gränserna minne och samtidighet som allokerats till de olika prestandanivåer och resursklasser i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/11/2018
-ms.author: kevin
-ms.reviewer: jrj
-ms.openlocfilehash: 096dd5f1bac87e1442963b62067896b7abf20a8e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 4e6e95e8601e7ab8b836e2aa1aa21ef4d5779954
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minne och samtidighet gränser för Azure SQL Data Warehouse
 Visa gränserna minne och samtidighet som allokerats till de olika prestandanivåer och resursklasser i Azure SQL Data Warehouse. Mer information och tillämpa dessa funktioner på din plan för hantering av arbetsbelastning finns [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). 

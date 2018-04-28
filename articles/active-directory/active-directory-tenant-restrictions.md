@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS molnprogram
 
@@ -28,9 +28,9 @@ Azure Active Directory-lösningen på denna utmaning är en funktion som kallas 
 
 Klient begränsningar ger organisationer möjlighet att ange en lista över klienter som användarna beviljas åtkomst till. Azure AD sedan ger endast åtkomst till dessa tillåtna klienter.
 
-Den här artikeln fokuserar på klient begränsningar för Office 365, men funktionen ska fungera med alla SaaS-molnappar som använder modern autentiseringsprotokoll med Azure AD för enkel inloggning. Om du använder SaaS-appar med en annan Azure AD-klient från klienten som används av Office 365, se till att alla nödvändiga klienter tillåts. Mer information om SaaS molnappar finns i [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+Den här artikeln fokuserar på klient begränsningar för Office 365, men funktionen ska fungera med alla SaaS-molnappar som använder modern autentiseringsprotokoll med Azure AD för enkel inloggning. Om du använder SaaS-appar med en annan Azure AD-klient från klienten som används av Office 365, se till att alla nödvändiga klienter tillåts. Mer information om SaaS molnappar finns i [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Virtualiseringslösningen består av följande komponenter: 
 
@@ -58,7 +58,7 @@ Om du vill använda klient begränsningar klienterna måste vara kan ansluta til
 
 Följande konfiguration krävs för att aktivera begränsningar för klient via proxy-infrastruktur. Den här vägledningen är generisk, så du bör se proxy leverantörens dokumentation för specifika stegen.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Proxyservern måste kunna utföra SSL avlyssning, HTTP-huvudet infogning och filtrera mål med hjälp av FQDN/URL: er. 
 

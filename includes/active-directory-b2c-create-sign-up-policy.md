@@ -1,4 +1,4 @@
-Du aktiverar registrering till ditt program genom att först skapa en registreringsprincip. Principen beskriver hur registreringen går till för konsumenterna samt innehållet i de token som programmet tar emot vid genomförda registreringar.
+Om du vill bara aktivera registrering för ditt program kan du använda en **anmälan** princip. Den här principen beskriver de funktioner som kunder gå igenom under registreringen och innehållet i token som programmet får på lyckats logga in.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide för Azure Marketplace och AppSource publisher
 
@@ -253,7 +253,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 
 |**Krav**  | **Detaljer**  |**Publiceringsalternativ**  |
 |---------|---------|---------|
-|**Utvärderingsperioden och utvärderingsversionen**     |  En kund måste kunna använda appen kostnadsfritt under en begränsad tid.<br><br>Det innebär att kunden inte krävas licens eller prenumeration avgifter för produkten eller kostnaden för den underliggande Microsoft från första part produkt eller tjänst. Eftersom alla alternativ för testversionen distribueras till utgivarens Microsoft produkten prenumeration styr utgivaren endast utvärderingsversion kostnadsoptimering och hantering.<br><br>Du kan välja en kostnadsfri utvärderingsversion, interaktiva demo eller Testkör. Oavsett vad du väljer erbjuda den kostnadsfria utvärderingsversionen kunden kortaste tid att försöka app för utan extra kostnad.<br><br>Om du vill påbörja processen att skapa en test-enhet, nå ut till cloudmarketplace@microsoft.com. <br><br>Observera att Azure Marketplace SaaS utvärderingsversion inträffar måste tillåta användare att logga in med sina autentiseringsuppgifter Active Directory. [Läs mer](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Utvärdering      | 
+|**Utvärderingsperioden och utvärderingsversionen**     |  En kund måste kunna använda appen kostnadsfritt under en begränsad tid.<br><br>Det innebär att kunden inte krävas licens eller prenumeration avgifter för produkten eller kostnaden för den underliggande Microsoft från första part produkt eller tjänst. Eftersom alla alternativ för testversionen distribueras till utgivarens Microsoft produkten prenumeration styr utgivaren endast utvärderingsversion kostnadsoptimering och hantering.<br><br>Du kan välja en kostnadsfri utvärderingsversion, interaktiva demo eller Testkör. Oavsett vad du väljer erbjuda den kostnadsfria utvärderingsversionen kunden kortaste tid att försöka app för utan extra kostnad.<br><br>Om du vill påbörja processen att skapa en test-enhet, nå ut till cloudmarketplace@microsoft.com. <br><br>Observera att Azure Marketplace SaaS utvärderingsversion inträffar måste tillåta användare att logga in med sina autentiseringsuppgifter Active Directory. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Utvärdering      | 
 | **Enkelt konfigureras, nyckelfärdig lösning**    |  Appen måste vara snabbt och enkelt att konfigurera och ställa in.       |  Utvärdering       |
 |**Tillgänglighet/drifttid**    |    Din SaaS app eller en plattform måste ha en drifttid minst 99,9%.     |    Utvärdering     |
 |**Azure Active Directory**    |    Erbjudandet måste tillåta Azure Active Directory (AD Azure) federerad enkel inloggning (SSO) med samtycke aktiverad.      |  Utvärdering|
@@ -264,7 +264,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 |**Krav**  |**Detaljer** |**Publiceringsalternativ**  |
 |---------|---------|---------|
 |**Fakturering och mätning**    |  Den virtuella datorn måste ha stöd för Bring Your Own License eller användningsbaserad kan de månatliga fakturering.       |    Transaktionen    |
-|**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaktionen      |
+|**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaktionen      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Krav för specifika att samråd Services publicering
 
@@ -277,7 +277,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök
 Azure Active Directory är en molntjänst identitet som aktiverar autentisering med ett Microsoft arbets- eller skolkonto med hjälp av standardiserade protokoll: OAuth och OpenID Connect. Lär dig mer om Azure AD på den [produkten webbsidan](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft verifierar alla Marketplace-användare med Azure AD. När en autentiserad användare klickar på via din utvärderingsversion lista i Marketplace och omdirigeras till din utvärderingsversion miljö, kan du etablera användaren direkt till en utvärderingsversion utan ytterligare logga in ett steg. Den [token som din app som tar emot från Azure AD under autentiseringen](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app. Du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. 
+Microsoft verifierar alla Marketplace-användare med Azure AD. När en autentiserad användare klickar på via din utvärderingsversion lista i Marketplace och omdirigeras till din utvärderingsversion miljö, kan du etablera användaren direkt till en utvärderingsversion utan ytterligare logga in ett steg. Den [token som din app som tar emot från Azure AD under autentiseringen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app. Du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. 
 
 Använda Azure AD för att aktivera ett klick autentisering till din app eller utvärderingsversion:
 
@@ -292,20 +292,20 @@ Om du stöder idag Azure AD:
 
 - Registrera ditt program i Azure-portalen.
 - Aktivera stöd för multitenancy-funktionen i Azure AD för att hämta en enkelklickning utvärderingsversionen.
-- [Läs mer](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).
+- [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 Om du har använt Azure AD federerad enkel inloggning:
 
 - Registrera ditt program i Azure-portalen.
-- Utveckla enkel inloggning med Azure AD med hjälp av [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Utveckla enkel inloggning med Azure AD med hjälp av [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 - Aktivera stöd för multitenancy-funktionen i Azure AD för att hämta en enkelklickning utvärderingsversionen.
-- [Läs mer](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
 ### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>Certifiera din Azure AD-integrering för Marketplace: stöd för en innehavare program
 
 Det finns flera alternativ för en klient program:
 
-- Lägga till användare i katalogen som gästanvändare med hjälp av [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Lägga till användare i katalogen som gästanvändare med hjälp av [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 - Etablera manuellt försök för kunder via kontakta Me.
 - Utveckla en testkörning per kund.
 - Skapa en multitenant exempelapp demo med enkel inloggning.
@@ -316,11 +316,11 @@ För AppSource-appar som utökar Office, Dynamics och Power BI kan du lära dig 
 
 |Produkt |Publicerar information  |
 |---------|---------|
-|Office 365     |    Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 för ekonomi och åtgärder  |   När du sammanställer för Enterprise Edition, granska den [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 för kunden Engagement |Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Lär dig mer om [Cortana i AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|Office 365     |    Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 för ekonomi och åtgärder  |   När du sammanställer för Enterprise Edition, granska den [publicering processen och riktlinjer](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
+|Dynamics 365 för kunden Engagement |Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Lär dig mer om [Cortana i AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
 |AppSource samråd erbjudanden     |  Granska de [riktlinjer och lära dig hur du skickar in erbjudandet](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
@@ -522,11 +522,11 @@ När du skapar ett företagskonto, följer du dessa riktlinjer om mer än en per
 
 Ditt utvecklarkonto ska användas i första hand från betrodda datorer. Detta är viktigt eftersom det finns en gräns för hur många koder som genererats per konto per vecka. Med betrodda datorer kan också smidigast inloggning.
 
-Mer information om ytterligare developer konto riktlinjer och säkerhet finns [öppna ett utvecklarkonto](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+Mer information om ytterligare developer konto riktlinjer och säkerhet finns [öppna ett utvecklarkonto](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
 
 ### <a name="guidance-for-microsoft-ids-in-an-azure-ad-federated-domain"></a>Riktlinjer för Microsoft IDs i en federerad Azure AD-domän
 
-Ditt företagskonto kan bli federerad via [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/). Ett fel returneras om du försöker skapa ett Microsoft-ID med en företagets e-postadress. Om du får ett felmeddelande, kontrollera först med IT-avdelningen att kontrollera i så fall. Detta är ett känt problem och vi arbetar på att lösa den. 
+Ditt företagskonto kan bli federerad via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Ett fel returneras om du försöker skapa ett Microsoft-ID med en företagets e-postadress. Om du får ett felmeddelande, kontrollera först med IT-avdelningen att kontrollera i så fall. Detta är ett känt problem och vi arbetar på att lösa den. 
 
 Som en lösning, rekommenderar vi att du skapar en ny e-postadress i den @outlook.com domän och skapa en regel. Följ de här stegen:
 
@@ -562,7 +562,7 @@ När du har slutfört det sista steget skickar Outlook all e-post-kommunikation 
 5. För **kontotyp**väljer **företagets** och välj sedan den **nästa** knappen.
 
    >[!IMPORTANT]
-   >För att bättre förstå kontotyper och som är bäst att välja, se [konto typer, platser och avgifter](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+   >För att bättre förstå kontotyper och som är bäst att välja, se [konto typer, platser och avgifter](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 6. För **Publisher visningsnamn**, ange visningsnamn (vanligtvis namnet på ditt företag).
 

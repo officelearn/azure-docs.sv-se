@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Anropa Microsoft Graph API från en Android-app
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Logga in användare och alla Microsoft Graph API från en Android-app
 
 Den här guiden visar hur en ursprunglig Android-program kan få en åtkomst-token och anropa Microsoft Graph API eller andra API: er som kräver åtkomst-token från Azure Active Directory v2-slutpunkten.
 
 När du har slutfört guiden för kommer ditt program att kunna acceptera inloggningar för personliga (inklusive outlook.com, live.com och andra) och arbets- och skolkonton konton från alla företag eller organisation som använder Azure Active Directory. Programmet sedan anropar en API som skyddas av Azure Active Directory v2-slutpunkten.  
 
-## <a name="how-this-sample-works"></a>Hur det här exemplet fungerar
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar sample-appen som genererats av den här guiden
 ![Hur det här exemplet fungerar](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 Exempelprogram som du skapar med den här guiden är baserad på ett scenario där en Android-program används för att fråga en webb-API som accepterar token från Azure Active Directory v2 slutpunkten (Microsoft Graph API, i detta fall). I det här scenariot läggs ditt program anskaffats token till HTTP-förfrågningar via Authorization-huvud. Microsoft Authentication Library (MSAL) hanterar token förvärv och förnyelse för dig.

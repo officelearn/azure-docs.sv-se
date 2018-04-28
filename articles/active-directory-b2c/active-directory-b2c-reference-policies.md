@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Inbyggda principer
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en registrerings- eller inloggningsprincip
 
-Den här principen hanterar upplevelser för registrering och inloggning i båda konsumenten med en enda konfiguration. Konsumenterna ledde till rätt sökvägen (registrering eller inloggning) beroende på kontext. Här beskrivs också innehållet i token som programmet ska ta emot lyckats logga in eller inloggningar.  En kodexempel för registrering eller inloggning principen är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Det rekommenderas att du använder den här principen via en principen för registrering och inloggning princip.  
+Den här principen hanterar upplevelser för registrering och inloggning i båda konsumenten med en enda konfiguration. Konsumenterna ledde till rätt sökvägen (registrering eller inloggning) beroende på kontext. Här beskrivs också innehållet i token som programmet ska ta emot lyckats logga in eller inloggningar.  En kodexempel för den **registrering eller inloggning** policy [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Det rekommenderas att du använder den här principen via en **anmälan** princip eller en **inloggning** princip.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -82,19 +82,19 @@ Den här principen hanterar upplevelser för registrering och inloggning i båda
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hur länkar en princip för registrering eller inloggning med en princip för lösenordsåterställning?
-När du skapar en princip för registrering eller inloggning (med lokala konton) visas en **har du glömt lösenordet?** länk på den första sidan i miljön. Klicka på den här länken återställs inte utlösaren lösenord automatiskt princip. 
+När du skapar en **registrering eller inloggning** princip (med lokala konton) som du ser en **har du glömt lösenordet?** länk på den första sidan i miljön. Klicka på den här länken återställs inte utlösaren lösenord automatiskt princip. 
 
 I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera en specifik princip för lösenordsåterställning. Mer information finns i en [exempel som visar metoden länka principer för](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Bör jag använda en princip för registrering eller inloggning eller en princip för registrering och en princip för inloggning?
-Vi rekommenderar att du använder en princip för registrering eller inloggning via en princip för registrering och en princip för inloggning.  
+Vi rekommenderar att du använder en **registrering eller inloggning** principen via en **registrering** princip och en **inloggning** princip.  
 
-Princip för registrering eller inloggning har fler funktioner än principen för inloggning. Dessutom kan du använda sidan anpassningar och har bättre stöd för lokalisering. 
+Den **registrering eller inloggning** principen har fler funktioner än den **inloggning** princip. Dessutom kan du använda sidan anpassningar och har bättre stöd för lokalisering. 
 
-Logga in principen rekommenderas om du inte behöver localize dina principer endast behöver mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
+Den **inloggning** princip rekommenderas om du inte behöver localize dina principer endast behöver mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md)

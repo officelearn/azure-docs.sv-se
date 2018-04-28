@@ -3,24 +3,22 @@ title: Arkitektur för domänanslutna Azure HDInsight | Microsoft Docs
 description: Lär dig hur du planerar för domänansluten HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: bhanupr
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bprakash
-ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.devlang: ''
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 20d6dbad6fa1914c8b12f47bb48f6efba3895887
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
 
@@ -51,8 +49,6 @@ Följande skärmbild visar en Organisationsenhet som skapats i contoso.com. Någ
 
 - **Azure Active Directory Domain Services**: den här tjänsten tillhandahåller en hanterad Active Directory-domän, som är helt kompatibel med Windows Server Active Directory. Microsoft hand tar om hantering, uppdatering och övervakning av AD-domänen. Du kan distribuera klustret utan att bekymra dig om att hantera domänkontrollanter. Användare, grupper och lösenord synkroniseras från din Azure Active Directory, så att användarna kan logga in till klustret med sina företagsuppgifter. Mer information finns i [konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-> [!NOTE]
-> Active Directory på Azure IaaS-VM stöds inte längre.
 
 ## <a name="next-steps"></a>Nästa steg
 * Information om hantering av domänanslutna HDInsight-kluster finns i [Hantera domänanslutna HDInsight-kluster](apache-domain-joined-manage.md).

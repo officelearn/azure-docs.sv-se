@@ -1,31 +1,31 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Användardokumentation om Azure Stack"
+title: Användardokumentation om Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: "Dokumentation om Azure Stack – självstudier, API-referens"
-  description: "Lär dig hur du använder Azure-stacken services och hur man skapar appar för Azure-stacken."
+  title: Dokumentation om Azure Stack – självstudier, API-referens
+  description: Lär dig hur du använder Azure-stacken services och hur man skapar appar för Azure-stacken.
   services: azure-stack
-  author: carolz
-  manager: carolz
+  author: jeffgilb
+  manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/02/2017
-  ms.author: carolz
-  ms.openlocfilehash: 5a4a9b6ad3a1de27a722a6b5b250e68aa72e52e7
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 04/13/2018
+  ms.author: jeffgilb
+  ms.openlocfilehash: a9da65ec8634f0e8905d44ef690eb7885fbf6a80
+  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 04/23/2018
 abstract:
-  description: "Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href=\"/azure/azure-stack/\">operatorn dokumentationen</a>."
+  description: Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href="/azure/azure-stack/">operatorn dokumentationen</a>.<br/><br/>Om du är operatör Azure-stacken är intresserad av i den Azure Stack Development Kit (ASDK), en enda nod distribution av Azure-stacken som du kan hämta och använda gratis Se vår <a href="/azure/azure-stack/asdk">ASDK dokumentationen</a>.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Lär dig att distribuera en virtuell Windows-dator på Azure Stack:"
+    text: 'Lär dig att distribuera en virtuell Windows-dator på Azure Stack:'
   - type: list
     style: icon48
     items:
@@ -42,7 +42,7 @@ sections:
       text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
-    text: "Lär dig att distribuera en virtuell Linux-dator på Azure Stack:"
+    text: 'Lär dig att distribuera en virtuell Linux-dator på Azure Stack:'
   - type: list
     style: icon48
     items:
@@ -58,10 +58,10 @@ sections:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Distribuera program i både Azure och Azure-stacken."
+    text: Distribuera program i både Azure och Azure-stacken.
   - type: list
     style: ordered
     items:
@@ -73,4 +73,4 @@ sections:
     className: cardsD
     items:
     - title: Kommandorad
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Azure Stack CLI</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Azure CLI-stacken</a></p>

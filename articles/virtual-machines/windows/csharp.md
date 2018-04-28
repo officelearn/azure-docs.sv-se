@@ -3,7 +3,7 @@ title: Skapa och hantera en virtuell Azure-dator med hjälp av C# | Microsoft Do
 description: Använd C# och Azure Resource Manager för att distribuera en virtuell dator och alla dess stödfiler resurser.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: 43dcc8e5d9756807a3e005d629e84469a2e6eb04
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med C# #
 
@@ -40,7 +40,7 @@ Det tar ungefär 20 minuter för att utföra de här stegen.
 
 1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET skrivbord development** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis, kan du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt för dig. Om du redan har installerat Visual Studio kan du lägga till .NET arbetsbelastningen i Visual Studio-starta.
 2. I Visual Studio klickar du på **filen** > **ny** > **projekt**.
-3. I **mallar** > **Visual C#**väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på projektet, välj platsen för projektet och klicka sedan på **OK**.
+3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på projektet, välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-the-package"></a>Installera paketet
 

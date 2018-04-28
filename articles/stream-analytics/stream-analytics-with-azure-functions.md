@@ -1,58 +1,67 @@
 ---
-title: Kör Azure Functions från Azure Stream Analytics-jobb
-description: Den här artikeln beskriver hur du konfigurerar Azure Functions som utdatamottagare i Stream Analytics-jobb att händelsen enhet arbetsbelastningar.
+title: 'Självstudie: Kör Azure Functions med Azure Stream Analytics-jobb | Microsoft Docs'
+description: I den här självstudien får du lära dig att konfigurera Azure Functions som kanalmottagare för Stream Analytics-jobb.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Kör Azure Functions från Azure Stream Analytics-jobb 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Köra Azure Functions från Azure Stream Analytics-jobb 
 
-Du kan köra Azure Functions från Azure Stream Analytics genom att konfigurera funktioner som en av utdata sänkor till Stream Analytics-jobbet. Funktioner är en händelsedriven, beräkning på begäran-upplevelse som gör att du kan implementera kod som utlöses av händelser i Azure eller tjänster från tredje part. Den här möjligheten för funktioner att svara på utlösare gör det fysiska utdata till Stream Analytics-jobb.
+Du kan köra Azure Functions från Azure Stream Analytics genom att konfigurera Functions som en av kanalmottagarna för Stream Analytics-jobbet. Functions är en händelsedriven upplevelse med beräkning på begäran där du kan implementera kod som utlöses av händelser i Azure eller tjänster från tredje part. Azure Functions kapacitet att reagera på utlösare gör det till ett naturligt utdatamål för Stream Analytics-jobb.
 
-Stream Analytics anropar funktioner via HTTP-utlösare. Utdataadapter funktioner tillåter användare att ansluta funktioner till Stream Analytics, så att händelserna kan utlösas baserat på Stream Analytics-frågor. 
+Stream Analytics anropar Functions med HTTP-utlösare. Med utdataadaptern i Functions kan användarna ansluta Functions till Stream Analytics, så att händelserna kan utlösas baserat på Stream Analytics-frågor. 
 
-Den här kursen visar hur du ansluter Stream Analytics till [Azure Redis-Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md), med hjälp av [Azure Functions](../azure-functions/functions-overview.md). 
+I den här guiden får du lära dig att:
 
-## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Konfigurera ett Stream Analytics-jobb för att köra en funktion 
+> [!div class="checklist"]
+> * Skapa ett Stream Analytics-jobb
+> * Skapa en Azure-funktion
+> * Konfigurera Azure Function som utdata för dina jobb
 
-Det här avsnittet beskrivs hur du konfigurerar en Stream Analytics-jobbet om du vill köra en funktion som skriver data till Azure Redis-Cache. Stream Analytics-jobbet läser händelser från Azure Event Hubs och kör en fråga som anropar funktionen. Den här funktionen läser data från Stream Analytics-jobbet och skriver den till Azure Redis-Cache.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-![Diagram som visar relationerna mellan Azure-tjänster](./media/stream-analytics-with-azure-functions/image1.png)
+## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Konfigurera ett Stream Analytics-jobb att köra en funktion 
 
-Följande steg krävs för att uppnå den här uppgiften:
-* [Skapa ett Stream Analytics-jobb med Händelsehubbar som indata](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Skapa en instans av Azure Redis-Cache](#create-an-azure-redis-cache)  
-* [Skapa en funktion i Azure-funktioner som kan skriva data till Azure Redis-Cache](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Uppdatera Stream Analytics-jobb med hjälp av funktionen som utdata](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Kontrollera Azure Redis-Cache för resultat](#check-redis-cache-for-results)  
+Det här avsnittet visar hur du konfigurerar ett Stream Analytics-jobb att köra en funktion som skriver data till Azure Redis Cache. Stream Analytics -jobbet läser händelser från Azure Event Hubs och kör en fråga som anropar funktionen. Funktionen läser data från Stream Analytics-jobbet och skriver dessa data till Azure Redis Cache.
 
-## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Skapa ett Stream Analytics-jobb med Händelsehubbar som indata
+![Diagram som visar relationer mellan Azure-tjänster](./media/stream-analytics-with-azure-functions/image1.png)
 
-Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-detection.md) självstudiekursen för att skapa en händelsehubb, starta händelsen generator programmet och skapa ett Stream Analytics-jobb. (Hoppa över steg för att skapa frågan och utdata. Läs följande avsnitt för att konfigurera funktioner utdata.)
+Följande steg krävs för detta:
+* [Skapa ett Stream Analytics-jobb med Event Hubs som indata](#create-stream-analytics-job-with-event-hub-as-input)  
+* [Skapa en Azure Redis Cache-instans](#create-an-azure-redis-cache)  
+* [Skapa en funktion i Azure Functions som kan skriva data till Azure Redis Cache](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
+* [Uppdatera Stream Analytics-jobbet med funktionen som utdata](#update-the-stream-analytic-job-with-azure-function-as-output)  
+* [Kontrollera resultatet i Azure Redis Cache](#check-redis-cache-for-results)  
 
-## <a name="create-an-azure-redis-cache-instance"></a>Skapa en instans av Azure Redis-Cache
+## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Skapa ett Stream Analytics-jobb med Event Hubs som indata
 
-1. Skapa en cache i Azure Redis-Cache med hjälp av stegen som beskrivs i [skapa ett cacheminne](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) och skapa en händelsehubb. Starta händelsegeneratorprogrammet och skapa Stream Analytics-jobbet. (Hoppa över stegen för att skapa frågan och utdata. Se i stället följande avsnitt för att konfigurera Functions-utdata.)
 
-2. När du har skapat cachen under **inställningar**väljer **åtkomstnycklar**. Anteckna den **primära anslutningssträngen**.
+## <a name="create-an-azure-redis-cache-instance"></a>Skapa en Azure Redis Cache-instans
 
-   ![Skärmbild av Azure Redis-Cache-anslutningssträng](./media/stream-analytics-with-azure-functions/image2.png)
+1. Skapa en cache i Azure Redis Cache med anvisningarna i [Skapa en cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Skapa en funktion i Azure-funktioner som kan skriva data till Azure Redis-Cache
+2. När du har skapat cachen under **Inställningar** väljer du **Åtkomstnycklar**. Skriv ner **den primära anslutningssträngen**.
 
-1. Finns det [skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) i dokumentationen för funktioner. Detta vägleder dig igenom hur du skapar en funktionsapp och en [HTTP-utlösta funktion i Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), med hjälp av CSharp-språk.  
+   ![Skärmbild av Azure Redis Cache-anslutningssträng](./media/stream-analytics-with-azure-functions/image2.png)
 
-2. Bläddra till den **run.csx** funktion. Uppdatera den med följande kod. (Ersätt ”\<anslutningssträngen redis-cache här\>” med den primära Azure Redis-Cache-anslutningssträng som du hämtade i föregående avsnitt.)  
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Skapa en funktion i Azure Functions som kan skriva data till Azure Redis Cache
+
+1. Läs avsnittet [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) i dokumentationen till Functions. Du får anvisningar för hur du skapar en funktionsapp och en [HTTP-utlöst funktion i Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) med språket CSharp.  
+
+2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. (Ersätt ”\<din anslutningssträng för redis cache\>” med den primära Azure Redis Cache-anslutningssträng som du hämtade i föregående avsnitt.)  
 
    ```csharp
    using System;
@@ -103,7 +112,7 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
 
    ```
 
-   När Stream Analytics tar emot ”HTTP-begäran entiteten för stor” undantag från funktionen, minskar storleken på batchar som skickas till funktioner. I din funktion att använda följande kod för att kontrollera att Stream Analytics inte skicka stora batchar. Se till att de maximala batch antal och storlek värden som används i funktionen stämmer överens med de värden som anges i Stream Analytics-portalen.
+   När Stream Analytics tar emot undantaget ”För stor HTTP-förfrågningsentitet” från funktionen, minskar storleken på batcharna som skickas till Functions. I din funktion kan du använda följande kod för att se till att Stream Analytics inte skickar för stora batchar. Se till att de värden för maximalt antal batchar och maximal batchstorlek som används i funktionen stämmer överens med de värden som angetts i Stream Analytics-portalen.
 
    ```csharp
    if (dataArray.ToString().Length > 262144)
@@ -112,7 +121,7 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
       }
    ```
 
-3. Skapa en JSON-fil med namnet i en textredigerare önskat **project.json**. Använd följande kod och spara den på den lokala datorn. Den här filen innehåller NuGet paketberoenden som krävs av C#-funktionen.  
+3. Skapa en JSON-fil med namnet **project.json** i valfri textredigerare. Använd följande kod och spara den lokalt på din dator. Den här filen innehåller de NuGet-paketberoenden som krävs av C#-funktionen.  
    
    ```json
        {
@@ -128,35 +137,35 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
 
    ```
  
-4. Gå tillbaka till Azure-portalen. Från den **plattformsfunktioner** Bläddra till funktionen. Under **utvecklingsverktyg**väljer **App Service Editor**. 
+4. Gå tillbaka till Azure-portalen. Från fliken **Plattformsfunktioner** bläddrar du till din funktion. Under **Utvecklingsverktyg** väljer du **App Service Editor**. 
  
    ![Skärmbild av App Service Editor](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. I App Service redigeraren, högerklicka på din rotkatalog och ladda upp den **project.json** fil. När överföringen är klar, uppdatera sidan. Du bör nu se en automatiskt genererade-fil som heter **project.lock.json**. Filen automatiskt genererade innehåller referenser till DLL-filer som anges i filen project.json.  
+5. I App Service Editor högerklickar du på din rotkatalog och laddar upp filen **project.json**. Uppdatera sidan när uppladdningen är klar. Du bör nu se en automatiskt genererad fil med namnet **project.lock.json**. Den automatiskt genererade filen innehåller referenser till de DLL-filer som anges i filen project.json.  
 
    ![Skärmbild av App Service Editor](./media/stream-analytics-with-azure-functions/image4.png)
 
  
 
-## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Uppdatera Stream Analytics-jobb med hjälp av funktionen som utdata
+## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Uppdatera Stream Analytics-jobbet med funktionen som utdata
 
-1. Öppna Stream Analytics-jobb på Azure-portalen.  
+1. Öppna ditt Stream Analytics-jobb på Azure-portalen.  
 
-2. Bläddra till din funktion och markera **översikt** > **utdata** > **Lägg till**. Om du vill lägga till en ny utdata, Välj **Azure-funktion** för sink-alternativet. Kortet för utdata av nya funktioner är tillgängliga med följande egenskaper:  
+2. Bläddra till din funktion och välj **Översikt** > **Utdata** > **Lägg till**. Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Den nya utdataadaptern för Functions är tillgänglig med följande egenskaper:  
 
    |**Egenskapsnamn**|**Beskrivning**|
    |---|---|
-   |Utdataalias| Ett användarvänligt namn som du använder i jobbfråga till referens utdata. |
-   |Importalternativ| Du kan använda funktionen från aktuell prenumeration, eller ange inställningarna manuellt om funktionen finns i en annan prenumeration. |
-   |Funktionsapp| Namnet på appen funktioner. |
-   |Funktion| Namnet på funktionen i appen funktioner (namnet på din run.csx funktion).|
-   |Maximal batchstorlek|Anger den maximala storleken för varje batch för utdata som skickas till funktionen. Det här värdet är som standard, 256 KB.|
-   |Maxantal för Batch|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
-   |Nyckel|Kan du använda en funktion från en annan prenumeration. Ange värdet för nyckeln för att komma åt din funktion. Den här egenskapen är valfri.|
+   |Utdataalias| Ett användarvänligt namn som du använder i jobbets fråga för att referera till utdata. |
+   |Importalternativ| Du kan använda funktionen från den aktuella prenumerationen eller ange inställningarna manuellt om funktionen finns i en annan prenumeration. |
+   |Funktionsapp| Namnet på din Functions-app. |
+   |Funktion| Namnet på funktionen i din Functions-app (namnet på din run.csx-funktion).|
+   |Max batchstorlek|Anger den maximala storleken för varje utdatabatch som skickas till din funktion. Som standard är värdet är inställt på 256 kB.|
+   |Max batchantal|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
+   |Nyckel|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
 
-3. Ange ett namn för utdataalias. I den här självstudiekursen kommer vi namnet **saop1** (du kan använda alla valfritt namn). Fyll i annan information.  
+3. Ange ett namn för utdataaliaset. I den här självstudien namnet vi det **saop1** (du kan välja vilket namn du vill). Fyll i övrig information.  
 
-4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. (Se till att ersätta texten ”saop1” om du har gett utdatamottagaren på olika sätt.)  
+4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. (Se till att byta ut texten ”saop1” om du har gett utdatamottagaren ett annat namn.)  
 
    ```sql
     SELECT 
@@ -169,25 +178,38 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Starta programmet telcodatagen.exe genom att köra följande kommando på kommandoraden (Använd formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
+5. Starta programmet telcodatagen.exe genom att köra följande kommando på kommandoraden (använd formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000 .2 2**
+   **telcodatagen.exe 1000.2 2**
     
 6.  Starta Stream Analytics-jobbet.
 
-## <a name="check-azure-redis-cache-for-results"></a>Kontrollera Azure Redis-Cache för resultat
+## <a name="check-azure-redis-cache-for-results"></a>Kontrollera resultatet i Azure Redis Cache
 
-1. Bläddra till den Azure-portalen och hitta din Azure Redis-Cache. Välj **konsolen**.  
+1. Bläddra till Azure-portalen och leta rätt på din Azure Redis Cache. Välj **Konsol**.  
 
-2. Använd [Redis cache kommandon](https://redis.io/commands) att kontrollera att dina data är i Redis-cache. (Har formatet för kommandot Get {nyckeln}.) Exempel:
+2. Använd [Redis-cachekommandon](https://redis.io/commands) för att kontrollera att dina data finns i Redis Cache. (Kommandot har formatet Get {nyckel}.) Till exempel:
 
-   **Hämta ”12/19/2017 21:32:24-123414732”**
+   **Get "12/19/2017 21:32:24 - 123414732"**
 
-   Det här kommandot ska skrivas ut värdet för den angivna nyckeln:
+   Det här kommandot bör skriva ut värdet för den angivna nyckeln:
 
-   ![Skärmbild av Azure Redis-Cache-utdata](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Skärmbild av Azure Redis Cache-utdata](./media/stream-analytics-with-azure-functions/image5.png)
 
 ## <a name="known-issues"></a>Kända problem
 
-I Azure-portalen när du försöker återställa Max Batch-storlek / Max Batchantal värde till tomt (standard), värdet ändras tillbaka till det tidigare angivna värdet på Spara. Manuellt ange standardvärden för de här fälten i det här fallet.
+När du försöker återställa värdet för Max batchstorlek Max batchantal till tomt (standard) i Azure-portalen ändras värdet tillbaka till det tidigare angivna värdet när du spara. Ange standardvärdena för de här fälten manuellt i det här fallet.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
+
+1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
+2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här självstudiekursen har du skapat ett enkelt Stream Analytics-jobb som kör en Azure-funktion. Om du vill veta mer om Stream Analytics-jobb kan du fortsätta till nästa kurs:
+
+> [!div class="nextstepaction"]
+> [Köra användardefinierade funktioner i Stream Analytics JavaScript-jobb](stream-analytics-javascript-user-defined-functions.md)

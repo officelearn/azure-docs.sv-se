@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory-auth - Azure SQL (översikt) | Microsoft Docs"
-description: "Lär dig mer om hur du använder Azure Active Directory för autentisering med SQL-databas, hanterade-instans och SQL Data Warehouse"
+title: Azure Active Directory-auth - Azure SQL (översikt) | Microsoft Docs
+description: Lär dig mer om hur du använder Azure Active Directory för autentisering med SQL-databas, hanterade-instans och SQL Data Warehouse
 services: sql-database
 author: GithubMirek
 manager: craigg
@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Använda Azure Active Directory-autentisering för autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse
 Azure Active Directory-autentisering är en mekanism för anslutning till Microsoft Azure SQL Database och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (AD Azure). Med Azure AD-autentisering kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera användare och förenklar hantering av behörighet. Följande: fördelar
 
 * Det ger ett alternativ till SQL Server-autentisering.
 * Hjälper till att stoppa spridning av användaridentiteter över databasservrar.
-* Tillåter lösenord rotation i en enda plats
+* Tillåter lösenord rotation i en enda plats.
 * Kunder kan hantera databasen med hjälp av externa (Azure AD)-grupper.
 * Men du kan inte lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
 * Azure AD-autentisering använder oberoende databasanvändare för att autentisera identiteter på databasnivå.
@@ -75,7 +75,7 @@ Azure AD-begränsningar som rör hanterade instans:
 - Endast Azure AD-administratör kan skapa databaser, Azure AD-användare är begränsade till en enda DB och har inte denna behörighet
 - Ägarskap för databasen:
   - Azure AD-säkerhetsobjekt kan inte ändra ägarskap för databasen (ändra TILLSTÅNDET för databas) och kan inte anges som ägare.
-  - Ingen ägare har angetts för databaser som skapats i Azure AD-administratör (owner_sid fält i sys.sysdatabases är 0x1)
+  - Ingen ägare har angetts för databaser som skapats i Azure AD-administratör (owner_sid fält i sys.sysdatabases är 0x1).
 - SQL-agenten kan inte hanteras när du har loggat in med Azure AD-säkerhetsobjekt. 
 - Azure AD-administratör kan inte personifieras med EXECUTE AS
 - DAC-anslutning stöds inte med Azure AD-säkerhetsobjekt. 
@@ -97,7 +97,7 @@ Azure Active Directory-autentisering stöder följande metoder för att ansluta 
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 
-* Om du vill förbättra hanterbarhet vi rekommenderar att du etablerar en dedikerad Azure AD som en administratör.   
+* Om du vill förbättra hanterbarhet, rekommenderar vi du etablerar en dedikerad Azure AD som en administratör.   
 * Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras för en Azure SQL Database-server, hanteras instans eller Azure SQL Data Warehouse när som helst.   
 * Endast en Azure AD-administratör för SQL Server kan först ansluta till Azure SQL Database-server, hanteras instans eller Azure SQL Data Warehouse med ett Azure Active Directory-konto. Active Directory-administratören kan konfigurera följande Azure AD-databas användare.   
 * Vi rekommenderar att du anger timeout för anslutningen till 30 sekunder.   

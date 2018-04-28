@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: 80889ac29b6d92f17fb9c9c693fa733085ce7f1c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a150d8255171c83334ac4c1f81cbcee39c1df70a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsleverantör till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga sociala identiteter konton, exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
@@ -46,7 +46,7 @@ Den här artikeln är en förlängning av användaren migrering artikeln och fok
 * Beroende på identitetsleverantören den **sociala användar-ID** är ett unikt värde för en viss användare per program- eller konto. Konfigurera Azure AD B2C-princip med samma program-ID som tidigare har tilldelats av sociala providern. Eller ett annat program inom samma konto för utveckling.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Använd Graph API för att migrera användare
-Du skapar Azure AD B2C användarkonto via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). För att kommunicera med Graph API måste måste du först ha ett tjänstkonto med administratörsbehörighet. I Azure AD kan registrera du ett program och autentisering till Azure AD. Autentiseringsuppgifterna som programmet är program-ID och Apphemligheten. Programmet fungerar som själva inte som en användare att anropa Graph API. Följ anvisningarna i steg 1 i [användarmigrering](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artikel.
+Du skapar Azure AD B2C användarkonto via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). För att kommunicera med Graph API måste måste du först ha ett tjänstkonto med administratörsbehörighet. I Azure AD kan registrera du ett program och autentisering till Azure AD. Autentiseringsuppgifterna som programmet är program-ID och Apphemligheten. Programmet fungerar som själva inte som en användare att anropa Graph API. Följ anvisningarna i steg 1 i [användarmigrering](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artikel.
 
 ## <a name="required-properties"></a>Nödvändiga egenskaper
 I följande lista visas de egenskaper som krävs när du skapar en användare.

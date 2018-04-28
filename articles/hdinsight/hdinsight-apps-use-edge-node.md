@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Använda tom edge noder på Hadoop-kluster i HDInsight
 
@@ -69,6 +69,9 @@ När du har skapat en kantnod kan du ansluta till kantnoden med SSH och kör kli
 >
 > Om du använder en Apache-teknik kan du hitta hjälp via Apache project-webbplatser på [ http://apache.org ](http://apache.org), som den [Hadoop](http://hadoop.apache.org/) plats.
 
+> [!NOTE]
+> Samma som kluster, edge noder-korrigering hanteras ”är också”.  Mer information finns i [OS-korrigering för HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägg till en kantnod till ett befintligt kluster
 I det här avsnittet använder du en Resource Manager-mall för att lägga till en kantnod i ett befintligt HDInsight-kluster.  Resource Manager-mallen finns i [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skriptåtgärd på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det går att anropa åtgärder som skript från en Resource Manager-mall.
 
@@ -115,6 +118,10 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
      
      Vissa egenskaper har hårdkodad i mallen: typ av kluster, kluster worker-nodsantalet, Edge nodstorlek och Edge nodnamn.
 4. Kontrollera **jag samtycker till villkoren som anges ovan**, och klicka sedan på **inköp** att skapa klustret med kantnoden.
+
+## <a name="add-multiple-edge-nodes"></a>Lägga till flera edge-noder
+
+Du kan lägga till flera edge noder till ett HDInsight-kluster.  Konfiguration för flera edge-noder kan bara utföras med hjälp av Azure Resource Manager-mallar.  Se mallen exemplet i början av den här artikeln.  Du måste uppdatera de **targetInstanceCount** motsvarar antalet edge-noder som du vill skapa.
 
 ## <a name="access-an-edge-node"></a>Komma åt en kantnod
 Kantnoden ssh-slutpunkten är &lt;EdgeNodeName >.&lt; Klusternamn >-ssh.azurehdinsight.net:22.  Till exempel nya-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

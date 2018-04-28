@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-plattformen migrering vanliga frågor och svar
 I tidig juni 2017 började Azure Security Center med hjälp av Microsoft Monitoring Agent att samla in och lagra data. Läs mer i [Azure Security Center-plattformen migrering](security-center-platform-migration.md). Dessa vanliga frågor svar på frågor om migreringen plattform.
@@ -122,8 +122,6 @@ Att välja en befintlig logganalys-arbetsyta:
    >
 
    - Välj **Avbryt** avbryta åtgärden.
-
-      ![Konfigurera om övervakade virtuella datorer][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Vad händer om Microsoft Monitoring Agent har redan installerats som ett tillägg på den virtuella datorn?
 Security Center åsidosätts inte befintliga anslutningar till användaren arbetsytor. Security Center lagrar säkerhetsdata från den virtuella datorn i arbetsytan redan ansluten. Security Center uppdateras tilläggsversionen om du vill inkludera Azure resurs-ID för den virtuella datorn för att stödja användning av Security Center.
@@ -248,4 +246,3 @@ Mer information om Security Center-plattformen migrering finns
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

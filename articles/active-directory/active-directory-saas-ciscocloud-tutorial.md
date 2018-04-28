@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f41d8f508bb6ee5b50b7f304c703c4d9bed75d8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f3d97e26b71c2e17753943f7004d7eb7ee19e44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Självstudier: Azure Active Directory-integrering med Cisco moln
 
@@ -32,7 +32,7 @@ Integrera Cisco moln med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Cisco molnet, behöver du följande:
 
@@ -117,33 +117,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textruta, ange ett URL-Adressen: `https://<subdomain>.cloudapps.cisco.com`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL: en och URL: en inloggning. Kontakta [Cisco Cloud klienten supportteamet](mailto:cpr-ops@cisco.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL: en och URL: en inloggning. Kontakta [Cisco Cloud klienten supportteamet](mailto:cpr-ops@cisco.com) att hämta dessa värden.
 
-5. Klicka på **spara** knappen.
+5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. Att generera den **URL för tjänstmetadata**, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. Gå till egenskapssidan för **Cisco molnet** och kopiera den **program-ID** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Konfigurera enkel inloggning på **Cisco molnet** sida, måste du skicka den hämtade **URL för tjänstmetadata** till [Cisco molnet supportteamet](mailto:cpr-ops@cisco.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+7. Konfigurera enkel inloggning på **Cisco molnet** sida, måste du skicka den **webbadress Federation Metadata** till [Cisco molnet supportteamet](mailto:cpr-ops@cisco.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

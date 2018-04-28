@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 537032ade9e6569def84499ca6d2d937f77312e3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db012097011d57434e35ef395ebe69a2156c92f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om aktiviteten i Azure Data Factory-villkor
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
@@ -72,7 +72,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på aktiviteten om villkoret. | Sträng | Ja
 typ | Måste anges till **IfCondition** | Sträng | Ja
-expression | Uttryck som måste utvärderas till true eller false | Ja
+uttryck | Uttryck som måste utvärderas till true eller false | Ja
 ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Ja
 ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Ja
 
@@ -252,7 +252,7 @@ Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** ell
 Kommandona förutsätter att du har sparat JSON-filer i mappen: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

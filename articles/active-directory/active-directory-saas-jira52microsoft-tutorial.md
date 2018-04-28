@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA 5.2 | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Microsoft Azure Active Directory enkel inloggning för JIRA 5.2."
+title: 'Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA 5.2 | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Microsoft Azure Active Directory enkel inloggning för JIRA 5.2.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 456a0c63881f6eb15e8166bee0105e25c951b536
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 20d08fa6aac5a55480d2c11eb6e4f746ff863f78
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira-52"></a>Självstudier: Azure Active Directory-integrering med Microsoft Azure Active Directory enkel inloggning för JIRA 5.2
 
@@ -63,7 +63,8 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 *   JIRA stöder också 6.0 och 7.2.0. Mer information klickar du på [Microsoft Azure Active Directory enkel inloggning för JIRA](./active-directory-saas-jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I kursen får testa du Azure AD enkel inloggning i en testmiljö.
+Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
 1. Att lägga till Microsoft Azure Active Directory enkel inloggning för JIRA 5.2 från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
@@ -114,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_samlbase.png)
 
 3. På den **Microsoft Azure Active Directory enkel inloggning JIRA 5.2 domän och URL: er** avsnittet, utför följande steg:
@@ -127,29 +128,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Porten är valfria om det är en namngiven URL. Dessa värden tas emot under konfigurationen av Jira plugin som beskrivs senare i självstudierna.
- 
-4. Att generera den **Metadata** url, utför följande steg:
 
-    a. Klicka på **App registreringar**.
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
     
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira5.2-tutorial\appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpoint.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-msaadssojira5.2-tutorial/tutorial_metadataurl.png)
      
-    d. Gå till egenskapssidan för **Microsoft Azure Active Directory enkel inloggning för JIRA 5.2** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira5.2-tutorial\appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` och kopiera det här värdet i anteckningar eftersom den används senare för konfiguration av plugin-programmet.
-
 5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_400.png)
@@ -178,8 +163,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     > [!TIP]
     > Kontrollera att det finns bara ett certifikat mappas mot appen så att det finns inga fel vid matchning av metadata. Om det finns flera certifikat vid lösning av metadata, får administratör ett fel.
- 
-    a. I **URL för tjänstmetadata** klistra in den **URL för tjänstmetadata** genereras från Azure AD och klicka på den **lösa** knappen. Den läser IdP metadata-URL och fyller i informationen för fält.
+
+    a. I **URL för tjänstmetadata** textruta klistra in **webbadress Federation Metadata** värde som du har kopierat från Azure-portalen och klicka på den **lösa** knappen. Den läser IdP metadata-URL och fyller i informationen för fält.
 
     b. Kopiera den **identifierare, svars-URL: en och URL: en inloggning** värden och klistra in dem i **identifierare, svars-URL: en och URL: en inloggning** textrutor respektive i **Microsoft Azure Active Directory enkel inloggning JIRA 5.2 domän och URL: er** avsnitt på Azure-portalen.
 
@@ -202,10 +187,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     > [!NOTE]
     > Mer information om installation och felsökning finns [MS JIRA SSO Connector Admin guiden](ms-confluence-jira-plugin-adminguide.md) och det också [vanliga frågor och svar](ms-confluence-jira-plugin-faq.md) på förhand
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -328,4 +309,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_201.png
 [202]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_202.png
 [203]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_203.png
-

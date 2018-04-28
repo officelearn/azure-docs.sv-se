@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 159bdf681761b9fc46f77cbcf25a210db11d1d9b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för säkerhet för Azure Data och kryptering
 En av nycklar på dataskydd i molnet redovisning för möjliga tillstånd som kan uppstå i dina data och vilka kontroller som är tillgängliga för det aktuella tillståndet. Metodtips för säkerhet och kryptering rekommendationer för Azure data kommer att vara runt följande data tillstånd:
@@ -50,15 +50,15 @@ Azure data säkerhets- och bästa praxis i den här artikeln omfattar:
 * Tillämpa fil nivån datakryptering
 
 ## <a name="enforce-multi-factor-authentication"></a>Använda Multifaktorautentisering
-Det första steget i dataåtkomst och kontroll i Microsoft Azure är att autentisera användaren. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) är en metod för att verifiera användarens identitet med hjälp av en annan metod än bara ett användarnamn och lösenord. Den här autentisering metoden hjälper dig att skydda åtkomst till data och program och uppfyller efterfrågan från användarna för en process för enkel inloggning.
+Det första steget i dataåtkomst och kontroll i Microsoft Azure är att autentisera användaren. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) är en metod för att verifiera användarens identitet med hjälp av en annan metod än bara ett användarnamn och lösenord. Den här autentisering metoden hjälper dig att skydda åtkomst till data och program och uppfyller efterfrågan från användarna för en process för enkel inloggning.
 
 Genom att aktivera Azure MFA för dina användare kan du lägger till ett andra säkerhetslager till användarinloggningar och transaktioner. I det här fallet en transaktion kan att komma åt ett dokument som finns på en filserver eller i SharePoint Online. Azure MFA hjälper även IT att minska sannolikheten att avslöjade autentiseringsuppgifter kommer att ha åtkomst till organisationens data.
 
 Exempel: Om du införa Azure MFA för användarna och konfigurera den så att du använder ett telefonsamtal eller SMS som verifiering om användarens autentiseringsuppgifter har komprometterats angriparen inte åtkomst till alla resurser eftersom han inte har åtkomst till användarens telefon. Organisationer som inte lägger till den här extra skyddslager identitet är mer känslig för autentiseringsuppgifter attack med lösenordsstöld, vilket kan leda till röjande av data.
 
-Ett alternativ för organisationer som vill behålla autentisering kontrollen lokal är att använda [Azure Multi-Factor Authentication-servern](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), kallas även MFA lokala. Med den här metoden kan du fortfarande att kunna använda multifaktorautentisering, samtidigt som den MFA server lokalt.
+Ett alternativ för organisationer som vill behålla autentisering kontrollen lokal är att använda [Azure Multi-Factor Authentication-servern](../active-directory/authentication/howto-mfaserver-deploy.md), kallas även MFA lokala. Med den här metoden kan du fortfarande att kunna använda multifaktorautentisering, samtidigt som den MFA server lokalt.
 
-Mer information om Azure MFA finns i artikel [komma igång med Azure Multi-Factor Authentication i molnet](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Mer information om Azure MFA finns i artikel [komma igång med Azure Multi-Factor Authentication i molnet](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Använd rollbaserad åtkomstkontroll (RBAC)
 Begränsa åtkomst baserat på de [behöver](https://en.wikipedia.org/wiki/Need_to_know) och [minsta privilegium](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper. Det här är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Azure rollbaserad åtkomstkontroll (RBAC) kan användas för att tilldela behörigheter till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs.

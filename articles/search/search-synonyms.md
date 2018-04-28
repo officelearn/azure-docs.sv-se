@@ -1,25 +1,20 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Preliminär dokumentation för funktionen synonymer (förhandsgranskning), visas i Azure Search REST API."
-services: search
-documentationCenter: 
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Använd synonymer som utökar omfattningen av en sökfråga
 authors: mhko
-manager: pablocas
-editor: 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/07/2016
+ms.topic: conceptual
+ms.date: 04/20/2018
+manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Synonymer i Azure Search (förhandsgranskning)
+# <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
 
 Synonymer i sökmotorer associera motsvarande termer som implicit expanderar omfattningen av en fråga, utan att användaren behöver ange faktiskt termen. Till exempel ska angivna termen ”hund” och synonymen kopplingarna ”hunddjur” och ”Hundvalp” alla dokument som innehåller ”hund”, ”hunddjur” eller ”Hundvalp” omfattas av frågan.
 
@@ -27,7 +22,7 @@ I Azure Search görs synonymen expansion när databasfrågan. Du kan lägga till
 
 ## <a name="feature-availability"></a>Funktionstillgänglighet
 
-Funktionen synonymer är för närvarande under förhandsgranskning och stöds bara i den senaste api-förhandsversionen (api-version = 2016-09-01-Preview). Funktionen stöds för närvarande inte på Azure Portal. Eftersom API-version anges i begäran, är det möjligt att kombinera allmänt tillgänglig (GA) och förhandsgranska API: er i samma app. Dock kan preview API: er inte är under SLA och funktioner ändras, så vi inte rekommenderar att använda dem i program i produktion.
+Funktionen synonymer stöds i den senaste api-versionen (api-version = 2017-11-11). Funktionen stöds för närvarande inte på Azure Portal.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Hur du använder synonymer i Azure search
 
@@ -47,11 +42,11 @@ Integrera synonymer i tillämpningsprogrammet search är en tvåstegsprocess:
 
 Synonymen maps överförs till tjänsten via POST eller PUT. Varje regel måste avgränsas med ett tecken för ny rad (\n). Du kan ange upp till 5 000 regler per synonymen kartan i en kostnadsfri tjänst och 10 000 regler i alla andra SKU: er. Varje regel kan ha upp till 20 expansion.
 
-I den här förhandsgranskningen måste synonymen mappningar vara i formatet Apache Solr som förklaras nedan. Om du har en befintlig synonymen ordlista i ett annat format och vill använda den direkt, meddela oss på [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Synonymen mappningar måste vara i formatet Apache Solr som förklaras nedan. Om du har en befintlig synonymen ordlista i ett annat format och vill använda den direkt, meddela oss på [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Du kan skapa en ny synonymen karta med hjälp av HTTP POST, som i följande exempel:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -64,7 +59,7 @@ Du kan skapa en ny synonymen karta med hjälp av HTTP POST, som i följande exem
 
 Du kan också använda PUT och ange mappningsnamn synonymen på URI: N. Om synonymen mappningen inte finns, kommer att skapas.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -90,24 +85,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Lista synonymen mappar under din tjänst.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Få en synonym karta under din tjänst.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Ta bort en synonymer karta under din tjänst.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Konfigurera ett sökbara fält om du vill använda synonymen kartan i indexdefinitionen.
 
 En ny fältegenskap **synonymMaps** kan användas för att ange en synonym karta ska användas i en sökbara fält. Synonymen maps är tjänsten Utjämna resurser och kan refereras till av varje fält i ett index under tjänsten.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -142,7 +137,7 @@ En ny fältegenskap **synonymMaps** kan användas för att ange en synonym karta
 **synonymMaps** kan anges för sökbara fält av typen 'Edm.String' eller 'Collection(Edm.String)'.
 
 > [!NOTE]
-> Du kan bara ha en synonym mappa per fält i den här förhandsgranskningen. Om du vill använda flera synonymen maps berätta på [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Du kan bara ha en synonym mappa per fält. Om du vill använda flera synonymen maps berätta på [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Effekten av synonymer på andra sökfunktioner
 

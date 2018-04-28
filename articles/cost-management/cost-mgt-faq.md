@@ -1,20 +1,20 @@
 ---
-title: "Vanliga frågor om Azure kostnaden Management | Microsoft Docs"
-description: "Innehåller svar på några vanliga frågor om Azure kostnaden Management."
+title: Vanliga frågor om Azure kostnaden Management | Microsoft Docs
+description: Innehåller svar på några vanliga frågor om Azure kostnaden Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
@@ -50,7 +50,7 @@ Kan du behöva ge avdelning administratörer, kontot ägare och enterprise admin
 
 Rekommendation information är bara tillgängligt för konton som är aktiverade. Visas inte någon rekommendation information i **optimering** rapportera kategorier för konton som är *inaktiverade*, inklusive:
 
-- Optimization Manager
+- Optimering Manager
 - Storlek för optimering
 - Ineffektiviteter
 
@@ -89,7 +89,7 @@ Om du ändrar din e-postadress i Cloudyn från standardadressen i Azure, ditt ko
 
 Vi rekommenderar att du skapar minst två Cloudyn administratörskonton om ett konto blir låst.
 
-Se till att du använder rätt Azure kostnaden Management URL: en för att logga in på Cloudyn om du inte logga in till Cloudyn-portalen. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Se till att du använder rätt Azure kostnaden Management URL: en för att logga in på Cloudyn om du inte logga in till Cloudyn-portalen. Använd [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Undvik att använda Cloudyn direkt URL https://app.cloudyn.com.
 
@@ -116,9 +116,9 @@ Om du vill lägga till ytterligare CSP-konton till en entitet, Välj **MSP åtko
 
 Du kan ha flera Azure-konton som använder olika valutor. Kostnadsrapporter i Cloudyn visa men inte mer än en valuta per rapport.
 
-Om du har flera prenumerationer med hjälp av olika valutor en överordnad enhet och dess underordnade entiteten valutor visas i USD  **$** . Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitet hierarki. Med andra ord alla dina prenumerationer som är ordnade i en entitet som ska använda samma valuta.
+Om du har flera prenumerationer med hjälp av olika valutor en överordnad enhet och dess underordnade entiteten valutor visas i USD **$**. Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitet hierarki. Med andra ord alla dina prenumerationer som är ordnade i en entitet som ska använda samma valuta.
 
-Cloudyn identifierar din Enterprise-avtal prenumeration valuta automatiskt och visas korrekt i rapporter.  Dock Cloudyn bara visar USD  **$**  för CSP och Azure web direct-konton.
+Cloudyn identifierar din Enterprise-avtal prenumeration valuta automatiskt och visas korrekt i rapporter.  Dock Cloudyn bara visar USD **$** för CSP och Azure web direct-konton.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Vad är Cloudyn data Uppdatera tidslinjer?
 

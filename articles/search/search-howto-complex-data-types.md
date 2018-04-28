@@ -1,25 +1,19 @@
 ---
 title: Hur du modellera komplexa datatyper i Azure Search | Microsoft Docs
-description: "Kapslade eller hierarkisk datastrukturer kan utformas i ett Azure Search-index med Flat raduppsättning och samlingar datatyp."
-services: search
-documentationcenter: 
-author: LiamCa
-manager: pablocas
-editor: 
+description: Kapslade eller hierarkisk datastrukturer kan utformas i ett Azure Search-index med Flat raduppsättning och samlingar datatyp.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: liamca
-ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Så här modellen komplexa datatyper i Azure Search
 Externa datauppsättningar som används för att fylla ett Azure Search index ibland inkluderar hierarkisk eller kapslade underordnade strukturer som inte nedbrytning av snyggt i en tabellvy raduppsättning. Exempel på sådana strukturer kan innehålla flera platser och telefonnummer för en kund, flera färger och storlekar för en enskild SKU flera författare av en enda bok och så vidare. Modeling villkor du kan se dessa strukturer kallas *komplexa datatyper*, *sammansatta datatyper*, *sammansatta datatyper*, eller *aggregera datatyper*, t.ex.

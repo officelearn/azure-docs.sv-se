@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery felsökning för Azure-Azure-replikeringsproblem och fel | Microsoft Docs"
-description: "Felsökning av fel och problem vid replikering av virtuella Azure-datorer för katastrofåterställning"
+title: Azure Site Recovery felsökning för Azure-Azure-replikeringsproblem och fel | Microsoft Docs
+description: Felsökning av fel och problem vid replikering av virtuella Azure-datorer för katastrofåterställning
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsökning av problem med Virtuella Azure-Azure-replikering
 
@@ -199,6 +199,17 @@ Om du vill aktivera replikering på den virtuella datorn ska etableringsstatusen
 
 - Om **provisioningState** är **misslyckades**, kontakta supporten med information om hur du felsöker.
 - Om **provisioningState** är **uppdatering**, en annan utökning kan komma distribueras. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de är klara och gör den misslyckade platsen har återställts **Aktivera replikering** jobb.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fel i tjänsten Volume Shadow Copy (felkod 151025)
+**Felkod** | **Möjliga orsaker** | **Rekommendationer**
+--- | --- | ---
+151025<br></br>**Meddelandet**: Site recovery-tillägget kunde inte installera | -'COM + System Application-tjänsten är inaktiverad.</br></br>-'Volume Shadow Copy-tjänsten är inaktiverad.| Ange 'COM + systemprogram' och 'Volume Shadow Copy-tjänster för automatisk eller manuell start läge.
+
+### <a name="fix-the-problem"></a>Åtgärda problemet
+
+Du kan öppna ”tjänster” konsolen och kontrollera 'COM + systemprogrammet' och 'Volume Shadow Copy-inte är inställda på ”inaktiverad” för ”starttyp”.
+  ![COM-fel](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Replikera virtuella Azure-datorer](site-recovery-replicate-azure-to-azure.md)

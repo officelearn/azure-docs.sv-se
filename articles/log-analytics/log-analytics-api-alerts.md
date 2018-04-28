@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 642b27405c703aa7a30d9fc544009d70b5d1b2df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i logganalys med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Operations Management Suite (OMS).  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -101,7 +101,7 @@ Alla åtgärder ha egenskaperna i följande tabell.  Olika typer av aviseringar 
 ### <a name="retrieving-actions"></a>Hämta åtgärder
 
 > [!NOTE]
-> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Använd Get-metoden för att hämta alla åtgärder för ett schema.
 
@@ -124,7 +124,7 @@ Det begärandeformatet för att skapa en ny åtgärd varierar beroende på typ s
 ### <a name="deleting-actions"></a>Ta bort åtgärder
 
 > [!NOTE]
-> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, kontrolleras nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Använda Delete-metoden med åtgärds-ID för att ta bort en åtgärd.
 
@@ -216,7 +216,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en allvarli
 #### <a name="action-groups"></a>Åtgärdsgrupper
 Alla aviseringar i Azure, använda åtgärden gruppen standardmekanism för hantering av åtgärder. Med åtgärden grupp du ange dina åtgärder en gång och sedan associerar åtgärdsgruppen till flera aviseringar - i Azure. Utan att behöva, upprepade gånger deklarera samma åtgärder upprepade gånger. Åtgärdsgrupper har stöd för flera åtgärder – inklusive e-post, SMS, röst anropa, ITSM anslutning, Automation-Runbook, Webhook URI och mycket mer. 
 
-För användare som har utökat sina aviseringar i Azure - bör ett schema nu ha grupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Postinformation om e-, Webhook URL: er, Runbook Automation-information och andra åtgärder måste definieras på sidan av en grupp innan du kan skapa en avisering; går att skapa [grupp från Azure-Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) på portalen eller Använd [åtgärd grupp API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+För användare som har utökat sina aviseringar i Azure - bör ett schema nu ha grupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Postinformation om e-, Webhook URL: er, Runbook Automation-information och andra åtgärder måste definieras på sidan av en grupp innan du kan skapa en avisering; går att skapa [grupp från Azure-Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) på portalen eller Använd [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Lägg till associationen av grupp i en avisering, ange unika Azure Resource Manager-ID för åtgärdsgruppen i varningsdefinitionen. En bild med exempel finns nedan:
 
@@ -322,7 +322,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en grupp so
 E-postaviseringar skicka e-post till en eller flera mottagare.  De omfattar egenskaperna i följande tabell.
 
 > [!NOTE]
-> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Egenskap | Beskrivning |
@@ -366,7 +366,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en e-åtgä
 Reparationer startar en runbook i Azure Automation som försöker åtgärda problemet som identifieras av aviseringen.  Du måste skapa en webhook för den runbook som används i en Reparationsåtgärd och anger sedan URI: N i egenskapen WebhookUri.  När du skapar den här åtgärden med hjälp av OMS-konsolen, skapas automatiskt en ny webhook för runbook.
 
 > [!NOTE]
-> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som reparation med hjälp av runbook styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som reparation med hjälp av runbook styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Reparationer innehålla egenskaperna i följande tabell.
 
@@ -425,7 +425,7 @@ Följande är en komplett exempel att skapa en ny e-postavisering.  Detta skapar
 Webhook-åtgärder kan du starta en process genom att anropa en URL och du kan också tillhandahålla en nyttolast som ska skickas.  De liknar reparationsåtgärder förutom de är avsedda för webhooks som kan anropa processer än Azure Automation-runbooks.  De ger också ytterligare alternativ för att tillhandahålla en nyttolast som ska levereras till fjärrprocessen.
 
 > [!NOTE]
-> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som Webhook styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Från den 14 maj 2018 utökas alla aviseringar i en arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utöka aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar till Azure från OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som Webhook styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar utökas till Azure, kan du hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhook-åtgärder har inte ett tröskelvärde men i stället bör läggas till ett schema som har en åtgärd med ett tröskelvärde.  

@@ -1,85 +1,85 @@
 ---
-title: "Skapa en HTTP-utlösare med Azure DB som Cosmos-indatabindning | Microsoft Docs"
-description: "Lär dig hur du använder Azure Functions med HTTP-utlösare för att fråga Azure Cosmos DB."
+title: Skapa en HTTP-utlösare med en Azure Cosmos DB-indatabindning | Microsoft Docs
+description: Lär dig att använda Azure Functions med HTTP-utlösare för frågor i Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Skapa en Azure Functions HTTP-utlösare med Azure DB som Cosmos-indatabindning
+# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Skapa en HTTP-utlösare i Azure Functions med en Azure Cosmos DB-indatabindning
 
-Azure Cosmos-DB är en global och flera olika modeller databas som är både schemalös och serverlösa. Azure-funktionen är en serverlösa beräknings-tjänst som gör det möjligt att köra kod på begäran. Para ihop dessa två Azure-tjänster och du har grunden för en serverlösa arkitektur som gör att du kan fokusera på att bygga bra appar och oroa dig inte om etablering och underhåll av servrar för din beräknings och databasen måste.
+Azure Cosmos DB är en globalt distribuerad databas för flera modeller som är både schemalös och serverlös. Azure Function är en serverlös beräkningstjänst som gör det möjligt att köra kod på begäran. När du kombinerar dessa två Azure-tjänster får du en bra grund för en serverlös arkitektur, där du kan fokusera på att skapa bra appar och inte oroa dig för att behöva etablera och underhålla servrar för din beräknings- och databasbehov.
 
-Den här kursen bygger på koden som skapade i den [Graph API Snabbstart för .NET](create-graph-dotnet.md). Den här självstudiekursen lägger till en Azure-funktion som innehåller en [HTTP-utlösaren](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). HTTP-utlösaren använder en Azure-Cosmos-DB [inkommande bindningen](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) att hämta data från databasen för diagram som skapats i Snabbstart. Den här specifika http-utlösaren frågor Azure Cosmos DB för data, men inkommande bindningar från Azure Cosmos DB kan användas att hämta data indatavärden för vad din funktion kräver.
+Den här självstudien bygger på koden som skapades i [Snabbstart för Graph API i .NET](create-graph-dotnet.md). Självstudien lägger till en Azure Function som innehåller en [HTTP-utlösare](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). HTTP-utlösaren använder en Azure Cosmos DB-[indatabindning](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) till att hämta data från grafdatabasen som skapades i snabbstarten. Den här specifika HTTP-utlösaren frågar Azure Cosmos DB om data, men indatabindningarna från Azure Cosmos DB kan användas till att hämta indatavärden oavsett vad din funktion kräver.
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa ett projekt för Azure-funktion 
+> * Skapa ett Azure Function-projekt 
 > * Skapa en HTTP-utlösare
-> * Publicera funktionen Azure
-> * Anslut Azure-funktion i Azure DB som Cosmos-databasen
+> * Publicera Azure Function
+> * Ansluta Azure Function till Azure Cosmos DB-databasen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), inklusive arbetsbelastningen **Azure Development**.
 
     ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/tutorial-functions-http-trigger/functions-vs-workloads.png)
     
-- När du installerar eller uppgraderar till Visual Studio 2017 version 15,3 måste du manuellt uppdatera 2017 för Visual Studio-verktygen för Azure Functions. Du kan uppdatera verktyg från den **verktyg** menyn under **tillägg och uppdateringar...**   >  **Uppdateringar** > **Visual Studio Marketplace** > **Azure Functions och Web jobb verktyg**  >  **Uppdatering**.
+- När du har installerat eller uppgraderat till Visual Studio 2017 version 15.3, måste du manuellt uppdatera Visual Studio 2017-verktygen för Azure Functions. Du kan uppdatera verktygen från menyn **Verktyg** under **Tillägg och uppdateringar...**  > **Uppdateringar** > **Visual Studio Marketplace** > **Azure Functions och WebJobs-verktyg** > **Uppdatera**.
 
-- Slutför den [skapar ett .NET-program med hjälp av Graph API](tutorial-develop-graph-dotnet.md) kursen eller get exemplet kod från de [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub-repo- och skapa projektet.
+- Slutför självstudien [Skapa ett .NET-program med hjälp av Graph API](tutorial-develop-graph-dotnet.md) eller hämta exempelkoden från GitHub-lagringsplatsen [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) och skapa projektet.
  
 ## <a name="build-a-function-in-visual-studio"></a>Skapa en funktion i Visual Studio
 
-1. Lägg till en **Azure Functions** projekt i lösningen genom att högerklicka på noden lösning i **Solution Explorer**, Välj **Lägg till**  >   **Nytt projekt**. Välj **Azure Functions** från dialogrutan rutan och ge den namnet **PeopleDataFunctions**.
+1. Lägg till ett **Azure Functions**-projekt i lösningen genom att högerklicka på lösningsnoden i **Solution Explorer** och sedan välja **Lägg till** > **Nytt projekt**. Välj **Azure Functions** i dialogrutan och ge den namnet **PeopleDataFunctions**.
 
-   ![Lägger till ett Azure-funktion-projekt i lösningen](./media/tutorial-functions-http-trigger/01-add-function-project.png)
+   ![Lägga till ett Azure Function-projekt i lösningen](./media/tutorial-functions-http-trigger/01-add-function-project.png)
 
-2. När du skapar projektet Azure Functions finns det några NuGet relaterade uppdateringar och installerar om du vill utföra. 
+2. När du har skapat Azure Functions-projektet finns det några NuGet-relaterade uppdateringar och installationer som du kan utföra. 
 
-    a. Om du vill kontrollera att du har de senaste funktionerna SDK: N, kan du använda NuGet Manager för att uppdatera den **Microsoft.NET.Sdk.Functions** paketet. I **Solution Explorer**, högerklicka på projektet och välj **hantera NuGet-paket**. I den **installerad** , Välj Microsoft.NET.Sdk.Functions och klicka sedan på **uppdatering**.
+    a. Om du vill kontrollera att du har de senaste funktions-SDK:erna, kan du använda NuGet Manager till att uppdatera paketet **Microsoft.NET.Sdk.Functions**. Högerklicka på projektet i **Solution Explorer** och välj **Hantera NuGet-paket**. På fliken **Installerat** väljer du Microsoft.NET.Sdk.Functions. Klicka sedan på **Uppdatera**.
 
    ![Uppdatera NuGet-paket](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. I den **Bläddra** ange **azure.graphs** att hitta den **Microsoft.Azure.Graphs** paketet och klickar sedan på **installera**. Det här paketet innehåller Graph API .NET klient-SDK.
+    b. På fliken **Bläddra** anger du **azure.graphs** för att hitta paketet **Microsoft.Azure.Graphs**. Klicka sedan på **Installera**. Det här paketet innehåller klient-SDK:n för Graph API i .NET.
 
    ![Installera Graph API](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
-    c. I den **Bläddra** ange **mono.csharp** att hitta den **Mono.CSharp** paketet och klickar sedan på **installera**.
+    c. På fliken **Bläddra** anger du **mono.csharp** för att hitta paketet **Mono.CSharp**. Klicka sedan på **Installera**.
 
    ![Installera Mono.CSharp](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
-3. Solution Explorer nu innehålla paket som du har installerat, som visas här. 
+3. Solution Explorer ska nu innehålla de paket som du har installerat, enligt bilden. 
    
-   Nu ska vi behöver skriva kod, så vi lägger till en ny **Azure-funktion** objekt i projektet. 
+   Nu ska vi skriva kod, så vi lägger till ett nytt **Azure Function**-objekt i projektet. 
 
     a. Högerklicka på projektnoden i **Solution Explorer** och välj sedan **Lägg till** > **Nytt objekt**.   
-    b. I den **Lägg till nytt objekt** markerar **Visual C# objekt**väljer **Azure-funktion**, typen **Sök** som namn på ditt projekt och sedan Klicka på **Lägg till**.  
+    b. I dialogrutan **Lägg till nytt objekt** väljer du **Visual C#-objekt** och **Azure Function**. Skriv **Sök** som namn på projektet och klicka sedan på **Lägg till**.  
  
    ![Skapa en ny funktion med namnet Sök](./media/tutorial-functions-http-trigger/05-add-function.png)
 
-4. Azure-funktion svarar på HTTP-begäranden, så mallen http-utlösare är lämpligt här.
+4. Azure Function svarar på HTTP-begäranden, så mallen för HTTP-utlösaren är lämplig här.
    
-   I den **nya Azure-funktion** väljer **Http-utlösaren**. Vi vill Azure funktionen ”öppet”,, så vi ställa in den **åtkomstbehörigheter** till **anonym**, vilket gör att alla. Klicka på **OK**.
+   I rutan **Ny Azure Function** väljer du **HTTP-utlösare**. Vi vill att denna Azure Function ska vara ”helt öppen”, så vi anger **Åtkomstbehörigheter** till **Anonym** vilket gör att alla har åtkomst till den. Klicka på **OK**.
 
-   ![Ange behörigheter till anonym](./media/tutorial-functions-http-trigger/06-http-trigger.png)
+   ![Ange anonym som åtkomstbehörighet](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
-5. När du lägger till Search.cs projektet Azure-funktion, kopiera dessa **med** rapporter över den befintliga med-uttryck:
+5. När du har lagt till Search.cs i Azure Function-projektet, kopierar du dessa **med hjälp av** de instruktioner som ligger ovanpå de befintliga instruktionerna som används:
 
    ```csharp
    using Microsoft.Azure.Documents;
@@ -98,7 +98,7 @@ Den här kursen ingår följande uppgifter:
    using System.Threading.Tasks;
    ```
 
-6. Ersätt sedan funktionen Azure kod med koden nedan. Koden söker Azure DB som Cosmos-databasen med Graph API för antingen alla användare eller för specifika personen som identifieras av den `name` frågesträngparametern.
+6. Ersätt sedan Azure Function-klasskoden med koden nedan. Koden söker i Azure Cosmos DB-databasen med Graph API efter antingen alla användare eller efter den specifika person som identifierades av `name`-frågesträngparametern.
 
    ```csharp
    public static class Search
@@ -160,36 +160,36 @@ Den här kursen ingår följande uppgifter:
    }
    ```
 
-   Koden är i princip samma anslutning logik som den ursprungliga konsolprogram som dirigeras databasen med en enkel fråga att hämta matchande poster.
+   Koden har i princip samma anslutningslogik som det ursprungliga konsolprogram som angav databasen, med en enkel fråga för att hämta matchande poster.
 
-## <a name="debug-the-azure-function-locally"></a>Felsöka Azure funktionen lokalt
+## <a name="debug-the-azure-function-locally"></a>Felsöka Azure-funktionen lokalt
 
-Koden har slutförts, kan du använda funktionen Azure lokala felsökningsverktyg och -emulatorn kör kod lokalt för att testa den.
+Nu när koden har slutförts kan du använda lokala felsökningsverktyg och emulatorn i Azure Function för att köra kod lokalt och testa den.
 
-1. Innan koden körs korrekt, måste du konfigurera den för lokal körning med din Azure Cosmos DB-anslutningsinformationen. Du kan använda filen local.settings.json för att konfigurera Azure-funktion för lokal körning mycket på samma sätt som du skulle använda App.config-filen för att konfigurera ursprungliga konsolprogrammet för körning.
+1. Innan koden kan köras korrekt, måste du konfigurera den för lokal körning med din Azure Cosmos DB-anslutningsinformation. Du kan använda filen local.settings.json till att konfigurera Azure Function för lokal körning, ungefär på samma sätt som du skulle använda App.config-filen till att konfigurera det ursprungliga konsolprogrammet för körning.
 
-    För att göra detta, Lägg till följande rader med kod i local.settings.json och kopiera i din slutpunkt och auktoriseringsnyckel från filen App.Config i GraphGetStarted-projektet enligt följande bild.
+    Gör detta genom att lägga till följande kodrader i local.settings.json. Kopiera sedan in din slutpunkt och AuthKey från filen App.Config i GraphGetStarted-projektet enligt följande bild.
 
    ```json
     "Endpoint": "",
     "AuthKey": ""
     ```
 
-   ![Ange den slutpunkt och auktorisering nyckeln i filen local.settings.json](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
+   ![Ange slutpunkt och auktoriseringsnyckel i filen local.settings.json](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
-2. Ändra Startprojekt till appen med nya funktioner. I **Solution Explorer**, högerklicka på **PeopleDataFunctions**, och välj **Set as StartUp Project**.
+2. Ändra StartUp-projekt till den nya funktionsappen. I **Solution Explorer** högerklickar du på **PeopleDataFunctions** och väljer alternativet för att **ange som StartUp-projekt**.
 
-3. I **Solution Explorer**, högerklicka på **beroenden** i den **PeopleDataFunctions** projektet och klicka sedan på **Lägg till referens**. Välj System.Configuration i listan och klicka sedan på **OK**.
+3. I **Solution Explorer** högerklickar du på **Beroenden** i projektet **PeopleDataFunctions**. Klicka sedan på **Lägg till referens**. Välj System.Configuration i listan och klicka sedan på **OK**.
 
-3. Nu ska vi köra appen. Tryck på F5 för att starta det lokala felsökningsverktyget, func.exe med Azure Funktionskoden värdbaserade och redo att användas.
+3. Nu ska vi köra appen. Tryck på F5 för att starta det lokala felsökningsverktyget func.exe med den värdbaserade Azure Function-koden som är redo att användas.
 
-   I slutet av den första utdatan från func.exe finns att Azure-funktion finns på localhost:7071. Det är bra att testa den i en klient.
+   I slutet av den första utdatan från func.exe ser vi att Azure Function finns på localhost:7071. Det kan vara bra att testa den i en klient.
 
    ![Testa klienten](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
-4. Testa Azure-funktion med [Visual Studio Code](http://code.visualstudio.com/) med Huachao Mao tillägget [REST-klient](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST-klient ger lokal eller fjärransluten HTTP-begäran funktioner i en enda högerklicka. 
+4. Testa Azure Function genom att använda [Visual Studio Code](http://code.visualstudio.com/) med Huachao Mao-tillägget [REST-klient](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST-klienten innehåller funktionen med lokala eller fjärranslutna HTTP-förfrågningar med ett enda högerklick. 
 
-    Om du vill göra detta måste skapa en ny fil med namnet test-funktionen-locally.http och Lägg till följande kod:
+    Om du vill göra detta skapar du en ny fil med namnet test-function-locally.http och lägger till följande kod:
 
     ```http
     get http://localhost:7071/api/Search
@@ -197,57 +197,57 @@ Koden har slutförts, kan du använda funktionen Azure lokala felsökningsverkty
     get http://localhost:7071/api/Search?name=ben
    ```
 
-    Nu högerklickar du på den första raden i koden och välj sedan **skicka begäran** som visas i följande bild.
+    Högerklicka nu på den första raden i koden och välj **Skicka förfrågan** enligt följande bild.
 
-   ![Skicka en REST-begäran från Visual Studio code](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
+   ![Skicka en REST-begäran från Visual Studio-kod](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
 
-   Rådata HTTP-svaret från körs lokalt Azure-funktion huvuden innehållet i JSON-text, visas allt.
+   Rådata i HTTP-svaret från lokalt körda Azure Function-rubriker, JSON-textinnehåll med mera visas.
 
    ![REST-svar](./media/tutorial-functions-http-trigger/10-general-results.png)
 
-5. Markera den andra raden med kod och välj sedan **skicka begäran**. Genom att lägga till den `name` frågesträngparametern med ett värde som har visat sig vara i databasen, kan vi filtrera resultatet returnerar funktionen Azure.
+5. Markera nu den andra kodraden och välj **Skicka förfrågan**. Genom att lägga till frågesträngparametern `name` med ett värde som vi vet finns i databasen, kan vi filtrera resultaten som Azure Function returnerar.
 
-   ![Filtrera resultaten för Azure-funktion](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
+   ![Filtrera resultaten från Azure Function](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
 
-När Azure-funktion har verifierats och verkar vara fungerar, är det sista steget att publicera det till Azure App Service och konfigurera den att köras i molnet.
+När Azure Function har verifierats och verkar fungera, har vi kvar att publicera den till Azure App Service och konfigurera den till att köras i molnet.
 
-## <a name="publish-the-azure-function"></a>Publicera funktionen Azure
+## <a name="publish-the-azure-function"></a>Publicera Azure-funktionen
 
-1. I **Solution Explorer**, högerklicka på projektet och välj sedan **publicera**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
    ![Publicera det nya projektet](./media/tutorial-functions-http-trigger/12-publish-function.png)
 
-2. Vi är redo att publicera det till molnet för att testa den i ett scenario med offentligt tillgängliga. I den **publicera** väljer **Azure Funktionsapp**väljer **Skapa nytt** för att skapa en Azure-funktion i din Azure-prenumeration, klicka på **publicera** .
+2. Vi är redo att publicera det till molnet för att testa det i ett scenario som är allmänt tillgängligt. På fliken **Publicera** väljer du **Azure Function-app**, **Skapa nytt** för att skapa en Azure Function i din Azure-prenumeration. Klicka sedan på **Publicera**.
 
-   ![Skapa en ny app i Azure-funktion](./media/tutorial-functions-http-trigger/13-publish-panel.png)
+   ![Skapa en ny Azure Function-app](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
-3. I den **publicera** dialogrutan gör du följande:
+3. I dialogrutan **Publicera** gör du följande:
    
-    a. I **Appnamn**, ger ett unikt namn för funktionen.
+    a. I **Appnamn** ger du funktionen ett unikt namn.
 
-    b. I **prenumeration**, Välj Azure-prenumeration ska användas.
+    b. I **Prenumeration** väljer du den Azure-prenumeration som ska användas.
    
-    c. I **resursgruppen**, skapa en ny resursgrupp och använda samma namn som namnet på appen.
+    c. I **Resursgrupp** skapar du en ny resursgrupp och använder samma namn som appen har.
    
-    d. För **Apptjänstplan**, klickar du på **ny** att skapa en ny förbrukningsbaserad App Service-Plan eftersom vi planerar att använda metoden per tillfälle fakturering för serverlösa Azure-funktion. Använda standardinställningarna på den **konfigurera Apptjänstplan** , och klickar sedan på **OK**.
+    d. I **App Service-plan** klickar du på **Nytt** för att skapa en ny konsumtionsbaserad App Service-plan, eftersom vi planerar att fakturera per användning för vår serverlösa Azure Function. Använd standardinställningarna på sidan **Konfigurera App Service-plan** och klicka sedan på **OK**.
    
-    e. För **Lagringskonto**, också klicka på **ny** att skapa ett nytt Lagringskonto kan använda med funktionen Azure om vi behöver stöd för Blobbar, tabeller eller köer att utlösa körning av andra funktioner. Använda standardinställningarna på den **Lagringskonto** , och klickar sedan på **OK**.
+    e. I **Lagringskonto** klickar du dessutom på **Nytt** för att skapa ett nytt lagringskonto som ska användas med Azure Function, om vi behöver stöd för blobar, tabeller eller köer för att utlösa körningen av andra funktioner. Använd standardinställningarna på sidan **Lagringskonto** och klicka sedan på **OK**.
 
-    f. Klicka på den **skapa** knapp i dialogrutan för att skapa alla resurser i din Azure-prenumeration. Visual Studio hämtar en publiceringsprofil (en enkel XML-fil) som används för nästa gång du publicerar koden Azure-funktion.
+    f. Klicka sedan på knappen **Skapa** i dialogrutan för att skapa alla resurser i din Azure-prenumeration. Visual Studio laddar ner en publiceringsprofil (en enkel XML-fil) som används nästa gång du publicerar Azure Function-koden.
 
    ![Skapa lagringskontot](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
-    Visual Studio visar sedan en publicera sida som du kan använda om du gör ändringar i funktionen och behöver publicera det igen. Du behöver inte göra något nu på sidan.
+    Visual Studio visar en publiceringssida som du kan använda om du gör ändringar i funktionen och behöver publicera den igen. Du behöver inte göra något på sidan nu.
 
-4. När Azure-funktion har publicerats kan du gå till den [Azure-portalen](https://portal.azure.com/) för din Azure-funktion. Där hittar du en länk till Azure-funktion **programinställningar**. Öppna den här länken om du vill konfigurera live Azure-funktion för anslutningen till Azure DB som Cosmos-databasen med Person data.
+4. När Azure Function har publicerats kan du gå till sidan [Azure Portal](https://portal.azure.com/) för din Azure Function. Där hittar du en länk till **Programinställningar** i Azure Function. Öppna den här länken för att konfigurera live-anslutningen i Azure Function till Azure Cosmos DB-databasen med dina personliga data.
 
-   ![Granska inställningar för program](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
+   ![Granska programinställningar](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
-5. Precis som du gjorde tidigare i den konsolprogram App.config-fil och appen Azure-funktion local.settings.json fil, behöver du lägga till slutpunkten och auktoriseringsnyckel i Azure DB som Cosmos-databasen till publicerade funktionen. På så sätt kan du behöver aldrig Kontrollera i konfigurationskod som innehåller dina nycklar – du kan konfigurera dem i portalen och se till att de inte lagras i källkontroll. Lägg till varje värde, klicka på den **lägga till nya inställningen** knappen, lägga till **Endpoint** och värdet från app.config, klicka på **lägga till nya inställningen** igen och Lägg till **auktoriseringsnyckel**  och ditt eget värde. När du har lagt till och sparat värdena, inställningarna bör se ut som följande.
+5. Precis som du gjorde tidigare i konsolprogrammets App.config-fil och i Azure Function-appens local.settings.json-fil, måste du lägga till slutpunkten och AuthKey för Azure Cosmos DB-databasen i den publicerade funktionen. Det innebär att du aldrig behöver checka in konfigurationskod som innehåller dina nycklar – du kan konfigurera dem i portalen utan att de lagras i källkontrollen. Lägg till varje värde genom att klicka på knappen **Lägg till ny inställning** och lägga till **Slutpunkt** samt värdet från app.config. Klicka sedan på **Lägg till ny inställning** igen och lägg till **AuthKey**  och ditt anpassade värde. När du har lagt till och sparat värdena, bör inställningarna se ut enligt följande.
 
-   ![Konfigurera slutpunkt och auktoriseringsnyckel](./media/tutorial-functions-http-trigger/16-app-settings.png)
+   ![Konfigurera slutpunkt och AuthKey](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
-6. När Azure-funktion har konfigurerats korrekt i Azure-prenumeration kan använda du igen tillägget för Visual Studio Code REST-klient för att fråga den allmänt tillgängliga Azure funktions-URL. Lägg till dessa två rader med kod i test-funktionen-locally.http och kör sedan varje rad testa funktionen. Ersätt namnet på funktionen i URL: en med namnet på din funktion.
+6. När Azure Function har rätt konfiguration i Azure-prenumerationen kan du använda tillägget för REST-klienten i Visual Studio Code igen för att fråga i den allmänt tillgängliga Azure Function-URL:en. Lägg till dessa två kodrader i test-function-locally.http och kör sedan varje rad för att testa funktionen. Ersätt namnet på funktionen i URL:en med namnet på din funktion.
 
     ```json
     get https://peoplesearchfunction.azurewebsites.net/api/Search
@@ -257,22 +257,22 @@ När Azure-funktion har verifierats och verkar vara fungerar, är det sista steg
 
     Funktionen svarar med data som hämtats från Azure Cosmos DB.
 
-    ![Använda REST-klient för att fråga Azure-funktion](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
+    ![Använda REST-klienten för att fråga i Azure Function](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Skapa ett projekt för Azure-funktion 
-> * Skapa en HTTP-utlösare
-> * Publicerade funktionen Azure
-> * Ansluten funktionen till Azure Cosmos-DB-databas
+> * Skapat ett Azure Function-projekt 
+> * Skapat en HTTP-utlösare
+> * Publicerat Azure Function
+> * Anslutit funktionen till Azure Cosmos DB-databasen
 
-Du kan gå vidare till avsnittet begrepp för mer information om Cosmos DB.
+Du kan nu gå vidare till avsnittet Begrepp om du vill ha mer information om Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Global distribution](distribute-data-globally.md) 
 
-Den här artikeln är baserad på en blogg från [Andersson Gaster Schemaless & utan Server](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) bloggserie. Besök hans blogg för ytterligare inlägg i serien.
+Den här artikeln är baserad på en blogg i bloggserien [Brady Gaster’s Schemaless & Serverless](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless). Besök hans blogg om du vill läsa fler inlägg i serien.

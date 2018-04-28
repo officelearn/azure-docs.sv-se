@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows datavetenskap virtuell dator på Azure
 Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (VM) för Windows Azure före installeras och konfigureras med flera populära verktyg som används för dataanalys och maskininlärning. Verktygen är:
 
-* [Azure Machine Learning](../preview/index.yml) arbetsstationen
+* [Azure Machine Learning](../service/index.yml) arbetsstationen
 * [Microsoft Server för Maskininlärning](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python-distribution
 * Jupyter-anteckningsbok (med R, Python, PySpark kärnor)
@@ -192,7 +192,7 @@ Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downl
 Här följer några nästa steg för att fortsätta din inlärning och undersökning. 
 
 * Utforska datavetenskap verktyg på datavetenskap VM genom att klicka på start-menyn och checka ut verktyg som visas på menyn.
-* Lär dig mer om Azure Machine Learning-tjänster och arbetsstationen genom att besöka produkten [sidan Snabbstart och självstudier](../preview/index.yml). 
+* Lär dig mer om Azure Machine Learning-tjänster och arbetsstationen genom att besöka produkten [sidan Snabbstart och självstudier](../service/index.yml). 
 * Gå till **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** för exempel som använder RevoScaleR biblioteket i R som har stöd för dataanalys på företagsnivå.  
 * Läs artikeln: [10 saker du kan göra på datavetenskap virtuell dator](http://aka.ms/dsvmtenthings)
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team datavetenskap Process](../team-data-science-process/index.yml).

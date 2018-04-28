@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Kryptera data i Azure Data Lake Store
 
@@ -83,7 +83,7 @@ Det finns tre typer av nycklar som används i utformningen av datakryptering. I 
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Store-konto | Key Vault                              | Asymmetrisk | Det kan hanteras av Data Lake Store eller dig.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Store-konto | Beständig lagring – hanteras av Data Lake Store-tjänsten | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
-| Blockkrypteringsnyckel  | BEK          | Ett datablock | Ingen                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
+| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inget                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
 
 Följande diagram illustrerar dessa begrepp:
 
@@ -138,3 +138,6 @@ Observera att om du använder standardalternativen för kryptering krypteras dat
     ![Skärmbild av Data Lake Store-fönstret med meddelande och nyckelrotering markerat](./media/data-lake-store-encryption/rotatekey.png)
 
 Den här åtgärden tar normalt mindre än två minuter och ingen stilleståndstid förväntas på grund av nyckelrotationen. När åtgärden har slutförts används den nya versionen av nyckeln.
+
+> [!IMPORTANT]
+> När nyckelrotationen har slutförts används inte längre den äldre nyckelversionen aktivt till att kryptera data.  I sällsynta fall när ett oväntat fel inträffar och även redundanta kopior av dina data påverkas, kan dock data återställas från en säkerhetskopia som fortfarande använder den gamla nyckeln. Om du vill se till att dina data är tillgängliga i dessa sällsynta fall, behåller du en kopia av den tidigare versionen av krypteringsnyckeln. Se [Vägledning om haveriberedskap för data i Data Lake Store](data-lake-store-disaster-recovery-guidance.md) för hur du bäst planerar för haveriberedskap. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
 Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
@@ -48,12 +48,12 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Kontot når från inom datacentret?</li><li>Finns kognitiva Services Resursprovidern?</li><li>Är tjänsten kognitiva i rätt region?</li><li>Kan läsa åtgärder utföras på lagringskontot hålla resursmetadata?</li><li>Uppnått kvoten för API-anrop?</li><li>Har den API-anrop Läs-gränsen?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualmachines
 |Kontroller som utförs|
 |---|
 |<ul><li>Servern är är värd för den här virtuella datorn in och kör?</li><li>Värd-OS startar slutfördes?</li><li>Behållare för virtuell dator etablerats och aktiverades?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
 |Kontroller som utförs|
 |---|
 |<ul><li>Kan användare skicka jobb till Data Lake Analytics i region?</li><li>Utföra grundläggande jobb köras och slutföras i region?</li><li>Användare kan visa katalogobjekt i region?</li>|
@@ -64,7 +64,7 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Användare kan överföra data till Data Lake Store i region?</li><li>Användare kan hämta data från Data Lake Store i region?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
 
 |Kontroller som utförs|
 |---|
@@ -75,7 +75,7 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |---|
 |<ul><li>Det har förekommit några databas eller en samling förfrågningar som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li><li>Det har förekommit alla begäranden för dokument som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Kontroller som utförs|
 |---|
 |<ul><li>Ansluts VPN-tunnel</li><li>Är anslutningen konfigurationskonflikterna?</li><li>I förväg delade nycklar konfigureras korrekt?</li><li>Nås lokala VPN-enhet?</li><li>Finns det avvikelser i säkerhetsprincipen IPSec/IKE?</li><li>Är S2S VPN-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li></ul>|
@@ -113,7 +113,7 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Kontroller som utförs|
 |---|
-|<ul><li>Är värdservern igång?</li><li>Körs Internet Information Services</li><li>Körs belastningsutjämnaren?</li><li>Kan den Web Service-Plan kan nås från inom datacentret?</li><li>Storage-konto som är värd för innehållet för serverFarm tillgängliga platser?</li></ul>|
+|<ul><li>Är värdservern igång?</li><li>Körs Internet Information Services</li><li>Körs belastningsutjämnaren?</li><li>Kan den Apptjänstplan nås från inom datacentret?</li><li>Storage-konto som är värd för innehållet för serverFarm tillgängliga platser?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Kontroller som utförs|

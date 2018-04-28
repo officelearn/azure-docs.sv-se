@@ -1,8 +1,8 @@
 ---
-title: "Använd en Användartilldelad Linux VM-MSI för åtkomst till Azure Resource Manager"
-description: "En självstudiekurs som vägleder dig genom processen att använda en User-Assigned hanteras Service identitet (MSI) på en Linux-VM för att komma åt Azure Resource Manager."
+title: Använd en Användartilldelad Linux VM-MSI för åtkomst till Azure Resource Manager
+description: En självstudiekurs som vägleder dig genom processen att använda en User-Assigned hanteras Service identitet (MSI) på en Linux-VM för att komma åt Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -15,10 +15,10 @@ ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: c2b6d70e441dc3d300f49adff1c02d7cc65788d2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Använd en Användartilldelad hanteras Service identitet (MSI) på en Linux-VM för att komma åt Azure Resource Manager
 
@@ -49,7 +49,7 @@ Om du vill köra CLI skript exemplen i den här kursen har du två alternativ:
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 

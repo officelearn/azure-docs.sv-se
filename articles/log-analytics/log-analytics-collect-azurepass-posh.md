@@ -1,12 +1,12 @@
 ---
-title: "Samla in Azure PaaS resurs mått med Log Analytics | Microsoft Docs"
-description: "Lär dig hur du aktiverar Azure PaaS mått resurssamling använder PowerShell för kvarhållning och analys i logganalys."
+title: Samla in Azure PaaS resurs mått med Log Analytics | Microsoft Docs
+description: Lär dig hur du aktiverar Azure PaaS mått resurssamling använder PowerShell för kvarhållning och analys i logganalys.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Konfigurera Azure PaaS resurs mått samling med logganalys
 
@@ -57,7 +57,7 @@ Utför följande steg om du vill hämta och köra skriptet.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Kör `Login-AzureRmAccount` att skapa en anslutning med Azure.   
+3. Kör `Connect-AzureRmAccount` för att skapa en anslutning med Azure.   
 4. Kör följande skript `.\Enable-AzureRmDiagnostics.ps1` utan några parametrar för att aktivera datainsamling från en viss resurs i din prenumeration eller med parametern `-ResourceGroup <myResourceGroup>` att ange en resurs i en viss resursgrupp.   
 5. Välj lämplig prenumerationen i listan om du har fler än en, genom att ange rätt värde.<br><br> ![Välj prenumerationen som returneras av skript](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Annars väljs automatiskt den enda tillgängliga prenumerationen.
 6. Därefter returnerar skriptet en lista över logganalys arbetsytor registrerade i prenumerationen.  Välj en från listan.<br><br> ![Välj arbetsyta som returneras av skript](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

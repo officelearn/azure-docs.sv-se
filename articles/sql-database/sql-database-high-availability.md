@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 69d004ae4c2408e5749d0a7d21b996cec8dba722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
@@ -46,7 +46,7 @@ Viktiga fördelar:
 
 ## <a name="data-redundancy"></a>Dataredundans
 
-Lösning för hög tillgänglighet i SQL-databas är baserad på [Always ON-Tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) teknik från SQL Server och gör det fungerar för både LS och RS databaser med minimal skillnader. I LS konfiguration används alltid på tillgänglighet grupp teknik för beständiga när den används i RS för tillgänglighet (låga RTO). 
+Lösning för hög tillgänglighet i SQL-databas är baserad på [Always ON-Tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) teknik från SQL Server och gör det fungerar för både LS och RS databaser med minimal skillnader. I LS konfiguration används alltid på tillgänglighet grupp teknik för beständiga när den används i RS för tillgänglighet (låga RTO av aktiv geo-replikering). 
 
 ## <a name="local-storage-configuration"></a>Konfiguration av lokal lagring
 

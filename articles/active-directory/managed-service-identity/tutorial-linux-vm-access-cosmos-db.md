@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 507986e4fa83e1821b1d7a1938b356feee81e9d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Använd en virtuell Linux-MSI för att komma åt Azure Cosmos DB 
 
@@ -113,7 +113,7 @@ Svaret innehåller information om automatiskt tilldelade MSI-filerna (Observera 
 ```
 ## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Ger dina Linux VM MSI tillgång till åtkomstnycklarna för Cosmos-DB-konto
 
-Cosmos DB stöder inte Azure AD authentication internt.  Dock kan du använda en MSI för att hämta en Cosmos-DB åtkomst från Resource Manager sedan använder för att komma åt Cosmos DB.  I det här steget kan bevilja du systemet tilldelats nycklar till kontot Cosmos DB MSI-åtkomst.
+Cosmos DB stöder inte Azure AD authentication internt. Dock kan du använda en MSI för att hämta en Cosmos-DB åtkomst från Resource Manager sedan använder för att komma åt Cosmos DB. I det här steget kan du ge din MSI tillgång till nycklarna på Cosmos-DB-kontot.
 
 Om du vill ge MSI identitet åtkomst till Cosmos-DB-konto i Azure Resource Manager med hjälp av Azure CLI, uppdatera värdena för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MSI PRINCIPALID>` med den `principalId` egenskap som returneras av den `az resource show` i [hämta principalID Linux VM MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB stöder två detaljnivåer när du använder åtkomstnycklar: full åtkomst till kontot och skrivskyddad åtkomst till kontot.  Tilldela den `DocumentDB Account Contributor` roll om du vill hämta läsning och skrivning nycklar för kontot eller tilldela den `Cosmos DB Account Reader Role` roll om du vill ha skrivskyddad nycklar för kontot:
 
@@ -149,7 +149,7 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
 4. Använd CURL för att hämta ett åtkomsttoken för Azure Resource Manager: 
      
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]

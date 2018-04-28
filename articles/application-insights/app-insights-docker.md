@@ -1,8 +1,8 @@
 ---
-title: "Övervaka Docker-program i Azure Application Insights | Microsoft Docs"
-description: "Docker prestandaräknarna, händelser och undantag kan visas i Application Insights, tillsammans med telemetri från av appar."
+title: Övervaka Docker-program i Azure Application Insights | Microsoft Docs
+description: Docker prestandaräknarna, händelser och undantag kan visas i Application Insights, tillsammans med telemetri från av appar.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Övervaka Docker-program i Application Insights
-Livscykelhändelser och prestanda prestandaräknare från [Docker](https://www.docker.com/) kan ritas upp behållare på Application Insights. Installera den [Programinsikter](app-insights-overview.md) bilden i en behållare i värden och den visar prestandaräknare för värden och för andra bilder.
+Livscykelhändelser och prestanda prestandaräknare från [Docker](https://www.docker.com/) kan ritas upp behållare på Application Insights. Installera den [Programinsikter](https://hub.docker.com/r/microsoft/applicationinsights/) bilden i en behållare i värden och den visar prestandaräknare för värden och för andra bilder.
 
 Med Docker, kan du distribuera dina appar i lightweight-behållare med alla beroenden. De kan köras på en värddator som kör en Docker-motorn.
 
@@ -43,6 +43,10 @@ När du kör den [Application Insights bild](https://hub.docker.com/r/microsoft/
 2. Lägga till panelen Docker: Välj **lägga till panelen**Dra panelen Docker från galleriet och klicka sedan på **klar**. 
    
     ![Exempel](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> Översiktsfönstret i Application Insights nu är låst och tillåter inte att lägga till paneler från galleriet. Du kan fortfarande lägga till panelen Docker enligt beskrivningen ovan via instrumentpanelen för Azure-gränssnittet.
+
 3. Klicka på den **Essentials** listrutan och kopiera nyckeln Instrumentation. Du kan använda den som visar SDK var att skicka telemetri om dess.
 
     ![Exempel](./media/app-insights-docker/02-props.png)

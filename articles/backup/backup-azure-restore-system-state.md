@@ -1,12 +1,12 @@
 ---
-title: "Azure-säkerhetskopiering: Återställa systemtillståndet till en Windows Server | Microsoft Docs"
-description: "Steg för steg förklaring för återställning av systemtillståndet för Windows Server från en säkerhetskopia i Azure."
+title: 'Azure-säkerhetskopiering: Återställa systemtillståndet till en Windows Server | Microsoft Docs'
+description: Steg för steg förklaring för återställning av systemtillståndet för Windows Server från en säkerhetskopia i Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa systemtillståndet till Windows Server
 
@@ -34,7 +34,7 @@ Den här artikeln förklarar hur du återställer systemtillståndet i Windows S
 ## <a name="recover-system-state-files-to-the-same-server"></a>Återställer du systemtillståndet filer på samma server
 Följande steg beskriver hur du återställer konfigurationen av Windows Server till ett tidigare tillstånd. Kan vara bra att återställa serverkonfiguration till en känd, stabilt tillstånd. Följande steg kan du återställa serverns systemtillstånd från en Recovery Services-valvet. 
 
-1. Öppna den **Microsoft Azure Backup** snapin-modulen. Om du inte vet där snapin-modulen installerades, söka dator eller server för **Microsoft Azure Backup**.
+1. Öppna snapin-modulen **Microsoft Azure Backup**. Om du inte vet där snapin-modulen installerades, söka dator eller server för **Microsoft Azure Backup**.
 
     Skrivbordsappen ska visas i sökresultaten.
 
@@ -171,7 +171,7 @@ När du har återställt systemtillstånd som filer med Azure Recovery Services-
 Säkerhetskopian av systemtillstånd innehåller Active Directory-data. Använd följande steg för att återställa Active Directory Domain Service (AD DS) från det aktuella tillståndet till ett tidigare tillstånd.
 
 1. Starta om domänkontrollanten i Directory återställningsläge för katalogtjänster (DSRM).
-2. Följ stegen [här](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) att använda Windows Server Backup-cmdletar för att återställa AD DS.
+2. Följ stegen [här](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) att använda Windows Server Backup-cmdletar för att återställa AD DS.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Felsökning av misslyckade återställning av systemtillståndet

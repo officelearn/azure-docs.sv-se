@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 04/16/2018
 
 Den här artikeln förklaras hur du skapar en virtuell dator (VM) via Azure Resource Manager-distributionsmodellen med hjälp av PowerShell. Flera IP-adresser kan inte tilldelas till resurser som skapats via den klassiska distributionsmodellen. Om du vill veta mer om Azure distributionsmodeller kan läsa den [förstår distributionsmodellerna](../resource-manager-deployment-model.md) artikel.
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Skapa en virtuell dator med flera IP-adresser
 
 De steg som följer beskrivs hur du skapar ett exempel VM med flera IP-adresser, enligt beskrivningen i scenariot. Ändra variabelvärden som krävs för din implementering.
 
 1. Öppna ett PowerShell-Kommandotolken och utföra stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerats och konfigurerats kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikel.
-2. Logga in på ditt konto med den `login-azurermaccount` kommando.
+2. Logga in på ditt konto med den `Connect-AzureRmAccount` kommando.
 3. Ersätt *myResourceGroup* och *westus* med ett namn och plats. Skapa en resursgrupp. En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
     ```powershell

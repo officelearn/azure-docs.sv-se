@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6d8b8773719a59ad5326196f32a69a13a9a5d34
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med PHP och Azure Portal
 
@@ -42,24 +42,7 @@ Innan du kan börja skapa en grafdatabas måste du skapa ett Gremlin-databaskont
 
 ## <a name="add-a-graph"></a>Lägga till en graf
 
-Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
-
-1. Klicka på **Datautforskaren** > **Nytt diagram**.
-
-    Området **Lägg till diagram** visas längst till höger, du kan behöva bläddra åt höger för att se det.
-
-    ![Datautforskaren i Azure Portal, sidan Lägg till diagram](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. På sidan **Lägg till diagram** anger du inställningarna för den nya grafen.
-
-    Inställning|Föreslaget värde|Beskrivning
-    ---|---|---
-    Databas-id|sample-database|Ange *sample-database* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla `/ \ # ?` eller avslutande blanksteg.
-    Graf-id|sample-graph|Ange *sample-graph* som namnet på den nya samlingen. Samma teckenkrav gäller för grafnamn som databas-id.
-    Lagringskapacitet|Fast (10 GB)|Låt standardvärdet **Fast (10 GB)** vara kvar. Det här värdet är databasens lagringskapacitet.
-    Dataflöde|400 RU:er|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.
-
-3. När formuläret är ifyllt klickar du på **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -85,7 +68,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Graph API-app fr�
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt hämtas från filen `connect.php` i mappen C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt hämtas från filen connect.php i mappen C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
 
 * Gremlin `connection` initieras i början av filen `connect.php` med objektet `$db`.
 
@@ -122,7 +105,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-php/keys.png)
 2. Öppna filen `connect.php` och i rad 8 klistrar du in URI-värdet över `your_server_address`.
 
-    Anslutningsobjektets initiering bör se ut ungefär så här:
+    Anslutningsobjektets initiering bör se ut ungefär som följande kod:
 
     ```php
     $db = new Connection([
@@ -138,11 +121,11 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 3. Om grafdatabaskontot skapades den 20 december 2017 eller senare ändrar du `graphs.azure.com` i värdnamnet till `gremlin.cosmosdb.azure.com`.
 
-4. Ändra parametern `username` i parameter i anslutningsobjektet med din databas och ditt grafnamn. Om du använde de rekommenderade värdena `sample-database` och `sample-graph` ska det se ut så här:
+4. Ändra parametern `username` i parameter i anslutningsobjektet med din databas och ditt grafnamn. Om du använde de rekommenderade värdena `sample-database` och `sample-graph` ska det se ut som följande kod:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    Så här ska hela anslutningsobjektet se ut nu:
+    Hela anslutningsobjektet ska nu se ut som följande kodavsnitt:
 
     ```php
     $db = new Connection([
@@ -158,7 +141,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 5. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `your_primary_key` i lösenordsparametern.
 
-    Anslutningsobjektets initiering bör nu se ut så här:
+    Anslutningsobjektets initiering bör nu se ut som följande kod:
 
     ```php
     $db = new Connection([
@@ -228,7 +211,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     teknik | Java | 
 
     > [!NOTE]
-    > I den här snabbstartsguiden skapar vi en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
+    > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
 6. Klicka på **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
@@ -250,7 +233,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka det till `g.V()` och klickar på **Tillämpa filter** om du vill visa alla resultaten igen.
 
-12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
+12. Nu kan du koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
    ![Ändra mål för ett hörn i en graf](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -262,7 +245,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
    ![Två hörn anslutna i datautforskaren](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
+   Då är delen om att skapa resurser slutförd i den här snabbstarten. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 

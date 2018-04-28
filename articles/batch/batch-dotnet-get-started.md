@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbd96187ad73a9c7e27b28f137e25fe66e2944ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
 
@@ -40,12 +40,8 @@ I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# 
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto][azure_free_account].
 * **Batch-konto**: När du har skaffat en Azure-prenumeration [skapar du ett Azure Batch-konto](batch-account-create-portal.md).
-* **Lagringskonto**: Se [skapar ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/common/storage-create-storage-account.md).
+* **Lagringskonto**: För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account).
 
-> [!IMPORTANT]
-> Batch stöder för närvarande *endast* den **allmänna** lagringskontotypen, vilket förklaras i steg 5 [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/common/storage-create-storage-account.md).
->
->
 
 ### <a name="visual-studio"></a>Visual Studio
 Du måste ha **Visual Studio 2015** eller senare för att kunna skapa exempelprojektet. Du hittar kostnadsfria versioner och utvärderingsversioner av Visual Studio i [Översikt över Visual Studio-produkter][visual_studio].
@@ -101,11 +97,6 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
-
-> [!IMPORTANT]
-> Som vi redan nämnt måste du för närvarande ange autentiseringsuppgifterna för ett **allmänt** lagringskonto i Azure Storage. Dina Batch-program använder Blob Storage i det **allmänna** lagringskontot. Ange inte autentiseringsuppgifterna för ett Storage-konto som skapats med kontotypen *Blob Storage*.
->
->
 
 Du hittar dina autentiseringsuppgifter för Batch och Storage på kontobladet för respektive tjänst på [Azure Portal][azure_portal]:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9c8472e74cab779e417e68316a6125d40410ef1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalering tidsgränsen Metadata i direktsänd strömning
 
@@ -46,7 +46,7 @@ Nyckeln orden ”måste”, är ”får inte”, ”krävs”, ”skall”, ”s
 | HLS               | Apple HTTP Live Streaming protocol                                                                                                                                                                                               |
 | STRECK              | Dynamiska anpassningsbar strömning via HTTP                                                                                                                                                                                             |
 | Smooth            | Smooth Streaming Protocol                                                                                                                                                                                                        |
-| MPEG2-TS          | MPEG-2 transportströmmar                                                                                                                                                                                                         |
+| MPEG2 TS          | MPEG-2 transportströmmar                                                                                                                                                                                                         |
 | RTMP              | Realtid Multimedia-protokollet                                                                                                                                                                                                    |
 | uimsbf            | -Bitars heltal utan tecken, viktigaste först.                                                                                                                                                                                    |
 
@@ -65,26 +65,26 @@ För RTMP enkelt läge stöder Media Services en enda AMF stack-meddelande som k
 
 ### <a name="simple-mode"></a>Enkelt läge
 
-| Fältnamn | Typ av fält | Obligatorisk? | Beskrivningar                                                                                                             |
+| Fältnamn | Typ av fält | Krävs? | Beskrivningar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | stack        | Sträng     | Krävs | Händelsemeddelandet.  Vara bör ”SpliceOut” för att ange ett enkelt läge splice.                                              |
 | id         | Sträng     | Krävs | En unik identifierare som beskriver skarv eller segment. Identifierar den här instansen av meddelandet                            |
 | Varaktighet   | Tal     | Krävs | Varaktighet för splice. Enheterna är bråkdelssekunder.                                                                |
-| Förfluten tid    | Tal     | Valfritt | När signalen upprepas för att stödja finjustera skall fältet vara presentation tidsperiod som har förflutit sedan splice påbörjades. Enheterna är bråkdelssekunder. När du använder enkelt läge, får det här värdet inte överskrida splice ursprungliga varaktighet.                                                  |
-| tid       | Tal     | Krävs | Vara tiden för splice presentation tidpunkt. Enheterna är bråkdelssekunder.                                     |
+| elapsed    | Tal     | Valfri | När signalen upprepas för att stödja finjustera skall fältet vara presentation tidsperiod som har förflutit sedan splice påbörjades. Enheterna är bråkdelssekunder. När du använder enkelt läge, får det här värdet inte överskrida splice ursprungliga varaktighet.                                                  |
+| time       | Tal     | Krävs | Vara tiden för splice presentation tidpunkt. Enheterna är bråkdelssekunder.                                     |
 
 ---------------------------
 
 ### <a name="scte-35-mode"></a>SCTE 35 läge
 
-| Fältnamn | Typ av fält | Obligatorisk? | Beskrivningar                                                                                                             |
+| Fältnamn | Typ av fält | Krävs? | Beskrivningar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | stack        | Sträng     | Krävs | Händelsemeddelandet.  För [SCTE 35] meddelanden måste vara base64 (IETF RFC 4648) binary kodade splice_info_section() för att meddelanden ska skickas till Dash, HLS och Smooth klienter i enlighet med [SCTE 67].                                              |
 | typ       | Sträng     | Krävs | En URN eller en URL som identifierar meddelandet planen. till exempel ”urn: exempel: signaler: 1.0”.  För [SCTE 35] meddelanden måste vara ”urn: scte:scte35:2013a:bin” för att meddelanden ska skickas till Dash, HLS och Smooth klienter i enlighet med [SCTE 67].  |
 | id         | Sträng     | Krävs | En unik identifierare som beskriver skarv eller segment. Identifierar den här instansen av meddelandet.  Meddelanden med motsvarande semantik bör ha samma värde.|
 | Varaktighet   | Tal     | Krävs | Varaktighet för händelse eller ad splice-segment, om den är känd. Värdet bör vara 0 om det är okänt.                                                                 |
-| Förfluten tid    | Tal     | Valfritt | När ad-signal [SCTE 35] upprepas för att finjustera och vara det här fältet presentation tidsperiod som har förflutit sedan splice påbörjades. Enheterna är bråkdelssekunder. Det här värdet kan överskrida den ursprungliga angivna varaktigheten för skarv eller segment i [SCTE 35]-läge.                                                  |
-| tid       | Tal     | Krävs | Presentation tid för händelse eller ad splice.  Presentation starttid och varaktighet ska justeras med dataströmmen åtkomst punkter (SAP) av typen 1 eller 2, som definieras i [ISO-14496-12] bilaga. Tid och varaktighet ska justeras med segment gränser för HLS utgång. Presentation starttid och varaktighet för olika händelsemeddelanden inom samma får händelseströmmen inte överlappa. Enheterna är bråkdelssekunder.
+| elapsed    | Tal     | Valfri | När ad-signal [SCTE 35] upprepas för att finjustera och vara det här fältet presentation tidsperiod som har förflutit sedan splice påbörjades. Enheterna är bråkdelssekunder. Det här värdet kan överskrida den ursprungliga angivna varaktigheten för skarv eller segment i [SCTE 35]-läge.                                                  |
+| time       | Tal     | Krävs | Presentation tid för händelse eller ad splice.  Presentation starttid och varaktighet ska justeras med dataströmmen åtkomst punkter (SAP) av typen 1 eller 2, som definieras i [ISO-14496-12] bilaga. Tid och varaktighet ska justeras med segment gränser för HLS utgång. Presentation starttid och varaktighet för olika händelsemeddelanden inom samma får händelseströmmen inte överlappa. Enheterna är bråkdelssekunder.
 
 ---------------------------
 
@@ -106,7 +106,7 @@ Sparse spåra måste deklareras i rutan Live Manifest Server med en \<textstream
 | Undertyp            | Sträng         | Krävs      | Vara måste fyra tecken code ”DATA”.                                                                                                                                                                                                                         |
 | schemat             | Sträng         | Krävs      | MÅSTE vara en URN eller en URL identifierar meddelandet planen. till exempel ”urn: exempel: signaler: 1.0”. För [SCTE 35] meddelanden måste vara ”urn: scte:scte35:2013a:bin” för att meddelanden ska skickas till Dash, HLS och Smooth klienter i enlighet med [SCTE 67]. |
 | TrackName          | Sträng         | Krävs      | MÅSTE vara namnet på sparse spåra. TrackName kan användas för att skilja flera händelseströmmar med samma schema. Varje unik händelseströmmen måste ha ett unikt namn.                                                                           |
-| tidsrymd          | Tal         | Valfritt      | MÅSTE vara en tidsrymd av överordnade-spår.                                                                                                                                                                                                                      |
+| tidsrymd          | Tal         | Valfri      | MÅSTE vara en tidsrymd av överordnade-spår.                                                                                                                                                                                                                      |
 
 -------------------------------------
 
@@ -284,7 +284,7 @@ Händelse uppstår i MPD är användbara för VOD-direktuppspelning eftersom kli
 
 Azure Media Services gör både signalering i MPD och band med hjälp av händelse meddelanderutan-signalering.
 
-#### <a name="mpd-signaling"></a>MPD Signaling
+#### <a name="mpd-signaling"></a>MPD-signalering
 
 Händelser signaleras i MPD med EventStream element, som visas i elementet Period.
 
@@ -293,7 +293,7 @@ Elementet EventStream har följande attribut:
 | **Attributets namn** | **Typ**                | **Krävs?** | **Beskrivning**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scheme_id_uri      | sträng                  | Krävs      | Identifierar schemat för meddelandet. Schemat har angetts till värdet för attributet schemat i rutan Live Server Manifest. Värdet måste vara en URN eller en URL som identifierar meddelandet planen. till exempel ”urn: exempel: signaler: 1.0”.                                                                |
-| värde              | sträng                  | Valfritt      | En ytterligare sträng-värde som används av ägarna av schemat för att anpassa semantiken för meddelandet. Värdet måste anges till namnet på händelseströmmen (trackName för Smooth infognings- eller AMF meddelandenamn för RTMP infognings-) för att skilja flera händelseströmmar med samma schema. |
+| värde              | sträng                  | Valfri      | En ytterligare sträng-värde som används av ägarna av schemat för att anpassa semantiken för meddelandet. Värdet måste anges till namnet på händelseströmmen (trackName för Smooth infognings- eller AMF meddelandenamn för RTMP infognings-) för att skilja flera händelseströmmar med samma schema. |
 | tidsrymd          | 32-bitars heltal utan tecken | Krävs      | Tidsrymd i tick per sekund, i fälten gånger och varaktighet i rutan 'emsg'.                                                                                                                                                                                                       |
 
 
@@ -301,9 +301,9 @@ Noll eller flera element i händelsen finns i elementet EventStream, och de har 
 
 | **Attributets namn**  | **Typ**                | **Krävs?** | **Beskrivning**                                                                                                                                                                                                             |
 |---------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| presentation_time   | 64-bitars heltal utan tecken | Valfritt      | MÅSTE vara media presentation tid för händelse i förhållande till början av perioden. Presentation starttid och varaktighet ska justeras med dataströmmen åtkomst punkter (SAP) av typen 1 eller 2, som definieras i [ISO-14496-12] bilaga. |
-| Varaktighet            | 32-bitars heltal utan tecken | Valfritt      | Varaktighet för händelsen. Detta måste utelämnas om varaktighet är okänd.                                                                                                                                                 |
-| id                  | 32-bitars heltal utan tecken | Valfritt      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik bör ha samma värde. Om ID: T inte är anges när meddelandet inhämtas, genereras ett unikt id i Azure Media Services.             |
+| presentation_time   | 64-bitars heltal utan tecken | Valfri      | MÅSTE vara media presentation tid för händelse i förhållande till början av perioden. Presentation starttid och varaktighet ska justeras med dataströmmen åtkomst punkter (SAP) av typen 1 eller 2, som definieras i [ISO-14496-12] bilaga. |
+| Varaktighet            | 32-bitars heltal utan tecken | Valfri      | Varaktighet för händelsen. Detta måste utelämnas om varaktighet är okänd.                                                                                                                                                 |
+| id                  | 32-bitars heltal utan tecken | Valfri      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik bör ha samma värde. Om ID: T inte är anges när meddelandet inhämtas, genereras ett unikt id i Azure Media Services.             |
 | Händelsen elementvärde | sträng                  | Krävs      | Händelsemeddelandet som en base64-sträng som beskrivs i [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>XML-Syntax och exempel för DASH manifest signal (MPD)
@@ -379,7 +379,7 @@ Fälten för DASHEventMessageBox anges nedan.
 | tidsrymd               | 32-bitars heltal utan tecken | Krävs      | Tidsrymd i tick per sekund, i fälten gånger och varaktighet i rutan 'emsg'.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | 32-bitars heltal utan tecken | Krävs      | Den media presentation tidsspann presentation tid för händelsen och den tidigaste presentation tid i det här segmentet. Presentation starttid och varaktighet ska justeras med dataströmmen åtkomst punkter (SAP) av typen 1 eller 2, som definieras i [ISO-14496-12] bilaga.                                                                                            |
 | event_duration          | 32-bitars heltal utan tecken | Krävs      | Varaktigheten för händelsen eller 0xFFFFFFFF anger en okänd varaktighet.                                                                                                                                                                                                                                                                                          |
-| ID                      | 32-bitars heltal utan tecken | Krävs      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik bör ha samma värde. Om ID: T inte är anges när meddelandet inhämtas, genereras ett unikt id i Azure Media Services.                                                                                                                                                    |
+| Id                      | 32-bitars heltal utan tecken | Krävs      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik bör ha samma värde. Om ID: T inte är anges när meddelandet inhämtas, genereras ett unikt id i Azure Media Services.                                                                                                                                                    |
 | Message_data            | byte-matris              | Krävs      | Händelsemeddelandet. För [SCTE 35] meddelanden är meddelandedata binära splice_info_section(), även om [SCTE 67] rekommenderar något annat.                                                                                                                                                                                                                                 |
 
 ### <a name="332-dash-message-handling"></a>3.3.2 STRECK meddelandehantering
@@ -407,7 +407,7 @@ Mata in Smooth Streaming kräver att rutan Media (mdat) måste innehålla den **
 
 **[AMF0]**  [”Åtgärden meddelandet Format AMF0”](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[LIVE FMP4]**  [Azure Media Services fragmenterad MP4 Live infognings-specifikationen](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
+**[LIVE FMP4]**  [Azure Media Services fragmenterad MP4 Live infognings-specifikationen](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]**  ISO/IEC 14496 12: del 12 ISO grundläggande mediafilen fjärde Edition 2012-07-15-format.
 
@@ -420,5 +420,5 @@ Visa Media Services utbildningsvägar.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Skicka feedback
+## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

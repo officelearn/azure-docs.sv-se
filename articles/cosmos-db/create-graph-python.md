@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: aa1d70d33e1f9cefee4d06ea182ffb3fc960e07a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med Python och Azure Portal
 
@@ -47,24 +47,7 @@ Innan du kan börja skapa en grafdatabas måste du skapa ett Gremlin-databaskont
 
 ## <a name="add-a-graph"></a>Lägga till en graf
 
-Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
-
-1. Klicka på **Datautforskaren** > **Nytt diagram**.
-
-    Området **Lägg till diagram** visas längst till höger, du kan behöva bläddra åt höger för att se det.
-
-    ![Datautforskaren i Azure Portal, sidan Lägg till diagram](./media/create-graph-python/azure-cosmosdb-data-explorer-graph.png)
-
-2. På sidan **Lägg till diagram** anger du inställningarna för den nya grafen.
-
-    Inställning|Föreslaget värde|Beskrivning
-    ---|---|---
-    Databas-id|sample-database|Ange *sample-database* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla `/ \ # ?` eller avslutande blanksteg.
-    Graf-id|sample-graph|Ange *sample-graph* som namnet på den nya samlingen. Samma teckenkrav gäller för grafnamn som databas-id.
-    Lagringskapacitet|Fast (10 GB)|Låt standardvärdet **Fast (10 GB)** vara kvar. Det här värdet är databasens lagringskapacitet.
-    Dataflöde|400 RU:er|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.
-
-3. När formuläret är ifyllt klickar du på **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -90,7 +73,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Graph API-app fr�
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt hämtas från filen `connect.py` i mappen C:\git-samples\azure-cosmos-db-graph-python-getting-started\. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt hämtas från filen connect.py i mappen C:\git-samples\azure-cosmos-db-graph-python-getting-started\. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
 
 * Gremlin `client` initieras i rad 104 i `connect.py`:
 

@@ -1,24 +1,18 @@
 ---
-title: "Begränsningsaspekten filter i Azure Search | Microsoft Docs"
-description: "Filtervillkor av användaridentitet för säkerhet, språk, geografiska plats eller numeriska värden att minska sökresultat på frågorna i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure."
-services: search
-documentationcenter: 
+title: Begränsningsaspekten filter i Azure Search | Microsoft Docs
+description: Filtervillkor av användaridentitet för säkerhet, språk, geografiska plats eller numeriska värden att minska sökresultat på frågorna i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett filter för aspekten i Azure Search 
 
@@ -113,7 +107,7 @@ Följande kodavsnitt lägger till kategorin filtret om en användare väljer ett
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-Med hjälp av REST-API, skulle begäran att Ledad som `$filter=category eq 'c1'`. Om du vill göra kategori ett flervärdesfält, använder du följande syntax:`$filter=category/any(c: c eq 'c1')`
+Med hjälp av REST-API, skulle begäran att Ledad som `$filter=category eq 'c1'`. Om du vill göra kategori ett flervärdesfält, använder du följande syntax: `$filter=category/any(c: c eq 'c1')`
 
 ## <a name="tips-and-workarounds"></a>Tips och lösningar
 

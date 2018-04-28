@@ -1,24 +1,24 @@
 ---
-title: "Azure AD v1 ASP.NET webbserver komma igång | Microsoft Docs"
-description: "Implementera Microsoft logga In på en ASP.NET-lösning med ett traditionellt webbläsarbaserade program med OpenID Connect standard"
+title: Azure AD v1 ASP.NET webbserver komma igång | Microsoft Docs
+description: Implementera Microsoft logga In på en ASP.NET-lösning med ett traditionellt webbläsarbaserade program med OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram
@@ -280,7 +280,7 @@ Dessutom visas en tabell inklusive alla användaranspråk som ingår i autentise
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Testa åtkomst till en metod som har en *[auktorisera]* attribut (valfritt)
 I det här steget kan testa du åtkomst till anspråk domänkontrollant som en anonym användare:<br/>
 Välj en länk till utloggning användaren och slutföra utloggning.<br/>
-Skriv nu i din webbläsare http://localhost:{port}/utger sig för att komma åt den domänkontrollant som är skyddat med den `[Authorize]` attribut
+Skriv nu i din webbläsare http://localhost:{port}/claims att komma åt den domänkontrollant som är skyddat med den `[Authorize]` attribut
 
 #### <a name="expected-results"></a>Förväntat resultat
 Du får uppmaningen att kräva att du autentisera för att visa.

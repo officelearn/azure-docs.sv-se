@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: b6e68b4c93e6385367b5aab01bebe1d29b7b9d13
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01dd31c1dfd9a91483c0ac9eaca1c80410463731
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Kör jobb för MapReduce med Hadoop i HDInsight med hjälp av PowerShell
 
@@ -41,7 +41,7 @@ Azure PowerShell innehåller *cmdlets* som gör det möjligt att fjärrköra Map
 
 Följande cmdlets används när du kör MapReduce-jobb i en fjärransluten HDInsight-kluster.
 
-* **Login-AzureRmAccount**: autentiserar till Azure-prenumeration i Azure PowerShell.
+* **Ansluta AzureRmAccount**: autentiserar till Azure-prenumeration i Azure PowerShell.
 
 * **Nya AzureRmHDInsightMapReduceJobDefinition**: skapar en ny *jobbet definition* med hjälp av angivna MapReduce-informationen.
 

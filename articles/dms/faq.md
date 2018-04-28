@@ -1,21 +1,21 @@
 ---
-title: "Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering | Microsoft Docs"
-description: "Läs vanliga frågor om hur du använder tjänsten Azure Database migrering för att utföra migrering av databasen."
+title: Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering | Microsoft Docs
+description: Läs vanliga frågor om hur du använder tjänsten Azure Database migrering för att utföra migrering av databasen.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering
 Den här artikeln innehåller vanliga frågor om hur du använder tjänsten Azure Database migrering tillsammans med tillhörande svar.
@@ -48,11 +48,11 @@ Vid migrering vanliga, enkel databas måste du:
 ### <a name="q-what-are-the-prerequisites-for-using-the-azure-database-migration-service"></a>FRÅGOR. Vilka är kraven för att använda tjänsten Azure Database migrering?
 Det finns flera förutsättningar som krävs för att se till att tjänsten Azure Database migrering smidigt körs när du utför en migrering av databasen. Vissa krav tillämpa över alla scenarier (källa mål par) som stöds av tjänsten, medan andra förutsättningar är unika för ett specifikt scenario.
 Krav för Azure Migreringstjänst för databasen som är gemensamma för alla migreringsscenarier som stöds är behovet av att:
-- Skapa ett virtuellt nätverk för tjänsten Azure Database migrering med hjälp av Azure Resource Manager distributionsmodell, som ger plats-till-plats-anslutning till din lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Se till att din Azure virtuella nätverk (VNET) Nätverkssäkerhetsgruppen regler gör inte blockera följande meddelande portarna 443, 53, 9354, 445, 12000. Mer information om Azure VNET NSG trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Skapa ett virtuellt nätverk för tjänsten Azure Database migrering med hjälp av Azure Resource Manager distributionsmodell, som ger plats-till-plats-anslutning till din lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Se till att din Azure virtuella nätverk (VNET) Nätverkssäkerhetsgruppen regler gör inte blockera följande meddelande portarna 443, 53, 9354, 445, 12000. Mer information om Azure VNET NSG trafikfiltrering finns i artikeln [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - När du använder en brandväggsinstallation framför käll-databaserna, kanske du måste lägga till brandväggsregler som tillåter tjänsten Azure Database migrering till databaserna källa för migrering.
  
-En lista över alla förutsättningar för konkurrerar specifika migreringsscenarier som använder tjänsten Azure Database migrering, finns relaterade självstudiekurser i tjänsten Azure Database migrering [dokumentationen](https://docs.microsoft.com/en-us/azure/dms/dms-overview) på docs.microsoft.com.
+En lista över alla förutsättningar för konkurrerar specifika migreringsscenarier som använder tjänsten Azure Database migrering, finns relaterade självstudiekurser i tjänsten Azure Database migrering [dokumentationen](https://docs.microsoft.com/azure/dms/dms-overview) på docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>FRÅGOR. Hur hittar jag den IP-adressen för tjänsten Azure Database migreringen så att jag kan skapa en lista över tillåtna för brandväggsregler som används för att komma åt min källdatabasen för migrering?
 Du kan behöva lägga till brandväggsregler som tillåter tjänsten Azure databas migrering att komma åt källdatabasen för migrering. IP-adressen för tjänsten är dynamiska, men om du använder Express Route kan den här adressen tilldelas privat av företagets nätverk. Det enklaste sättet att identifiera rätt IP-adress som det är att söka i samma resursgrupp som din etablerade Azure databastjänsten migrering resurs att hitta det associerade nätverksgränssnitt. Vanligtvis namnet på resursen nätverksgränssnittet börjar med prefixet NIC och följt av ett tecken och antalet sekvens, exempel NIC-jj6tnztnmarpsskr82rbndyp. Du kan se IP-adressen som ska tas med i listan över tillåtna på Resursöversikt Azure Portalsida genom att välja det här gränssnittet nätverksresurs.
@@ -80,7 +80,7 @@ Du kan göra några saker att snabba upp din Databasmigrering med hjälp av tjä
 - Tillfälligt kan skala upp din Azure SQL Database målinstansen till Premium-nivån SKU under data migrerades att minimera Azure SQL Database begränsning som påverka aktiviteter för överföring av data när du använder på lägre nivå SKU: er.
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>FRÅGOR. Hur ställer jag in ett Azure Virtual Network?
-När flera Microsoft-självstudier som kan vägleder dig genom processen för att skapa ett Azure VNET, den officiella dokumentationen visas i artikeln [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+När flera Microsoft-självstudier som kan vägleder dig genom processen för att skapa ett Azure VNET, den officiella dokumentationen visas i artikeln [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>FRÅGOR. Varför är min Azure Database migrering-tjänsten inte tillgänglig eller är stoppad?
 Om användaren uttryckligen slutar Azure databas migrering Service (DMS) eller om tjänsten är inaktiv under en period på 24 timmar, vara i ett stoppat tjänsten eller automatiskt pausläge. I varje fall blir tjänsten otillgänglig och Stoppad status.  Starta om tjänsten om du vill återuppta aktiva migreringar.

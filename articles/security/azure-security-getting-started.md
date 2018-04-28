@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Microsoft Azure-säkerhet | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över säkerhetsfunktionerna i Microsoft Azure och allmänna överväganden för organisationer som migrerar deras tillgångar till en molntjänstleverantör."
+title: Komma igång med Microsoft Azure-säkerhet | Microsoft Docs
+description: Den här artikeln innehåller en översikt över säkerhetsfunktionerna i Microsoft Azure och allmänna överväganden för organisationer som migrerar deras tillgångar till en molntjänstleverantör.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Kom igång med Microsoft Azure-säkerhet
 När du skapar eller migrerar IT tillgångar till en molntjänstleverantör, måste den organisationens förmåga att skydda dina program och data med tjänster och de kontroller som de tillhandahåller för att hantera säkerheten för din molnbaserade tillgångar.
@@ -45,7 +45,7 @@ Vissa andra funktioner för identitets- och åtkomsthantering är följande:
 * Azure AD aktiverar [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) för SaaS-program, oavsett var de finns. Vissa program federeras med Azure AD och andra använder enkel inloggning med lösenord. Federerade program kan också använda användareetablering och valvlagring av lösenord.
 * Åtkomst till data i [Azure Storage](https://azure.microsoft.com/services/storage/) styrs via autentisering. Varje lagringskonto har en primär nyckel ([lagringskontonyckel](https://msdn.microsoft.com/library/azure/ee460785.aspx), eller SAK) och en sekundär hemlig nyckel (signatur för delad åtkomst, eller SAS).
 * Azure AD innehåller identitet som en tjänst via federation med hjälp av [Active Directory Federation Services](../active-directory/fundamentals-identity.md), synkronisering och replikering med lokala kataloger.
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) är tjänsten multifaktorautentisering som kräver att användare att verifiera inloggningar med hjälp av en mobilapp, telefonsamtal eller SMS. Den kan användas med Azure AD för att säkra lokala resurser med Azure Multi-Factor Authentication-servern, och anpassade program och kataloger med hjälp av SDK.
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) är tjänsten multifaktorautentisering som kräver att användare att verifiera inloggningar med hjälp av en mobilapp, telefonsamtal eller SMS. Den kan användas med Azure AD för att säkra lokala resurser med Azure Multi-Factor Authentication-servern, och anpassade program och kataloger med hjälp av SDK.
 * [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella Azure-datorer till en domän utan att distribuera domänkontrollanter. Du kan logga in på dessa virtuella datorer med företagets Active Directory-autentiseringsuppgifter och administrera domänanslutna virtuella datorer med hjälp av Grupprincip för att genomdriva baslinjer för säkerhet på alla dina virtuella Azure-datorer.
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ger en hög tillgänglighet globala identity management-tjänst för konsumentinriktade program som kan skalas till flera hundra miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Dina användare kan logga in på alla program via anpassningsbara upplevelser genom att använda sina befintliga sociala konton eller genom att skapa nya autentiseringsuppgifter.
 

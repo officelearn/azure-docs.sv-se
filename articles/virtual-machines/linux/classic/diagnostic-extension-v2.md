@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Använd diagnostiktillägget för Linux för att övervaka prestanda och diagnostikdata för en virtuell Linux-dator
 
@@ -53,7 +53,7 @@ Den senaste versionen av tillägget är **2.3**, och **eventuella gamla versione
 
 Du kan aktivera det här tillägget med hjälp av den [Azure-portalen](https://portal.azure.com/#), Azure PowerShell eller Azure CLI-skript.
 
-Om du vill visa och konfigurera systemet och prestanda data direkt från Azure-portalen, Följ [de här stegen på Azure-bloggen](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Om du vill visa och konfigurera systemet och prestanda data direkt från Azure-portalen, Följ [de här stegen på Azure-bloggen](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Den här artikeln fokuserar på hur du aktiverar och konfigurerar tillägget med hjälp av Azure CLI-kommandona. På så sätt kan du läsa och visa data direkt från lagringstabellen.
 
@@ -88,7 +88,7 @@ Steg 1. Skapa en fil med namnet PrivateConfig.json med följande innehåll:
         "storageAccountKey" : "the key of the account"
     }
 
-Steg 2. Kör **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Steg 2. Kör **azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --PrivateConfig.json** privat-config-sökvägen.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Anpassa övervakaren prestandamått
 

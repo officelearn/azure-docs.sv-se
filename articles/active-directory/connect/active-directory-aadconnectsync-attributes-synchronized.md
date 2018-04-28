@@ -1,11 +1,11 @@
 ---
 title: Attribut som synkroniseras med Azure AD Connect | Microsoft Docs
-description: "Visar en lista över de attribut som synkroniseras till Azure Active Directory."
+description: Visar en lista över de attribut som synkroniseras till Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -39,10 +39,10 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
 | accountEnabled |X |Anger om ett konto har aktiverats. |
-| cn |X | |
-| displayName |X | |
+| CN |X | |
+| Visningsnamn |X | |
 | objectSID |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
-| pwdLastSet |X |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
 | sourceAnchor |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
 | userPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
@@ -55,13 +55,13 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | altRecipient |X | | |Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 | authOrig |X |X |X | |
 | c |X |X | | |
-| cn |X | |X | |
+| CN |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
 | Avdelning |X |X | | |
 | description |X |X |X | |
-| displayName |X |X |X | |
+| Visningsnamn |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
 | extensionAttribute1 |X |X |X | |
@@ -81,14 +81,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | extensionAttribute9 |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| homePhone |X |X | | |
-| info |X |X |X |Det här attributet används för närvarande inte för grupper. |
+| HomePhone |X |X | | |
+| Info |X |X |X |Det här attributet används för närvarande inte för grupper. |
 | initialer |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| Manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
@@ -140,13 +140,13 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
-| msOrg-IsOrganizational | | |X | |
+| msOrg IsOrganizational | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
 | otherTelephone |X |X | | |
-| pager |X |X | | |
+| Personsökare |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | Postnummer |X |X | | |
 | proxyAddresses |X |X |X | |
@@ -158,7 +158,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
@@ -177,13 +177,13 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | authOrig |X |X |X | |
 | c |X |X | | |
-| cn |X | |X | |
+| CN |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
 | Avdelning |X |X | | |
 | description |X |X |X | |
-| displayName |X |X |X | |
+| Visningsnamn |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
 | extensionAttribute1 |X |X |X | |
@@ -205,14 +205,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
-| info |X |X |X | |
+| Info |X |X |X | |
 | initialer |X |X | | |
 | ipPhone |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| Manager |X |X | | |
 | Medlem | | |X | |
 | middleName |X |X | | |
 | mobila |X |X | | |
@@ -228,20 +228,20 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | otherMobile |X |X | | |
 | otherPager |X |X | | |
 | otherTelephone |X |X | | |
-| pager |X |X | | |
+| Personsökare |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | Postnummer |X |X | | |
 | postOfficeBox |X |X | |Det här attributet är för närvarande inte används av SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
@@ -258,21 +258,21 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
-| cn |X | |X | |
+| CN |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | Avdelning |X |X | | |
 | description |X |X |X | |
-| displayName |X |X |X | |
+| Visningsnamn |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
 | homephone |X |X | | |
 | ipPhone |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| Manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
@@ -289,12 +289,12 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Postnummer |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
 | securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | rubrik |X |X | | |
@@ -306,8 +306,8 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| cn |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
-| displayName |X |X |X |En sträng som representerar namnet visas ofta som eget namn (Förnamn Efternamn). |
+| CN |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
+| Visningsnamn |X |X |X |En sträng som representerar namnet visas ofta som eget namn (Förnamn Efternamn). |
 | E-post |X |X |X |fullständig e-postadress. |
 | Medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
@@ -323,15 +323,15 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
-| cn |X | |X | |
+| CN |X | |X | |
 | description |X |X |X | |
-| displayName |X |X |X | |
+| Visningsnamn |X |X |X | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
 | Medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
 | securityEnabled | | |X |Härleds från groupType |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
@@ -342,29 +342,29 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
-| cn |X | |X | |
+| CN |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
 | description |X |X |X | |
-| displayName |X |X |X | |
+| Visningsnamn |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| Manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | physicalDeliveryOfficeName |X |X | | |
 | Postnummer |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
 | securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
@@ -381,8 +381,8 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| cn |X | |X | |
-| displayName |X |X |X | |
+| CN |X | |X | |
+| Visningsnamn |X |X |X | |
 | givenName |X |X | | |
 | E-post |X | |X | |
 | managedBy | | |X | |
@@ -390,7 +390,7 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | Medlem | | |X | |
 | objectSID |X | | |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
@@ -403,11 +403,11 @@ En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till 
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Hårdkodad värde för domänanslutna datorer. |
-| displayName |X | |
-| ms-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
+| Visningsnamn |X | |
+| MS-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
 | objectGUID |X |Kallas även deviceID. |
 | objectSID |X |Kallas även onPremisesSecurityIdentifier. |
-| operatingSystem |X |Kallas även deviceOSType. |
+| Operativsystemet |X |Kallas även deviceOSType. |
 | operatingSystemVersion |X |Kallas även deviceOSVersion. |
 | userCertificate |X | |
 
@@ -424,21 +424,21 @@ Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när 
 | Attributnamn (ansluta UI) |Attributnamn (lokala AD) | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Härleds från cloudAnchor i Azure AD. Det här attributet är ny i Exchange 2016 och Windows Server 2016 AD. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Arkiv: Gör det möjligt för kunder att arkivera e-post. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstmeddelanden: används av Microsoft Lync Server integrering för att indikera att Lync Server lokalt att användaren har röstmeddelanden i online-tjänster. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Tvister Hold: Aktiverar molntjänster att avgöra vilka användare som är under tvister håller. |
+| msExchArchiveStatus| MS-Exch-ArchiveStatus |X | | |Online Arkiv: Gör det möjligt för kunder att arkivera e-post. |
+| msExchBlockedSendersHash| MS-Exch-BlockedSendersHash |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
+| msExchSafeRecipientsHash| MS-Exch-SafeRecipientsHash  |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
+| msExchSafeSendersHash| MS-Exch-SafeSendersHash  |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
+| msExchUCVoiceMailSettings| MS-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstmeddelanden: används av Microsoft Lync Server integrering för att indikera att Lync Server lokalt att användaren har röstmeddelanden i online-tjänster. |
+| msExchUserHoldPolicies| MS-undantagna-hUserHoldPolicies |X | | |Tvister Hold: Aktiverar molntjänster att avgöra vilka användare som är under tvister håller. |
 | proxyAddresses| proxyAddresses |X |X |X |Endast x500 adressen från Exchange Online infogas. |
-| publicDelegates| ms-Exch-Public-Delegates  |X | | |Gör en Exchange Online-postlådan för att erhålla SendOnBehalfTo behörigheter för användare med lokala Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
+| publicDelegates| MS-Exch-offentliga-delegater  |X | | |Gör en Exchange Online-postlådan för att erhålla SendOnBehalfTo behörigheter för användare med lokala Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 
 ## <a name="exchange-mail-public-folder"></a>Offentlig mapp för Exchange-e-post
 Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du väljer för att aktivera **offentlig mapp för Exchange-e-post**.
 
 | Attributnamn | PublicFolder | Kommentar |
 | --- | :---:| --- |
-| displayName | X |  |
+| Visningsnamn | X |  |
 | E-post | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
@@ -451,8 +451,8 @@ Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som ä
 | Attributnamn | Enhet | Kommentar |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
-| displayName |X | |
-| dn |X | |
+| Visningsnamn |X | |
+| DN |X | |
 | msDS-CloudAnchor |X | |
 | msDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |

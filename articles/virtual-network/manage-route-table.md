@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 73b0c35ac81d9b32cd56a6fd23119f3889867499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d6a4701c0318edf8292c777615196a2170a68750
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -31,10 +31,10 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
-## <a name="create-a-route-table"></a>Skapa en routingtabell
+## <a name="create-a-route-table"></a>Skapa en routningstabell
 
 Det finns en gräns för hur många routningstabeller som du kan skapa per Azure-plats och prenumeration. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -82,7 +82,7 @@ Skriv i sökrutan överst i portalen *routningstabeller* i sökrutan. När **rou
 - Azure CLI: [az nätverket routningstabellen uppdatering](/cli/azure/network/route-table/route#az_network_route_table_update)
 - PowerShell: [Set AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
-## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routingtabell till ett undernät
+## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routningstabell till ett undernät
 
 Ett undernät kan ha noll eller en vägtabell associerad till den. En routingtabell kan vara kopplad till noll eller flera undernät. Eftersom vägtabeller inte är kopplad till virtuella nätverk, måste du associera en routningstabell för varje undernät som du vill routningstabellen som är kopplad till. Omdirigeras all trafik som lämnar undernätet baserat på vägar som du har skapat i vägtabeller, [standard vägar](virtual-networks-udr-overview.md#default), och vägar sprids från ett lokalt nätverk, om det virtuella nätverket är anslutet till ett virtuellt Azure-nätverk gateway ( ExpressRoute eller VPN om använder BGP med en VPN-gateway). Du kan bara koppla en routingtabell till undernät i virtuella nätverk som finns i samma Azure-plats och prenumeration som routningstabellen.
 

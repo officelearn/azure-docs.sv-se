@@ -1,11 +1,11 @@
 ---
 title: Kryptera en virtuell Azure-dator | Microsoft Docs
-description: "Det här dokumentet hjälper dig att kryptera en virtuell Azure-dator när du har fått en avisering från Azure Security Center."
+description: Det här dokumentet hjälper dig att kryptera en virtuell Azure-dator när du har fått en avisering från Azure Security Center.
 services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a376eb63e7ba054a125666f95c05d5e7dfb5470
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Kryptera en virtuell Azure-dator
 Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade. Dessa aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
@@ -92,7 +92,7 @@ Kryptera en virtuell Azure-dator genom att utföra följande steg:
 1. Om du har stängt PowerShell ISE öppnar du en upphöjd PowerShell ISE-instans. Följ anvisningarna tidigare i den här artikeln om PowerShell ISE inte redan är öppet. Om du har avslutat skriptet öppnar du **ADEPrereqScript.ps1** genom att klicka på **Arkiv**. Klicka sedan på **Öppna** och välj skriptet i mappen **c:\AzureADEScript**. Om du har följt den här artikeln från början går du bara vidare till nästa steg.
 2. I PowerShell ISE-konsolen (längst ned i PowerShell ISE) ändrar du fokus till det lokala skriptet genom att skriva **cd c:\AzureADEScript** och trycka på **RETUR**.
 3. Ange körningsprincipen på datorn så att du kan köra skriptet. Skriv **Set-ExecutionPolicy Unrestricted** i konsolen och tryck på RETUR. Om du ser en dialogruta om effekterna av att ändra körningsprincipen klickar du antingen på **Ja till alla** eller **Ja** (om du ser **Ja till alla** markerar du det alternativet. Om du inte ser **Ja till alla** klickar du på **Ja**).
-4. Logga in på Azure-kontot. Skriv **Login-AzureRmAccount** i konsolen och tryck på **RETUR**. En dialogruta visas där du anger dina autentiseringsuppgifter (kontrollera att du har behörighet att ändra de virtuella datorerna – om du inte har det kan du inte kryptera dem. Om du inte är säker frågar du din prenumerationsägare eller administratör). Du bör se information om din **miljö**, ditt **konto**, **klient-ID**, **prenumerations-ID** och **aktuellt lagringskonto**. Kopiera ditt **prenumerations-ID** till anteckningar. Du behöver använda det i steg 6.
+4. Logga in på Azure-kontot. Skriv **Connect-AzureRmAccount** i konsolen och tryck på **RETUR**. En dialogruta visas där du anger dina autentiseringsuppgifter (kontrollera att du har behörighet att ändra de virtuella datorerna – om du inte har det kan du inte kryptera dem. Om du inte är säker frågar du din prenumerationsägare eller administratör). Du bör se information om din **miljö**, ditt **konto**, **klient-ID**, **prenumerations-ID** och **aktuellt lagringskonto**. Kopiera ditt **prenumerations-ID** till anteckningar. Du behöver använda det i steg 6.
 5. Sök efter vilken prenumeration som den virtuella datorn tillhör och vilken plats den har. Gå till [https://portal.azure.com](ttps://portal.azure.com) och logga in.  Klicka på **virtuella datorer** till vänster. Du får se en lista över dina virtuella datorer och de prenumerationer som de tillhör.
 
    ![Virtuella datorer](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
@@ -122,7 +122,7 @@ Bekräfta att rätt resursgruppsnamn har angetts genom att skriva följande i ko
 
 **$resourceGroupName**
 
-Tryck på **RETUR**. Du bör se namnet på resursgruppen som de virtuella datorerna finns i. Några exempel:
+Tryck på **RETUR**. Du bör se namnet på resursgruppen som de virtuella datorerna finns i. Till exempel:
 
 ![PowerShell-utdata](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
@@ -137,7 +137,7 @@ Bekräfta att rätt namn har angetts för den virtuella datorn genom att skriva:
 
 **$vmName**
 
-Tryck på **RETUR**. Du bör se namnet på den virtuella datorn som du vill kryptera. Några exempel:
+Tryck på **RETUR**. Du bör se namnet på den virtuella datorn som du vill kryptera. Till exempel:
 
 ![PowerShell-utdata](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 

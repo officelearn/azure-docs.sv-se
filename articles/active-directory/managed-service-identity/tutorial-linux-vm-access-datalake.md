@@ -1,11 +1,11 @@
 ---
-title: "Använda hanterade tjänstidentiteten för en Linux-VM för att komma åt Azure Data Lake Store"
-description: "En självstudiekurs som visar hur du använder hanteras Service identitet (MSI) för en Linux-VM för åtkomst till Azure Data Lake Store."
+title: Använda hanterade tjänstidentiteten för en Linux-VM för att komma åt Azure Data Lake Store
+description: En självstudiekurs som visar hur du använder hanteras Service identitet (MSI) för en Linux-VM för åtkomst till Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: bef549a0cb8a876bbf8fbf281a6c2d1d489736af
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8b7e6cbd4bc7cfef349e9cebd9e4db537701a877
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Använda hanterade tjänstidentiteten för en Linux-VM för att komma åt Azure Data Lake Store
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/08/2018
 
 Den här kursen visar hur du använder hanterade tjänstidentiteten Linux virtuella datorer (VM) för att få åtkomst till Azure Data Lake Store. Azure hanterar automatiskt identiteter som du skapar via MSI. Du kan använda MSI för att autentisera till tjänster som stöder Azure Active Directory (AD Azure) autentisering utan att behöva infoga autentiseringsuppgifter i din kod. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Aktivera MSI på en virtuell Linux-dator. 
@@ -58,16 +58,13 @@ Den här självstudiekursen skapar vi en ny Linux VM. Du kan också aktivera MSI
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
-Du kan använda MSI för en virtuell dator för att få åtkomst-token från Azure AD utan att behöva placera autentiseringsuppgifter i din kod. Aktivera MSI installerar MSI VM-tillägget på den virtuella datorn och gör MSI i Azure Resource Manager.  
+En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera hanterade tjänstidentiteten på en virtuell dator har två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn.
 
 1. För **virtuella**, Välj den virtuella dator som du vill aktivera MSI på.
 2. I den vänstra rutan, Välj **Configuration**.
 3. Du ser **hanterade tjänstidentiteten**. För att registrera och aktivera MSI, Välj **Ja**. Välj om du vill inaktivera den **nr**.
    ![Val av ”registrera med Azure Active Directory”](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Välj **Spara**.
-5. Om du vill kontrollera vilka tillägg som finns på den här Linux VM, Välj **tillägg**. Om MSI aktiveras **ManagedIdentityExtensionforLinux** visas i listan.
-
-   ![Lista över tillägg](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Ge dina VM-åtkomst till Azure Data Lake Store
 
@@ -105,7 +102,7 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
 3. I fönstret terminal med cURL, gör en begäran till den lokala MSI-slutpunkten för att få en åtkomsttoken för Data Lake Store-filsystem. Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Det är viktigt att du inkluderar det avslutande snedstrecket i resursidentifieraren.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
    Ett lyckat svar returnerar den åtkomst-token som används för att autentisera till Data Lake Store:

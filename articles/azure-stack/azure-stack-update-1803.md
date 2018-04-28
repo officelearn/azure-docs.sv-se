@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-stacken 1803 uppdatering
 
@@ -44,10 +44,11 @@ Azure-stacken 1803 uppdatera versionsnumret är **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
-Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).
+- Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).
 
-- [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/en-us/help/4103348)
 
+- Granska brandväggskonfigurationen så när du har installerat uppdateringen [nödvändiga portarna](azure-stack-integrate-endpoints.md) är öppna. Den här uppdateringen införs till exempel Azure-Monitor som innehåller en ändring av granskningsloggar för att skicka aktivitetsloggar. Med den här ändringen port 13012 används nu och måste också vara öppen.  
 
 ### <a name="new-features"></a>Nya funktioner 
 Den här uppdateringen innehåller följande förbättringar och korrigeringar för Azure-stacken.
@@ -169,7 +170,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
     - *Tillåt:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

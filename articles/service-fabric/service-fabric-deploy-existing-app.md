@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9d1e2f801db2ed7edf262f8a5f221057ef791106
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 När Paketera en befintlig körbar fil som en [gäst körbara](service-fabric-guest-executables-introduction.md), kan du antingen använda en mall för Visual Studio-projekt eller [skapa programpaketet manuellt](#manually). Med Visual Studio skapas application paketet struktur och manifest-filer av den nya projektmallen.
@@ -43,7 +43,7 @@ Visual Studio har ett Service Fabric-tjänstmall som hjälper dig att distribuer
 4. Namnge tjänsten och klicka på **OK**.
 5. Om din tjänst måste en slutpunkt för kommunikation, du kan nu lägga till protokollet, porten och typ ServiceManifest.xml-filen. Till exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Du kan nu använder paketet och publicera åtgärd mot ditt lokala kluster med felsökning lösningen i Visual Studio. När du är klar kan du publicera program till ett kluster eller kontrollera i lösningen till källkontroll.
-7. Läs [Kontrollera körs programmet](#check-your-running-application) se hur du visar din körbara gäst-tjänst körs i Service Fabric Explorer.
+7. Läs [Kontrollera körs programmet](#check-your-running-application) att se hur du visar din körbara gäst-tjänst körs i Service Fabric Explorer.
 
 Ett exempel genomgång finns [skapa ditt första körbara gäst-program som använder Visual Studio](quickstart-guest-app.md).
 
@@ -123,7 +123,7 @@ Följande är ett exempel på en `ServiceManifest.xml` fil:
 
 I följande avsnitt gå igenom de olika delarna av filen som du behöver uppdatera.
 
-#### <a name="update-servicetypes"></a>Update ServiceTypes
+#### <a name="update-servicetypes"></a>Uppdatera ServiceTypes
 ```xml
 <ServiceTypes>
   <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />

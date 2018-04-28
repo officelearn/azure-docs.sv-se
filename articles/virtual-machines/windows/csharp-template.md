@@ -3,7 +3,7 @@ title: Distribuera en virtuell dator med hjälp av C# och Resource Manager-mall 
 description: Lär dig hur du använder C# och en Resource Manager-mall för att distribuera en Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: davidmu
-ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med hjälp av C# och Resource Manager-mall
 Den här artikeln visar hur du distribuerar en Azure Resource Manager-mallen med C#. Den mall som du skapar distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
@@ -34,7 +34,7 @@ I det här steget ska kontrollera du att Visual Studio är installerat och du sk
 
 1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET skrivbord development** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis, kan du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt för dig. Om du redan har installerat Visual Studio kan du lägga till .NET arbetsbelastningen i Visual Studio-starta.
 2. I Visual Studio klickar du på **filen** > **ny** > **projekt**.
-3. I **mallar** > **Visual C#**väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på projektet, välj platsen för projektet och klicka sedan på **OK**.
+3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på projektet, välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-the-packages"></a>Installera paket
 

@@ -2,23 +2,19 @@
 title: Förbättra prestanda för columnstore-index - Azure SQL Data Warehouse | Microsoft Docs
 description: Minska minneskrav eller öka mängden tillgängligt minne för att maximera antalet rader som ett columnstore-index komprimeras i varje radgrupps.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
@@ -38,7 +34,7 @@ Under en bulk load eller columnstore-index återskapning, ibland det finns inte 
 
 När det finns inte tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupps, genererar ett fel i SQL Data Warehouse.
 
-Mer information om massinläsning finns [massinläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Mer information om massinläsning finns [massinläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Så här övervakar du radgrupps kvalitet
 
@@ -153,11 +149,3 @@ Anta att du kontrollera att du behöver 700 MB minne för att få hög kvalitet 
 
 Du hittar fler sätt att förbättra prestanda i SQL Data Warehouse den [översikt över prestanda](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

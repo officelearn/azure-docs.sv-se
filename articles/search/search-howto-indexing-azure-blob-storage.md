@@ -1,24 +1,19 @@
 ---
 title: Indexering Azure Blob Storage med Azure Search
 description: Lär dig att indexera Azure Blob Storage och extrahera text från dokument med Azure Search
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 77fac23286d536903e32140b554304e72c16097f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search ska indexera dokument (till exempel PDF-filer, Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar det grunderna för att installera och konfigurera en indexerare blob. Sedan den erbjuder en ingående undersökning av beteenden och scenarier troligen kommer att stöta på.
@@ -251,8 +246,8 @@ De konfigurationsparametrar som beskrivs ovan gäller för alla BLOB. Ibland kan
 
 | Egenskapsnamn | Egenskapsvärde | Förklaring |
 | --- | --- | --- |
-| AzureSearch_Skip |"true" |Instruerar blob indexeraren att helt och hållet blob. Varken metadata eller innehåll extrahering görs. Detta är användbart när en viss blob misslyckas flera gånger och avbryter indexering processen. |
-| AzureSearch_SkipContent |"true" |Detta är likvärdiga med `"dataToExtract" : "allMetadata"` inställningen beskrivs [ovan](#PartsOfBlobToIndex) begränsade till en viss blob. |
+| AzureSearch_Skip |”true” |Instruerar blob indexeraren att helt och hållet blob. Varken metadata eller innehåll extrahering görs. Detta är användbart när en viss blob misslyckas flera gånger och avbryter indexering processen. |
+| AzureSearch_SkipContent |”true” |Detta är likvärdiga med `"dataToExtract" : "allMetadata"` inställningen beskrivs [ovan](#PartsOfBlobToIndex) begränsade till en viss blob. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Hantera fel
@@ -375,7 +370,7 @@ I följande tabell sammanfattas bearbetas för respektive format och beskriver m
 | XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extrahera text, inklusive embedded dokument |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive embedded dokument |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive embedded dokument |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer |
+| Meddelande (outlook-program/vnd.ms) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer |
 | ZIP (program/zip) |`metadata_content_type` |Extrahera text från alla dokument i arkivet |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Remsans XML-koden och extrahera text |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrahera text<br/>Obs: Om du behöver extrahera flera dokumentfält från en JSON-blob finns [indexering JSON-blobbar](search-howto-index-json-blobs.md) information |

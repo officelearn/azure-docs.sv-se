@@ -1,6 +1,6 @@
 ---
-title: Konfigurera HTTPS på en anpassad domän för Azure CDN | Microsoft Docs
-description: Lär dig hur du aktiverar eller inaktiverar HTTPS på en anpassad domän för Azure CDN-slutpunkten.
+title: Självstudiekurs – Konfigurera HTTPS på en anpassad Azure CDN-domän | Microsoft Docs
+description: I den här kursen får du lära dig hur du aktiverar och inaktiverar HTTPS på en anpassad domän på en Azure CDN-slutpunkt.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -11,202 +11,227 @@ ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2018
-ms.author: rli; v-deasim
-ms.openlocfilehash: ca3dad18973197f63e69e6568b8ea5988b279e01
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 04/12/2018
+ms.author: rli
+ms.custom: mvc
+ms.openlocfilehash: a8f2da5a68552c35a55a7bbb764afc7b36af6962
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-https-on-an-azure-cdn-custom-domain"></a>Konfigurera HTTPS på en anpassad domän för Azure CDN
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Azure Content Delivery Network (CDN) stöder HTTPS-protokollet för en anpassad domän på en CDN-slutpunkt. Genom att använda HTTPS-protokollet på den anpassade domänen kan du se till att känsliga data levereras på ett säkert sätt via SSL-kryptering när det skickas över internet. HTTPS ger litar på autentisering och skyddar ditt webbprogram från attacker. Dessutom kan du leverera skyddat innehåll med hjälp av ditt eget domännamn (till exempel https:\//www.contoso.com). Arbetsflöde för att aktivera HTTPS är förenklad via en enda klickning aktivering och fullständig certifikathantering alla med utan extra kostnad.
+Den här kursen visar hur du aktiverar HTTP-protokollet för en anpassad domän som är associerad med en Azure CDN-slutpunkt (Content Delivery Network). Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via SSL-kryptering när de skickas över Internet. HTTPS ger förtroende, autentisering och skyddar dina webbprogram mot attacker. Arbetsflödet för att aktivera HTTPS har förenklats med enklicksaktivering och fullständig certifikathantering, utan extra kostnad.
 
-Azure CDN också stöder HTTPS på en CDN-slutpunktens värdnamn som standard. Till exempel om du skapar en CDN-slutpunkt (till exempel https:\//contoso.azureedge.net), aktiveras automatiskt för HTTPS.  
+Azure CDN stöder HTTPS i CDN-slutpunktens värdnamn som standard. Om du skapar en CDN-slutpunkt som till exempel https:\//contoso.azureedge.net aktiveras HTTPS automatiskt.  
 
-Några viktiga attribut för HTTPS-funktionen är:
+Några viktiga punkter för HTTPS-funktionen:
 
-- Utan extra kostnad: det finns inga kostnader för certifikatanskaffningen eller förnyelse och utan extra kostnad för HTTPS-trafik. Du betalar bara för GB utgående trafik från CDN.
+- Ingen extra kostnad: det kostar ingenting att förvärva eller förnya certifikat och det tillkommer ingen extra kostnad för HTTPS-trafik. Du betalar bara för utgående trafik (GB) från CDN.
 
-- Enkel aktivering: enkelklickning etablering är tillgänglig från den [Azure-portalen](https://portal.azure.com). Du kan också använda REST API eller andra verktyg för utvecklare för att aktivera funktionen.
+- Enkel aktivering: enklicksetablering är tillgänglig från [Azure Portal](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
 
-- Slutföra certifikathantering: alla certifikat inköp och hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan upphör att gälla, vilket tar bort riskerna med avbrott i tjänsten på grund av ett certifikat upphör att gälla.
+- Komplett certifikathantering: all anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
->[!NOTE] 
->Innan du aktiverar stöd för HTTPS, du måste har upprättat en [Azure CDN domänen](./cdn-map-content-to-custom-domain.md).
+I den här guiden får du lära dig att:
+> [!div class="checklist"]
+> - Aktivera HTTPS-protokollet på en anpassad domän
+> - Verifiera domänen
+> - Inaktivera HTTPS-protokollet på en anpassad domän
 
-## <a name="enabling-https"></a>Aktivera HTTPS
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
+
+Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
+
+## <a name="enable-the-https-feature"></a>Aktivera HTTPS-funktionen
 
 Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
-### <a name="step-1-enable-the-feature"></a>Steg 1: Aktivera funktionen 
+1. I [Azure Portal](https://portal.azure.com) navigerar du till CDN-profilen **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till din **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** CDN-profilen.
+2. I listan med CDN-slutpunkter väljer du slutpunkten som innehåller din anpassade domän.
 
-2. Klicka på den slutpunkt som innehåller din anpassade domän i listan över slutpunkter.
+    ![Lista med slutpunkter](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
-3. Klicka på den anpassade domänen som du vill aktivera HTTPS.
+    Sidan **Slutpunkt** visas.
 
-    ![Lista över anpassade domäner](./media/cdn-custom-ssl/cdn-custom-domain.png)
+3. I listan med anpassade domäner väljer du den anpassade domänen som du vill aktivera HTTPS för.
 
-4. Klicka på **på** om du vill aktivera HTTPS, klicka på **tillämpa**.
+    ![Lista med anpassade domäner](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-    ![Anpassad domän för HTTPS-status](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+    Sidan **Anpassad domän** visas.
+
+4. Välj **På** om du vill aktivera HTTPS och välj sedan **Använd**.
+
+    ![HTTPS-status för anpassad domän](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
-### <a name="step-2-validate-domain"></a>Steg 2: Validera domän
+## <a name="validate-the-domain"></a>Verifiera domänen
 
->[!NOTE]
->Om du har en certifikatet myndigheten auktorisering (CAA)-post hos din DNS-leverantör, måste den innehålla DigiCert som en giltig Certifikatutfärdare. En post för CAA kan domän ägare att ange med respektive DNS-leverantör som certifikatutfärdare har behörighet att utfärda certifikat för sin domän. Om en Certifikatutfärdare tar emot en order för ett certifikat för en domän som har en CAA-post och Certifikatutfärdaren har inte listats som en auktoriserad utfärdare, är det förbjudet från utfärda certifikatet till domänen eller underdomänen. Information om hur du hanterar CAA poster finns [hantera CAA poster](https://support.dnsimple.com/articles/manage-caa-record/). En post verktyget CAA finns [CAA post Helper](https://sslmate.com/caa/).
+Om du redan har en anpassad domän i bruk som är mappad till din anpassade slutpunkt med en CNAME-post, fortsätter du till  
+[Den anpassade domänen har mappats till CDN-slutpunkten](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Om CNAME-posten för slutpunkten inte längre finns eller om den innehåller cdnverify-underdomänen fortsätter du i stället till [Den anpassade domänen har inte mappats till CDN-slutpunkten](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
-#### <a name="custom-domain-is-mapped-to-cdn-endpoint"></a>Domänen är mappad till CDN-slutpunkten
+### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Den anpassade domänen har mappats till CDN-slutpunkten med en CNAME-post
 
-När du har lagt till en anpassad domän i din slutpunkt, skapa en CNAME-post i DNS-tabellen för domänregistrator för att mappa till CDN-slutpunktens värdnamn. Om posten CNAME fortfarande finns och inte innehåller underdomänen cdnverify används DigiCert-certifikatutfärdare (CA) för att verifiera ägarskapet för den anpassade domänen. 
+När du lade till en anpassad domän till din slutpunkt skapade du en CNAME-post i din domänregistrators DNS-tabell för att mappa den till CDN-slutpunktens värdnamn. Om CNAME-posten fortfarande finns kvar och inte innehåller cdnverify-underdomänen använder DigiCert-certifikatutfärdaren den för att verifiera ägarskapet för din anpassade domän. 
 
-CNAME-post måste vara i följande format, där *namn* är ditt domännamn och *värdet* är CDN-slutpunktens värdnamn:
+CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade domän och *Värde* är CDN-slutpunktens värdnamn:
 
 | Namn            | Typ  | Värde                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-Mer information om CNAME-poster finns [skapa CNAME DNS-post](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records).
+Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-Om CNAME-post är i rätt format, DigiCert verifierar ditt domännamn och automatiskt läggs till alternativa namn på CERTIFIKATMOTTAGARE certifikatet. DigitCert Skicka inte ett e-postmeddelandet och du behöver inte godkänna din förfrågan. Certifikatet är giltigt i ett år och automatisk-förnyas innan den upphör. Gå vidare till [steg3: vänta tills spridningen](#step-3-wait-for-propagation). 
+Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och lägger till det i SAN-certifikatet (alternativt namn för certifikatmottagare). DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
-Valideringen av automatisk brukar ta några minuter. Om du inte ser den domän som har verifierats inom en timme, öppna ett supportärende.
+Den automatiska verifieringen tar vanligtvis några minuter. Öppna ett supportärende om domänen inte har verifierats inom en timme.
 
-#### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>CNAME-post är inte mappad till CDN-slutpunkten
+>[!NOTE]
+>Om du har en CAA-post (Certificate Authority Authorization) hos DNS-providern måste den innehålla DigiCert som giltig certifikatutfärdare. En CAA-post gör att domänägare kan ange med sina DNS-provider vilka certifikatutfärdare som är auktoriserade att utfärda certifikat för deras domän. Om en certifikatutfärdare mottar en order för ett certifikat för en domän som har en CAA-post och den certifikatutfärdaren inte finns med i listan över auktoriserade utfärdare hindras certifikatufärdaren att utfärda certifikatet till den domänen eller underdomänen. Information om hur du hanterar CAA poster finns i [Hantera CAA-poster](https://support.dnsimple.com/articles/manage-caa-record/). Hjälpverktyg för CAA-poster finns i [CAA Record Helper](https://sslmate.com/caa/).
 
-Om posten CNAME-post för slutpunkten finns inte eller innehåller underdomänen cdnverify, följer du instruktionerna i det här steget.
+### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
-När du aktiverar HTTPS på en anpassad domän, DigiCert-certifikatutfärdare (CA) verifierar ägarskap för domänen genom att kontakta dess registrant enligt domänens [WHOIS](http://whois.domaintools.com/) registrant information. Kontakta görs via den e-postadressen (som standard) eller telefonnummer som anges i WHOIS-registrering. Du måste slutföra verifiering av domän innan HTTPS kommer att vara aktiv på den anpassade domänen. Du har sex arbetsdagar att godkänna domänen. Begäranden som inte är godkända inom sex arbetsdagar avbryts automatiskt. 
+Om CNAME-posten för slutpunkten inte finns längre eller om den innehåller cdnverify-underdomänen följer du instruktionerna i det här steget.
+
+När du har aktiverat HTTPS på din anpassade domän verifierar DigiCert-certifikatutfärdaren ägarskapet för din domän genom att kontakta registranten enligt domänens [WHOIS](http://whois.domaintools.com/)-registrantinformation. Kontakten sker via e-postadressen (som standard) eller telefonnumret som står i WHOIS-registreringen. Du måste slutföra domänverifieringen för att HTTPS ska aktiveras på din anpassade domän. Du har sex arbetsdagar på dig att godkänna domänen. Begäranden som inte godkänns inom sex arbetsdagar avbryts automatiskt. 
 
 ![WHOIS-post](./media/cdn-custom-ssl/whois-record.png)
 
-DigiCert skickar också ett e-postmeddelandet till ytterligare e-postadresser. Om WHOIS registrant information är privat, kontrollerar du att du kan godkänna direkt från en av följande adresser:
+DigiCert skickar också ett bekräftelsemeddelande till ytterligare e-postadresser. Om WHOIS-registrantinformationen är privat, kontrollerar du att du kan godkänna direkt från en av följande adresser:
 
-Admin @&lt;din domän name.com&gt;  
-administratören @&lt;din domän name.com&gt;  
-webbadministratör @&lt;din domän name.com&gt;  
-hostmaster @&lt;din domän name.com&gt;  
-postmaster @&lt;din domän name.com&gt;  
+admin@&lt;dittdomännamn.com&gt;  
+administrator@&lt;dittdomännamn.com&gt;  
+webmaster@&lt;dittdomännamn.com&gt;  
+hostmaster@&lt;dittdomännamn.com&gt;  
+postmaster@&lt;dittdomännamn.com&gt;  
 
-Du bör få ett e-postmeddelande om några minuter som liknar följande exempel visas där du uppmanas att godkänna begäran. Om du använder ett skräppostfilter, lägga till admin@digicert.com till dess godkända. Om du inte får ett e-postmeddelande inom 24 timmar, kontaktar du Microsoft support.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter lägger du till admin@digicert.com i listan med tillåtna adresser. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
     
-![E-post för domänen-validering](./media/cdn-custom-ssl/domain-validation-email.png)
+![Domänverifieringsmeddelande](./media/cdn-custom-ssl/domain-validation-email.png)
 
-När du klickar på länken godkännande, dirigeras till formatet online godkännande: 
+När du klickar på godkännandelänken dirigeras du till följande formulär för godkännande online: 
     
-![Domän valideringsformulär](./media/cdn-custom-ssl/domain-validation-form.png)
+![Domänverifieringsformulär](./media/cdn-custom-ssl/domain-validation-form.png)
 
-Följ instruktionerna i formuläret. du har två alternativ för verifiering:
+Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 
-- Du kan godkänna alla framtida beställningar via samma konto för samma rotdomän; till exempel contoso.com. Den här metoden rekommenderas om du vill lägga till ytterligare anpassade domäner i samma rot-domänen.
+- Du kan godkänna alla framtida order som placerats via samma konto för samma rotdomän, till exempel contoso.com. Den här metoden rekommenderas om du tänker lägga till ytterligare anpassade domäner i samma rotdomän.
 
-- Du kan godkänna bara specifika värdnamnet som används i denna begäran. Ytterligare godkännande krävs för efterföljande förfrågningar.
+- Du kan bara godkänna det specifika värdnamn som används i den här begäran. Ytterligare godkännande krävs för efterföljande begäranden.
 
-Lägger till ditt domännamn till SAN-certifikat efter godkännande och DigiCert. Certifikatet är giltigt i ett år och automatisk-förnyas innan den har upphört att gälla.
+Efter godkännandet lägger DigiCert till ditt anpassade domännamn i SAN-certifikatet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör.
 
-### <a name="step-3-wait-for-propagation"></a>Steg 3: Vänta tills spridning
+## <a name="wait-for-propagation"></a>Vänta på spridning
 
-Det kan ta upp till 6 – 8 timmar för anpassade domäner HTTPS-funktionen ska aktiveras när domännamnet har verifierats. När processen är klar, den anpassade HTTPS i Azure-portalen är status **aktiverad** och fyra åtgärden stegen i dialogrutan för anpassade domäner har markerats som slutförd. Den anpassade domänen är nu klar att använda HTTPS.
+När domännamnet har verifierats kan det ta upp till 6–8 timmar innan HTTPS-funktionen för den anpassade domänen aktiveras. När processen är klar visas HTTPS-status **Aktiverad** i Azure Portal och de fyra åtgärdsstegen i dialogrutan för anpassad domän markeras som slutförda. Den anpassade domänen är nu klar att använda HTTPS.
 
-![Aktivera HTTPS dialogrutan](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
+![Dialogrutan Aktivera HTTPS](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
-### <a name="operation-progress"></a>Åtgärden pågår
+### <a name="operation-progress"></a>Åtgärdsförlopp
 
-I följande tabell visas förloppet igen som händer när du aktiverar HTTPS. När du har aktiverat HTTPS visas fyra åtgärden steg i dialogrutan för anpassade domäner. Eftersom varje steg blir aktiv ytterligare substep informationen som visas under steget när den. Inte alla de här stegen utförs. När ett steg har slutförts visas en grön bockmarkering bredvid den. 
+I följande tabell visas åtgärdsförloppet när du aktiverar HTTPS. När du har aktiverat HTTPS visas de fyra åtgärdsstegen i dialogrutan Anpassad domän. När nästa steg i förloppet aktiveras visas ytterligare information om dess understeg. Alla understeg utförs inte. När ett steg har slutförts visas en grön bock bredvid steget. 
 
-| Åtgärden steg | Information om substep | 
+| Åtgärdssteg | Information om åtgärdsundersteg | 
 | --- | --- |
-| 1 skicka begäran | Skickar begäran |
-| | HTTPS-förfrågan skickas. |
-| | Din HTTPS-förfrågan har skickats. |
-| 2 verifiering av domän | Domänen verifieras automatiskt om det är CNAME som mappats till CDN-slutpunkten. I annat fall skickas en begäran om identitetsverifiering till e-post som visas i din domän registreringspost (WHOIS registrant). Verifiera domänen så snart som möjligt. |
+| 1 Skicka begäran | Begäran skickas |
+| | Din HTTPS-begäran skickas. |
+| | Din HTTPS-begäran har skickats. |
+| 2 Domänverifiering | Domänen verifieras automatiskt om CNAME har mappats till CDN-slutpunkten. I annat fall skickas en verifieringsbegäran till den e-postadress som står angiven i domänens registreringspost (WHOIS-registrant). Verifiera domänen så snart som möjligt. |
 | | Domänägarskapet har verifierats och godkänts. |
-| | Begäran om domänen ägarskap upphört att gälla (kunden förmodligen inte svarar inom 6 dagar). HTTPS aktiveras inte på din domän. * |
-| | Domän ägarskap begäran avvisades av kunden. HTTPS aktiveras inte på din domän. * |
-| 3 tilldelning av certifikat | Certifikatutfärdaren håller på att utfärda det certifikat som krävs för att aktivera HTTPS på din domän. |
-| | Certifikatet har utfärdats och distribueras just nu till CDN-nätverk. Detta kan ta upp till sex timmar. |
+| | Begäran om verifiering av domänägarskap har gått ut (kunden svarade troligtvis inte inom 6 dagar). HTTPS aktiveras inte på din domän. * |
+| | Begäran om verifiering av domänägarskap avvisades av kunden. HTTPS aktiveras inte på din domän. * |
+| 3 Etablering av certifikat | Certifikatutfärdaren håller på att utfärda det certifikat som krävs för att aktivera HTTPS på din domän. |
+| | Certifikatet har utfärdats och håller på att distribueras till CDN-nätverket. Det kan ta upp till 6 timmar. |
 | | Certifikatet har distribuerats till CDN-nätverket. |
-| 4 Slutför | HTTPS har aktiverats på domänen. |
+| 4 Slutfört | HTTPS har aktiverats på din domän. |
 
-\* Det här meddelandet visas inte om ett fel har uppstått. 
+\* Det här meddelandet visas bara om ett fel har uppstått. 
 
-
-Om ett fel inträffar innan begäran har skickats, visas följande felmeddelande:
+Om det uppstår ett fel innan begäran har skickats visas följande felmeddelande:
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
-## <a name="disabling-https"></a>Inaktivera HTTPS
+## <a name="clean-up-resources---disable-https"></a>Rensa resurser – inaktivera HTTPS
 
-När du har aktiverat HTTPS på en anpassad domän, kan du inaktivera det senare. Följ dessa steg om du vill inaktivera HTTPS:
+I föregående steg aktiverade du HTTPS-protokollet på en anpassad domän. Om du inte längre vill använda HTTPS för din anpassade domän kan du inaktivera HTTPS på följande sätt:
 
-### <a name="step-1-disable-the-feature"></a>Steg 1: Inaktivera funktionen 
+### <a name="disable-the-https-feature"></a>Inaktivera HTTPS-funktionen 
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till din **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** CDN-profilen.
+1. I [Azure Portal](https://portal.azure.com) navigerar du till CDN-profilen **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
 
-2. Klicka på den slutpunkt som innehåller din anpassade domän i listan över slutpunkter.
+2. I listan med slutpunkter klickar du på slutpunkten som innehåller din anpassade domän.
 
-3. Klicka på den anpassade domänen som du vill inaktivera HTTPS.
+3. Klicka på den anpassade domänen som du vill inaktivera HTTPS för.
 
-    ![Lista över anpassade domäner](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
+    ![Lista med anpassade domäner](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. Klicka på **av** för att inaktivera HTTPS, klicka på **tillämpa**.
+4. Klicka på **Av** för att inaktivera HTTPS och klicka sedan på **Använd**.
 
-    ![Dialogrutan för anpassade HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
+    ![Dialogrutan Anpassad HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
-### <a name="step-2-wait-for-propagation"></a>Steg 2: Vänta tills spridning
+### <a name="wait-for-propagation"></a>Vänta på spridning
 
-Det kan ta upp till 6 – 8 timmar innan den börjar gälla när den anpassade domänen HTTPS-funktionen är inaktiverad. När processen är klar, den anpassade HTTPS i Azure-portalen är status **inaktiverad** och tre åtgärden stegen i dialogrutan för anpassade domäner har markerats som slutförd. Den anpassade domänen kan inte längre använda HTTPS.
+När HTTPS-funktionen för den anpassade domänen har inaktiverats kan det ta upp till 6–8 timmar innan ändringen börjar gälla. När processen är klar visas HTTPS-status **Inaktiverad** i Azure Portal och de tre åtgärdsstegen i dialogrutan Anpassad domän är markerade som slutförda. Den anpassade domänen använder inte längre HTTPS.
 
-![Inaktivera HTTPS dialogrutan](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
+![Dialogrutan Inaktivera HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
-### <a name="operation-progress"></a>Åtgärden pågår
+#### <a name="operation-progress"></a>Åtgärdsförlopp
 
-I följande tabell visas förloppet igen som händer när du inaktiverar HTTPS. När du inaktiverar HTTPS visas tre åtgärden steg i dialogrutan för anpassad domän. Eftersom varje steg blir aktiv visas ytterligare information under steget. När ett steg har slutförts visas en grön bockmarkering bredvid den. 
+I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du har inaktiverat HTTPS visas de tre åtgärdsstegen i dialogrutan Anpassad domän. När nästa steg i förloppet aktiveras visas ytterligare information under steget. När ett steg har slutförts visas en grön bock bredvid steget. 
 
-| Åtgärden pågår | Åtgärdsinformation | 
+| Åtgärdsförlopp | Åtgärdsinformation | 
 | --- | --- |
-| 1 skicka begäran | Din förfrågan skickas |
-| 2 borttagning av certifikat | Tar bort certifikat |
-| 3 slutfört | Certifikatet har tagits bort |
+| 1 Skicka begäran | Begäran skickas |
+| 2 Avetablering av certifikat | Tar bort certifikat |
+| 3 Slutfört | Certifikatet har tagits bort |
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-1. *Vem är certifikat-providern och vilken typ av certifikat används?*
+1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 
-    Microsoft använder ett alternativt namn på CERTIFIKATMOTTAGARE certifikat som tillhandahålls av DigiCert. Ett SAN-certifikat kan skydda flera fullständigt kvalificerade domännamn med ett certifikat.
+    Microsoft använder ett SAN-certifikat (alternativt namn på certifikatmottagare) som tillhandahålls av DigiCert. Ett SAN-certifikat kan skydda flera fullständigt kvalificerade domännamn med ett certifikat.
 
 2. *Kan jag använda mitt dedikerade certifikat?*
     
-    För närvarande inte, men det är på Översikt.
+    Inte för närvarande, men det ingår i vår plan.
 
-3. *Vad händer om jag får inte domänen e-postmeddelandet från DigiCert?*
+3. *Vad händer om jag inte får domänverifieringsmeddelandet från DigiCert?*
 
-    Om du har en CNAME-post för den anpassade domänen som pekar direkt på slutpunktens värdnamn (och du inte använder underdomännamnet cdnverify), får du inte en domän e-postmeddelandet. Validering sker automatiskt. Annars, om du inte har en CNAME-post och du inte har fått ett e-postmeddelande inom 24 timmar, kontakta Microsoft support.
+    Om du har en CNAME-post för din anpassade domän som pekar direkt på slutpunktens värdnamn (och du inte använder cdnverify-underdomännamnet) får du inget domänverifieringsmeddelande. Verifieringen sker i så fall automatiskt. Om du inte har en CNAME-post och inte har fått något e-postmeddelande inom 24 timmar kontaktar du Microsoft-supporten.
 
-4. *Använder ett SAN-certifikat som är mindre säker än ett dedikerat certifikat?*
+4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
     
-    Ett SAN-certifikat följer samma kryptering och säkerhet standarder som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad säkerhet.
+    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
 
-5. *Kan jag använda en anpassad domän HTTPS med Azure CDN från Akamai?*
+5. *Kan jag använda HTTPS för en anpassad domän med Azure CDN från Akamai?*
 
-    Den här funktionen är för närvarande bara tillgänglig med Azure CDN från Verizon. Microsoft arbetar med stöd för den här funktionen med Azure CDN från Akamai under de kommande månaderna.
+    Den här funktionen är för närvarande bara tillgänglig med Azure CDN från Verizon. Microsoft arbetar med att lägga till stöd för den här funktionen med Azure CDN från Akamai inom de närmsta månaderna.
 
-6. *Behöver jag en certifikatet myndigheten auktorisering post med DNS-leverantör?*
+6. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 
-    Nej, en post för certifikatet myndigheten auktorisering krävs inte för närvarande. Om du har en, måste den innehålla DigiCert som en giltig Certifikatutfärdare.
+    Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du ställer in en [domänen på Azure CDN-slutpunkten](./cdn-map-content-to-custom-domain.md)
+Vad du lärt dig:
 
+> [!div class="checklist"]
+> - Aktivera HTTPS-protokollet på en anpassad domän
+> - Verifiera domänen
+> - Inaktivera HTTPS-protokollet på en anpassad domän
+
+Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar cachelagring på en CDN-slutpunkt.
+
+> [!div class="nextstepaction"]
+> [Kontrollera funktionssättet för Azure CDN-cachelagring med cachelagringsregler](cdn-caching-rules.md)
 

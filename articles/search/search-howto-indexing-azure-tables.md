@@ -1,24 +1,19 @@
 ---
 title: Indexering Azure Table storage med Azure Search | Microsoft Docs
-description: "Lär dig att indexera data som lagras i Azure Table storage med Azure Search"
-services: search
-documentationcenter: 
+description: Lär dig att indexera data som lagras i Azure Table storage med Azure Search
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Index Azure Table storage med Azure Search
 Den här artikeln visar hur du använder Azure Search index-data som lagras i Azure Table storage.
@@ -70,7 +65,7 @@ Mer information om skapa Datasource-API finns [skapa Datasource](https://docs.mi
 
 Du kan ange autentiseringsuppgifter för tabellen i något av följande sätt: 
 
-- **Fullständig åtkomst lagringsanslutningssträng för kontot**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` får du anslutningssträngen i Azure portal genom att gå till den **lagring kontoblad** > **inställningar** > **nycklar** (för klassiska lagringskonton) eller **inställningar** > **åtkomstnycklar** (för Azure Resource Manager storage-konton).
+- **Fullständig åtkomst lagringsanslutningssträng för kontot**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` får du anslutningssträngen i Azure portal genom att gå till den **lagring kontoblad** > **inställningar**  >  **Nycklar** (för klassiska lagringskonton) eller **inställningar** > **åtkomstnycklar** (för lagring av Azure Resource Manager konton).
 - **Storage-konto delad åtkomst signatur anslutningssträngen**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` signatur för delad åtkomst bör ha i listan och läsbehörighet på behållare (tabeller i det här fallet) och objekt (rader).
 -  **Signatur för delad åtkomst**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` signatur för delad åtkomst måste ha behörigheter för frågan (läsa) i tabellen.
 

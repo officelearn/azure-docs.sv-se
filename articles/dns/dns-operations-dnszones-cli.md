@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Hur du hanterar DNS-zoner i Azure DNS använder Azure CLI 2.0
 
@@ -47,7 +47,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [Logga in i Azure från Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [Logga in i Azure från Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -68,7 +68,7 @@ az account set --subscription "subscription name"
 ```
 
 ### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Valfritt: Om du vill installera/Använd Azure privata DNS-zoner funktion (förhandsversion)
-Funktionen Azure privata DNS-zonen släpps i Public Preview via ett tillägg till Azure CLI. Installera ”dns” Azure CLI-tillägg 
+Funktionen för privata Azure DNS-zoner släpps i en allmänt tillgänglig förhandsversion via ett tillägg till Azure CLI. Installera dns-tillägget för Azure CLI 
 ```
 az extension add --name dns
 ``` 
@@ -143,20 +143,20 @@ Följande exempel är svaret.
 }
 ```
 
-Observera att DNS-poster inte returneras av `az network dns zone show`. Använd om du vill visa en lista med DNS-poster `az network dns record-set list`.
+Observera att DNS-poster inte returneras av `az network dns zone show`. Använd `az network dns record-set list` om du vill lista DNS-poster.
 
 
-## <a name="list-dns-zones"></a>Lista över DNS-zoner
+## <a name="list-dns-zones"></a>Lista DNS-zoner
 
-För att räkna upp DNS-zoner, Använd `az network dns zone list`. Om du vill ha hjälp, så gå till `az network dns zone list --help`.
+Använd `az network dns zone list` om du vill räkna upp DNS-zoner. Om du vill ha hjälp, så gå till `az network dns zone list --help`.
 
-Anger resursgruppens namn visas endast de zonerna i resursgruppen:
+När du anger resursgrupp så listas bara zonerna i resursgruppen:
 
 ```azurecli
 az network dns zone list --resource-group MyResourceGroup
 ```
 
-Om du utesluter resursgruppen visar en lista över alla zoner i prenumerationen:
+Om du utesluter resursgruppen listas alla zoner i prenumerationen:
 
 ```azurecli
 az network dns zone list 
@@ -164,9 +164,9 @@ az network dns zone list
 
 ## <a name="update-a-dns-zone"></a>Uppdatera en DNS-zon
 
-En DNS-zon resurs kan ändras med hjälp av `az network dns zone update`. Om du vill ha hjälp, så gå till `az network dns zone update --help`.
+Du kan göra ändringar i en DNS-zonresurs med `az network dns zone update`. Om du vill ha hjälp, så gå till `az network dns zone update --help`.
 
-Det här kommandot uppdaterar inte någon DNS-postuppsättningar i zonen (se [hur du hanterar DNS-poster](dns-operations-recordsets-cli.md)). Den används endast för att uppdatera egenskaper för resursen zonen. Dessa egenskaper är för tillfället begränsad till den [Azure Resource Manager ”-taggar'](dns-zones-records.md#tags) för zonen resursen.
+Det här kommandot uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets-cli.md)). Det används endast för att uppdatera zonresursens egenskaper. Dessa egenskaper är för tillfället begränsad till den [Azure Resource Manager ”-taggar'](dns-zones-records.md#tags) för zonen resursen.
 
 I följande exempel visas hur du uppdaterar taggarna i en DNS-zon. De befintliga taggarna ersättas med det angivna värdet.
 
@@ -176,14 +176,14 @@ az network dns zone update --resource-group myresourcegroup --name contoso.com -
 
 ## <a name="delete-a-dns-zone"></a>Ta bort en DNS-zon
 
-DNS-zoner kan tas bort med `az network dns zone delete`. Om du vill ha hjälp, så gå till `az network dns zone delete --help`.
+Du kan ta bort DNS-zoner med `az network dns zone delete`. Om du vill ha hjälp, så gå till `az network dns zone delete --help`.
 
 > [!NOTE]
-> En DNS-zon också tar du bort DNS-poster i zonen. Den här åtgärden kan inte ångras. Om DNS-zonen misslyckas tjänster med hjälp av zonen när zonen tas bort.
+> Om du tar bort en DNS-zon så tar du även bort DNS-posterna i zonen. Du kan inte ångra den här åtgärden. Om DNS-zonen används, så misslyckas de tjänster som använder zonen när zonen tas bort.
 >
->För att skydda mot oavsiktlig zonen borttagning finns [Skydda DNS-zoner och poster](dns-protect-zones-recordsets.md).
+>Hur du gör för att förebygga oavsiktlig zonborttagning beskrivs i [Skydda DNS-zoner och poster](dns-protect-zones-recordsets.md).
 
-Det här kommandot uppmanas att bekräfta. Det valfria `--yes` växeln förhindrar det här meddelandet.
+Det här kommandot uppmanar dig att bekräfta. Det valfria `--yes`-växeln utelämnar det här meddelandet.
 
 I följande exempel visas hur du tar bort zonen *contoso.com* från resursgruppen *MyResourceGroup*.
 

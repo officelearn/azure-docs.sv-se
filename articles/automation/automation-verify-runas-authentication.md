@@ -1,6 +1,6 @@
 ---
-title: "Validera konfigurationen för Azure Automation-kontot"
-description: "Den här artikeln beskriver hur du bekräftar att konfigurationen av ditt Automation-konto har gjorts på korrekt sätt."
+title: Validera konfigurationen för Azure Automation-kontot
+description: Den här artikeln beskriver hur du bekräftar att konfigurationen av ditt Automation-konto har gjorts på korrekt sätt.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b8e1f2923657965f4bab89e7a0f5f08faa1d27e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testa Kör som-kontoautentisering för Azure Automation
 När ett Automation-konto har skapats kan du utföra ett enkelt test för att bekräfta att du kan autentisera i Azure Resource Manager eller den klassiska Azure-distributionen med ditt nyskapade eller uppdaterade Automation Kör som-konto.    
@@ -27,7 +27,7 @@ Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-cre
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
            -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -58,7 +58,7 @@ Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-cre
        Write-Output ("")
     } 
 
-Observera cmdleten som används för autentisering i runbooken – **Add-AzureRmAccount** använder *ServicePrincipalCertificate*-parameteruppsättningen.  Den autentiserar med hjälp av tjänstobjektets certifikat, inte autentiseringsuppgifter.  
+Lägg märke till den cmdlet som används för att autentisera i en runbook - **Connect-AzureRmAccount**, använder den *ServicePrincipalCertificate* parameteruppsättning.  Den autentiserar med hjälp av tjänstobjektets certifikat, inte autentiseringsuppgifter.  
 
 När du [köra runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) verifiera ditt kör som-konto ett [runbook-jobbet](automation-runbook-execution.md) skapas jobbet visas och jobbstatus visas i den **jobbsammanfattning** panelen. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  När runbook-jobbet har slutförts bör du se statusen **Slutfört**.
 

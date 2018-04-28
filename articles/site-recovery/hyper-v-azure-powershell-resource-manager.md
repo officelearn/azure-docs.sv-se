@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Ställ in återställning till Azure för Hyper-V virtuella datorer med PowerShell och Azure Resource Manager
 
@@ -45,9 +45,9 @@ Dessutom har specifika exempel som beskrivs i den här artikeln följande krav:
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Steg 1: Logga in på ditt Azure-konto
 
-1. Öppna ett PowerShell-konsolen och kör det här kommandot för att logga in på ditt Azure-konto. Cmdlet öppnar en webbsida uppmanar dig att dina autentiseringsuppgifter: **Login-AzureRmAccount**.
-    - Alternativt kan du inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Login-AzureRmAccount** cmdlet, med hjälp av den **-autentiseringsuppgifter** parameter.
-    - Om du är CSP-partner som arbetar för en klient måste du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller klienten. Till exempel: **Login-AzureRmAccount-klient ”fabrikam.com”**
+1. Öppna ett PowerShell-konsolen och kör det här kommandot för att logga in på ditt Azure-konto. Cmdlet öppnar en webbsida uppmanar dig att dina autentiseringsuppgifter: **Connect-AzureRmAccount**.
+    - Alternativt kan du inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect-AzureRmAccount** cmdlet, med hjälp av den **-autentiseringsuppgifter** parameter.
+    - Om du är CSP-partner som arbetar för en klient måste du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller klienten. Till exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
 2. Koppla den prenumeration som du vill använda med konto, eftersom ett konto kan ha flera prenumerationer:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`

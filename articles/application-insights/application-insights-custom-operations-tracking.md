@@ -1,6 +1,6 @@
 ---
-title: "Spåra anpassade åtgärder med Azure Application Insights .NET SDK | Microsoft Docs"
-description: "Spårning av anpassade åtgärder med Azure Application Insights .NET SDK"
+title: Spåra anpassade åtgärder med Azure Application Insights .NET SDK | Microsoft Docs
+description: Spårning av anpassade åtgärder med Azure Application Insights .NET SDK
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights SDK för .NET
 
@@ -413,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-I det här exemplet `telemetryClient.StartOperation` skapar `RequestTelemetry` och fyller Korrelations-kontexten. Anta att du har en överordnad åtgärd som har skapats av inkommande begäranden som schemalagda åtgärden. Så länge `BackgroundTask` startar i samma asynkrona Kontrollflöde som en inkommande begäran, den korreleras med den överordnade igen. `BackgroundTask`och alla kapslade telemetri objekt automatiskt kopplas ihop med den begäran som orsakade det, även när begäran avslutas.
+I det här exemplet `telemetryClient.StartOperation` skapar `RequestTelemetry` och fyller Korrelations-kontexten. Anta att du har en överordnad åtgärd som har skapats av inkommande begäranden som schemalagda åtgärden. Så länge `BackgroundTask` startar i samma asynkrona Kontrollflöde som en inkommande begäran, den korreleras med den överordnade igen. `BackgroundTask` och alla kapslade telemetri objekt automatiskt kopplas ihop med den begäran som orsakade det, även när begäran avslutas.
 
 När aktiviteten startar från den bakgrundstråd som inte har någon åtgärd (`Activity`) som är kopplade till den, `BackgroundTask` inte har någon överordnad. Det kan dock ha kapslade åtgärder. Alla artiklar för telemetri som rapporterats från aktiviteten korrelerade till den `RequestTelemetry` skapas i `BackgroundTask`.
 
@@ -450,11 +450,11 @@ public async Task RunMyTaskAsync()
 
 Avyttra åtgärden orsakar åtgärden som ska stoppas, så att du kan göra det i stället för att anropa `StopOperation`.
 
-*Varning*: i vissa fall kan unhanded undantag [förhindra](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` anropas så åtgärder inte kan spåras.
+*Varning*: i vissa fall kan unhanded undantag [förhindra](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` anropas så åtgärder inte kan spåras.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Parallella åtgärder bearbetning och spårning
 
-`StopOperation`endast avbryts som startades. Om den aktuella åtgärden inte matchar det som du vill stoppa, `StopOperation` händer ingenting. Den här situationen kan inträffa om du startar flera åtgärder i samma körningskontexten parallellt:
+`StopOperation` endast avbryts som startades. Om den aktuella åtgärden inte matchar det som du vill stoppa, `StopOperation` händer ingenting. Den här situationen kan inträffa om du startar flera åtgärder i samma körningskontexten parallellt:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");

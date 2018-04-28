@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 503dcd87bf87ffb204b03780fc11f30825ac35ef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Anslutningsproblem med Azure punkt-till-plats
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller vanliga anslutningsproblem som kan uppstå i punkt
 
 ## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN-klientfel: Det gick inte att hitta ett certifikat
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -59,7 +59,7 @@ Mer information om hur du installerar klientcertifikatet finns [generera och exp
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN-klientfel: det mottagna meddelandet var oväntat eller felaktigt formaterat
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -82,7 +82,7 @@ Följ dessa steg för att lösa problemet:
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN-klientfel: en certifikatkedja bearbetas men avslutades 
 
-### <a name="symptom"></a>Symptom 
+### <a name="symptom"></a>Symtom 
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -102,7 +102,7 @@ När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas 
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Fel vid hämtning av filen: mål-URI har inte angetts
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 Följande felmeddelande visas:
 
@@ -118,7 +118,7 @@ VPN gateway-typen måste vara **VPN**, och VPN-typ måste vara **RouteBased**.
 
 ## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>VPN-klientfel: Azure VPN-anpassade skript misslyckades 
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -151,7 +151,7 @@ Extrahera VPN-klientpaketet för konfiguration och hitta .cer-fil. Följ dessa s
 
 ## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure portal fel: Det gick inte att spara VPN-gateway och data är ogiltiga
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du försöker spara ändringarna för VPN-gateway i Azure-portalen, visas följande felmeddelande:
 
@@ -186,7 +186,7 @@ Se till att data i certifikatet inte innehåller ogiltiga tecken, till exempel r
 
 ## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Azure portal fel: Det gick inte att spara VPN-gateway och resursnamnet är ogiltigt
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du försöker spara ändringarna för VPN-gateway i Azure-portalen, visas följande felmeddelande: 
 
@@ -198,7 +198,7 @@ Det här problemet beror på att namnet på certifikatet innehåller ett ogiltig
 
 ## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Azure portal fel: VPN-paketet filen fel vid hämtning av 503
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du försöker hämta konfigurationspaketet för VPN-klienten visas följande felmeddelande:
 
@@ -224,7 +224,7 @@ För varje VPN-gateway är det maximala antalet tillåtna anslutningar 128. Du k
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>Punkt-till-plats VPN felaktigt lägger till en väg för 10.0.0.0/8 routningstabellen
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När du ringer VPN-anslutningen på klienten punkt-till-plats VPN-klienten bör lägga till en väg till virtuella Azure-nätverket. IP-helper-tjänsten bör du lägga till en väg för undernätet för VPN-klienter. 
 
@@ -250,7 +250,7 @@ Ha vägar för andra nätverk som matas in i routningstabellen med längsta pref
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN-klienten kan inte komma åt filresurser över nätverket
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 VPN-klienten har anslutit till Azure-nätverket. Dock klienten kan inte komma åt nätverksresurser.
 
@@ -269,7 +269,7 @@ Undvik problemet genom att inaktivera cachelagring av autentiseringsuppgifter f�
 
 ## <a name="cannot-find-the-point-to-site-vpn-connection-in-windows-after-reinstalling-the-vpn-client"></a>Det går inte att hitta punkt-till-plats VPN-anslutningen i Windows efter ominstallationen VPN-klienten
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 Du tar bort punkt-till-plats VPN-anslutningen och sedan installera om VPN-klienten. I den här situationen har VPN-anslutningen inte konfigurerats korrekt. Du inte ser VPN-anslutningen i den **nätverksanslutningar** inställningar i Windows.
 
@@ -279,7 +279,7 @@ Lös problemet genom att ta bort de gamla klienten för VPN-konfigurationsfilern
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats VPN-klienten inte kan matcha FQDN för resurser i den lokala domänen
 
-### <a name="symptom"></a>Symptom
+### <a name="symptom"></a>Symtom
 
 När klienten ansluter till Azure med hjälp av punkt-till-plats VPN-anslutning, kan den inte kan lösa FQND resurser i den lokala domänen.
 
@@ -318,7 +318,7 @@ Det här felet uppstår om RADIUS-server som du använde för att autentisera VP
 
 ### <a name="solution"></a>Lösning
 
-Kontrollera att RADIUS-server är korrekt konfigurerad. Mer information finns i [integrera RADIUS-autentisering med Azure Multi-Factor Authentication-servern](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+Kontrollera att RADIUS-server är korrekt konfigurerad. Mer information finns i [integrera RADIUS-autentisering med Azure Multi-Factor Authentication-servern](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>”Error 405” när du hämtar rotcertifikat från VPN-Gateway
 

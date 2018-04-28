@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="traffic-analytics"></a>Trafik analytics
+# <a name="traffic-analytics"></a>Trafikanalys
 
 Trafik analytics är en molnbaserad lösning som ger inblick i användar- och programaktivitet i molnet nätverk. Trafik analytics analyserar Nätverksbevakaren nätverk grupp (NSG) flöde säkerhetsloggar för att ge insikter om trafikflöde i Azure-molnet. Med trafik analytics kan du:
 
@@ -42,7 +42,7 @@ Virtuella Azure-nätverk har NSG flödet loggarna, vilket ger dig information om
 - **Nätverk säkerhetsloggar grupp (NSG) flöde**: gör att du kan visa information om ingående och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG flödet loggarna skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel NIC flödet gäller för 5-tuppel information om flödet (källan/målet IP-adress, källan/målet port och protokoll), och om trafiken tilläts eller nekad. Mer information om flödet NSG-loggar finns [NSG flödet loggar](network-watcher-nsg-flow-logging-overview.md).
 - **Logga Analytics**: Azure-tjänst som samlar in övervakningsdata och lagrar data i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data som tillhandahålls via Azure API. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakning av program som nätverket performance monitor och trafik analytics är byggda med logganalys som grund. Mer information finns i [logga analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Logga analytics-arbetsyta**: en instans av logganalys data som hör till ett Azure-konto ska lagras. Mer information om log analytics arbetsytor finns [skapa logganalys-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Nätverk Watcher**: en regionala tjänst som gör att du kan övervaka och diagnostisera villkor på en nivå för scenariot i Azure. Du kan aktivera NSG flödet loggar och inaktivera med Nätverksbevakaren. Mer information finns i [Nätverksbevakaren](network-watcher-monitoring-overview.md#network-watcher).
+- **Nätverk Watcher**: en regionala tjänst som gör att du kan övervaka och diagnostisera villkor på en nivå för scenariot i Azure. Du kan aktivera NSG flödet loggar och inaktivera med Nätverksbevakaren. Mer information finns i [Nätverksbevakaren](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Hur fungerar trafiken analytics 
 

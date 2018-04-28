@@ -1,26 +1,26 @@
 ---
-title: Använda Azure Active Directory B2C för att skydda ett ASP.NET webb-API – självstudiekurs
+title: Självstudie – Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med Azure Active Directory B2C | Microsoft Docs
 description: Självstudiekurs som visar hur du använder Active Directory B2C för att skydda ett ASP.NET webb-API och anropa det från en ASP.NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 editor: ''
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Självstudiekurs: Använda Azure Active Directory B2C för att skydda ett ASP.NET webb-API
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med Azure Active Directory B2C
 
 Den här självstudien lär dig anropa en webb-API-resurs som skyddas av Azure Active Directory (Azure AD) B2C från en ASP.NET-webbapp.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera ett webb-API i en Azure AD B2C-klientorganisation
@@ -45,7 +45,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
 
 1. Välj **Azure AD B2C** i listan över tjänster i Azure Portal.
 
-2. I B2C-inställningarna klickar du på **Program** och sedan på **+ Lägg till**.
+2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**.
 
     Registrera webb-API-exemplet i klientorganisationen med följande inställningar.
     
@@ -89,11 +89,13 @@ Konfigurera omfång för API:t genom att lägga till följande poster.
 | **Omfång** | Hello.Read | Läsåtkomst till hello |
 | **Omfång** | Hello.Write | Skrivåtkomst till hello |
 
+Klicka på **Spara**.
+
 De publicerade omfången kan användas för att tilldela behörighet för webb-API till ett klientprogram.
 
 ### <a name="grant-app-permissions-to-web-api"></a>Tilldela appbehörighet till webb-API
 
-Om du vill anropa ett skyddat webb-API från en app måste du ge appen åtkomst till API:t. 
+Om du vill anropa ett skyddat webb-API från en app måste du ge appen åtkomst till API:t. I den här självstudiekursen använder du webbappen i [Använda Azure Active Directory B2C för användarautentisering i en ASP.NET webbapp](active-directory-b2c-tutorials-web-app.md). 
 
 1. I Azure Portal väljer du **Azure AD B2C** från listan med tjänster och klickar på **Program** för att visa den registrerade applistan.
 
@@ -109,7 +111,7 @@ Om du vill anropa ett skyddat webb-API från en app måste du ge appen åtkomst 
 
 **My Sample Web App** är registrerad för att anropa den skyddade **My Sample Web API**. En användare [autentiserar](../active-directory/develop/active-directory-dev-glossary.md#authentication) med Azure AD B2C för att använda appen. Webbappen får ett [auktoriseringsbeviljande](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
 
-## <a name="update-web-api-code"></a>Uppdatera webb-API-koden
+## <a name="update-code"></a>Uppdatera kod
 
 När webb-API:et är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så den använder din Azure AD B2C-klientorganisation. I den här självstudiekursen konfigurerar du ett webb-API-exempel. 
 
@@ -137,11 +139,11 @@ Exempelwebbappen och webb-API:et definierar konfigurationsvärdena som appinstä
 
 3. Konfigurera en URI för API:et. Det här är den URI som webbappen använder för API-anrop. Ställ även in de behörigheter som krävs.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
@@ -162,7 +164,7 @@ Exempelwebbappen och webb-API:et definierar konfigurationsvärdena som appinstä
 4. Uppdatera principinställningarna med det namn som skapades när du skapade principerna för registrering och inloggning.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Konfigurera inställningen för omfång så den överensstämmer med det du skapade i portalen.
@@ -172,7 +174,7 @@ Exempelwebbappen och webb-API:et definierar konfigurationsvärdena som appinstä
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## <a name="run-the-sample-web-app-and-web-api"></a>Kör exempelwebbappen och webb-API:et
+## <a name="run-the-sample"></a>Kör exemplet
 
 Du måste köra både **TaskWebApp**- och **TaskService**-projektet. 
 

@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
@@ -21,9 +21,9 @@ Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör O
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration
 
-* Azure CLI 2.0: Du kan [installera det lokalt][azure-cli-install] eller använda det i [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI 2.0: [installera det lokalt][azure-cli-install] eller använd det i [Azure Cloud Shell][azure-cloud-shell].
 
-* Azure CLI 2.7+: Du kan [installera det lokalt][helm-cli-install] eller använda det i [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: [installera det lokalt][helm-cli-install] eller använd det i [Azure Cloud Shell][azure-cloud-shell].
 
 * Behörigheter för att skapa tjänstens huvudnamn med deltagarrollen på din Azure-prenumeration
 

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
+ms.date: 04/06/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
-Den här kursen visar hur du lägger till en anpassad domän i en Azure CDN-slutpunkt. När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
+Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
 
 När du har skapat en CDN-slutpunkt i din profil inkluderas slutpunktsnamnet (det vill säga en underdomän till azureedge.net) i URL för leverans av CDN-innehåll som standard (till exempel https:\//contoso.azureedge.net/photo.png). Med Azure CDN kan du associera en anpassad domän med en CDN-slutpunkt. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för slutpunktsnamnet (till exempel https:\//www.contoso.com/photo.png). 
 
@@ -49,7 +49,8 @@ Innan du kan använda en anpassad domän med en Azure CDN-slutpunkt måste du f�
 
 En anpassad domän och dess underdomän kan endast associeras med en slutpunkt åt gången. Men du kan använda olika underdomäner från samma anpassade domän för olika Azure-tjänstslutpunkter genom att använda flera CNAME-poster. Du kan också mappa en anpassad domän med olika underdomäner till samma CDN-slutpunkt.
 
-## <a name="map-temporary-cdnverify-subdomain"></a>Mappa tillfällig cdnverify-underdomän
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>Mappa den tillfälliga underdomänen cdnverify
 
 När du mappar en befintlig domän som är i produktion finns några saker att tänka på. Medan du registrerar din anpassade domän i Azure Portal kan det uppstå en kort tids driftstopp. För att undvika störningar i webbtrafiken mappar du först din anpassade domän till CDN-slutpunktens värdnamn med Azure cdnverify-underdomänen för att skapa en tillfällig CNAME-mappning. Den här metoden gör att användare kan komma åt din domän utan avbrott under tiden DNS-mappningen utförs. 
 
@@ -135,7 +136,8 @@ När du har slutfört registreringen av den anpassade domänen kan du kontroller
 
 2. Navigera till filens adress genom att använda den anpassade domänen i webbläsaren. Om din anpassade domän till exempel är cdn.contoso.com ska URL:en till den cachelagrade filen se ut ungefär som följande URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg.
 
-## <a name="map-permanent-custom-domain"></a>Mappa permanent anpassad domän
+
+## <a name="map-the-permanent-custom-domain"></a>Mappa den permanenta anpassade domänen
 
 Om du har kontrollerat att underdomänen cdnverify har mappats till slutpunkten (eller om du använder en ny anpassad domän som inte är i produktion) kan du mappa den anpassade domänen direkt till CDN-slutpunktens värdnamn.
 
@@ -160,6 +162,8 @@ Skapa en CNAME-post för den anpassade domänen:
 4. Spara ändringarna.
 
 5. Om du tidigare skapade en tillfällig CNAME-post för underdomänen cdnverify tar du bort den. 
+
+6. Om du använder den här anpassade domänen i produktion för första gången följer du anvisningarna under [Associera en anpassad domän med CDN-slutpunkten](#associate-the-custom-domain-with-your-cdn-endpoint) och [Verifiera den anpassade domänen](#verify-the-custom-domain).
 
 Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
@@ -192,8 +196,6 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 7. Om du har en CNAME-post för underdomänen cdnverify väljer du pennikonen bredvid den och sedan papperskorgsikonen.
 
 8. Välj **Ta bort** för att ta bort CNAME-posten.
-
-Om du använder den här anpassade domänen i produktion för första gången följer du anvisningarna under [Associera en anpassad domän med CDN-slutpunkten](#associate-the-custom-domain-with-your-cdn-endpoint) och [Verifiera den anpassade domänen](#verify-the-custom-domain).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

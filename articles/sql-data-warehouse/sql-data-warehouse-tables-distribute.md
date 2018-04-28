@@ -1,42 +1,38 @@
 ---
-title: "Utforma vägledning för distribuerade register - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Rekommendationer för att utforma hash-distribueras och resursallokering tabeller i Azure SQL Data Warehouse."
+title: Distribuerade tabeller utforma vägledning - Azure SQL Data Warehouse | Microsoft Docs
+description: Rekommendationer för att utforma hash-distribueras och resursallokering distribuerade tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Vägledning för att utforma distribuerade tabeller i Azure SQL Data Warehouse
+Rekommendationer för att utforma hash-distribueras och resursallokering distribuerade tabeller i Azure SQL Data Warehouse.
 
-Den här artikeln ger rekommendationer för att utforma distribuerade tabeller i Azure SQL Data Warehouse. Hash-distribuerade tabellerna förbättra frågeprestanda på stora faktatabeller och är fokus för den här artikeln. Resursallokering tabeller är användbara för att förbättra hastighet för inläsning. De här valen har en betydande inverkan på förbättra frågan och inläsning av prestanda.
+Den här artikeln förutsätter att du är bekant med datadistribution och begrepp för flytt av data i SQL Data Warehouse.  Mer information finns i [Azure SQL Data Warehouse - arkitektur med massivt parallell bearbetning (MPP)](massively-parallel-processing-mpp-architecture.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du är bekant med datadistribution och begrepp för flytt av data i SQL Data Warehouse.  Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikel. 
+## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
+En distribuerad tabell visas som en enda tabell, men raderna lagras över 60-distributioner. Raderna distribueras med hash eller resursallokering algoritm.  
+
+**Hash-distribuerade tabeller** förbättra frågeprestanda på stora faktatabeller och är fokus för den här artikeln. **Resursallokering tabeller** är användbara för att förbättra hastighet för inläsning. De här valen har en betydande inverkan på förbättra frågan och inläsning av prestanda.
+
+En annan tabellagring är att replikera en mindre tabell över Compute-noder. Mer information finns i [utforma vägledning för replikerade tabeller](design-guidance-for-replicated-tables.md). Snabbt mellan de tre alternativen finns distribuerade tabeller i den [tabeller översikt](sql-data-warehouse-tables-overview.md). 
 
 Som en del av tabelldesign, Förstå så mycket som möjligt om dina data och hur data efterfrågas.  Till exempel tänka på följande:
 
 - Hur stor är tabellen?   
 - Hur ofta uppdateras tabellen?   
 - Måste jag fakta-och dimensionstabeller i ett informationslager?   
-
-## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
-En distribuerad tabell visas som en enda tabell, men raderna lagras över 60-distributioner. Raderna distribueras med hash eller resursallokering algoritm. 
-
-En annan tabellagring är att replikera en mindre tabell över Compute-noder. Mer information finns i [utforma vägledning för replikerade tabeller](design-guidance-for-replicated-tables.md). Snabbt mellan de tre alternativen finns distribuerade tabeller i den [tabeller översikt](sql-data-warehouse-tables-overview.md). 
 
 
 ### <a name="hash-distributed"></a>Hash distribueras
@@ -67,7 +63,7 @@ Därför måste systemet ibland att anropa en åtgärd för flytt av data för a
 - Om kopplingen är mindre viktig än andra kopplingar i frågan
 - När tabellen är en tillfällig mellanlagring tabell
 
-Kursen [läser in data från Azure Storage blob](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på att läsa in data i en resursallokering mellanlagringstabellen.
+Kursen [belastningen New York tag taxi data till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på att läsa in data i en resursallokering mellanlagringstabellen.
 
 
 ## <a name="choosing-a-distribution-column"></a>Om du väljer en kolumn för distribution
@@ -91,7 +87,7 @@ WITH
 ;
 ``` 
 
-Att välja en kolumn för distribution är ett viktigt beslut eftersom värdena i den här kolumnen bestämmer hur rader ska distribueras. Det bästa valet beror på flera faktorer, och innefattar vanligen kompromisser. Om du inte väljer den bästa kolumnen första gången, du kan dock använda [Skapa tabell AS Välj (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) att återskapa tabellen med en annan distributionsplats-kolumn. 
+Att välja en kolumn för distribution är ett viktigt beslut eftersom värdena i den här kolumnen bestämmer hur rader ska distribueras. Det bästa valet beror på flera faktorer, och innefattar vanligen kompromisser. Om du inte väljer den bästa kolumnen första gången, du kan dock använda [Skapa tabell AS Välj (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) att återskapa tabellen med en annan distributionsplats-kolumn. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Välj en distribution-kolumn som inte kräver uppdateringar
 Du kan inte uppdatera en distribution kolumn om du inte ta bort raden och infoga en ny rad med de uppdaterade värdena. Därför ska du markera en kolumn med statiska värden. 
@@ -129,7 +125,7 @@ Nästa steg är att läsa in data i tabellen när du utformar en distribuerad ha
 När data läses in i en distribuerad hash-tabell, kontrollerar du hur raderna är jämnt mellan de 60-distributioner. Rader per distribution kan variera upp till 10% utan märkbar effekt på prestanda. 
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Avgöra om tabellen innehåller data som skeva
-Ett snabbt sätt att söka efter data förskjutning är att använda [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Följande SQL-kod returnerar antalet rader som lagras i var och en av de 60-distributioner. För belastningsutjämnade prestanda fördelas raderna i tabellen distribuerade jämnt över alla distributioner.
+Ett snabbt sätt att söka efter data förskjutning är att använda [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Följande SQL-kod returnerar antalet rader som lagras i var och en av de 60-distributioner. För belastningsutjämnade prestanda fördelas raderna i tabellen distribuerade jämnt över alla distributioner.
 
 ```sql
 -- Find data skew for a distributed table

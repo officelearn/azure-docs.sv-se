@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten | Microsoft Docs"
-description: "I den här snabbstarten får du se hur du läser in indata i Azure Blob Storage och kör ett arbetsflöde genom Microsoft Genomics-tjänsten."
+title: 'Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten | Microsoft Docs'
+description: I den här snabbstarten får du se hur du läser in indata i Azure Blob Storage och kör ett arbetsflöde genom Microsoft Genomics-tjänsten.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -39,7 +39,7 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
  |:-------------       |:-------------         |:----------            |
  |Kontonamn         | MittGenomicsKonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn |
  |Prenumeration         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
- |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. För mer information, se [Resursgrupper] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Plats                   | Västra USA 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
 
 
@@ -174,4 +174,4 @@ När arbetsflödet har slutförts kan du visa utdatafilerna i ditt Azure Storage
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du laddat upp exempelindata i Azure Storage och skickat ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [par FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Flera FASTQ eller BAM](quickstart-input-multiple.md) 
+I den här artikeln har du laddat upp exempelindata i Azure Storage och skickat ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [par FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Flera FASTQ eller BAM](quickstart-input-multiple.md). Du kan även utforska den här självstudien med hjälp av vår [Azure-självstudie som anteckningsbok.](http://aka.ms/genomicsnotebook)

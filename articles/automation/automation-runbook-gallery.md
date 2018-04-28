@@ -1,6 +1,6 @@
 ---
-title: "Azure Automation Runbook- och stänga"
-description: "Runbooks och moduler från Microsoft och communityn är tillgängliga för dig att installera och använda i Azure Automation-miljön.  Den här artikeln beskriver hur du kan använda dessa resurser och bidra runbooks i galleriet."
+title: Azure Automation Runbook- och stänga
+description: Runbooks och moduler från Microsoft och communityn är tillgängliga för dig att installera och använda i Azure Automation-miljön.  Den här artikeln beskriver hur du kan använda dessa resurser och bidra runbooks i galleriet.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6a9298c0b7331bfa8af76eb904d256f6302816bf
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fe0e38e384f9f3d40bc6f7556cdb5e6dee9b4395
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation Runbook- och stänga
 Du kan komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn istället för att skapa egna runbooks och moduler i Azure Automation.  Du kan antingen använda de här scenarierna utan ändringar eller använda dem som en startpunkt och redigera dem för dina specifika krav.
@@ -25,7 +25,7 @@ Den [Runbook-galleriet](http://gallery.technet.microsoft.com/scriptcenter/site/s
 Du kan bara importera direkt från Runbook-galleriet med Azure-portalen. Du kan inte utföra den här funktionen med Windows PowerShell.
 
 > [!NOTE]
-> Du bör verifiera innehållet i alla runbooks du hämta från Runbook-galleriet och vara mycket försiktig installera och köra dem i en produktionsmiljö. |
+> Du bör verifiera innehållet i alla runbooks du hämta från Runbook-galleriet och vara mycket försiktig installera och köra dem i en produktionsmiljö.
 > 
 > 
 
@@ -78,7 +78,7 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
    
    * Modulnamn
    * Taggar
-   * Skapa
+   * Författare
    * Cmdlet/DSC-resurs
 6. Hitta en modul som du är intresserad av och markera den att visa information.  
    När du detaljerat en modul kan du visa mer information om modulen, inklusive en länk till PowerShell-galleriet alla obligatoriska beroenden och alla cmdlets och/eller DSC-resurser som innehåller modulen.

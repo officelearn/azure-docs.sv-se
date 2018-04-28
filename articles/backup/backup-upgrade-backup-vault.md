@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Säkerhetskopieringsvalvet uppgraderas till Recovery Services-valvet
 Den här artikeln innehåller en översikt över vilka Recovery Services-valvet tillhandahåller, vanliga frågor och svar om hur du uppgraderar en befintlig säkerhetskopia valvet Recovery Services-valvet och åtgärder efter uppgradering. Recovery Services-valvet motsvarar Azure Resource Manager ett säkerhetskopieringsvalv som innehåller dina säkerhetskopierade data. Data är om vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer, lokalt eller i Azure.
@@ -60,7 +60,7 @@ Den andra skärmen visar hjälp länkarna som är tillgängliga som hjälper dig
 Recovery Services-ventilen har stöd för att ange Tidszonsinformationen i princip för säkerhetskopiering. När valvet har uppgraderats, gå till principer för säkerhetskopiering från valvet inställningsmenyn och uppdatera informationen om tidszonen för var och en av de principer som konfigurerats i valvet. Den här skärmen visas redan Säkerhetskopieringsschemat tiden som angetts som per lokal tidszon som används när du har skapat principen. 
 
 ## <a name="enhanced-security"></a>Förbättrad säkerhet
-När ett säkerhetskopieringsvalv uppgraderas till Recovery Services-valvet, aktiveras automatiskt säkerhetsinställningarna för det valvet. När säkerhetsinställningarna finns på vissa åtgärder, till exempel ta bort säkerhetskopior eller ändra en lösenfras kräva en [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN-kod. Mer information om förbättrad säkerhet finns i artikeln [säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar](backup-azure-security-feature.md). När Förbättrad säkerhet är aktiverad bevaras data upp till 14 dagar efter punkt återställningsinformation har tagits bort från valvet. Kunder som debiteras för lagring av den här säkerhetsdata. Säkerhet datalagring gäller återställningspunkter för Azure Backup-agenten, Azure Backup Server och System Center Data Protection Manager. 
+När ett säkerhetskopieringsvalv uppgraderas till Recovery Services-valvet, aktiveras automatiskt säkerhetsinställningarna för det valvet. När säkerhetsinställningarna finns på vissa åtgärder, till exempel ta bort säkerhetskopior eller ändra en lösenfras kräva en [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN-kod. Mer information om förbättrad säkerhet finns i artikeln [säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar](backup-azure-security-feature.md). När Förbättrad säkerhet är aktiverad bevaras data upp till 14 dagar efter punkt återställningsinformation har tagits bort från valvet. Kunder som debiteras för lagring av den här säkerhetsdata. Säkerhet datalagring gäller återställningspunkter för Azure Backup-agenten, Azure Backup Server och System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Samla in data på ditt valv
 När du uppgraderar till Recovery Services-valvet Konfigurera rapporter för Azure Backup (för IaaS-VM och Microsoft Azure Recovery Services agent) och använda Power BI åtkomst till rapporter. Mer information om insamling av data finns i artikeln [konfigurera Azure Backup rapporterar](backup-azure-configure-reports.md).

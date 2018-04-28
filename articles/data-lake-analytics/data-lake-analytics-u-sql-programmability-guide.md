@@ -1,8 +1,8 @@
 ---
-title: "U-SQL-programmering guide för Azure Data Lake | Microsoft Docs"
-description: "Mer information om en uppsättning tjänster i Azure Data Lake som gör att du kan skapa en molnbaserad stordataplattform."
+title: U-SQL-programmering guide för Azure Data Lake | Microsoft Docs
+description: Mer information om en uppsättning tjänster i Azure Data Lake som gör att du kan skapa en molnbaserad stordataplattform.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: a241199ff8441d76d48d297b69af05a604d2a423
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL-programmering guide
 
@@ -37,7 +37,7 @@ Titta på följande U-SQL-skript:
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
-    ) AS D( customer, amount );
+    ) AS D( customer, amount, date );
 
 @results =
   SELECT
@@ -88,7 +88,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Använd C#-uttryck för dagens datum
 
-Hämta dagens datum, använder vi följande C#-uttryck:`DateTime.Now.ToString("M/d/yyyy")`
+Hämta dagens datum, använder vi följande C#-uttryck: `DateTime.Now.ToString("M/d/yyyy")`
 
 Här är ett exempel på hur du använder det här uttrycket i ett skript:
 
@@ -536,9 +536,9 @@ Den `IFormatter` gränssnittet Serialiserar och frigör Serialiserar ett objektd
 
 * **Serialisera**: Serialiserar ett objekt eller diagram över objekt med den angivna roten till den angivna dataströmmen.
 
-`MyType`instans: instans av typen.  
-`IColumnWriter`skrivaren / `IColumnReader` reader: den underliggande kolumn strömmen.  
-`ISerializationContext`kontexten: uppräkning som definierar en uppsättning flaggor som anger källan eller målet kontext för dataströmmen under serialiseringen.
+`MyType` instans: instans av typen.  
+`IColumnWriter` skrivaren / `IColumnReader` reader: den underliggande kolumn strömmen.  
+`ISerializationContext` kontexten: uppräkning som definierar en uppsättning flaggor som anger källan eller målet kontext för dataströmmen under serialiseringen.
 
 * **Mellanliggande**: Anger att kontexten källan eller målet inte är beständiga arkivet.
 
@@ -1270,9 +1270,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`kallas för varje inkommande rad. Returnerar den `IUnstructuredWriter output` raduppsättningen.
+* `Output` kallas för varje inkommande rad. Returnerar den `IUnstructuredWriter output` raduppsättningen.
 * Klassen konstruktor används för att skicka parametrar till användardefinierade outputter.
-* `Close`används för att åsidosätta (valfritt) om du vill frigöra dyra tillstånd eller kontrollera när den sista raden har skrivits.
+* `Close` används för att åsidosätta (valfritt) om du vill frigöra dyra tillstånd eller kontrollera när den sista raden har skrivits.
 
 **SqlUserDefinedOutputter** attributet anger att typen ska registreras som en användardefinierad outputter. Den här klassen kan inte ärvas.
 

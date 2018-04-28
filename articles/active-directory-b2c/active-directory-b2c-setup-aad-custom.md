@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory B2C: Lägg till en Azure AD-provider med hjälp av anpassade principer | Microsoft Docs"
-description: "Lär dig mer om Azure Active Directory B2C anpassade principer"
+title: 'Azure Active Directory B2C: Lägg till en Azure AD-provider med hjälp av anpassade principer | Microsoft Docs'
+description: Lär dig mer om Azure Active Directory B2C anpassade principer
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Logga in med hjälp av Azure AD-konton
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en viss Azure Active Directory (AD Azure) organisation med [anpassade principer](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
@@ -46,12 +46,12 @@ Aktivera inloggning för användare från en specifik Azure AD-organisation, må
 > Vi använder ”contoso.com” för organisations Azure AD-klient och ”fabrikamb2c.onmicrosoft.com” som Azure AD B2C-klient i följande instruktioner.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj ditt konto på den översta raden. Från den **Directory** Välj organisations Azure AD-klient som du vill registrera ditt program (contoso.com).
-1. Välj **fler tjänster** i den vänstra rutan och söka efter ”App registreringar”.
-1. Välj **nya appregistrering**.
-1. Ange ett namn för ditt program (till exempel `Azure AD B2C App`).
-1. Välj **webbapp / API** för programmet.
-1. För **inloggnings-URL**, ange följande URL, där `yourtenant` ersättas med namnet på din Azure AD B2C-klient (`fabrikamb2c.onmicrosoft.com`):
+2. Välj ditt konto på den översta raden. Från den **Directory** Välj organisations Azure AD-klient som du vill registrera ditt program (contoso.com).
+3. Välj **fler tjänster** i den vänstra rutan och söka efter ”App registreringar”.
+4. Välj **Ny programregistrering**.
+5. Ange ett namn för ditt program (till exempel `Azure AD B2C App`).
+6. Välj **Webbapp/API** som programtyp.
+7. För **inloggnings-URL**, ange följande URL, där `yourtenant` ersättas med namnet på din Azure AD B2C-klient (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >Värdet för ”yourtenant” måste vara gemener i den **inloggnings-URL**.
@@ -60,10 +60,10 @@ Aktivera inloggning för användare från en specifik Azure AD-organisation, må
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Spara programmet-ID.
-1. Välj nyligen skapade programmet.
-1. Under den **inställningar** bladet väljer **nycklar**.
-1. Skapa en ny nyckel och spara den. Du använder den i stegen i nästa avsnitt.
+8. Spara programmet-ID.
+9. Välj nyligen skapade programmet.
+10. Under den **inställningar** bladet väljer **nycklar**.
+11. Anger en beskrivning av nyckeln, markerar du en varaktighet och klicka sedan på **spara**. Värdet för nyckeln visas. Kopiera den eftersom det används i stegen i nästa avsnitt.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Lägg till Azure AD-nyckel till Azure AD B2C
 

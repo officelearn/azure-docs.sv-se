@@ -1,26 +1,23 @@
 ---
-title: "Replikera en virtuell Azure-dator till en annan Azure-region (förhandsversion)"
-description: "Denna snabbstart innehåller de steg som krävs för att replikera en virtuell Azure-dator i en Azure-region till en annan region."
+title: Replikera en virtuell Azure-dator till en annan Azure-region (förhandsversion)
+description: Denna snabbstart innehåller de steg som krävs för att replikera en virtuell Azure-dator i en Azure-region till en annan region.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 02/07/2018
+ms.date: 04/08/2018
 ms.author: raynew
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replikera en virtuell Azure-dator till en annan Azure-region (förhandsversion)
 
-[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra de som är tillgängliga under planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
 I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region.
 

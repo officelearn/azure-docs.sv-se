@@ -1,25 +1,18 @@
 ---
 title: Importera data i Azure Search| Microsoft Docs
-description: "Lär dig hur du laddar upp data till ett index i Azure Search."
+description: Lär dig hur du laddar upp data till ett index i Azure Search.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: aa8d47c1-4ae6-4209-a8ce-48d5a9474707
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/05/2018
-ms.author: ashmaka
-ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.author: heidist
+ms.openlocfilehash: e54b89d31042d43a14379dea6daffd3e7763a64a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-in-azure-search"></a>Indexering i Azure Search
 > [!div class="op_single_selector"]
@@ -72,7 +65,7 @@ Ett snabbt sätt att utföra en preliminär kontroll av dokumentöverföringen �
 > [!TIP]
 > Många [Azure Search-kodexempel](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) innehåller inbäddade eller lättillgängliga datauppsättningar, som hjälper dig att snabbt komma igång. Portalen innehåller också en exempelindexerare och datakälla som består av en liten datauppsättning med fastighetsinformation (med namnet ”realestate-us-sample”). När du kör den förkonfigurerade indexeraren mot exempeldatakällan skapas ett index och fylls med dokument som du kan köra frågor mot i Sökutforskaren eller med hjälp av kod som du skriver.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Översikt över indexeraren](search-indexer-overview.md)
 + [Steg-för-steg-beskrivning av portalen: skapa, läsa in och avfråga ett index](search-get-started-portal.md)

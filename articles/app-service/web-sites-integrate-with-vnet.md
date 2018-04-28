@@ -1,8 +1,8 @@
 ---
-title: "Integrera en app med Azure-nätverk"
-description: "Visar hur du ansluter en app i Azure App Service till en ny eller befintlig Azure-nätverk"
+title: Integrera en app med Azure-nätverk
+description: Visar hur du ansluter en app i Azure App Service till en ny eller befintlig Azure-nätverk
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service virtuellt nätverk integrering och visar hur du ställer in den med appar i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Om du inte känner till virtuella Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med hjälp av en mängd olika tekniker för VPN. Mer information om virtuella Azure-nätverk som startar med den här informationen: [Azure översikt över virtuella nätverk][VNETOverview]. 
@@ -57,7 +57,8 @@ Här följer några saker att tänka på innan du ansluter ditt webbprogram till
 
 * VNet-Integration fungerar endast med appar i en **Standard**, **Premium**, eller **isolerad** priser plan. Om du aktiverar funktionen och skala din Apptjänstplan till ett som inte stöds prisavtal dina appar förlora sina anslutningar till Vnet som de använder. 
 * Om det virtuella nätverket målet redan finns måste den ha punkt-till-plats VPN aktiverad med en dynamisk routning gateway innan den kan anslutas till en app. Om din gateway har konfigurerats med statisk routning, kan du inte aktivera punkt-till-plats virtuella privata nätverk (VPN).
-* Det virtuella nätverket måste finnas i samma prenumeration som din App Service Plan(ASP). 
+* Det virtuella nätverket måste finnas i samma prenumeration som din App Service Plan(ASP).
+* Om din gateway finns redan med aktiverad punkt-till-plats, och den inte är i grundläggande SKU: N, inaktiveras IKEV2 i konfigurationen punkt-till-plats.
 * Appar som integreras med ett virtuellt nätverk använder DNS som har angetts för det virtuella nätverket.
 * Som standard dirigerar apparna integrerande endast trafik i ditt VNet baserat på de vägar som definieras i ditt VNet. 
 

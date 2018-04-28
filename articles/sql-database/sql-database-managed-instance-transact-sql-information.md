@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanteras instans T-SQL-skillnader från SQL Server 
 
@@ -393,7 +393,7 @@ Returnerar olika resultat följande variabler, uppgifter och vyer:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
-Varje hanteras instans har till 35 TB lagringsutrymme som är reserverade för Azure Premium diskutrymme och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Debiteras inte outnyttjat utrymme på disken, men den totala summan av Azure Premium diskstorlekar får inte överskrida 35 TB. I vissa fall kan innebära en hanterad instanstjänsten som inte behöver 8 TB totalt 35 TB Azure gränsen lagringsstorleken på grund av interna fragmentering. 
+Varje hanteras instans har till 35 TB lagringsutrymme som är reserverade för Azure Premium diskutrymme och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Debiteras inte outnyttjat utrymme på disken, men den totala summan av Azure Premium diskstorlekar får inte överskrida 35 TB. I vissa fall kan innebära en hanteras-instans som inte behöver 8 TB totalt 35 TB Azure gränsen lagringsstorleken på grund av interna fragmentering. 
 
 En hanterad instans kan till exempel ha en fil med 1,2 TB storlek som använder en disk med 4 TB och 248 filer med 1 GB varje som placeras på 248 diskar med 128 GB storlek. I det här exemplet är den totala lagringsstorleken 1 x 4 TB + 248 x 128 GB = 35 TB. Totalt antal reserverade instansstorleken för databaser är dock 1 x 1.2 TB + 248 x 1 GB = 1,4 TB. Detta visar att under vissa omständigheter på grund av en särskild fördelning av filer, en hanterad instans kan nå lagringsgränsen för Azure Premium-Disk där du inte kan förväntar. 
 

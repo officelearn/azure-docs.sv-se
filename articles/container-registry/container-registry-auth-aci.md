@@ -1,18 +1,18 @@
 ---
-title: "Autentisera med Azure-behållaren registret från Azure-Behållarinstanser"
-description: "Lär dig att ge åtkomst till bilder i registret privata behållare från Azure-Behållarinstanser med hjälp av en Azure Active Directory-tjänstens huvudnamn."
+title: Autentisera med Azure-behållaren registret från Azure-Behållarinstanser
+description: Lär dig att ge åtkomst till bilder i registret privata behållare från Azure-Behållarinstanser med hjälp av en Azure Active Directory-tjänstens huvudnamn.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 00d9632a5d0c42eceee1b412f8963bbadbea651f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c68516b46831168bd754fda06ce153f4d79ca741
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure-behållaren registret från Azure-Behållarinstanser
 
@@ -44,6 +44,13 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
+## <a name="sample-scripts"></a>Exempelskript
+
+Du hittar de föregående exempel på skript för Azure CLI på GitHub, som korrekt versioner för Azure PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>Nästa steg
 
 I följande artiklar innehåller ytterligare information om hur du arbetar med tjänstens huvudnamn och ACR:
@@ -54,5 +61,7 @@ I följande artiklar innehåller ytterligare information om hur du arbetar med t
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->

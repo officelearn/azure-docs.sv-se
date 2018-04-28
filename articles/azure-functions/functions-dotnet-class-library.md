@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# för utvecklare
 
@@ -44,7 +44,7 @@ I Visual Studio den **Azure Functions** projektmall skapar en C# klassbiblioteks
 > [!IMPORTANT]
 > Skapar skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd som ska redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Inaktivera en funktion med det [inaktivera](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribut. Till exempel lägga till en boolesk app inställningen MY_TIMER_DISABLED och använda `[Disable("MY_TIMER_DISABLED")]` till funktionen. Du kan aktivera och inaktivera det genom att ändra inställningen för appen.
 
-### <a name="functionname-and-trigger-attributes"></a>FunctionName och utlösare attribut
+## <a name="methods-recognized-as-functions"></a>Metoder som funktioner
 
 I klassbiblioteket, en funktion är en statisk metod med en `FunctionName` och attributet utlösare som visas i följande exempel:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-Den `FunctionName` attributet markerar metoden som en startpunkt för funktionen. Namnet måste vara unika inom ett projekt.
+Den `FunctionName` attributet markerar metoden som en startpunkt för funktionen. Namnet måste vara unika inom ett projekt. Projektmallar ofta skapa en metod med namnet `Run`, men metodnamnet kan vara en giltig C#-metodnamn.
 
 Trigger-attribut anger typen av utlösare och bindningar indata till en metodparameter. Funktionen exempel utlöses av ett kömeddelande och kön meddelandet skickas till metoden i den `myQueueItem` parameter.
 
-### <a name="additional-binding-attributes"></a>Ytterligare bindning attribut
+## <a name="method-signature-parameters"></a>Metodparametrarna för signatur
 
-Ytterligare ingående och utgående binda attribut kan användas. I följande exempel ändrar det föregående genom att lägga till en utgående kö-bindning. Funktionen skriver indatakö meddelandet till ett nytt meddelande i kön i en annan kö.
+Metodsignaturen kan innehålla andra parametrar än den som används med attributet utlösare. Här följer några ytterligare parametrar som du kan inkludera:
+
+* [Indata och utdata bindningar](functions-triggers-bindings.md) märkas som sådana av pynta dem med attribut.  
+* En `ILogger` eller `TraceWriter` parameter för [loggning](#logging).
+* En `CancellationToken` parameter för [korrekt avslutning](#cancellation-tokens).
+* [Bindningsuttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) parametrar för att visa utlösa metadata.
+
+Ordningen för parametrar i funktionssignaturen spelar ingen roll. Exempelvis kan du placera utlösaren parametrar före eller efter andra bindningar och du kan ange parametern loggaren före eller efter utlösare eller bindande parametrar.
+
+### <a name="output-binding-example"></a>Exempel på utdata-bindning
+
+I följande exempel ändrar det föregående genom att lägga till en utgående kö-bindning. Funktionen skriver kömeddelandet som utlöser funktionen för att ett nytt meddelande i kön i en annan kö.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Ordningen på parametrar
+Bindningen referensartiklar ([lagringsköer](functions-bindings-storage-queue.md), till exempel) förklarar vilka parametertyper som du kan använda med utlösare, indata eller utdata binda attribut.
 
-Ordningen för parametrar i funktionssignaturen spelar ingen roll. Exempelvis kan du placera utlösaren parametrar före eller efter andra bindningar och du kan ange parametern loggaren före eller efter utlösare eller bindande parametrar.
+### <a name="binding-expressions-example"></a>Bindande uttryck exempel
 
-### <a name="binding-expressions"></a>Bindande uttryck
-
-Du kan använda bindande uttryck i attributet konstruktorparametrarna och parametrar. Till exempel följande kod hämtar namnet på kön att övervaka en appinställning och hämtar tiden för skapandet av kön meddelandet i den `insertionTime` parameter.
+Följande kod hämtar namnet på kön att övervaka en appinställning och hämtar tiden för skapandet av kön meddelandet i den `insertionTime` parameter.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Mer information finns i **bindande uttryck och mönster** i [utlösare och bindningar](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Konvertering till function.json
+## <a name="autogenerated-functionjson"></a>Automatiskt genererade function.json
 
 Skapar skapar en *function.json* fil i en function-mappen i mappen build. Som tidigare nämnts är den här filen inte avsedd som ska redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. 
 
@@ -134,7 +141,7 @@ Den genererade *function.json* filen innehåller en `configurationSource` egensk
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet-paketet
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 Den *function.json* Filgenerering utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.funktioner](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ Den `Sdk` paketet beror också på [Newtonsoft.Json](http://www.nuget.org/packag
 
 Källkoden för `Microsoft.NET.Sdk.Functions` finns i GitHub-repo [azure\-funktioner\-vs\-skapa\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Körningsversion
+## <a name="runtime-version"></a>Körningsversion
 
 Visual Studio använder den [Azure Functions grundläggande verktyg](functions-run-local.md#install-the-azure-functions-core-tools) att köra funktioner projekt. Grundläggande verktyg är ett kommandoradsgränssnitt för Functions-runtime.
 

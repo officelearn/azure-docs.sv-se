@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 61632bfc8848fb5a5bcbcda7c1e60e763448ce23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76d14b0d9bf14c6b9f342b0aae8fd42e871ea18d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
@@ -81,7 +81,7 @@ Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publ
 12. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
-Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det går inte att göra det, men om du inte har den autentisera med de autentiseringsuppgifter som anges i den [krav](#prerequisites). Det gör du med den **Add-AzureRmAccount** cmdlet.
+Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det går inte att göra det, men om du inte har den autentisera med de autentiseringsuppgifter som anges i den [krav](#prerequisites). Det gör du med den **Connect-AzureRmAccount** cmdlet.
 
 1. Öppna Redigeraren för textrepresentation genom att klicka på **redigera** på sidan MyFirstRunbook PowerShell.
 2. Du behöver den **Write-Output** rad längre, och nu måste du ta bort den.
@@ -89,7 +89,7 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
    <br>
@@ -99,11 +99,11 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
 Nu när din runbook autentiseras till din Azure-prenumeration, kan du hantera resurser. Du lägger till ett kommando för att starta en virtuell dator. Du kan välja en virtuell dator i din Azure-prenumeration och för nu du hårdkoda som namn i runbook.
 
-1. Efter *Add-AzureRmAccount* skriver du *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* och anger namnet och resursgruppsnamnet för den virtuella dator som ska starta.  
+1. Efter *Connect-AzureRmAccount*, typen *Start AzureRmVM-namnet 'VMName' - ResourceGroupName 'NameofResourceGroup'* att ange namnet och resursgruppens namn för den virtuella datorn ska starta.  
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
@@ -122,7 +122,7 @@ Din runbook startar den virtuella datorn som du hårdkodad i runbook, men det ka
     [string]$ResourceGroupName
    )
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    ```

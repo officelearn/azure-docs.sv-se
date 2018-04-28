@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för ett SaaS-program för flera innehavare som använder databasen geo-replikering
 
-I kursen får utforska du en fullständig katastrofåterställning för ett SaaS-program för flera innehavare som implementeras med hjälp av databasen per klient-modellen. Om du vill skydda appen från ett avbrott måste du använda [ _georeplikering_ ](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) att skapa repliker för katalogen och klient-databaser i en annan återställning region. Om ett avbrott inträffar kan växlar du snabbt över till de här replikeringarna att återuppta normal verksamheten. Vid redundans blir databaser i den ursprungliga regionen sekundära repliker för databaserna i området för återställning. När dessa repliker är tillbaka online fånga de automatiskt upp till tillståndet för databaserna i området för återställning. När driftstörningarna har åtgärdats, växlar tillbaka till databaserna i produktionsområdet för.
+I kursen får utforska du en fullständig katastrofåterställning för ett SaaS-program för flera innehavare som implementeras med hjälp av databasen per klient-modellen. Om du vill skydda appen från ett avbrott måste du använda [ _georeplikering_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) att skapa repliker för katalogen och klient-databaser i en annan återställning region. Om ett avbrott inträffar kan växlar du snabbt över till de här replikeringarna att återuppta normal verksamheten. Vid redundans blir databaser i den ursprungliga regionen sekundära repliker för databaserna i området för återställning. När dessa repliker är tillbaka online fånga de automatiskt upp till tillståndet för databaserna i området för återställning. När driftstörningarna har åtgärdats, växlar tillbaka till databaserna i produktionsområdet för.
 
 Den här självstudiekursen utforskar både redundans och återställning av arbetsflöden. Du lär dig hur du:
 > [!div classs="checklist"]
@@ -82,7 +82,7 @@ I kursen får använda du först geo-replikering för att skapa repliker Wingtip
 Senare i ett separat hemtransport steg växlar över katalog och klient-databaser i området för återställning till den ursprungliga regionen. Program och databaser förblir tillgängliga i hela hemtransport. När du är färdig fungerar programmet fullt ut i den ursprungliga regionen.
 
 > [!Note]
-> Programmet återställs till den _parad region_ för den region där programmet har distribuerats. Mer information finns i [Azure länkas regioner](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> Programmet återställs till den _parad region_ för den region där programmet har distribuerats. Mer information finns i [Azure länkas regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Granska felfri statusen för programmet
 
@@ -103,7 +103,7 @@ Granska den normala hälsotillstånd för programmet innan du startar återstäl
 I den här uppgiften kan du starta en process som synkroniserar konfigurationen av servrar, elastiska pooler och databaser till klient-katalogen. Processen för att hålla informationen aktuell i katalogen.  Processen fungerar med den aktiva katalogen om den ursprungliga regionen eller i området för återställning. Konfigurationsinformationen används som en del av återställningsprocessen så Återställningsmiljön i är konsekvent med den ursprungliga miljön, och sedan senare under hemtransport så den ursprungliga regionen görs konsekvent med ändringar som görs i den Återställningsmiljö. Katalogen används också för att hålla reda på återställningstillstånd av klienternas resurser
 
 > [!IMPORTANT]
-> För enkelhetens skull implementeras synkroniseringen och andra långvariga återställning och hemtransport i dessa självstudiekurser som lokala Powershell jobb eller sessioner som körs under din klient användarinloggning. Autentiseringstoken som utfärdas när du loggar in upphör att gälla efter flera timmar och sedan jobben misslyckas. I ett produktionsscenario med bör tidskrävande processer implementeras som tillförlitliga Azure-tjänster av något slag, körs under ett huvudnamn för tjänsten. Se [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> För enkelhetens skull implementeras synkroniseringen och andra långvariga återställning och hemtransport i dessa självstudiekurser som lokala Powershell jobb eller sessioner som körs under din klient användarinloggning. Autentiseringstoken som utfärdas när du loggar in upphör att gälla efter flera timmar och sedan jobben misslyckas. I ett produktionsscenario med bör tidskrävande processer implementeras som tillförlitliga Azure-tjänster av något slag, körs under ett huvudnamn för tjänsten. Se [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. I den _PowerShell ISE_, öppna filen ...\Learning Modules\UserConfig.psm1. Ersätt `<resourcegroup>` och `<user>` på rader 10 och 11 med det värde som används när du har distribuerat appen.  Spara filen!
 
@@ -181,7 +181,7 @@ Nu anta att det finns ett avbrott i den region där programmet distribueras och 
 
 2. Tryck **F5** för att köra skriptet.  
     * Skriptet öppnas i ett nytt PowerShell-fönster och startar sedan en serie med PowerShell-jobb som körs parallellt. Dessa jobb växlar över klient databaser till regionen som recovery.
-    * Återställning regionen är de _parad region_ som är associerade med Azure-regionen där du distribuerade programmet. Mer information finns i [Azure länkas regioner](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * Återställning regionen är de _parad region_ som är associerade med Azure-regionen där du distribuerade programmet. Mer information finns i [Azure länkas regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Övervaka status för återställningsprocessen i PowerShell-fönstret.
     ![Failover-processen](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -310,4 +310,4 @@ Mer information om tekniker som Azure SQL database tillhandahåller för att akt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Ytterligare självstudier som bygger på Wingtip SaaS-program](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Ytterligare självstudier som bygger på Wingtip SaaS-program](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

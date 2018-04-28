@@ -1,25 +1,25 @@
 ---
-title: "Apptyper för Azure Active Directory v2.0-slutpunkten | Microsoft Docs"
-description: "Typer av appar och scenarier som stöds av Azure Active Directory v2.0-slutpunkten."
+title: Apptyper för Azure Active Directory v2.0-slutpunkten | Microsoft Docs
+description: Typer av appar och scenarier som stöds av Azure Active Directory v2.0-slutpunkten.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: hpsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 291cd1adaf36d7f02aae84f97b7f7b3e6bca2c9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Apptyper för Azure Active Directory v2.0-slutpunkten
 Azure Active Directory (AD Azure) v2.0-slutpunkten stöder autentisering för en rad olika moderna apparkitekturer alla baserat på branschstandardprotokollen [OAuth 2.0- eller OpenID Connect](active-directory-v2-protocols.md). Den här artikeln beskriver typerna av appar som du kan skapa med hjälp av Azure AD v2.0, oavsett din önskat språk eller en plattform. Informationen i den här artikeln är utformat för att hjälpa dig att förstå övergripande scenarierna innan du [börjar arbeta med kod](active-directory-appmodel-v2-overview.md#getting-started).
@@ -120,4 +120,4 @@ I det här flödet appen kommunicerar direkt med den `/token` slutpunkten för a
 
 ![Daemon för app-flöde för autentisering](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Om du vill skapa en daemon app finns i dokumentationen för autentiseringsuppgifter av klienter i vår [komma igång](active-directory-appmodel-v2-overview.md#getting-started) avsnittet eller försök med en [.NET sample-appen](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Om du vill skapa en daemon app finns i [klienten autentiseringsuppgifter dokumentationen](active-directory-v2-protocols-oauth-client-creds.md), eller försök en [.NET sample-appen](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

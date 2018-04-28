@@ -1,11 +1,11 @@
 ---
-title: "Skapa en anpassad avsökning - Azure Application Gateway - PowerShell | Microsoft Docs"
-description: "Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med PowerShell i Resource Manager"
+title: Skapa en anpassad avsökning - Azure Application Gateway - PowerShell | Microsoft Docs
+description: Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med PowerShell i Resource Manager
 services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökningsåtgärd för Programgateway i Azure med hjälp av PowerShell för Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -39,10 +39,10 @@ I den här artikeln, lägger du till en anpassad avsökning en befintlig Program
 
 ### <a name="sign-in-and-create-resource-group"></a>Logga in och skapa resursgrupp
 
-1. Använd `Login-AzureRmAccount` för autentisering.
+1. Använd `Connect-AzureRmAccount` för autentisering.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. Få prenumerationer för kontot.

@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory identitetsskydd | Microsoft Docs
-description: "Lär dig hur Azure AD Identity Protection gör att du kan begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet och att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad."
+description: Lär dig hur Azure AD Identity Protection gör att du kan begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet och att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad.
 services: active-directory
-keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
-documentationcenter: 
+keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
@@ -368,7 +368,7 @@ Vi rekommenderar att du behöver Azure Multi-Factor authentication för använda
 
 ![Användarprincip ridk](./media/active-directory-identityprotection/1019.png "ridk användarprincip")
 
-Mer information finns i [vad är Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Mer information finns i [vad är Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 Azure AD Identity Protection hjälper dig att hantera lansering av multifaktorautentisering registrering genom att konfigurera en princip som gör att du kan:
 

@@ -1,24 +1,26 @@
 ---
 title: Uppgradera till den senaste generationen Azure SQL Data Warehouse | Microsoft Docs
-description: Steg för att uppgradera Azure SQL Data Warehouse till senaste generationens Azure maskin- och storage-arkitektur.
+description: Uppgradera Azure SQL Data Warehouse till senaste generationens Azure maskin- och storage-arkitektur.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 724f027f3f43cd0ad846210b511c8fc1af27153f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
+Uppgradera Azure SQL Data Warehouse till senaste generationens Azure maskin- och storage-arkitektur.
 
-Du kan nu sömlöst uppgradera till optimerad för beräkning prestandanivån i Azure-portalen. Om du har en optimerad för elasticitet data warehouse, rekommenderas du uppgradera för den senaste generationen Azure maskin- och en Förbättrad lagring-arkitektur. Du kommer att kunna dra nytta av bättre prestanda och högre skalbarhet obegränsad kolumner lagring. 
+## <a name="why-upgrade"></a>Varför uppgradera?
+Du kan nu sömlöst uppgradera till optimerad för beräkning prestandanivån i Azure-portalen. Uppgradera rekommenderas om du har en optimerad för elasticitet data warehouse. Genom att uppgradera, du kan använda den senaste generationen Azure maskinvara och förbättrad lagringsarkitektur. Du kan dra nytta av bättre prestanda och högre skalbarhet obegränsad kolumner lagring. 
 
 ## <a name="applies-to"></a>Gäller för
 Den här uppgraderingen gäller datalager i optimerad för elasticitet prestandanivå.
@@ -28,12 +30,6 @@ Den här uppgraderingen gäller datalager i optimerad för elasticitet prestanda
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-
-> [!NOTE]
-> Från och med 3/30, måste du ha [server nivån granskning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) avstängd innan du påbörjar uppgraderingen.
-> 
->
-
 > [!NOTE]
 > Om din befintliga optimerade för elasticitet datalagret inte är i en region där optimerade för beräkningen är tillgänglig, kan du [geo-återställning för att optimera för beräkning](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell till en region som stöds.
 > 

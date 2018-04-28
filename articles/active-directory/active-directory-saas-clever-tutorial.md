@@ -1,10 +1,10 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Clever | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Clever."
+title: 'Självstudier: Azure Active Directory-integrering med Clever | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Clever.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Självstudier: Azure Active Directory-integrering med Clever
 
@@ -32,7 +32,7 @@ Integrera Clever med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Clever, behöver du följande:
 
@@ -101,37 +101,37 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
 3. På den **smarta domän och URL: er** avsnittet, utför följande steg:
 
     ![URL: er och smarta domän med enkel inloggning information](./media/active-directory-saas-clever-tutorial/tutorial_clever_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://clever.com/in/<companyname>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://clever.com/in/<companyname>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://clever.com/<companyname>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://clever.com/<companyname>`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [smarta klienten supportteamet](https://clever.com/about/contact/) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
-
-    ![Länken hämta certifikatet](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
 5. Smarta programmet förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till attributmappningar till din **SAML-Token attribut** konfiguration.
 
     Följande skärmbild visar ett exempel för det här.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png)
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden ovan och utför följande steg:
     
     | Attributnamn  | Attributvärde |
-    | --------------- | -------------------- |    
+    | --------------- | -------------------- |
     | clever.student.Credentials.District\_användarnamn  | User.userPrincipalName |
     | Förnamn  | User.givenName |
-    | Efternamn  | User.surname |    
+    | Efternamn  | User.surname |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 
@@ -145,39 +145,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Lämna den **Namespace** textruta tomt.
     
-    d. Klicka på **OK**.     
-
-5. Klicka på **spara** knappen.
+    d. Klicka på **OK**.
+    
+7. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-8. Att generera den **Metadata** url, utför följande steg:
+8. I en annan webbläsarfönster loggar du in på webbplatsen smarta företag som administratör.
 
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
-     
-    d. Gå till egenskapssidan för **Clever** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-9. I en annan webbläsarfönster loggar du in på webbplatsen smarta företag som administratör.
-
-10. I verktygsfältet klickar du på **Instant inloggningen**.
+9. I verktygsfältet klickar du på **Instant inloggningen**.
 
     ![Direkt inloggning](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant inloggning")
 
-11. På den **Instant inloggningen** utför följande steg:
+10. På den **Instant inloggningen** utför följande steg:
       
       ![Direkt inloggning](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant inloggning")
       
@@ -188,13 +168,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
       
       b. Som **identitetssystem**väljer **ADFS**.
 
-      c. Typ av **Metadata-URL** i den **URL för tjänstmetadata** textruta.
+      c. I den **URL för tjänstmetadata** textruta klistra in **webbadress Federation Metadata** värde som du har kopierat från Azure-portalen.
       
       d. Klicka på **Spara**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -227,12 +203,12 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-clever-test-user"></a>Skapa en smarta testanvändare
 
 Om du vill aktivera Azure AD-användare kan logga in på Clever etableras de i Clever.
 
-Arbeta med vid Clever, [smarta klienten supportteamet](https://clever.com/about/contact/) att lägga till användare i smarta plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+Arbeta med vid Clever, [smarta klienten supportteamet](https://clever.com/about/contact/) att lägga till användare i smarta plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 >[!NOTE]
 >Du kan använda något annat smarta användarens konto skapas verktyg eller API: er som tillhandahålls av Clever att etablera Azure AD-användarkonton.
@@ -241,17 +217,17 @@ Arbeta med vid Clever, [smarta klienten supportteamet](https://clever.com/about/
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Clever.
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
 **Om du vill tilldela Clever Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
-    ![Tilldela användare][201] 
+    ![Tilldela användare][201]
 
 2. Välj i listan med program **Clever**.
 
-    ![Clever länken i listan med program](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
+    ![Clever länken i listan med program](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
@@ -266,13 +242,13 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på panelen smarta åtkomst på panelen du ska hämta automatiskt loggat in på smarta programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

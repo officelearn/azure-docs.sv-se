@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Onboarding-datorer för hantering av Azure Automation DSC
 
@@ -31,7 +31,7 @@ Azure Automation DSC kan användas för att hantera en mängd olika datorer:
 Dessutom om du inte är redo att hantera datorkonfigurationen från molnet kan Azure Automation DSC också användas som en endast rapport-slutpunkt. På så sätt kan du ange (push) önskad konfiguration via DSC lokala och visa omfattande rapportering på noden kompatibilitet med tillståndet i Azure Automation.
 
 > [!NOTE]
-> Hantera virtuella Azure-datorer med DSC ingår utan extra kostnad om virtuella DSC-tillägg som installeras är större än 2.70. Referera till den [ **Automation sida med priser** ](https://azure.microsoft.com/en-us/pricing/details/automation/) för mer information.
+> Hantera virtuella Azure-datorer med DSC ingår utan extra kostnad om virtuella DSC-tillägg som installeras är större än 2.70. Referera till den [ **Automation sida med priser** ](https://azure.microsoft.com/pricing/details/automation/) för mer information.
 
 
 I följande avsnitt beskrivs hur du kan publicera varje typ av dator till Azure Automation DSC.
@@ -53,7 +53,7 @@ Att hitta URL: en för registrering och nyckeln för Automation-konto för att p
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -195,7 +195,7 @@ Datorn som kommandot körs från måste ha den senaste versionen av [WMF 5](http
 
 ## <a name="generating-dsc-metaconfigurations"></a>Generera DSC metaconfigurations
 
-Att publicera Allmänt någon dator till Azure Automation DSC en [DSC-metakonfigurationen](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) kan genereras som, när tillämpas, talar om DSC-agenten på datorn för att hämta från och/eller rapportera till Azure Automation DSC. DSC-metaconfigurations för Azure Automation DSC kan genereras med hjälp av en PowerShell DSC-konfiguration eller Azure Automation PowerShell-cmdlets.
+Att publicera Allmänt någon dator till Azure Automation DSC en [DSC-metakonfigurationen](https://msdn.microsoft.com/powershell/dsc/metaconfig) kan genereras som, när tillämpas, talar om DSC-agenten på datorn för att hämta från och/eller rapportera till Azure Automation DSC. DSC-metaconfigurations för Azure Automation DSC kan genereras med hjälp av en PowerShell DSC-konfiguration eller Azure Automation PowerShell-cmdlets.
 
 > [!NOTE]
 > DSC-metaconfigurations innehåller hemligheterna behövs till publicera en dator till ett Automation-konto för hantering. Se till att skydda alla DSC-metaconfigurations som du skapar eller tar bort dem efter användning.
@@ -329,7 +329,7 @@ Att publicera Allmänt någon dator till Azure Automation DSC en [DSC-metakonfig
 Om standardinställningarna PowerShell DSC Local Configuration Manager som matchar dina användningsfall och du vill publicera datorer så att de hämtar från såväl rapportera till Azure Automation DSC, ger Azure Automation-cmdlets en förenklad metoden för att skapa DSC metaconfigurations behövs:
 
 1. Öppna PowerShell-konsolen eller PowerShell ISE som administratör på en dator i din lokala miljö.
-2. Anslut till Azure Resource Manager med **Add-AzureRmAccount**
+2. Anslut till Azure Resource Manager med hjälp av **Connect-AzureRmAccount**
 3. Ladda ned PowerShell DSC-metaconfigurations för datorer som du vill ska publiceras från Automation-kontot som du vill publicera noder:
 
     ```powershell

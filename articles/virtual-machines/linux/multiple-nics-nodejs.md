@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a4e19f232abce8701e6d2e12a876c55079b91a2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Skapa en virtuell Linux-dator med flera nätverkskort som använder Azure CLI 1.0
 Du kan skapa en virtuell dator (VM) i Azure som har flera virtuella nätverksgränssnitt (NIC) ansluten till den. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln innehåller snabb kommandon för att skapa en virtuell dator med flera nätverkskort som är kopplade till den. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
@@ -163,7 +163,7 @@ Du kan också använda en `copyIndex()` att sedan lägga till ett tal till ett r
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Du kan läsa en komplett exempel på [skapar flera nätverkskort med hjälp av Resource Manager-mallar](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Du kan läsa en komplett exempel på [skapar flera nätverkskort med hjälp av Resource Manager-mallar](../../virtual-network/template-samples.md).
 
 När du lägger till flera nätverkskort till en Linux-VM, måste du skapa regler för routning. De här reglerna kan den virtuella datorn att skicka och ta emot trafik som hör till ett visst nätverkskort. Annars trafik som hör till eth1, till exempel kan inte bearbetas på rätt sätt med definierade standardvägen. För att åtgärda problemet routning finns [konfigurera gästoperativsystemet för flera nätverkskort](multiple-nics.md#configure-guest-os-for-multiple-nics).
 

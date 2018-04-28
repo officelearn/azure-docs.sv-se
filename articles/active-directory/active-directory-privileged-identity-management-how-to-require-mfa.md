@@ -1,11 +1,11 @@
 ---
-title: "Hur du kan kräva multifaktorautentisering | Microsoft Docs"
-description: "Lär dig att kräva multifaktorautentisering (MFA) för privilegierade identiteter med Azure Active Directory Privileged Identity Management-tillägget."
+title: Hur du kan kräva multifaktorautentisering | Microsoft Docs
+description: Lär dig att kräva multifaktorautentisering (MFA) för privilegierade identiteter med Azure Active Directory Privileged Identity Management-tillägget.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 42552b4b8a7b2704a94786518f411f922dbd6a81
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Så här kräver du MFA i Azure AD Privileged Identity Management
 Vi rekommenderar att du kräver multifaktorautentisering (MFA) för alla dina administratörer. Detta minskar risken för angrepp på grund av en komprometterad lösenord.
@@ -41,9 +41,9 @@ Du kan dessutom ändra MFA-kravet för en viss roll genom att klicka på den i a
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Hur Azure AD PIM verifierar MFA
 Det finns två alternativ för att verifiera MFA när en användare aktiverar rollen.
 
-Det enklaste alternativet är att lita på Azure MFA för användare som aktiverar en privilegierad roll. Om du vill göra detta du först kontrollera att dessa användare licensieras om det behövs och har registrerat dig för Azure MFA. Mer information om hur du gör detta finns i [komma igång med Azure Multi-Factor Authentication i molnet](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md). Det rekommenderas, men inte krävs att du konfigurerar Azure AD för att införa MFA för dessa användare när de loggar in. Det beror på att MFA-kontroller ska göras av Azure AD PIM sig själv.
+Det enklaste alternativet är att lita på Azure MFA för användare som aktiverar en privilegierad roll. Om du vill göra detta du först kontrollera att dessa användare licensieras om det behövs och har registrerat dig för Azure MFA. Mer information om hur du gör detta finns i [komma igång med Azure Multi-Factor Authentication i molnet](authentication/howto-mfa-getstarted.md). Det rekommenderas, men inte krävs att du konfigurerar Azure AD för att införa MFA för dessa användare när de loggar in. Det beror på att MFA-kontroller ska göras av Azure AD PIM sig själv.
 
-Om användare som autentiseras lokalt kan du ha identitetsprovider ansvara för MFA. Om du har konfigurerat AD Federation Services för att kräva smartkortbaserad autentisering innan du använder Azure AD, till exempel [skydda molnresurser med Azure Multi-Factor Authentication och AD FS](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md) innehåller anvisningar för att konfigurera AD FS för att skicka anspråk till Azure AD. När en användare försöker aktivera en roll, accepterar Azure AD PIM att MFA har redan verifierats för användaren när den tar emot rätt anspråk.
+Om användare som autentiseras lokalt kan du ha identitetsprovider ansvara för MFA. Om du har konfigurerat AD Federation Services för att kräva smartkortbaserad autentisering innan du använder Azure AD, till exempel [skydda molnresurser med Azure Multi-Factor Authentication och AD FS](authentication/howto-mfa-adfs.md) innehåller anvisningar för att konfigurera AD FS för att skicka anspråk till Azure AD. När en användare försöker aktivera en roll, accepterar Azure AD PIM att MFA har redan verifierats för användaren när den tar emot rätt anspråk.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg

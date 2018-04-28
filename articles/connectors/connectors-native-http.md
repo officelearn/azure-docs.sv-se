@@ -1,11 +1,11 @@
 ---
-title: "Kommunicerar med valfri slutpunkt över HTTP - Azure Logic Apps | Microsoft Docs"
-description: "Skapa logikappar som kan kommunicera med valfri slutpunkt över HTTP"
+title: Kommunicerar med valfri slutpunkt över HTTP - Azure Logic Apps | Microsoft Docs
+description: Skapa logikappar som kan kommunicera med valfri slutpunkt över HTTP
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Kom igång med HTTP-åtgärd
 
@@ -131,7 +131,7 @@ Nedan visas utdata information för HTTP-svaret.
 | Statuskod |int |HTTP-statuskod |
 
 ## <a name="authentication"></a>Autentisering
-Funktionen Logic Apps kan du använda olika typer av autentisering mot HTTP-slutpunkter. Du kan använda den här autentiseringen med den **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, och  **[HTTP Webhook](connectors-native-webhook.md)**  kopplingar. Följande typer av autentisering kan konfigureras:
+Funktionen Logic Apps kan du använda olika typer av autentisering mot HTTP-slutpunkter. Du kan använda den här autentiseringen med den **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, och **[HTTP Webhook](connectors-native-webhook.md)** kopplingar. Följande typer av autentisering kan konfigureras:
 
 * [Grundläggande autentisering](#basic-authentication)
 * [Autentisering av klientcertifikat](#client-certificate-authentication)
@@ -150,7 +150,7 @@ A * innebär att det är ett obligatoriskt fält.
 
 > [!TIP]
 > Om du vill använda ett lösenord som inte kan hämtas från definition, Använd en `securestring` parameter och `@parameters()`  
->  [definition arbetsflödesfunktion](http://aka.ms/logicappdocs).
+>  [definition arbetsflödesfunktion](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Exempel:
 
@@ -169,12 +169,12 @@ Följande autentiseringsobjekt krävs för autentisering av klientcertifikat. A 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
 | Typen * |typ |Typ av autentisering (måste vara `ClientCertificate` för SSL-klientcertifikat) |
-| PFX* |pfx |Base64-kodad innehållet i filen Personal Information Exchange (PFX) |
+| PFX * |Pfx |Base64-kodad innehållet i filen Personal Information Exchange (PFX) |
 | Lösenord * |lösenord |Lösenord för åtkomst till PFX-filen |
 
 > [!TIP]
 > Om du vill använda en parameter som inte läsas i definitionen när du har sparat logikappen som du kan använda en `securestring` parameter och `@parameters()`  
->  [definition arbetsflödesfunktion](http://aka.ms/logicappdocs).
+>  [definition arbetsflödesfunktion](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Exempel:
 
@@ -195,10 +195,10 @@ Följande autentiseringsobjekt krävs för Azure AD OAuth-autentisering. A * inn
 | Klient * |klient |Klient-ID för Azure AD-klient |
 | Målgruppen * |målgrupp |Den resurs som du begär tillstånd att använda. Exempel: `https://management.core.windows.net/` |
 | Klient -ID * |clientId |Klient-ID för Azure AD-program |
-| Secret* |hemlighet |Hemligheten för klienten som begär token |
+| Hemligt * |hemlighet |Hemligheten för klienten som begär token |
 
 > [!TIP]
-> Du kan använda en `securestring` parameter och `@parameters()` [definition arbetsflödesfunktion](http://aka.ms/logicappdocs) att använda en parameter som inte läsas i definitionen när du har sparat.
+> Du kan använda en `securestring` parameter och `@parameters()` [definition arbetsflödesfunktion](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) att använda en parameter som inte läsas i definitionen när du har sparat.
 > 
 > 
 

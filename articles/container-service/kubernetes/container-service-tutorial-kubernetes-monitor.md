@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6dc5ce87e1e7a8629e96426701d4ac691fa4c687
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Övervaka ett Kubernetes-kluster med Log Analytics
 
@@ -27,8 +27,8 @@ Den här självstudiekursen, som är del sju av sju, tar upp följande uppgifter
 
 > [!div class="checklist"]
 > * Hämta inställningar för Log Analytics-arbetsytan
-> * Ställa in OMS-agenterna på Kubernetes-noderna
-> * Åtkomst till övervakningsinformation i OMS- eller Azure-portalen
+> * Konfigurera Log Analytics-agenter på Kubernetes-noderna
+> * Åtkomst till övervakningsinformation i Log Analytics-portalen eller Azure Portal
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -38,7 +38,7 @@ Om du inte har gjort det här och vill följa med återgår du till [Självstudi
 
 ## <a name="get-workspace-settings"></a>Hämta inställningar för arbetsyta
 
-När du har åtkomst till [OMS-portalen](https://mms.microsoft.com) navigerar du till **Inställningar** > **Anslutna källor** > **Linux-servrar**. Där hittar du *arbetsyte-ID* och en primär eller sekundär *arbetsytenyckel*. Anteckna dessa värden. Du behöver dem när du ställer in OMS-agenterna i klustret.
+När du har åtkomst till [Log Analytics-portalen](https://mms.microsoft.com) går du till **Inställningar** > **Anslutna källor** > **Linux-servrar**. Där hittar du *arbetsyte-ID* och en primär eller sekundär *arbetsytenyckel*. Anteckna dessa värden. Du behöver dem när du ställer in Log Analytics-agenterna i klustret.
 
 ## <a name="create-kubernetes-secret"></a>Skapa Kubernetes-hemlighet
 
@@ -48,7 +48,7 @@ Lagra inställningarna för Log Analytics-arbetsytan i en Kubernetes-hemlighet s
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
 ```
 
-## <a name="set-up-oms-agents"></a>Ställ in OMS-agenter
+## <a name="set-up-log-analytics-agents"></a>Konfigurera Log Analytics-agenter
 
 Du kan använda följande Kubernetes-manifestfil för att konfigurera behållarens övervakningsagenter på ett Kubernetes-kluster. Det skapar ett Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) som kör en enda identisk pod på varje klusternod.
 
@@ -142,11 +142,11 @@ När agenterna har körts tar det flera minuter för Log Analytics att mata in o
 
 ## <a name="access-monitoring-data"></a>Åtkomst till övervakningsdata
 
-Visa och analysera övervakningsdata för behållaren med [behållarlösningen](../../log-analytics/log-analytics-containers.md) i OMS-portalen eller Azure Portal.
+Visa och analysera övervakningsdata för behållaren med [behållarlösningen](../../log-analytics/log-analytics-containers.md) i Log Analytics-portalen eller Azure Portal.
 
-När du vill installera behållarlösningen via [OMS-portalen](https://mms.microsoft.com) öppnar du **lösningsgalleriet**. Lägg sedan till **behållarlösning**. Du kan också lägga till behållarlösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+Installera behållarlösningen med [Log Analytics-portalen](https://mms.microsoft.com) genom att gå till **Lösningsgalleri**. Lägg sedan till **behållarlösning**. Du kan också lägga till behållarlösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-Sök efter en **Behållare**-sammanfattningspanel på instrumentpanelen i OMS-portalen. Klicka på panelen. Nu visas information om behållarhändelser, fel, status, avbildningslager och processor- och minnesanvändning. Om du vill ha mer detaljerad information klickar du på en rad på valfri panel eller utför en [loggsökning](../../log-analytics/log-analytics-log-searches.md).
+Sök efter en sammanfattningspanel för **Behållare** på instrumentpanelen i Log Analytics-portalen. Klicka på panelen. Nu visas information om behållarhändelser, fel, status, avbildningslager och processor- och minnesanvändning. Om du vill ha mer detaljerad information klickar du på en rad på valfri panel eller utför en [loggsökning](../../log-analytics/log-analytics-log-searches.md).
 
 ![Behållarinstrumentpanelen i OMS-portalen](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -160,8 +160,8 @@ I den här självstudien har du övervakat ditt Kubernetes-kluster med Log Analy
 
 > [!div class="checklist"]
 > * Hämta inställningar för Log Analytics-arbetsytan
-> * Ställa in OMS-agenterna på Kubernetes-noderna
-> * Åtkomst till övervakningsinformation i OMS- eller Azure-portalen
+> * Konfigurera Log Analytics-agenter på Kubernetes-noderna
+> * Åtkomst till övervakningsinformation i Log Analytics-portalen eller Azure Portal
 
 
 Följ den här länken om du vill se inbyggda skriptexempel för Container Service.

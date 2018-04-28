@@ -1,11 +1,11 @@
 ---
 title: Skapa en Azure IoT-hubb med en mall (PowerShell) | Microsoft Docs
-description: "Hur du använder en Azure Resource Manager-mall för att skapa en IoT-hubb med PowerShell."
+description: Hur du använder en Azure Resource Manager-mall för att skapa en IoT-hubb med PowerShell.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Skapa en IoT-hubb med hjälp av Azure Resource Manager-mall (PowerShell)
 
@@ -42,7 +42,7 @@ För att kunna genomföra den här kursen behöver du följande:
 Ange följande kommando för att logga in på Azure-prenumerationen i PowerShell-Kommandotolken:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla de Azure-prenumerationer som är kopplade till dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
@@ -51,7 +51,7 @@ Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla
 Get-AzureRMSubscription
 ```
 
-Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandona för att skapa din IoT-hubb. Du kan använda prenumerationsnamn eller ID från utdata från det föregående kommandot:
+Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandona för att skapa din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
 
 ```powershell
 Select-AzureRMSubscription `
@@ -157,7 +157,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i följande artiklar:
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

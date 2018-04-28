@@ -17,28 +17,28 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b3977e045751165947243c67291e81b998b5fcb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med hjälp av PowerShell
 
-Slutpunkter för virtuellt nätverk kan du begränsa nätverksåtkomsten till resurser i Azure-tjänsten som ett undernät för virtuellt nätverk. Du kan också ta bort internet-åtkomst till resurserna. Tjänsteslutpunkter ger direkt anslutning från det virtuella nätverket till stöds Azure-tjänster, så att du kan använda privata adressutrymmet för det virtuella nätverket för att komma åt Azure-tjänster. Trafik till Azure-resurser via Tjänsteslutpunkter alltid kvar på stamnät Microsoft Azure-nätverk. I den här artikeln får du lära dig hur du:
+Med virtuella nätverksslutpunkter kan du begränsa nätverksåtkomsten till vissa Azure-tjänsters resurser till ett undernät för virtuella datorer. Du kan också ta bort resursernas internetåtkomst. Tjänstslutpunkterna möjliggör direktanslutning från ditt virtuella nätverk till Azure-tjänster som stöds, så att du kan använda det privata adressutrymmet i det virtuella nätverket för åtkomst till Azure-tjänsterna. Trafik till Azure-resurser genom tjänstslutpunkterna finns alltid kvar i Microsoft Azure-stamnätverket. I den här artikeln kan du se hur du:
 
 * Skapa ett virtuellt nätverk med ett undernät
-* Lägg till ett undernät och aktivera en tjänstslutpunkt
-* Skapa en Azure-resurs och ge åtkomst till nätverket till den från bara ett undernät
+* Lägga till ett undernät och aktivera en tjänstslutpunkt
+* Skapa en Azure-resurs och tillåt nätverksåtkomst till den från enbart ett undernät
 * Distribuera en virtuell dator (VM) till varje undernät
 * Bekräfta åtkomst till en resurs från ett undernät
-* Bekräfta att åtkomst nekas till en resurs från ett undernät och internet
+* Bekräfta att åtkomst nekas för en resurs från ett undernät och internet
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt i den här artikeln kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt i den här artikeln kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -58,7 +58,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Skapa en konfiguration av undernät med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). I följande exempel skapas en konfiguration av undernät för ett undernät med namnet *offentliga*:
+Skapa en undernätskonfiguration med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). I följande exempel skapas en konfiguration av undernät för ett undernät med namnet *offentliga*:
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-for-a-subnet"></a>Begränsa nätverksåtkomsten till ett undernät
+## <a name="restrict-network-access-for-a-subnet"></a>Begränsa nätverksåtkomst för ett undernät
 
 Skapa nätverkssäkerhet grupp säkerhetsregler med [ny AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Följande regel tillåter utgående åtkomst till de offentliga IP-adresser som tilldelats till tjänsten Azure Storage: 
 
@@ -140,7 +140,7 @@ $rule3 = New-AzureRmNetworkSecurityRuleConfig `
   -SourcePortRange *
 ```
 
-Skapa en nätverkssäkerhetsgrupp med [ny AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsgPrivate*.
+Skapa en nätverkssäkerhetsgrupp med [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsgPrivate*.
 
 ```azurepowershell-interactive
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -163,9 +163,9 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-a-resource"></a>Begränsa nätverksåtkomsten till en resurs
+## <a name="restrict-network-access-to-a-resource"></a>Begränsa nätverksåtkomst till en resurs
 
-Stegen för att begränsa nätverksåtkomsten till resurser som skapats via Azure-tjänster aktiverad för slutpunkter varierar tjänster. Finns i dokumentationen för enskilda tjänster för specifika steg för varje tjänst. Resten av den här artikeln innehåller steg för att begränsa nätverksåtkomsten för ett Azure Storage-konto, som exempel.
+De steg som behövs för att begränsa nätverksåtkomsten till resurser som har skapats via Azure-tjänster som är aktiverade för tjänstslutpunkter varierar från tjänst till tjänst. Läs dokumentationen för enskilda tjänster för specifika åtgärder för varje tjänst. Resten av den här artikeln innehåller steg för att begränsa nätverksåtkomsten för ett Azure Storage-konto, som exempel.
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -192,7 +192,7 @@ $storageAcctKey = (Get-AzureRmStorageAccountKey `
 
 Nyckeln används för att skapa en filresurs i ett senare steg. Ange `$storageAcctKey` och anteckna värdet för, som du måste också ange den manuellt i ett senare steg när du mappar filresursen till en enhet på en virtuell dator.
 
-### <a name="create-a-file-share-in-the-storage-account"></a>Skapa en filresurs i storage-konto
+### <a name="create-a-file-share-in-the-storage-account"></a>Skapa en filresurs i lagringskontot
 
 Skapa en kontext för ditt lagringskonto och nyckeln med [ny AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext). Kontexten innehåller lagringskontots namn och åtkomstnyckel:
 
@@ -202,11 +202,11 @@ $storageContext = New-AzureStorageContext $storageAcctName $storageAcctKey
 
 Skapa en filresurs med [ny AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare):
 
-$share = New-AzureStorageShare my-file-share -Context $storageContext
+$share = New-AzureStorageShare min-filresurs - kontexten $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Neka alla nätverksåtkomst till ett lagringskonto
 
-Storage-konton godkänna anslutningar från klienter i ett nätverk som standard. Om du vill begränsa åtkomsten till valda nätverken, ändra standardåtgärden att *neka* med [uppdatering AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset). Lagringskontot är inte tillgänglig från alla nätverk när nätverksåtkomst nekas.
+Som standard godkänner lagringskonton nätverksanslutningar från klienter i alla nätverk. Om du vill begränsa åtkomsten till valda nätverken, ändra standardåtgärden att *neka* med [uppdatering AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset). Lagringskontot är inte tillgänglig från alla nätverk när nätverksåtkomst nekas.
 
 ```azurepowershell-interactive
 Update-AzureRmStorageAccountNetworkRuleSet  `
@@ -238,11 +238,11 @@ Add-AzureRmStorageAccountNetworkRule `
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Distribuera en virtuell dator till varje undernät för att testa nätverksåtkomst till ett lagringskonto.
+Om du vill testa nätverksåtkomsten till ett lagringskonto distribuerar du en virtuell dator till varje undernät.
 
-### <a name="create-the-first-virtual-machine"></a>Skapa den första virtuella datorn
+### <a name="create-the-first-virtual-machine"></a>Skapa din första virtuella dator
 
-Skapa en virtuell dator i den *offentliga* undernät med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör det kommando som följer tillfrågas du om autentiseringsuppgifter. De värden som du anger är konfigurerade som användarnamn och lösenord för den virtuella datorn. Den `-AsJob` alternativet skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg.
+Skapa en virtuell dator i den *offentliga* undernät med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör kommandot nedan uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn. Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -279,7 +279,7 @@ Det tar några minuter för Azure för att skapa den virtuella datorn. Fortsätt
 
 ## <a name="confirm-access-to-storage-account"></a>Bekräfta åtkomst till lagringskontot
 
-Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att returnera offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den *myVmPrivate* VM:
+Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den *myVmPrivate* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -288,22 +288,22 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Ersätt `<publicIpAddress>` i följande kommando, med den offentliga IP-adress returnerades från föregående kommando och ange följande kommando: 
+Ersätt `<publicIpAddress>` i följande kommando med den offentliga IP-adressen som returnerades från föregående kommando och ange sedan följande kommando: 
 
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
 
-En Remote Desktop Protocol (RDP)-fil skapas och hämtas till datorn. Öppna hämtade rdp-filen. Välj **Anslut**. Ange användarnamn och lösenord som du angav när du skapar den virtuella datorn. Du kan behöva välja **fler alternativ**, sedan **Använd ett annat konto**, för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn. Välj **OK**. Du kan få en certifikatvarning under inloggningen. Om varningen, väljer **Ja** eller **Fortsätt**, för att fortsätta med anslutningen.
+En RDP-fil (Remote Desktop Protocol) skapas och laddas ned till datorn. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. Välj **OK**. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
-På den *myVmPrivate* VM, mappa Azure-filresursen enhet Z med hjälp av PowerShell. Innan du kör kommandona som följer ersätta `<storage-account-key>` och `<storage-account-name>` med värden från du anges eller hämtas i [skapa ett lagringskonto](#create-a-storage-account).
+På den virtuella datorn *myVmPrivate* mappar du Azure-fildelningen till enhet Z med PowerShell. Innan du kör kommandona som följer ersätta `<storage-account-key>` och `<storage-account-name>` med värden från du anges eller hämtas i [skapa ett lagringskonto](#create-a-storage-account).
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
-PowerShell returnerar utdata som liknar följande exempel utdata:
+PowerShell returnerar utdata som liknar följande exempelutdata:
 
 ```powershell
 Name           Used (GB)     Free (GB) Provider      Root
@@ -311,7 +311,7 @@ Name           Used (GB)     Free (GB) Provider      Root
 Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
 ```
 
-Azure-filresursen som mappats till Z-enheten.
+Azure-fildelningen har mappats till enhet Z.
 
 Bekräfta att den virtuella datorn har ingen utgående anslutning till alla andra offentliga IP-adresser:
 
@@ -319,11 +319,11 @@ Bekräfta att den virtuella datorn har ingen utgående anslutning till alla andr
 ping bing.com
 ```
 
-Du får inga svar eftersom nätverkssäkerhetsgruppen som är kopplat till den *privata* undernät inte tillåter utgående åtkomst till den offentliga IP-adresser än de adresser som tilldelats till tjänsten Azure Storage.
+Du får inga svar eftersom nätverkssäkerhetsgruppen som är kopplad till det *privata* undernätet inte tillåter utgående åtkomst till offentliga IP-adresser förutom de adresser som är kopplade till Azure Storage-tjänsten.
 
-Stäng fjärrskrivbordssession till den *myVmPrivate* VM.
+Stäng fjärrskrivbordssessionen för den virtuella datorn *myVmPrivate*.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Bekräfta att åtkomst nekas till storage-konto
+## <a name="confirm-access-is-denied-to-storage-account"></a>Bekräfta att åtkomst till lagringskontot nekas
 
 Hämta den offentliga IP-adressen för den *myVmPublic* VM:
 
@@ -334,7 +334,7 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Ersätt `<publicIpAddress>` i följande kommando, med den offentliga IP-adress returnerades från föregående kommando och ange följande kommando: 
+Ersätt `<publicIpAddress>` i följande kommando med den offentliga IP-adressen som returnerades från föregående kommando och ange sedan följande kommando: 
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -348,9 +348,9 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-Åtkomst nekad till resursen och du får en `New-PSDrive : Access is denied` fel. Åtkomst nekas eftersom den *myVmPublic* VM distribueras i det *offentliga* undernät. Den *offentliga* undernätet har inte en tjänstslutpunkt aktiverat för Azure Storage och lagringskontot kan bara åtkomst till nätverket från den *privata* undernät, inte den *offentliga*undernät.
+Åtkomst nekad till resursen och du får en `New-PSDrive : Access is denied` fel. Åtkomst nekas eftersom den virtuella datorn *myVmPublic* distribueras i det *offentliga* undernätet. Det *offentliga* undernätet har ingen tjänstslutpunkt aktiverad för Azure Storage, och lagringskontot tillåter endast nätverksåtkomst från det *privata* undernätet, inte det *offentliga*.
 
-Stäng fjärrskrivbordssession till den *myVmPublic* VM.
+Stäng fjärrskrivbordssessionen för den virtuella datorn *myVmPublic*.
 
 Från datorn, försök visa filresurser i storage-konto med följande kommando:
 
@@ -364,7 +364,7 @@ Get-AzureStorageFile `
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) att ta bort resursgruppen och alla resurser som den innehåller:
+Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -372,6 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har aktiverat en tjänstslutpunkt för ett undernät för virtuellt nätverk i den här artikeln. Du har lärt dig att slutpunkter kan aktiveras för resurser som har distribuerats med Azure-tjänster. Du har skapat ett Azure Storage-konto och begränsad nätverksåtkomst till lagringskontot endast resurser inom ett undernät för virtuellt nätverk. Läs mer om Tjänsteslutpunkter i [översikt över slutpunkter](virtual-network-service-endpoints-overview.md) och [hantera undernät](virtual-network-manage-subnet.md).
+Du har aktiverat en tjänstslutpunkt för ett undernät för virtuellt nätverk i den här artikeln. Du har lärt dig att tjänstslutpunkter kan aktiveras för resurser som distribueras med flera Azure-tjänster. Du har skapat ett Azure Storage-konto och begränsat nätverksåtkomst för lagringskontot till enbart resurser inom ett undernät för ett virtuellt nätverk. Om du vill veta mer om tjänstslutpunkter går du till [Översikt över tjänstslutpunkter](virtual-network-service-endpoints-overview.md) och [Hantera undernät](virtual-network-manage-subnet.md).
 
-Om du har flera virtuella nätverk i ditt konto kan du vill ansluta två virtuella nätverk tillsammans så resurser inom varje virtuellt nätverk kan kommunicera med varandra. Mer information finns i avsnittet [ansluta virtuella nätverk](tutorial-connect-virtual-networks-powershell.md).
+Om du har flera virtuella nätverk i ditt konto kanske du vill ansluta två virtuella nätverk så att resurserna i vart och ett kan kommunicera med varandra. Mer information finns i avsnittet [ansluta virtuella nätverk](tutorial-connect-virtual-networks-powershell.md).

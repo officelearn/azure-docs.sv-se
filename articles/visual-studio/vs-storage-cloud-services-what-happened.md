@@ -2,23 +2,20 @@
 title: Vad hände med min molntjänstprojekt? | Microsoft Docs
 description: Beskriver vad som händer i ett projekt för cloud services när du ansluter till ett Azure storage-konto med hjälp av Visual Studio anslutna tjänster
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 8bbb87c313957ee697866a82ddec4c61d1420939
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e88e41edbd062f89e24915889f5b74660ec45513
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>Vad hände med min cloud services-projekt (Visual Studio Azure Storage ansluten service)?
 ## <a name="references-added"></a>Referenser som lagts till

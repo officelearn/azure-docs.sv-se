@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data
 
-Den här artikeln visar hur du samarbeta effektivt med hjälp av den _Word2Vec_ word bädda in algoritmen och _Sentiment-specifika ord bädda in (SSWE)_ algoritmen för att förutsäga Twitter-åsikter med [Azure Machine Learning](../preview/index.yml). Läs mer på Twitter-sentiment polaritet att förutsäga den [MachineLearningSamples TwitterSentimentPrediction databasen](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) på GitHub. Nyckeln till att underlätta effektiva gruppsamarbete på datavetenskap projekt är att standardisera struktur och dokumentation av projekt med en fastställd datavetenskap livscykel. Den [Team Data vetenskap processen (TDSP)](overview.md) ger den här typen av strukturerade [livscykel](lifecycle.md). 
+Den här artikeln visar hur du samarbeta effektivt med hjälp av den _Word2Vec_ word bädda in algoritmen och _Sentiment-specifika ord bädda in (SSWE)_ algoritmen för att förutsäga Twitter-åsikter med [Azure Machine Learning](../service/index.yml). Läs mer på Twitter-sentiment polaritet att förutsäga den [MachineLearningSamples TwitterSentimentPrediction databasen](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) på GitHub. Nyckeln till att underlätta effektiva gruppsamarbete på datavetenskap projekt är att standardisera struktur och dokumentation av projekt med en fastställd datavetenskap livscykel. Den [Team Data vetenskap processen (TDSP)](overview.md) ger den här typen av strukturerade [livscykel](lifecycle.md). 
 
-Skapa datavetenskap projekt med den _TDSP mallen_ innehåller det standardiserade ramverket för Azure Machine Learning-projekt. Tidigare TDSP-teamet släppte en [GitHub-lagringsplatsen för TDSP projektstruktur och mallar](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nu Machine Learning-projekt som instansieras med [TDSP mallar för Azure Machine Learning](https://github.com/amlsamples/tdsp) är aktiverade. Instruktioner finns i hur du använder [TDSP struktur projekt med mallen TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) i Azure Machine Learning. 
+Skapa datavetenskap projekt med den _TDSP mallen_ innehåller det standardiserade ramverket för Azure Machine Learning-projekt. Tidigare TDSP-teamet släppte en [GitHub-lagringsplatsen för TDSP projektstruktur och mallar](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nu Machine Learning-projekt som instansieras med [TDSP mallar för Azure Machine Learning](https://github.com/amlsamples/tdsp) är aktiverade. Instruktioner finns i hur du använder [TDSP struktur projekt med mallen TDSP](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) i Azure Machine Learning. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Twitter-sentiment polaritet exempel
@@ -131,7 +131,7 @@ Det sista steget är distributionen av utbildade sentiment förutsägelse modell
 
 ![Kubernetes-instrumentpanel](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Läs mer om operationalization [distribuera en Azure Machine Learning-modell som en webbtjänst](../preview/model-management-service-deploy.md).
+Läs mer om operationalization [distribuera en Azure Machine Learning-modell som en webbtjänst](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Sammanfattning
 
@@ -143,8 +143,8 @@ I den här artikeln beskrivs hur du tränar en modell för inbäddning av word m
 * [TDSP](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Hur du använder Team Data vetenskap processen (TDSP) i Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [TDSP projektmallar för Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [USA intäkter datauppsättning från UCI ML-databasen](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Biomedicinska entitet recognition med hjälp av TDSP mallar](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Biomedicinska entitet recognition med hjälp av TDSP mallar](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov Tomas, m.fl. ”Distribuerade representationer av ord och fraser och deras Compositionality. Avancerar i neural bearbeta system information ”. 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang Duyu, m.fl. ”Utbildning Sentiment-specifika ord inbäddning av klassificering för Twitter-Sentiment”. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

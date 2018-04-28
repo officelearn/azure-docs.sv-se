@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
 
@@ -40,10 +40,10 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
 
 ## <a name="configure-powershell"></a>Konfigurera PowerShell
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Add-AzureRmAccount**.
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Du bör se en inloggningsskärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.

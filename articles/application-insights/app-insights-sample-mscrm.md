@@ -1,8 +1,8 @@
 ---
 title: Microsoft Dynamics CRM och Azure Application Insights | Microsoft Docs
-description: "Hämta telemetri från Microsoft Dynamics CRM Online med hjälp av Application Insights. Genomgång av installationen, som hämtar data, visualisering och export."
+description: Hämta telemetri från Microsoft Dynamics CRM Online med hjälp av Application Insights. Genomgång av installationen, som hämtar data, visualisering och export.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mazharmicrosoft
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
 Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights skript i ditt program, data och datavisualisering.
@@ -60,7 +60,7 @@ Om du vill övervaka programmet, du lägger till en Application Insights SDK dit
     ![Öppna textredigeraren för](./media/app-insights-sample-mscrm/00004.png)
 2. Kopiera koden från Application Insights. När du kopierar, se till att ignorera skripttaggar. Se nedan skärmbild:
 
-    ![Ange din instrumentation nyckel](./media/app-insights-sample-mscrm/00005.png)
+    ![Ange din instrumentation nyckel](./media/app-insights-sample-mscrm/000005.png)
 
     Koden innehåller nyckeln instrumentation som identifierar din Application insights-resurs.
 3. Spara och publicera.

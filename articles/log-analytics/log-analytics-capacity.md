@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapaciteten för Hyper-V-virtuella datorer med kapacitet och prestanda för lösning (förhandsgranskning)
 
 ![Symbolen kapacitet och prestanda](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> Lösningen Kapacitets- och har ersatts.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men Kapacitets- och kan inte läggas till nya arbetsytor.
 
 Du kan använda lösningen kapacitet och prestanda i logganalys som hjälper dig att förstå kapaciteten för Hyper-V-servrar. Lösningen ger insikter om Hyper-V-miljö genom att visa den totala användningen av värdarna och de virtuella datorerna körs på dessa Hyper-V-värdar (CPU, minne och disk). Mått har samlats in för CPU, minne och diskar mellan alla värdar och de virtuella datorerna körs på dem.
 

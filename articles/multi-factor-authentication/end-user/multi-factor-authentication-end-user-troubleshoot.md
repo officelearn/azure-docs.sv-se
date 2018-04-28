@@ -1,9 +1,9 @@
 ---
-title: "Felsöka tvåstegsverifiering | Microsoft Docs"
-description: "Det här dokumentet ger användare information om vad du gör om de stöter på ett problem med Azure Multi-Factor Authentication."
+title: Felsöka tvåstegsverifiering | Microsoft Docs
+description: Det här dokumentet ger användare information om vad du gör om de stöter på ett problem med Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 keywords: flerfunktionsautentisering klienten, problem med autentisering, Korrelations-ID
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 840f4f9e3616f5a60ebbbb0ad33cee9a67958989
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 995430a5c8a388358fcfb7c8c9bac978450df411
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>Få hjälp med tvåstegsverifiering
 Den här artikeln innehåller svar på de vanligaste frågorna om tvåstegsverifiering.
@@ -87,7 +87,7 @@ Om du inte har någon annan metod som har konfigurerats, kontakta företagets su
 Om du har ofta fördröjningar på grund av felaktiga cell signal, vi rekommenderar att du använder den [Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md) på din smartphone. Appen kan generera slumpmässigt säkerhetskoder som du använder för att logga in och dessa koder kräver inte någon cell signal eller internet-anslutning.
 
 ## <a name="app-passwords-are-not-working"></a>Applösenord fungerar inte
-Kontrollera först att du har angett rätt applösenordet. Genererade applösenordet ersätter lösenordet normal, men endast för äldre program som inte stöder tvåstegsverifiering. Om det fortfarande inte fungerar, försök logga in och [skapa ett nytt applösenord](multi-factor-authentication-end-user-app-passwords.md).  Om det fortfarande inte fungerar kan kontakta företagets support och ha dem [ta bort dina befintliga applösenord](../multi-factor-authentication-manage-users-and-devices.md) och du kan sedan skapa en ny.
+Kontrollera först att du har angett rätt applösenordet. Genererade applösenordet ersätter lösenordet normal, men endast för äldre program som inte stöder tvåstegsverifiering. Om det fortfarande inte fungerar, försök logga in och [skapa ett nytt applösenord](multi-factor-authentication-end-user-app-passwords.md).  Om det fortfarande inte fungerar kan kontakta företagets support och ha dem [ta bort dina befintliga applösenord](../../active-directory/authentication/howto-mfa-userdevicesettings.md) och du kan sedan skapa en ny.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Det gick inte att hitta ett svar till mitt problem.
 Om du har gjort dessa felsökningssteg men är fortfarande körs problem, kontakta företagets support. De ska kunna hjälpa dig.

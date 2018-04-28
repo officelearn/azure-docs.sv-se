@@ -1,6 +1,6 @@
 ---
-title: Include-filen för PowerShell för Azure DNS
-description: Include-filen för PowerShell för Azure DNS
+title: inkludera fil för PowerShell för Azure DNS
+description: inkludera fil för PowerShell för Azure DNS
 services: dns
 author: subsarma
 ms.service: dns
@@ -8,11 +8,11 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 388bea528b138d78b9ec23ceea295108306c61e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurera Azure PowerShell för Azure DNS
 
@@ -21,11 +21,11 @@ ms.lasthandoff: 03/28/2018
 Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* Du måste installera den senaste versionen av Azure Resource Manager PowerShell-cmdlets. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Du måste installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-Dessutom för att använda privata zoner (förhandsversion), måste du kontrollera att du har nedan PowerShell-moduler och versioner. 
-* AzureRM.Dns - [version 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) eller senare
-* AzureRM.Network - [version 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) eller senare
+Om du vill använda privata zoner (allmänt tillgänglig förhandsversion) måste du också ha PowerShell-modulerna och -versionerna nedan. 
+* AzureRM.Dns – [version 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) eller senare
+* AzureRM.Network – [version 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) eller senare
 
 ```powershell 
 Find-Module -Name AzureRM.Dns 
@@ -35,9 +35,9 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-Utdata från kommandona ovan behöver för att visa att versionen av AzureRM.Dns är 4.1.0 eller högre version, och för AzureRM.Network 5.4.0 eller en senare version.  
+Utdata för kommandona ovan måste visa att versionen för AzureRM.Dns är 4.1.0 eller senare och att versionen för AzureRM.Network är 5.4.0 eller senare.  
 
-Om systemet har tidigare versioner, kan du antingen installera den senaste versionen av Azure PowerShell eller hämta och installera ovan moduler från PowerShell-galleriet med hjälp av länkarna ovan bredvid modul-versioner. Du kan installera dem med hjälp av den nedan kommandon. Båda modulerna som krävs och är helt bakåtkompatibla. 
+Om systemet har tidigare versioner installerar du antingen den senaste versionen av Azure PowerShell eller så hämtar du de ovan nämnda modulerna från PowerShell-galleriet med hjälp av länkarna ovan bredvid modulversionerna. Du kan sedan installera dem med hjälp av kommandona nedan. Båda modulerna som krävs och är helt bakåtkompatibla. 
 
 ```powershell
 Install-Module -Name AzureRM.Dns -Force
@@ -49,10 +49,10 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns i [med hjälp av PowerShell med Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns i [Använda PowerShell med Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### <a name="select-the-subscription"></a>Välja prenumerationen

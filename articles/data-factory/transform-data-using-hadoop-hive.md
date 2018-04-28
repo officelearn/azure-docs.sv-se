@@ -3,21 +3,20 @@ title: Transformera data med Hadoop Hive aktivitet i Azure Data Factory | Micros
 description: Lär dig hur du kan använda Hive-aktivitet i ett Azure data factory för att köra Hive-frågor på en på-begäran/din egen HDInsight-kluster.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 637a9ce68cc1c8ac2ef0af8a606668fb4da64fb8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: 9346b995a7114688e357d1605d28c5a3d01d4afb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformera data med Hadoop Hive aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +65,7 @@ Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data 
 | typ                | För Hive-aktiviteten är aktivitetstypen HDinsightHive | Ja      |
 | linkedServiceName   | Referens till HDInsight-klustret registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel. | Ja      |
 | scriptLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Hive-skript som ska köras. Om du inte anger den här länkade tjänsten används Azure länkade lagringstjänsten definieras i länkad HDInsight-tjänst. | Nej       |
-| scriptPath          | Ange sökväg till skriptfilen lagras i Azure Storage som anges av scriptLinkedService. Filnamnet är skiftlägeskänslig. | Ja      |
+| ScriptPath          | Ange sökväg till skriptfilen lagras i Azure Storage som anges av scriptLinkedService. Filnamnet är skiftlägeskänslig. | Ja      |
 | getDebugInfo        | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av scriptLinkedService. Tillåtna värden: None, alltid eller fel. Standardvärde: Ingen. | Nej       |
 | Argument           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som argument på kommandoraden för varje aktivitet. | Nej       |
 | definierar             | Ange parametrar som nyckel/värde-par för refererar till i Hive-skript. | Nej       |

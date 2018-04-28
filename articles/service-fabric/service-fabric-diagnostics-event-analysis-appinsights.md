@@ -1,40 +1,50 @@
 ---
-title: "Azure Service Fabric-Händelseanalys med Application Insights | Microsoft Docs"
-description: "Läs mer om visualisera och analysera händelser med hjälp av Application Insights för övervakning och diagnostik av Azure Service Fabric-kluster."
+title: Azure Service Fabric-Händelseanalys med Application Insights | Microsoft Docs
+description: Läs mer om visualisera och analysera händelser med hjälp av Application Insights för övervakning och diagnostik av Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.date: 04/04/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 3a7c7663bc13b7169ec9d31aa21365219ec39059
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
-Azure Application Insights är en utökningsbar plattform för övervakning av program och diagnostik. Den innehåller en kraftfull analytics och fråga efter verktyget, anpassningsbar instrumentpanel och visualiseringar och ytterligare alternativ, inklusive automatiserade aviseringar. Det är den rekommenderade plattformen för övervakning och diagnostik för Service Fabric-program och tjänster.
+Azure Application Insights är en utökningsbar plattform för övervakning av program och diagnostik. Den innehåller en kraftfull analytics och fråga efter verktyget, anpassningsbar instrumentpanel och visualiseringar och ytterligare alternativ, inklusive automatiserade aviseringar. Det är den rekommenderade plattformen för övervakning och diagnostik för Service Fabric-program och tjänster. Den här artikeln kan du lösa följande vanliga frågor
 
-## <a name="setting-up-application-insights"></a>Konfigurera Application Insights
+* Hur tar jag reda på vad som händer i Mina program och tjänster och samla telemetri
+* Hur felsöker jag mina program, särskilt de tjänster som kommunicerar med varandra
+* Hur skaffar jag mått om hur Mina tjänster fungerar, till exempel, sidinläsningstiden, HTTP-begäranden
 
-### <a name="creating-an-ai-resource"></a>Skapa en AI-resurs
+Syftet med den här artikeln är att visa hur du få insikter och felsöka från inom App Insights. Om du vill lära dig hur du skapar och konfigurerar AI med Service Fabric kolla detta [kursen](service-fabric-tutorial-monitoring-aspnet.md).
 
-Att skapa en AI resurs head via Azure Marketplace och Sök efter ”Application Insights”. Det ska visas som den första lösningen (det är under kategori ”webb + mobil”). Klicka på **skapa** när du tittar på rätt resurs (bekräfta att din sökväg matchar på bilden nedan).
+## <a name="monitoring-in-app-insights"></a>Övervakning av App Insights
 
-![Ny Application Insights-resurs](media/service-fabric-diagnostics-event-analysis-appinsights/create-new-ai-resource.png)
+Application Insights har en omfattande med Service Fabric. På översiktssidan innehåller AI viktig information om tjänsten, till exempel svarstid och antal begäranden som bearbetas. Du kan se en lista över senaste begäranden i ditt program genom att klicka på ”Sök” längst upp. Dessutom kan skulle du kunna finns här misslyckade begäranden och diagnostisera vilka fel uppstod.
 
-Du måste fylla i vissa information för att etablera resursen på rätt sätt. I den *programtyp* fält används ”ASP.NET-webbprogram” om du kommer att använda någon av Service Fabric programmeringsmodeller eller publicera ett .NET-program i klustret. Använd ”Allmänt” om du ska distribuera gäst körbara filer och behållare. I allmänhet som standard med hjälp av ”ASP.NET-webbprogram” till att öppna alternativen i framtiden. Namnet är upp till dina inställningar och varken resursgrupp eller prenumeration är kan ändras efter distributionen av resursen. Vi rekommenderar att AI-resursen finns i samma resursgrupp som klustret. Om du behöver mer information, se [skapa Application Insights-resurs](../application-insights/app-insights-create-new-resource.md)
+![AI-översikt](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-Du behöver AI Instrumentation för att konfigurera AI med verktyget du händelsen aggregering. När AI-resursen har konfigurerats (tar några minuter när distributionen har validerats), navigera till den och hitta det **egenskaper** avsnitt i det vänstra navigeringsfältet. Ett nytt blad öppnas som visar ett *INSTRUMENTATION NYCKELN*. Om du behöver ändra prenumeration eller resursgrupp för resursen kan utföras här samt.
+Det finns två typer av poster i listan i den högra rutan i föregående bild: begäranden och händelser. Anrop till appens API via HTTP-förfrågningar i det här fallet är och händelser är anpassade händelser, som fungerar som telemetri som du kan lägga till var som helst i koden. Du kan ytterligare utforska instrumentering dina program i [Application Insights API för anpassade händelser och mått](../application-insights/app-insights-api-custom-events-metrics.md). Klicka på en begäran skulle visas ytterligare information som visas i följande bild, inklusive data som är specifika för Service Fabric som samlas in i AI Service Fabric-nuget-paketet. Den här informationen är användbar för felsökning och känna till vad som är i tillståndet för programmet och all den här informationen är sökbara i Application Insights
+
+![AI Frågedetaljer](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+
+Application Insights har en avsedda vy för frågor mot alla data som kommer in. Klicka på ”Metrics Explorer” överst på översiktssidan för att navigera till den AI-portalen. Här kan du köra frågor mot anpassade händelser som nämnts, begäranden, undantag, prestandaräknare och andra mått med hjälp av frågespråket Kusto. I följande exempel visas alla begäranden i den senaste timmen.
+
+![AI Frågedetaljer](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
+
+Om du vill utforska ytterligare funktioner för App Insights-portalen, gå till den [Programinsikter portaldokumentationen](../application-insights/app-insights-dashboards.md).
 
 ### <a name="configuring-ai-with-wad"></a>Konfigurera AI med BOMULLSTUSS
 
@@ -47,7 +57,7 @@ Det finns två sätt att skicka data från BOMULLSTUSS till Azure AI som uppnås
 
 ![Lägga till en AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
 
-När du skapar ett kluster, om diagnostik är aktiverat ””, visas ett valfritt fält för att ange en insikter Programinstrumentering nyckel. Om du klistrar in din AI IKey här kommer AI sink konfigureras automatiskt för dig i Resource Manager-mallen som används för att distribuera klustret.
+När du skapar ett kluster, om diagnostik är aktiverat ””, visas ett valfritt fält för att ange en insikter Programinstrumentering nyckel. Om du klistrar in AI nyckeln här konfigureras automatiskt AI sink du i Resource Manager-mallen som används för att distribuera klustret.
 
 #### <a name="add-the-ai-sink-to-the-resource-manager-template"></a>Lägg till AI Sink i Resource Manager-mall
 
@@ -73,32 +83,31 @@ Lägg till en ”Sink” genom att inkludera följande två ändringar i den ”
     "sinks": "applicationInsights"
     ```
 
-I båda kodavsnitten ovan används namnet ”applicationInsights” för att beskriva sink. Detta är inte ett krav och förutsatt att namnet på sink ingår i ”sänkor”, du kan ange namnet till en sträng.
+I både de föregående kodfragment används namnet ”applicationInsights” för att beskriva sink. Detta är inte ett krav och förutsatt att namnet på sink ingår i ”sänkor”, du kan ange namnet till en sträng.
 
-För närvarande visas loggar från klustret som spåren i AIS Loggvisaren. Eftersom de flesta av spår som kommer från plattformen för nivå ”information” bör överväga du att ändra sink-konfiguration för att endast skicka loggar av typen ”kritiska” eller ”Error”. Detta kan göras genom att lägga till ”kanaler” din mottagare som visas i [i den här artikeln](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+För närvarande loggar från klustret visas som **spårningar** i AIS Loggvisaren. Eftersom de flesta av spår som kommer från plattformen för nivå ”information” bör överväga du att ändra sink-konfiguration för att endast skicka loggar av typen ”kritiska” eller ”Error”. Detta kan göras genom att lägga till ”kanaler” din mottagare som visas i [i den här artikeln](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
->Om du använder en felaktig AI IKey i portalen eller i Resource Manager-mall, behöver du manuellt ändra nyckeln och uppdatera klustret eller distribuera den. 
+>Om du använder en felaktig AI-nyckel i portalen eller i Resource Manager-mall, behöver du manuellt ändra nyckeln och uppdatera klustret eller distribuera den.
 
 ### <a name="configuring-ai-with-eventflow"></a>Konfigurera AI med EventFlow
 
-Om du använder EventFlow att aggregera händelser, se till att importera den `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet-paketet. Följande måste tas med i den *matar ut* avsnitt i den *eventFlowConfig.json*:
+Om du använder EventFlow att aggregera händelser, se till att importera den `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet-paketet. Följande kod är obligatoriskt i den *matar ut* avsnitt i den *eventFlowConfig.json*:
 
 ```json
 "outputs": [
     {
         "type": "ApplicationInsights",
-        // (replace the following value with your AI resource's instrumentation key)
-        "instrumentationKey": "00000000-0000-0000-0000-000000000000"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
     }
 ]
 ```
 
 Se till att göra nödvändiga ändringar i dina filter som innehåller alla andra indata (tillsammans med deras respektive NuGet-paket).
 
-## <a name="aisdk"></a>AI.SDK
+## <a name="aisdk"></a>AI. SDK
 
-Vanligtvis rekommenderas att använda EventFlow och BOMULLSTUSS som aggregering lösningar, eftersom de tillåter en mer modulär metod för diagnostik- och övervakning, dvs. Om du vill ändra dina utdata från EventFlow krävs ingen ändring till din faktiska instrumentation en enkel ändring i konfigurationsfilen. Om däremot vill investera i med hjälp av Application Insights och troligen inte att ändra till en annan plattform, bör du fundera på med AIS nya SDK för aggregering händelser och skicka dem till AI. Det innebär att du behöver inte längre konfigurera EventFlow för att skicka data till AI, men i stället installeras den ApplicationInsight Service Fabric-NuGet-paketet. Information om paketet kan hittas [här](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
+Det rekommenderas att använda EventFlow och BOMULLSTUSS som aggregering lösningar, eftersom de tillåter en mer modulär metod för diagnostik och ändras inte den faktiska instrumentation kräver övervakning, dvs. Om du vill ändra dina utdata från EventFlow, bara en enkla ändringar i konfigurationsfilen. Om däremot vill investera i med hjälp av Application Insights och troligen inte att ändra till en annan plattform, bör du fundera på med AIS nya SDK för aggregering händelser och skicka dem till AI. Det innebär att du behöver inte längre konfigurera EventFlow för att skicka data till AI, men i stället installeras den ApplicationInsight Service Fabric-NuGet-paketet. Information om paketet kan hittas [här](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
 [Application Insights-stöd för Mikrotjänster och behållare](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) visar några av de nya funktionerna som arbete utförs i (för närvarande i beta), vilket kan du ha bättre out box övervakningsalternativ med AI. Dessa inkluderar beroende spårning (används för att bygga en AppMap av alla tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spår som kommer från dina tjänster (hjälper i bättre lokalisera ett problem i arbetsflödet för en app eller tjänst).
 

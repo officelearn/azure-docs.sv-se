@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Felsöka problem med att säkerhetskopiera Azure Files
 Du kan felsöka problem och fel vid användning av Azure Files Backup med hjälp av informationen i följande tabeller.
@@ -59,6 +59,7 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 | Återställningen misslyckas eftersom en av filerna i källan inte finns. | <ul><li> De markerade objekten finns inte i informationen för återställningspunkten. Ange rätt fillista för att återställa filerna. <li> Ögonblicksbilden av filresursen som motsvarar återställningspunkten tas bort manuellt. Välj en annan återställningspunkt och försök att utföra återställningsåtgärden på nytt. |
 | Ett återställningsjobb pågår till samma mål. | <ul><li>Säkerhetskopiering av filresurser stöder inte parallell återställning till samma målfilresurs. <li>Vänta tills den pågående återställningen har slutförts och prova sedan igen. Om du inte hittar ett återställningsjobb i Recovery Services-valvet kontrollerar du andra Recovery Services-valv i samma prenumeration. |
 | Återställningsåtgärden misslyckades eftersom målfilresursen är full. | Öka storlekskvoten för målfilresursen så att återställningsdata får plats och prova sedan åtgärden igen. |
+| Återställningsåtgärden misslyckades eftersom ett fel uppstod när de förberedande återställningsåtgärderna på filsynkroniseringstjänstens resurser associerades med målfilresursen. | Försök igen senare och kontakta Microsofts support om problemet kvarstår. |
 | En eller flera filer kunde inte återställas. Mer information finns i listan med filer som misslyckats på den sökväg som anges ovan. | <ul> <li> Orsakerna till återställningsfel visas i filen (sökvägen finns i Jobbinformation). Åtgärda orsakerna och prova att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att de filer som misslyckas inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |
 
 ## <a name="see-also"></a>Se även

@@ -1,24 +1,19 @@
 ---
-title: "Indexering CSV blobbar med Azure blob sökindexeraren | Microsoft Docs"
-description: "Lär dig hur du CSV-blobbar med Azure Search index"
-services: search
-documentationcenter: 
+title: Indexering CSV blobbar med Azure blob sökindexeraren | Microsoft Docs
+description: Lär dig hur du CSV-blobbar med Azure Search index
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dfb1bd48a47e45363e8761a3d79901e5171b37d1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexering CSV blobbar med Azure Search blob indexeraren
 Som standard [Azure blob sökindexeraren](search-howto-indexing-azure-blob-storage.md) Parsar avgränsade text blobbar som ett enda segment av text. Men med blobbar som innehåller CSV-data, vill du ofta behandla varje rad i blob som ett separat dokument. Till exempel anges avgränsad följande: 
@@ -47,7 +42,7 @@ Att indexera CSV blobbar, skapa eller uppdatera definition av en indexerare med 
 
 Mer information om API: et för skapa indexeraren kolla [skapa indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-`firstLineContainsHeaders`Anger att den första raden (icke-tomma) för varje blobb innehåller huvuden.
+`firstLineContainsHeaders` Anger att den första raden (icke-tomma) för varje blobb innehåller huvuden.
 Om BLOB får inte innehålla en inledande rubrikraden, anges sidhuvuden i indexeraren konfigurationen: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 

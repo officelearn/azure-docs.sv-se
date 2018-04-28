@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsaspekter vid flytt av data i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Flytt av data med hjälp av Data Factory har certifierats för:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA STJÄRNA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
 Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
@@ -68,7 +68,7 @@ Vissa data lagras stöd för kryptering av data i vila. Vi rekommenderar att du 
 Transparent Data kryptering (TDE) i Azure SQL Data Warehouse skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av data i vila. Det här beteendet är transparent för klienten. Mer information finns i [skydda en databas i SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database stöder också transparent datakryptering (TDE), som skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av data, utan ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [Transparent datakryptering för SQL-databasen och datalagret](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Azure SQL Database stöder också transparent datakryptering (TDE), som skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av data, utan ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [Transparent datakryptering för SQL-databasen och datalagret](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store ger också kryptering för data som lagras på kontot. När aktiverat, krypteras data innan beständighet automatiskt i Data Lake Store och dekrypterar före hämtning, att det är transparent för klienten som har åtkomst till data. Mer information finns i [säkerhet i Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
@@ -86,7 +86,7 @@ Amazon Redshift stöder kluster kryptering för data i vila. Mer information fin
 Salesforce stöder Shield plattform kryptering som har stöd för kryptering av alla filer, bilagor och anpassade fält. Mer information finns i [förstå flöda till autentisering för Web Server OAuth](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybridmoln
-Hybridscenarier kräver själva värdbaserade integration runtime installeras i ett lokalt nätverk i ett virtuellt nätverk (Azure) eller i ett virtuellt privat moln (Amazon). Automatisk värdbaserade integration runtime måste kunna få åtkomst till lokala datalager. Läs mer om automatisk värdbaserade integration runtime [egenvärdbaserat integrering runtime om hur du skapar och konfigurerar](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
+Hybridscenarier kräver själva värdbaserade integration runtime installeras i ett lokalt nätverk i ett virtuellt nätverk (Azure) eller i ett virtuellt privat moln (Amazon). Automatisk värdbaserade integration runtime måste kunna få åtkomst till lokala datalager. Läs mer om automatisk värdbaserade integration runtime [egenvärdbaserat integrering runtime om hur du skapar och konfigurerar](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
 ![automatisk värdbaserade runtime-integrationskanaler](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -173,7 +173,7 @@ Följande molntjänster datalager kräver att du listan över godkända IP-adres
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Kan själva värdbaserade integration runtime delas mellan olika datafabriker?**
 

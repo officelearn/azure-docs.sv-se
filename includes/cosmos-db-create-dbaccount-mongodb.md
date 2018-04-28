@@ -1,18 +1,18 @@
 ---
-title: Skapa ett Azure Cosmos DB MongoDB API-konto
-description: Beskriver hur du skapar ett Azure Cosmos DB MongoDB API-konto med hjälp av Azure Portal
+title: ta med fil
+description: ta med fil
 services: cosmos-db
-author: mimig1
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/20/2018
-ms.author: mimig
+ms.date: 04/13/2018
+ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 02ea0e011642313b885bc48ec48104fa2789da81
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 690c5f07a2b0f7a88e16f0b0bbbaa9ca78e37317
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt fönster.
 2. Klicka på **Skapa en resurs** i menyn till vänster. Klicka på **Databaser** och sedan på **Skapa** under **Azure Cosmos DB**.
@@ -21,18 +21,15 @@ ms.lasthandoff: 03/28/2018
 
 3. Ange **MongoDB** som API och fyll i önskad konfiguration för Azure Cosmos DB-kontot på bladet **Nytt konto**.
  
-    ![Skärmbild av bladet Ny Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
-
     * **ID** måste vara ett unikt namn du väljer för att identifiera ditt Azure Cosmos DB-konto. Det får bara innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken.
     * **Prenumeration** är din Azure-prenumeration. Det fylls i automatiskt.
-    * **Resursgrupp** är resursgruppsnamnet för ditt Azure Cosmos DB-konto.
+    * **Resursgrupp** är resursgruppsnamnet för ditt Azure Cosmos DB-konto. Välj **Skapa ny** och ange sedan ett nytt resursgruppsnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID.
     * **Plats** är den geografiska plats där din instans av Azure Cosmos DB finns. Välj den plats som är närmast dina användare.
 
-4. Skapa kontot genom att klicka på **Skapa**.
-5. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
+    Klicka sedan på **Skapa**.
 
-    ![Meddelande om att distributionen har påbörjats](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-nosql-notification.png)
+    ![Den nya kontosidan för Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 
-6.  När distributionen är färdig öppnar du det nya kontot från panelen Alla resurser. 
+4. Det tar några minuter att skapa kontot. Vänta tills portalen visar sidan **Grattis! Azure Cosmos DB-kontot med MongoDB API är klart.**
 
-    ![Azure Cosmos DB-konto i panelen Alla resurser](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
+    ![Meddelandefönstret i Azure-portalen](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png)

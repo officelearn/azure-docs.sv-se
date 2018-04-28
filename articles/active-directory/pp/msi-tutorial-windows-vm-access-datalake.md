@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Data Lake Store"
-description: "En självstudiekurs som visar hur du använder en Windows VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Data Lake Store."
+title: Hur du använder en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Data Lake Store
+description: En självstudiekurs som visar hur du använder en Windows VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: daef85164793dd6183c41604f200864aabadf8d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure Data Lake Store
 
@@ -39,7 +39,7 @@ Den här kursen visar hur du använder en hanterad tjänst identitet (MSI) för 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
@@ -211,7 +211,7 @@ Grattis!  Du har autentiserats för Data Lake Store-filsystem med hjälp av en V
 ## <a name="related-content"></a>Relaterat innehåll
 
 - En översikt över MSI finns [hanterade tjänstidentiteten översikt](msi-overview.md).
-- Operations Data Lake Store använder Azure Resource Manager för hantering.  Mer information om hur du använder en VM MSI för att autentisera till Resource Manager [använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Resource Manager](msi-tutorial-linux-vm-access-arm.md).
+- Operations Data Lake Store använder Azure Resource Manager för hantering.  Mer information om hur du använder en VM MSI för att autentisera till Resource Manager [använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Lär dig mer om [autentisering med Data Lake Store med hjälp av Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Lär dig mer om [filsystemsåtgärder på Azure Data Lake Store med hjälp av REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) eller [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Lär dig mer om [åtkomstkontroll i Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

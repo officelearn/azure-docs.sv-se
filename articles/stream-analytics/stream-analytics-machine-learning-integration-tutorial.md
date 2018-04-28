@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra sentiment analys med hjälp av Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt ställa in ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du använder en Machine Learning sentiment analytics modell från Cortana Intelligence Gallery analysera strömmande textdata och fastställa sentiment poäng i realtid. Med hjälp av Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa av bygger en sentiment analytics modell.
@@ -25,7 +25,7 @@ Du kan använda det du lära dig från den här artikeln för scenarier som dess
 * Utvärderar kommentarer om forum, bloggar och videor. 
 * Många andra realtid, förutsägbara bedömningsprofil scenarier.
 
-I ett verkligt scenario kan du hämta data direkt från en Twitter-dataström. För att förenkla kursen, har vi skrivs den så att Streaming Analytics-jobbet hämtar tweets från en CSV-fil i Azure Blob storage. Du kan skapa egna CSV-fil eller du kan använda en exempel-CSV-fil som visas i följande bild:
+I ett verkligt scenario kan du hämta data direkt från en Twitter-dataström. För att förenkla kursen, skrivs så att Streaming Analytics-jobbet hämtar tweets från en CSV-fil i Azure Blob storage. Du kan skapa egna CSV-fil eller du kan använda en exempel-CSV-fil som visas i följande bild:
 
 ![exempel tweets i en CSV-fil](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -39,7 +39,7 @@ Följande bild visar den här konfigurationen. Som anges för en mer realistisk 
 Innan du börjar bör du kontrollera att du har följande:
 
 * En aktiv Azure-prenumeration.
-* En CSV-fil med vissa data i den. Du kan ladda ned filen som visades tidigare från [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), eller skapa en egen fil. För den här artikeln förutsätter vi att du använder filen från GitHub.
+* En CSV-fil med vissa data i den. Du kan ladda ned filen som visades tidigare från [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), eller skapa en egen fil. Det förutsätts att du använder filen från GitHub för den här artikeln.
 
 På en hög nivå för att slutföra de uppgifter som visas i den här artikeln får göra du följande:
 
@@ -105,7 +105,7 @@ Nu när exempeldata i en blob, kan du aktivera sentiment analysmodell i Cortana 
 
    ![testresultaten i Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. I den **appar** kolumn, och klicka på den **Excel 2010 eller tidigare arbetsboken** länk för att hämta en Excel-arbetsbok. Arbetsboken innehåller den en API-nyckel och den URL som du senare måste du konfigurera Stream Analytics-jobbet.
+7. I den **appar** kolumn, och klicka på den **Excel 2010 eller tidigare arbetsboken** länk för att hämta en Excel-arbetsbok. Arbetsboken innehåller API-nyckeln och den URL som du senare måste du konfigurera Stream Analytics-jobbet.
 
     ![Stream Analytics Machine Learning, snabböversikten](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -157,7 +157,7 @@ Jobbet skickar resultaten till samma blob storage där den hämtar indata.
 
    |Fält  |Värde  |
    |---------|---------|
-   |**Kolumnalias** | Använd namn `datainput` och välj **Välj blob storage från prenumerationen**       |
+   |**Kolumnalias** | Använd namn `datamloutput` och välj **Välj blob storage från prenumerationen**       |
    |**Lagringskonto**  |  Välj lagringskontot som du skapade tidigare.  |
    |**Behållaren**  | Markera den behållare som du skapade tidigare (`azuresamldemoblob`)        |
    |**Händelsen serialiseringsformat**  |  Välj **CSV**       |
@@ -168,7 +168,7 @@ Jobbet skickar resultaten till samma blob storage där den hämtar indata.
 
 
 ### <a name="add-the-machine-learning-function"></a>Lägg till Machine Learning-funktion 
-Tidigare publicerade du en Machine Learning-modell till en webbtjänst. I vårt scenario, när dataströmmen analys jobbet körs skickas varje prov tweet från angivna indata till webbtjänsten för sentiment analys. Webbtjänsten för Machine Learning returnerar en sentiment (`positive`, `neutral`, eller `negative`) och sannolikhet för tweet vara positivt. 
+Tidigare publicerade du en Machine Learning-modell till en webbtjänst. I detta scenario när dataströmmen analys jobbet körs skickas varje prov tweet från angivna indata till webbtjänsten för sentiment analys. Webbtjänsten för Machine Learning returnerar en sentiment (`positive`, `neutral`, eller `negative`) och sannolikhet för tweet vara positivt. 
 
 I det här avsnittet av kursen definierar du en funktion i dataströmmen Analysis-jobbet. Funktionen kan anropas för att skicka en tweet till webbtjänsten och hämta svaret tillbaka. 
 
@@ -200,12 +200,13 @@ Stream Analytics använder en deklarativ, SQL-baserade frågan för att kontroll
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     Frågan anropar funktionen som du skapade tidigare (`sentiment`) för att kunna utföra sentiment analys på varje tweet i indata. 

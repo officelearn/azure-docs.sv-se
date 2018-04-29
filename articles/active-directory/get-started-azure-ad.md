@@ -1,25 +1,25 @@
 ---
-title: "Kom igång med Azure Active Directory | Microsoft Docs"
-description: "Hämta licenser, lägga till domännamn, skapa anpassade inloggningssidan och lägga till Självbetjäning för återställning av lösenord i Azure Active Directory"
-keywords: 
+title: Kom igång med Azure Active Directory | Microsoft Docs
+description: Hämta licenser, lägga till domännamn, skapa anpassade inloggningssidan och lägga till Självbetjäning för återställning av lösenord i Azure Active Directory
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Kom igång med Azure AD
 Moderna Identitetshantering kräver skalbart och konsekvent reliablity att kontrollera tillgänglighet för program och tjänster till endast autentiserade användare. För att stödja identity management behoven hos användare, IT-behov rätt ett sätt att ge åtkomst till offentliga godkända program som en tjänst (SaaS)-appar, ett sätt att värden interna branschspecifika appar och även kan förbättra lokalt app-utveckling och användning. Alla dessa krav peka behovet av en molnbaserad identitetshanteringslösning.      
@@ -81,7 +81,7 @@ Du kan använda gruppbaserade licenstilldelning ställa in regler som i följand
 Granska tilldelade och tillgängliga licenser under **Azure Active Directory** > **licenser** > **alla produkter**.
 
 ## <a name="configure-self-service-password-reset"></a>Konfigurera självbetjäning vid återställning av lösenord
-[Självbetjäning för lösenordsåterställning (SSPR)](active-directory-passwords-getting-started.md) erbjuder ett enkelt sätt för IT-administratörer så att användarna kan återställa eller låsa upp sitt lösenord eller konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
+[Självbetjäning för lösenordsåterställning (SSPR)](authentication/quickstart-sspr.md) erbjuder ett enkelt sätt för IT-administratörer så att användarna kan återställa eller låsa upp sitt lösenord eller konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
 ### <a name="verification-step"></a>Verifieringssteg
 Granska aktiverat SSPR egenskaper under **Azure Active Directory** > **lösenordsåterställning** att säkerställa rätt användar- och grupptilldelningar har gjorts. 

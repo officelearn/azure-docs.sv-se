@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -128,9 +128,9 @@ Ja, kan du bifoga flera diskar till dina virtuella datorer.
 Om du vill använda operativsystemsavbildningar i Windows-klienten (Windows 7 eller senare) för din utveckling och testning i Azure måste du göra något av följande:
 
 - [Köp en prenumeration på MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
-- Om du har ett Enterprise-avtal, skapa en Azure-prenumeration med den [utveckling och testning Enterprise erbjudande](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- Om du har ett Enterprise-avtal, skapa en Azure-prenumeration med den [utveckling och testning Enterprise erbjudande](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Läs mer om Azure-krediter för varje MSDN-erbjudande [månatliga Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+Läs mer om Azure-krediter för varje MSDN-erbjudande [månatliga Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Hur jag för att automatisera processen att överföra VHD-filer för att skapa anpassade avbildningar?
 Om du vill automatisera uppladdning VHD-filer för att skapa anpassade avbildningar, har du två alternativ:

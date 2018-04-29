@@ -1,12 +1,12 @@
 ---
-title: "Skapa en Azure Service Fabric-behållarapp på Linux | Microsoft Docs"
-description: "Skapa din första Linux-behållarapp på Azure Service Fabric.  Skapa en Docker-avbildning med din app, överför avbildningen till ett behållarregister och skapa och distribuera en Service Fabric-behållarapp."
+title: Skapa en Azure Service Fabric-behållarapp på Linux | Microsoft Docs
+description: Skapa din första Linux-behållarapp på Azure Service Fabric. Skapa en Docker-avbildning med din app, överför avbildningen till ett behållarregister och skapa och distribuera en Service Fabric-behållarapp.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e7e0f1262ee8c31bc6e71b49e9ef62129887f2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ba4e5996a87596c88822d96faf3e80e8243ad78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-behållarapp i Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Linux-behållare i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster.  Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/).  Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Linux-behållare i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * En utvecklingsdator som kör:
@@ -38,7 +38,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 ## <a name="define-the-docker-container"></a>Definiera dockerbehållare
 Skapa en avbildning baserat på [Python-avbildningen](https://hub.docker.com/_/python/) på Docker Hub. 
 
-Definiera Docker-behållaren i en Dockerfile. Dockerfile innehåller instruktioner för att ställa in miljön i di behållare, läsa in programmet som du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen. 
+Ange Docker-behållaren i en Dockerfile. Dockerfile innehåller instruktioner för att konfigurera miljön i din behållare, läsa in programmet du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen. 
 
 Skapa en tom katalog och skapa filen *Dockerfile* (utan filtillägget). Lägg till följande i *Dockerfile* och spara dina ändringar:
 
@@ -67,13 +67,13 @@ CMD ["python", "app.py"]
 
 Läs [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) för mer information.
 
-## <a name="create-a-simple-web-application"></a>Skapa en enkel webbapp
-Skapa en flask-webbapplikation som lyssnar på port 80 och returnerar ”Hello World”!.  Skapa filen *requirements.txt* i samma katalog.  Lägg till följande och spara dina ändringar:
+## <a name="create-a-basic-web-application"></a>Skapa en grundläggande webbapp
+Skapa en flask-webbapplikation som lyssnar på port 80 och returnerar ”Hello World”!. Skapa filen *requirements.txt* i samma katalog. Lägg till följande och spara dina ändringar:
 ```
 Flask
 ```
 
-Skapa även filen *app.py* och lägg till följande:
+Skapa även filen *app.py* och lägg till följande kodavsnitt:
 
 ```python
 from flask import Flask
@@ -96,7 +96,7 @@ Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprog
 docker build -t helloworldapp .
 ```
 
-Med det här kommandot skapas den nya avbildningen med hjälp av instruktionerna i din Dockerfile och avbildningen får namnet "helloworldapp" (-t-taggning). Genom att skapa en avbildning hämtas basavbildningen från Docker Hub och en ny avbildning skapas som lägger till ditt program ovanpå basavbildningen.  
+Med det här kommandot skapas den nya avbildningen med hjälp av instruktionerna i din Dockerfile och avbildningen får namnet `helloworldapp`. Om du vill skapa en behållaravbildning börjar du med att ladda ned basavbildningen från den Docker-hubb som programmet ska läggas till i. 
 
 När build-kommandot har slutförts kör du `docker images`-kommandot för att se information om den nya avbildningen:
 
@@ -108,7 +108,7 @@ helloworldapp                 latest              86838648aab6        2 minutes 
 ```
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
-Kontrollera att av programmet körs lokalt innan du skickar det till behållarregistret.  
+Kontrollera att av programmet körs lokalt innan du skickar det till behållarregistret. 
 
 Kör programmet, vilket mappar port 4000 på datorn till behållarens exponerade port 80:
 
@@ -118,7 +118,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* namnger den behållare som körs (i stället för behållar-ID:t).
 
-Anslut till den behållare som körs.  Öppna en webbläsare med IP-adressen som returnerades på port 4000, till exempel "http://localhost:4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den behållare som körs. Öppna en webbläsare med den IP-adress som returnerades på port 4000, till exempel "http://localhost:4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 
@@ -139,7 +139,7 @@ När du har kontrollerat att behållaren körs på Docker överför du avbildnin
 
 Kör `docker login` för att logga in till behållarregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
-I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/active-directory-application-objects.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario.  Du kan också logga in med ditt användarnamn och lösenord för registret.
+I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/active-directory-application-objects.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Du kan också logga in med ditt användarnamn och lösenord för registret.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -160,9 +160,9 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="package-the-docker-image-with-yeoman"></a>Paketetera Docker-avbildningen med Yeoman
 I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa ditt program och lägga till en behållaravbildning. Nu ska vi använda Yeoman för att skapa ett program med en enda dockerbehållare som kallas *SimpleContainerApp*.
 
-Om du vill skapa ett program för Service Fabric-behållare kan du öppna ett terminalfönster och köra `yo azuresfcontainer`.  
+Om du vill skapa ett program för Service Fabric-behållare kan du öppna ett terminalfönster och köra `yo azuresfcontainer`. 
 
-Namnge programmet (t.ex. "minbehållare") och namnge tillämpningstjänsten (t.ex. "mintjänst").
+Namnge programmet (t.ex. `mycontainer`) och namnge tillämpningstjänsten (t.ex. `myservice`).
 
 Som avbildningsnamn anger du en URL för behållaravbildningen i ett behållarregister (till exempel ”myregistry.azurecr.io/samples/helloworldapp”). 
 
@@ -173,7 +173,7 @@ Ange ett instansantal på ”1”.
 ![Service Fabric Yeoman-generator för behållare][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Konfigurera portmappning och autentisering av behållardatabas
-Behållartjänsten behöver en slutpunkt för kommunikation.  Lägg nu till protokollet, porten och typen för en `Endpoint` i filen ServiceManifest.xml under taggen ”Resources”. Behållartjänsten för den här artikeln lyssnar på port 4000: 
+Behållartjänsten behöver en slutpunkt för kommunikation. Lägg nu till protokollet, porten och typen för en `Endpoint` i filen ServiceManifest.xml under taggen ”Resources”. Behållartjänsten för den här artikeln lyssnar på port 4000: 
 
 ```xml
 
@@ -189,7 +189,7 @@ Behållartjänsten behöver en slutpunkt för kommunikation.  Lägg nu till prot
  
 Genom att tillhandahålla `UriScheme` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
 
-Konfigurera behållarens portmappning (port till värd) genom att ange en `PortBinding`-princip i `ContainerHostPolicies` för filen ApplicationManifest.xml.  I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”myserviceTypeEndpoint” (slutpunkt som definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 4000 mappas till port 80 för behållaren.  Om behållaren behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`.  I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
+Konfigurera behållarens portmappning (port till värd) genom att ange en `PortBinding`-princip i `ContainerHostPolicies` för filen ApplicationManifest.xml. I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”myserviceTypeEndpoint” (slutpunkt som definierats i tjänstmanifestet). Inkommande begäranden till tjänsten på port 4000 mappas till port 80 för behållaren. Om behållaren behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`. I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
 
 ```xml
    <ServiceManifestImport>
@@ -203,7 +203,7 @@ Konfigurera behållarens portmappning (port till värd) genom att ange en `PortB
    </ServiceManifestImport>
 ``` 
 ## <a name="configure-docker-healthcheck"></a>Konfigurera Docker HEALTHCHECK 
-Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om behållaren har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång behållarens hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. Instruktionen för **HEALTHCHECK** som pekar mot den faktiska kontroll som utförs för att övervaka behållarens hälsa måste finnas i den **dockerfile** som används när behållaravbildningen skapas. 
+Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om behållaren har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång behållarens hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. Instruktionen för **HEALTHCHECK** som pekar mot den faktiska kontroll som utförs för att övervaka behållarens hälsa måste finnas i den Dockerfile som används när behållaravbildningen skapas. 
 
 ![HealthCheckHealthy][1]
 
@@ -252,7 +252,7 @@ Använd installationsskriptet som medföljer mallen för att kopiera programpake
 
 Öppna en webbläsare och gå till Service Fabric Explorer på http://localhost:19080/Explorer (ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X). Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
-Anslut till den behållare som körs.  Öppna en webbläsare med IP-adressen som returnerades på port 4000, till exempel "http://localhost:4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den behållare som körs. Öppna en webbläsare med den IP-adress som returnerades på port 4000, till exempel "http://localhost:4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 
@@ -348,7 +348,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
          
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="myservice">
-      <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
+      <!-- On a local development cluster, set InstanceCount to 1. On a multi-node production 
       cluster, set InstanceCount to -1 for the container service to run on every node in 
       the cluster.
       -->
@@ -363,7 +363,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
 
 Om du vill lägga till en till behållartjänst till ett program som redan har skapats med hjälp av yeoman utför du följande steg:
 
-1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
+1. Ändra katalogen till roten för det befintliga programmet. Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
 2. Kör `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
@@ -371,7 +371,7 @@ Om du vill lägga till en till behållartjänst till ett program som redan har s
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Ställ in tidsintervall innan behållaren tvångsavslutas
 
-Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan behållaren tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till behållaren.   Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
+Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan behållaren tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till behållaren.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
 
 
 ```json
@@ -391,7 +391,7 @@ Standardtidsintervallet är inställt på 10 sekunder. Eftersom inställningen �
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Ställ in exekveringstid för att ta bort behållaravbildningar som inte används
 
-Du kan ställa in Service Fabric-klustret på att ta bort oanvända behållaravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många behållaravbildningar på noden.  Aktivera funktionen genom att uppdatera avsnittet `Hosting` i klustermanifestet enligt följande utdrag: 
+Du kan ställa in Service Fabric-klustret på att ta bort oanvända behållaravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många behållaravbildningar på noden. Aktivera funktionen genom att uppdatera avsnittet `Hosting` i klustermanifestet enligt följande utdrag: 
 
 
 ```json
@@ -416,7 +416,7 @@ Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesT
 
 ## <a name="configure-container-image-download-time"></a>Konfigurera nedladdningstid för behållaravbildning
 
-Service Fabric-körningen tilldelar som standard en tid på 20 minuter för att hämta och extrahera behållaravbildningar, vilket fungerar för de flesta behållaravbildningar. För stora avbildningar, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Det här går att ange med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, på det sätt som visas i följande kodavsnitt:
+Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera behållaravbildningar, vilket fungerar för de flesta behållaravbildningar. För stora avbildningar, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Den här timeouten anges med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, på det sätt som visas i följande kodavsnitt:
 
 ```json
 {
@@ -439,8 +439,25 @@ Service Fabric (version 6.1 eller senare) har stöd för bevarande av behållare
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla behållare med fel att bevaras. Om attributet **ContainersRetentionCount** inte anges kommer inga behållare att bevaras. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Vi rekommenderar att du använder placeringsbegränsningar för att rikta in behållartjänsten på en viss nod när den här funktionen används för att förhindra att behållartjänsten flyttas till andra noder. Alla behållare som bevaras med den här funktionen måste tas bort manuellt.
+Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla behållare med fel att bevaras. Om attributet **ContainersRetentionCount** inte anges kommer inga behållare att bevaras. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Använd placeringsbegränsningar för att rikta in behållartjänsten på en viss nod när den här funktionen används för att förhindra att behållartjänsten flyttas till andra noder. Alla behållare som bevaras med den här funktionen måste tas bort manuellt.
 
+## <a name="start-the-docker-daemon-with-custom-arguments"></a>Starta Docker-daemon med anpassade argument
+
+Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre av Service Fabric runtime. Om du inte anger anpassade argument, skickar inte Service Fabric några andra argument till docker-motorn, förutom argumentet `--pidfile`. Därför får inte `--pidfile` skickas som ett argument. Dessutom ska argumentet fortsätta att få docker-daemonen att lyssna på pipen med standardnamnet på Windows (eller unix-domänsocket på Linux) för att Service Fabric ska kunna kommunicera med daemon. De anpassade argumenten har angetts i klustermanifestet under **värdavsnittet** i **ContainerServiceArguments**. Ett exempel visas i följande kodavsnitt: 
+ 
+
+```json
+{ 
+   "name": "Hosting", 
+        "parameters": [ 
+          { 
+            "name": "ContainerServiceArguments", 
+            "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
+          } 
+        ] 
+} 
+
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du kör [behållare i Service Fabric](service-fabric-containers-overview.md).

@@ -7,9 +7,9 @@ Först måste du ha senast [Azure PowerShell](http://msdn.microsoft.com/library/
 > 
 > 
 
-Kör den [ **Add-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet och du kommer att visas ett tecken på skärmen för att ange dina autentiseringsuppgifter. Använd samma autentiseringsuppgifter som du använder för att logga in på Azure-portalen.
+Kör den [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet och du kommer att visas ett tecken på skärmen för att ange dina autentiseringsuppgifter. Använd samma autentiseringsuppgifter som du använder för att logga in på Azure Portal.
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 
 Om du har flera prenumerationer använder den [ **Set-AzureRmContext** ](http://msdn.microsoft.com/library/mt619263.aspx) för att välja vilken prenumeration som din PowerShell-session ska använda. För att se vilken prenumeration den nuvarande PowerShell-sessionen använder kör du cmdleten [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). För att se alla dina prenumerationer kör du [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
 

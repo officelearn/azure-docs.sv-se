@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 Genom att använda alla programmeringsspråk som har stöd för REST-anrop kan utföra du datauppdatering asynkrona åtgärder på Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågan skalbar. 
@@ -198,7 +198,7 @@ Här är en C# kodexempel för att komma igång, [RestApiSample på GitHub](http
 1.  Klona eller hämta lagringsplatsen. Öppna RestApiSample-lösningen.
 2.  Hitta raden **klienten. BaseAddress =...** och ange din [bas-URL](#base-url).
 
-Kodexemplet kan använda interaktiv inloggning, användarnamn/lösenord eller [tjänstens huvudnamn](#service-principle).
+Kodexemplet kan använda interaktiv inloggning, användarnamn/lösenord eller [tjänstens huvudnamn](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Interaktiv inloggning eller användarnamn/lösenord
 
@@ -235,7 +235,7 @@ Den här typen av autentisering kräver ett Azure-program skapas med de behörig
 
 #### <a name="service-principal"></a>Tjänstens huvudnamn
 
-Se [skapa service - principen i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) och [lägga till en princip för tjänsten i serveradministratörsrollen](analysis-services-addservprinc-admins.md) för mer information om hur du ställer in ett huvudnamn för tjänsten och tilldela behörighet i Azure som . När du har slutfört stegen, utför följande åtgärder:
+Se [skapa tjänstens huvudnamn - Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) och [lägga till ett huvudnamn för tjänsten i serveradministratörsrollen](analysis-services-addservprinc-admins.md) för mer information om hur du ställer in ett huvudnamn för tjänsten och tilldela behörighet i Azure som . När du har slutfört stegen, utför följande åtgärder:
 
 1.  I kodexemplet kan hitta **string myndigheten =...** , Ersätt **vanliga** med organisationens klient-ID.
 2.  Kommentar/ta bort kommentarerna så ClientCredential klassen används för att initiera Använ-objekt. Se till att den \<App-ID > och \<Appkey > värden används på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvudnamn.

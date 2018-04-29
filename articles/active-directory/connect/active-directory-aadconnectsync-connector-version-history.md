@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connector-version-release-history"></a>Versionshistorik för anslutningsappen
 Kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM) uppdateras ofta.
@@ -34,7 +34,7 @@ Relaterade länkar:
 * [Hämta senaste kopplingar](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Allmän LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) refererar dokumentationen
 * [Allmän SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) refererar dokumentationen
-* [Web Services Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) refererar dokumentationen
+* [Web Services Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) refererar dokumentationen
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) refererar dokumentationen
 * [Kopplingen för Lotus Domino](active-directory-aadconnectsync-connector-domino.md) refererar dokumentationen
 
@@ -44,7 +44,7 @@ Relaterade länkar:
 ### <a name="fixed-issues"></a>Fast problem:
 * Löst ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
 * Du behöver uppdatera bindningen omdirigering från 3.3.0.0-4.1.3.0 till 4.1.4.0 i miiserver.exe.config i den här versionen av kopplingar
-* Generic Web Services:
+* Allmän Web Services:
     * Löst giltig JSON-svar kunde inte sparas i configuration tool
 * Allmän SQL:
     * Export genererar alltid bara uppdateringsfråga för borttagning. Lagts till för att generera en fråga
@@ -62,7 +62,7 @@ Relaterade länkar:
 * Lotus Notes:
   * Anpassade certifiers filtreringsalternativ
   * Import av klassen ImportOperations fast definitionen av vilka åtgärder kan köras i läget 'Vyer' och som i ”Sök”-läge.
-* Generic LDAP:
+* Allmän LDAP:
   * OpenLDAP Directory använder DN som ankare i stället för entryUUI. Nya alternativet att GLDAP koppling som gör det möjligt för att ändra ankare
 * Allmän SQL:
   * Fast export till fältet varbinary(max)-typ som har.
@@ -84,7 +84,7 @@ Relaterade länkar:
 
 ### <a name="fixed-issues"></a>Fast problem:
 
-* Generic Web Services:
+* Allmän Web Services:
   * Ett problem som förhindrar att ett SOAP-projekt som skapas när det finns två eller fler slutpunkter har åtgärdats.
 * Allmän SQL:
   * I åtgärden för import av GSQL inte konvertering av tid korrekt när sparas till anslutningsplatsen. Standardformatet för datum och tid för anslutarplats för GSQL har ändrats från ”åååå-MM-dd: ssZ' till 'yyyy-MM-dd: ssZ'.
@@ -93,7 +93,7 @@ Relaterade länkar:
 
 ### <a name="fixed-issues"></a>Fast problem:
 
-* Generic Web Services:
+* Allmän Web Services:
   * Verktyget Wsconfig inte att konvertera korrekt Json-matris från ”exempelbegäran” för metoden REST-tjänsten. Detta orsakade problem med serialisering denna Json-matris för REST-begäran.
   * Web Service Connector Configuration Tool stöder inte användning av diskutrymme symboler i JSON-attributnamn 
     * Ett mönster för ersättning kan läggas till manuellt i filen WSConfigTool.exe.config t.ex. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
@@ -122,7 +122,7 @@ Relaterade länkar:
 
 ### <a name="fixed-issues"></a>Fast problem:
 
-* Generic Web Services:
+* Allmän Web Services:
   * Kan inte importera serverkonfigurationen om WebService koppling finns
   * WebService-anslutningen fungerar inte med flera webbtjänster
 
@@ -149,7 +149,7 @@ Utgiven: 2017 mars
 - Det krävs för att försäkra att namnge är unika mellan objekttyper.
 
 
-* Generic LDAP:</br>
+* Allmän LDAP:</br>
  **Scenario:** när endast några behållare har markerats i en specifik partition, sedan sökningen fortfarande görs i hela partition. Specifika filtreras som synkroniseringstjänsten, men inte av MA vilket kan leda till försämrade prestanda. </br>
 
  **Lösningsbeskrivning av:** ändras GLDAP connector koden och gör det möjligt gå igenom alla behållare som du kan söka efter objekt i var och en av dem, i stället för att söka i hela partitionen.
@@ -161,17 +161,17 @@ Utgiven: 2017 mars
   **Lösning:** konfigurerbara e borttagning stöd för en person tas bort vid en export.
 
 ### <a name="fixed-issues"></a>Fast problem:
-* Generic Web Services:
+* Allmän Web Services:
  * När du ändrar tjänstens Webbadress i SAP wsconfig projekt via webbtjänsten konfigurationsverktyget sedan händer följande fel: Det gick inte att hitta en del av sökvägen
 
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
-* Generic LDAP:
+* Allmän LDAP:
  * GLDAP Connector kan inte se alla attribut i AD LDS
  * Guiden radbrytningar när inga UPN-attribut identifieras från LDAP-directory-schemat
  * Delta importen misslyckas med identifiering av fel som inte finns vid fullständig import när attributet ”objectclass” inte är markerat
  * En ”konfigurera partitioner och hierarkier” konfigurationssidan visar inte alla objekt som är vilken typ som motsvarar partitionen för nya servrar i generiska  
-LDAP MA. De visade endast objekt från RootDSE partition.
+LDAP-MA. De visade endast objekt från RootDSE partition.
 
 
 * Allmän SQL:
@@ -222,7 +222,7 @@ Inledande versionen av den [allmänna SQL Connector](active-directory-aadconnect
 ## <a name="older-releases"></a>Äldre versioner
 Kopplingarna publicerades före mars 2016 som supportfrågor.
 
-**Generic LDAP**
+**Allmän LDAP**
 
 * [KB3078617](https://support.microsoft.com/kb/3078617) -1.0.0597 September 2015
 * [KB3044896](https://support.microsoft.com/kb/3044896) -1.0.0549, 2015 mars

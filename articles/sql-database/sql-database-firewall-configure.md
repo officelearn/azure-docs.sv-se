@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: d68ae802e37b5d0b8421099894da43a0559f2fc2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f43e380d1af846a0c77d61b4e8827c8b45fb08a6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database server- och databasnivå brandväggsregler 
 
@@ -208,7 +208,7 @@ Tänk på följande om åtkomsten till Microsoft Azure SQL Database-tjänsten in
 * **Lokal brandväggskonfiguration:** Innan din dator kan komma åt Azure SQL Database kan du behöva skapa ett brandväggsundantag på din dator för TCP-port 1433. Om du skapar anslutningar inom gränsen för Azure-molnet kan du behöva öppna ytterligare portar. Mer information finns i **SQL Database: utanför eller innanför** avsnitt i [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 * **NAT (Network Address Translation):** På grund av NAT kanske IP-adressen som används av din dator för att ansluta till Azure SQL Database inte är samma som IP-adressen som visas i datorns IP-konfigurationsinställningar. Du kan visa IP-adressen som din dator använder genom att ansluta till Azure, logga in på portalen och gå till fliken **Konfigurera** på servern som är värd för databasen. **Aktuell klient-IP-adress** visas under avsnittet **Tillåtna IP-adresser**. Klicka på **Lägg till** i **Tillåtna IP-adresser** så att den här datorn kan ansluta till servern.
 * **Ändringarna i listan över tillåtna adresser har inte börjat gälla ännu:** Det kan ta upp till fem minuter innan ändringarna i brandväggskonfigurationen för Azure SQL Database börjar gälla.
-* **Inloggningen har inte behörighet eller så har ett felaktigt lösenord använts:** Om en inloggning inte har behörighet på Azure SQL Database-servern eller om lösenordet som användes är fel så nekas anslutningen till Azure SQL Database-servern. En brandväggsinställning ger endast klienter möjlighet att försöka ansluta till din server. Varje klient måste fortfarande ange nödvändiga säkerhetsreferenser. Mer information om hur du förbereder inloggningar finns i avsnittet Managing Databases, Logins, and Users in Azure SQL Database (Hantera databaser, inloggningar och användare i Azure SQL Database).
+* **Inloggningen har inte behörighet eller så har ett felaktigt lösenord använts:** Om en inloggning inte har behörighet på Azure SQL Database-servern eller om lösenordet som användes är fel så nekas anslutningen till Azure SQL Database-servern. En brandväggsinställning ger endast klienter möjlighet att försöka ansluta till din server. Varje klient måste fortfarande ange nödvändiga säkerhetsreferenser. Mer information om hur du förbereder inloggningar finns [hantera databaser och inloggningar användare i Azure SQL Database](sql-database-manage-logins.md).
 * **Dynamisk IP-adress:** Om du har en Internetanslutning med dynamisk IP-adressering och du har problem med att passera brandväggen kan du prova någon av följande lösningar:
   
   * Fråga din Internetleverantör efter IP-adressintervallet som tilldelats klientdatorer som ansluter till Azure SQL Database-servern och lägg sedan till IP-adressintervallet som en brandväggsregel.

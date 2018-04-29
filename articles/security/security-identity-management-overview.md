@@ -1,5 +1,5 @@
 ---
-title: "Azure säkerhetsfunktioner som hjälper med identity management | Microsoft Docs"
+title: Azure säkerhetsfunktioner som hjälper med identity management | Microsoft Docs
 description: " Den här artikeln innehåller en översikt över grundläggande Azure säkerhetsfunktioner som hjälper till med Identitetshantering. Microsoft identitets- och lösningar hjälp IT skydda åtkomst till program och resurser i företagets datacenter och i molnet, aktivera nivåer av verifiering, till exempel multifaktorautentisering och principer för villkorlig åtkomst. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 921d7eef90a86216dc13804d3dc4dd216247fb87
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över säkerheten i Azure identity management
 Microsoft identitets- och lösningar hjälp IT skydda åtkomst till program och resurser i företagets datacenter och i molnet, aktivera nivåer av verifiering, till exempel multifaktorautentisering och principer för villkorlig åtkomst. Misstänkt aktivitet med avancerad säkerhet rapportering, granskning och aviseringar hjälper dig att minimera potentiella säkerhetsproblem. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) ger enkel inloggning till tusentals molnet (SaaS)-appar och åtkomst till webbprogram som du kör lokalt.
@@ -75,8 +75,8 @@ Azure Multi-Factor authentication (MFA) är en autentiseringsmetod som kräver a
 Läs mer:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Vad är Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Hur Azure Multi-Factor Authentication fungerar](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [Vad är Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
+* [Hur Azure Multi-Factor Authentication fungerar](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, aviseringar och machine learning-baserade rapporter
 Säkerhetsövervakning och aviseringar och machine learning-baserade rapporter som identifierar inkonsekventa åtkomstmönster kan hjälpa dig att skydda din verksamhet. Du kan använda Azure Active Directory-åtkomst och användningsrapporter insyn i integritet och säkerheten för din organisations katalog. Med den här informationen kan fastställa en katalogadministratör bättre där möjliga säkerhetsrisker kan ligga så att de kan på lämpligt sätt att minska riskerna.

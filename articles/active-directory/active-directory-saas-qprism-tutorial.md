@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med QPrism | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och QPrism."
+title: 'Självstudier: Azure Active Directory-integrering med QPrism | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Självstudier: Azure Active Directory-integrering med QPrism
 
@@ -32,12 +32,12 @@ Integrera QPrism med Azure AD ger dig följande fördelar:
 
 Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med QPrism, behöver du följande:
 
 - En Azure AD-prenumeration
-- En QPrism enkel inloggning på aktiverade prenumeration
+- En QPrism enkel inloggning aktiverad prenumeration
 
 Följ dessa rekommendationer för att testa stegen i den här självstudiekursen:
 
@@ -103,41 +103,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och QPrism domän med enkel inloggning information](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_url.png)
 
-    a. I den **inloggnings-URL** text skriver en URL som använder följande mönster:`https://<customer domain>.qmyzone.com/login`
+    a. I den **inloggnings-URL** text skriver en URL som använder följande mönster: `https://<customer domain>.qmyzone.com/login`
 
-    b. I den **identifierare** text skriver en URL som använder följande mönster:`https://<customer domain>.qmyzone.com/metadata.php`
+    b. I den **identifierare** text skriver en URL som använder följande mönster: `https://<customer domain>.qmyzone.com/metadata.php`
          
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och URL: en inloggning. Kontakta [QPrism klienten supportteamet](mailto:qsupport-ce@quatrro.com) att hämta dessa värden. 
 
-4. Att generera den **Metadata** URL, gör du följande:
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
 
-    a. Välj **App registreringar**.
-    
-    ![Konfigurera enkel inloggning app registreringar](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Välj **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning slutpunkt](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Välj kopieringsknappen för att kopiera den **FEDERATION METADATADOKUMENTET** URL, och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning slutpunkt](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Gå till egenskapssidan för **QPrism**, och kopierar den **program-ID** med hjälp av **kopiera**. Klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning program-ID](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+     ![Länken hämta certifikatet](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Välj **Spara**.
 
     ![Konfigurera enkel inloggning spara knappen](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Konfigurera enkel inloggning på den **QPrism** sida, skicka den **URL för tjänstmetadata** till den [QPrism supportteamet](mailto:qsupport-ce@quatrro.com). De se till att SAML enkel inloggning anslutningen är korrekt inställda på båda sidor.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen. När du lägger till den här appen från den **Active Directory** > **företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [Azure AD inbäddade dokumentationen]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. Konfigurera enkel inloggning på **QPrism** sida, måste du skicka den **webbadress Federation Metadata** till [QPrism supportteamet](mailto:qsupport-ce@quatrro.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 

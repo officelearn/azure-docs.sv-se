@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory för utvecklare | Microsoft Docs"
-description: "En lista över alla guider och referensartiklar i Utvecklarhandbok för Azure Active Directory."
+title: Azure Active Directory för utvecklare | Microsoft Docs
+description: En lista över alla guider och referensartiklar i Utvecklarhandbok för Azure Active Directory.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fe5d344eaaecc40f6d1937943603eda0404a1ca9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artiklar i Utvecklarhandbok för Azure AD
 Följande är en lista över alla avsnitt som beskrivs i Utvecklarhandbok för Azure Active Directory.
@@ -43,7 +43,7 @@ Dessa artiklar beskriver specifika begrepp och funktioner i Azure Active Directo
 | [Office 365-instrumentpanel för försäljning](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Hur du publicerar ett program på instrumentpanelen för försäljning O365 |
 | [Visual Studio anslutna tjänster](vs-active-directory-dotnet-getting-started.md)                                               | Hur du använder Azure AD-integrering med MVC-projekt i Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Hur du integrerar med lokala Active Directory med AD FS |
-| [Metodtips för felhantering för ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Hur du skapar flexibel felhantering och aktivera loggning |
+| [Metodtips för felhantering för ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Hur du skapar flexibel felhantering och aktivera loggning |
 
 ## <a name="reference"></a>Referens
 Dessa artiklar innehåller en grund för REST och autentiseringsbibliotek, protokoll, fel, kodexempel och slutpunkter.

@@ -1,11 +1,11 @@
 ---
-title: "Använda Azure AD v2.0 åtkomst till säker resurser utan användaråtgärder | Microsoft Docs"
-description: "Skapa webbprogram med hjälp av Azure AD-implementeringen av OAuth 2.0-autentiseringsprotokollet."
+title: Använda Azure AD v2.0 åtkomst till säker resurser utan användaråtgärder | Microsoft Docs
+description: Skapa webbprogram med hjälp av Azure AD-implementeringen av OAuth 2.0-autentiseringsprotokollet.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ea681244edd81bcba1269886acc725175f779bfb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 och OAuth 2.0-klientautentiseringsuppgifter
-Du kan använda den [OAuth 2.0 klientens autentiseringsuppgifter bevilja](http://tools.ietf.org/html/rfc6749#section-4.4), kallas ibland *tvåledade OAuth*, åtkomst till web-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av bevilja ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med användaren. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
+Du kan använda den [OAuth 2.0 klientens autentiseringsuppgifter bevilja](http://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, kallas ibland *tvåledade OAuth*, åtkomst till web-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av bevilja ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med användaren. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
 
 > [!NOTE]
 > V2.0-slutpunkten stöder inte alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
@@ -49,10 +49,10 @@ Den här typen av auktorisering är vanligt för Daemon och tjänstkonton som be
 ### <a name="application-permissions"></a>Behörigheter för program
 Du kan använda API: er för att exponera en uppsättning behörigheter för program i stället för med ACL: er. Ett program behörighet tilldelas till ett program av en organisations administratör och kan användas endast för att komma åt data som ägs av den organisationen och dess anställda. Till exempel visar Microsoft Graph flera applikationen behörighet att göra följande:
 
-* Läsa e-post i alla postlådor
+* Läs e-post i alla postlådor
 * Läsa och skriva e-post i alla postlådor
 * Skicka e-post som valfri användare
-* Läsa katalogdata
+* Läs katalogdata
 
 Mer information om behörigheter för program går du till [Microsoft Graph](https://graph.microsoft.io).
 
@@ -60,7 +60,7 @@ Om du vill använda behörigheter för program i din app, gör det diskuterar vi
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av appen
 1. Gå till ditt program i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller [skapa en app](active-directory-v2-app-registration.md), om du inte redan har gjort. Du måste använda minst en Programhemlighet när du skapar din app.
-2. Leta upp den **direkt programbehörigheter** avsnittet och Lägg sedan till de behörigheter som krävs för din app.
+2. Leta upp den **Mcrosoft diagram behörigheter** avsnittet och Lägg sedan till den **programbehörigheter** som kräver att din app.
 3. **Spara** appregistrering.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Rekommenderat: Logga in användaren till din app
@@ -88,9 +88,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Directory-klient som du vill begära tillstånd från. Detta kan vara i GUID- eller format för eget namn. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder `common`. |
+| klient |Krävs |Directory-klient som du vill begära tillstånd från. Detta kan vara i GUID- eller format för eget namn. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder `common`. |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
 | redirect_uri |Krävs |Omdirigerings-URI där du vill att svar skickas för att hantera din app. Den måste matcha en omdirigerings-URI: er som du har registrerat i portalen, förutom att det måste vara URL-kodade och det kan ha ytterligare sökvägssegment. |
 | state |Rekommenderas |Ett värde som ingår i begäran som också returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
@@ -106,7 +106,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Beskrivning |
 | --- | --- | --- |
-| Klient |Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
+| klient |Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
 | state |Ett värde som ingår i begäran som också returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 | admin_consent |Ange till **SANT**. |
 
@@ -130,39 +130,48 @@ När du har skaffat nödvändiga tillståndet för programmet, fortsätter du me
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först fall: token åtkomst-begäran med en delad hemlighet
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&grant_type=client_credentials
 ```
 
 ```
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
+| klient |Krävs | Directory-klient programmet planerar att arbeta mot i GUID eller domännamn format. |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| Omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
+| omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
 | client_secret |Krävs |Den hemlighet som programmet som du skapade för din app i portalen för registrering av app. |
 | grant_type |Krävs |Måste vara `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: token åtkomst-begäran med ett certifikat
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
+| klient |Krävs | Directory-klient programmet planerar att arbeta mot i GUID eller domännamn format. |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| Omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
-| client_assertion_type |Krävs |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
+| client_assertion_type |Krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Krävs | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
 | grant_type |Krävs |Måste vara `client_credentials`. |
 

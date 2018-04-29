@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 57da0d1f6878ce31f0e47680a4750a90115c93f6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: efa07a68cda60ea2d8256a8d068639305f7f4c86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Skapa en ruttbaserad VPN-gateway med hjälp av PowerShell
 
@@ -29,7 +29,7 @@ Stegen i den här artikeln skapar ett VNet, ett undernät, ett gateway-undernät
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -208,7 +208,7 @@ IpTags                   : {}
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Använd när du inte längre behöver de resurser som du skapade den [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kommando för att ta bort resursgruppen. Detta tar bort resursgruppen och alla resurser som den innehåller.
+När du inte längre behöver de resurser som du har skapat kan du ta bort resursgruppen med kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Därmed tas resursgruppen och alla resurser den innehåller bort.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name TestRG1

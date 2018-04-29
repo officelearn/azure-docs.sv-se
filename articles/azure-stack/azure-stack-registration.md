@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: f7297e938c5561328a07e22012205cc2ef3ac419
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure stacken med Azure
 Registrera [Azure Stack](azure-stack-poc.md) med Azure kan du hämta marketplace-objekt från Azure och Ställ in commerce rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure handel och du kan se den under den prenumeration som används för registrering. 
@@ -59,10 +59,10 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 ### <a name="register-the-azure-stack-resource-provider"></a>Registerresursleverantören Azure Stack
 Registrera Azure Stack-resursprovidern med Azure, starta PowerShell ISE som administratör och kör följande PowerShell-kommandon med den **EnvironmentName** parameterinställning till lämplig Azure-prenumerationstyp (se parametrarna nedan). 
 
-1. Lägg till Azure-konto som används för att registrera Azure stacken. Lägg till kontot genom att köra den **Connect-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för global administratör för Azure-konto och du kan behöva använda 2-faktor-autentisering baserat på konfigurationen för ditt konto.
+1. Lägg till Azure-konto som används för att registrera Azure stacken. Lägg till kontot genom att köra den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för global administratör för Azure-konto och du kan behöva använda 2-faktor-autentisering baserat på konfigurationen för ditt konto.
 
    ```PowerShell
-      Connect-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
+      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
    | Parameter | Beskrivning |  
@@ -94,7 +94,7 @@ Följ dessa steg för att registrera Azure stacken med Azure med hjälp av lön-
 2. Därefter samma PowerShell-session, se till att du har loggat in till rätt Azure PowerShell-kontexten. Detta är det azure-konto som användes för att registrera Azure Stack resursprovidern ovan. PowerShell för att köra: 
 
   ```powershell 
-  Connect-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+  Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
   ``` 
 
 3. I samma PowerShell-session kör den **Set AzsRegistration** cmdlet. PowerShell för att köra:  
@@ -147,7 +147,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (utan internet-anslutning
 
   ```Powershell
   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<your agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
   ```
   
   > [!TIP]  

@@ -1,23 +1,19 @@
 ---
 title: Uppgradera till Azure Search .NET Management SDK version 2 | Microsoft Docs
 description: Uppgradera till Azure Search .NET Management SDK version 2
-services: search
-documentationcenter: 
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: brjohnst
-ms.openlocfilehash: ade32dcb4e0885c251c17fad46fb753b6134d027
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a6b6c01f0cc811abca90139e4c26c27b7bd7119f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Uppgradera till Azure Search .NET Management SDK version 2
 Om du använder version 1.0.2 eller senare av den [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), den här artikeln hjälper dig att uppgradera ditt program att använda version 2.
@@ -29,7 +25,7 @@ Version 2 av Azure Search .NET Management SDK innehåller vissa ändringar från
 ## <a name="whats-new-in-version-2"></a>Vad är nytt i version 2
 Version 2 av Azure Search .NET Management SDK riktar sig till samma allmänt tillgänglig version av Azure Search Management REST API som tidigare versioner av SDK specifikt 2015-08-19. Ändringar till SDK är strikt klientsidan ändringar för att förbättra användningsmöjligheter SDK sig själv. De här förändringarna innefattar följande:
 
-* `Services.CreateOrUpdate`och de asynkrona versionerna nu automatiskt efter etableringen `SearchService` och returnerar inte förrän tjänsten etableringen har slutförts. Du slipper skriva sådan kod avsökning själv.
+* `Services.CreateOrUpdate` och de asynkrona versionerna nu automatiskt efter etableringen `SearchService` och returnerar inte förrän tjänsten etableringen har slutförts. Du slipper skriva sådan kod avsökning själv.
 * Om du vill söka service etablering manuellt kan du använda den nya `Services.BeginCreateOrUpdate` metod eller en av dess asynkrona versionerna.
 * Nya metoder `Services.Update` och dess asynkrona versionerna har lagts till SDK. Dessa metoder använder HTTP-korrigering för att stödja stegvis uppdatering av en tjänst. Du kan till exempel nu skala en tjänst genom att skicka en `SearchService` instans till dessa metoder som innehåller endast önskade `partitionCount` och `replicaCount` egenskaper. Det gamla sättet att anropa `Services.Get`, ändra den returnerade `SearchService`, och skicka den till `Services.CreateOrUpdate` stöds fortfarande, men inte längre behövs. 
 

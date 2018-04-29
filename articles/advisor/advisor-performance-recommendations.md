@@ -1,12 +1,12 @@
 ---
 title: Azure Advisor-rekommendationer | Microsoft Docs
-description: "Använda Advisor för att optimera prestanda för din Azure-distributioner."
+description: Använda Advisor för att optimera prestanda för din Azure-distributioner.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 00abb5aafc6f3aec2e2dd7326a307bee74d97cc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
@@ -31,11 +31,11 @@ Advisor ger en konsekvent konsoliderad vy över rekommendationer för alla dina 
 > [!NOTE]
 > För att få rekommendationer, en databas måste ha om en vecka för användning och som veckan måste det finnas vissa konsekvent aktivitet. SQL Database Advisor kan optimera enklare för konsekvent frågemönster än för slumpmässiga belastning för aktiviteten.
 
-Mer information om SQL Database Advisor finns [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
+Mer information om SQL Database Advisor finns [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Förbättra Redis-Cache-prestanda och tillförlitlighet
 
-Advisor identifierar Redis-Cache instanser där prestanda kan påverkas negativt av hög minnesanvändning, serverbelastning, bandbredd i nätverket eller ett stort antal klientanslutningar. Advisor innehåller även metodtips rekommendationer som hjälper dig att undvika potentiella problem. Mer information om Redis-Cache rekommendationer finns [Redis-Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identifierar Redis-Cache instanser där prestanda kan påverkas negativt av hög minnesanvändning, serverbelastning, bandbredd i nätverket eller ett stort antal klientanslutningar. Advisor innehåller även metodtips rekommendationer som hjälper dig att undvika potentiella problem. Mer information om Redis-Cache rekommendationer finns [Redis-Cache Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Förbättra Apptjänst prestanda och tillförlitlighet
@@ -44,7 +44,7 @@ Azure Advisor integrerar rekommendationer om bästa praxis för att förbättra 
 * Identifiera instanser där minne eller CPU-resurserna är uttömda av app körningar med alternativ för lösning.
 * Identifiera instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och den lägre kostnaden. 
 
-Mer information om Apptjänster rekommendationer finns [bästa praxis för Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
+Mer information om Apptjänster rekommendationer finns [bästa praxis för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer i Advisor
 

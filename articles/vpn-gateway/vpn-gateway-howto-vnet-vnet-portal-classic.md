@@ -1,13 +1,13 @@
 ---
 title: 'Skapa en anslutning mellan Vnet: klassiska: Azure-portalen | Microsoft Docs'
-description: "Anslut Azure-nätverk som tillsammans med PowerShell och Azure-portalen."
+description: Anslut Azure-nätverk som tillsammans med PowerShell och Azure-portalen.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera VNet-till-VNet-anslutning (klassisk)
 
@@ -218,7 +218,7 @@ I följande steg ska du ansluta till ditt Azure-konto och hämta och visa konfig
 2. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Kontrollera prenumerationerna för kontot.

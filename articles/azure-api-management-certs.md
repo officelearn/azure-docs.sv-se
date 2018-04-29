@@ -1,11 +1,11 @@
 ---
-title: "Ladda upp ett Hanteringscertifikat för Azure-tjänst | Microsoft Docs"
-description: "Lär dig hur man överför Service Management-certifikat för Azure-portalen."
+title: Ladda upp ett Hanteringscertifikat för Azure-tjänst | Microsoft Docs
+description: Lär dig hur man överför Service Management-certifikat för Azure-portalen.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett Hanteringscertifikat för Azure-tjänst
 Certifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
@@ -30,7 +30,7 @@ Certifikat kan du autentisera med den klassiska distributionsmodellen som tillha
 
 Om du vill ha mer information om Azure certifikat (inklusive att skapa ett självsignerat certifikat), se [certifikat översikt för Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Du kan också använda [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) att autentisera klientkod för automatisering.
+Du kan också använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) att autentisera klientkod för automatisering.
 
 **Obs:** du måste vara en medadministratör för prenumerationen utföra några åtgärder under hantering av certifikat. [Lär dig mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du Lägg till eller ta bort Medadministratörer från nya Azure-portalen 
 

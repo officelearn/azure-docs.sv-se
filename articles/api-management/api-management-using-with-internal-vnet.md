@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med hjälp av Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks hantera Azure API Management API: er som inte är tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att ansluta. API-hantering kan distribueras i två huvudsakliga lägen i ett virtuellt nätverk:
@@ -87,13 +87,13 @@ När du skapar en API Management-tjänsten med namnet ”contoso” till exempel
 
 Om du vill få åtkomst till dessa slutpunkter för API Management-tjänsten måste skapa du en virtuell dator i ett undernät som är anslutna till det virtuella nätverket som API Management har distribuerats. Under förutsättning att den interna virtuella IP-adressen för din tjänst är 10.0.0.5, kan du mappa hosts-filen % SystemDrive%\drivers\etc\hosts, enligt följande:
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.0.0.5 contoso.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.0.0.5 contoso.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.0.0.5 contoso.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.0.0.5 contoso.scm.azure-api.net
 
 Du kan sedan komma åt alla Tjänsteslutpunkter från den virtuella datorn som du skapade. Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också skapa en DNS-poster och få åtkomst till dessa slutpunkter från valfri plats i det virtuella nätverket. 
 
@@ -115,7 +115,7 @@ Du kan sedan komma åt alla Tjänsteslutpunkter från den virtuella datorn som d
 Mer information finns i följande artiklar:
 * [Vanliga problem med nätverket konfiguration när du konfigurerar Azure API Management i ett virtuellt nätverk][Common network configuration problems]
 * [Virtuella nätverk och svar](../virtual-network/virtual-networks-faq.md)
-* [Skapa en post i DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [Skapa en post i DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

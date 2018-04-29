@@ -1,12 +1,12 @@
 ---
-title: "Hantera fel i varaktiga funktioner – Azure"
-description: "Lär dig mer om att hantera fel i tillägget varaktiga funktioner för Azure Functions."
+title: Hantera fel i varaktiga funktioner – Azure
+description: Lär dig mer om att hantera fel i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ee5362d33bb9dadadb4194457cfd7726f4825f56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 108c6020956b398effb8ba9dd4471190362359d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure-funktioner)
 
@@ -26,7 +26,7 @@ Beständiga funktionen orkestreringarna implementeras i kod och kan använda fun
 
 ## <a name="errors-in-activity-functions"></a>Fel i aktiviteten funktioner
 
-Alla undantag utlöstes i en aktivitet funktionen ordnas tillbaka till orchestrator-funktionen och sig som en `TaskFailedException`. Du kan skriva hantering och ersättning felkoden som passar dina behov i orchestrator-funktionen.
+Alla undantag utlöstes i en aktivitet funktionen ordnas tillbaka till orchestrator-funktionen och sig som en `FunctionFailedException`. Du kan skriva hantering och ersättning felkoden som passar dina behov i orchestrator-funktionen.
 
 Tänk dig följande funktion i orchestrator som överför medel från ett konto till en annan:
 
@@ -80,7 +80,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }

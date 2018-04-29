@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 56a2b95aa11a7cea3c7b60bd1d3f2835e7dd17a8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
 Den här artikeln visar hur du automatisera skapandet och uppdatering av [Programinsikter](app-insights-overview.md) resurser automatiskt med Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [tillgänglighet webbtester](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schemat](app-insights-pricing.md), och skapa andra Azure-resurser .
@@ -155,7 +155,7 @@ Skapa en ny fil i JSON - vi anropa den `template1.json` i det här exemplet. Kop
 ## <a name="create-application-insights-resources"></a>Skapa Application Insights-resurser
 1. Logga in på Azure i PowerShell:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Kör ett kommando som detta:
    
     ```PS
@@ -198,7 +198,7 @@ Skapa en resurs i appen med pris företagsplan, med den här mallen ovan:
 
 |priceCode|plan|
 |---|---|
-|1|Grundläggande|
+|1|Basic|
 |2|Enterprise|
 
 * Om du endast vill använda baspris standardplanen kan du utelämna CurrentBillingFeatures resursen från mallen.

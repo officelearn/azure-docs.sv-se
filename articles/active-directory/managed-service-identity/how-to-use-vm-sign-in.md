@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: ec8c9de6ecd81900c4104abf58ecbe032e43fad9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Hur du använder en Azure VM hanterade tjänsten identitet (MSI) för inloggning 
 
@@ -75,7 +75,7 @@ Följande skript visar hur du:
 
 ## <a name="resource-ids-for-azure-services"></a>Resurs-ID för Azure-tjänster
 
-Se [Azure-tjänster som stöder Azure AD-autentisering](overview.md#azure-services-that-support-azure-ad-authentication) en lista över resurser som stöder Azure AD och har testats med MSI och deras respektive resurs-ID.
+Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md#azure-services-that-support-azure-ad-authentication) en lista över resurser som stöder Azure AD och har testats med MSI och deras respektive resurs-ID.
 
 ## <a name="error-handling-guidance"></a>Riktlinjer för hantering av fel 
 

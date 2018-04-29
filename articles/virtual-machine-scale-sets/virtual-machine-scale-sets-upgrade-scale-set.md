@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skaluppsättning för virtuell dator
 Du kan behöva ändra eller uppdatera skaluppsättning för virtuell dator i hela livscykeln för dina program. Dessa uppdateringar kan innehålla hur du uppdaterar konfigurationen av skaluppsättning eller ändra konfigurationen för programmet. Den här artikeln beskriver hur du ändrar en befintlig skaluppsättningen med REST API: er, Azure PowerShell eller Azure CLI 2.0.
@@ -373,12 +373,12 @@ Om ett program distribueras till en skala som anges via tillägg, gör en uppdat
 Det är vanligt för program som ska distribueras via en anpassad avbildning. Det här scenariot beskrivs i följande avsnitt.
 
 ### <a name="os-updates"></a>OS-uppdateringar
-Om du använder Azure-plattformen bilder, kan du uppdatera bilden genom att ändra den *imageReference* (Mer information finns i [REST API-dokumentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Om du använder Azure-plattformen bilder, kan du uppdatera bilden genom att ändra den *imageReference* (Mer information finns i [REST API-dokumentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Med plattformen bilder är det vanligt att ange ”senaste” för avbildning Referensversion. När du skapar skala ut och avbildningsåterställning, skapas virtuella datorer med den senaste tillgängliga versionen. Men den **inte** innebär att OS-avbildningen uppdateras automatiskt med tiden som släpps nya avbildningsversioner. En separat funktion är för närvarande under förhandsgranskning som tillhandahåller den automatiska OS uppgraderingar. Mer information finns i [automatiska uppgraderingar av OS-dokumentationen](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Om du använder anpassade avbildningar kan du uppdatera bilden genom att uppdatera den *imageReference* ID (Mer information finns i [REST API-dokumentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Om du använder anpassade avbildningar kan du uppdatera bilden genom att uppdatera den *imageReference* ID (Mer information finns i [REST API-dokumentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Exempel
 

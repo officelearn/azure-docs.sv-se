@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: jgao
-ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Använda tom edge noder på Hadoop-kluster i HDInsight
 
@@ -73,12 +73,11 @@ När du har skapat en kantnod kan du ansluta till kantnoden med SSH och kör kli
 > Samma som kluster, edge noder-korrigering hanteras ”är också”.  Mer information finns i [OS-korrigering för HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägg till en kantnod till ett befintligt kluster
-I det här avsnittet använder du en Resource Manager-mall för att lägga till en kantnod i ett befintligt HDInsight-kluster.  Resource Manager-mallen finns i [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skriptåtgärd på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det går att anropa åtgärder som skript från en Resource Manager-mall.
+I det här avsnittet använder du en Resource Manager-mall för att lägga till en kantnod i ett befintligt HDInsight-kluster.  Resource Manager-mallen finns i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skriptåtgärd på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det går att anropa åtgärder som skript från en Resource Manager-mall.
 
 **Att lägga till en tom kantnod i ett befintligt kluster**
 
-1. Skapa ett HDInsight-kluster om du inte har någon ännu.  Se [Hadoop-vägledning: komma igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-2. Klicka på följande bild för att logga in på Azure och öppna Azure Resource Manager-mall i Azure-portalen. 
+1. Klicka på följande bild för att logga in på Azure och öppna Azure Resource Manager-mall i Azure-portalen. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Konfigurera följande egenskaper:
@@ -98,7 +97,7 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Lägg till en kantnod när du skapar ett kluster
 I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsight-kluster med en kantnod.  Resource Manager-mallen finns i den [Azure QuickStart mallgalleriet](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager-mallen anropar en skriptåtgärd på https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det går att anropa åtgärder som skript från en Resource Manager-mall.
 
-**Att lägga till en tom kantnod i ett befintligt kluster**
+**Skapa ett HDInsight-kluster med en kantnod**
 
 1. Skapa ett HDInsight-kluster om du inte har någon ännu.  Se [komma igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Klicka på följande bild för att logga in på Azure och öppna Azure Resource Manager-mall i Azure-portalen. 
@@ -121,7 +120,7 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
 
 ## <a name="add-multiple-edge-nodes"></a>Lägga till flera edge-noder
 
-Du kan lägga till flera edge noder till ett HDInsight-kluster.  Konfiguration för flera edge-noder kan bara utföras med hjälp av Azure Resource Manager-mallar.  Se mallen exemplet i början av den här artikeln.  Du måste uppdatera de **targetInstanceCount** motsvarar antalet edge-noder som du vill skapa.
+Du kan lägga till flera edge-noder till ett HDInsight-kluster.  Konfiguration för flera edge-noder kan bara utföras med hjälp av Azure Resource Manager-mallar.  Se mallen exemplet i början av den här artikeln.  Du måste uppdatera de **targetInstanceCount** motsvarar antalet edge-noder som du vill skapa.
 
 ## <a name="access-an-edge-node"></a>Komma åt en kantnod
 Kantnoden ssh-slutpunkten är &lt;EdgeNodeName >.&lt; Klusternamn >-ssh.azurehdinsight.net:22.  Till exempel nya-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
@@ -132,7 +131,7 @@ Edge-noden visas som ett program på Azure-portalen.  Portalen innehåller infor
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna HDInsight-kluster med en kantnod.
-3. Klicka på **program** från klusterbladet. Du bör se kantnoden.  Standardnamnet är **nya edgenode**.
+3. Klicka på **program**. Du bör se kantnoden.  Standardnamnet är **nya edgenode**.
 4. Klicka på kantnoden. Du bör se SSH-slutpunkten.
 
 **Använda Hive på kantnoden**
@@ -153,7 +152,7 @@ Du kan ta bort en kantnod från Azure-portalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna HDInsight-kluster med en kantnod.
-3. Klicka på **program** från klusterbladet. Visas en lista över edge noder.  
+3. Klicka på **program**. Visas en lista över edge noder.  
 4. Högerklicka på kantnoden som du vill ta bort och klicka sedan på **ta bort**.
 5. Bekräfta genom att klicka på **Ja**.
 

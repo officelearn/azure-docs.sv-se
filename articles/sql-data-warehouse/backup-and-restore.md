@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopior som ska återställas ditt data warehouse till en återställningspunkt i den primära regionen. Använd geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region. 
@@ -55,9 +55,9 @@ När du släpper ett data warehouse, SQL Data Warehouse skapar en slutlig ögonb
 > 
 
 ## <a name="geo-backups"></a>GEO-säkerhetskopieringar
-SQL Data Warehouse säkerhetskopierar geo-en gång per dag för att en [parad Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till servern i området geo länkas. Geo-säkerhetskopiering gör att du kan återställa datalagret om du inte kommer åt ögonblicksbilder i din primära region.
+SQL Data Warehouse säkerhetskopierar geo-en gång per dag för att en [parad Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till en server i en annan region där det finns stöd för SQL Data Warehouse. Geo-säkerhetskopiering gör att du kan återställa datalagret om du inte kommer åt ögonblicksbilder i din primära region.
 
-GEO-säkerhetskopior är aktiverade som standard. Om ditt data warehouse är optimerad för elasticitet, kan du [avanmälas](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopior med den optimerade för beräkning prestandanivå.
+GEO-säkerhetskopior är aktiverade som standard. Om ditt data warehouse är Gen1, kan du [avanmälas](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo säkerhetskopieringar för Gen2 dataskydd är en inbyggd gurantee.
 
 ## <a name="backup-costs"></a>Kostnaderna för säkerhetskopiering
 Du ser växeln Azure har en artikel för Azure Premium-lagring och ett radobjekt för geo-redundant lagring. Premium-lagring tillägget är den totala kostnaden för att lagra data i den primära region som innehåller ögonblicksbilder.  Geo-redundant tillägget omfattar kostnaden för att lagra geo-säkerhetskopior.  

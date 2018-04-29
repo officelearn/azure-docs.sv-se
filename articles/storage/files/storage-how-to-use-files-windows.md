@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montera en filresurs på Azure och få åtkomst till resursen i Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows och Windows Server. Den här artikeln visar tre olika sätt att montera en Azure-filresurs på Windows: med användargränssnittet Utforskaren, via PowerShell eller via Kommandotolken. 
@@ -49,7 +49,16 @@ Du kan montera Azure-filresurser i en Windows-installation som körs antingen i 
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Kontrollera att port 445 är öppen**: Azure Files använder SMB-protokollet. SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn.
+* **Kontrollera att port 445 är öppen**: Azure Files använder SMB-protokollet. SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn. Du kan kontrollera om TCP-port 445 är öppen med Portqry. Om TCP-port 445 visas som filtrerad är TCP-porten blockerad. Här är en exempelfråga:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Om TCP-port 445 blockeras av en regel längs nätverkssökvägen ser du följande utdata:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Mer information om hur du använder Portqry finns i [beskrivningen av kommandoradsverktyget Portqry.exe](https://support.microsoft.com/help/310099).
+
 
 ## <a name="persisting-connections-across-reboots"></a>Spara anslutningar mellan omstarter
 ### <a name="cmdkey"></a>CmdKey

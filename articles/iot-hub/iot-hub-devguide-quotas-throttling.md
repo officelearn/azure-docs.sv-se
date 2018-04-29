@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens - IoT-hubb kvoter och begränsning
 
@@ -39,16 +39,16 @@ I följande tabell visas de tvingande begränsas. Värden finns i en enskild hub
 | Begränsning | Kostnadsfri B1 och S1 | B2 och S2 | B3 och S3 | 
 | -------- | ------- | ------- | ------- |
 | Identitet registret åtgärder (skapa, hämta, visa, uppdatera, ta bort) | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
-| Enhetsanslutningar | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sec/unit | 6000/sec/unit |
-| Sändningar enhet-till-moln | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sec/unit | 6000/sec/unit |
+| Enhetsanslutningar | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sek/enhet | 6000/sek/enhet |
+| Sändningar enhet-till-moln | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sek/enhet | 6000/sek/enhet |
 | Moln till enhet skickar<sup>1</sup> | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
 | Moln till enhet tar emot<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16.67/sec/Unit (1000/min/unit) | 16.67/sec/Unit (1000/min/unit) | 833.33/sec/Unit (unit-50000/min) |
-| Ladda upp filen | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 83.33 filen överför meddelanden/sek/enhet (unit-5000/min) |
+| Filuppladdning | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 83.33 filen överför meddelanden/sek/enhet (unit-5000/min) |
 | Dirigera metoder<sup>1</sup> | Enhet-160KB/sek<sup>2</sup> | 480KB/sek/enhet<sup>2</sup> | 24MB/sek/enhet<sup>2</sup> | 
-| Enheten dubbla läser<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sec/unit |
-| Uppdatering av enheter dubbla<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sec/unit |
+| Dubbla (enheten och modulen) läser<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
+| Dubbla uppdateringar (enheten och modulen)<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
 | Jobb operations<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
-| Jobb per enhet åtgärden genomströmning<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sec/unit |
+| Jobb per enhet åtgärden genomströmning<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
 
 <sup>1</sup>den här funktionen är inte tillgänglig i den grundläggande nivån av IoT-hubb. Mer information finns i [hur du väljer rätt IoT-hubben](iot-hub-scaling.md). <br/><sup>2</sup>begränsning mätaren storlek är 8 KB.
 
@@ -67,7 +67,7 @@ En detaljerad beskrivning av IoT-hubb begränsning beteende, finns i bloggposten
 
 IoT-hubb tillämpar andra begränsningar:
 
-| Åtgärd | Begränsning |
+| Åtgärd | Gräns |
 | --------- | ----- |
 | Ladda upp filen URI: er | 10000 SAS URI: er kan vara ut för ett lagringskonto i taget. <br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
 | Jobb<sup>1</sup> | Jobbhistorik sparas upp till 30 dagar <br/> Maximal samtidiga jobb är 1 (för lediga) och S1 5 (för S2), 10 (S3). |

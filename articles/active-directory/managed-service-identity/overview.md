@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 6b62baf1fdad6e08535b13f2ca461b00156a7f14
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Hanterad Service identitet (MSI) för Azure-resurser
 
@@ -32,14 +32,14 @@ När du aktiverar hanterade tjänstidentiteten på en Azure-tjänst skapas en id
 
 Här är ett exempel på hur hanterade tjänstidentiteten fungerar med Azure Virtual Machines.
 
-![Virtual Machine MSI-exempel](../media/msi-vm-example.png)
+![Virtual Machine MSI-exempel](../media/msi-vm-imds-example.png)
 
-1. Azure Resource Manager får ett meddelande om att aktivera MSI på en virtuell dator.
+1. Azure Resource Manager får ett meddelande om att aktivera den hanterade tjänsten identitet (MSI) på en virtuell dator.
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD för att representera identiteten för den virtuella datorn. Tjänstens huvudnamn har skapats i Azure AD-klient som är betrodd av den här prenumerationen.
-3. Azure Resource Manager konfigurerar information för tjänstens huvudnamn i MSI VM-tillägget för den virtuella datorn.  Det här steget omfattar konfigurering av klient-ID och certifikat som används av tillägget för att få åtkomst-token från Azure AD.
-4. Nu när tjänstens huvudnamn identiteten för den virtuella datorn är känt, kan det beviljas åtkomst till Azure-resurser.  Exempelvis om din kod måste anropa Azure Resource Manager, vill du tilldela tjänstens huvudnamn för den virtuella datorn sedan rätt roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD.  Om din kod måste anropa Nyckelvalvet, skulle du ge din kodåtkomst till specifika secret eller nyckeln i Nyckelvalvet.
-5. Din kod som körs på den virtuella datorn begär en token från en lokal slutpunkt som är värd MSI VM-tillägg: http://localhost:50342/oauth2/token.  Resursparametern anger vilken tjänst som token som skickas. Till exempel om du vill att din kod för att autentisera till Azure Resource Manager du skulle använda resursen =https://management.azure.com/.
-6. VM-tillägget MSI använder dess konfigurerade klient-ID och certifikat för att begära en åtkomst-token från Azure AD.  Azure AD returnerar en åtkomsttoken för JSON-Webbtoken (JWT).
+3. Azure Resource Manager konfigurerar information för tjänstens huvudnamn för den virtuella datorn i tjänsten Azure instans Metadata för den virtuella datorn. Det här steget omfattar konfigurering av klient-ID och certifikat som används för att få åtkomst-token från Azure AD. *Obs: MSI IMDS slutpunkten ersätter den aktuella MSI VM-tillägg-slutpunkten. Mer information om den här ändringen finns vanliga frågor och kända problem sida*
+4. Nu när tjänstens huvudnamn identiteten för den virtuella datorn är känt, kan det beviljas åtkomst till Azure-resurser. Exempelvis om din kod måste anropa Azure Resource Manager, vill du tilldela tjänstens huvudnamn för den virtuella datorn sedan rätt roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD.  Om din kod måste anropa Nyckelvalvet, skulle du ge din kodåtkomst till specifika secret eller nyckeln i Nyckelvalvet.
+5. Din kod som körs på den virtuella datorn begär en token från slutpunkten MSI Azure instans Metadata Service (IMDS), som endast är tillgänglig från den virtuella datorn: http://169.254.169.254/metadata/identity/oauth2/token. Resursparametern anger vilken tjänst som token som skickas. Till exempel om du vill att din kod för att autentisera till Azure Resource Manager du skulle använda resursen =https://management.azure.com/.
+6. Azure-instans metadatabegäranden en åtkomst-token från Azure AD, med hjälp av klient-ID och certifikat för den virtuella datorn. Azure AD returnerar en åtkomsttoken för JSON-Webbtoken (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
 
 Varje Azure-tjänst som stöder hanterade tjänstidentiteten har sin egen metod för din kod att hämta en åtkomst-token. Gå igenom självstudierna för varje tjänst och ta reda på den specifika metoden att hämta en token.

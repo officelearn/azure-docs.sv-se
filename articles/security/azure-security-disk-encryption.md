@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -141,7 +141,7 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
 > [!NOTE]
 > Windows Server 2008 R2, måste du ha .NET Framework 4.5 installerat innan du aktiverar kryptering i Azure. Du kan installera det från Windows Update genom att installera valfria Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption är endast stöds på specifika Azure-galleriet baserat Linux server-distributioner och versioner.  Lista över versioner som stöds för närvarande finns i den [Azure Disk Encryption vanliga frågor och svar](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* Azure Disk Encryption är endast stöds på specifika Azure-galleriet baserat Linux server-distributioner och versioner.  Lista över versioner som stöds för närvarande finns i den [Azure Disk Encryption vanliga frågor och svar](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption kräver att dina nyckelvalvet och virtuella datorer finns i samma Azure-region och prenumeration.
 
@@ -783,7 +783,7 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Krav för OS-diskkryptering
 
-* Den virtuella datorn måste använda en distributionsplats som är kompatibel med OS-diskkryptering som anges i den [Azure Disk Encryption vanliga frågor och svar](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
+* Den virtuella datorn måste använda en distributionsplats som är kompatibel med OS-diskkryptering som anges i den [Azure Disk Encryption vanliga frågor och svar](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * Den virtuella datorn måste skapas från Marketplace-avbildning i Azure Resource Manager.
 * Azure virtuell dator med minst 4 GB RAM-minne (rekommenderas storleken är 7 GB).
 * (För RHEL och CentOS) Inaktivera SELinux. Om du vill inaktivera SELinux finns i ”4.4.2. Inaktivera SELinux ”i den [SELinux användar- och Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) på den virtuella datorn.

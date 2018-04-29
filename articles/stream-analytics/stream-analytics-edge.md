@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
@@ -60,11 +60,10 @@ Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-ed
 
 
 #### <a name="create-an-asa-edge-job"></a>Skapa ett ASA Edge-jobb
-1. Skapa en ny ”Stream Analytics-jobbet” från Azure-portalen. [Direktlänk så här skapar du en ny ASA här](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> Du kan skapa Edge jobb i alla regioner som stöds av ASA, **förutom i ”västra USA 2” region**.
-> Den här begränsningen tas bort inom kort.
+> Den här självstudiekursen fokuserar på ASA jobb skapas med hjälp av Azure portal. Du kan också [använda Visual Studio-plugin-programmet för att skapa ett ASA Edge-jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
+1. Skapa en ny ”Stream Analytics-jobbet” från Azure-portalen. [Direktlänk så här skapar du en ny ASA här](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. På skärmen skapa väljer **kant** som **värdmiljön** (se följande bild) ![skapa jobb](media/stream-analytics-edge/ASAEdge_create.png)
 3. Jobbdefinitionen
@@ -147,7 +146,6 @@ Men följande funktioner stöds inte ännu för edge jobb:
 * Azure ML-funktioner.
 * Använder mer än 14 mängder i ett enda steg.
 * AVRO-formatet för in-/ utdata. Just nu stöds endast CSV och JSON.
-* Komprimering av JSON-indata.
 * Följande SQL-operatorer:
     * AnomalyDetection
     * Geospatiala operatorer:
@@ -210,6 +208,7 @@ För ytterligare hjälp försök den [Azure Stream Analytics-forum](https://soci
 * [Mer information om Azure Iot kant](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA på IoT kant självstudiekursen](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Skicka feedback till teamet med den här undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Utveckla kant för Stream Analytics-jobb med hjälp av Visual Studio tools](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

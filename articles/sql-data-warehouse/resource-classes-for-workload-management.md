@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Hantering av arbetsbelastning med resursklasser i Azure SQL Data Warehouse
 Riktlinjer för att använda resursklasser för att hantera minne och samtidighet för frågor i din Azure SQL Data Warehouse.  
@@ -22,29 +22,31 @@ Riktlinjer för att använda resursklasser för att hantera minne och samtidighe
 ## <a name="what-is-workload-management"></a>Vad är hantering av arbetsbelastning?
 Hantering av arbetsbelastning är möjligheten att optimera prestandan för alla frågor. En väl ögonen öppna arbetsbelastning körs frågor och Läs in operations effektivt oavsett om de är beräkningsintensiva eller i/o-intensiva.  SQL Data Warehouse innehåller funktioner för hantering av arbetsbelastning för miljöer med flera användare. Ett informationslager är inte avsedd för flera innehavare arbetsbelastningar.
 
-Prestanda för ett datalager bestäms av den [prestandanivån](memory-and-concurrency-limits.md#performance-tiers) och [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+Prestanda för ett datalager bestäms av den [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
 
 - Om du vill visa gränserna för minne och samtidighet för alla profiler för prestanda finns [minne och samtidighet gränser](memory-and-concurrency-limits.md).
 - Om du vill justera prestanda kan du [skala upp eller ned](quickstart-scale-compute-portal.md).
 
-Prestanda för en fråga bestäms av frågans resursklassen. Den här resten av den här artikeln beskrivs resursklasser är och hur du justerar dem.
-
+Prestanda för en fråga bestäms av frågans resursklassen. I resten av den här artikeln beskrivs resursklasser är och hur du justerar dem.
 
 ## <a name="what-are-resource-classes"></a>Vad är resursklasser?
-Resursklasser bestäms före gränserna i Azure SQL Data Warehouse som styr beräkningsresurser och samtidighet för frågekörning. Resursklasser kan hjälpa dig att hantera din arbetsbelastning genom att ange begränsningar för antalet frågor som körs samtidigt och de beräkningsresurser som tilldelats varje fråga. Det finns en kompromiss mellan minne och samtidighet.
+Prestanda för en fråga bestäms av användarens resursklassen.  Resursklasser bestäms före gränserna i Azure SQL Data Warehouse som styr beräkningsresurser och samtidighet för frågekörning. Resursklasser kan hjälpa dig att hantera din arbetsbelastning genom att ange begränsningar för antalet frågor som körs samtidigt och de beräkningsresurser som tilldelats varje fråga. Det finns en handel av mellan minne och samtidighet.
 
 - Mindre resursklasser minskar den maximala mängd minnet per fråga, men öka parallellkörningen.
 - Större resursklasser ökar den maximala mängd minnet per fråga, men minskar. 
 
-Prestanda för en fråga bestäms av användarens resursklassen.
+Det finns två typer av resursklasser:
 
-- Om du vill visa resursanvändningen för resursklasser finns [minne och samtidighet gränser](memory-and-concurrency-limits.md#concurrency-maximums).
-- Om du vill justera resursklassen du kör frågan under en annan användare eller [ändra resursklassen för den aktuella användaren](#change-a-user-s-resource-class) medlemskap. 
+- Statisk resurser klasser som passar bäst för bättre samtidighet på en datauppsättning storlek som har åtgärdats.
+- Dynamisk resursklasser som passar bäst för datamängder som ökar i storlek och öka prestanda och servicenivån som skalats ut.   
 
 Resursklasser använda samtidighet fack för att mäta resursförbrukning.  [Concurrency fack](#concurrency-slots) beskrivs senare i den här artikeln. 
 
+- Om du vill visa resursanvändningen för resursklasser finns [minne och samtidighet gränser](memory-and-concurrency-limits.md#concurrency-maximums).
+- Om du vill justera resursklassen du kör frågan under en annan användare eller [ändra resursklassen för den aktuella användaren](#change-a-users-resource-class) medlemskap. 
+
 ### <a name="static-resource-classes"></a>Statisk resursklasser
-Statisk resursklasser tilldela samma mängd minne oavsett nuvarande prestandanivå som mäts i [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Eftersom frågor få samma minnesallokering oavsett prestandanivån [skala ut datalagret](quickstart-scale-compute-portal.md) tillåter flera frågor som ska köras i en resursklass.
+Statisk resursklasser tilldela samma mängd minne oavsett nuvarande prestandanivå som mäts i [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Eftersom frågor få samma minnesallokering oavsett prestandanivån [skala ut datalagret](quickstart-scale-compute-portal.md) tillåter flera frågor som ska köras i en resursklass.  Statisk resursklasser är perfekt om datavolym är känd och konstant.
 
 Statisk resursklasser implementeras med de här fördefinierade databasroller:
 
@@ -57,19 +59,31 @@ Statisk resursklasser implementeras med de här fördefinierade databasroller:
 - staticrc70
 - staticrc80
 
-Dessa resursklasser som passar bäst för lösningar som ökar resursklassen för att få ytterligare beräkningsresurser.
-
 ### <a name="dynamic-resource-classes"></a>Dynamisk resursklasser
-Dynamiska resursklasser tilldela en variabel mängd minne beroende på den aktuella nivån för tjänsten. När du skalar upp till en större servicenivå dina frågor att automatiskt få mer minne. 
+Dynamiska resursklasser tilldela en variabel mängd minne beroende på den aktuella nivån för tjänsten. När statiska resursklasser är användbara för högre samtidighet och statiska datavolymer är dynamisk resursklasser lämpliga för en växande eller variabel mängd data.  När du skalar upp till en större servicenivå dina frågor att automatiskt få mer minne.  
 
 Dynamisk resursklasser implementeras med de här fördefinierade databasroller:
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
-Dessa resursklasser som passar bäst för lösningar som ökar compute skala få ytterligare resurser. 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Gen2 dynamisk resursklasser är verkligen dynamiska
+Det finns några uppgifter som lägger till ytterligare komplexitet att förstå deras beteende när gräva detaljer om dynamisk resursklasser på Gen1:
+
+- Klassen smallrc resurser fungerar med en fast minnesmodell som en statisk resursklassen.  Smallrc frågor hämta inte mer minne när servicenivån ökas dynamiskt.
+- När servicenivåer ändrar kan tillgängliga frågan samtidighet gå upp eller ned.
+- Skalning services-nivåer ger inte en proportionell ändring det minne som allokerats till samma resursklasser.
+
+På **Gen2 endast**, dynamisk resursklasser är verkligen dynamiska adressering punkter som nämns ovan.  Den nya regeln är 3-10-22-70 för minnesallokering i procent för små-medel-stora-xlarge resursklasser **oavsett servicenivå**.  I tabellen nedan har konsoliderade information om minne allokering procenttal och det minsta antalet samtidiga frågor som körs, oberoende av servicenivån.
+
+| Resursklass | Procentandelen minne | Min samtidiga frågor |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | % 3                | 32                     |
+| mediumrc       | 10 %               | 10                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70 %               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Standard resursklassen
@@ -145,10 +159,11 @@ Endast resurs styrs frågor använda samtidighet platser. System frågor och vis
 
 Resursklasser implementeras som fördefinierade databasroller. Det finns två typer av resursklasser: dynamiska och statiska. Om du vill visa en lista med resursklasser, använder du följande fråga:
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>Ändra en användares resursklassen
 
@@ -198,7 +213,7 @@ Använd olika resursklasser för att justera prestanda. Nästa avsnitt ger en la
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Kodexempel för att hitta den bästa resursklassen
  
-Du kan använda följande lagrade procedur för att ta reda på samtidighet och minne bevilja per resursklassen vid en given SLO och närmaste bästa resursklassen för minne beräkningsintensiva CCI åtgärder på CCI partitionerade tabellen vid en viss resurs-klass:
+Du kan använda följande lagrade procedur på **Gen1 endast** ta reda på bevilja samtidighet och minne per resursklassen vid en given SLO och närmaste bästa resursklassen för minnesintensiva CCI åtgärder på partitionerade CCI tabellen en viss resurs-klass:
 
 Här är syftet med den här lagrade proceduren:  
 1. Visa samtidighet och minne bevilja per resursklassen vid ett givet Servicenivåmål. Användaren måste ange NULL för både schema- och tabellnamn som visas i det här exemplet.  
@@ -229,6 +244,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> De värden som definieras i den här versionen av den lagrade proceduren gäller endast för Gen1.
+>
+>
 
 Följande exempel skapar tabell1 som används i föregående exempel.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -295,7 +314,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -307,7 +326,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

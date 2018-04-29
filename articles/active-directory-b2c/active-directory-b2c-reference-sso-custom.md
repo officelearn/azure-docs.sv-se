@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d64c031b1504dd8c35c1b498bbd931945fcad31
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Enkel inloggning (SSO) sessionshantering
 
@@ -67,6 +67,9 @@ Den här providern kan användas för att lagra anspråk i en session. Den här 
 ```
 
 Om du vill lägga till anspråk i sessionen använder den `<PersistedClaims>` elementet av den tekniska profilen. När providern används för att igen sessionen, den beständiga anspråk läggs till i uppsättningen anspråk. `<OutputClaims>` används för att hämta anspråk från sessionen.
+
+> [!NOTE]
+> När du använder DefaultSSOSessionProvider för att lagra anspråk i en session, måste du se till att anspråk som måste återgått till att programmet eller används av villkor i efterföljande steg är lagras i en session eller förstärkta genom en läsning från profilen för användare i katalog. Detta säkerställer att autentiseringen resor inte kan utföras på anspråk som saknas.
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 

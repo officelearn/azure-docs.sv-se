@@ -1,6 +1,6 @@
 ---
 title: Skapa Azure-hanterat program med Azure CLI | Microsoft Docs
-description: "Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation."
+description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,17 +8,17 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Skapa och distribuera Azure-hanterat program med Azure CLI
 
-Den här artikeln ger en introduktion till att arbeta med hanterade program. Du lägger till en hanterad programdefinition till en intern katalog för användare i din organisation. Sedan distribuerar du det hanterade programmet till din prenumeration. Vi har redan skapat filerna för det hanterade programmet för att förenkla introduktionen. En fil definierar infrastrukturen för lösningen. En andra fil som definierar användargränssnittet för att distribuera det hanterade programmet via portalen. Filerna är tillgängliga via GitHub. Du lär dig hur du skapar dessa filer i självstudien [Create service catalog application](publish-service-catalog-app.md) (Skapa tjänstkatalogprogram).
+Den här artikeln ger en introduktion till att arbeta med hanterade program. Du lägger till en hanterad programdefinition till en intern katalog för användare i din organisation. Sedan distribuerar du det hanterade programmet till din prenumeration. Vi har redan skapat filerna för det hanterade programmet för att förenkla introduktionen. En fil definierar infrastrukturen för lösningen. En andra fil definierar användargränssnittet för att distribuera det hanterade programmet via portalen. Filerna är tillgängliga via GitHub. Du lär dig hur du skapar dessa filer i självstudien [Create service catalog application](publish-service-catalog-app.md) (Skapa tjänstkatalogprogram).
 
 När du är klar har du tre resursgrupper som innehåller olika delar av det hanterade programmet.
 
@@ -50,7 +50,7 @@ Ange ditt UPN-namn i följande kommando för att hämta objekt-ID för din ident
 userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
 ```
 
-Sedan måste du använda rolldefinitions-ID för den inbyggda RBAC-rollen som du vill bevilja åtkomst till användaren. Följande kommando visar hur du hämtar rolldefinitions-ID för ägarrollen:
+Sedan måste du använda rolldefinitions-ID för den inbyggda RBAC-rollen som du vill bevilja användaren åtkomst till. Följande kommando visar hur du hämtar rolldefinitions-ID:t för ägarrollen:
 
 ```azurecli-interactive
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
@@ -75,7 +75,7 @@ När kommandot har slutförts har du en definition för det hanterade programmet
 Några av de parametrar som användes i det föregående exemplet är:
 
 * **resursgrupp**: Namnet på resursgruppen där definitionen för det hanterade programmet skapas.
-* **låsnivå**: Typ av lås som placerats på den hanterade resursgruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen.
+* **låsnivå**: Typ av lås som placerats på den hanterade resursgruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 * **auktorisering**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörigheter till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Flera värden kan också anges för den här egenskapen. Om flera värden krävs anges de i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Flera värden avgränsas med ett blanksteg.
 * **uri för paketfil**: Platsen för ett zip-paket som innehåller de filer som krävs. Som minst innehåller paketet filerna **mainTemplate.json** och **createUiDefinition.json**. **mainTemplate.json** definierar de Azure-resurser som tillhandahålls som en del av det hanterade programmet. Mallen skiljer sig inte från en vanlig Resource Manager-mall. **createUiDefinition.json** genererar användargränssnittet för användare som skapar det hanterade programmet via portalen.
 

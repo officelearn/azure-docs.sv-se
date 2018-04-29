@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
 Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
@@ -107,7 +107,7 @@ Här följer några vanliga scenarier för identitets- och rekommendationer om v
 Vi har massor av bra resurser online för att du lär dig allt om Azure AD. Här är en lista över bra artiklar för att komma igång:
 
 * [Aktivera din katalog för hybridhantering av med Azure AD Connect](active-directory-aadconnect.md)
-* [Ytterligare säkerhet för ett någonsin anslutna world](../multi-factor-authentication/multi-factor-authentication.md)
+* [Ytterligare säkerhet för ett någonsin anslutna world](authentication/multi-factor-authentication.md)
 * [Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Komma igång med Azure AD Reporting](active-directory-reporting-getting-started.md)
 * [Hantera lösenord från valfri plats](active-directory-passwords-update-your-own-password.md)

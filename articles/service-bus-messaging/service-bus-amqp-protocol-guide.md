@@ -1,11 +1,11 @@
 ---
-title: "AMQP 1.0 i Azure Service Bus och Händelsehubbar protokollet guiden | Microsoft Docs"
-description: "Protokollet guide till uttryck och en beskrivning av AMQP 1.0 i Azure Service Bus och Händelsehubbar"
+title: AMQP 1.0 i Azure Service Bus och Händelsehubbar protokollet guiden | Microsoft Docs
+description: Protokollet guide till uttryck och en beskrivning av AMQP 1.0 i Azure Service Bus och Händelsehubbar
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 9af578cef9a89b4ae953b26f261f99593b79deb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Händelsehubbar protocol-guiden
 
@@ -205,13 +205,15 @@ Pilarna i följande tabell visar performative flödesriktning.
 
 I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avsnitt används av Service Bus och hur de mappas till Service Bus-API-uppsättningen.
 
+Alla egenskaper som programmet behöver definierar ska mappas till AMQP'S `application-properties` kartan.
+
 #### <a name="header"></a>sidhuvud
 
 | Fältnamn | Användning | API-namn |
 | --- | --- | --- |
 | beständiga |- |- |
-| Prioritet |- |- |
-| TTL-värde |Livslängd för det här meddelandet |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| prioritet |- |- |
+| ttl |Livslängd för det här meddelandet |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | första förvärvaren |- |- |
 | Antal leverans |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
@@ -219,12 +221,12 @@ I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avs
 
 | Fältnamn | Användning | API-namn |
 | --- | --- | --- |
-| meddelande-id |Programdefinierade, fritt format identifierare för det här meddelandet. Används för identifiering av dubbletter. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| meddelande-id |Programdefinierade, fritt format identifierare för det här meddelandet. Används för identifiering av dubbletter. |[messageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | användar-id |Programdefinierade användaridentifierare inte tolkas av Service Bus. |Inte tillgängligt via Service Bus-API. |
 | till |Programdefinierade Målidentifierare, inte tolkas av Service Bus. |[Till](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | Ämne |Tillämpningsdefinierade syfte identifierare inte tolkas av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Svara till |Programdefinierade reply-path indikator, inte tolkas av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| Korrelations-id |Programdefinierade korrelationsidentifierare, inte tolkas av Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| Korrelations-id |Programdefinierade korrelationsidentifierare, inte tolkas av Service Bus. |[correlationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | innehållstyp |Programdefinierade innehållstypen indikator för innehållet inte tolkas av Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | Innehållskodning |Programdefinierade Innehållskodning indikator för innehållet inte tolkas av Service Bus. |Inte tillgängligt via Service Bus-API. |
 | absolut förfallotiden |Deklarerar på vilka absoluta snabbmeddelanden meddelandet upphör att gälla. Ignoreras på indata (sidhuvud TTL observeras), auktoritativ på utdata. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
@@ -232,6 +234,80 @@ I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avs
 | grupp-id |Tillämpningsdefinierad identifierare för en uppsättning meddelanden. Används för Service Bus-sessioner. |[Sessions-ID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | grupp-sekvens |Räknaren identifierar relativa sekvensnumret för meddelandet i en session. Ignoreras av Service Bus. |Inte tillgängligt via Service Bus-API. |
 | Svara till grupp-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>Meddelandet anteckningar
+
+Det finns några andra service bus meddelandeegenskaper som inte är en del av AMQP meddelandeegenskaper och skickas vidare som `MessageAnnotations` i meddelandet.
+
+| Anteckningen kartan nyckel | Användning | API-namn |
+| --- | --- | --- |
+| x-opt-schemalagda-sätta-tid | Deklarerar då meddelandet ska visas på enheten |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt--partitionsnyckel | Programdefinierade nyckeln som bestämmer vilken partition meddelandet ska hamna i. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via--partitionsnyckel | Programdefinierade partitionsnyckel värde när en transaktion som ska användas för att skicka meddelanden via en kö för överföring. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-köas-tid | Tjänst-definierade UTC-tid som motsvarar den faktiska tiden för enqueuing meddelandet. Ignoreras på indata. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt--sekvensnummer | Tjänst-definierade unikt nummer som tilldelas ett meddelande. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x välja förskjutning | Tjänst-definierade köas sekvensnumret för meddelandet. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-låst-tills | Tjänst-definierade. Datum och tid då meddelandet kommer att låsas i kön eller prenumeration. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-systemkön-källa | Tjänst-definierade. Om meddelandet tas emot från en kö med olevererade brev, källan till det ursprungliga meddelandet. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>Kapaciteten för transaktion
+
+En transaktion grupperar två eller flera åtgärder tillsammans i en körning omfattning. Enligt natur har sådana en transaktion måste se till att alla åtgärder som tillhör en viss grupp av åtgärder lyckas eller misslyckas gemensamt.
+Åtgärderna är grupperade efter en identifierare som `txn-id`.
+
+För transaktionell interaktion klienten fungerar en `transaction controller` som styr åtgärder som ska grupperas. Service Bus-tjänsten fungerar som en `transactional resource` och utför arbete som begärs av den `transaction controller`.
+
+Klienten och tjänsten kommunicerar via en `control link` som upprättas av klienten. Den `declare` och `discharge` meddelanden skickas av controller med länken kontrollen att allokera och slutföra transaktioner respektive (faktisk avgränsning av transaktionella arbete). Faktiska skicka och ta emot har inte utförts på den här länken. Varje transaktionella den begärda åtgärden är uttryckligen anges med den önskade `txn-id` och därför kan inträffa på en länk på anslutningen. Om kontrollen länken är stängd när det finns inte avslutat transaktioner som den har skapats sedan alla transaktioner återställs omedelbart och försöker utföra ytterligare transaktionella arbete på dem kommer att leda till fel. Meddelanden på kontrollen länk får inte vara före lösas.
+
+Varje anslutning måste initiera en egen kontroll av länk för att kunna börja och sluta transaktioner. Tjänsten definierar ett särskilt mål som fungerar som en `coordinator`. Klienten/controller upprättar en kontroll länk till det här målet. Kontroll av länk är utanför gränsen för en entitet, det vill säga, samma kontroll länk kan användas för att initiera och fullgöra transaktioner för flera enheter.
+
+#### <a name="starting-a-transaction"></a>Starta en transaktion
+
+Du vill börja transaktionella arbete. styrenheten måste få en `txn-id` från koordinatorn. Detta åstadkoms genom att skicka en `declare` Skriv ett meddelande. Om deklarationen lyckas koordinatorn svarar med en disposition resultatet av `declared` som innehåller den tilldelade `txn-id`.
+
+| Klienten (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| Koppla)<br/>Name = {namn},<br/>... ,<br/>rollen =**avsändaren**,<br/>Target =**Coordinator**<br/>) | ------> |  |
+|  | <------ | Koppla)<br/>Name = {namn},<br/>... ,<br/>Target=Coordinator()<br/>) |
+| överföra)<br/>leverans-id = 0,...)<br/>{AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>tillstånd =**Declared**()<br/>**txn-id**= {transaktions-id}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>Avsluta en transaktion
+
+Domänkontrollanten kommer att sluta transaktionella arbete genom att skicka en `discharge` meddelande till koordinatorn. Domänkontrollanten som anger att den önskar bekräfta eller ångra transaktionella arbete genom att ange den `fail` flaggan på avslutning brödtext. Om koordinatorn kan inte slutföra utsläpp avvisades meddelandet med det här resultatet av `transaction-error`.
+
+> Obs: misslyckas = true refererar till återställning av en transaktion och misslyckas = false refererar till Commit.
+
+| Klienten (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| överföra)<br/>leverans-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>tillstånd = deklarerade (<br/>txn-id = {transaktions-id}<br/>))|
+| | . . . <br/>Transaktionell arbete<br/>på andra länkar<br/> . . . |
+| överföra)<br/>leverans-id = 57,...)<br/>{AmqpValue)<br/>**Fullgöra (txn-id = 0,<br/>misslyckas = false)**)}| ------> |  |
+| | <------ | disposition ( <br/> först = 57, senast = 57, <br/>tillstånd =**Accepted()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>Skicka ett meddelande i en transaktion
+
+Alla transaktionella arbetet med tillståndet transaktionella leverans `transactional-state` som utför txn-id. För att skicka meddelanden utförs i transaktionstillstånd av meddelandets överföring ram. 
+
+| Klienten (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| överföra)<br/>leverans-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>tillstånd = deklarerade (<br/>txn-id = {transaktions-id}<br/>))|
+| överföra)<br/>Hantera = 1,<br/>leverans-id = 1, <br/>**tillstånd =<br/>TransactionalState (<br/>txn-id = 0)**)<br/>{nyttolast}| ------> |  |
+| | <------ | disposition ( <br/> först = 1, senast = 1, <br/>tillstånd =**TransactionalState (<br/>txn-id = 0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>Avyttra ett meddelande i en transaktion
+
+Meddelandet disposition innehåller åtgärder som `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer`. Om du vill utföra dessa åtgärder i en transaktion, skickar den `transactional-state` med dispositionen.
+
+| Klienten (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| överföra)<br/>leverans-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition ( <br/> först = 0, senast = 0, <br/>tillstånd = deklarerade (<br/>txn-id = {transaktions-id}<br/>))|
+| | <------ |överföra)<br/>Hantera = 2,<br/>leverans-id = 11, <br/>tillstånd = null)<br/>{nyttolast}|  
+| disposition ( <br/> först = 11, senast = 11, <br/>tillstånd =**TransactionalState (<br/>txn-id = 0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>Avancerade funktioner för Service Bus
 
@@ -284,10 +360,10 @@ Begärandemeddelandet har följande egenskaper för programmet:
 
 | Nyckel | Valfri | Värdetyp | Värdet innehållet |
 | --- | --- | --- | --- |
-| åtgärden |Nej |Sträng |**PUT-token** |
-| typ |Nej |Sträng |Typ av token som är put. |
-| namn |Nej |Sträng |Den ”målgruppen” som gäller för token. |
-| förfallodatum |Ja |tidsstämpel |Förfallotid för token. |
+| åtgärden |Nej |sträng |**PUT-token** |
+| typ |Nej |sträng |Typ av token som är put. |
+| namn |Nej |sträng |Den ”målgruppen” som gäller för token. |
+| upphörande |Ja |tidsstämpel |Förfallotid för token. |
 
 Den *namn* egenskapen identifierar entiteten med vilket token vara associerat. Det är sökvägen till kön eller ämne /-prenumeration i Service Bus. Den *typen* egenskapen identifierar token-typer:
 
@@ -304,7 +380,7 @@ Svarsmeddelandet har följande *egenskaper för program* värden
 | Nyckel | Valfri | Värdetyp | Värdet innehållet |
 | --- | --- | --- | --- |
 | statuskod |Nej |int |HTTP-svarskoden **[RFC2616]**. |
-| Beskrivning av status |Ja |Sträng |Beskrivning av status. |
+| Beskrivning av status |Ja |sträng |Beskrivning av status. |
 
 Klienten kan anropa *put-token* upprepade gånger och för varje entitet i meddelandeinfrastrukturen. Token är begränsade till den aktuella klienten och fäst på den aktuella anslutningen, vilket innebär att servern utelämnar eventuella tokens som behålls när anslutningen bryts.
 
@@ -315,6 +391,19 @@ Mekanismen för anonym måste därför stödjas av valda AMQP 1.0-klienten. Anon
 När anslutningen och sessionen har upprättats kan du bifoga länkar till den *$cbs* nod och skicka den *put-token* begäran är den enda tillåtna åtgärder. En giltig token måste anges med en *put-token* begäran för vissa entitet nod inom 20 sekunder när anslutningen har upprättats, annars anslutningen ensidigt bryts av Service Bus.
 
 Klienten ansvarar senare för att hålla reda på token upphör att gälla. När en token upphör att gälla utelämnar Service Bus omedelbart alla länkar i anslutning till respektive entiteten. Om du vill förhindra detta klienten Ersätt token för noden med en ny när som helst via den virtuella *$cbs* hanteringsnod med samma *put-token* rörelser och utan hämtar form nyttolast-trafik som flödar på olika länkar.
+
+### <a name="send-via-functionality"></a>Skicka via funktioner
+
+[Skicka via / Transfer avsändaren](service-bus-transactions.md#transfers-and-send-via) är en funktion som gör att service bus vidarebefordra ett visst meddelande till målentitet via en annan entitet. Det här används huvudsakligen för att utföra åtgärder för entiteter i en enda transaktion.
+
+Med den här funktionen kan du skapa en avsändare och upprätta en länk till den `via-entity`. Ytterligare information överförs under etablering av länken för att upprätta true målet meddelanden/överföringar på den här länken. När det har lyckats, alla meddelanden som skickas på den här länken automatiskt ska vidarebefordras till den *målentitet* via *via entiteten*. 
+
+> Obs: Autentisering måste utföras för båda *via entiteten* och *målentitet* innan du upprättar den här länken.
+
+| Client | | Service Bus |
+| --- | --- | --- |
+| Koppla)<br/>Name = {namn},<br/>rollen = avsändarens<br/>källa = {klienten länken id}<br/>Target =**{via entiteten}**,<br/>**Egenskaper för kartan = [(<br/>com.microsoft:transfer måladress =<br/>{målentitet})]** ) | ------> | |
+| | <------ | Koppla)<br/>Name = {namn},<br/>rollen = mottagaren.<br/>källa = {klienten länken id}<br/>Target = {via-entiteten}<br/>Egenskaper för kartan [(=<br/>com.Microsoft:Transfer måladress =<br/>{målentitet})] ) |
 
 ## <a name="next-steps"></a>Nästa steg
 

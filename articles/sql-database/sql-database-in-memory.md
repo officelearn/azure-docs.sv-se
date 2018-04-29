@@ -9,11 +9,11 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -22,7 +22,7 @@ Du kan åstadkomma prestandaförbättringar med olika arbetsbelastningar med hj�
 Här är två exempel på hur Minnesintern OLTP hjälpt att avsevärt förbättra prestanda:
 
 - Med hjälp av Minnesintern OLTP [kvorum affärslösningar kunde fördubbla arbetsbelastningen samtidigt förbättra dtu: er med 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU innebär *database transaction unit*, och innehåller en mesurement resursförbrukning.
+    - DTU innebär *database transaction unit*, samt mätning av resursförbrukning.
 - Följande videoklipp visar viktig förbättringar i resursanvändningen med ett exempel på arbetsbelastning: [Minnesintern OLTP i Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Mer information finns i blogginlägget: [Minnesintern OLTP i Azure SQL Database-blogginlägg](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -43,7 +43,7 @@ Azure SQL Database har följande InMemory-tekniker:
 
 Både columnstore-index och Minnesintern OLTP har varit en del av SQL Server-produkt sedan 2012 och 2014, respektive. Azure SQL Database och SQL Server delar samma implementering av InMemory-tekniker. Framöver, släpps nya funktioner för dessa tekniker i Azure SQL Database först innan de blir tillgängliga i SQL Server.
 
-Det här avsnittet beskrivs aspekter av Minnesintern OLTP och columnstore-index som är specifika för Azure SQL Database och även exempel:
+Den här artikeln beskrivs aspekter av Minnesintern OLTP och columnstore-index som är specifika för Azure SQL Database och även exempel:
 - Effekten av dessa tekniker visas på storleksbegränsningar för lagring och data.
 - Du lär dig att hantera flytt av databaser som använder dessa tekniker mellan olika prisnivåer.
 - Ser du två exempel som visar hur du använder i minnet OLTP samt columnstore-index i Azure SQL Database.
@@ -92,7 +92,7 @@ Med elastiska pooler delas Minnesintern OLTP-lagringen mellan alla databaser i p
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Datastorlek och lagring för columnstore-index
 
-Columnstore-index behöver inte ryms i minnet. Därför bara fästpunkten på storleken på index är största övergripande databasens storlek, som beskrivs i den [SQL Database servicenivåer](sql-database-service-tiers.md) artikel.
+Columnstore-index behöver inte ryms i minnet. Därför bara fästpunkten på storleken på index är största övergripande databasens storlek, som beskrivs i den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) artiklar.
 
 När du använder grupperade columnstore-index används kolumner komprimering för lagring av bastabellen. Den här komprimeringen kan avsevärt minska storleken för lagring av användardata, vilket innebär att du får plats mer data i databasen. Och komprimeringen kan förlängas med [kolumner arkivering komprimering](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Mängden komprimering som du kan åstadkomma beror på typen av uppgift, men 10 gånger komprimeringen är inte ovanligt.
 
@@ -141,7 +141,7 @@ Om du har en **klustrade** columnstore-index hela tabellen blir tillgänglig eft
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1 Installera Minnesintern OLTP-exempel
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installera Minnesintern OLTP-exempel
 
 Du kan skapa AdventureWorksLT exempeldatabasen med ett par klick i den [Azure-portalen](https://portal.azure.com/). Sedan beskrivs stegen i det här avsnittet hur du kan utöka AdventureWorksLT databasen med InMemory-OLTP-objekt och visa prestandafördelarna.
 
@@ -223,8 +223,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Den enda skillnaden mellan de följande två *lagrade procedurer* är att den första proceduren använder minnesoptimerade tabeller-versioner, medan andra proceduren använder vanliga på disken tabeller:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 I det här avsnittet visas hur du använder den praktiska **ostress.exe** verktyg för att köra två lagrade procedurer på stress nivåer. Du kan jämföra hur lång tid det tar för två stress körs ska slutföras.
@@ -369,7 +369,7 @@ Våra tester i minnet har visat att prestanda förbättras av **nio gånger** f�
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2 Installera InMemory-Analytics-exempel
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installera InMemory-Analytics-exempel
 
 
 I det här avsnittet jämför resultaten i/o och statistik när du använder ett columnstore-index jämfört med traditionell b-trädindex.

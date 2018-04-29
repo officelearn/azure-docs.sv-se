@@ -1,11 +1,11 @@
 ---
-title: "Felsöka System Center Data Protection Manager med Azure Backup | Microsoft Docs"
-description: "Felsöka problem i System Center Data Protection Manager."
+title: Felsöka System Center Data Protection Manager med Azure Backup | Microsoft Docs
+description: Felsöka problem i System Center Data Protection Manager.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;adigan
-ms.openlocfilehash: bf4ea676c5309bb732f6a4ce71849606b4d2e4df
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f8117b216dcbda217bc433e643090e8eb47cf57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Felsöka System Center Data Protection Manager
 
 Den här artikeln beskrivs lösningar på problem som kan uppstå när du använder Data Protection Manager.
 
-Senaste viktig information för System Center Data Protection Manager, finns det [dokumentation för System Center](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Du kan lära dig mer om stöd för Data Protection Manager i [matrisen](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+Senaste viktig information för System Center Data Protection Manager, finns det [dokumentation för System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Du kan lära dig mer om stöd för Data Protection Manager i [matrisen](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
 ## <a name="error-replica-is-inconsistent"></a>Fel: Repliken är inkonsekvent

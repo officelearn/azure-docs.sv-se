@@ -1,29 +1,29 @@
 ---
 title: Azure Marketplace SaaS-program Technical publicering Guide
-description: "Stegvisa instruktioner och publishing checklistor för publicering av SaaS-program på Azure Marketplace"
+description: Stegvisa instruktioner och publishing checklistor för publicering av SaaS-program på Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: 
+documentationcenter: ''
 author: BrentL-Collabera
-manager: 
+manager: ''
 editor: BrentL-Collabera
-ms.assetid: 
+ms.assetid: ''
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS-program tekniska publiceringsguide
 
 Välkommen till guiden Publicera Azure Marketplace SaaS-program Technical. Den här guiden är avsedd att hjälpa kandidat och befintliga utgivare för att visa en lista över sina program och tjänster i Azure Marketplace med SaaS-program som erbjuder.  
-Du vill använda erbjudandet för SaaS-program när lösningen ska distribueras i din egen Azure-prenumeration och kunder kommer att logga in via ett användargränssnitt som du kan skapa och hantera att testa programmet. Detta åstadkoms med hjälp av [Azure Active Directory (AD Azure)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) utnyttjar den befintliga miljön som utvärderingsversion. Med andra ord är det en kund ledde, värdtjänster kostnadsfri utvärderingsversion. Det är viktigt att exponera din lösning på ett sätt som ger möjlighet att utforska din lösning separat utan avgift eller avgift för centraliserad i molnet och så att den här erbjudandetypen tillhandahåller en utvärderingsversion som matchar hur kunder söka efter molnlösningar.  
+Du vill använda erbjudandet för SaaS-program när lösningen ska distribueras i din egen Azure-prenumeration och kunder kommer att logga in via ett användargränssnitt som du kan skapa och hantera att testa programmet. Detta åstadkoms med hjälp av [Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) utnyttjar den befintliga miljön som utvärderingsversion. Med andra ord är det en kund ledde, värdtjänster kostnadsfri utvärderingsversion. Det är viktigt att exponera din lösning på ett sätt som ger möjlighet att utforska din lösning separat utan avgift eller avgift för centraliserad i molnet och så att den här erbjudandetypen tillhandahåller en utvärderingsversion som matchar hur kunder söka efter molnlösningar.  
 
 En översikt över alla andra Marketplace-erbjudanden, referera till den [Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ En översikt över alla andra Marketplace-erbjudanden, referera till den [Market
 Tekniska krav för SaaS-program är enkelt. Utgivare krävs endast att integreras med Azure AD som ska publiceras.  Azure AD-integrering med program är väl dokumenterat och Microsoft tillhandahåller flera SDK-verktyg och resurser för att åstadkomma detta.  
 
 Om du vill starta, rekommenderar vi att du har en prenumeration som är dedikerad för din Azure Marketplace-publicering, så att du kan isolera arbete från andra initiativ. Dessutom, om de inte redan installerats, rekommenderar vi att du har följande verktyg som en del av din utvecklingsmiljö: 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure powerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Azure Developer Tools (se vad som är tillgängligt)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ Följande tabell innehåller länkar till de bästa Azure AD-resurserna för att
 
 **Dokumentation**
 
-- [Azure Active Directory-Guide för utvecklare](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Azure Active Directory-Guide för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Integrera med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Integrera med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Integrera program med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Plan för Azure - säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
 

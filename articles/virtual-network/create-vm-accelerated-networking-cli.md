@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5e657d3c171b63734ad4bf6c0097a3142993360
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Linux-dator med snabbare nätverk
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/16/2018
 >   2. Återskapa den virtuella datorn med snabbare nätverk aktiverad.
 >
 
-I kursen får du lära dig hur du skapar en Linux-dator (VM) med snabbare nätverk. Snabbare nätverksfunktioner kan single-root I/O virtualization (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden dess nätverksprestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande nätverksbelastning på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan snabbare nätverksfunktioner:
+I kursen får du lära dig hur du skapar en Linux-dator (VM) med snabbare nätverk. Om du vill skapa en virtuell Windows-dator med snabbare nätverk finns [skapa en virtuell Windows-dator med snabbare nätverk](create-vm-accelerated-networking-powershell.md). Snabbare nätverksfunktioner kan single-root I/O virtualization (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden dess nätverksprestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande nätverksbelastning på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan snabbare nätverksfunktioner:
 
 ![Jämförelse](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -78,7 +78,7 @@ Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I 
 az group create --name myResourceGroup --location centralus
 ```
 
-Du måste välja en stöds Linux-region som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Välj en stöds Linux-region som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät:
 
@@ -141,7 +141,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nic"></a>Skapa en virtuell dator och koppla nätverkskortet
-När du skapar den virtuella datorn, ange NIC du skapat med `--nics`. Du måste välja en storlek och distribution som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+När du skapar den virtuella datorn, ange NIC du skapat med `--nics`. Välj en storlek och distribution som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS avbildningen och storlek som har stöd för snabbare nätverk (*Standard_DS4_v2*):
 
@@ -158,7 +158,7 @@ az vm create \
 
 En lista över alla VM-storlekar och egenskaper, se [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-När den virtuella datorn skapas returneras utdata som liknar följande exempel utdata. Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn i efterföljande steg.
+När den virtuella datorn skapas returneras utdata som liknar följande exempel utdata. Anteckna **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn i efterföljande steg.
 
 ```azurecli
 {

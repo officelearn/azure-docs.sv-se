@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>Visa kostnadsdata
 
 Azure Cost Management från Cloudyn ger dig åtkomst till alla dina molnresursdata. I instrumentpanelsrapporterna hittar du både standardrapporter och anpassade rapporter i en flikvy. Följande är exempel på en populär instrumentpanel och en rapport som visar dig kostnadsdata direkt.

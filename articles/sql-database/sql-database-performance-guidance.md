@@ -9,26 +9,26 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
 Azure SQL Database tillhandahåller [rekommendationer](sql-database-advisor.md) att du kan använda för att förbättra prestandan för din databas eller så kan du låta Azure SQL Database [automatiskt anpassas till ditt program](sql-database-automatic-tuning.md) och tillämpa ändringar som förbättrar prestandan för din arbetsbelastning.
 
 Du har inte några tillämpliga rekommendationer och du fortfarande har problem med prestanda, du kan använda följande metoder för att förbättra prestanda:
-1. Öka [tjänstnivåer](sql-database-service-tiers.md) och ger fler resurser till din databas.
-2. Finjustera ditt program och tillämpa några metoder som kan förbättra prestanda. 
-3. Finjustera databasen genom att ändra index och frågor att mer effektivt arbeta med data.
+- Öka tjänstnivåer i din [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) att ge mer resurser till din databas.
+- Finjustera ditt program och tillämpa några metoder som kan förbättra prestanda. 
+- Finjustera databasen genom att ändra index och frågor att mer effektivt arbeta med data.
 
-Dessa är manuella metoder eftersom du behöver avgöra vad [tjänstnivåer](sql-database-service-tiers.md) väljer du eller skulle du behöva skriva om kod program eller en databas och distribuera ändringarna.
+Dessa är manuella metoder eftersom du behöver avgöra vad [DTU-baserade modellen gränserna](sql-database-dtu-resource-limits.md) och [vCore-baserade modellen gränserna (förhandsgranskning)](sql-database-vcore-resource-limits.md) uppfyller dina behov. Annars skulle du behöva skriva om programmet eller koden för databasen och distribuera ändringarna.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Öka prestandanivån för din databas
 
-Azure SQL Database erbjuder två köp modeller, en DTU-baserade inköpsmodell och v-Core-baserade inköpsmodell. Varje modell har flera [tjänstnivåer](sql-database-service-tiers.md) som du kan välja från. Varje tjänstnivå isolerar strikt resurser att din SQL-databas kan använda och garanterar förutsägbar prestanda för den servicenivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivån för ditt program i den här artikeln. Dessutom diskuterar vi sätt att du kan finjustera ditt program för att få ut mesta möjliga av Azure SQL Database.
+Azure SQL Database erbjuder två köp modeller, en [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och en [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) som du kan välja från. Varje tjänstnivå isolerar strikt resurser att din SQL-databas kan använda och garanterar förutsägbar prestanda för den servicenivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivån för ditt program i den här artikeln. Dessutom diskuterar vi sätt att du kan finjustera ditt program för att få ut mesta möjliga av Azure SQL Database.
 
 > [!NOTE]
 > Den här artikeln fokuserar på prestanda vägledning för enskilda databaser i Azure SQL Database. Anvisningar prestanda rör elastiska pooler finns [pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md). Observera dock att du kan tillämpa många av rekommendationerna i den här artikeln prestandajustering för databaser i en elastisk pool och få liknande prestandafördelarna.
@@ -48,7 +48,7 @@ Servicenivåer som du behöver för SQL-databasen beror på belastningskraven be
 
 ### <a name="service-tier-capabilities-and-limits"></a>Tjänsten funktioner och begränsningar
 
-På varje tjänstnivå ställa du in prestanda, så att du har möjlighet att betala endast för kapacitet du behöver. Du kan [justera kapaciteten](sql-database-service-tiers.md), uppåt eller nedåt när arbetsbelastningen ändras. Till exempel om din databas arbetsbelastning är hög under perioder som jul tillbaka till skolan, kan du öka prestandanivån för databasen för en viss tid, juli via September. Du kan minska den när belastning-säsongen avslutas. Du kan minimera du betalar genom att optimera din molnmiljö till säsongsvärdet för ditt företag. Den här modellen fungerar också bra för programvara produkten versionen cykler. Ett test-team kan allokera kapacitet när det testa körs, och släpper den kapaciteten när de är klara testning. I en begäran modell kapacitet betalar du för kapacitet du behöver den och undvika att förlora på dedicerade resurser som du kan använda sällan.
+På varje tjänstnivå ställa du in prestanda, så att du har möjlighet att betala endast för kapacitet du behöver. Du kan [justera kapaciteten](sql-database-service-tiers-dtu.md), uppåt eller nedåt när arbetsbelastningen ändras. Till exempel om din databas arbetsbelastning är hög under perioder som jul tillbaka till skolan, kan du öka prestandanivån för databasen för en viss tid, juli via September. Du kan minska den när belastning-säsongen avslutas. Du kan minimera du betalar genom att optimera din molnmiljö till säsongsvärdet för ditt företag. Den här modellen fungerar också bra för programvara produkten versionen cykler. Ett test-team kan allokera kapacitet när det testa körs, och släpper den kapaciteten när de är klara testning. I en begäran modell kapacitet betalar du för kapacitet du behöver den och undvika att förlora på dedicerade resurser som du kan använda sällan.
 
 ### <a name="why-service-tiers"></a>Varför tjänstnivåer?
 Även om varje arbetsbelastning i databasen kan skilja sig, är syftet med tjänstnivåer att tillhandahålla prestanda förutsägbarhet på olika prestandanivåer. Kunder med stora databasen resurskrav kan arbeta i en mer dedikerade datormiljö.
@@ -270,7 +270,8 @@ Vissa program är processorintensiva skrivning. Ibland kan du minska den totala 
 Vissa databasprogram har läs-frekventa arbetsbelastningarna. Cachelagring lager kan minska belastningen på databasen och kan minska prestandanivå som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), om du har en Läs frekventa arbetsbelastning, kan du läsa data en gång (eller kanske en gång per program skikt dator, beroende på hur den är konfigurerad), och sedan lagra dessa data utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs IO), men det finns en effekt på transaktionskonsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens är acceptabel för många program, som gäller inte för alla arbetsbelastningar. Du bör till fullo förstå kraven för application innan du implementerar en strategi för cachelagring av programmet skikt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om tjänstnivåer finns [SQL Database-alternativ och prestanda](sql-database-service-tiers.md)
+* Mer information om DTU-baserade tjänstnivåer finns [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [gränserna för DTU-baserade modellen](sql-database-dtu-resource-limits.md)
+* Läs mer om vCore-baserade tjänstnivåer [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) och [vCore-baserade gränserna (förhandsgranskning)](sql-database-vcore-resource-limits.md)
 * Läs mer om elastiska pooler [vad är en Azure elastisk pool?](sql-database-elastic-pool.md)
 * Information om prestanda och elastiska pooler finns [när du ska överväga en elastisk pool](sql-database-elastic-pool-guidance.md)
 

@@ -1,18 +1,18 @@
 ---
-title: "Etablera Azure Batch-pooler från anpassade avbildningar | Microsoft Docs"
-description: "Du kan skapa en Batch pool från en anpassad avbildning för att etablera compute-noder som innehåller program och data som du behöver för ditt program. Anpassade avbildningar är ett effektivt sätt att konfigurera compute-noder för att köra Batch-arbetsbelastningar."
+title: Etablera Azure Batch-pooler från anpassade avbildningar | Microsoft Docs
+description: Du kan skapa en Batch pool från en anpassad avbildning för att etablera compute-noder som innehåller program och data som du behöver för ditt program. Anpassade avbildningar är ett effektivt sätt att konfigurera compute-noder för att köra Batch-arbetsbelastningar.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Använda en anpassad avbildning som hanterad för att skapa en pool med virtuella datorer 
 
@@ -40,7 +40,7 @@ En anpassad avbildning som konfigurerats för ditt scenario ger många fördelar
 
     
 ## <a name="prepare-a-custom-image"></a>Förbereda en anpassad avbildning
-Du kan förbereda en hanterad avbildning från en virtuell Hårddisk, en virtuell Azure-dator med hanterade diskar eller en VM-ögonblicksbild. 
+Du kan förbereda en hanterad avbildning från en virtuell Hårddisk, en virtuell Azure-dator med hanterade diskar eller en VM-ögonblicksbild. För Batch rekommenderar vi att skapa en hanterad avbildning från en virtuell dator med hanterade diskar eller en VM-ögonblicksbild. Hanterad avbildning och den underliggande resursen ska finnas för pooler att skala upp och kan tas bort när poolen har tagits bort. 
 
 När du förbereder avbildningen, Tänk på följande saker övervägas:
 

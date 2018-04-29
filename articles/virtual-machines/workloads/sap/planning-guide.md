@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c2c3443f014f6c42ba9e8b68b21c2b9d0fdb1549
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer planering och implementering för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -236,7 +236,7 @@ ms.lasthandoff: 04/05/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -602,12 +602,12 @@ Mer information om Azure Storage finns här:
 * <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
-#### <a name="azure-standard-storage"></a>Azure Standard Storage
+#### <a name="azure-standard-storage"></a>Azure standardlagring
 Azure standardlagring var typ av lagring som är tillgängliga när Azure IaaS släpptes. Det fanns IOPS kvoter tillämpas per enskild disk. Latens som uppstod var inte i samma klass som SAN/NAS-enheter som normalt distribueras för avancerade SAP-datorer lagras lokalt. Dock Azure standardlagring visat sig vara tillräcklig för flera hundra SAP-system under tiden distribueras i Azure.
 
 Diskar som är lagrade på Azure-Standard Lagringskonton debiteras baserat på de faktiska data som lagras, mängden lagringstransaktioner och utgående dataöverföringar redundans-alternativ som valts. Många diskar kan skapas på den högsta 1TB i storlek, men så länge de förblir tom är kostnadsfri. Om du fyller sedan en virtuell Hårddisk med 100GB, debiteras du för att lagra 100GB och inte för den virtuella Hårddisken har skapats med nominell storlek.
 
-#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium-lagring
 I April 2015 introducerade Microsoft Azure Premium-lagring. Premium-lagring har fått introducerades med målet att tillhandahålla:
 
 * Bättre i/o-svarstid.
@@ -966,7 +966,7 @@ I det här fallet vill vi överföra en virtuell Hårddisk, med eller utan ett o
 
 **PowerShell**
 
-* Logga in till din prenumeration med *Login-AzureRmAccount*
+* Logga in till din prenumeration med *Connect-AzureRmAccount*
 * Ställ in prenumerationen för din kontext med *Set-AzureRmContext* och parametern prenumerations-ID eller SubscriptionName - finns <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Överför den virtuella Hårddisken med *Lägg till AzureRmVhd* till ett Azure Storage-konto - finns <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Valfritt) Skapa en Disk som hanteras av den virtuella Hårddisken med *ny AzureRmDisk* -finns <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -993,7 +993,7 @@ I det här fallet vill vi överföra en virtuell Hårddisk, med eller utan ett o
 För att överföra en befintlig virtuell dator eller en VHD från det lokala nätverket för att kunna använda den som en virtuell dator i Azure-avbildning sådan VM eller VHD måste uppfylla de krav som anges i kapitlet [förberedelse för att distribuera en virtuell dator med en avbildning av kundspecifika SAP] [ planning-guide-5.2.2] i det här dokumentet.
 
 * Använd *sysprep* i Windows eller *waagent-deprovision* på Linux för att generalisera den virtuella datorn – Se [Teknisk referens för Sysprep](https://technet.microsoft.com/library/cc766049.aspx) för Windows eller [så här skapar du en virtuell Linux-dator kan användas som en Resource Manager-mall] [ capture-image-linux-step-2-create-vm-image] för Linux
-* Logga in till din prenumeration med *Login-AzureRmAccount*
+* Logga in till din prenumeration med *Connect-AzureRmAccount*
 * Ställ in prenumerationen för din kontext med *Set-AzureRmContext* och parametern prenumerations-ID eller SubscriptionName - finns <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Överför den virtuella Hårddisken med *Lägg till AzureRmVhd* till ett Azure Storage-konto - finns <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Valfritt) Skapa en hanterad avbildning från den virtuella Hårddisken med *ny AzureRmImage* -finns <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
@@ -1851,7 +1851,7 @@ Det finns två typer av händelser i Azure-plattformen som kan påverka tillgän
 
 Mer information finns i den här dokumentationen: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
-#### <a name="azure-storage-redundancy"></a>Azure Storage Redundancy
+#### <a name="azure-storage-redundancy"></a>Azure Storage-redundans
 Data i Microsoft Azure Storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, uppfyller Azure-serviceavtalet för lagring även i händelse av tillfälliga maskinvarufel.
 
 Eftersom Azure Storage är att ha tre avbildningar av data som standard, RAID5 eller RAID1 över flera Azure-diskar är inte nödvändigt.

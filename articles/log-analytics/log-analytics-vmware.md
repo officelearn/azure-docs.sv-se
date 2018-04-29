@@ -1,11 +1,11 @@
 ---
-title: "VMware övervakning lösning i Log Analytics | Microsoft Docs"
-description: "Lär dig mer om hur lösningen VMware övervakning kan hantera loggar och övervaka ESXi-värdar."
+title: VMware övervakning lösning i Log Analytics | Microsoft Docs
+description: Lär dig mer om hur lösningen VMware övervakning kan hantera loggar och övervaka ESXi-värdar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware övervakning (förhandsgranskning) lösning i logganalys
 
 ![VMware symbol](./media/log-analytics-vmware/vmware-symbol.png)
+
+> [!NOTE]
+> Övervakning av VMware-lösning är föråldrad.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men VMware övervakning kan inte läggas till nya arbetsytor.
 
 Övervakning av VMware-lösning i Log Analytics är en lösning som hjälper dig att skapa en centraliserad loggning och övervakning tillvägagångssätt för stora VMware-loggar. Den här artikeln beskriver hur du kan felsöka, samla in och hantera ESXi-värdar i en enda plats med lösningen. Med lösningen kan se du detaljerad information för alla dina ESXi-värdar i en enda plats. Du kan se översta händelsen antal, status och trender för VM- och ESXi-värdar som tillhandahålls via loggarna ESXi-värd. Du kan felsöka genom att visa och söker efter loggar med centraliserad ESXi-värd. Och du kan skapa varningar baserat på loggen sökfrågor.
 

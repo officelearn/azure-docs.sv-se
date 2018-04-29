@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Övervaka datafabriker med hjälp av Azure-Monitor  
 Molnprogram är komplicerade med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet in och körs i ett felfritt tillstånd. Det hjälper dig också att stave ut potentiella problem eller felsöka tidigare viktiga. Du kan dessutom använda övervakningsdata och få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda eller underhålla eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -105,13 +105,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
-| storageAccountId |Sträng | Resurs-ID för det lagringskonto som du vill skicka diagnostiska loggar |
+| StorageAccountId |Sträng | Resurs-ID för det lagringskonto som du vill skicka diagnostiska loggar |
 | serviceBusRuleId |Sträng | Service bus regeln ID för service bus-namnrymd där du vill ha Händelsehubbar som skapats för strömning diagnostikloggar. Regel-ID är i formatet ”: {service bus-resurs-ID} /authorizationrules/ {namn}”.|
-| workspaceId | Komplex typ | Matris med mått tid kärnor och deras bevarandeprinciper. Den här egenskapen är för närvarande är tom. |
-|mått| Parametervärdena för pipelinen körs för att skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameternamn till argumentvärden | 
+| WorkspaceId | Komplex typ | Matris med mått tid kärnor och deras bevarandeprinciper. Den här egenskapen är för närvarande är tom. |
+|metrics| Parametervärdena för pipelinen körs för att skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameternamn till argumentvärden | 
 | loggar| Komplex typ| Namnet på en kategori för diagnostiska loggen för en resurstyp. Om du vill hämta listan över diagnostiska loggen kategorier för en resurs du först göra en diagnostikinställningar för GET-åtgärd. |
 | category| Sträng| Matris med loggen kategorier och deras bevarandeprinciper |
-| timeGrain | Sträng | Granulariteten för mått som har hämtats i ISO 8601-format för varaktighet. Måste vara PT1M (en minut)|
+| Tidskorn | Sträng | Granulariteten för mått som har hämtats i ISO 8601-format för varaktighet. Måste vara PT1M (en minut)|
 | aktiverad| Boolesk | Anger om samling mått eller loggfil kategorin är aktiverat för den här resursen|
 | retentionPolicy| Komplex typ| Beskriver bevarandeprincipen för ett mått eller loggfil kategori. Används för kontot lagringsalternativ endast.|
 | dagar| Int| Antal dagar att behålla loggarna eller mått. Värdet 0 behåller loggarna på obestämd tid. Används för kontot lagringsalternativ endast. |
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Mer information här](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Mer information här](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schemat för loggar & händelser
 
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivå |Sträng | Nivå av diagnostiska loggar. Nivå 4 är alltid fallet för aktiviteten kör loggar. | `4`  |
 | correlationId |Sträng | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tid | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Sträng| ID för aktiviteten kör | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| Sträng| ID för den pipeline som kör | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| Sträng | Associerad resurs-ID för data factory-resurs | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -324,7 +324,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivå |Sträng | Nivå av diagnostiska loggar. Nivå 4 är fallet för aktiviteten kör loggar. | `4`  |
 | correlationId |Sträng | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tid | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Sträng| ID för den pipeline som kör | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| Sträng | Associerad resurs-ID för data factory-resurs | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till ”PipelineRuns” | `PipelineRuns` |
@@ -369,8 +369,8 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivå |Sträng | Nivå av diagnostiska loggar. Ange på nivå 4 för aktiviteten kör loggar. | `4`  |
 | correlationId |Sträng | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tid | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| Sträng| ID för utlösaren kör | `08587023010602533858661257311` |
+| time | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|Utlösarens ID| Sträng| ID för utlösaren kör | `08587023010602533858661257311` |
 |resourceId| Sträng | Associerad resurs-ID för data factory-resurs | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till ”PipelineRuns” | `PipelineRuns` |
 |nivå| Sträng | Nivå av diagnostiska loggar. Ange den här egenskapen till ”information” | `Informational` |
@@ -389,16 +389,16 @@ ADFV2 genererar följande mått
 
 | **Mått**           | **Mått visningsnamn**         | **enhet** | **Sammansättningstyp** | **Beskrivning**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Pipelinen körs mått är klar | Antal    | Summa                | Totalt antal pipelines körs har slutförts inom en minut fönster |
-| PipelineFailedRuns   | Det gick inte pipelinen körs mått    | Antal    | Summa                | Totalt antal pipelines körs misslyckades inom en minut fönster    |
-| ActiviySucceededRuns | Lyckades aktiviteten körs mått | Antal    | Summa                | Totalt antal aktiviteten körs har slutförts inom en minut period  |
-| ActivityFailedRuns   | Det gick inte aktiviteten körs mått    | Antal    | Summa                | Totalt antal aktiviteten körs misslyckades inom en minut period     |
-| TriggerSucceededRuns | Lyckades utlösaren körs mått  | Antal    | Summa                | Totalt antal trigger kör har slutförts inom en minut period   |
-| TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Summa                | Totalt antal trigger kör misslyckades inom en minut period      |
+| PipelineSucceededRun | Pipelinen körs mått är klar | Antal    | Totalt                | Totalt antal pipelines körs har slutförts inom en minut fönster |
+| PipelineFailedRuns   | Det gick inte pipelinen körs mått    | Antal    | Totalt                | Totalt antal pipelines körs misslyckades inom en minut fönster    |
+| ActiviySucceededRuns | Lyckades aktiviteten körs mått | Antal    | Totalt                | Totalt antal aktiviteten körs har slutförts inom en minut period  |
+| ActivityFailedRuns   | Det gick inte aktiviteten körs mått    | Antal    | Totalt                | Totalt antal aktiviteten körs misslyckades inom en minut period     |
+| TriggerSucceededRuns | Lyckades utlösaren körs mått  | Antal    | Totalt                | Totalt antal trigger kör har slutförts inom en minut period   |
+| TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal trigger kör misslyckades inom en minut period      |
 
 För att komma åt mätvärdena som följer du anvisningarna i artikeln- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="alerts"></a>Varningar
+## <a name="alerts"></a>Aviseringar
 
 Du kan aktivera aviseringar om stöds mått i Data Factory. Klicka på den **aviseringar** Data Factory-knappen **övervakaren** sidan.
 

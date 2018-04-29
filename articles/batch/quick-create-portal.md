@@ -1,6 +1,6 @@
 ---
-title: "Azure Snabbstart – Köra Batch-jobb – Portal"
-description: "Lär dig snabbt att köra ett Batch-jobb på Azure-portalen."
+title: Azure Snabbstart – Köra Batch-jobb – Portal
+description: Lär dig snabbt att köra ett Batch-jobb på Azure-portalen.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Kör ditt första Batch-jobb på Azure-portalen
 
@@ -37,7 +37,7 @@ Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel 
 
 2. Ange värden för **Kontonamn** och **Resursgrupp**. Kontonamnet måste vara unikt inom den **Azureplats** som valts, får endast använda små bokstäver eller siffror och innehålla 3 till 24 tecken. 
 
-3. I **Lagringskonto** väljer du ett befintligt allmänt lagringskonto eller skapar ett nytt.
+3. Gå till **Lagringskonto** och välj ett befintligt lagringskonto eller skapa ett nytt.
 
 4. Behåll standardinställningarna för återstående inställningar och klicka på **Skapa** för att skapa kontot.
 

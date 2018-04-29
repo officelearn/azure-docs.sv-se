@@ -1,8 +1,8 @@
 ---
 title: Privileged Identity Management - prenumerationer i Azure | Microsoft Docs
-description: "Beskriver prenumerationen och Licensieringskrav för att hantera och använda Azure AD Privileged Identity Management i din klient"
+description: Beskriver prenumerationen och Licensieringskrav för att hantera och använda Azure AD Privileged Identity Management i din klient
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Krav för Azure Active Directory Privileged Identity Management-prenumeration
 
@@ -40,7 +40,7 @@ Detta kommando hämtar en lista över prenumerationer i din klient. Om det finns
 
 Om det här kommandot returnerar en rad i vilka SkuPartNumber är ”AAD_PREMIUM_P2” eller ”EMSPREMIUM” och IsTrial är ”True”, innebär en utvärderingsversion av Azure AD Premium P2 finns i klienten.  Om du inte har en Azure AD Premium P2- eller EMS E5 prenumeration köpa prenumeration inte är aktiverad, måste sedan du köpa en Azure AD Premium P2-prenumeration eller EMS E5 prenumeration fortsätta att använda Azure AD Privileged Identity Management.
 
-Azure AD Premium P2 är tillgänglig via en [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [öppna volymlicensprogram](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx), och [Cloud Solution Providers programmet](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure och Office 365-prenumeranter kan också köpa Azure AD Premium P2 online.  Mer information om priser för Azure AD Premium och beställa online finns på [Azure Active Directory-priser](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Azure AD Premium P2 är tillgänglig via en [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [öppna volymlicensprogram](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx), och [Cloud Solution Providers programmet](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure och Office 365-prenumeranter kan också köpa Azure AD Premium P2 online.  Mer information om priser för Azure AD Premium och beställa online finns på [Azure Active Directory-priser](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management är inte tillgänglig i klient
 

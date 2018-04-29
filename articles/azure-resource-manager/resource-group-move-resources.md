@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 341ee58904cb08a024ac9f14839cf011e72b4dd2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -121,6 +121,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory - V1 kan flyttas, men flytta V2 (förhandsgranskning) stöds inte
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -166,7 +167,6 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * BizTalk Services
 * Certifikat - Apptjänstcertifikat kan flyttas, men överförda certifikat har [begränsningar](#app-service-limitations).
 * Container Service
-* Data Factory
 * DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
 * Dynamics LCS
 * Express Route

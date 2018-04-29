@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 ## <a name="overview"></a>Översikt ##
@@ -93,7 +93,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
 <dt>Webhook</dt>
 <dd>Du kan ha upp till 10 Webhook-åtgärder i en grupp
-<dd>Försök logic - webhook-anropet kommer att ett nytt försök högst 3 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504</dd>
+<dd>Försök logik - tidsgränsen för svar är 10 sekunder. Webhook-anropet kommer att vara högst 2 tider när följande HTTP-Statuskoder returneras på nytt: 408 429, 503, 504 eller HTTP-slutpunkten inte svarar. Det första förnyade sker efter 10 sekunder. Andra och senaste försök sker efter 100 sekunder.</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Hantera åtgärdsgrupper ##

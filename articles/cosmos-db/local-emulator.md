@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -478,6 +478,10 @@ Om du vill samla in felsökning spårningar, kör du följande kommandon från e
 ## <a name="change-list"></a>Ändringslista
 
 Du kan kontrollera versionsnumret genom att högerklicka på emulatorikonen lokala i Aktivitetsfältet och klicka på den om menyalternativet.
+
+### <a name="1220-released-on-april-20-2018"></a>1.22.0. Släpptes 20 April 2018
+
+Förutom att uppdatera emulatorn tjänster för paritet med Cosmos DB molntjänster innehåller förbättrad PowerShell dokumentation och vissa diverse felkorrigeringar.
 
 ### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 släpptes 27 mars 2018
 

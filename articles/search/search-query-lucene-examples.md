@@ -7,13 +7,13 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/21/2017
+ms.date: 04/20/2018
 ms.author: liamca
-ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene fråga syntaxexemplen för att skapa frågor i Azure Search
 När man skapar frågor för Azure Search kan du använda antingen standard [enkel frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller alternativt [Lucene Frågeparsern i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Frågeparsern Lucene stöder mer komplex fråga konstruktioner fältet omfång frågor, fuzzy sökning, närhet sökning, termen förstärkning och reguljärt uttryck för sökning.
@@ -37,13 +37,13 @@ Alla exemplen i den här artikeln anger den **queryType = full** sökparameter, 
 
 **Exempel 1** --högerklickar du på frågan följande fragment för att öppna den i en ny Webbläsarsida som läser in JSFiddle och kör frågan:
 
-* [& queryType = fullständig & Sök = *](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+* [& queryType = fullständig & Sök = *](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 I nytt fönster i webbläsaren visas JavaScript käll- och HTML-utdata sida vid sida. Skriptet refererar till en fullständig fråga (inte bara fragment, som visas i länken). Den fullständiga frågan som visas i URL: er för varje exempel. 
 
 Den här frågan returnerar dokument från indexet New York City jobb (nycjobs, har lästs in på en sandbox-tjänst). Frågan anger planeringsaspekter, endast företag titlar returneras. Den fullständiga underliggande frågan är följande:
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
 Den **searchFields** parametern begränsar sökningen till bara företag rubrikfält. Den **queryType** är inställd på **fullständig**, vilket gör att Azure sökning Frågeparsern Lucene för den här frågan.
 
@@ -63,7 +63,7 @@ Det fält som anges i **fieldname:searchterm** måste vara sökbara fält. Se [C
 
 **Exempel 2** --högerklickar du på följande fråga kodavsnitt som den här frågan söker för företag med termen erfarna i dem, men inte oerfarna:
 
-* [& queryType = fullständig & Sök = business_title:senior inte oerfarna](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+* [& queryType = fullständig & Sök = business_title:senior inte oerfarna](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
 ## <a name="fuzzy-search-example"></a>Fuzzy Sök-exempel
 En fuzzy sökning matchningar har hittats i villkor som har en liknande konstruktion. Per [Lucene dokumentationen](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy sökningar baseras på [Damerau Levenshtein avstånd](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
@@ -72,7 +72,7 @@ Om du vill göra en fuzzy sökning, bifoga tilde ”~” symbol i slutet av ett 
 
 **Exempel 3** --högerklickar du på följande kodavsnitt i frågan. Den här frågan söker efter jobb med termen-koppla (där det är felstavat):
 
-* [& queryType = fullständig & Sök = business_title:asosiate ~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [& queryType = fullständig & Sök = business_title:asosiate ~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
 > Fuzzy frågor är inte [analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), vilket kan vara konstigt om du räknar härrör eller lemmatisering. Lexikaliskt analys utförs endast på fullständiga villkor (en term fråga eller en frasfråga). Frågetyper med ofullständiga villkor (prefix frågan, jokertecken frågan, regex-fråga, fuzzy fråga) läggs direkt till trädet frågan kringgå fasen analys. Endast omvandling utförs på ofullständiga sökord lowercasing.
@@ -83,11 +83,11 @@ Närhet sökningar används för att hitta villkoren som är nära varandra i et
 
 **Exempel 4** --högerklickar du på frågan. Sök efter jobb med termen ”erfarna analytiker” där det avgränsas med mer än ett ord:
 
-* [& queryType = fullständig & Sök = business_title: ”erfarna analytiker” ~ 1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [& queryType = fullständig & Sök = business_title: ”erfarna analytiker” ~ 1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
 **Exempel 5** --prova igen att ta bort ord mellan termen ”erfarna analytiker”.
 
-* [& queryType = fullständig & Sök = business_title: ”erfarna analytiker” ~ 0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+* [& queryType = fullständig & Sök = business_title: ”erfarna analytiker” ~ 0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
 ## <a name="term-boosting-examples"></a>Termen förstärkning exempel
 Termen förstärkning avser rangordning dokumentet senare om den innehåller boosted termen i förhållande till dokument som inte innehåller termen. Detta skiljer sig från bedömningen profiler i att bedömningsprofil profiler öka vissa fält i stället för på specifika villkor. I följande exempel hjälper visar skillnaderna.
@@ -98,11 +98,11 @@ Använd hatt, om du vill öka en term ”^”, symbol med en faktor förstärkni
 
 **Exempel 6** --högerklickar du på frågan. Sök efter jobb med termen ”datorn analytiker” där det finns inga resultat med både ord dator och analytiker ännu analytiker jobb är högst upp i resultaten.
 
-* [& queryType = fullständig & Sök = business_title:computer analytiker](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [& queryType = fullständig & Sök = business_title:computer analytiker](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 **Exempel 7** --försök igen, den här gången förstärkning innebär med termen datorn över termen analytiker om båda orden inte finns.
 
-* [& queryType = fullständig & Sök = business_title:computer ^ 2 analytiker](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [& queryType = fullständig & Sök = business_title:computer ^ 2 analytiker](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 ## <a name="regular-expression-example"></a>Reguljärt uttryck exempel
 Ett reguljärt uttryck hittas matchar baserat på innehållet mellan snedstreck ”/”, som beskrivs i den [klassen RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
@@ -111,14 +111,14 @@ Ett reguljärt uttryck hittas matchar baserat på innehållet mellan snedstreck 
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-URL-Adressen för det här exemplet kommer inte att återge korrekt på sidan. Kopiera Webbadressen nedan och klistra in den i webbläsaren URL-adressen som en lösning: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+URL-Adressen för det här exemplet kommer inte att återge korrekt på sidan. Kopiera Webbadressen nedan och klistra in den i webbläsaren URL-adressen som en lösning: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Jokertecken Sök-exempel
 Du kan använda allmänt erkända syntax för flera (\*) eller enstaka jokertecken med tecken (?). Observera frågeparsern Lucene stöder användning av dessa symboler med en enda term och inte en fras.
 
 **Exempel 9** --högerklickar du på frågan. Sök efter jobb som innehåller prefixet 'prog' som omfattar business titlar med villkor som programming programmerare i den.
 
-* [& queryType = fullständiga & $select = business_title & Sök = business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:prog*)
+* [& queryType = fullständiga & $select = business_title & Sök = business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
 Du kan inte använda en * eller? symbolen som det första tecknet i en sökning.
 

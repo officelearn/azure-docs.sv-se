@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecdd9f169b5b61262f4e3121337c730700f0757
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7e8c04fd2284a3a00d4847f39fd34982a543cc29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Nätverksbevakaren med hjälp av PowerShell
 
@@ -304,6 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](network-watcher-check-ip-flow-verify-portal.md).
+Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](diagnose-vm-network-traffic-filtering-problem.md).
 
 Om trafik blockeras och får inte vara, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de grupp och säkerhet Nätverkssäkerhetsregler som har definierats.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replikera en SharePoint-flernivåapp för haveriberedskap med hjälp av Azure Site Recovery
 
@@ -53,7 +53,7 @@ Innan du börjar bör du kontrollera att du känna till följande:
 
 ## <a name="sharepoint-architecture"></a>SharePoint-arkitektur
 
-SharePoint kan distribueras på en eller flera servrar med nivåindelade topologier och serverroller du implementerar en servergrupp design som uppfyller specifika mål och -mål. En typisk stora, hög SharePoint-servergrupp som stöder ett stort antal samtidiga användare och ett stort antal innehållsobjekt använda tjänsten gruppering som en del av deras skalbarhet-strategi. Den här metoden innebär att du kör tjänster på dedicerade servrar, gruppera dessa tjänster och sedan skala ut servrarna som en grupp. Följande topologin illustrerar tjänsten och server gruppering för ett tre skikt SharePoint-servergrupp. Hänvisa till SharePoint-dokumentationen och produkten rad arkitekturer för detaljerad information om olika SharePoint-topologier. Du hittar mer information om distribution av SharePoint 2013 i [dokumentet](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+SharePoint kan distribueras på en eller flera servrar med nivåindelade topologier och serverroller du implementerar en servergrupp design som uppfyller specifika mål och -mål. En typisk stora, hög SharePoint-servergrupp som stöder ett stort antal samtidiga användare och ett stort antal innehållsobjekt använda tjänsten gruppering som en del av deras skalbarhet-strategi. Den här metoden innebär att du kör tjänster på dedicerade servrar, gruppera dessa tjänster och sedan skala ut servrarna som en grupp. Följande topologin illustrerar tjänsten och server gruppering för ett tre skikt SharePoint-servergrupp. Hänvisa till SharePoint-dokumentationen och produkten rad arkitekturer för detaljerad information om olika SharePoint-topologier. Du hittar mer information om distribution av SharePoint 2013 i [dokumentet](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 
@@ -66,7 +66,7 @@ VMware-datorer med Windows Server 2012 R2 Enterprise användes för att skapa de
 
 ### <a name="source-and-target"></a>Källa och mål
 
-**scenario** | **Till en sekundär plats** | **Till Azure**
+**Scenario** | **Till en sekundär plats** | **Till Azure**
 --- | --- | ---
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja

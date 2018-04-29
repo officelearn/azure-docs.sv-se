@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7e72e9ff9be0b092bc9425828bab46ffd60f0822
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure Portal
 
@@ -53,7 +53,7 @@ Om du arbetar med komplicerade nätverkskonfigurationer kan du överväga att an
 
 ### <a name="vnet-peering"></a>VNET-peering
 
-Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNET-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN-gatewayen mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
+Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 
@@ -127,7 +127,7 @@ Du kan lägga till ytterligare adressutrymme och skapa undernät när ditt virtu
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Skapa ett gateway-undernät
-Innan du skapar en virtuell nätverksgateway för ditt virtuella nätverk måste du skapa gatewayundernätet. Gatewayundernätet innehåller de IP-adresser som används av den virtuella nätverksgatewayen. Om möjligt är det bäst att skapa ett gateway-undernät med CIDR-block av /28 eller /27 för att tillhandahålla tillräckligt med IP-adresser för att hantera ytterligare framtida konfigurationskrav.
+Du måste skapa gatewayundernätet innan du skapar en virtuell nätverksgateway för ditt virtuella nätverk. Gatewayundernätet innehåller de IP-adresser som används av den virtuella nätverksgatewayen. Om möjligt är det bäst att skapa ett gateway-undernät med CIDR-block av /28 eller /27 för att tillhandahålla tillräckligt med IP-adresser för att hantera ytterligare framtida konfigurationskrav.
 
 Om du skapar den här konfigurationen för att öva dig, kan du hänvisa till de här [exempelvärdena](#values) när du skapar gateway-undernätet.
 

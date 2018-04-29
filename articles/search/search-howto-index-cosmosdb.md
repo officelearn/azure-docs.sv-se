@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos-databas med Azure Search med indexerare
 
@@ -73,7 +73,7 @@ Den här artikeln visar hur du använder REST API. Om du väljer för portalen, 
 ## <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 Om du vill skapa en datakälla, gör ett INLÄGG:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -146,7 +146,7 @@ Skapa ett mål Azure Search index om du inte redan har en. Du kan skapa ett inde
 
 I följande exempel skapas ett index med ett id och beskrivning fält:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -192,7 +192,7 @@ Kontrollera att schemat för mål-index är kompatibel med schemat för JSON-kä
 
 När index och datakälla har skapats är du redo att skapa indexeraren:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -211,7 +211,7 @@ Mer information om API: et för skapa indexeraren kolla [skapa indexeraren](http
 ### <a name="running-indexer-on-demand"></a>Kör indexeraren på begäran
 Förutom att köra med jämna mellanrum enligt ett schema, kan en indexerare anropas på begäran:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -223,7 +223,7 @@ Du kan övervaka statusen indexerare i portalen eller med hjälp av hämta index
 ### <a name="getting-indexer-status"></a>Hämtar status för indexerare
 Du kan hämta status och körningen historiken för en indexerare:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 Svaret innehåller övergripande indexeraren status, senaste (eller pågående) indexeraren anrop och historiken för senaste indexeraren anrop.
@@ -297,7 +297,7 @@ Om du använder en anpassad fråga, se till att egenskapen refererar till `softD
 
 I följande exempel skapas en datakälla med en princip för mjuk borttagning:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

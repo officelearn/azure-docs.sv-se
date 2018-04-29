@@ -1,6 +1,6 @@
 ---
-title: "Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet | Microsoft Docs"
-description: "Anvisningar och supportinformation för att uppgradera din Azure Backup-valv till Recovery Services-valvet."
+title: Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet | Microsoft Docs
+description: Anvisningar och supportinformation för att uppgradera din Azure Backup-valv till Recovery Services-valvet.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
 
@@ -57,7 +57,7 @@ Du kan använda PowerShell-skript för att uppgradera din Backup-valv till Recov
 
 Du kan använda följande skript för att uppgradera ditt valv. Följande exempelskript har förklaringar av parametrar.
 
-RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-plats** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName**`<rgname>`
+RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-plats** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** -prenumeration ID-numret för valvet som uppgraderas.<br/>
 **VaultName** -namnet på det säkerhetskopieringsvalv som uppgraderas.<br/>
@@ -84,7 +84,7 @@ PowerShell-skriptet uppmanas du att ange dina autentiseringsuppgifter. Ange dina
 ### <a name="pre-requisites-checking"></a>Kontroll av förutsättningar
 När du har angett dina autentiseringsuppgifter för Azure, kontrollerar Azure att din miljö uppfyller följande krav:
 
-- **Minsta agentversion** -säkerhetskopieringsvalv Recovery Services-valv uppgraderar MARS-agenten vara på minst version 2.0.9083.0. Om du har artiklar som registrerats för ett säkerhetskopieringsvalv med en agent före 2.0.9083.0 misslyckas förutsättningskontrollen. Om kravkontrollen misslyckas, uppdatera agenten och försök att uppgradera valvet igen. Du kan hämta den senaste versionen av agenten från [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Minsta agentversion** -säkerhetskopieringsvalv Recovery Services-valv uppgraderar MARS-agenten vara på minst version 2.0.9083.0. Om du har artiklar som registrerats för ett säkerhetskopieringsvalv med en agent före 2.0.9083.0 misslyckas förutsättningskontrollen. Om kravkontrollen misslyckas, uppdatera agenten och försök att uppgradera valvet igen. Du kan hämta den senaste versionen av agenten från [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Pågående configuration jobb**: om någon konfigurerar jobbet för ett säkerhetskopieringsvalv som angetts som ska uppgraderas eller registrera en artikel kravkontrollen misslyckas. Slutföra konfigurationen, eller avsluta registrering av objektet och sedan startar uppgraderingsprocessen valvet.
 - **Storage-baserade faktureringsmodell som tillämpas**: Recovery Services-valv stöder instans-baserade fakturering modellen. Om du kör uppgraderingen valvet på ett säkerhetskopieringsvalv som använder Storage-baserade fakturering modellen, uppmanas du att uppgradera faktureringsmodellen tillsammans med valvet. Annars kan du uppdatera faktureringsmodellen först och sedan uppgraderar valvet.
 - Identifiera en resursgrupp för Recovery Services-valvet. Om du vill dra nytta av funktionerna för Resource Manager distribution, måste du placera ett Recovery Services-valv i en resursgrupp. Om du inte vet vilken resursgrupp genom att ange ett namn och uppgraderingsprocessen skapas resursgruppen. Uppgraderingsprocessen associerar även valvet med den nya resursgruppen.
@@ -106,7 +106,7 @@ Recovery Services-ventilen har stöd för att ange Tidszonsinformationen i princ
 
 ## <a name="enhanced-security"></a>Förbättrad säkerhet
 
-När ett säkerhetskopieringsvalv uppgraderas till Recovery Services-valvet, aktiveras automatiskt säkerhetsinställningarna för det valvet. När säkerhetsinställningarna finns på vissa åtgärder, till exempel ta bort säkerhetskopior eller ändra en lösenfras kräva en [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN-kod. Mer information om förbättrad säkerhet finns i artikeln [säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar](backup-azure-security-feature.md). 
+När ett säkerhetskopieringsvalv uppgraderas till Recovery Services-valvet, aktiveras automatiskt säkerhetsinställningarna för det valvet. När säkerhetsinställningarna finns på vissa åtgärder, till exempel ta bort säkerhetskopior eller ändra en lösenfras kräva en [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN-kod. Mer information om förbättrad säkerhet finns i artikeln [säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar](backup-azure-security-feature.md). 
 
 När Förbättrad säkerhet är aktiverad bevaras data upp till 14 dagar efter punkt återställningsinformation har tagits bort från valvet. Kunder som debiteras för lagring av den här säkerhetsdata. Säkerhet datalagring gäller återställningspunkter för Azure Backup-agenten, Azure Backup Server och System Center Data Protection Manager. 
 

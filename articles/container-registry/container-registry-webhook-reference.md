@@ -1,18 +1,18 @@
 ---
 title: Azure Container registret webhook-Schemareferens
-description: "Webhook begäran JSON-nyttolast referens för Azure-behållare registernyckeln."
+description: Webhook begäran JSON-nyttolast referens för Azure-behållare registernyckeln.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container webhook register
 
@@ -46,7 +46,7 @@ Webhook utlöses när en avbildning av behållare skickas till en databas.
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
 |`action`|Sträng|Åtgärden som utlöste webhook-händelsen.|
 |[mål](#target)|Komplex typ|Mål för den händelse som utlöste webhook-händelsen.|
-|[begäran](#request)|Komplex typ|Den begäran som skapade webhook-händelsen.|
+|[Begäran](#request)|Komplex typ|Den begäran som skapade webhook-händelsen.|
 
 ### <a name="target"></a>mål
 
@@ -110,9 +110,9 @@ Webhook utlöses när en databas eller manifestet tas bort. Aktiveras inte när 
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
 |`action`|Sträng|Åtgärden som utlöste webhook-händelsen.|
 |[mål](#delete_target)|Komplex typ|Mål för den händelse som utlöste webhook-händelsen.|
-|[begäran](#delete_request)|Komplex typ|Den begäran som skapade webhook-händelsen.|
+|[Begäran](#delete_request)|Komplex typ|Den begäran som skapade webhook-händelsen.|
 
-### <a name="delete_target"></a>mål
+### <a name="delete_target"></a> mål
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
@@ -120,7 +120,7 @@ Webhook utlöses när en databas eller manifestet tas bort. Aktiveras inte när 
 |`digest`|Sträng|Sammanfattningen av innehåll, som definieras i registernyckeln V2 http-API-specifikationen.|
 |`repository`|Sträng|Databasens namn.|
 
-### <a name="delete_request"></a>begäran
+### <a name="delete_request"></a> Begäran
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|

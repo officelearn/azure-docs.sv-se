@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera datavetenskap virtuell dator för Linux (Ubuntu)
 
@@ -95,7 +95,7 @@ Här följer stegen för att skapa en instans av datavetenskap Virtual Machine f
    
    b. **Storlek**:
    
-   * Välj en av de servertyper som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Välj **visa alla** att se fler alternativ för VM-storlekar. Välj en virtuell dator i NC-klass för GPU utbildning.
+   * Välj en av de servertyper som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Välj **visa alla** att se fler alternativ för VM-storlekar. Välj en NC eller virtuell dator ND-klass för GPU utbildning. Den [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) sidan listar regioner och GPU-kort.
    
    c. **Inställningar för**:
    

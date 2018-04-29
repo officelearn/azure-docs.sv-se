@@ -12,28 +12,39 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 5665af14b9b0d0705b68c8a27c593b19c31b053e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 381c1c37b0675d97adc058979a5d9b5c4fd2cc8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-azure-stack-using-azure-cli"></a>Snabbstart: skapa en virtuell Windows-dator i Azure-stacken använder Azure CLI
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Snabbstart: skapa en virtuell dator med Windows Server med hjälp av Azure CLI i Azure-stacken
 
-Azure CLI används för att skapa och hantera Azure-stacken resurser från kommandoraden. Den här artikeln visar hur du använder Azure CLI för att skapa och få åtkomst till en virtuell dator i Windows Server 2016 i Azure-stacken.
+‎*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+
+Du kan skapa en virtuell dator i Windows Server 2016 med hjälp av Azure CLI. Följ stegen i den här artikeln för att skapa och använda en virtuell dator. Den här artikeln ger dig även följande steg:
+
+* Ansluta till den virtuella datorn med en fjärransluten klient.
+* Installera IIS-webbservern och visa standardstartsida.
+* Rensa dina resurser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Kontrollera att Azure Stack-operator har lagt till ”Windows Server 2016” bilden Stack för Azure marketplace.
+* Kontrollera att Azure Stack-operatorn i **Windows Server 2016** avbildningen till stacken för Azure marketplace.
 
 * Azure-stacken kräver en viss version av Azure CLI för att skapa och hantera resurser. Om du inte har Azure CLI har konfigurerats för Azure-stacken, följer du stegen för att [installera och konfigurera Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare i vilka Azure-stacken resurser distribueras och hanteras. Från din development kit eller Azure-stacken integrerat system som kör den [az gruppen skapa](/cli/azure/group#az_group_create) kommando för att skapa en resursgrupp. Tilldelar värden för alla variabler i det här dokumentet kan du använda dessa värden eller tilldela nya värden. I följande exempel skapas en resursgrupp med namnet myResourceGroup i den lokala platsen.
+En resursgrupp är en logisk behållare där du kan distribuera och hantera resurser i Azure-stacken. Kör från din Azure Stack-miljö i [az gruppen skapa](/cli/azure/group#az_group_create) kommando för att skapa en resursgrupp.
+
+>[!NOTE]
+ Värden har tilldelats för alla variabler i kodexemplen. Du kan tilldela nya värden om du vill.
+
+I följande exempel skapas en resursgrupp med namnet myResourceGroup i den lokala platsen.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +52,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. I följande exempel skapas en virtuell dator med namnet myVM. Det här exemplet används Demouser för ett användarnamn och Demouser@123 som lösenord. Uppdatera dessa värden till något som är lämpligt för din miljö. Dessa värden krävs när du ansluter till den virtuella datorn.
+Skapa en virtuell dator (VM) med hjälp av den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. I följande exempel skapas en virtuell dator med namnet myVM. Det här exemplet används Demouser för ett användarnamn och Demouser@123 som användarens lösenord. Ändra dessa värden till något som är lämplig för din miljö.
 
 ```cli
 az vm create \
@@ -54,11 +65,13 @@ az vm create \
   --location local
 ```
 
-När den virtuella datorn skapas i *PublicIPAddress* parameter visas. Skriv ned den här adressen eftersom du behöver komma åt den virtuella datorn.
+När den virtuella datorn skapas i **PublicIPAddress** parametern i utdata innehåller den offentliga IP-adressen för den virtuella datorn. Skriv ned den här adressen eftersom du behöver komma åt den virtuella datorn.
 
 ## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
 
-Som standard tillåts bara en RDP-anslutningar till en virtuell dator för Windows som distribuerats i Azure-stacken. Om den här virtuella datorn kommer att vara en webbserver måste du öppna port 80 från Internet. Använd kommandot [az vm open-port](/cli/azure/vm#open-port) för att öppna önskad port.
+Eftersom den här virtuella datorn ska köra IIS-webbservern, måste du öppna port 80 för Internet-trafiken.
+
+Använd den [az vm öppna port](/cli/azure/vm#open-port) kommandot för att öppna port 80.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -66,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med offentliga IP-adressen för den virtuella datorn. När du uppmanas att göra det anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn.
+Använd nästa kommando för att skapa en fjärrskrivbordsanslutning till den virtuella datorn. Ersätt ”offentlig IP-adress” med IP-adressen för den virtuella datorn. När du uppmanas, anger du användarnamn och lösenord som du använde för den virtuella datorn.
 
 ```
 mstsc /v <Public IP Address>
@@ -74,7 +87,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Installera IIS med PowerShell
 
-Du kan använda en rad med PowerShell när du loggar in på Azure-dator för att installera IIS och aktivera regeln för lokala brandväggen att tillåta webbtrafik. Öppna en PowerShell-kommandotolk och kör följande kommando:
+Nu när du har loggat in till den virtuella datorn kan använda du PowerShell för att installera IIS. Starta PowerShell på den virtuella datorn och kör följande kommando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -88,7 +101,7 @@ Du kan använda en webbläsare som du väljer för att visa välkomstsidan för 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda den [ta bort grupp az](/cli/azure/group#az_group_delete) kommandot för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+Rensa de resurser som du inte behöver längre. Använd den [ta bort grupp az](/cli/azure/group#az_group_delete) kommandot för att ta bort resursgruppen, den virtuella datorn, och alla relaterade resurser.
 
 ```cli
 az group delete --name myResourceGroup
@@ -96,4 +109,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat en enkel Windows virtuell dator i den här snabbstarten. Om du vill veta mer om Azure-stacken virtuella datorer kan fortsätta att [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).
+I den här snabbstarten distribuerade en grundläggande Windows Server-datorn. Om du vill veta mer om Azure-stacken virtuella datorer kan fortsätta att [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).

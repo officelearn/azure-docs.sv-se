@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med lösningen för ändringsspårning
 
@@ -23,18 +23,19 @@ Den här artikeln hjälper dig att använda ändringsspårning-lösning för att
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
-
 Om du vill starta spårning av ändringar, måste du Aktivera ändringsspårning och lager lösningen för ditt Automation-konto.
 
 1. Navigera till ditt Automation-konto i Azure-portalen
 1. Välj **ändringsspårning** under **CONFIGURATION**.
-2. Välj en befintlig Log analytics-arbetsyta eller **Skapa ny arbetsyta** och på **aktivera**.
+1. Välj en befintlig Log analytics-arbetsyta eller **Skapa ny arbetsyta** och på **aktivera**.
 
 Detta gör att lösningen för ditt automation-konto. Lösningen kan ta upp till 15 minuter att aktivera. Den blå banderollen meddelar dig när lösningen har aktiverats. Gå tillbaka till den **ändringsspårning** att hantera lösningen.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Konfigurera spårning av ändringar och inventering
 
-Mer information hur finns inbyggda datorer till lösningen: [Onboarding Automation lösningar](automation-onboard-solutions-from-automation-account.md). När du aktiverar en ny fil eller registernyckel för att spåra kan aktiveras för ändringsspårning och lager.
+Mer information hur finns inbyggda datorer till lösningen: [Onboarding Automation lösningar](automation-onboard-solutions-from-automation-account.md). Du kan konfigurera de objekt du vill spåra när du har en dator onboarding med lösningen för att spåra ändringar och lager. När du aktiverar en ny fil eller registernyckel för att spåra kan aktiveras för ändringsspårning och lager.
+
+MD5-hash-värden för filerna som används för att spåra ändringar i filer på Windows- och Linux. De här hashvärden används sedan för att identifiera om en ändring har gjorts sedan den senaste inventeringen.
 
 ### <a name="configure-linux-files-to-track"></a>Konfigurera Linux-filer för att spåra
 
@@ -109,6 +110,7 @@ Andra begränsningar:
 ## <a name="known-issues"></a>Kända problem
 
 Ändringsspårning lösningen har för närvarande följande problem:
+
 * Hotfix-uppdateringar har inte samlats in för Windows 10 skapare Update och Windows Server 2016 Core RS3 datorer.
 
 ## <a name="change-tracking-data-collection-details"></a>Ändra data collection detaljer
@@ -117,13 +119,13 @@ I följande tabell visas data collection frekvensen för vilka typer av ändring
 
 | **Ändra typen** | **Frekvens** |
 | --- | --- |
-| Windows-registret | 50 minuter | 
-| Windows-filen | 30 minuter | 
-| Linux-fil | 15 minuter | 
-| Windows-tjänster | 30 minuter | 
+| Windows-registret | 50 minuter |
+| Windows-filen | 30 minuter |
+| Linux-fil | 15 minuter |
+| Windows-tjänster | 30 minuter |
 | Linux-Daemon | 5 minuter |
-| Windows-program | 30 minuter | 
-| Linux-programmet | 5 minuter | 
+| Windows-program | 30 minuter |
+| Linux-programmet | 5 minuter |
 
 ### <a name="registry-key-change-tracking"></a>Ändringen av registernyckeln spårning
 
@@ -132,37 +134,37 @@ Syftet med att övervaka ändringar i registernycklar är att hitta punkter där
 > [!div class="mx-tdBreakAll"]
 > |  |
 > |---------|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
+> |**HKEY\_lokala\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare vanliga autostart transaktioner koppla direkt i Utforskaren och kör vanligtvis i processen med Explorer.exe.    |
 > |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare skript som körs vid start.     |
 > |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare skript som körs vid avstängningen.     |
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
+> |**HKEY\_lokala\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nycklar som har lästs in innan användaren loggar in till sina Windows-konto. Nyckeln används för 32-bitars program som körs på 64-bitarsdatorer.    |
 > |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed komponenter**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakar ändringar på programinställningar.     |
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
+> |**HKEY\_lokala\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare vanliga autostart transaktioner koppla direkt i Utforskaren och kör vanligtvis i processen med Explorer.exe.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
+> |**HKEY\_lokala\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare vanliga autostart transaktioner koppla direkt i Utforskaren och kör vanligtvis i processen med Explorer.exe.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för ikon täcker registrering.|
-|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för ikon täcker registrering för 32-bitars program som körs på 64-bitarsdatorer.|
 > |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper objekt**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya webbläsare helper objektet plugin-program för Internet Explorer. För att komma åt den modellen DOM (Document Object) för den aktuella sidan och att styra navigeringen.|
 > |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper objekt**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya webbläsare helper objektet plugin-program för Internet Explorer. För att komma åt den modellen DOM (Document Object) för den aktuella sidan och styra navigeringen för 32-bitars program som körs på 64-bitarsdatorer.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya tillägg för Internet Explorer, till exempel anpassade verktyget menyer och anpassade knappar.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya tillägg för Internet Explorer, till exempel anpassade verktyget menyer och anpassade knappar för 32-bitars program som körs på 64-bitarsdatorer.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakar 32-bitars drivrutiner som är associerade med wavemapper, wave1 och wave2, msacm.imaadpcm, .msadpcm, .msgsm610 och vidc. Liknar [drivers]-avsnitt i systemet. INI-filen.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakare 32-bitars drivrutiner som är associerade med wavemapper, wave1 och wave2, msacm.imaadpcm, .msadpcm, .msgsm610 och vidc för 32-bitars program som körs på 64-bitarsdatorer. Liknar [drivers]-avsnitt i systemet. INI-filen.|
-> |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
+> |**HKEY\_lokala\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över kända eller vanliga system DLL: er; Det här systemet förhindrar att personer utnyttjar katalogbehörigheter svaga program genom att släppa trojansk häst versioner av system-DLL-filer.|
 > |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över paket som kan ta emot meddelanden om händelser från Winlogon modellen interaktiv inloggning stöd för Windows-operativsystemet.|
@@ -189,7 +191,7 @@ Följande tabell innehåller exempel loggen söker efter ändra poster som samla
 
 |Fråga  |Beskrivning  |
 |---------|---------|
-|ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppades”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men rapporterades som stoppats<br>Resultatet är begränsade till den senaste posten för den SoftwareName och dator      |
+|ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppades”<br>&#124;Sammanfatta arg_max(TimeGenerated, *) av SoftwareName dator         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men rapporterades som stoppats<br>Resultatet är begränsade till den senaste posten för den SoftwareName och dator      |
 |ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated desc|Visar ändra poster för borttagna programvara|
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,21 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1ba02afa775343f496a2b5fec98699e593a330ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Övervakning av kluster och plattform
 
 Det är viktigt att övervaka på nivån plattform för att avgöra om maskinvaran och klustret fungerar som förväntat. Även om Service Fabric kan behålla program som körs under ett maskinvarufel, men du fortfarande behöver diagnostisera om ett fel uppstår i ett program eller i den underliggande infrastrukturen. Du även övervaka dina kluster bättre planera för kapacitet, att hjälpa till att beslut om att lägga till eller ta bort maskinvara.
 
-Service Fabric innehåller den följande loggen kanaler out-of-the-box:
+Service Fabric visar flera strukturerade plattform händelser som ”[Service Fabric händelser](service-fabric-diagnostics-events.md)”, loggar via EventStore och olika kanaler out-of-the-box. 
 
-* **Använd**  
+EventStore ger dig tillgång till ditt kluster händelser på grundval av per enhet (entiteter inklusive kluster, noder, program, tjänster, partitioner, repliker och behållare) och visar dem via REST API: er och klientbiblioteket Service Fabric. Använd EventStore för att övervaka kluster för utveckling och testning och för att hämta en tidpunkt i förståelse av status för din driftskluster. Läs mer om detta i [EventStore översikt](service-fabric-diagnostics-eventstore.md).
+
+Service Fabric innehåller också följande loggen kanaler out-of-the-box för att skapa en pipeline som övervakar produktions-kluster:
+
+* [**Använd**](service-fabric-diagnostics-event-generation-operational.md)  
 Övergripande åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som följer, ett nytt program som distribueras eller en uppgradering återställning osv.
 
 * **Drift - detaljerad**  

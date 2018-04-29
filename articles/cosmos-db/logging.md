@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -26,7 +26,7 @@ När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vil
 
 ## <a name="logs-available-in-azure"></a>Loggar som är tillgängliga i Azure
 
-Innan vi om hur du övervakar Azure Cosmos DB kontot tydliggöra vi några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, operations loggar och så vidare. Det finns en mängd olika loggar. Du kan se en fullständig lista över loggar i [Azure logganalys](https://azure.microsoft.com/en-us/services/log-analytics/) i Azure-portalen. 
+Innan vi om hur du övervakar Azure Cosmos DB kontot tydliggöra vi några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, operations loggar och så vidare. Det finns en mängd olika loggar. Du kan se en fullständig lista över loggar i [Azure logganalys](https://azure.microsoft.com/services/log-analytics/) i Azure-portalen. 
 
 Följande bild visar de olika typerna av Azure loggar som är tillgängliga:
 
@@ -51,7 +51,7 @@ Aktivitetsloggar (kontroll plan operations) kan vara bättre till sin natur och 
 
 ### <a name="azure-metrics"></a>Azure mått
 
-[Azure mått](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) viktigaste typ av Azure telemetridata (kallas även _prestandaräknare_) som genereras av mest Azure-resurser. Mått kan du visa information om dataflöde, lagring, konsekvens, tillgänglighet och svarstiden för dina Azure DB som Cosmos-resurser. Mer information finns i [övervakning och felsökning med mått i Azure Cosmos DB](use-metrics.md).
+[Azure mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) viktigaste typ av Azure telemetridata (kallas även _prestandaräknare_) som genereras av mest Azure-resurser. Mått kan du visa information om dataflöde, lagring, konsekvens, tillgänglighet och svarstiden för dina Azure DB som Cosmos-resurser. Mer information finns i [övervakning och felsökning med mått i Azure Cosmos DB](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 

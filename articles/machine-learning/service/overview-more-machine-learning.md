@@ -11,11 +11,11 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 189f19a3a3f588df8844a552abda73827eb45191
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbb8deeab8368d9c0e6d29c8d7e1e2e0a8805d60
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Andra machine learning-produkter och tjänster från Microsoft
 
@@ -77,7 +77,7 @@ Azure Machine Learning-modellhantering kan användas för att hämta modeller fr
 Använd Cognitive Toolkit när du vill skapa en modell med djupinlärning.  Cognitive Toolkit kan användas i alla tjänster som nämns ovan.
 
 ## <a name="azure-cognitive-services"></a>Kognitiva Azure-tjänster
-[Azure-kognitiva tjänster](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) är en uppsättning ca 30 API: er som du kan skapa appar som använder fysiska metoder för kommunikation. Dessa API: er att dina appar finns, höra, tala, förstå och tolka användarnas behov med bara några få rader med kod. Lägg enkelt till smarta funktioner i dina appar, till exempel: 
+[Azure-kognitiva tjänster](https://docs.microsoft.com/azure/#pivot=products&panel=ai) är en uppsättning ca 30 API: er som du kan skapa appar som använder fysiska metoder för kommunikation. Dessa API: er att dina appar finns, höra, tala, förstå och tolka användarnas behov med bara några få rader med kod. Lägg enkelt till smarta funktioner i dina appar, till exempel: 
 
 - Identifiering av känslor och attityder
 - Syn- och taligenkänning

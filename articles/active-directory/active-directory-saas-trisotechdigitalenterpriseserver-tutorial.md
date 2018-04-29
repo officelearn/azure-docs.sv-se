@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Trisotech digitala Enterprise Server | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Trisotech digitala Enterprise Server."
+title: 'Självstudier: Azure Active Directory-integrering med Trisotech digitala Enterprise Server | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Trisotech digitala Enterprise Server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82e88b0b2b7f04f2849bf5c3a780df3c8f1c9849
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a70962c63fdf9ab723ce437563a4670d536300aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Självstudier: Azure Active Directory-integrering med Trisotech digitala Enterprise Server
 
@@ -111,31 +111,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.trisotech.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Trisotech digitala Enterprise Server Client supportteamet](mailto:support@trisotech.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Trisotech digitala Enterprise Server Client supportteamet](mailto:support@trisotech.com) att hämta dessa värden.
 
-4. Klicka på **spara** knappen.
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar. 
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
-
-5. Att generera den **Metadata** url, utför följande steg:
-
-    a. Klicka på **App registreringar**.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
-   
-    b. Klicka på **slutpunkter** att öppna **slutpunkter** dialogrutan.  
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
-
-    c. Klicka på kopieringsknappen för att kopiera **FEDERATION METADATADOKUMENTET** url och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
-     
-    d. Gå till egenskapssidan för **Trisotech digitala Enterprise Server** och kopiera den **program-Id** med **kopiera** knappen och klistra in den i anteckningar.
- 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
-
-    e. Generera den **URL för tjänstmetadata** med hjälp av följande mönster: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 6. I en annan webbläsarfönster loggar du in på webbplatsen Trisotech digitala Enterprise-serverkonfigurationen företag som administratör.
 
@@ -153,21 +137,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Välj **skyddas Assertion Markup Language 2.2 SAML** i listrutan i den **autentiseringsmetod**.
 
-    b. I den **URL för tjänstmetadata** textruta klistra in den **URL för tjänstmetadata** -värde som du har kopierat formuläret Azure-portalen.
+    b. I den **URL för tjänstmetadata** textruta klistra in den **webbadress Federation Metadata** -värde som du har kopierat formuläret Azure-portalen.
 
     c. I den **program-ID** textruta ange URL-Adressen med följande mönster: `https://<companyname>.trisotech.com`.
 
-    d. Klicka på **spara**
+    d. Klicka på **Spara**
 
     e. Ange domännamnet i den **tillåtna domäner (empty innebär alla)** textruta tilldelas den automatiskt licenser för användare som matchar de tillåtna domäner
 
-    f. Klicka på **spara**
+    f. Klicka på **Spara**
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+ ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 

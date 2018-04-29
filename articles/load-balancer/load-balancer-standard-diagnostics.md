@@ -1,6 +1,6 @@
 ---
-title: Azure Standard belastningsutjämnare - diagnostik | Microsoft Docs
-description: Med hjälp av informationen om tillgängliga mått och hälsa för diagnostik för Azure Standard belastningsutjämnaren
+title: Azure Standard belastningsutjämnaren diagnostik | Microsoft Docs
+description: Använd informationen tillgängliga mått och hälsa för diagnostik för Azure Standard belastningsutjämnaren.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,202 +15,208 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: Kumud
-ms.openlocfilehash: 7d60925381abe617f6e2fac51176b8e30517c3ba
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9d5d596254f673b86650e8d9754dacdb70be0666
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått hälsa och diagnostik för Standard belastningsutjämnare
 
-Azure belastningsutjämnare som Standard innehåller följande diagnostiska funktioner för dina resurser:
-* Flerdimensionella mått: Standard belastningsutjämnare ger nya flerdimensionella diagnostiska funktioner för både offentliga och interna belastningsutjämnare konfigurationer. På så sätt kan du övervaka, hantera och felsöka resurserna i belastningsutjämnaren.
+Azure belastningsutjämnare som Standard ger dina resurser följande diagnostiska funktioner:
+* **Flerdimensionella mått**: ger nya flerdimensionella diagnostiska funktioner för både offentliga och interna belastningsutjämnare konfigurationer. Du kan övervaka, hantera och felsöka belastningen belastningsutjämnaren resurserna.
 
-* Resource Health: Sidan belastningsutjämnare i Azure portal och Resource Health-sida (under övervakning) exponera Resurshälsa offentliga belastningsutjämnare konfiguration av Standard belastningsutjämnaren.
+* **Resurshälsa**: det belastningsutjämnare i Azure portal och Resource Health-sida (under övervakning) exponera Resource Health-avsnittet för den offentliga konfigurationen av belastningsutjämning för Standard belastningsutjämnare.
 
-Den här artikeln ger en snabb genomgång av dessa funktioner och metoder för att använda dessa för Standard belastningsutjämnaren.
+Den här artikeln innehåller en snabb genomgång av dessa funktioner och det finns olika sätt att använda dem för Standard belastningsutjämnaren.
 
 ## <a name = "MultiDimensionalMetrics"></a>Flerdimensionella mått
 
-Azure belastningsutjämnare ger de nya flerdimensionella mätvärdena via den nya Azure-mått (förhandsgranskning) i portalen och hjälper dig att få realtid diagnostiska insikter om dina resurser för belastningsutjämnaren. 
+Azure belastningsutjämnare ger nya flerdimensionella mätvärden via den nya Azure-mått (förhandsgranskning) i Azure-portalen och det hjälper dig att hämta realtid diagnostiska insikter om dina belastningen belastningsutjämnaren resurser. 
 
-Följande mått finns numera tillgängliga för olika konfigurationer som Standard belastningen belastningsutjämnare (LB):
+De olika konfigurationerna som Standard belastningsutjämnaren innehåller följande mått:
 
 | Mått | Resurstyp | Beskrivning | Rekommenderade aggregering |
 | --- | --- | --- | --- |
-| VIP-tillgänglighet (sökväg datatillgänglighet) | Public LB | Standard belastningsutjämnare använder kontinuerligt datasökväg från inom en region till belastningsutjämnaren klientdel ända till stacken SDN som har stöd för den virtuella datorn. Så länge felfri instanser förblir följer mätningen samma sökväg som ditt program belastningsutjämnad trafik. Datasökväg som används av dina kunder också valideras. Måttet är osynliga för ditt program och störa inte andra åtgärder.| Medel |
-| DIP tillgänglighet (hälsostatus för avsökning) |  Offentliga och interna LB | Standard belastningsutjämnare använder en distribuerad hälsa avsökning av tjänst som övervakar dina program endpoint hälsa enligt inställningarna. Det här måttet ger en aggregering eller per slutpunkt filtrerad vy för varje enskild instans slutpunkt i belastningsutjämnaren poolen.  Du kan se hur belastningsutjämnaren visar hälsotillståndet för programmet som anges av din konfiguration för avsökning av hälsotillstånd. |  Medel |
-| SYN-paket |  Public LB | Standard belastningsutjämnaren inte avsluta TCP-anslutningar och interagera med TCP eller UDP-paket-flöden. Flöden och deras handskakningar på är alltid mellan käll- och VM-instans. Om du vill felsöka bättre scenariet TCP-protokollet, kan du använda SYN paket räknare för att förstå hur många TCP-anslutning görs försök. Måttet rapporterar antalet TCP SYN-paket som tagits emot.| Medel |
-| SNAT anslutningar |  Public LB |Standard belastningsutjämnaren rapporterar antalet utgående flöden masqueraded till klientdel för offentlig IP-adress. SNAT portar är en icke förnybara resurs. Det här måttet kan ge en indikation på hur mycket tillämpningsprogrammet förlitar sig på SNAT för utgående flöden som har sitt ursprung.  Räknare för lyckade och misslyckade utgående SNAT flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för din utgående flöden.| Medel |
-| Räknare för byte |  Offentliga och interna LB | Standard belastningsutjämnaren rapporterar data bearbetas per klientdel.| Medel |
-| Paketet räknare |  Offentliga och interna LB | Standard belastningsutjämnaren rapporterar de paket som bearbetas per klientdel.| Medel |
+| VIP-tillgänglighet (sökväg datatillgänglighet) | Offentlig belastningsutjämnare | Standard belastningsutjämnare använder kontinuerligt datasökväg från inom en region att läsa in belastningsutjämning klientdelen ända till stacken SDN som har stöd för den virtuella datorn. Så länge felfri instanser förblir följer mätningen samma sökväg som ditt program belastningsutjämnad trafik. Datasökväg för dina kunder använder också valideras. Måttet är osynliga för ditt program och störa inte andra åtgärder.| Medel |
+| DIP tillgänglighet (hälsostatus för avsökning) |  Offentliga och interna belastningsutjämnare | Standard belastningsutjämnare använder en distribuerad avsökning av hälsotillstånd tjänst som övervakar dina program endpoint hälsa enligt inställningarna. Det här måttet innehåller en mängd- eller per slutpunkt filtrerad vy för varje instans slutpunkt i poolen belastningen belastningsutjämnaren. Du kan se hur belastningsutjämnaren visar hälsotillståndet för programmet, som anges av din konfiguration för avsökning av hälsotillstånd. |  Medel |
+| SYN (synkronisera) paket |  Offentlig belastningsutjämnare | Standard belastningsutjämnaren inte avsluta (TCP) anslutningar och interagera med TCP eller UDP-paket-flöden. Flöden och deras handskakningar på är alltid mellan käll- och VM-instans. Om du vill felsöka bättre scenariet TCP-protokollet, kan du använda SYN paket räknare för att förstå hur många TCP-anslutning görs försök. Måttet rapporterar antalet TCP SYN-paket som tagits emot.| Medel |
+| SNAT anslutningar |  Offentlig belastningsutjämnare |Standard belastningsutjämnaren rapporterar antalet utgående flöden masqueraded till klientdelen för offentlig IP-adress. Källportar network adress translation (SNAT) är en icke förnybara resurs. Det här måttet kan ge en indikation på hur mycket tillämpningsprogrammet förlitar sig på SNAT för utgående flöden som har sitt ursprung. Räknare för lyckade och misslyckade utgående SNAT flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för din utgående flöden.| Medel |
+| Räknare för byte |  Offentliga och interna belastningsutjämnare | Standard belastningsutjämnaren rapporterar data bearbetas per klient.| Medel |
+| Paketet räknare |  Offentliga och interna belastningsutjämnare | Standard belastningsutjämnaren rapporterar de paket som bearbetas per klient.| Medel |
 
-### <a name="view-load-balancer-metrics-in-the-portal"></a>Visa belastningsutjämnaren mått i portalen
+### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visa din belastningen belastningsutjämnaren mätvärden i Azure-portalen
 
-Azure-portalen visar belastningsutjämnaren mätvärden via sidan mått (förhandsgranskning), som är tillgänglig på sidan Belastningsutjämningsresurs för en viss resurs för belastningsutjämnaren och även i Azure-Monitor-sidan. 
+Azure-portalen visar belastning belastningsutjämnaren mätvärden via sidan mått (förhandsgranskning), som finns på båda belastningen belastningsutjämnaren resurssidan för en viss resurs och Azure-Monitor-sidan. 
 
-Om du vill visa måtten för Standard belastningsutjämnare resurser, bläddra av mått (förhandsversion) på någon av dessa platser väljer de (belastningsutjämningsresurs om under övervakaren sida) mått skriver du listrutan, ange lämpliga Aggregeringstyp och (valfritt) Konfigurera nödvändiga filtrering och gruppering och du kommer att kunna visa historiska för mått på de angivna villkor.
+Visa mått för dina resurser Standard belastningsutjämnare:
+1. Gå till sidan mått (förhandsversion) och gör något av följande:
+   * Välj måttypen i den nedrullningsbara listan på sidan belastningen belastningsutjämnaren resurs.
+   * Välj belastningsutjämningsresurs på Azure-Monitor-sidan.
+2. Ange lämpliga Aggregeringstyp.
+3. Du kan också konfigurera nödvändiga filtrering och gruppering.
 
 ![Mått förhandsgranskning för Standard belastningsutjämnare](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-*Bild - DIP tillgänglighet / hälsotillstånd avsökning status mått för belastningsutjämnare*
+*Bild: DIP tillgänglighet och hälsotillstånd avsökningen status mått för Standard belastningsutjämnaren*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Hämta flerdimensionella mätvärden via programmering via API: er
 
-API-vägledning för att hämta Multi-Dimensional mått definitioner och värden finns på [övervakning REST API Walkthrouh > Multi-Dimensional API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api)
+API-vägledning för att hämta flerdimensionella måttdefinitioner och värden finns i [Azure övervakning REST API genomgången](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api).
 
 ### <a name = "DiagnosticScenarios"></a>Vanliga scenarier för diagnostik- och rekommenderade vyer
 
-#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökvägen uppdaterad och tillgänglig för min VIP för belastningsutjämnare?
+#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökväg in och är tillgänglig för min VIP för belastningsutjämnare?
 
-VIP-mått för tillgänglighet beskriver hälsotillstånd datasökväg för regionen till compute-värden där din virtuella dator finns. Det är en reflection-hälsotillståndet för Azure-infrastrukturen. Du kan använda det här måttet till:
+VIP tillgänglighet måttet beskriver hälsotillstånd datasökväg för regionen till compute-värden där din virtuella dator finns. Måttet är reflektion av hälsotillståndet för Azure-infrastrukturen. Du kan använda mått till:
 - Övervaka externa tillgängligheten för din tjänst
-- Gå på djupet och förstå om den plattform som din tjänst har distribuerats är felfri eller om ditt operativsystem eller programinstansen är felfria
-- Ta reda på om en händelse är relaterad till din tjänst eller av underliggande data. Blanda inte ihop det med avsökning hälsostatus (”DIP tillgänglighet”).
+- Gå på djupet och förstå om den plattform som din tjänst har distribuerats är felfri eller om ditt operativsystem eller programinstansen är felfri.
+- Ta reda på om en händelse är relaterad till din tjänst eller av underliggande data. Blanda inte ihop det här måttet med avsökning hälsostatus (”DIP tillgänglighet”).
 
 Hämta VIP tillgängligheten för dina resurser Standard belastningsutjämnare:
-- Kontrollera att rätt belastningsutjämnaren resursen är markerad. 
-- Välj **VIP tillgänglighet** från den **mått** listrutan. 
-- Välj **Avg** för **aggregering**. 
-- Dessutom, lägga till filter på VIP-adressen eller VIP-porten som dimensionen med nödvändiga klientdelens IP-adress eller klientdelsport och gruppen av den valda dimensionen.
+1. Kontrollera att rätt belastningsutjämningsresurs är markerad. 
+2. I den **mått** listrutan, Välj **VIP tillgänglighet**. 
+3. I den **aggregering** listrutan, Välj **Avg**. 
+4. Dessutom kan lägga till ett filter på VIP-adressen eller VIP-porten som dimensionen med nödvändiga frontend IP-adress eller frontend-port och gruppera dem efter den valda dimensionen.
 
 ![VIP-sökning](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Bild - avsökning av information VIP för belastningsutjämnare*
+*Bild: VIP för belastningsutjämnare avsökning av information*
 
-Måttet har genererats av en aktiv, in-band-mätning. En avsöknings tjänst för regionen kommer trafik för denna mätning och aktiveras när du skapar en distribution med en offentlig klientdels och fortsätter tills du tar bort klientdelen. 
+Måttet har genererats av en aktiv, in-band-mätning. En sökning tjänst för regionen kommer trafik för måttet. Tjänsten är aktiverad när du skapar en distribution med en offentlig klientdel och fortsätter tills du tar bort klientdelen. 
 
 >[!NOTE]
->Internt frontends stöds inte just nu. 
+>Internt frontwebbservrarna stöds inte just nu. 
 
-Ett paket som matchar din distribution klientdel och regeln genereras med jämna mellanrum. Den passerar regionen från källan till värden där det finns en virtuell dator i serverdelspoolen. Belastningsutjämnare infrastrukturen utför samma load balancing och översättning åtgärder som för all annan trafik. Den här avsökningen är i band belastningsutjämnad slutpunktsuppsättning på din belastningen. När avsökningen anländer på beräknings-värden där det finns en felfri virtuell dator i serverdelspoolen genererar beräkning värden ett svar till avsöknings-tjänsten. Den virtuella datorn kan inte se den här trafiken.
+Ett paket som matchar din distribution klientdelen och regeln genereras med jämna mellanrum. Den passerar regionen från källan till värden där det finns en virtuell dator i backend-poolen. Läs in belastningsutjämnaren infrastruktur utför samma belastningen belastningsutjämning och översättning åtgärder som för all annan trafik. Den här avsökningen är i band på slutpunkten Utjämning av nätverksbelastning. När avsökningen anländer på beräknings-värden där det finns en felfri VM i backend-poolen, genererar ett svar till tjänsten avsöknings beräknings-värden. Den virtuella datorn kan inte se den här trafiken.
+
 VIP-tillgänglighet misslyckas av följande skäl:
-- Distributionen har inga felfri virtuella datorer i serverdelspoolen. 
-- Ett avbrott i infrastrukturen har uppstått som orsakar VIP tillgänglighet misslyckas.
+- Distributionen har ingen felfri VMs kvar i backend-poolen. 
+- Det uppstod ett avbrott för infrastruktur.
 
-Du kan använda den [VIP mått för tillgänglighet tillsammans med avsökning hälsostatus för att ställa diagnoser](#vipavailabilityandhealthprobes).
+Du kan använda för att ställa diagnoser den [VIP mått för tillgänglighet tillsammans med avsökning hälsostatus](#vipavailabilityandhealthprobes).
 
 Använd **genomsnittliga** som sammanställning för de flesta scenarier.
 
-#### <a name="are-the-backend-instances-for-my-vip-responding-to-probes"></a>Backend-instanser för min VIP svarar på avsökningar?
+#### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Backend-instanser för min VIP svarar på avsökningar?
 
-Hälsotillstånd avsökningen status måttet beskriver hälsotillståndet för programdistributionen som konfigureras av dig när du konfigurerar hälsoavsökningen av belastningsutjämnare. Belastningsutjämnare använder status för avsökningen hälsotillstånd för att avgöra var du vill skicka nya flöden. Hälsotillståndsavsökning kommer från en adress för Azure-infrastrukturen och är synlig i gästoperativsystemet för den virtuella datorn.
+Hälsotillstånd avsökningen status måttet beskriver hälsotillståndet för programdistributionen som konfigureras av dig när du konfigurerar hälsoavsökningen av din belastningsutjämnare. Belastningsutjämnaren använder status för avsökningen hälsotillstånd för att avgöra var du vill skicka nya flöden. Hälsotillståndsavsökning kommer från en adress för Azure-infrastrukturen och är synlig i gästoperativsystemet för den virtuella datorn.
 
-Att hämta DIP tillgängligheten för resurserna Standard belastningsutjämnare
-- Välj den **DIP tillgänglighet** mått med **Avg** Aggregeringstyp. 
-- Använda ett filter på krävs VIP IP-adressen och porten (eller båda).
+Hämta DIP tillgängligheten för dina resurser Standard belastningsutjämnare:
+1. Välj den **DIP tillgänglighet** mått med **Avg** Aggregeringstyp. 
+2. Använda ett filter på krävs VIP IP-adressen och porten (eller båda).
 
 ![DIP tillgänglighet](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-*Bild - tillgänglighet VIP för belastningsutjämnare*
+*Bild: VIP för belastningsutjämnare tillgänglighet*
 
 Hälsoavsökningar misslyckas av följande skäl:
-- Om du konfigurerar en hälsoavsökningen till en port som inte lyssnar eller inte svarar eller med fel-protokollet. Om din tjänst använder regler för direkt Serverreturnering (flytande IP), måste du se till att tjänsten lyssnar på IP-adressen för Nätverkskortets IP-konfiguration och inte bara på loopback har konfigurerats med klientdelen IP-adress.
-- Om din avsökningen inte är tillåtet Nätverkssäkerhetsgruppen måste filtrerar den virtuella datorn gäst OS brandvägg eller Applikationsnivån.
+- Du konfigurerar en hälsoavsökningen till en port som inte lyssnar eller inte svarar eller använder fel-protokollet. Om din tjänst använder direkt serverretur (DSR eller flytande IP) regler, se till att tjänsten lyssnar på IP-adressen för Nätverkskortets IP-konfiguration och inte bara på loopback som är konfigurerad med frontend IP-adress.
+- Din avsökningen tillåts inte av Nätverkssäkerhetsgruppen, den virtuella datorn gäst OS brandvägg eller application layer-filter.
 
 Använd **genomsnittliga** som sammanställning för de flesta scenarier.
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Hur jag för att kontrollera min utgående anslutningsstatistik? 
 
-SNAT anslutningar måttet beskriver volymen av lyckade och misslyckade (för [utgående flöden](https://aka.ms/lboutbound)).
+SNAT anslutningar måttet beskriver volymen av lyckade och misslyckade anslutningar för [utgående flöden](https://aka.ms/lboutbound).
 
-En misslyckad anslutningar volym som är större än noll indikerar SNAT port resursuttömning. Du måste undersöka vidare och bestämma vad orsakar dessa fel. SNAT port uttömning manifestet som kodfel att upprätta en [utgående flöden](https://aka.ms/lboutbound). Granska artikeln på utgående anslutningar för att förstå vilka scenarier och metoder i arbetet och hur du minimera / design för att undvika SNAT port resursuttömning. 
+En misslyckad anslutningar volym som är större än noll indikerar SNAT port resursuttömning. Du måste undersöka vidare för att avgöra vad orsakar dessa fel. SNAT port uttömning manifestet som inte går att upprätta en [utgående flödet](https://aka.ms/lboutbound). Läsa artikeln om utgående anslutningar för att förstå de scenarier och metoder i arbetet, och för att lära dig hur du minskar och utforma för att undvika SNAT port resursuttömning. 
 
-Att hämta SNAT anslutningsstatistik
-- Välj **SNAT anslutningar** måttypen och **summan** som aggregering. 
-- grupp av **anslutningsstatus** för lyckade och misslyckade SNAT anslutning räknar representeras av olika rader. 
+Hämta SNAT anslutningsstatistik:
+1. Välj **SNAT anslutningar** måttypen och **summan** som aggregering. 
+2. Gruppera efter **anslutningsstatus** för lyckade och misslyckade SNAT antal för anslutningen som representeras av olika rader. 
 
 ![SNAT anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Bild - SNAT anslutning antal för belastningsutjämnare*
+*Bild: Load Balancer SNAT anslutningsräknare*
 
 
-#### <a name="how-do-i-check-inbound--outbound-connection-attempts-for-my-service"></a>Hur kontrollerar inkommande / utgående anslutningsförsök för min tjänsten?
+#### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Hur kontrollerar inkommande/utgående anslutningsförsök för min tjänsten?
 
-SYN paket måttet beskriver mängden TCP SYN-paket som har tagits emot eller skickats (för [utgående flöden](https://aka.ms/lboutbound)) som är associerade med en viss klientdel. Det här måttet kan användas för att förstå TCP-anslutningsförsök till din tjänst.
-Använd totalt som sammanställning för de flesta scenarier.
+SYN paket måttet beskriver mängden TCP SYN-paket som har tagits emot eller skickats (för [utgående flöden](https://aka.ms/lboutbound)) som är associerade med en specifik klientdel. Du kan använda det här måttet för att förstå TCP-anslutningsförsök till din tjänst.
+
+Använd **totala** som sammanställning för de flesta scenarier.
 
 ![SYN anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Bild - SYN antal för belastningsutjämnare*
+*Bild: Läs in belastningsutjämnaren SYN antal*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Hur kontrollerar jag min förbrukningen av nätverksbandbredd 
 
-Mottagna byte / paket räknare måttet beskriver mängden byte och paket som skickas eller tas emot av tjänsten på grundval av per klientdel.
+Byte och paket räknare måttet beskriver mängden byte och paket som skickas eller tas emot av tjänsten på grundval av per framför-slutpunkt.
+
 Använd **totala** som sammanställning för de flesta scenarier.
 
-Hämta paket eller Byte sammanställd statistik
-- Välj den **byte antal** och / eller **antal** måttypen med **Avg** som aggregering. 
-- Filtret på specifika klientdels-IP, klientdelsport eller serverdels-IP och port i fråga. 
-- eller hämta totala statistiken för Belastningsutjämningsresurs utan någon filtrering.
-
-
-Vissa exempel vyer för mått med olika konfigurationer-
+Hämta paket eller byte sammanställd statistik:
+1. Välj den **byte antal** och/eller **antal** måttypen, med **Avg** som aggregering. 
+2. Gör något av följande:
+   * Tillämpa ett filter på en specifik frontend IP frontend-port, backend-IP- eller backend-port.
+   * Hämta totala statistiken för dina belastningsutjämningsresurs utan någon filtrering.
 
 ![Byteantal](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Bild - antal Byte för belastningsutjämnare*
+*Bild: Byteantal för belastningsutjämnare*
 
-#### <a name = "vipavailabilityandhealthprobes"></a>Hur jag för att diagnostisera distribution med belastningsutjämnare?
+#### <a name = "vipavailabilityandhealthprobes"></a>Hur jag för att diagnostisera min belastningen belastningsutjämnaren distributionen?
 
-Kombinationen av VIP tillgänglighet & Hälsoavsökning mått i ett enda diagram gör att du kan identifiera var du vill titta på problemet och åtgärda problemet. Du kan få försäkran om att Azure fungerar och används för att bestämma säkerhet konfigurationen eller program är rotorsaken.
+Du kan identifiera var du vill titta på problemet och åtgärda problemet genom att använda en kombination av VIP tillgänglighet och hälsotillstånd avsökningen mått på ett enda diagram. Du kan få försäkran om att Azure fungerar korrekt och använda den här informationen för att fastställa säkerhet konfiguration eller program är rotorsaken.
 
 Du kan använda hälsa avsökningen mått för att förstå hur Azure visar hälsotillståndet för din distribution enligt konfigurationen som du har angett. Titta på hälsoavsökningar är alltid bra det första steget i övervakning eller fastställer en orsak.
 
-Du kan vidta ytterligare ett steg och använda VIP tillgänglighet mått för att få insyn i hur Azure visar hälsotillståndet för det underliggande data planet som ansvarar för din distribution. När du kombinerar båda mått kan du isolera där felet kan vara enligt beskrivningen i det här exemplet:
+Du kan ta ett steg ytterligare och använda VIP tillgänglighet mått för att få insyn i hur Azure visar hälsotillståndet för det underliggande dataplan som ansvarar för din distribution. När du kombinerar båda mått kan du isolera där felet kan vara, enligt beskrivningen i det här exemplet:
 
 ![VIP-diagnostik](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Bild - kombinera DIP och VIP mått för tillgänglighet*
+*Bild: Kombinera DIP och VIP mått för tillgänglighet*
 
 Diagrammet visar följande information:
-- Infrastrukturen som själva har felfri, den infrastruktur som är värd för dina virtuella datorer var tillgängligt och mer än en virtuell dator har placerats i serverdelen. Detta visas med blå spårningen för VIP-tillgänglighet, som visar till 100%. 
-- Avsökningen hälsostatus (DIP tillgänglighet) är dock vid 0% i början av diagrammet som anges med orange spårningen. Området inringad i rött visar där hälsoavsökning (DIP tillgänglighet) blev felfri, och då kundens distribution var acceptera nya flöden.
+- Infrastrukturen som själva har felfri, den infrastruktur som är värd för dina virtuella datorer var tillgängligt och mer än en virtuell dator har placerats i serverdelen. Den här informationen visas med blå spårningen för VIP-tillgänglighet, vilket är 100 procent. 
+- Avsökningen hälsostatus (DIP tillgänglighet) är dock på 0 procent i början av diagram, vilket indikeras med orange spårningen. Området inringad i grön visar där status (DIP tillgänglighet) blev felfri, och vid vilken kundens distribution kunde acceptera nya flöden.
 
-Diagrammet tillåtna kunden att felsöka distributionen på egen hand utan att gissa eller kontakta support om det fanns andra problem som uppstår. Kundens tjänsten var inte tillgänglig eftersom hälsoavsökningar misslyckas på grund av felaktig konfiguration eller ett program med fel.
+Diagrammet möjligheten för kunder att felsöka distributionen på egen hand utan att gissa eller kontakta support om andra problem uppstår. Tjänsten kunde inte tillgänglig eftersom hälsoavsökningar misslyckas på grund av felaktig konfiguration eller ett program med fel.
 
 ### <a name = "Limitations"></a>Begränsningar
 
-- VIP-tillgänglighet är endast tillgänglig för offentliga frontends.
+VIP-tillgänglighet är endast tillgänglig för offentliga frontwebbservrarna.
 
 ## <a name = "ResourceHealth"></a>Resurshälsotillståndets status
 
 Hälsostatus för resurserna som Standard belastningsutjämnare är åtkomlig via den befintliga **resurshälsa** under **övervakaren > tjänstens hälsa**.
 
 >[!NOTE]
->Resurshälsa för belastningsutjämnaren är tillgänglig för offentliga konfiguration av endast Standard belastningsutjämnaren. Interna belastningsutjämnare eller grundläggande SKU belastningsutjämnaren resurser exponerar inte resurshälsa.
+>Resurshälsotillståndets status för belastningsutjämnaren är tillgänglig för offentliga konfiguration av belastningsutjämnare som Standard bara. Interna belastningsutjämnare eller grundläggande SKU: er av belastningsutjämnare resurser exponerar inte resurshälsa.
 
-Visa hälsotillståndet för din offentliga Standard belastningsutjämnaren resurser
- - Bläddra till **övervakaren > tjänsten hälsa**.
+Visa dina offentliga Standard belastningsutjämnaren-resursers hälsa:
+1. Välj **övervakaren** > **tjänsten hälsa**.
 
-  ![Övervakare för sidan](./media/load-balancer-standard-diagnostics/LBHealth1.png)
+   ![Övervakare för sidan](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Bild - tjänstens hälsa på Azure-Monitor*
+   *Bild: Tjänstens hälsa länken på Azure-Monitor*
 
- - Välj **Resurshälsa** och kontrollera att rätt som **prenumerations-ID** och **resurstyp = belastningsutjämnaren** är markerad.
+2. Välj **Resurshälsa**, och kontrollera att **prenumerations-ID** och **resurstyp = belastningsutjämnaren** har valts.
 
-  ![Resurshälsotillståndets status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
+   ![Resurshälsotillståndets status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Bild - Välj resurs för hälsotillståndsvy*
+   *Bild: Välj resurs för hälsotillståndsvy*
 
- - Klicka på belastningsutjämnaren resurs från listan för att visa deras historiska hälsostatus.
+3. Markera resursen belastningsutjämnare för att visa dess historiska hälsostatus i listan.
 
     ![Läsa in hälsostatus för belastningsutjämnare](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Bild - belastningsutjämnaren resource health vy*
+   *Bild: Belastningsutjämnaren resource health vy*
  
-I följande tabell visas olika resurshälsostatus och deras beskrivningar. 
+Olika resource health statusvärden och beskrivningar finns i följande tabell: 
 
-| Resurshälsotillståndets Status | Beskrivning |
+| Resurshälsotillståndets status | Beskrivning |
 | --- | --- |
-| Tillgänglig | Din offentliga Standard belastningsutjämnaren resurs är felfri och tillgänglig |
-| Ej tillgänglig | Din offentliga Standard belastningsutjämnaren resursen är inte felfri. Diagnostisera hälsa via Azure-Monitor > mått. (*Detta kan också innebära att resursen inte är offentlig Standard belastningsutjämnaren*) |
-| Okänt | Resource Health för din offentliga Standard belastningsutjämnaren har inte uppdaterats ännu. (*Detta kan också innebära att resursen inte är offentlig Standard belastningsutjämnaren*)  |
+| Tillgänglig | Din offentliga standard belastningsutjämningsresurs är felfri och tillgängliga. |
+| Ej tillgänglig | Din offentliga standard belastningsutjämningsresurs är inte felfri. Diagnostisera hälsa genom att välja **Azure-Monitor** > **mått**.<br>(*Ej tillgänglig* status kan också innebära att resursen inte är kopplad till en offentlig belastningsutjämnare standard.) |
+| Okänt | Resurshälsotillståndets status för din offentliga standard belastningsutjämningsresurs har inte uppdaterats ännu.<br>(*Okänd* status kan också innebära att resursen inte är kopplad till en offentlig belastningsutjämnare standard.)  |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [Standard belastningsutjämnare](load-balancer-standard-overview.md)
-- Lär dig mer om [Load Balancer utgående anslutning](https://aka.ms/lboutbound)
+- Mer information finns i [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
+- Lär dig mer om din [belastningsutjämnarens utgående anslutning för att läsa in](https://aka.ms/lboutbound).
 
 

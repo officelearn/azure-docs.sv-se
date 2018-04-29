@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: fae9d7f871dbb20f19bfd61576e017b3910ee8f4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.date: 04/27/2018
+ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågan parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du dra nytta av parallellisering i Azure Stream Analytics. Du lär dig att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -35,7 +35,7 @@ Alla Azure Stream Analytics-indata kan dra nytta av partitionering:
 
 ### <a name="outputs"></a>Utdata
 
-När du arbetar med Stream Analytics kan du dra nytta av partitionering för de flesta utdata sänkor. Mer information om partitionering utdata är tillgängligt på den [partitionering på utdata-sidan](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
+När du arbetar med Stream Analytics kan du dra nytta av partitionering för de flesta utdata sänkor. Mer information om partitionering utdata är tillgängligt på den [partitionering på utdata-sidan](stream-analytics-define-outputs.md#partitioning).
 
 PowerBI och SQL-informationslager utdata stöd inte för partitionering. Men du kan fortfarande partitionera indata som beskrivs i [i det här avsnittet](#multi-step-query-with-different-partition-by-values) 
 

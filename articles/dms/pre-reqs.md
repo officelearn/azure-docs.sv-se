@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: b480ca189b3d63d92c48abf8d9c398c1c9b22241
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.date: 04/22/2018
+ms.openlocfilehash: b3fe97343d844eb5c030cf0aaa9da2a6f54a2472
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Översikt över krav för att använda tjänsten Azure Database migrering
 Det finns flera förutsättningar som krävs för att se till att tjänsten Azure Database migrering smidigt körs när du utför en migrering av databasen. Vissa krav tillämpa över alla scenarier (källa mål par) som stöds av tjänsten, medan andra förutsättningar är unika för ett specifikt scenario.
@@ -54,8 +54,8 @@ När du använder tjänsten Azure Database migrering för att utföra SQL Server
 - Om du använder flera namngivna SQL Server-instanser som använder dynamiska portar, kan du aktivera tjänsten SQL Browser och ge åtkomst till UDP-port 1434 genom dina brandväggar så att tjänsten Azure Database migrering kan ansluta till en namngiven instans på datakällan Server.
 - Kontrollera att de inloggningar som används för att ansluta källan SQL Server och hanterade målinstans är medlemmar i serverrollen sysadmin.
 - Skapa en nätverksresurs som tjänsten Azure Database migrering kan använda för att säkerhetskopiera källdatabasen.
-- Kontrollera att tjänstkontot som kör SQL Server-instansen källa har skrivbehörighet för den nätverksresurs som du skapade.
-- Anteckna en Windows-användare (och lösenord) som har behörigheten Fullständig behörighet för den nätverksresurs som du skapade ovan. Tjänsten Azure Database migrering personifierar användarens inloggningsuppgifter för att ladda upp säkerhetskopian till Azure storage-behållare för återställningen.
+- Kontrollera att kontot kör källan SQL Server-instansen har skrivbehörighet för den nätverksresurs som du skapade och att datorkontot för källservern har läs-/ skrivåtkomst till samma resurs.
+- Anteckna en Windows-användare (och lösenord) som har behörigheten Fullständig behörighet för den nätverksresurs som du skapade tidigare. Tjänsten Azure Database migrering personifierar användarens inloggningsuppgifter för att ladda upp säkerhetskopian till Azure storage-behållare för återställningen.
 - Skapa en blob-behållare och hämta dess SAS-URI med hjälp av stegen i artikeln [hantera Azure Blob Storage-resurser med Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Se till att välja alla behörigheter (läsa, skriva, ta bort, lista) i fönstret princip när du skapar SAS-URI.
 
    > [!NOTE]

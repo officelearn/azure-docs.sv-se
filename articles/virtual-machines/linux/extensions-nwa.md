@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 487eca98b9be20faaa52c0a8952e84c6027ee1f0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Nätverk Watcher Agent tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
-[Azure Nätverksbevakaren](https://docs.microsoft.com/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
+[Azure Nätverksbevakaren](/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
 
 Det här dokumentet beskriver de plattformar som stöds och distributionsalternativ för tillägget för virtuell dator Network Watcher Agent för Linux. Installationen av agenten inte störa eller kräver en omstart av den virtuella datorn.
 
@@ -40,7 +40,7 @@ Tillägget Network Watcher Agent kan köras mot dessa Linux-distributioner:
 | Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
 | Debian | 7 och 8 |
 | Redhat | 6.x och 7.x |
-| Oracle Linux | 7x |
+| Oracle Linux | 7 x |
 | SUSE | 11 och 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
@@ -49,7 +49,7 @@ Observera att virtuell CoreOS inte stöds just nu.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Några av funktioner som Network Watcher Agent kräver att den virtuella måldatorn är ansluten till Internet. Inte kan upprätta utgående anslutningar vissa Network Watcher Agent-funktioner kan fungera helt eller inte tillgänglig. Mer information finns i [Nätverksbevakaren dokumentationen](https://review.docs.microsoft.com/azure/network-watcher/).
+Några av funktioner som Network Watcher Agent kräver att den virtuella måldatorn är ansluten till Internet. Inte kan upprätta utgående anslutningar vissa Network Watcher Agent-funktioner kan fungera helt eller inte tillgänglig. Mer information finns i [Nätverksbevakaren dokumentationen](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -78,7 +78,7 @@ Följande JSON visar schemat för tillägget Network Watcher Agent. Tillägget v
 | Namn | Värdet / exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.Azure.NetworkWatcher |
+| Publisher | Microsoft.Azure.NetworkWatcher |
 | typ | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
@@ -112,4 +112,4 @@ Tillägget utförande-utdatan loggas till filer som finns i följande katalog:
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln Nätverksbevakaren dokumentationen eller kontakta Azure-experter på den [MSDN Azure och Stack Overflow-forum](https://azure.microsoft.com/en-us/support/forums/). Alternativt kan du lagra en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/en-us/support/options/) och välja Get support. Information om hur du använder Azure stöder finns i [vanliga frågor om Microsoft Azure-supporten](https://azure.microsoft.com/en-us/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln Nätverksbevakaren dokumentationen eller kontakta Azure-experter på den [MSDN Azure och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du lagra en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välja Get support. Information om hur du använder Azure stöder finns i [vanliga frågor om Microsoft Azure-supporten](https://azure.microsoft.com/support/faq/).

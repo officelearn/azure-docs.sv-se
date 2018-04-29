@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d1a40eb8c3ac842976ffb1da42650466725b35e6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Databasen Transaction Units (Dtu) och elastiska Datatransaktionsenheter (edtu: er)
 Den här artikeln förklarar vad databastransaktionsenheter (DTU:er) och elastiska databastransaktionsenheter (eDTU:er) är och vad som händer när du når det högsta antalet tillåtna DTU:er eller eDTU:er. Specifika prisinformation finns [priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
@@ -32,12 +32,12 @@ För att få en djupare inblick i resursanvändningen (DTU) för din arbetsbelas
 - Detaljnivån i information om en fråga kan visa text och historik över resursutnyttjandet.
 - Rekommendationer som visar åtgärder som utförs av för åtkomst av prestandajustering [SQL Database Advisor](sql-database-advisor.md).
 
-Du kan [byta tjänstnivå](sql-database-service-tiers.md) när som helst med minimalt avbrott för dina program (normalt mindre än fyra sekunder). För många företag och appar räcker det att kunna skapa databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. I det här scenariot använder du en elastisk pool med ett visst antal edtu: er som ska delas mellan flera databaser i poolen.
+Du kan ändra [DTU tjänstnivåer](sql-database-service-tiers-dtu.md) när som helst med minimal avbrottstid för ditt program (vanligtvis medelvärdet under fyra sekunder). För många företag och appar räcker det att kunna skapa databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. I det här scenariot använder du en elastisk pool med ett visst antal edtu: er som ska delas mellan flera databaser i poolen.
 
 ![Introduktion till SQL Database: DTU:er för enkla databaser efter nivå](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Vad är elastiska Datatransaktionsenheter (edtu: er)?
-Snarare än innehåller en särskild uppsättning resurser (Dtu) till en SQL-databas som alltid är tillgänglig oavsett om de inte behövs kan du placera databaser i en [elastisk pool](sql-database-elastic-pool.md) på en SQL Database-server som delar en pool av resurser bland dessa databas. Delade resurser i en elastisk pool som mäts med elastiska Datatransaktionsenheter eller edtu: er. Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. I en elastisk pool, kan du garantera att ingen en databas använder alla resurser i poolen och även som en minimal mängd resurser alltid är tillgängligt för en databas i en elastisk pool. 
+Snarare än innehåller en särskild uppsättning resurser (Dtu) till en SQL-databas som alltid är tillgänglig oavsett om de inte behövs kan du placera databaser i en [elastisk pool](sql-database-elastic-pool.md) på en SQL Database-server som delar en pool av resurser bland dessa databaser. Delade resurser i en elastisk pool som mäts med elastiska Datatransaktionsenheter eller edtu: er. Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. I en elastisk pool, kan du garantera att ingen en databas använder alla resurser i poolen och även som en minimal mängd resurser alltid är tillgängligt för en databas i en elastisk pool. 
 
 ![Introduktion till SQL Database: eDTU:er efter nivå](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -55,6 +55,7 @@ Pooler lämpar sig för ett stort antal databaser med specifika användningsmön
 Prestandanivåerna kalibreras och regleras för att tillhandahålla nödvändiga resurser så att din databasarbetsbelastning kan köra upp till den högsta gränsen som tillåts för din valda tjänstnivå/prestandanivå. Om din arbetsbelastning når någon av gränserna för processor, data-IO eller logg-IO tillhandahålls fortfarande resurser på den högsta tillåtna nivån, men du kan märka att svarstiderna för dina frågor blir längre. Dessa gränser resulterar inte i fel, men i en långsammare arbetsbelastning, såvida inte fördröjningarna blir så allvarliga att tidsgränsen för frågorna överskrids. Om du når gränsen för det högsta antalet tillåtna samtidiga användarsessioner/begäranden (arbetstrådar) returneras explicita fel. Se [gränserna för Azure SQL Database]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) för information om gränsen för resurser än CPU, minne, data-i/o och transaktionen logga IO.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [tjänstnivån](sql-database-service-tiers.md) för information om dtu: er och edtu: er som är tillgängliga för enskilda databaser och elastiska pooler, samt gränser resurser förutom CPU, minne, data-i/o och transaktionen logga IO.
+* Se [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) för information om dtu: er och edtu: er som är tillgängliga för enskilda databaser och elastiska pooler, samt gränser resurser förutom CPU, minne, data-i/o och transaktionen logga IO.
+* Se [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) information om vCore-baserade resurs tilldelning och tjänsten nivåer. 
 * Information som hjälper dig att avgöra din förbrukning (DTU:er) finns i [SQL Database Query Performance Insight](sql-database-query-performance.md).
 * Information om metodiken bakom benchmark-arbetsbelastningen för OLTP som används för att fastställa DTU-kombinationen finns i [Översikt över SQL Database-benchmark](sql-database-benchmark-overview.md).

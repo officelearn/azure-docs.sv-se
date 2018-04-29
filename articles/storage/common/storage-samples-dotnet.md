@@ -1,12 +1,12 @@
 ---
-title: "Azure Storage-exempel med hjälp av .NET | Microsoft Docs"
-description: "Visa, hämta och köra exempelkod och program för Azure Storage. Identifiera komma igång prover för blobbar, köer, tabeller och filer, använda lagringsklientbiblioteken för .NET."
+title: Azure Storage-exempel med hjälp av .NET | Microsoft Docs
+description: Visa, hämta och köra exempelkod och program för Azure Storage. Identifiera komma igång prover för blobbar, köer, tabeller och filer, använda lagringsklientbiblioteken för .NET.
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 74777ed14ebb41ad31657f814e86724ff1e5e62e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e6973f0decc448657d869afb8823dd03c62d272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-samples-using-net"></a>Azure Storage-exempel med hjälp av .NET
 
@@ -30,7 +30,7 @@ Följande tabell innehåller en översikt över scenarier som tas upp i varje pr
 <tr> 
 <td rowspan="16"><b>BLOB</b></td>
 <td>Lägg till Blob</td> 
-<td><a href="https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Metoden CloudBlobContainer.GetAppendBlobReference exempel</a></td> 
+<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Metoden CloudBlobContainer.GetAppendBlobReference exempel</a></td> 
 </tr> 
 <tr> 
 <td>Blockblob</td>

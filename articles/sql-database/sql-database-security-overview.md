@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: b45e1434d648096a67c2f12046960926d2c7640d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: ea76bc4cc182902fb5618d23358579ec229a5ef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -28,7 +28,7 @@ En fullständig översikt över tillgängliga säkerhetsfunktioner på alla stil
 SQL-databas skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [Transport Layer Security](https://support.microsoft.com/kb/3135244), för data i vila med [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), och för data som används med [ Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Alla anslutningar till Azure SQL Database kräver filkryptering (SSL/TLS) hela tiden medan data är "under överföringen" till och från databasen. I anslutningssträngen för ditt program måste du ange parametrar för att kryptera anslutningen och *inte* ska lita på certifikatet (det gör du om du kopierar anslutningssträngen utanför Azure-portalen), annars den anslutningen verifiera inte identiteten för servern och är sårbara för ”man-in-the-middle”-attacker. För t.ex. ADO.NET-drivrutinen är dessa parametrar för anslutningssträngen **Encrypt=True** och **TrustServerCertificate=False**. 
+>Alla anslutningar till Azure SQL Database kräver filkryptering (SSL/TLS) hela tiden medan data är "under överföringen" till och från databasen. I anslutningssträngen för ditt program måste du ange parametrar för att kryptera anslutningen och *inte* ska lita på certifikatet (det gör du om du kopierar anslutningssträngen utanför Azure-portalen), annars den anslutningen verifiera inte identiteten för servern och är sårbara för ”man-in-the-middle”-attacker. För t.ex. ADO.NET-drivrutinen är dessa parametrar för anslutningssträngen **Encrypt=True** och **TrustServerCertificate=False**. Information om TLS- och anslutning finns [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 För andra sätt att kryptera dina data, kan du överväga:
 

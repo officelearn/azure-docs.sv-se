@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Med hjälp av djup Learning virtuell dator
 
@@ -35,7 +35,7 @@ Förutom att framework-baserade-exempel finns också en uppsättning omfattande 
 
 - [En instruktioner för att skapa en lösning för slutpunkt till slutpunkt för att identifiera produkterna inom bilder](https://github.com/Azure/cortana-intelligence-product-detection-from-images): identifiering av avbildningen är en teknik som kan hitta och klassificera objekt inom bilder. Den här tekniken har möjlighet att ta mycket stora fördelar i många verkligheten business domäner. Återförsäljare kan till exempel använda den här tekniken för att fastställa vilka produkter en kund har hämtats från hyllan. Den här informationen hjälper i sin tur lagrar hantera produktinformation. 
 
-- [Med namnet entitet extrahering från PubMed sammanfattningar](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) den här kursen visar hur man extraherar namngivna enheter som läkemedel namn eller sjukdom namn från Ostrukturerade text. Det tränar en anpassad word bädda in på en text Kristi av 18 miljoner PubMed sammanfattningar, använder den modellen för att bygga en lång kortvariga minne (LSTM) återkommande neurala nätverket modell för extrahering av entiteten och visar att bädda in modellen domänspecifika ordet kan överträffar en Allmänt ord inbäddning av entiteten extrahering.
+- [Med namnet entitet extrahering från PubMed sammanfattningar](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) den här kursen visar hur man extraherar namngivna enheter som läkemedel namn eller sjukdom namn från Ostrukturerade text. Det tränar en anpassad word bädda in på en text Kristi av 18 miljoner PubMed sammanfattningar, använder den modellen för att bygga en lång kortvariga minne (LSTM) återkommande neurala nätverket modell för extrahering av entiteten och visar att bädda in modellen domänspecifika ordet kan överträffar en Allmänt ord inbäddning av entiteten extrahering.
 
 - [Djup learning för ljud](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) den här kursen visar hur du tränar en djup learning modell för identifiering av ljud händelse på den [Urbant ljud dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) och ger en översikt över hur du arbetar med ljuddata.
 

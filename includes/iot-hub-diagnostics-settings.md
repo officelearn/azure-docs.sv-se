@@ -4,20 +4,20 @@
 1. Välj **diagnostikinställningar**.
 1. Välj **aktivera diagnostiken**.
 
-   ![Aktivera diagnostik][1]
+   ![Slå på diagnostik][1]
 
 1. Namnge diagnostikinställningar för.
 1. Välj om du vill skicka loggar. Du kan välja valfri kombination av tre alternativ:
    * Arkivera till ett lagringskonto
-   * Dataströmmen till en händelsehubb
-   * Skicka till logganalys
+   * Strömma till en händelsehubb
+   * Skicka till Log Analytics
 1. Välj vilka åtgärder som du vill övervaka och aktivera loggar för dessa åtgärder. De åtgärder som diagnostikinställningar kan rapportera om är:
    * Anslutningar
    * Enhetstelemetrin
    * Meddelanden moln till enhet
    * Enhetens identitet åtgärder
    * Filöverföringar
-   * Meddelanderoutning
+   * Meddelanderedigering
    * Moln till enhet dubbla åtgärder
    * Enhet till moln dubbla åtgärder
    * Dubbla åtgärder
@@ -28,7 +28,7 @@
 Om du vill aktivera diagnostikinställningar med PowerShell använder du följande kod:
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

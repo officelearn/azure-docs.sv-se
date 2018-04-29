@@ -1,25 +1,25 @@
 ---
-title: "Självstudiekurs om MongoDB, Angular och Node för Azure – del 6 | Microsoft Docs"
-description: "Del 6 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB."
+title: Självstudiekurs om MongoDB, Angular och Node för Azure – del 6 | Microsoft Docs
+description: Del 6 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 92ff3281138358abac921d4c06d524bd4c485b1d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 00a8cfebbd995d9a1bb99a691fd84bd742855f78
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 6: Lägga till Post-, Put- och Delete-funktioner till appen
 
@@ -33,7 +33,7 @@ Del 6 av självstudiekursen bygger vidare på [del 5](tutorial-develop-mongodb-n
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudiekursen innan du påbörjar den här delen.
 
@@ -92,7 +92,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, klicka på **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och klicka sedan på **Starta felsökning** ![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till [http://localhost:3000](http://localhost:3000) så ser du alla anrop som görs via nätverket.
+6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till [http://localhost:3000](http://localhost:3000) för att se alla anrop som gjorts i nätverket.
 
     ![Fliken Nätverk i Chrome som visar nätverksaktivitet](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

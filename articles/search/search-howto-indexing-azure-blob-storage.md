@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 77fac23286d536903e32140b554304e72c16097f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search ska indexera dokument (till exempel PDF-filer, Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar det grunderna för att installera och konfigurera en indexerare blob. Sedan den erbjuder en ingående undersökning av beteenden och scenarier troligen kommer att stöta på.
@@ -49,7 +49,7 @@ Datakällan måste ha följande nödvändiga egenskaper för blob-indexering:
 
 Skapa en datakälla:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ Indexet anger vilka fält i ett dokument, attribut, och andra konstruktioner som
 
 Så här skapar du ett index med en sökbar `content` -fält som innehåller den text som extraheras från BLOB:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ En indexerare ansluter en datakälla med ett mål sökindex och ger ett schema f
 
 När index och datakälla har skapats är du redo att skapa indexeraren:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -171,7 +171,7 @@ I det här exemplet ska vi välja den `metadata_storage_name` fält som Dokument
 
 Att göra detta alla tillsammans, här är hur du kan lägga till fältet och aktivera Base64-kodning av nycklar för en befintlig indexerare:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -197,7 +197,7 @@ Du kan styra vilka blobbar indexeras och som hoppas över.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexera endast blobbar med specifika filnamnstillägg
 Du kan indexera endast blobbar med filnamnstillägg som du anger genom att använda den `indexedFileNameExtensions` indexeraren konfigurationsparameter. Värdet är en sträng som innehåller en kommaavgränsad lista med filnamnstillägg (med en inledande punkt). Om du vill endast index i. PDF och. DOCX blobbar, gör du följande:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -209,7 +209,7 @@ Du kan indexera endast blobbar med filnamnstillägg som du anger genom att anvä
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Uteslut BLOB med specifika filnamnstillägg
 Du kan utesluta blobbar med specifika filnamnstillägg från att indexera med hjälp av den `excludedFileNameExtensions` konfigurationsparameter. Värdet är en sträng som innehåller en kommaavgränsad lista med filnamnstillägg (med en inledande punkt). Till exempel till index alla BLOB utom de med den. PNG och. JPEG-tillägg, gör du följande:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -231,7 +231,7 @@ Du kan styra vilka delar av blobar som indexeras med det `dataToExtract` konfigu
 
 Använd till exempel för att indexera endast metadata för lagring:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -254,7 +254,7 @@ De konfigurationsparametrar som beskrivs ovan gäller för alla BLOB. Ibland kan
 
 Som standard avbryts blob-indexering så snart den stöter på en blob med en stöds inte innehållstyp (till exempel en bild). Naturligtvis kan du använda den `excludedFileNameExtensions` parametern för att hoppa över vissa typer av innehåll. Du kan dock behöva index blobbar utan att känna till alla möjliga typer av innehåll i förväg. Om du vill fortsätta indexeringen när en innehållstyp som inte stöds har påträffats, ange den `failOnUnsupportedContentType` konfigurationsparameter till `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -292,7 +292,7 @@ Använd en ”mjuk borttagning”-metoden för att stödja tar bort dokument. Om
 
 Till exempel följande princip betraktar en blob som ska tas bort om den har en metadataegenskap `IsDeleted` med värdet `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -339,7 +339,7 @@ För detta ska fungera måste alla indexerare och andra komponenter komma övere
 
 Om alla BLOB innehålla oformaterad text i samma kodning, kan du avsevärt förbättra indexering prestanda med hjälp av **text parsning läge**. Om du vill använda text parsning läge i `parsingMode` konfigurationsegenskapen till `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

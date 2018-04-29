@@ -10,14 +10,14 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c9fa74304e8672bc18f403aae138a3c1dbea3d4e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e56a40e1afef9c622d14804cb7f845b7b6edae6a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Övervaka databasprestanda i Azure SQL Database
-Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem på grund av att resurserna är överutnyttjade och därefter bestämma när det är dags att justera prestandanivån och [tjänstnivån](sql-database-service-tiers.md) för databasen. Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
+Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem med eftersom resurserna är överutnyttjade ut och sedan avgöra om det är dags att justera prestandanivån och tjänstnivåer för din databas i den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md). Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
 
 > [!TIP]
 > Använd [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) för automatisk övervakning av databasens prestanda. När ett prestandaproblem har identifierats genereras en diagnostiska logg med information och rot-orsaken analys (RCA) till problemet. Prestanda förbättras rekommendation tillhandahålls när det är möjligt.
@@ -31,7 +31,7 @@ I [Azure-portalen](https://portal.azure.com/), kan du övervaka en enskild datab
 * Data IO-procent
 * Databasstorlek i procent
 
-När du har lagt till de här måtten, du kan fortsätta att visa dem i den **övervakning** diagrammet med mer information om den **mått** fönster. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se artikeln [tjänstnivåer](sql-database-service-tiers.md) för mer information om DTU:er.
+När du har lagt till de här måtten, du kan fortsätta att visa dem i den **övervakning** diagrammet med mer information om den **mått** fönster. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Finns det [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) artiklar för mer information om tjänstnivåer.  
 
 ![Tjänstnivå-övervakning av databasprestanda.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

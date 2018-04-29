@@ -3,8 +3,8 @@ title: Metodtips för säkerhet för data och kryptering | Microsoft Docs
 description: Den här artikeln innehåller en uppsättning av bästa praxis för datasäkerhet och kryptering med hjälp av inbyggda funktioner i Azure.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för säkerhet för Azure Data och kryptering
+
 En av nycklar på dataskydd i molnet redovisning för möjliga tillstånd som kan uppstå i dina data och vilka kontroller som är tillgängliga för det aktuella tillståndet. Metodtips för säkerhet och kryptering rekommendationer för Azure data kommer att vara runt följande data tillstånd:
 
 * I vila: Detta innehåller all information som lagringsobjekt, behållare och typer som finns statiskt på fysiska media som ska vara det magnetiska eller optical disk.
@@ -50,6 +51,7 @@ Azure data säkerhets- och bästa praxis i den här artikeln omfattar:
 * Tillämpa fil nivån datakryptering
 
 ## <a name="enforce-multi-factor-authentication"></a>Använda Multifaktorautentisering
+
 Det första steget i dataåtkomst och kontroll i Microsoft Azure är att autentisera användaren. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) är en metod för att verifiera användarens identitet med hjälp av en annan metod än bara ett användarnamn och lösenord. Den här autentisering metoden hjälper dig att skydda åtkomst till data och program och uppfyller efterfrågan från användarna för en process för enkel inloggning.
 
 Genom att aktivera Azure MFA för dina användare kan du lägger till ett andra säkerhetslager till användarinloggningar och transaktioner. I det här fallet en transaktion kan att komma åt ett dokument som finns på en filserver eller i SharePoint Online. Azure MFA hjälper även IT att minska sannolikheten att avslöjade autentiseringsuppgifter kommer att ha åtkomst till organisationens data.
@@ -61,6 +63,7 @@ Ett alternativ för organisationer som vill behålla autentisering kontrollen lo
 Mer information om Azure MFA finns i artikel [komma igång med Azure Multi-Factor Authentication i molnet](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Använd rollbaserad åtkomstkontroll (RBAC)
+
 Begränsa åtkomst baserat på de [behöver](https://en.wikipedia.org/wiki/Need_to_know) och [minsta privilegium](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper. Det här är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Azure rollbaserad åtkomstkontroll (RBAC) kan användas för att tilldela behörigheter till användare, grupper och program för ett visst område. Omfånget för en rolltilldelning kan vara en prenumeration, resursgrupp eller en enskild resurs.
 
 Du kan utnyttja [inbyggda RBAC-roller](../role-based-access-control/built-in-roles.md) i Azure för att tilldela behörigheter till användare. Överväg att använda *Storage-konto deltagare* för molnoperatörer som behöver kunna hantera storage-konton och *klassiska Storage-konto deltagare* att hantera klassiska lagringskonton. Överväg att lägga till dem för molnoperatörer som behöver hantera virtuella datorer och storage-kontot, *Virtual Machine-deltagare* roll.
@@ -70,6 +73,7 @@ Organisationer som inte behöver använda data åtkomstkontroll genom att utnytt
 Du kan lära dig mer om Azure RBAC genom att läsa artikeln [rollbaserad åtkomstkontroll i](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Kryptera virtuella Azure-datorer
+
 I många organisationer [datakryptering i viloläge](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet. Azure Disk Encryption kan IT-administratörer att kryptera Windows-och Linux IaaS virtuell dator (VM). Azure Disk Encryption använder funktionen industry standard BitLocker i Windows och funktionen DM-Crypt i Linux att tillhandahålla volymkryptering för Operativsystemet och datadiskar.
 
 Du kan utnyttja Azure Disk Encryption för att skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadskrav. Organisationer bör överväga att använda kryptering för att minska riskerna rör obehörig dataåtkomst. Vi rekommenderar också att du krypterar enheter innan känsliga data skrivs till dem.
@@ -125,6 +129,7 @@ Organisationer som inte använder kryptering på databasen kan vara mer sårbara
 Du kan lära dig mer om SQL TDE kryptering genom att läsa artikeln [Transparent datakryptering med Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Skydda data under överföring
+
 Skydda data under överföringen ska väsentlig del av strategin för skydd av data. Eftersom data flyttar fram och tillbaka från många platser, vi Allmänt rekommenderar att du alltid använder SSL/TLS-protokoll för att utbyta data mellan olika platser. I vissa fall kanske du vill isolera hela kommunikationskanalen mellan din lokala och moln infrastruktur med hjälp av ett virtuellt privat nätverk (VPN).
 
 För data som flyttas mellan din lokala infrastruktur och Azure, bör du lämpliga skyddsåtgärder, till exempel HTTPS eller VPN.
@@ -142,6 +147,7 @@ Organisationer som inte kan skydda data under överföringen är mer känslig f�
 Du kan lära dig mer om Azure VPN-alternativet genom att läsa artikeln [planering och design för VPN-Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Tillämpa fil nivån datakryptering
+
 Ett extra skyddslager som kan öka säkerhetsnivån för dina data krypterar själva filen, oavsett filens plats.
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) använder kryptering, identitet och auktorisering för att skydda filer och e-post. Azure RMS fungerar över flera enheter – telefoner, surfplattor och datorer genom att skydda både inom organisationen och utanför organisationen. Den här funktionen är möjligt eftersom Azure RMS lägger till en skyddsnivå som finns kvar med data, även när de lämnar organisationens gränser.

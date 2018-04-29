@@ -1,6 +1,6 @@
 ---
-title: Skapa en CI/CD-pipeline i Azure med Team Services | Microsoft Docs
-description: Lär dig hur du skapar en Visual Studio Team Services pipeline för kontinuerlig integration och som distribuerar ett webbprogram till IIS på en Windows VM
+title: Självstudiekurs – skapar en CI/CD-pipeline i Azure med Team Services | Microsoft Docs
+description: I kursen får du lära dig hur du skapar en Visual Studio Team Services pipeline för kontinuerlig integration och som distribuerar ett webbprogram till IIS på en Windows-dator i Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Skapa en pipeline för kontinuerlig integrering med Visual Studio Team Services och IIS
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Självstudier: Skapa en pipeline för kontinuerlig integrering med Visual Studio Team Services och IIS
 Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline för att automatisera bygga, testa och distribution faser för programutveckling. I den här självstudiekursen skapar du en CI/CD-pipeline med hjälp av Visual Studio Team Services och en Windows-dator (VM) i Azure som kör IIS. Lär dig att:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline f�
 > * Skapa en version definitionen för att publicera ny webbplats distribuerar paket till IIS
 > * Testa CI/CD-pipelinen
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här kursen kräver Azure PowerShell Modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 
 ## <a name="create-project-in-team-services"></a>Skapa projekt i Team Services
@@ -94,29 +94,30 @@ Titta på börjar som bygga schemaläggs på en värdbaserad agent sedan skapa. 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 För att ge en plattform för att köra ditt webbprogram för ASP.NET, behöver du en virtuell Windows-dator som kör IIS. Team Services använder en agent för att interagera med IIS-instans som du kopplar kod och versioner har utlösts.
 
-Skapa en virtuell Windows Server 2016-dator med hjälp av [detta skriptexempel](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). Det tar några minuter för skriptet att köra och skapa den virtuella datorn. När den virtuella datorn har skapats kan du öppna port 80 för webbtrafik med [Lägg till AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) på följande sätt:
+Skapa en Windows Server 2016 virtuell dator med [nya AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVM* i den *östra USA* plats. Resursgruppen *myResourceGroupVSTS* och stödjande nätverksresurser skapas också. Att tillåta webbtrafik, TCP-port *80* öppnas till den virtuella datorn. När du uppmanas ange ett användarnamn och lösenord som ska användas som autentiseringsuppgifter för inloggning för den virtuella datorn:
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 Hämta den offentliga IP-adressen för att ansluta till den virtuella datorn, [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) på följande sätt:
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Skapa en fjärrskrivbordssession till den virtuella datorn:
@@ -167,7 +168,7 @@ För att publicera dina versioner, skapar du en definition av versionen i Team S
     
     ![Lägg till aktivitet om du vill frigöra definition i Team Services](media/tutorial-vsts-iis-cicd/add_release_task.png)
 
-8. Välj **Lägg till** bredvid **IIS Web App Deploy(Preview)**och välj **Stäng**.
+8. Välj **Lägg till** bredvid **IIS Web App Deploy(Preview)** och välj **Stäng**.
 9. Välj den **körs på distributionsgruppen** överordnad aktivitet.
     1. För **distributionsgruppen**, Välj distributionsgruppen som du skapade tidigare, t.ex *myIIS*.
     2. I den **datorn taggar** väljer **Lägg till** och välj den *web* tagg.

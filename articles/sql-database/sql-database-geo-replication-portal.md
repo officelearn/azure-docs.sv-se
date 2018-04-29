@@ -9,11 +9,11 @@ ms.custom: business continuity
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 09672c9f8ba725e46f2cdbb1a13de101137cb718
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 89839d18e90a75f81e78edcb7f54e77a31ea4886
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure-portalen och initiera redundans
 
@@ -33,7 +33,7 @@ Följande steg kan du skapa en ny sekundär databas i ett partnerskap geo-replik
 
 Du måste vara prenumerationsägaren eller Medägare för att lägga till en sekundär databas.
 
-Den sekundära databasen har samma namn som den primära databasen och har samma servicenivåer som standard. Den sekundära databasen kan vara en enskild databas eller en databas i en elastisk pool. Mer information finns i [tjänstnivåer](sql-database-service-tiers.md).
+Den sekundära databasen har samma namn som den primära databasen och har samma servicenivåer som standard. Den sekundära databasen kan vara en enskild databas eller en databas i en elastisk pool. Mer information finns i [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 När sekundärt skapas och dirigeras, börjar data replikeras från den primära databasen till den nya sekundära databasen.
 
 > [!NOTE]

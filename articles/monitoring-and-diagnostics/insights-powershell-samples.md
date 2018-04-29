@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure-Monitor PowerShell Snabbstart-exempel
 Den här artikeln innehåller exempel av PowerShell-kommandon som hjälper dig att komma åt Azure-Monitor funktioner.
@@ -38,7 +38,7 @@ Exemplen i artikeln visar hur du kan använda Azure-Monitor-cmdlets. Du kan ocks
 Först logga in på Azure-prenumerationen.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Du ser ett tecken på skärmen. När du loggar in ditt konto, TenantID, och standard prenumerations-ID visas. Alla Azure cmdlets fungerar i samband med standard-prenumeration. Om du vill visa listan över prenumerationer som du har åtkomst till, använder du följande kommando:
@@ -150,7 +150,7 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 | Namn |simpletestdiskwrite |
 | Platsen för den här varningsregeln |Östra USA |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/S1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName för aviseringen som har skapats |\PhysicalDisk (_Total) \Disk Diskskrivningar/sek. Finns det `Get-MetricDefinitions` cmdlet om hur du hämtar de exakta mått namn |
 | Operatorn |GreaterThan |
 | Tröskelvärde (antal per sekund i för det här måttet) |1 |

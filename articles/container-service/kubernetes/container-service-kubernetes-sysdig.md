@@ -1,25 +1,25 @@
 ---
-title: "Övervaka Azure Kubernetes kluster - Sysdig"
-description: "Övervaka Kubernetes kluster i Azure Container Service med hjälp av Sysdig"
+title: Övervaka Azure Kubernetes kluster - Sysdig
+description: Övervaka Kubernetes kluster i Azure Container Service med hjälp av Sysdig
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 4ff610f72af4e6a750749009f3cd4b4df632a37f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 275e71ce054b83c16b9f9cbfe621c6a7e31f79c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Övervaka en Kubernetes för Azure Container Service-kluster med hjälp av Sysdig
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här genomgången förutsätter att du har [skapas ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Det förutsätts även att du har azure cli och kubectl verktygen som installeras.

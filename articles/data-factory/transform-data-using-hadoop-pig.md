@@ -3,21 +3,20 @@ title: Transformera data med Hadoop Pig aktivitet i Azure Data Factory | Microso
 description: Lär dig hur du kan använda Pig-aktivitet i ett Azure data factory för att köra Pig-skript på en på-begäran/din egen HDInsight-kluster.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 4240988337d001f304cce9c7a29aa74d9ba68520
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: douglasl
+ms.openlocfilehash: 5e1329c10336613f8ce5555235ab49db1cfad5bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformera data med Hadoop Pig aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +66,7 @@ Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data 
 | typ                | För Hive-aktiviteten är aktivitetstypen HDinsightPig | Ja      |
 | linkedServiceName   | Referens till HDInsight-klustret registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel. | Ja      |
 | scriptLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Pig-skriptet som ska köras. Om du inte anger den här länkade tjänsten används Azure länkade lagringstjänsten definieras i länkad HDInsight-tjänst. | Nej       |
-| scriptPath          | Ange sökväg till skriptfilen lagras i Azure Storage som anges av scriptLinkedService. Filnamnet är skiftlägeskänslig. | Nej       |
+| ScriptPath          | Ange sökväg till skriptfilen lagras i Azure Storage som anges av scriptLinkedService. Filnamnet är skiftlägeskänslig. | Nej       |
 | getDebugInfo        | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av scriptLinkedService. Tillåtna värden: None, alltid eller fel. Standardvärde: Ingen. | Nej       |
 | Argument           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som argument på kommandoraden för varje aktivitet. | Nej       |
 | definierar             | Ange parametrar som nyckel/värde-par för refererar till i Pig-skriptet. | Nej       |

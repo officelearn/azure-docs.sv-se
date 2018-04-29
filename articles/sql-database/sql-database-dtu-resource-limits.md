@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 6602a4ab8f6081c1b96c7da3bc94291d05d79862
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL Database DTU-baserade modellen gränserna
 
@@ -32,7 +32,6 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximalt antal lagringsalternativ (GB) | 2 |
 | Maximal InMemory-OLTP-lagring (GB) |Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden) | 30 |
-| Maximalt antal samtidiga inloggningar | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
 
@@ -44,7 +43,6 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximalt antal lagringsalternativ (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 60 | 90 | 120 | 200 |
-| Maximalt antal samtidiga inloggningar | 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
 
@@ -56,7 +54,6 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximalt antal lagringsalternativ (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Saknas |Gäller inte |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 400 | 800 | 1600 | 3200 |6000 |
-| Maximalt antal samtidiga inloggningar | 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -68,15 +65,14 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximalt antal lagringsalternativ (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximalt antal samtidiga arbetare (antal begäranden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Maximalt antal samtidiga inloggningar | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 
 > [!IMPORTANT]
-> \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+> - Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> - Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, södra, Kanada Central, Kanada, Öst, centrala USA, Frankrike Central, Tyskland Central, östra, västra Japan, Korea Central Norra centrala USA, Nordeuropa, södra centrala USA, Sydostasien, Storbritannien, Syd, Storbritannien, Väst, East2 USA, västra USA, USA Gov Virginia och västra Europa. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 
@@ -140,7 +136,6 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 | Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Gäller inte |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Alternativ för min edtu: er per databas | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Alternativ för max edtu: er per databas | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
@@ -156,7 +151,6 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 | Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Gäller inte | 
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Alternativ för min edtu: er per databas | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Alternativ för max edtu: er per databas | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
@@ -172,7 +166,6 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 | Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Gäller inte | 
 | Maximalt antal databaser per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Maximalt antal samtidiga inloggningar per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Alternativ för min edtu: er per databas | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Alternativ för max edtu: er per databas | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
@@ -188,7 +181,6 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 | Max Minnesintern OLTP lagringsutrymme per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Maximalt antal databaser per pool | 50 | 100 | 100 | 100 | 100 | 
 | Maximalt antal samtidiga arbetare per pool (begäranden) | 200 | 400 | 800 | 1600 | 2400 | 
-| Maximalt antal samtidiga inloggningar per pool | 200 | 400 | 800 | 1600 | 2400 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Minimalt antal eDTU:er per databas | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | Maximalt antal eDTU:er per databas | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
@@ -204,7 +196,6 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 | Max Minnesintern OLTP lagringsutrymme per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Maximalt antal databaser per pool | 100 | 100 | 100 | 100 | 100 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Maximalt antal samtidiga inloggningar per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Alternativ för min edtu: er per databas | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Alternativ för max edtu: er per databas | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
@@ -212,9 +203,9 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 ||||||||
 
 > [!IMPORTANT]
-> \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/). Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).
+> -  Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/). Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> -  Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, södra, Kanada Central, Kanada, Öst, centrala USA, Frankrike Central, Tyskland Central, östra, västra Japan, Korea Central Norra centrala USA, Nordeuropa, södra centrala USA, Sydostasien, Storbritannien, Syd, Storbritannien, Väst, East2 USA, västra USA, USA Gov Virginia och västra Europa. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 
 Om alla DTU:er för en elastisk pool används får varje databas i poolen lika många resurser för att bearbeta frågor. SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. En rättvis resursdelning i elastiska pooler tillämpas utöver den mängd resurser som varje databas är garanterad om det minsta antalet DTU:er per databas har angetts till ett annat värde än noll.

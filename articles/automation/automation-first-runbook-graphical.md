@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fe383d172def4916338db86c5fba641d75813e9b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -117,6 +117,10 @@ Nu när du har en variabel som ska innehålla prenumerations-ID:t kan du konfigu
 1. Du behöver den **skriva Hello World till utdata** längre, så klickar du på ellipserna (...) och väljer **ta bort**.
 1. Expandera **TILLGÅNGAR**, **Anslutningar** i bibliotekskontrollen och lägg till **AzureRunAsConnection** på arbetsytan genom att välja **Lägg till på ytan**.
 1. Skriv i kontrollen biblioteket **Connect-AzureRmAccount** i textrutan Sök.
+
+   > [!IMPORTANT]
+   > **Lägg till AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen bibliotekets objekt, om du inte ser **Connect-AzureRMAccount**, kan du använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+
 1. Lägg till **Connect-AzureRmAccount** till arbetsytan.
 1. Hovra över **Hämta ”kör som”-anslutning** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra på pilen till **Connect-AzureRmAccount**. Pilen som du skapade är en *länk*. Runbook startat med **hämta kör som-anslutning** och kör sedan **Connect-AzureRmAccount**.<br> ![Skapa länk mellan aktiviteter](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. På arbetsytan, Välj **Connect-AzureRmAccount** och i fönstret kontrolltypen Configuration **inloggning till Azure** i den **etikett** textruta.
@@ -135,9 +139,6 @@ Nu när du har en variabel som ska innehålla prenumerations-ID:t kan du konfigu
 1. När du har valt parameteruppsättningen visas parametrarna i aktiviteten parametern konfigurationssidan. Klicka på **SubscriptionID**
 1. På sidan parametervärdet väljer **Variabeltillgång** för den **datakällan** och välj **AzureSubscriptionId** i listan och klicka sedan på **OK** två gånger.
 1. Hovra över **Inloggning i Azure** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till **Ange prenumerations-ID**.
-
-> [!IMPORTANT]
-> **Anslut-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen bibliotekets objekt, om du inte ser **Connect-AzureRMAccount**, kan du använda **Connect-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
 Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-autentisering](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

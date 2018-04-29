@@ -1,12 +1,12 @@
 ---
-title: "Lär dig mer om Azure Service Fabric-supportalternativ | Microsoft Docs"
-description: "Azure Service Fabric-kluster-versioner som stöds och länkar till filen supportärenden"
+title: Lär dig mer om Azure Service Fabric-supportalternativ | Microsoft Docs
+description: Azure Service Fabric-kluster-versioner som stöds och länkar till filen supportärenden
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric-supportalternativ
 
@@ -30,7 +30,7 @@ Skapa ett ärende för support för att rapportera problem på ditt Service Fabr
 
 Läs mer om:
  
-- [Support från Microsoft för Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Support från Microsoft för Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
@@ -63,8 +63,8 @@ Kontrollera att klustret är alltid en Service Fabric-version som stöds. Och n�
 
 Referera till följande dokument på information om hur du kan skydda ditt kluster som kör en Service Fabric-version som stöds.
 
-- [Uppgradera Service Fabric-versionen på ett Azure-kluster](service-fabric-cluster-upgrade.md)
-- [Uppgradera Service Fabric-versionen på en fristående windows server-kluster](service-fabric-cluster-upgrade-windows-server.md)
+- [Uppgradera Service Fabric-versionen på ett Azure-kluster ](service-fabric-cluster-upgrade.md)
+- [Uppgradera Service Fabric-versionen på en fristående windows server-kluster ](service-fabric-cluster-upgrade-windows-server.md)
  
 Här är listan över Service Fabric-versioner som stöds och deras stöd slutdatum.
 
@@ -77,7 +77,8 @@ Här är listan över Service Fabric-versioner som stöds och deras stöd slutda
 | 5.6.* | 5.4.164.* |Mindre än eller lika med version 2.6 |Oktober 13,2017   |
 | 5.7.* | 5.4.164.* |Mindre än eller lika med version 2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Mindre än eller lika med version 2.8 |Mars 30,2018     | 
-| 6.1.* | 5.7.221.* |Mindre än eller lika med version 3.0 |Aktuell version och därför inget slutdatum |
+| 6.1. * | 5.7.221.* |Mindre än eller lika med version 3.0 |Juni 15,2018      |
+| 6.2. * | 6.0.232.* |Mindre än eller lika med version 3.1 |Aktuell version och därför inget slutdatum |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric förhandsversioner - stöds inte för produktion.
 Då, släpp vi-versioner som har viktiga funktioner som vi vill feedback, som släpps som förhandsgranskningar. Dessa förhandsversioner bör endast användas för testning. Klustret produktion bör alltid köra en stöds, stabil, Service Fabric-version. En förhandsversion börjar alltid med ett högre och lägre versionsnummer 255. Till exempel om du ser ett Service Fabric version 255.255.5703.949 som versionen ska bara användas i testkluster och är en förhandsversion. Dessa förhandsvisningarna också tillkännages i den [Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric) och kommer att ha information på funktioner som ingår.
@@ -86,8 +87,8 @@ Det finns inget stöd för betald alternativ för dessa förhandsvisningarna. An
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppgradera service fabric-versionen på ett Azure-kluster](service-fabric-cluster-upgrade.md)
-- [Uppgradera Service Fabric-versionen på en fristående windows server-kluster](service-fabric-cluster-upgrade-windows-server.md)
+- [Uppgradera service fabric-versionen på ett Azure-kluster ](service-fabric-cluster-upgrade.md)
+- [Uppgradera Service Fabric-versionen på en fristående windows server-kluster ](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

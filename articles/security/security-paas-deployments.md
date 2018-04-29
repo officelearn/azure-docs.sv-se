@@ -6,7 +6,7 @@ documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="securing-paas-deployments"></a>Att säkra PaaS-distributioner
+# <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
 Den här artikeln innehåller information som hjälper dig att:
 
@@ -87,12 +87,12 @@ Följande sammanfattar en allmän praxis att hantera din identitet perimeternät
 
 - **Förlora dina nycklar eller autentiseringsuppgifter** säkra nycklar och autentiseringsuppgifter är mycket viktigt att skydda PaaS-distributioner. Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. En bra lösning är att använda en central lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). Azure tillhandahåller en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
 - **Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub** enda värre än att förlora dina nycklar och autentiseringsuppgifter har obehöriga personer få tillgång till dem. Angripare kan utnyttja bot tekniker för att hitta nycklar och hemligheter som lagras i koden databaser, till exempel GitHub. Placera inte nyckeln och hemligheter i dessa offentliga källkodslager.
-- **Skydda din VM hanteringsgränssnitt på hybrid PaaS- och IaaS** IaaS och PaaS-tjänster körs på virtuella datorer (VM). Beroende på vilken typ av tjänst flera hanteringsgränssnitt är tillgängliga att aktivera du remote hantera dessa virtuella datorer direkt. Protokoll för fjärrhantering som [protokollet SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), och [fjärr-PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet. Om de är tillgängliga, bör du använda alternativa metoder, till exempel med ett virtuellt privat nätverk till Azure-nätverk. Om alternativa metoder är inte tillgängliga, och sedan kontrollera att du använder komplexa lösenfraser och i förekommande fall, tvåfaktorsautentisering (exempelvis [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)).
+- **Skydda din VM hanteringsgränssnitt på hybrid PaaS- och IaaS** IaaS och PaaS-tjänster körs på virtuella datorer (VM). Beroende på vilken typ av tjänst flera hanteringsgränssnitt är tillgängliga att aktivera du remote hantera dessa virtuella datorer direkt. Protokoll för fjärrhantering som [protokollet SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), och [fjärr-PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet. Om de är tillgängliga, bör du använda alternativa metoder, till exempel med ett virtuellt privat nätverk till Azure-nätverk. Om alternativa metoder är inte tillgängliga, och sedan kontrollera att du använder komplexa lösenfraser och i förekommande fall, tvåfaktorsautentisering (exempelvis [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 - **Använd stark autentisering och auktorisering plattformar**
 
   - Använd federerade identiteter i Azure AD i stället för anpassad användare lagrar. När du använder federerade identiteter kan du dra nytta av en synsätt, plattform och du delegera hanteringen av auktoriserade identiteter till dina partners. En metod för federerad identitet är särskilt viktigt i situationer när anställda avslutas och information behöver återspeglas via flera identitet och auktorisering system.
   - Använd mekanismer för autentisering och auktorisering av plattform som anges i stället för anpassad kod. Anledningen är att utveckla anpassade Autentiseringskod kan vara tillförlitligt. De flesta av utvecklarna inte säkerhetsexperter och kommer troligen inte att vara medveten om de detaljerad och nyansrik och den senaste utvecklingen inom autentisering och auktorisering. Extern kod (till exempel från Microsoft) är ofta mycket säkerhet ses över.
-  - Använda multifaktorautentisering. Multifaktorautentisering är aktuell standard för autentisering och auktorisering eftersom den förhindrar security-svagheter med användarnamn och lösenord typer av autentisering. Åtkomst till både i Azure (portal/fjärråtkomst PowerShell) hanteringsgränssnitt och kundinriktade tjänster ska utformas och konfigurerats för att använda [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Använda multifaktorautentisering. Multifaktorautentisering är aktuell standard för autentisering och auktorisering eftersom den förhindrar security-svagheter med användarnamn och lösenord typer av autentisering. Åtkomst till både i Azure (portal/fjärråtkomst PowerShell) hanteringsgränssnitt och kundinriktade tjänster ska utformas och konfigurerats för att använda [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - Använd standard autentiseringsprotokoll, till exempel OAuth2 och Kerberos. Dessa protokoll har omfattande peer granskat och troligtvis implementeras som en del av din plattformsbibliotek för autentisering och auktorisering.
 
 ## <a name="next-steps"></a>Nästa steg

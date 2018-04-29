@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5e8a85af7bfb3245f766b932397999726746dfa7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en MongoDB API-konsolapp med Golang och Azure Portal
 
@@ -79,7 +79,9 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 ## <a name="review-the-code"></a>Granska koden
 
-Vi gör en snabb genomgång av vad som händer i filen main.go. 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Kör appen](#run-the-app). 
+
+Följande kodfragment är alla hämtade från filen main.go.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Ansluta Go-appen till Azure Cosmos DB
 
@@ -234,10 +236,7 @@ Gå tillbaka till Azure Portal för att visa dokumentet i Datautforskaren.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg:
-
-1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

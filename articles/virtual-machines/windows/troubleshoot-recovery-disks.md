@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: cbb9a47b878471e6efd5f4e280f44c6c8fe78df4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2201fa48c84aec2c291d8df7e16293a41720ce3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till återställning av en virtuell dator med hjälp av Azure PowerShell
 Om din Windows-dator (VM) i Azure påträffar ett fel vid start- eller disk, kan du behöva utför felsökning på den virtuella hårddisken sig själv. Ett vanligt exempel är en uppdatering för det program som förhindrar den virtuella datorn ska starta. Den här artikeln beskriver hur du använder Azure PowerShell för att ansluta den virtuella hårddisken till en annan Windows virtuell dator att åtgärda eventuella fel och sedan skapa den ursprungliga virtuella datorn igen.
@@ -35,7 +35,7 @@ Så här ser felsökningsprocessen ut:
 Se till att du har [senaste Azure PowerShell](/powershell/azure/overview) installerad och loggat in till din prenumeration:
 
 ```powershell
-Login-AzureRMAccount
+Connect-AzureRmAccount
 ```
 
 Ersätt parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.

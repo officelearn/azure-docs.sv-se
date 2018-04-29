@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>Att säkra PaaS-databaser i Azure
 
@@ -51,7 +51,7 @@ Fördelarna med att använda Azure AD-autentisering i stället för SQL-autentis
 - Använder finns databasanvändare att autentisera identiteter på databasnivå.
 - Stöder tokenbaserad autentisering för program som ansluter till SQL-databas.
 - Har stöd för ADFS (domänfederation) eller intern användarlösenord autentisering för en lokal Azure AD utan domänsynkronisering.
-- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, vilket innefattar [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA ingår stark autentisering med ett antal alternativ för enkel verifiering – telefonsamtal, textmeddelande, smartkort och PIN-kod eller meddelande i mobilappen. Mer information finns i [SSMS stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, vilket innefattar [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA ingår stark autentisering med ett antal alternativ för enkel verifiering – telefonsamtal, textmeddelande, smartkort och PIN-kod eller meddelande i mobilappen. Mer information finns i [SSMS stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Mer information om Azure AD-autentisering finns:
 

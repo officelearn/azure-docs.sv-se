@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 8efbc1d400f1d32e6aee2c1e2d78847bea786940
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med logganalys
 
@@ -36,7 +36,7 @@ När data tas emot av logganalys Azure har flera *hanteringslösningar* som är 
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric Analytics-lösning
 
-1. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Markera resursen**ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan.
+1. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Markera resursen **ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan.
 
 2. På översiktssidan klickar du på länken längst ned att gå till OMS-portalen
 
@@ -67,13 +67,14 @@ Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är 
     
     ![OMS fråga operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-Du kan också klicka på förstoringsglaset till vänster och använda frågespråket Kusto för att hitta det du söker. Du kan exempelvis använda följande fråga för att söka efter alla händelser relaterade till åtgärder som vidtas på noder av klustret. Händelse-ID används nedan finns i den [operativa kanalen händelser](service-fabric-diagnostics-event-generation-operational.md)
+Du kan också klicka på förstoringsglaset till vänster och använda frågespråket Kusto för att hitta det du söker. Du kan exempelvis använda följande fråga för att hitta alla åtgärder som vidtas på noder i klustret. Händelse-ID används nedan finns i den [operativa kanalen händelser](service-fabric-diagnostics-event-generation-operational.md)
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemtjänst (aktivitet) och mycket mer
+
+Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemtjänst (TaskName).
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Visa Fabric tillförlitlig Service och aktören händelser
 

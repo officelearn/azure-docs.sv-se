@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera ditt konto för offline-direktuppspelning av Widevine skyddat innehåll – Azure"
-description: "Det här avsnittet visar hur du konfigurerar Azure Media Services-kontot för offline strömning av Widevine skyddat innehåll."
+title: Konfigurera ditt konto för offline-direktuppspelning av Widevine skyddat innehåll – Azure
+description: Det här avsnittet visar hur du konfigurerar Azure Media Services-kontot för offline strömning av Widevine skyddat innehåll.
 services: media-services
-keywords: "TANKSTRECK, DRM, Widevine Offline-läge, ExoPlayer, Android"
-documentationcenter: 
+keywords: TANKSTRECK, DRM, Widevine Offline-läge, ExoPlayer, Android
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine strömning för Android
 
@@ -105,15 +105,15 @@ ExoPlayer version 2.6 och senare innehåller många klasser som stöder offline 
 
 Följande lista över klasser underlätta offline-läge i ExoPlayer SDK för Android:
 
-- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/OfflineLicenseHelper.Java  
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSession.Java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSessionManager.Java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DrmSession.Java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/ErrorStateDrmSession.Java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/SegmentDownloader.Java
 - Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/DownloaderConstructorHelper.Java 
-- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/Downloader.Java
 - Library/dash/src/main/Java/com/Google/Android/exoplayer2/Source/dash/offline/DashDownloader.Java 
 
 Utvecklare ska referera den [ExoPlayer Utvecklarhandbok](https://google.github.io/ExoPlayer/guide.html) och motsvarande [bloggen för utvecklare](https://medium.com/google-exoplayer) under utvecklingen av ett program. Google har inte släppt en fullständigt dokumenterade referens implementering eller exempel kod för appen ExoPlayer stöder Widevine offline just nu, så att informationen är begränsad till guide för utvecklare och blogg. 
@@ -148,7 +148,7 @@ Om du uppgraderar mobila webbläsaren Chrome till v62 (eller högre) på en Andr
 
 Ovanstående öppen källkod PWA appen har skapats i Node.js. Om du vill ha en egen version på en Ubuntu server tänka på följande vanliga påträffade problem som kan förhindra uppspelning:
 
-1. CORS problemet: exempel video i exempelappen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har ställt in CORS för alla sina test prover finns i Google Molnlagring bucket. De hanteras med CORS sidhuvud, att explicit ange CORS-post: https://biograf-155113.appspot.com (domän i vilken google värd sina exempel) förhindra åtkomst av andra platser. Om du försöker, visas följande HTTP-fel: Det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: inget 'Access Control-Tillåt-ursprung'-huvud är installerat på den begärda resursen. Ursprung 'https://13.85.80.81:8080' tillåts därför inte åtkomst. Om ett täckande svar har dina behov, Ställ in en begäran för 'Nej-cors' för att hämta resursen med CORS inaktiverad.
+1. CORS problemet: exempel video i exempelappen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har ställt in CORS för alla sina test prover finns i Google Molnlagring bucket. De hanteras med CORS sidhuvud, att explicit ange CORS-post: https://biograf-155113.appspot.com (domän i vilken google värd sina exempel) förhindra åtkomst av andra platser. Om du försöker, visas följande HTTP-fel: Det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: inget 'Access Control-Tillåt-ursprung'-huvud är installerat på den begärda resursen. Ursprung 'https://13.85.80.81:8080' är därför inte tillåten åtkomst. Om ett täckande svar har dina behov, Ställ in en begäran för 'Nej-cors' för att hämta resursen med CORS inaktiverad.
 2. Utfärdande av certifikat: från Chrome v 58 EME för Widevine kräver HTTPS. Du måste därför vara värd för exempelappen via HTTPS med X509 certifikat. Ett vanligt testcertifikat fungerar inte på grund av följande krav: du måste skaffa ett certifikat som uppfyller följande minimikrav:
     - Chrome och Firefox kräver SAN det alternativa namnet inställningen finns i certifikatet
     - Certifikatet måste ha betrodda Certifikatutfärdaren och av självsignerade utvecklingscertifikat fungerar inte
@@ -172,7 +172,7 @@ Det innebär att den säkra säkerhetstokentjänst (STS) måste ha den logik och
 
 ### <a name="question"></a>Fråga
 
-För Widevine säkerhetsnivåer i Googles [Widevine DRM arkitektur, översikt doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) dokumentation, definierar tre olika säkerhetsnivåer. Men i [Azure Media Services-dokumentationen på Widevine-licensmall](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), beskrivs fem olika säkerhetsnivåer. Vad är relationen eller mappningen mellan två olika uppsättningar av säkerhetsnivåer?
+För Widevine säkerhetsnivåer i Googles [Widevine DRM arkitektur, översikt doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) dokumentation, definierar tre olika säkerhetsnivåer. Men i [Azure Media Services-dokumentationen på Widevine-licensmall](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), beskrivs fem olika säkerhetsnivåer. Vad är relationen eller mappningen mellan två olika uppsättningar av säkerhetsnivåer?
 
 ### <a name="answer"></a>Svar
 
@@ -182,7 +182,7 @@ I Google [Widevine DRM arkitektur, översikt](https://storage.googleapis.com/wvd
 2.  Säkerhetsnivå 2: Utför kryptografi (men inte video bearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetas via separat video maskinvara eller programvara. På nivå 2, men bearbetas Krypteringsinformation fortfarande endast inom TEE.
 3.  Nivå 3 har inte en TEE på enheten. Lämpliga åtgärder vidtas för att skydda kryptografiska information och dekryptera innehåll på värdens operativsystem. En nivå 3-implementering kan även innehålla en kryptografisk motor för maskinvara, men som bara ger högre prestanda, inte säkerhet.
 
-Samtidig, i [Azure Media Services-dokumentationen på Widevine-licensmall](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), egenskapen security_level för content_key_specs kan ha följande fem olika värden (stabilitet klientkrav för uppspelning):
+Samtidig, i [Azure Media Services-dokumentationen på Widevine-licensmall](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), egenskapen security_level för content_key_specs kan ha följande fem olika värden (stabilitet klientkrav för uppspelning):
 
 1.  Programvarubaserad whitebox crypto krävs.
 2.  Programvara crypto och en dolda avkodare krävs.

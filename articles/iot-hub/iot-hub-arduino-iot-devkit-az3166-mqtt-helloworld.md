@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 121bd8a21e74a836fcca74af97fc20cae297d9a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 13b1c5b9ae05a6c2d11420812efc1af17912aa28
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-server
 
@@ -46,20 +46,13 @@ Slutför den [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/io
 2. Starta VS-kod.
 
 3. Anslut DevKit till datorn.
-    VS kod identifierar din DevKit automatiskt och öppnar följande sidor:
-    * DevKit startsidan.
-    * Arduino exempel: Praktiska exempel för att komma igång med din DevKit.
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## <a name="open-the-mqttclient-sample"></a>Öppna MQTTClient-exempel
 
 Expandera vänster **ARDUINO exempel** bläddrar du till **exempel MXCHIP AZ3166 > MQTT**, och välj **MQTTClient**. Det öppnas ett nytt fönster i koden jämfört med en projektmapp i den.
 
-![exempel-mappen](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/examples.png)
-
 > [!NOTE]
-> Om du råkar stänga fönstret kan du öppna det igen. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
+> Du kan också öppna exempel kommandot paletten. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Skapa och ladda upp Arduino ritningarna till DevKit
 
@@ -82,13 +75,13 @@ I VS-kod, följer du proceduren för att öppna och Ställ in seriella övervaka
 
 Seriell övervakaren visar alla meddelanden som skickas av exemplet ritningarna. Ritningarna ansluter DevKit till Wi-Fi. När Wi-Fi-anslutningen är klar skickar ett meddelande till MQTT broker ritningarna. Efter det skickar exemplet upprepade gånger två ”iot.eclipse.org”-meddelanden med hjälp av QoS-0 och 1 för QoS, respektive.
 
-![serial-output](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![Serial-utdata](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 
 Om du stöter på problem, läser du [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller Anslut via följande kanaler:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Se också
@@ -101,4 +94,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Nu när du har lärt dig hur du konfigurerar din MXChip Iot DevKit som en MQTT klient och använda MQTT klientbiblioteket för att skicka meddelanden till en MQTT broker är här de föreslagna nästa steg:
 
 * [Översikt över Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -148,10 +148,10 @@ I följande tabell visas SNAT port preallocations för nivåerna för backend-po
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |
-| 101-200 | 256 |
-| 201-400 | 128 |
+| 101 200 | 256 |
+| 201 400 | 128 |
 | 401-800 | 64 |
-| 801-1,000 | 32 |
+| 801-1 000 | 32 |
 
 >[!NOTE]
 > När du använder Standard belastningsutjämnare med [flera frontends](load-balancer-multivip-overview.md), [varje IP-adress för klientdel multiplicerar antalet tillgängliga portar för SNAT](#multivipsnat) i föregående tabell. Till exempel använder en serverdelspool av 50 VM med 2 belastningsutjämningsregler, var och en med en separat klientdelens IP-adresser, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera frontends](#multife).
@@ -243,10 +243,11 @@ Om en NSG blockerar hälsa avsökningen begäranden från Standardetiketten AZUR
 
 ## <a name="limitations"></a>Begränsningar
 - DisableOutboundSnat är inte tillgängligt som ett alternativ när du konfigurerar en regel i portalen för belastningsutjämning.  Använd REST, mall eller klienten verktyg i stället.
+- Web arbetsroller utanför ett virtuellt nätverk kan nås när bara en intern Standard belastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet services-funktionen. Du måste inte förlita sig på detta som respektive tjänst sig själv eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa utgående anslutning uttryckligen om du vill när du använder en intern Standard belastningsutjämnare endast. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [belastningsutjämnaren](load-balancer-overview.md).
-- Lär dig mer om [Standard belastningsutjämnaren](load-balancer-standard-overview.md).
+- Mer information finns i [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
 - Lär dig mer om [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
 - Lär dig mer om den andra nyckeln [nätverk](../networking/networking-overview.md) i Azure.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Självstudier: Azure Active Directory-integrering med Clever
 
@@ -110,10 +110,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://clever.com/in/<companyname>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://clever.com/<companyname>`
+    b. I den **identifierare** textruta anger du URL: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [smarta klienten supportteamet](https://clever.com/about/contact/) att hämta dessa värden.
+    > Inloggning URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [smarta klienten supportteamet](https://clever.com/about/contact/) att hämta det här värdet.
 
 4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
     
@@ -129,7 +129,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn  | Attributvärde |
     | --------------- | -------------------- |
-    | clever.student.Credentials.District\_användarnamn  | User.userPrincipalName |
+    | clever.Teacher.Credentials.district_username|User.userPrincipalName|
+    | clever.student.Credentials.district_username| User.userPrincipalName |
     | Förnamn  | User.givenName |
     | Efternamn  | User.surname |
 
@@ -157,19 +158,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Direkt inloggning](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant inloggning")
 
+    > [!NOTE]
+    > Innan du kan testa enkel inloggning, du måste kontakta [smarta klienten supportteamet](https://clever.com/about/contact/) att aktivera Office 365 enkel inloggning i serverdelen.
+
 10. På den **Instant inloggningen** utför följande steg:
-      
+    
       ![Direkt inloggning](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant inloggning")
-      
+    
       a. Typ av **Inloggningswebbadressen**.
-      
+    
       >[!NOTE]
       >Den **Inloggningswebbadressen** är ett anpassat värde. Kontakta [smarta klienten supportteamet](https://clever.com/about/contact/) att hämta det här värdet.
-      
+    
       b. Som **identitetssystem**väljer **ADFS**.
 
       c. I den **URL för tjänstmetadata** textruta klistra in **webbadress Federation Metadata** värde som du har kopierat från Azure-portalen.
-      
+    
       d. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD

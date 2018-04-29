@@ -1,25 +1,25 @@
 ---
 title: Installera lokala datagateway - Azure Logic Apps | Microsoft Docs
-description: "Innan du komma åt datakällor lokalt installera lokala datagateway för snabb överföring och kryptering mellan datakällor lokalt och logikappar"
-keywords: "komma åt data på lokala, dataöverföring, kryptering och datakällor"
+description: Innan du komma åt datakällor lokalt installera lokala datagateway för snabb överföring och kryptering mellan datakällor lokalt och logikappar
+keywords: komma åt data på lokala, dataöverföring, kryptering och datakällor
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installera den lokala datagatewayen för Azure Logic Apps
 
@@ -56,10 +56,10 @@ Information om hur du använder en gateway med andra tjänster finns i följande
 
 **minsta**
 
-* .NET 4.5 Framework
+* 4.5 för .NET framework
 * 64-bitars version av Windows 7 eller Windows Server 2008 R2 (eller senare)
 
-Rekommenderas
+**Rekommenderas**
 
 * 8 kärnor CPU
 * 8 GB minne
@@ -207,14 +207,14 @@ Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.
 
 | Domännamn | Utgående portar | Beskrivning |
 | ------------ | -------------- | ----------- |
-| *.analysis.windows.net | 443 | HTTPS | 
+| *. analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
 | *.servicebus.windows.net | 5671-5672 | Avancerade Message Queuing-protokollet (AMQP) | 
 | *.servicebus.windows.net | 443, 9350-9354 | Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) | 
 | *.frontend.clouddatahub.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
-| *.msftncsi.com | 443 | Används för att testa internet-anslutning när gatewayen inte kan nås av Power BI-tjänsten. | 
+| *. msftncsi.com | 443 | Används för att testa internet-anslutning när gatewayen inte kan nås av Power BI-tjänsten. | 
 ||||
 
 Om du behöver godkänna IP-adresser i stället för domänerna som du kan hämta och använda den [Microsoft Azure Datacenter IP-intervall lista](https://www.microsoft.com/download/details.aspx?id=41653). I vissa fall kan görs Azure Service Bus-anslutningar med IP-adress i stället för fullständigt kvalificerade domännamn.
@@ -225,7 +225,7 @@ Om du behöver godkänna IP-adresser i stället för domänerna som du kan hämt
 
 Datagatewayen underlättar snabb och säker kommunikation mellan din logikapp, gateway-Molntjänsten och lokala datakällan. 
 
-![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![diagram-for-on-premises-data-gateway-Flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 När användaren i molnet som interagerar med ett element som är ansluten till din lokala datakälla:
 
@@ -242,6 +242,11 @@ När användaren i molnet som interagerar med ett element som är ansluten till 
 6. Resultatet skickas från datakällan, tillbaka till gatewayen och sedan till gateway-Molntjänsten. Gateway-Molntjänsten använder sedan resultaten.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Nivån innehavaradministration 
+
+Det finns för närvarande inga enda plats där innehavaradministratörer kan hantera alla gateways som andra användare har installerat och konfigurerat.  Om du är en Innehavaradministratör rekommenderar vi att du uppmanar användarna i din organisation att lägga till som en administratör i varje gateway installeras. Detta gör att du kan hantera alla gateways i din organisation via inställningssidan Gateway eller via [PowerShell-kommandon](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -310,7 +315,7 @@ Du kan också titta på Verktyg som datakällan har för spårning frågor. Du k
 
 Många problem kan ansluta när gateway-versionen blir inaktuella. Kontrollera att du använder den senaste versionen som allmän bra. Om du inte har uppdaterat en gateway för en månad eller längre, kan du du överväga att installera den senaste versionen av gatewayen och se om du kan återskapa problemet.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService användare)
 
 Du kan få detta fel om du försöker installera gatewayen på en domänkontrollant, vilket inte stöds. Se till att du distribuerar gatewayen på en dator som inte är en domänkontrollant.
 

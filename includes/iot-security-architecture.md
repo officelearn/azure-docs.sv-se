@@ -147,24 +147,24 @@ Det här avsnittet behandlar arkitekturen beskrivs tidigare via för hotmodeller
 
 Var och en av de kategorier som beskrivs i Azure IoT-arkitekturen i det här exemplet försöker åtgärda ett antal olika hot mellan de olika stegen/informationen finns i: processen, kommunikation och lagring. Följande är en översikt över vanligaste för kategorin ”process” följt av en översikt över hur dessa hot kan undvikas bäst:
 
-**(S)-förfalskning**: en angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på nivån programvara eller maskinvara och därefter åtkomst system med en annan fysisk eller virtuell enhet under identitet på enheten som nyckelmaterialet har hämtats från. En bra bild är fjärransluten kontroller som kan aktivera valfri TV och som är populära prankster verktyg.
+**(S)-förfalskning**: en angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på nivån programvara eller maskinvara och sedan komma åt systemet med en annan fysisk eller virtuell enhet under identitet på enheten som nyckelmaterialet har tagits från. En bra bild är fjärransluten kontroller som kan aktivera valfri TV och som är populära prankster verktyg.
 
 **Denial för tjänsten (D)**: en enhet kan återges inte klarar fungerar eller kommunikation med stör alternativknapp frekvenser eller skärande kablar. Övervakning kamera som hade ström eller nätverket anslutningen avsiktligt blockerade rapportera inte exempelvis data, alls.
 
-**Manipulering (T)**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla viktiga material var tillgänglig för olaglig program. Till exempel att en angripare kan utnyttja extraherade nyckelmaterial för att fånga och utelämna data från enheten på kommunikationssökvägen och Ersätt den med falska data som har verifierats med stulna nyckelmaterial.
+**Manipulering (T)**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att ersatta programmet utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla nyckeln Det fanns material olaglig programmet. Till exempel att en angripare kan utnyttja extraherade nyckelmaterial för att fånga och utelämna data från enheten på kommunikationssökvägen och Ersätt den med falska data som har verifierats med stulna nyckelmaterial.
 
 **Avslöjande av information (I)**: om enheten kör behandlas för programvara, behandlas programvaran potentiellt kan läcka ut data till obehöriga personer. Till exempel att en angripare kan utnyttja extraherade nyckelmaterial för att mata in sig i kommunikationssökvägen mellan enheten och en domänkontrollant eller fältet gateway eller molngateway till siphon av information.
 
 **Höjning av privilegier (E)**: en enhet som har en specifik funktion kan tvingas att göra något annat. En ventilen är programmerad att öppna halvvägs kan till exempel att öppna ända.
 
-| **Komponent** | **Hot** | **Mitigation** | **Risk** | **Implementering** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
 | Enhet |S |Tilldela identitet till enheten och autentisering av enheten |Ersätt enhet eller en del av enheten med en annan enhet. Hur vet du handlar på rätt enhet? |Autentisering av den enhet som använder Transport Layer Security (TLS) eller IPSec. Infrastrukturen ska ha stöd för med i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständig asymmetrisk kryptering. Använda Azure AD [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Tillämpa tamperproof mekanismer till enheten, till exempel genom att göra det svårt att det går inte att extrahera nycklar och andra kryptografiska material från enheten. |Risken är om någon är manipulation enheten (fysiska störningar). Hur vill du, enheten har inte ändrats. |Den mest effektiva begränsande faktorn är en betrodd platform module (TPM)-funktion som gör att lagra nycklar på särskilda-chip kretsar som nycklarna går inte att läsa, men kan endast användas för kryptografiska åtgärder som använder nyckeln men lämna aldrig ut nyckeln. Minne kryptering av enheten. Nyckelhantering för enheten. Koden för signering. | |
-| E |Med åtkomstkontroll på enheten. Auktoriseringsschema. |Om enheten kan för enskilda åtgärder som ska utföras baserat på kommandon från en extern källa eller även avslöjade sensorer kan angrepp att utföra åtgärder på ett annat tillgänglig. |Med auktoriseringsschema för enheten | |
-| Field Gateway |S |Autentisera fältet gateway till Molngateway (t ex cert, PSK, eller anspråk baserade.) |Om någon kan imitera fältet Gateway att den sig själv som en enhet. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Samma nyckel lagring och attestering gäller för enheter i allmänt – bästa möjliga är använda TPM. 6LowPAN tillägget för IPSec att stödja trådlösa Sensor nätverk (WSN). |
-| TRID |Skydda fältet Gateway mot manipulation (TPM)? |Bedrägeri som lura molnet gateway-tänka pratar till fältet gateway kan leda till avslöjande av information och data manipulation |Minne-kryptering, TPM'S, autentisering. | |
-| E |Åtkomstkontroll för fältet Gateway | | | |
+|| TRID |Tillämpa tamperproof mekanismer till enheten, till exempel genom att göra det svårt att det går inte att extrahera nycklar och andra kryptografiska material från enheten. |Risken är om någon är manipulation enheten (fysiska störningar). Hur vill du, enheten har inte ändrats. |Den mest effektiva begränsande faktorn är en betrodd platform module (TPM)-funktion som gör att lagra nycklar på särskilda-chip kretsar som nycklarna går inte att läsa, men kan endast användas för kryptografiska åtgärder som använder nyckeln men lämna aldrig ut nyckeln. Minne kryptering av enheten. Nyckelhantering för enheten. Koden för signering. | |
+|| E |Med åtkomstkontroll på enheten. Auktoriseringsschema. |Om enheten kan för enskilda åtgärder som ska utföras baserat på kommandon från en extern källa eller även avslöjade sensorer kan angrepp att utföra åtgärder på ett annat tillgänglig. |Med auktoriseringsschema för enheten | |
+| Fältet Gateway |S |Autentisera fältet gateway till Molngateway (t ex cert, PSK, eller anspråk baserade.) |Om någon kan imitera fältet Gateway att den sig själv som en enhet. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Samma nyckel lagring och attestering gäller för enheter i allmänt – bästa möjliga är använda TPM. 6LowPAN tillägget för IPSec att stödja trådlösa Sensor nätverk (WSN). |
+|| TRID |Skydda fältet Gateway mot manipulation (TPM)? |Bedrägeri som lura molnet gateway-tänka pratar till fältet gateway kan leda till avslöjande av information och data manipulation |Minne-kryptering, TPM'S, autentisering. | |
+|| E |Åtkomstkontroll för fältet Gateway | | | |
 
 Här följer några exempel på hot i den här kategorin:
 
@@ -172,13 +172,13 @@ Förfalskning: Kan en angripare extrahera kryptografiska nyckelmaterial från en
 
 **DOS-attack**: en enhet kan återges inte klarar fungerar eller kommunikation med stör alternativknapp frekvenser eller skärande kablar. Övervakning kamera som hade ström eller nätverket anslutningen avsiktligt blockerade rapportera inte exempelvis data, alls.
 
-**Manipulering**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla viktiga material var tillgänglig för olaglig program.
+**Manipulering**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att ersatta programmet utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla nyckeln Det fanns material olaglig programmet.
 
 **Manipulering**: kamera övervakning som visas en synliga spektrumet bild av ett tomt Hall kunde syftar på ett foto av sådana Hall. En rök eller brand sensor kunde reporting någon hålla en ljusare under den. I båda fallen enheten kan vara tekniskt fullständigt betrodd mot systemet, men den rapporterar behandlas för information.
 
 **Manipulering**: en angripare kan utnyttja extraherade nyckelmaterial för att fånga och utelämna data från enheten på kommunikationssökvägen och Ersätt den med falska data som har verifierats med stulna nyckelmaterial.
 
-**Manipulering**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla viktiga material var tillgänglig för olaglig program.
+**Manipulering**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla Det fanns viktiga material olaglig programmet.
 
 **Avslöjande av information**: om enheten kör behandlas för programvara, behandlas programvaran potentiellt kan läcka ut data till obehöriga personer.
 
@@ -200,13 +200,13 @@ Förfalskning: Kan en angripare extrahera kryptografiska nyckelmaterial från en
 
 Hot runt kommunikationssökvägen mellan enheter, enheter och fältet gateways och gateway-enhet och molnet. I följande tabell innehåller vägledning runt öppna sockets på enheten/VPN:
 
-| **Komponent** | **Hot** | **Mitigation** | **Risk** | **Implementering** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
 | Enheten IoT-hubb |TID |(D) TLS (PSK/RSA) att kryptera trafiken |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå. Du måste ta reda på hur du skyddar dem med anpassade protokoll. I de flesta fall sker kommunikationen från enheten till IoT-hubben (enheten inleder anslutningen). |
 | Enheten enhet |TID |(D) TLS (PSK/RSA) att kryptera trafiken. |Läsningen av data som överförs mellan enheter. Manipulation av data. Överbelastning enheten med nya anslutningar |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP. Du måste ta reda på hur du skyddar dem med anpassade protokoll. Lösning för DoS-hot är att peer-enheter via en moln- eller gateway och har endast act som klienter mot nätverket. Peering kan resultera i en direkt anslutning mellan peer-datorer efter att ha varit asynkrona av gateway |
 | Extern enhet enhet |TID |Stark länkning av den externa enheten till enheten |Avlyssning anslutningen till enheten. Stör enheten kommunikationen |Länkning av den externa enheten till enheten NFC/Bluetooth LE på ett säkert sätt. Kontrollera den operativa panelen på enheten (fysiska) |
 | Fältet Gateway Cloud Gateway |TID |TLS (PSK/RSA) att kryptera trafiken. |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP). Du måste ta reda på hur du skyddar dem med anpassade protokoll. |
-| Device Cloud Gateway |TID |TLS (PSK/RSA) att kryptera trafiken. |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP). Du måste ta reda på hur du skyddar dem med anpassade protokoll. |
+| Gateway för enhet moln |TID |TLS (PSK/RSA) att kryptera trafiken. |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP). Du måste ta reda på hur du skyddar dem med anpassade protokoll. |
 
 Här följer några exempel på hot i den här kategorin:
 
@@ -224,7 +224,7 @@ Här följer några exempel på hot i den här kategorin:
 
 Varje enhet och fältet gateway har någon form av lagring (tillfälliga för queuing data, operativsystem (OS) bildlagring).
 
-| **Komponent** | **Hot** | **Mitigation** | **Risk** | **Implementering** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
 | Enhetslagring |TRID |Lagringskryptering signering loggarna |Läsning av data från lagring (personligt identifierbar information data), manipulera telemetridata. Manipulera i kö eller cachelagrad kommandot kontrolldata. Manipulera konfiguration eller inbyggd programvara uppdateringspaket kan medan cachelagras eller köade lokalt leda till OS-och/eller system komponenter komprometteras |Kryptering, message authentication code (MAC) eller digital signatur. Möjligt, starkt åtkomstkontroll via resursåtkomst styra där listor (ACL) eller behörigheter. |
 | Enhetens OS-bild |TRID | |Manipulera OS / ersätta OS-komponenter |OS-partitionen är skrivskyddad, signerade OS-avbildning, kryptering |
@@ -237,7 +237,7 @@ En molngateway är system som aktiverar fjärrkommunikation från och till enhet
 
 Molngatewayen är främst anpassade inbyggda program som körs som en tjänst med exponerade slutpunkter som fältet gateway och enheter att ansluta. Det måste därför utformas med säkerhet i åtanke. Följ [SDL](http://www.microsoft.com/sdl) processer för att designa och skapa den här tjänsten.
 
-#### <a name="services-zone"></a>Services zone
+#### <a name="services-zone"></a>Zonen för tjänster
 
 Kontrollsystem (eller domänkontrollant) är en programvarulösning som har kontakt med en enhet eller en fältet gateway eller molngateway för att styra en eller flera enheter och/eller för att samla in och/eller lagra och analysera data på enheten för presentation eller efterföljande kontroll syften. System är endast enheter i omfånget för den här diskussionen som kan underlätta interaktion med personer omedelbart. Undantagen är mellanliggande fysisk kontroll på portalen innehåller på enheter som en växel som gör att en person för att stänga av enheten eller ändra andra egenskaper och där det inte finns ingen funktionell ekvivalent som kan nås digitalt.
 

@@ -17,10 +17,10 @@ ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 89a4216a3893892eedd6c216c7e0e5d51cf64749
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure skriva snabbtangenten för SAP-distributioner
 Azure skriva Accelerator är en funktion som hämtar lyfts för virtuella datorer M-serien exklusivt. Azure skriva Accelerator är inte tillgänglig i alla andra VM-serien i Azure, förutom M-serien. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. 

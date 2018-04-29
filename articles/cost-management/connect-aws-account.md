@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 109235718f085ea2912f601f0657e08230e3e91d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ansluta en Amazon Web Services-konto
 
@@ -91,7 +91,7 @@ Följande avsnitt beskriver hur du skapar en skrivskyddad användare för att ge
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Konfigurera AWS IAM användarbaserade åtkomst i kostnaden Management
 
-1. Öppna Cloudyn portalen från Azure-portalen eller navigera till https://azure.cloudyn.com/ och logga in.
+1. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com/ och logga in.
 2. Klicka på symbolen kugge och välj sedan **moln konton**.
 3. I hantering av konton, väljer du den **AWS konton** och klicka sedan på **Lägg till ny +**.
 4. För **kontonamn**, ange ett kontonamn.

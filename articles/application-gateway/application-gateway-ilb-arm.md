@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway med intern belastningsutjämnare - PowerShell | Microsoft Docs"
-description: "Den här sidan innehåller anvisningar för hur du skapar, konfigurerar, startar och tar bort en Azure-programgateway med en intern belastningsutjämnare (ILB) med hjälp av Azure Resource Manager"
+title: Azure Application Gateway med intern belastningsutjämnare - PowerShell | Microsoft Docs
+description: Den här sidan innehåller anvisningar för hur du skapar, konfigurerar, startar och tar bort en Azure-programgateway med en intern belastningsutjämnare (ILB) med hjälp av Azure Resource Manager
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 8d96af009055a5c0349f0ac17054bebee4e54d36
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dd6455622a7fecd99c23aef1b181035ffe6061dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Skapa en programgateway med en intern belastningsutjämnare (ILB) med hjälp av Azure Resource Manager
 
@@ -63,7 +63,7 @@ Glöm inte att byta PowerShell-läge så att du kan använda cmdlets för Azure 
 ### <a name="step-1"></a>Steg 1
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### <a name="step-2"></a>Steg 2

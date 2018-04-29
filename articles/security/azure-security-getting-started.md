@@ -3,8 +3,8 @@ title: Komma igång med Microsoft Azure-säkerhet | Microsoft Docs
 description: Den här artikeln innehåller en översikt över säkerhetsfunktionerna i Microsoft Azure och allmänna överväganden för organisationer som migrerar deras tillgångar till en molntjänstleverantör.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 8d8a0088-c85a-48e7-bd04-2bc7b78b0691
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Kom igång med Microsoft Azure-säkerhet
+
 När du skapar eller migrerar IT tillgångar till en molntjänstleverantör, måste den organisationens förmåga att skydda dina program och data med tjänster och de kontroller som de tillhandahåller för att hantera säkerheten för din molnbaserade tillgångar.
 
 Allt i Azures infrastruktur, från anläggning till tillämpningar, är utformat för att fungera som värd för miljoner kunder samtidigt, och den tillhandahåller en säker grund som företaget kan använda sig av för att möta de interna säkerhetsbehoven. Dessutom erbjuder Azure dig en mängd olika konfigurerbara säkerhetsalternativ samt möjligheten att kontrollera dem, så att du kan anpassa säkerheten för att uppfylla de specifika behoven hos dina distributioner.
@@ -31,6 +32,7 @@ I den här översiktsartikeln om Azure-säkerhet ska vi titta på följande:
 * Hur Microsoft skyddar Azure-infrastrukturen för att skydda dina data och program.
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
 Det är mycket viktigt att kontrollera åtkomsten till IT-infrastruktur, data och program. Microsoft Azure har funktioner för dessa tjänster som Azure Active Directory (Azure AD), Azure Storage och stöd för flera standarder och API: er.
 
 [Azure AD](../active-directory/active-directory-whatis.md) är en identitetsdatabas och motor som tillhandahåller autentisering, auktorisering och åtkomstkontroll för organisationens användare, grupper och objekt. Azure Active Directory erbjuder även utvecklare ett effektivt sätt att integrera identitetshantering i sina program. Standardiserade protokoll som [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), och [OpenID Connect](http://openid.net/connect/) gör möjligt logga in på plattformar som .NET, Java, Node.js och PHP.
@@ -38,6 +40,7 @@ Det är mycket viktigt att kontrollera åtkomsten till IT-infrastruktur, data oc
 Den REST-baserade Graph API:n gör det möjligt för utvecklarna att läsa och skriva till katalogen från valfri plattform. Med stöd för [OAuth 2.0](http://oauth.net/2/)utvecklare kan bygga mobila och webbprogram som integrerar med Microsoft och tredje parts webb-API: er och skapa egna säker web API: er. Klientbibliotek med öppen källkod är tillgängliga för .Net, Windows Store, iOS och Android, och ytterligare bibliotek är under utveckling.
 
 ### <a name="how-azure-enables-identity-and-access-management"></a>Möjligheter till identitets- och åtkomsthantering i Azure
+
 Azure AD kan användas som en fristående molnkatalog för din organisation eller som en integrerad lösning med en befintlig lokal Active Directory. Bland integrationsfunktionerna finns katalogsynkronisering och enkel inloggning (SSO). Dessa utöka räckvidden för din befintliga lokala identiteter till molnet och förbättra upplevelsen administratörs- och.
 
 Vissa andra funktioner för identitets- och åtkomsthantering är följande:
@@ -50,6 +53,7 @@ Vissa andra funktioner för identitets- och åtkomsthantering är följande:
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ger en hög tillgänglighet globala identity management-tjänst för konsumentinriktade program som kan skalas till flera hundra miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Dina användare kan logga in på alla program via anpassningsbara upplevelser genom att använda sina befintliga sociala konton eller genom att skapa nya autentiseringsuppgifter.
 
 ## <a name="data-access-control-and-encryption"></a>Dataåtkomstkontroll och kryptering
+
 Microsoft använder principerna för uppdelning av uppgifter (Separation of Duties) och [Minsta rättigheter](https://en.wikipedia.org/wiki/Principle_of_least_privilege) vid driften av Azure. Azure-supportteknikernas dataåtkomst kräver explicit behörighet från dig och beviljas på JIT-basis (Just-In-Time) som loggas och granskas och sedan återkallas när uppdraget har slutförts.
 
 Azure tillhandahåller också flera funktioner för att skydda data under överföring och i vila. Här ingår kryptering för data, filer, program, tjänster, kommunikation och enheter. Du kan kryptera information innan du placerar den i Azure och lagrar också nycklar i ditt lokala datacenter.
@@ -57,6 +61,7 @@ Azure tillhandahåller också flera funktioner för att skydda data under överf
 ![Microsoft Antimalware i Azure](./media/azure-security-getting-started/sec-azgsfig1.PNG)
 
 ### <a name="azure-encryption-technologies"></a>Azure-krypteringstekniker
+
 Du kan samla in information om administrativ åtkomst till din prenumerationsmiljö genom att använda [Azure AD Reporting](../active-directory/active-directory-reporting-audit-events.md). Du kan konfigurera [BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx) på virtuella hårddiskar som innehåller känslig information i Azure.
 
 Andra funktioner i Azure som hjälper dig att skydda dina data är följande:
@@ -70,6 +75,7 @@ Andra funktioner i Azure som hjälper dig att skydda dina data är följande:
 * Azure stöder och använder flera krypteringsmekanismer för, inklusive SSL/TLS, IPsec och AES, beroende på datatyper, behållare och transporter.
 
 ## <a name="virtualization"></a>Virtualisering
+
 Azure-plattformen använder en virtualiserad miljö. Användarinstanser fungerar som fristående virtuella datorer som inte har åtkomst till en fysisk värd-server och denna isolering tillämpas med hjälp av fysiska [behörighetsnivåer för processor (ring-0/ring-3)](https://en.wikipedia.org/wiki/Protection_ring).
 
 Ring 0 är den mest privilegierade och 3 är den minst privilegierade. Gästoperativsystemet som körs i en mindre privilegierad Ring 1 och program körs i den lägsta möjliga Ring 3. Den här virtualiseringen av fysiska resurser leder till en tydlig uppdelning mellan gästoperativsystem och hypervisor, vilket resulterar i ytterligare säkerhetsuppdelning mellan dessa två.
@@ -79,6 +85,7 @@ Azure hypervisor-programmet fungerar som en micro kernel och överför alla mask
 ![Microsoft Antimalware i Azure](./media/azure-security-getting-started/sec-azgsfig2.PNG)
 
 ### <a name="how-azure-implements-virtualization"></a>Hur virtualisering implementeras i Azure
+
 Azure använder en hypervisor-brandvägg (paketfilter) som är implementerad i hypervisor-programmet och konfigureras av en agent för fabric-styrenhet. Det skyddar klienter från obehörig åtkomst. Som standard all trafik blockeras när en virtuell dator skapas och fabric controller agenten konfigurerar sedan paketfilter att lägga till *regler och undantag* auktoriserade trafik ska tillåtas.
 
 Det finns två typer av regler som är programmerade här:
@@ -87,6 +94,7 @@ Det finns två typer av regler som är programmerade här:
 * **Rollen konfigurationsfilen**: Detta definierar den inkommande åtkomstkontrollistor (ACL) baserat på klientens modell. Till exempel om en klient har en frontwebb på port 80 på en viss virtuell dator, Azure öppnas TCP-port 80 till alla IP-adresser om du konfigurerar en slutpunkt i den [Azure klassiska distributionsmodellen](../azure-resource-manager/resource-manager-deployment-model.md). Om den virtuella datorn har en bakre end eller worker roll som körs, öppnas arbetsrollen endast till den virtuella datorn i samma klientorganisation.
 
 ## <a name="isolation"></a>Isolering
+
 Ett annat viktigt molnet säkerhetskrav är avgränsning för att förhindra obehörig och oavsiktliga överföring av information mellan distributioner i en delad arkitektur med flera innehavare.
 
 Azure implementerar [nätverk åtkomstkontroll](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) och ansvarsfördelning via VLAN-isolering, ACL: er och belastningsutjämning och IP-filter. Den begränsar externa trafiken inkommande portar och protokoll på virtuella datorer som du definierar. Azure implementerar nätverket filtrering för att förhindra falska trafik och begränsa inkommande och utgående trafik till betrodda platform-komponenter. Trafikflödesprinciper implementeras på gränsskyddsenheter som nekar trafik som standard.
@@ -98,6 +106,7 @@ NAT-funktionen (Network Address Translation) för nätverksöversättning använ
 Externa trafiken till virtuella datorer i Azure är med en brandvägg via ACL: er på routrar, belastningsutjämnare, och nivå 3-växlar. Enbart vissa kända protokoll är tillåtna. ACL: er är på plats för att begränsa trafik från virtuella gästdatorer till andra VLAN-nätverk som används för hantering. Dessutom kan begränsar trafik filtreras via IP-filter på värden OS ytterligare trafik på båda datalager för länk och nätverk.
 
 ### <a name="how-azure-implements-isolation"></a>Hur Azure implementerar isolering
+
 Azure-Infrastrukturkontrollanten ansvarar för att fördela infrastrukturresurser för att arbetsbelastningar-klient och den hanterar enkelriktad kommunikation mellan värden och virtuella datorer. Hypervisor-programmet i Azure tvingar minne och processen åtskillnad mellan virtuella datorer och den dirigerar nätverkstrafik på ett säkert sätt till innehavare för gäst-OS. Azure implementerar också isolering för klienter, lagring och virtuella nätverk.
 
 * Varje Azure AD-klient är logiskt isolerad med hjälp av säkerhetsgränser.
@@ -105,6 +114,7 @@ Azure-Infrastrukturkontrollanten ansvarar för att fördela infrastrukturresurse
 * Virtuella nätverk är logiskt isolerade genom en kombination av unika privata IP-adresser, brandväggar och IP-ACL: er. Belastningsutjämnarna dirigerar trafiken till lämpliga klienter baserat på slutpunktsdefinitionerna.
 
 ## <a name="virtual-networks-and-firewalls"></a>Virtuella nätverk och brandväggar
+
 Den [distribuerade och virtuella nätverk](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) i Azure hjälp att se till att privata nätverkstrafiken är logiskt isolerade från trafik på andra virtuella Azure-nätverk.
 
 ![Microsoft Antimalware i Azure](./media/azure-security-getting-started/sec-azgsfig4.PNG)
@@ -134,6 +144,7 @@ Du kan använda följande tekniker för Azure Virtual Network till att skydda ko
 * [**Säkerhetslösningar för partnernätverk**](https://azure.microsoft.com/marketplace/). Det finns ett antal säkerhetslösningar från partnerföretag nätverk som du kan komma åt från Azure Marketplace.
 
 ### <a name="how-azure-implements-virtual-networks-and-firewalls"></a>Hur Azure implementerar virtuella nätverk och brandväggar
+
 Azure implementerar filtrering av nätverkspaket brandväggar på alla värden och gästen virtuella datorer som standard. Windows OS-bilder från Azure Marketplace har också Windows-brandväggen är aktiverad som standard. Belastningsutjämnare i utkanten av Azure offentliga nätverk kontrollen kommunikation baserat på IP-ACL: er hanteras av kunden administratörer.
 
 Om Azure flyttar data för en kund som en del av den ordinarie driften eller under en katastrofhändelse, sker detta i privata och krypterade kommunikationskanaler. Andra funktioner som används av Azure ska användas i virtuella nätverk och brandväggar är:
@@ -145,6 +156,7 @@ Om Azure flyttar data för en kund som en del av den ordinarie driften eller und
 * **Virtuell nätverksgateway**: den [Azure virtuell nätverksgateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) fungerar som gateway mellan platser ansluter dina arbetsbelastningar i Azure-nätverk till lokala platser. Det krävs för att ansluta till lokala platser via [IPSec-tunnlar för plats-till-plats-VPN-](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), eller via [ExpressRoute](../expressroute/expressroute-introduction.md) kretsar. För IPsec/IKE VPN-tunnlar gateway utföra IKE-handskakningar på och upprätta IPsec S2S VPN-tunnlar mellan virtuella nätverk och lokala platser. Virtuella nätverksgatewayerna också avsluta [punkt-till-plats VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
 ## <a name="secure-remote-access"></a>Säker fjärråtkomst
+
 Data som lagras i molnet måste ha tillräckliga skydd aktiverade för att förhindra kryphål och upprätthålla sekretessen och integriteten under överföringen. Detta omfattar nätverkskontroller som integreras med en organisations principbaserade, granskningsbara identitets- och åtkomsthanteringsmekanismer.
 
 Med inbyggd kryptografisk teknik kan du kryptera kommunikation inom och mellan distributioner mellan Azure-regioner, samt från Azure till lokala datacenter. Administratörsåtkomst till virtuella datorer via [fjärrskrivbordssessioner](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [fjärransluten Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx), och Azure-portalen krypteras alltid.
@@ -152,11 +164,13 @@ Med inbyggd kryptografisk teknik kan du kryptera kommunikation inom och mellan d
 Om du vill utöka ditt lokala datacenter till molnet på ett säkert sätt, Azure tillhandahåller både [plats-till-plats VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) och [punkt-till-plats VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md), plus dedicerade länkar med [ExpressRoute](../expressroute/expressroute-introduction.md) (anslutningar till virtuella Azure-nätverk via VPN krypteras).
 
 ### <a name="how-azure-implements-secure-remote-access"></a>Hur Azure implementerar säker fjärråtkomst
+
 Anslutningar till Azure-portalen måste alltid autentiseras och de kräver SSL/TLS. Du kan konfigurera hanteringscertifikat för att aktivera säker hantering. Branschstandard säkerhet protokoll som [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) och [IPsec](https://en.wikipedia.org/wiki/IPsec) stöds fullt ut.
 
 Med [Azure ExpressRoute](../expressroute/expressroute-introduction.md) kan du skapa privata anslutningar mellan Azures datacenter och infrastruktur som finns lokalt eller i en samplaceringsmiljö. ExpressRoute-anslutningar går inte via offentligt Internet. De erbjuder flera tillförlitlighet, högre hastighet, lägre latens och högre säkerhet än vanliga Internetbaserade länkar. I vissa fall kan överföra data mellan lokala platser och Azure med hjälp av ExpressRoute-anslutningar kan också ge betydande kostnadsfördelar.
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
+
 Azure tillhandahåller autentiserade loggning av säkerhetsmässigt händelser som genererar en granskningslogg och den har utformats för att vara motståndskraftiga mot angrepp. Detta inkluderar Systeminformation, till exempel säkerhetshändelseloggar i Azure-infrastrukturen virtuella datorer och Azure AD. Övervakning av säkerhet omfattar att samla in händelser, t.ex ändringar i DHCP- eller DNS-serveradresser; Det gjordes ett försök åtkomst till portar, protokoll eller IP-adresser som har blockerats avsiktligt; ändringar i principen eller brandvägg säkerhetsinställningar. kontot eller grupp att skapa; och oväntade processer eller installation av drivrutiner.
 
 ![Microsoft Antimalware i Azure](./media/azure-security-getting-started/sec-azgsfig5.PNG)
@@ -164,6 +178,7 @@ Azure tillhandahåller autentiserade loggning av säkerhetsmässigt händelser s
 Granskningsloggar som registrerar åtkomst och aktiviteter för behöriga användare, behöriga och obehöriga åtkomstförsök, systemundantag och informationssäkerhetshändelser bevaras under en angiven tidsperiod. Du kan själv bestämma om du vill lagra loggarna eftersom du konfigurerar logginsamlingen och -lagringen utifrån dina egna behov.
 
 ### <a name="how-azure-implements-logging-and-monitoring"></a>Hur Azure implementerar loggning och övervakning
+
 Azure distribuerar hanteringsagenter (MA) och Azure Security Monitor-agenter (ASM) till varje beräknings-, lagrings- eller infrastrukturnod som hanteras, oavsett om de är interna eller virtuella. Varje hanteringsagent har konfigurerats för att autentisera till ett teamlagringskonto för tjänsten med ett certifikat som hämtas från Azure-certifikatarkivet och vidarebefordrar förkonfigurerade diagnostik- och händelsedata till lagringskontot. Dessa agenter distribueras inte till kundens virtuella datorer.
 
 Azure-administratörer använder loggar via en webbportal för autentiserad och kontrollerad åtkomst till loggarna. En administratör kan parsa, filtrera, korrelera och analysera loggar. Azure-tjänstteamets lagringskonton för loggar skyddas från direkt administratörsåtkomst för att förhindra manipulation av loggen.
@@ -173,11 +188,13 @@ Microsoft samlar in loggar från nätverksenheter som använder protokollet Sysl
 [Azure-diagnostik](https://msdn.microsoft.com/library/azure/gg433048.aspx) är en funktion i Azure som du kan använda för att samla in diagnostikdata från program som körs i Azure. Detta är diagnostikdata för felsökning och felsökning, mäta prestanda, övervaka Resursanvändning, trafik analys, kapacitetsplanering och granskning. När diagnostiska data har samlats in kan de överföras till ett Azure Storage-konto för att sparas. Överföringar kan antingen schemaläggas eller på begäran.
 
 ## <a name="threat-mitigation"></a>Migrering av hot
+
 Förutom isolering, kryptering och filtrering använder Azure ett antal hotminskningsmetoder och -processer för att skydda infrastruktur och tjänster. Dessa omfattar interna kontroller och tekniker som används för att identifiera och åtgärda avancerade hot, till exempel DDoS, privilegieeskalering och [OWASP topp 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 De processer för säkerhetskontroller och riskhantering som Microsoft har infört skyddar molninfrastrukturen och minskar risken för säkerhetsincidenter. Om en olycka inträffar är teamet säkerhet Incident Management (SIM) i Microsoft Online Services för säkerhet och kompatibilitet (OSSC) teamet redo att svara när som helst.
 
 ### <a name="how-azure-implements-threat-mitigation"></a>Hur Azure implementerar hotminskning
+
 Azure har säkerhetsåtgärder för att implementera hot minskning och som hjälper kunder att minimera potentiella hot i sina miljöer. I följande lista sammanfattas hot minskning funktionerna som erbjuds av Azure:
 
 * [Azure program mot skadlig kod](azure-security-antimalware.md) är aktiverad som standard på alla infrastrukturservrar. Du kan välja att den egna virtuella datorer.
@@ -187,6 +204,7 @@ Azure har säkerhetsåtgärder för att implementera hot minskning och som hjäl
 * Integrerade distributionssystem hanterar distribution och installation av säkerhetsuppdateringar över hela Azure-plattformen.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/)
 
 [Azure-säkerhetsteamets blogg](http://blogs.msdn.com/b/azuresecurity/)

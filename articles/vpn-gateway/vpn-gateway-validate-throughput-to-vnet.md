@@ -1,13 +1,13 @@
 ---
-title: "Verifiera VPN-genomströmning till ett Microsoft Azure-virtuellt nätverk | Microsoft Docs"
-description: "Syftet med det här dokumentet är att en användare verifiera genomströmningen i nätverket från sina lokala resurser till en virtuell Azure-dator."
+title: Verifiera VPN-genomströmning till ett Microsoft Azure-virtuellt nätverk | Microsoft Docs
+description: Syftet med det här dokumentet är att en användare verifiera genomströmningen i nätverket från sina lokala resurser till en virtuell Azure-dator.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Hur du verifierar VPN-genomströmning till ett virtuellt nätverk
 
@@ -121,7 +121,7 @@ Hämta [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Mer i
 ## <a name="address-slow-file-copy-issues"></a>Åtgärda problem med långsam kopia
 Det kan uppstå långsam filen kopieringen när Utforskaren eller dra och släppa via en RDP-session. Det här problemet beror normalt på en eller båda av följande faktorer:
 
-- Kopiera program, till exempel Utforskaren och RDP-filen kan inte använda flera trådar när du kopierar filer. För bättre prestanda, Använd ett flertrådat filen kopiera program som [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) att kopiera filer med hjälp av 16 eller 32 trådar. Så här ändrar du numret tråd filkopiering i Richcopy **åtgärd** > **kopiera alternativ** > **filkopieringen**.<br><br>
+- Kopiera program, till exempel Utforskaren och RDP-filen kan inte använda flera trådar när du kopierar filer. För bättre prestanda, Använd ett flertrådat filen kopiera program som [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) att kopiera filer med hjälp av 16 eller 32 trådar. Så här ändrar du numret tråd filkopiering i Richcopy **åtgärd** > **kopiera alternativ** > **filkopieringen**.<br><br>
 ![Problem med långsam filens kopia](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Otillräcklig VM disk läsning och skrivning hastighet. Mer information finns i [felsökning av Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 

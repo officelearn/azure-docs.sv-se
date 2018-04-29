@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3652e26bb775ae6ac1897bea529e7ae69d77cdbd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som är bra för relationsdatabas servrar, medelstora till stora cacheminnen och analyser i minnet. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -22,8 +22,9 @@ Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som �
 
 * Virtuella datorer i D-serien är utformade för att köra program som kräver högre beräkningskraft och tillfälliga diskprestanda. Virtuella datorer i D-serien erbjuder snabbare processorer, högre ”minne till virtuell processor”-förhållande och en Solid State-hårddisk (SSD) för temporär lagring. Mer information finns i inlägget om [nya storlekar för virtuella datorer i D-serien](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) i Azure-bloggen.
 
-* Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den baseras på den senaste generationens 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell) och kan uppnå 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+* Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationen 2,4 GHz Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) eller E5 2673 v4 2,3 GHz (Broadwell) processorer, och med Intel Turbo förstärkningen teknik 2.0 kan gå upp till 3.1 GHz. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
+* Ev3-serien funktioner E5-2673 v4 2,3 GHz (Broadwell) processor i en hyper-threaded konfiguration för att ge en bättre lösning där värdet för den mest allmänna ändamål arbetsbelastningar och ta Ev3 justeras mot generella virtuella datorer med de flesta andra moln.  Minne har expanderats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk- och gränser har justerats på grundval av per core ska justeras med övergången till hypertrådar.  Ev3 är Följ upp till höga minnesområdet VM-storlekar D/Dv2 familjer.
 
 ## <a name="esv3-series-sup1sup"></a>Esv3-serien <sup>1</sup>
 

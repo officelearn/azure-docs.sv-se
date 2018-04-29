@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb37ce7e61796494be0a9282afdc620b0ca5886a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hur du gör bevis tillgång för X.509-certifikat med din enhet etablering av tjänst
 
@@ -58,7 +58,7 @@ Microsoft tillhandahåller verktyg och exempel som kan hjälpa dig att skapa ett
 
 - Den **Azure IoT-hubb C SDK** ger PowerShell (Windows) och (Linux) för Bash-skript för att skapa CA och lägsta certifikat för utveckling och utföra med en Verifieringskod bevis-för-tillgång. Du kan hämta den [filer](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) i systemet till en arbetsmapp och följ instruktionerna i den [hantera CA-certifikat viktigt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) att utföra bevis av tillgång på ett CA-certifikat. 
 - Den **Azure IoT-hubb C# SDK** innehåller den [grupp certifikat verifiering exempel](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), som du kan använda för att göra bevis av tillgång.
-- Du kan följa stegen i den [PowerShell-skript för att hantera CA-signerat X.509-certifikat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) artikel i dokumentationen för IoT-hubb specifikt skriptet som anges i avsnittet [konceptbevis tillgång till din X.509-certifikatutfärdarcertifikat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
+- Du kan följa stegen i den [PowerShell-skript för att hantera CA-signerat X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) artikel i dokumentationen för IoT-hubb specifikt skriptet som anges i avsnittet [konceptbevis tillgång till din X.509-certifikatutfärdarcertifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
 > [!IMPORTANT]
 > Förutom att utföra bevis av tillgång, kan PowerShell och Bash-skript åberopade tidigare också du skapa rotcertifikat och mellanliggande certifikat löv certifikat som kan användas för att autentisera och etablera enheter. Dessa certifikat ska användas för endast utveckling. De ska aldrig användas i en produktionsmiljö. 

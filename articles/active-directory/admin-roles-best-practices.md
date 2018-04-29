@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -240,7 +240,7 @@ Kräver C suite chefer, övergripande chefer, kritiska IT och säkerhet personal
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Använda dedicerade arbetsstationer för administration för Azure AD
 
-Angripare kan försöka mål Privilegierade konton för att få åtkomst till företagets data och datorer så att de kan störa integritet och verifiering av data via skadlig kod som ändrar funktionaliteten för programmet eller snoops administratören att ange autentiseringsuppgifter. Privilegierad åtkomst arbetsstationer (PAWs) innehåller ett dedikerat operativsystem känsliga som skyddas från Internet-attacker och hotvektorer. Avgränsa dessa känsliga uppgifter och konton från dagligen använder arbetsstationer och enheter ger mycket starkt skydd från nätfiskeattacker, program och OS säkerhetsrisker, olika personifiering attacker och autentiseringsuppgifter stöld av attacker som tangenttryckning loggning, Pass-the-Hash och Pass-The-Ticket. Du kan minska risken att administratörer ange administratörsautentiseringsuppgifter utom på en Skrivbordsmiljö som har varit härdat genom att distribuera arbetsstationer med privilegierad åtkomst. Mer information finns i [arbetsstationer med privilegierad åtkomst](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Angripare kan försöka mål Privilegierade konton för att få åtkomst till företagets data och datorer så att de kan störa integritet och verifiering av data via skadlig kod som ändrar funktionaliteten för programmet eller snoops administratören att ange autentiseringsuppgifter. Privilegierad åtkomst arbetsstationer (PAWs) innehåller ett dedikerat operativsystem känsliga som skyddas från Internet-attacker och hotvektorer. Avgränsa dessa känsliga uppgifter och konton från dagligen använder arbetsstationer och enheter ger mycket starkt skydd från nätfiskeattacker, program och OS säkerhetsrisker, olika personifiering attacker och autentiseringsuppgifter stöld av attacker som tangenttryckning loggning, Pass-the-Hash och Pass-The-Ticket. Du kan minska risken att administratörer ange administratörsautentiseringsuppgifter utom på en Skrivbordsmiljö som har varit härdat genom att distribuera arbetsstationer med privilegierad åtkomst. Mer information finns i [arbetsstationer med privilegierad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Granska National Institute of Standards och teknik rekommendationer för hantering av incidenter 
 

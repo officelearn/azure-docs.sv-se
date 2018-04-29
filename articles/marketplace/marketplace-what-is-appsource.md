@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbe859a2d069a20ba2e02d009dfb99b6126f8dea
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-appsource"></a>Vad är AppSource
 AppSource gör Microsoft-partner att göra sin teknik och tjänster kan upptäckas för kunder via en Microsoft-stödda onlinebutik. Som en AppSource utgivare kontaktar du företagsanvändare på AppSource att hitta, försök och hämta line-of-business SaaS-program, samt implementeringstjänster för att enheten verksamhetsresultat och minska tid-värde: 
@@ -42,23 +42,23 @@ Via AppSource, kan du visa ett program eller rådgivning erbjudande som hjälper
 *   **Office 365**: en modern arbetsplats i molnet. Samarbeta kostnadsfritt med Microsoft Word, PowerPoint, Excel och OneNote.
 
 ### <a name="office-365"></a>Office 365
-Program för Office är nu tillgängliga i AppSource! Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store "Office 365 - AppSource").
+Program för Office är nu tillgängliga i AppSource! Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store "Office 365 - AppSource").
 
 ### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 för ekonomi och åtgärder
-När du bygger för Enterprise Edition, granska den [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource").  
+När du bygger för Enterprise Edition, granska den [publicering processen och riktlinjer](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource").  
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 för kunden Engagement
-Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource").
+Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource").
 
 ### <a name="power-bi"></a>Power BI
-Skapa anpassad visuell information och göra dem tillgängliga via AppSource. Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/power-bi/developer/office-store "Power BI - AppSource").
+Skapa anpassad visuell information och göra dem tillgängliga via AppSource. Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/power-bi/developer/office-store "Power BI - AppSource").
 
 ### <a name="consulting-offers"></a>Samråd erbjudanden
 Om du tillhandahåller tjänster för att hjälpa kunderna underlätta Digitala transformation eller implementera en lösning eller ett program kan du erbjuda den här tjänsten som en rådgivning erbjudandet på AppSource. 
 [Granska riktlinjerna och lära dig hur du skickar in erbjudandet](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource - Partner lista riktlinjer").
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
-[Cortana Intelligence AppSource publiceringsguide](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - publicering guide")
+[Cortana Intelligence AppSource publiceringsguide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - publicering guide")
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 Vissa AppSource storefront program krävs för att integrera med Azure Active Directory (AD Azure) som ska publiceras. Programmet integrering med Azure AD är väl dokumenterat; Microsoft erbjuder flera SDK: er och ytterligare resurser för att uppfylla dina behov. 
@@ -76,17 +76,17 @@ Vissa AppSource storefront program krävs för att integrera med Azure Active Di
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabell: AppSource erbjudanden som kräver Azure Active Directory-integrering
 
 Från början, rekommenderar vi att **du ställa in en särskild prenumeration för Azure Marketplace-publicering*** gör att du kan isolera ditt arbete från din andra initiativ. Om du inte redan har installerat följande verktyg sedan rekommenderar vi dessutom att följande verktyg läggs till utvecklingsmiljön: 
-*   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
-*   [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell – Azure")
+*   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
+*   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell – Azure")
 *   Granska de tillgängliga verktygen i den [Azure utvecklingsverktyg](https://azure.microsoft.com/tools/ "Azure - utvecklingsverktyg") sidan
 *   [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code - huvud")
 
 I komma igång med Azure AD, finns följande länkar dina bästa resurser: 
 
 **Dokumentation**
-*   [Azure Active Directory-guide för utvecklare](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide "Azure AD - guide för utvecklare")
-*   [Integrera med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate "integrera - Azure AD")
-*   [Integrera program med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications "integrera program - Azure AD")
+*   [Azure Active Directory-guide för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide "Azure AD - guide för utvecklare")
+*   [Integrera med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate "integrera - Azure AD")
+*   [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications "integrera program - Azure AD")
 *   [Plan för Azure - säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity "plan för Azure - säkerhet och identitet")
 
 **Videoklipp**

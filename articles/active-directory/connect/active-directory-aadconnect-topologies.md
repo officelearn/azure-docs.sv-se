@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokalt och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller både stöds och som inte stöds.
@@ -44,7 +44,7 @@ Här är förklaring för bilder i artikeln:
 ## <a name="single-forest-single-azure-ad-tenant"></a>Enkel skog, ett Azure AD-klient
 ![Topologi för en enda skog och en enskild klient](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-Den vanligaste topologin är en enda lokal skog, med en eller flera domäner och en enda Azure AD-klient. Synkronisering av lösenord används för Azure AD-autentisering. Snabbinstallation av Azure AD Connect har stöd för den här topologin.
+Den vanligaste topologin är en enda lokal skog, med en eller flera domäner och en enda Azure AD-klient. Synkronisering av lösenords-hash används för Azure AD-autentisering. Snabbinstallation av Azure AD Connect har stöd för den här topologin.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Enkel skog, flera synkroniseringsservrar till en Azure AD-klient
 ![Filtrerade topologi i stöds inte för en enskild skog](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +64,7 @@ Vanliga topologier beskrivs i avsnitten om [separata topologier](#multiple-fores
 
 Standardkonfigurationen i Azure AD Connect-synkronisering förutsätter:
 
-* Varje användare har bara ett aktiverat konto och skogen där det finns det här kontot används för att autentisera användaren. Detta antagande används för både Lösenordssynkronisering och federation. UserPrincipalName och sourceAnchor/immutableID komma från den här skogen.
+* Varje användare har bara ett aktiverat konto och skogen där det finns det här kontot används för att autentisera användaren. Detta antagande används för synkronisering av lösenords-hash, direktautentisering och federation. UserPrincipalName och sourceAnchor/immutableID komma från den här skogen.
 * Varje användare har en postlåda.
 * Skogen som är värd för postlådan för en användare har bästa data kvalitet för attribut som visas i den Exchange globala adresslistan (GAL). Om det inte finns någon postlåda för användaren, användas en skog för att bidra attributvärdena.
 * Om du har en länkad postlåda finns även ett konto i en annan skog som används för inloggning.
@@ -157,7 +157,7 @@ Den här topologin har följande begränsningar för annars scenarier som stöds
 
 * Endast en av Azure AD-klienter kan aktivera en Exchange-hybrid med lokala Active Directory-instans.
 * Windows 10-enheter kan associeras med endast en Azure AD-klient.
-* Enkel inloggning (SSO) alternativet för synkronisering och direkt lösenordsautentisering kan användas med endast en Azure AD-klient.
+* Enkel inloggning (SSO) alternativet för hash-synkronisering och direkt lösenordsautentisering kan användas med endast en Azure AD-klient.
 
 Krav för en ömsesidigt uteslutande uppsättning objekt gäller även för tillbakaskrivning. Vissa funktioner för tillbakaskrivning stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Funktionerna är:
 

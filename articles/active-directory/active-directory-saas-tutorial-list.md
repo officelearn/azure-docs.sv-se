@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 04/27/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 99dcb29d4f812ed2177b4144e1fe0c0f758b79d9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 139ee04d0a77dde826eed74f11b5338ea2870429
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrering av SaaS-program med Azure Active Directory
 
@@ -78,6 +78,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-atomiclearning-tutorial.png)| [Atomiska Learning](active-directory-saas-atomiclearning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-attendancemanagementservices-tutorial.png)| [Närvaro hanteringstjänster](active-directory-saas-attendancemanagementservices-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Autotask arbetsplats](active-directory-saas-autotaskworkplace-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-awardspring-tutorial.png)| [AwardSpring](active-directory-saas-awardspring-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-bamboo-hr-tutorial.png)| [BambooHR](active-directory-saas-bamboo-hr-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-bambubysproutsocial-tutorial.png)| [Bambu av huvudet Social](active-directory-saas-bambubysproutsocial-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC i molnet](active-directory-saas-bcinthecloud-tutorial.md)|
@@ -134,7 +135,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-confluencemicrosoft-tutorial.png)| [Antal samverkande SAML SSO av Microsoft](active-directory-saas-confluencemicrosoft-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-contractworks-tutorial.png)| [ContractWorks](active-directory-saas-contractworks-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-convercent-tutorial.png)| [Convercent](active-directory-saas-convercent-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cornerstone-ondemand-tutorial.png)| [Hörnstenarna OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|[Hörnstenarna OnDemand - Användaretablering](active-directory-saas-successcenter-provisioning-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cornerstone-ondemand-tutorial.png)| [Hörnstenarna OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|[Hörnstenarna OnDemand - Användaretablering](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-coupa-tutorial.png)| [Coupa](active-directory-saas-coupa-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cs-stars-tutorial.png)| [CS stjärnor](active-directory-saas-cs-stars-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cylanceprotect-tutorial.png)| [CylancePROTECT](active-directory-saas-cylanceprotect-tutorial.md)|
@@ -220,6 +221,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-imagerelay-tutorial.png)| [Bild Relay](active-directory-saas-imagerelay-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-imageworks-tutorial.png)| [BILD FUNGERAR](active-directory-saas-imageworks-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [IMPAC Risk Manager](active-directory-saas-impacriskmanager-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-infogix-tutorial.png)| [Infogix Data3Sixty styr](active-directory-saas-infogix-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor Retail â informationshantering](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-inkling-tutorial.png)| [Inkling](active-directory-saas-inkling-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](active-directory-saas-innotas-tutorial.md)|
@@ -482,12 +484,13 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](active-directory-saas-workstars-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](active-directory-saas-xaitporter-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|[xMatters OnDemand - Användaretablering](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-yardielearning-tutorial.png)| [Yardi e](active-directory-saas-yardielearning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne](active-directory-saas-yardione-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](active-directory-saas-yodeck-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx interaktiva guider](active-directory-saas-yonyx-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|[Zendesk - Användaretablering](active-directory-saas-zendesk-provisioning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-ziflow-tutorial.png)| [Ziflow](active-directory-saas-ziflow-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zivver-tutorial.png)| [ZIVVER](active-directory-saas-zivver-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho](active-directory-saas-zoho-mail-tutorial.md)|

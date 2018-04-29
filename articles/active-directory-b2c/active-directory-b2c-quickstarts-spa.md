@@ -1,6 +1,6 @@
 ---
-title: Testköra ett enkelsidigt Azure AD B2C-aktiverat program
-description: Snabbstart för att prova ett exempel på ett enkelsidigt program som använder Azure Active Directory B2C till att autentisera och registrera användare.
+title: Snabbstart - Ställ in inloggning för en enda sida-app med Azure Active Directory B2C | Microsoft Docs
+description: Kör ett exempelprogram för en sida som använder Azure Active Directory B2C för att tillhandahålla inloggning konto.
 services: active-directory-b2c
 documentationcenter: ''
 author: davidmu1
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Snabbstart: Testköra ett enkelsidigt Azure AD B2C-aktiverat program
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart: Ställ in inloggning för en enda sida-app med Azure Active Directory B2C
 
 Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i molnet för att skydda dina program, ditt företag och dina kunder. Med Azure AD B2C kan appar autentisera med konton på sociala medier och företagskonton med öppna protokoll.
 

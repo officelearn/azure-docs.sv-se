@@ -1,11 +1,11 @@
 ---
-title: "Logga analysfunktioner för tjänstleverantörer | Microsoft Docs"
-description: "Logganalys hjälper hanteras tjänsteleverantörer (MSPs), stora företag oberoende programvara leverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens lokala eller molninfrastruktur."
+title: Logga analysfunktioner för tjänstleverantörer | Microsoft Docs
+description: Logganalys hjälper hanteras tjänsteleverantörer (MSPs), stora företag oberoende programvara leverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens lokala eller molninfrastruktur.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Log Analytics funktioner för leverantörer
 Logganalys hjälper hanterade tjänsteleverantörer (MSPs), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens lokala eller molninfrastruktur. 
@@ -40,7 +40,7 @@ Som en *leverantör* kan du:
 Du måste ange klient-ID för att logga in till en klient prenumeration. Klient-ID är ofta den sista delen av e-postadressen används för att logga in.
 
 * Lägg till i OMS-portalen `?tenant=contoso.com` i URL: en för portalen. Till exempel, `mms.microsoft.com/?tenant=contoso.com`
-* I PowerShell använder den `-Tenant contoso.com` parameter när du använder `Add-AzureRmAccount` cmdlet
+* I PowerShell använder den `-Tenant contoso.com` parameter när du använder `Connect-AzureRmAccount` cmdlet
 * Klient-ID läggs till automatiskt när du använder den `OMS portal` länk från Azure portal för att öppna och logga in på OMS-portalen för den valda arbetsytan
 
 Som en *kunden* av en leverantör kan du:

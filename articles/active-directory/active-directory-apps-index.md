@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -186,7 +186,7 @@ Azure AD-åtkomstpanelen är där slutanvändarna kan starta sina appar och åtk
 | En jämförelse av de olika alternativ som är tillgängliga för distribution av appar för enkel inloggning för användare |[Distribuera Azure AD-integrerade program till användare](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Hur du kommer åt Azure AD-appar från Office 365-webbplatsen |[Med hjälp av Office 365 App starta](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Hur du kommer åt Azure AD-appar med djuplänkar för att initiera enkel inloggning |[Hämta inloggning Direktlänkar till dina appar](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Åtkomstpanelen är tillgänglig för [alla utgåvor av Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).

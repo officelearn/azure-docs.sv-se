@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute
 
@@ -43,10 +43,10 @@ Du kan:
 
 Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en arbetsyta som ligger på något av följande områden:
 
-* Europa, västra
+* Västra Europa
 * Västra centrala USA
-* USA, östra 
-* Asien, sydöstra 
+* Östra USA 
+* Sydostasien 
 * Syd Östra Australien
 
 >[!NOTE]
@@ -73,7 +73,7 @@ Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circ
 1. I den [Azure-portalen](https://portal.azure.com), Välj den prenumeration som har Vnet peerkoppla till ExpressRoute-krets. Sök i listan över tjänster i den **Marketplace** för 'Network Performance Monitor'. Återkommer, klicka för att öppna den **Network Performance Monitor** sidan.
 
    >[!NOTE]
-   >Du kan skapa en ny arbetsyta eller Använd en befintlig arbetsyta.  Om du vill använda en befintlig arbetsyta måste du kontrollera att arbetsytan har migrerats till det nya språket i fråga. [Mer information...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Du kan skapa en ny arbetsyta eller Använd en befintlig arbetsyta.  Om du vill använda en befintlig arbetsyta måste du kontrollera att arbetsytan har migrerats till det nya språket i fråga. [Mer information...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
   >
   
   >[!NOTE]
-  >Agenter pushas av SCOM (omfattar [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) kanske inte kan identifiera deras plats konsekvent om de finns i Azure.  Vi rekommenderar att du inte använder de här agenterna i virtuella Azure-nätverk för att övervaka ExpressRoute.
+  >Agenter pushas av SCOM (omfattar [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) kanske inte kan identifiera deras plats konsekvent om de finns i Azure.  Vi rekommenderar att du inte använder de här agenterna i virtuella Azure-nätverk för att övervaka ExpressRoute.
   >
   >
 

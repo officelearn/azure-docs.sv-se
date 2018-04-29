@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2018
+ms.date: 04/25/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: 03fa2862bbce39ac9ee6b7da02bd93b02b05f216
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dd2446fda204f4026ac8080c658ca1aa9419f1bd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervaknings- och diagnostikfunktionerna för Azure Service Fabric
 
@@ -33,19 +33,20 @@ Programövervakning spårar hur funktioner och komponenter i programmet används
 
 Service Fabric stöder många alternativ kan instrumentera programkoden med rätt spårningar och telemetri. Vi rekommenderar att du använder Application Insights (AI). AIS integrering med Service Fabric innehåller tooling upplevelser för Visual Studio och Azure portal samt Service Fabric specifika mått, vilket ger en miljö med omfattande out box-loggning. Även om många loggar skapas automatiskt och samlas in för dig med AI, rekommenderar vi att du lägger till ytterligare anpassad loggning för dina program för att skapa en rikare upplevelse för diagnostik. Läs mer om att komma igång med Application Insights med Service Fabric på [händelseanalys med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
-![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
-
 ## <a name="platform-cluster-monitoring"></a>Övervakning av plattform (kluster)
 Övervaka Service Fabric-kluster är viktigt att säkerställa att plattformen och alla arbetsbelastningar körs som avsett. Ett av målen för Service Fabric är att hålla program motståndskraftiga mot maskinvarufel. Det här målet uppnås via plattformens system services möjlighet att identifiera problem för infrastruktur och snabbt redundans arbetsbelastningar till andra noder i klustret. Men i det här fallet vad händer om systemtjänster själva har problem? Eller om du vid försöket att flytta en arbetsbelastning, reglerna för placering av tjänster har brutits? Övervaka klustret kan du hålla dig informerad om aktiviteter som äger rum i din kluster, vilket hjälper till att diagnostisera problem och åtgärda dem effektivt. Det finns några viktiga saker som du vill efter:
 * Service Fabric fungerar som förväntat när det gäller att placera dina program och nätverksbelastning runt klustret? 
 * Vidtas användaråtgärder på ditt kluster bekräftas och köras på som förväntat? Detta är särskilt relevanta när skalning ett kluster.
 * Service Fabric hanterar dina data och din tjänst-tjänst kommunikation inom klustret korrekt?
 
-Service Fabric ger en omfattande uppsättning händelser direkt via drift och Data & Messaging kanaler. I Windows, dessa är i form av en enskild ETW-provider med en uppsättning relevanta `logLevelKeywordFilters` används för att välja mellan olika kanaler. På Linux för, alla plattformar händelser kommer via LTTng och placeras i en tabell från där de kan filtreras efter behov. 
+Service Fabric ger en omfattande uppsättning händelser direkt. Dessa [Service Fabric händelser](service-fabric-diagnostics-events.md) kan nås via EventStore APIs eller operativa kanalen (händelse kanal som exponeras av plattform). 
+* EventStore - EventStore (tillgänglig i Windows i version 6.2 och senare, Linux fortfarande pågår från och med den här artikeln datum för senaste uppdatering), visar dessa händelser via en uppsättning API: er (tillgänglig via REST-slutpunkter eller via klientbiblioteket). Läs mer om EventStore på den [EventStore översikt](service-fabric-diagnostics-eventstore.md).
+* Service Fabric kanaler – Windows-Service Fabric-Händelsemodul är tillgängliga från en enskild ETW-provider med en uppsättning relevanta `logLevelKeywordFilters` används för att välja mellan drift och Data & Messaging kanaler – detta är det sätt som vi skilja ut utgående Service Fabric-händelser som ska filtreras på efter behov. På Linux, Service Fabric händelser kommer via LTTng och placeras i en tabell för lagring, från där de kan filtreras efter behov. Dessa kanaler innehålla granskat, strukturerade händelser som kan användas för att bättre förstå tillståndet för klustret. Diagnostik är aktiverade som standard när klustret skapas, som skapar en tabell för Azure Storage där händelser från dessa kanaler skickas att fråga i framtiden. 
 
-Dessa kanaler innehålla granskat, strukturerade händelser som kan användas för att bättre förstå tillståndet för klustret. Diagnostik är aktiverade som standard när klustret skapas, som skapar en tabell för Azure Storage där händelser från dessa kanaler skickas att fråga i framtiden. Du kan läsa mer om hur du övervakar klustret på [plattform nivån händelse och logga generation](service-fabric-diagnostics-event-generation-infra.md).
+Vi rekommenderar att du använder EventStore för snabb analys och för att få en ögonblicksbild uppfattning av hur klustret fungerar och om saker händer som förväntat. För att samla in loggar och händelser som genereras av klustret, normalt bör du använda den [Azure Diagnostics tillägget](service-fabric-diagnostics-event-aggregation-wad.md). Detta kan integreras med Service Fabric Analytics, OMS Log Analytics Service Fabric specifika lösning som innehåller en anpassad instrumentpanel för övervakning av Service Fabric-kluster och du kan fråga din klusterhändelser och konfigurera aviseringar. Läs mer om detta i [händelseanalys med OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
-För att samla in loggar och händelser som genereras av klustret, normalt bör du använda den [Azure Diagnostics tillägget](service-fabric-diagnostics-event-aggregation-wad.md). Detta kan integreras med OMS Log Analytics Service Fabric-specifik lösning Service Fabric Analytics, som tillhandahåller en anpassad instrumentpanel för övervakning av Service Fabric-kluster och kan du fråga din klusterhändelser och ställa in aviseringar. Läs mer om detta i [händelseanalys med OMS](service-fabric-diagnostics-event-analysis-oms.md). 
+ Du kan läsa mer om hur du övervakar klustret på [plattform nivån händelse och logga generation](service-fabric-diagnostics-event-generation-infra.md).
+
 
  ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 

@@ -1,19 +1,19 @@
 ---
-title: Snabbstart för Azure – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure Storage Explorer | Microsoft Docs
-description: I den här snabbstarten använder du Azure Storage Explorer för att skapa ett lagringskonto och en behållare. Du använder sedan Storage Explorer för att ladda upp en blob till Azure Storage och lista blobarna i en behållare.
+title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Azure Storage Explorer | Microsoft Docs
+description: I den här snabbstarten använder du Azure Storage Explorer i objektlagring (Blob). Du använder sedan Storage Explorer för att ladda upp en blob till Azure Storage och lista blobarna i en behållare.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Storage Explorer
 

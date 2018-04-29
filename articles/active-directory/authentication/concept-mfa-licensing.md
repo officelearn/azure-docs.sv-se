@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 5fbc42d11ccb9a36ce146deca173526536c9fc9e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: c5ed3674c724b30962fbd52b9955ec89c35745d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Hur du hämtar Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ Följande tabell innehåller en lista över funktioner som är tillgängliga i d
 | MFA för lokala program | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Aktivera Azure Multi-Factor Authentication för Azure AD-administratörer
-Användare som har tilldelats rollen Global administratör i Azure AD-klienter kan aktivera tvåstegsverifiering för sina Azure AD globala administratörskonton utan extra kostnad. Om du använder ett Account, kan du registrera för multifaktorautentisering [här](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Om du inte använder ett Account, aktivera multifaktorautentisering för globala administratörer [här](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+Användare som har tilldelats rollen Global administratör i Azure AD-klienter kan aktivera tvåstegsverifiering för sina Azure AD globala administratörskonton utan extra kostnad. Om du använder ett Account, kan du registrera för multifaktorautentisering [här](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Om du inte använder ett Account, aktivera multifaktorautentisering för globala administratörer [här](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Hur du hämtar Azure Multi-Factor Authentication
 Om du vill att alla funktioner som erbjuds av Azure Multi-Factor Authentication, finns det flera alternativ:

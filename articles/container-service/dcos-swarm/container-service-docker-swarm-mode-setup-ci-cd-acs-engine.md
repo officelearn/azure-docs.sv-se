@@ -1,19 +1,19 @@
 ---
-title: "CI/CD med Azure Container Service-motorn och Swarm-läge"
-description: "Använda Azure Container Service-motorn med Docker Swarm-läge, ett Azure Container registret och Visual Studio Team Services för att leverera kontinuerligt ett program för flera behållare .NET Core"
+title: CI/CD med Azure Container Service-motorn och Swarm-läge
+description: Använda Azure Container Service-motorn med Docker Swarm-läge, ett Azure Container registret och Visual Studio Team Services för att leverera kontinuerligt ett program för flera behållare .NET Core
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Fullständig CI/CD-pipelinen för att distribuera ett program för flera behållare på Azure Container Service med ACS-motorn och Docker Swarm-läge med hjälp av Visual Studio Team Services
 
@@ -43,7 +43,7 @@ Här följer en kort beskrivning av steg:
 7. Docker Swarm-läge på klustret hämtar den senaste versionen av avbildningar 
 8. Den nya versionen av programmet distribueras med Docker-stacken 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar de här självstudierna måste du utföra följande uppgifter:
 
@@ -218,7 +218,7 @@ Arbetsflödet versionen består av två aktiviteter som du lägger till.
 
 1. Konfigurera en aktivitet för att på ett säkert sätt kopiera skriva filen till en *distribuera* mapp på Docker Swarm huvudnoden, med hjälp av SSH-anslutningen som du tidigare konfigurerat. Se följande skärm för mer information.
     
-    Källmapp:```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
+    Källmapp: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
     ![Visual Studio Team Services - versionen SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 

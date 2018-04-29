@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -32,7 +32,7 @@ Elastiska pooler lösa detta problem genom att säkerställa att databaser får 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastiska pooler kan utvecklare att köpa resurser för en pool som delas av flera databaser för oväntade perioder med användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#dtu-based-purchasing-model) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Resurskrav för en pool bestäms av den sammanlagda användningen av databaserna. Mängden resurser som är tillgängliga för poolen styrs av utvecklare budget. Utvecklaren bara lägger till databaserna i poolen, anger de lägsta och högsta resurserna för databaserna (lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och anger resurserna från poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
+Elastiska pooler kan utvecklare att köpa resurser för en pool som delas av flera databaser för oväntade perioder med användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md). Resurskrav för en pool bestäms av den sammanlagda användningen av databaserna. Mängden resurser som är tillgängliga för poolen styrs av utvecklare budget. Utvecklaren bara lägger till databaserna i poolen, anger de lägsta och högsta resurserna för databaserna (lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och anger resurserna från poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 
 I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Hårt belastad, kan en databas använda mer resurser för att uppfylla begäran. Databaser under lätta belastningar förbrukar mindre och databaser under inga belastningen använda några resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har en förutsägbar budget för poolen. Ytterligare resurser kan läggas till en befintlig adresspool utan avbrott i databasen, förutom att databaserna kan behöva flyttas att tillhandahålla ytterligare beräkningsresurser för ny eDTU-reservation. På liknande sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig adresspool när som helst i tid. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
@@ -101,7 +101,7 @@ Den rekommenderade storleken för en pool beror på de sammanställda resurser s
 * Maximal resurser som används av alla databaser i poolen (högsta dtu: er eller maximal vCores beroende på ditt val av resourcing modell).
 * Högsta lagringsutrymme i byte som används av alla databaser i poolen.
 
-Tillgängliga nivåer för varje resursmodell, finns det [DTU-baserade inköpsmodell](sql-database-service-tiers.md#dtu-based-purchasing-model) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+Tillgängliga nivåer för varje resursmodell, finns det [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 
 SQL Database utvärderar automatiskt den historiska resursanvändningen för databaser på en befintlig SQL Database-server och rekommenderar lämplig poolkonfiguration på Azure Portal. Förutom rekommendationerna finns det en inbyggd beräkning som uppskattar eDTU-användningen för en anpassad grupp databaser på servern. Detta gör att du kan utföra en konsekvensanalys genom att interaktivt lägga till databaser i poolen och sedan ta bort dem för att visa en analys över resursanvändningen och storleksrekommendationer innan du genomför ändringarna. Mer information finns i [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md) (Övervaka, hantera och ändra storlek på en elastisk pool).
 
@@ -112,11 +112,11 @@ I de fall då du inte kan använda verktygsuppsättningar kan du följa stegen n
    För DTU-baserade inköpsmodell: MAX (<*Totalt antal DBs* X *genomsnittlig DTU-användning per DB*>,<br>
    <*Antal databaser som har aktivitetstoppar samtidigt* × *DTU-toppbelastning per databas*)
 
-   För vCore-baserade inköpsmodell: MAX (<*Totalt antal DBs* X *genomsnittlig vCore användning per DB*>,<br>
+   För vCore-baserade inköpsmodell (förhandsversion): MAX (<*Totalt antal DBs* X *genomsnittlig vCore användning per DB*>,<br>
    <*Antal samtidigt peaking DBs* X *belastning vCore användning per DB*)
 
 2. Beräkna hur stort lagringsutrymme som krävs för poolen genom att lägga till antalet byte som behövs för alla databaser i poolen. Fastställ sedan den eDTU-poolstorlek som ger den här mängden lagringsutrymme.
-3. DTU-baserade inköpsmodell ta för större eDTU uppskattningar från steg 1 och 2. Ta vCore uppskattning för vCore-baserade inköpsmodell från steg 1.
+3. DTU-baserade inköpsmodell ta för större eDTU uppskattningar från steg 1 och 2. Ta vCore uppskattning från steg 1 för vCore-baserade köp modellen (förhandsversion).
 4. Finns det [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/) och hitta poolen minsta storlek som är större än uppskattningen från steg3.
 5. Jämför poolpriset i steg 5 med priset för att använda lämpliga prestandanivåer för enskilda databaser.
 

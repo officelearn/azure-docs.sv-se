@@ -7,7 +7,7 @@ author: mgreenegit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-keywords: dsc
+keywords: DSC
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tillägg-hanterare
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 Azure VM-agenten och dess associerade tillägg är en del av Microsoft Azure infrastrukturtjänster. VM-tillägg är programkomponenter som utökar funktionerna för virtuell dator och förenkla olika VM-hanteringsåtgärder.
 
-Primärt användningsfall för Azure önskad tillstånd Configuration DSC ()-tillägget är att starta en virtuell dator till den [Azure Automation DSC-tjänsten](../../automation/automation-dsc-overview.md). Startprogram för en virtuell dator innehåller [fördelar](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service) som inkluderar kontinuerlig hantering av VM-konfiguration och integrering med andra operativa verktyg, till exempel Azure-övervakning.
+Primärt användningsfall för Azure önskad tillstånd Configuration DSC ()-tillägget är att starta en virtuell dator till den [Azure Automation DSC-tjänsten](../../automation/automation-dsc-overview.md). Startprogram för en virtuell dator innehåller [fördelar](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service) som inkluderar kontinuerlig hantering av VM-konfiguration och integrering med andra operativa verktyg, till exempel Azure-övervakning.
 
 Du kan använda DSC-tillägg oberoende av Automation DSC-tjänsten. Detta innebär dock en enda åtgärd som utförs under distributionen. Inga pågående reporting eller konfigurationshantering är tillgängligt, annat än lokalt på den virtuella datorn.
 
@@ -49,7 +49,7 @@ Den här handboken förutsätter förtrogenhet med följande:
 
 ## <a name="architecture"></a>Arkitektur
 
-Azure DSC-tillägg använder Azure VM-agenten framework för att leverera, tillämpar och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. DSC-tillägg accepterar ett konfigurationsdokument och en uppsättning parametrar. Om ingen fil anges, en [standard konfigurationsskript](#default-configuration-script) bäddas med tillägget. Standard-konfigurationsskript används bara för att ange metadata i [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
+Azure DSC-tillägg använder Azure VM-agenten framework för att leverera, tillämpar och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. DSC-tillägg accepterar ett konfigurationsdokument och en uppsättning parametrar. Om ingen fil anges, en [standard konfigurationsskript](#default-configuration-script) bäddas med tillägget. Standard-konfigurationsskript används bara för att ange metadata i [Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig).
 
 När tillägget anropas för första gången, installeras en version av WMF med hjälp av följande logik:
 
@@ -61,7 +61,7 @@ Installera WMF kräver en omstart. Efter omstart, hämtar tillägget .zip-filen 
 
 ### <a name="default-configuration-script"></a>Standard-konfigurationsskript
 
-Azure DSC-tillägg innehåller ett standard-konfigurationsskript som har avsedd att vara används när du hanterar en virtuell dator till Azure Automation DSC-tjänsten. Skriptparametrarna ligger i linje med konfigurerbara egenskaper för [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). Skriptparametrar finns [standard konfigurationsskript](extensions-dsc-template.md#default-configuration-script) i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](extensions-dsc-template.md). Fullständig skriptet finns på [Azure quickstart mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+Azure DSC-tillägg innehåller ett standard-konfigurationsskript som har avsedd att vara används när du hanterar en virtuell dator till Azure Automation DSC-tjänsten. Skriptparametrarna ligger i linje med konfigurerbara egenskaper för [Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig). Skriptparametrar finns [standard konfigurationsskript](extensions-dsc-template.md#default-configuration-script) i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](extensions-dsc-template.md). Fullständig skriptet finns på [Azure quickstart mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-tillägg i Resource Manager-mallar
 

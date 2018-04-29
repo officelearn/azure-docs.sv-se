@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -52,7 +52,7 @@ Tidigare användes nätverk-perimeter styra åtkomsten till företagets data. I 
 
 Ett av de mest praktiskt stegen som du kan vidta för att skydda ett konto är att aktivera tvåfaktorsautentisering. Tvåfaktorsautentisering är ett sätt att autentisera med hjälp av något förutom ett lösenord. Det hjälper till att minska risken för åtkomst av någon som är ansvarig för att hämta lösenordet.
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) hjälper dig att skydda åtkomst till data och program och uppfyller efterfrågan från användarna för en process för enkel inloggning. Den ger stark autentisering med ett antal alternativ för enkel verifiering--telefonsamtal, textmeddelande eller mobilapp. Användare välja den metod som de själva föredrar.
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) hjälper dig att skydda åtkomst till data och program och uppfyller efterfrågan från användarna för en process för enkel inloggning. Den ger stark autentisering med ett antal alternativ för enkel verifiering--telefonsamtal, textmeddelande eller mobilapp. Användare välja den metod som de själva föredrar.
 
 Det enklaste sättet att använda Multi-Factor Authentication är Microsoft Authenticator-mobilappen som kan användas på mobila enheter som kör Windows, iOS och Android. Med den senaste versionen av Windows 10 och integreringen med lokala Active Directory med Azure Active Directory (Azure AD), [Windows Hello för företag](../active-directory/active-directory-azureadjoin-passport-deployment.md) kan användas för sömlös enkel inloggning till Azure-resurser. I det här fallet används Windows 10-enheten som andra faktor för autentisering.
 
@@ -118,7 +118,7 @@ Du kan också använda den [punkt-till-plats](../vpn-gateway/vpn-gateway-howto-p
 >[!NOTE]
 >Du kan använda antingen VPN-alternativet för att konfigurera om åtkomstkontrollistor NSG: er till inte tillåter åtkomst till hanteringsslutpunkter från Internet.
 
-Ett annat alternativ vara värt att ta hänsyn till är en [fjärrskrivbordsgateway](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) distribution. Du kan använda den här distributionen för säker anslutning till fjärrskrivbord servrar via HTTPS, samtidigt som du använder mer detaljerade kontroller att anslutningarna.
+Ett annat alternativ vara värt att ta hänsyn till är en [fjärrskrivbordsgateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md) distribution. Du kan använda den här distributionen för säker anslutning till fjärrskrivbord servrar via HTTPS, samtidigt som du använder mer detaljerade kontroller att anslutningarna.
 
 Funktioner som du vill ha åtkomst till om du vill inkludera:
 
@@ -166,7 +166,7 @@ Alla virtuella datorer i Azure IaaS bör vara härdat så att de exponerar endas
 
 Security Compliance Manager är ett kostnadsfritt verktyg. Du kan använda den för att snabbt konfigurera och hantera stationära datorer, traditionella datacenter och privata och offentliga moln med hjälp av Grupprincip och System Center Configuration Manager.
 
-Security Compliance Manager innehåller redo att distribuera principer och Desired Configuration Management configuration packs som testas. Dessa baslinjer baseras på [Microsoft säkerhetsvägledning](https://technet.microsoft.com/en-us/library/cc184906.aspx) rekommendationer och industrin bästa praxis. De hjälper dig att hantera konfigurationsavvikelser, adress efterlevnadskrav och minska säkerhetshot.
+Security Compliance Manager innehåller redo att distribuera principer och Desired Configuration Management configuration packs som testas. Dessa baslinjer baseras på [Microsoft säkerhetsvägledning](https://technet.microsoft.com/library/cc184906.aspx) rekommendationer och industrin bästa praxis. De hjälper dig att hantera konfigurationsavvikelser, adress efterlevnadskrav och minska säkerhetshot.
 
 Du kan använda Security Compliance Manager för att importera den aktuella konfigurationen av datorerna med hjälp av två olika metoder. Du kan först importera Active Directory-baserade grupprinciper. Därefter kan du importera konfigurationen av en ”golden master” referensdatorn med hjälp av den [LocalGPO verktyget](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) att säkerhetskopiera den lokala grupprincipen. Du kan sedan importera den lokala grupprincipen i Security Compliance Manager.
 

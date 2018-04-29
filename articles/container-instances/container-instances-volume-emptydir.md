@@ -3,16 +3,16 @@ title: Montera en emptyDir volymen i Azure Container instanser
 description: Lär dig hur du monterar en emptyDir volym om du vill dela data mellan behållare i en behållare grupp i Azure Container instanser
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 71725257697456b27f2cf79200789517005c4319
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 89289a7a0bb5c486c662d528c5014bdbd8eebaca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montera en emptyDir volymen i Azure Container instanser
 

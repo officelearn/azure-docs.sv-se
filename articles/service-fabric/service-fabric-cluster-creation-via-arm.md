@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 68894ec209171e210a36ade3cdb703a48e28bc75
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: e3e9e0c13368dbf7dd32c8483f8e6783afc1bdbb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -462,7 +462,7 @@ Certifikatet för autentisering av klustret måste konfigureras i båda Service 
               "settings": {
                 ...
                 "certificate": {
-                  "thumbprint": "[parameters('clusterCertificateThumbprint')]",
+                  "commonNames": ["[parameters('certificateCommonName')]"],
                   "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
                 },
                 ...
@@ -479,7 +479,7 @@ Certifikatet för autentisering av klustret måste konfigureras i båda Service 
 ##### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Lägg till certifikatinformationen till Service Fabric-klusterresursen:
 ```json
 {
-  "apiVersion": "[variables('sfrpApiVersion')]",
+  "apiVersion": "2018-02-01",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   "location": "[parameters('clusterLocation')]",
@@ -487,9 +487,14 @@ Certifikatet för autentisering av klustret måste konfigureras i båda Service 
     "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
   ],
   "properties": {
-    "certificate": {
-      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-      "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
+    "certificateCommonNames": {
+        "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": ""
+        }
+        ],
+        "x509StoreName": "[parameters('certificateStoreValue')]"
     },
     ...
   }
@@ -502,14 +507,19 @@ Du lägger till Azure AD-konfiguration s ett kluster Resource Manager-mall genom
 
 ```json
 {
-  "apiVersion": "[variables('sfrpApiVersion')]",
+  "apiVersion": "2018-02-01",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   ...
   "properties": {
-    "certificate": {
-      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-      "x509StoreName": "[parameters('clusterCertificateStorevalue')]"
+    "certificateCommonNames": {
+        "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": ""
+        }
+        ],
+        "x509StoreName": "[parameters('certificateStoreValue')]"
     },
     ...
     "azureActiveDirectory": {
@@ -533,6 +543,9 @@ Om du planerar att använda i Azure service fabric RM PowerShell-moduler och du 
 
 ```json
         "clusterCertificateThumbprint": {
+            "value": ""
+        },
+        "certificateCommonName": {
             "value": ""
         },
         "clusterCertificateUrlValue": {

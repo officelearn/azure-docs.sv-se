@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolym och kvarhållning i logganalys
 Log Analytics utformats för att skala och stöd för att samla in, indexering och lagra stora mängder data per dag från alla datakällor i företaget eller distribueras i Azure.  Detta kan vara en primär drivrutin för din organisation är kostnadseffektiviteten slutligen den underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en logg Analytisc arbetsyta inte är bara baserat på mängden data som samlas in, och hur länge du väljer att lagra data som genereras av dina anslutna källor.  
@@ -38,7 +38,7 @@ Finns i dokumentationen för varje lösning eftersom det ger dig en uppfattning 
 Om du är i ”kostnadsfria”-prisnivån begränsas data till 7 dagar kvarhållning. Data som samlas in är tillgänglig under de senaste 31 dagarna för ”Per GB (fristående)” eller ”Per nod (OMS)” nivåer och kvarhållning kan du öka upp till 2 år. Avgifter kan tillkomma om du väljer en längre period. Fria abonnemang har 500 MB dagliga införandet gränsen och om du hittar du konsekvent överskrider de belopp som tillåts volym, kan du ändra ditt arbetsområde Per GB eller Per nod nivåer för att samla in data utöver den här gränsen. Du kan ändra Plantyp av när som helst och mer information om priser, se [prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
 > [!NOTE]
-> I April 2018 vi [introduceras](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) en ny prissättningsmodell för övervakning av Azure. Den här modellen antar en enkel ”betalning per användning” modell över komplett portfölj av övervaka tjänster. Lär dig mer om den [nya Prismodell](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur till [utvärdera effekten av att flytta till den här modellen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på ditt användningsmönster och [så att använda den nya modellen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> I April 2018 vi [introduceras](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) en ny prissättningsmodell för övervakning av Azure. Den här modellen antar en enkel ”betalning per användning” modell över komplett portfölj av övervaka tjänster. Lär dig mer om den [nya Prismodell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur till [utvärdera effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på ditt användningsmönster och [så att använda den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
 Oavsett prisnivå modell eller nivå är hantera volymen av data fundmental att styra dina kostnader. Dessa är dagliga fästpunkten och lagring av data utöver valet och konfigurering av specifika lösningen i logganalys som det finns två sätt mängden data kan vara begränsad och att styra dina kostnader.  
 

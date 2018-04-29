@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
@@ -34,7 +34,7 @@ Om du får det här felmeddelandet har inte Azure Data Factory-resursprovidern r
 2. Logga in på ditt Azure-konto med följande kommando.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Kör följande kommando för att registrera Azure Data Factory-providern.
 
@@ -45,7 +45,7 @@ Om du får det här felmeddelandet har inte Azure Data Factory-resursprovidern r
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: Obehörig fel när du kör en Data Factory-cmdlet
 Du använder förmodligen inte rätt Azure-konto eller -prenumeration med Azure PowerShell. Använd följande cmdlets för att välja rätt Azure-konto och -prenumeration för Azure PowerShell.
 
-1. Login-AzureRmAccount - Använd rätt användar-ID och lösenord
+1. Ansluta-AzureRmAccount - Använd rätt användar-ID och lösenord
 2. Get-AzureRmSubscription – visa alla prenumerationer för kontot.
 3. SELECT-AzureRmSubscription &lt;prenumerationsnamn&gt; -Välj rätt prenumerationen. Använd samma som du använder för att skapa en datafabrik på Azure-portalen.
 

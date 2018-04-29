@@ -2,23 +2,20 @@
 title: Lägg till Azure Storage med hjälp av anslutna Services i Visual Studio | Microsoft Docs
 description: Lägg till Azure Storage i appen med hjälp av dialogrutan Visual Studio Lägg till anslutna tjänster
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
-ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 521ec044-ad4b-4828-8864-01decde2e758
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/26/2017
 ms.author: ghogen
-ms.openlocfilehash: 3252d022222e1c31491a6b111e5e96f8c62ca915
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3c5d3dc1d91a6f8bb1816b2985f86ec5c4a12e63
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Lägga till Azure storage med hjälp av Visual Studio anslutna Services
 Med Visual Studio, du kan ansluta något av följande till Azure Storage med hjälp av den **Lägg till anslutna tjänster** dialogrutan:
@@ -27,7 +24,7 @@ Med Visual Studio, du kan ansluta något av följande till Azure Storage med hj�
 - .NET-serverdel Mobiltjänst
 - ASP.NET-webbplats eller tjänst
 - ASP.NET Core service
-- Azure WebJob service 
+- Azure Webjobs-tjänst 
 
 Funktionen anslutna tjänsten lägger till alla nödvändiga referenser och anslutningen kod i ditt projekt och ändrar konfigurationsfilerna på lämpligt sätt. 
 
@@ -42,7 +39,7 @@ När du har slutfört den **Lägg till anslutna tjänster** dialogrutan visar do
 
 1. I den **anslutna tjänster** väljer **lagringsutrymmet i molnet med Azure Storage**.
    
-    ![Add Azure Storage](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
+    ![Lägg till Azure Storage](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
 
 1. I den **Azure Storage** dialogrutan, Välj ett befintligt lagringskonto och välj **Lägg till**.
    

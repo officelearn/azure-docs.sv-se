@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till mikrotjänster i Azure | Microsoft Docs"
-description: "En översikt över Varför skapa molnprogram med en mikrotjänster är viktigt för moderna programutveckling och hur Azure Service Fabric ger en plattform för att åstadkomma detta."
+title: Introduktion till mikrotjänster i Azure | Microsoft Docs
+description: En översikt över Varför skapa molnprogram med en mikrotjänster är viktigt för moderna programutveckling och hur Azure Service Fabric ger en plattform för att åstadkomma detta.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Varför en mikrotjänster-lösning för att bygga program?
 Som programutvecklare finns det inget i hur vi tror att om ett program i komponentdelar factoring. Är det centrala paradigmet Objektorientering, programvara abstraktioner och Komponentindelning. Idag är tenderar det här factorization att ske i form av klasser och gränssnitt mellan delade bibliotek och tekniklager. En riskbedömning utförs vanligtvis med en backend-store, affärslogik på mellannivå och en frontend användargränssnittet (UI). Vad *har* ändrats under de senaste åren är att vi, som utvecklare skapar distribuerade program som är för molnet och styrs av företaget.
@@ -181,7 +181,7 @@ Syftet med Service Fabric är att minska svårigheter för att skapa program med
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Service Fabric-terminologi](service-fabric-technical-overview.md)
-* [Mikrotjänster: Ett program-revolutionen har drivs av molnet](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Mikrotjänster: Ett program-revolutionen har drivs av molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

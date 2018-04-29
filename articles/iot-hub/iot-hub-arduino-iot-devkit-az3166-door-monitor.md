@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ed0718f2d9d5093442001005e43551e7e9749eef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="door-monitor"></a>Dörren Övervakare          
 
@@ -44,7 +44,7 @@ Slutför den [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) t
 
 En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någon av följande metoder:
 
-* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/en-us/free/).
+* Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/free/).
 * Anspråk din [Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) om du prenumererar på en MSDN- eller Visual Studio.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Distribuera SendGrid tjänst i Azure
@@ -69,7 +69,7 @@ Då visas följande sida.
 
 Fyllt i registreringsformuläret:
 
-  * **Resursgruppen**: skapa en resursgrupp som värd för tjänsten SendGrid, eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Resursgruppen**: skapa en resursgrupp som värd för tjänsten SendGrid, eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Namnet**: namn för din SendGrid-tjänst. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 
@@ -86,7 +86,7 @@ Fyllt i registreringsformuläret:
 
 När distributionen lyckas, klickar du på den och klicka sedan på den **hantera** knappen. Du kommer till sidan SendGrid och behöver verifiera din e-postadress.
 
-![SendGrid Manage](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
+![Hantera SendGrid](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
 På sidan SendGrid **inställningar** > **API-nycklar** > **skapa API-nyckeln**. Indata i **API-nyckelnamn** och på **skapa vy**.
 
@@ -111,7 +111,7 @@ Då visas följande sida.
 
 Fyllt i registreringsformuläret:
 
-  * **Resursgruppen**: skapa en resursgrupp som värd för tjänsten SendGrid, eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Resursgruppen**: skapa en resursgrupp som värd för tjänsten SendGrid, eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **IOT-Hubbnamnet**: namn för din IoT-hubb. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 
@@ -132,10 +132,6 @@ Fyllt i registreringsformuläret:
 - Starta VS-kod.
 - Anslut DevKit till datorn.
 
-VS koden automatiskt identifiera din DevKit och öppna startsidan:
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > Du kan få ett felmeddelande om att det går inte att hitta Arduino IDE- eller relaterade board paket när du startar VS-kod. Om du får detta felmeddelande ska Stäng VS-kod, starta Arduino IDE igen och VS kod hitta Arduino IDE-sökvägen korrekt.
 
@@ -145,7 +141,8 @@ Expandera till vänster **ARDUINO exempel** bläddrar du till **exempel MXCHIP A
 
 ![Mini-solution-exempel](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-Om du råkar stänga fönstret kan du öppna det igen. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
+> [!NOTE]
+> Du kan också öppna exempel kommandot paletten. Använd `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) för att öppna paletten kommando skriver **Arduino**, och sedan söka efter och välj **Arduino: exempel**.
 
 ### <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
@@ -208,7 +205,7 @@ Efter initieringen `Door closed` visas på skärmen. När en ändring i fältet 
 
 Om du stöter på problem, läser du [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller Anslut via följande kanaler:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -216,4 +213,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT Suite och använda SendGrid-tjänsten för att skicka ett e-postmeddelande. Här är de föreslagna nästa steg:
 
 * [Översikt över Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

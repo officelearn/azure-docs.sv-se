@@ -1,19 +1,19 @@
 ---
-title: "Skapa en principtilldelning för att identifiera ej kompatibla resurser i Azure-miljön | Microsoft Docs"
-description: "Den här artikeln beskriver stegen för att skapa en principdefinition för att identifiera icke-kompatibla resurser."
+title: Skapa en principtilldelning för att identifiera ej kompatibla resurser i Azure-miljön | Microsoft Docs
+description: Den här artikeln beskriver stegen för att skapa en principdefinition för att identifiera icke-kompatibla resurser.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status. Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
@@ -71,15 +71,14 @@ Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelni
 
 När ett villkor utvärderas mot de befintliga resurserna och visas vara korrekt markeras dessa resurser som inkompatibla med principen. Den föregående exempelbilden visar icke-kompatibla resurser. Följande tabell visar hur olika principåtgärder fungerar med villkorsutvärderingen för resultatet av kompatibilitetstillståndet. Även om du inte ser utvärderingslogiken i Azure Portal visas resultatet för kompatibilitetstillståndet. Resultatet för kompatibilitetstillståndet är antingen kompatibla eller icke-kompatibla resurser.
 
-|Resurs  |Om villkoret i principen är  |Åtgärd i principen   |Kompatibilitetsstatus  |
-|-----------|---------|---------|---------|
-|Finns     |True     |Neka     |Icke-kompatibel |
-|Finns     |False    |Neka     |Kompatibel     |
-|Finns     |True     |Lägg till   |Icke-kompatibel |
-|Finns     |False    |Lägg till   |Kompatibel     |
-|Finns     |True     |Granska    |Icke-kompatibel |
-|Finns     |False    |Granska    |Icke-kompatibel |
+| **Resurstillstånd** | **Åtgärd** | **Principutvärdering** | **Kompatibilitetstillstånd** |
+| --- | --- | --- | --- |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
+| Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
+| Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
 
+\* Åtgärderna Append, DeployIfNotExist och AuditIfNotExist kräver att IF-instruktionen är TRUE. Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 De andra guiderna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta arbeta med efterföljande självstudier ska du inte rensa upp resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure-portalen.

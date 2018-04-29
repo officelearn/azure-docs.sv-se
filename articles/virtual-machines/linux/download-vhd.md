@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d62fe702e42929fde2bb2a0dee4ea2cc8621ff99
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Hämta en Linux-VHD från Azure
 
@@ -35,7 +35,7 @@ En virtuell Hårddisk kan inte hämtas från Azure om den är kopplad till en ak
 
 Om du vill använda den virtuella Hårddisken som en bild för att skapa andra virtuella datorer, gör du följande:
 
-1. Använda SSH, kontonamnet och offentliga IP-adressen för den virtuella datorn för att ansluta till den och ta bort etableringen av den. Du kan hitta den offentliga IP-adressen med [az nätverket offentliga ip-visa](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). Den + user-parameter tar också bort det senaste kontot för etablerad användare. Om du gräddning autentiseringsuppgifter i för att den virtuella datorn, lämnar ut detta + user-parameter. I följande exempel tar bort det senaste kontot för etablerad användare:
+1. Använda SSH, kontonamnet och offentliga IP-adressen för den virtuella datorn för att ansluta till den och ta bort etableringen av den. Du kan hitta den offentliga IP-adressen med [az nätverket offentliga ip-visa](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). Den + user-parameter tar också bort det senaste kontot för etablerad användare. Om du gräddning autentiseringsuppgifter i för att den virtuella datorn, lämnar ut detta + user-parameter. I följande exempel tar bort det senaste kontot för etablerad användare:
 
     ```bash
     ssh azureuser@<publicIpAddress>

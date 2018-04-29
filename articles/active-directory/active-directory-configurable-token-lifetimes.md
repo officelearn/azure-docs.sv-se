@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
 
 > [!IMPORTANT]
-> Den här metoden för att kontrollera livstid för token att bli inaktuell.  När den förblir tillgängliga tills funktionen ersättning är klar, när den är föråldrad livslängd för token-principer som skapas med att den här metoden upphöra att fungera. 
+> Efter höra från kunder under förhandsgranskningen planerar vi att ersätta den här funktionen med en ny funktion i Azure Active Directory villkorlig åtkomst.  När den nya funktionen är klar kan den här funktionen slutligen att bli inaktuell efter en perioden.  Om du använder principen konfigurerbara livslängd för Token, vara beredd att växla till den nya funktionen för villkorlig åtkomst när den är tillgänglig. 
 >
 >
 
@@ -108,6 +108,8 @@ Du kan skapa och tilldela sedan en livslängd för token-principen till ett viss
 Läs mer om förhållandet mellan program och tjänstens huvudnamn objekt [program och tjänstens huvudnamn objekt i Azure Active Directory](active-directory-application-objects.md).
 
 En token giltigheten utvärderas när token som används. Principen med den högsta prioriteten på det program som används börjar gälla.
+
+Alla timespans används här formaterad enligt C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) objekt - D.HH:MM:SS.  Så 80 dagar och 30 minuter skulle vara `80.00:30:00`.  Inledande D kan släppas om noll, så 90 minuter skulle vara `00:90:00`.  
 
 > [!NOTE]
 > Här är ett exempel.

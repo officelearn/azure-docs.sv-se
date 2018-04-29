@@ -1,6 +1,6 @@
 ---
-title: Rekommenderade säkerhetsmetoder för MFA | Microsoft Docs
-description: Det här dokumentet innehåller metodtips runt med hjälp av Azure MFA med Azure-konton
+title: Säkerhetsvägledning för MFA | Microsoft Docs
+description: Det här dokumentet ger riktlinjer kring med Azure MFA med Azure-konton
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -15,19 +15,19 @@ ms.date: 06/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 0fd90c4e59fa64c24ecfa6d7d8f23e025210e078
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 50e6cd3c067e09ebf9ace442894d5d066141e0b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Rekommenderade säkerhetsmetoder för att använda Azure Multi-Factor Authentication med Azure AD-konton
+# <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Säkerhetsvägledning för att använda Azure Multi-Factor Authentication med Azure AD-konton
 
 Tvåstegsverifiering är det bästa valet för de flesta organisationer som vill utöka sina autentiseringsprocessen. Azure Multi-Factor Authentication (MFA) hjälper företag att uppfylla sina krav för säkerhet och efterlevnad och ger en enkel inloggning för sina användare. Den här artikeln beskriver några tips som du bör tänka på när du planerar för införandet av Azure MFA.
 
 ## <a name="deploy-azure-mfa-in-the-cloud"></a>Distribuera Azure MFA i molnet
 
-Det finns två sätt att aktivera Azure MFA för alla användare.
+Det finns två sätt att [aktivera Azure MFA för alla användare](howto-mfa-getstarted.md).
 
 * Köpa licenser för varje användare (antingen Azure MFA, Azure AD Premium eller Enterprise Mobility + Security)
 * Skapa en leverantör av Multifaktorautent och betala per användare eller per autentisering
@@ -46,12 +46,12 @@ När du konfigurerar Multifaktorautentisering du tänka på följande:
 ### <a name="multi-factor-auth-provider"></a>Leverantör av Multifaktorautent
 ![Leverantör av Multifaktorautent](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-Om du inte har licenser som innehåller Azure MFA kan du skapa en leverantör av Multifaktorautent MFA. 
+Om du inte har licenser som innehåller Azure MFA, så kan du [skapa en leverantör av Multifaktorautent MFA](concept-mfa-authprovider.md).
 
 När du skapar Auth-providern, måste du markera en katalog och beakta följande information:
 
-* Du behöver inte en Azure AD-katalog för att skapa en leverantör av Multifaktorautent, men du får fler funktioner med en. Följande funktioner är aktiverade när du kopplar Auth-providern till en Azure AD-katalog:  
-  * Utöka tvåstegsverifiering för alla användare  
+* Du behöver inte en Azure AD-katalog för att skapa en leverantör av Multifaktorautent, men du får fler funktioner med en. Följande funktioner är aktiverade när du kopplar Auth-providern till en Azure AD-katalog:
+  * Utöka tvåstegsverifiering för alla användare
   * Erbjuda dina globala administratörer ytterligare funktioner, till exempel hanteringsportalen, anpassade helg och rapporter.
 * Om du synkroniserar lokala Active Directory-miljön med en Azure AD-katalog måste DirSync och AAD Sync. Om du använder Azure AD-katalog som inte är synkroniserad med en lokal instans av Active Directory, behöver du inte DirSync och AAD Sync.
 * Välj förbrukning modell som bäst passar din verksamhet. När du har valt användningsmodell kan du inte ändra den. De två modellerna är:
@@ -65,7 +65,7 @@ Eftersom de flesta användare är bekanta dig med bara lösenord för att autent
 * Överväg att i [tillförlitliga IP-adresser kapaciteten](howto-mfa-mfasettings.md#trusted-ips) i Azure MFA som ett sätt att minimera tvåstegsverifiering. Med den här funktionen kan administratörer för en hanterad eller federerade klient kringgå tvåstegsverifiering för användare som loggar in från företagets lokalt intranät. Funktionerna är tillgängliga för Azure AD-klienter som har licenser för Azure AD Premium eller Enterprise Mobility Suite Azure Multi-Factor Authentication.
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>Metodtips för en lokal distribution
-Om ditt företag beslutat att använda sin egen infrastruktur för att aktivera MFA, måste du distribuera ett Azure Multi-Factor Authentication-servern lokalt. MFA-Server-komponenterna visas i följande diagram:
+Om ditt företag beslutat att använda sin egen infrastruktur för att aktivera MFA, måste du [distribuera ett Azure Multi-Factor Authentication-servern lokalt](howto-mfaserver-deploy.md). MFA-Server-komponenterna visas i följande diagram:
 
 ![Standard MFA-serverkomponenter: konsolen, Synkroniseringsmotorn, hanteringsportalen, Molntjänsten](./media/multi-factor-authentication-security-best-practices/server.png) \*inte installeras som standard \** installerad men inte är aktiverad som standard
 
@@ -112,4 +112,3 @@ Den här artikeln visar några rekommendationer för Azure MFA, finns men det an
 * [Rapporter i Azure Multi-Factor Authentication](howto-mfa-reporting.md)
 * [Tvåstegsverifiering verifiering registrering experience](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 * [Vanliga frågor om Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-

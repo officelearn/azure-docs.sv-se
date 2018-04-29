@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 105a32f37c0a6a212888f9ee8457844769b9a3c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med snabbare nätverk
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/19/2018
 >   2. Skapa den virtuella datorn med snabbare nätverksfunktioner som är aktiverad
 >
 
-Lär dig hur du skapar en Windows-dator (VM) med snabbare nätverk i den här självstudiekursen. Snabbare nätverksfunktioner kan single-root I/O virtualization (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden dess nätverksprestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande nätverksbelastning på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan snabbare nätverksfunktioner:
+Lär dig hur du skapar en Windows-dator (VM) med snabbare nätverk i den här självstudiekursen. Om du vill skapa en Linux VM med snabbare nätverk finns [skapa ett Linux VM med snabbare nätverk](create-vm-accelerated-networking-cli.md). Snabbare nätverksfunktioner kan single-root I/O virtualization (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden dess nätverksprestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande nätverksbelastning på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan snabbare nätverksfunktioner:
 
 ![Jämförelse](./media/create-vm-accelerated-networking/accelerated-networking.png)
 

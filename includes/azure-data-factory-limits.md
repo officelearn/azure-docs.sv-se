@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/27/2018
+ms.date: 04/18/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 7f74f100dca5dfe83ef88ca20f69a1b7af38b333
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 Datafabriken är en tjänst med flera klienter som har följande standardgränser för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna som kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 
@@ -26,6 +26,7 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | Utlösare i en datafabrik | 2500 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Länkade tjänster i en datafabrik | 2500 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Integration körningar inom en datafabrik <sup>4</sup> | 2500 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Totalt antal processorkärnor för Azure-SSIS-integrering Runtime(s) under en prenumeration | 100 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Samtidiga pipeline körs per pipeline | 20 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Högsta antal aktiviteter per pipeline | 20 | 30 |
 | Maximalt antal parametrar per pipeline | 20 | 30 |
@@ -33,7 +34,7 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | Byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> | 100 KB | 2000 KB |
 | Molnet data movement enheter <sup>3</sup> | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Antal för pipeline aktivitetskörningar försök | 1 day(timeout) | 1 dag (timeout) |
-| Skriva API-anrop | 2500/hr<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Skriva API-anrop | 2500/timme<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Läs API-anrop | 12 500/timme<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 

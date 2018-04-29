@@ -1,19 +1,19 @@
 ---
 title: Skapa en transparent gateway-enhet med Azure IoT kant | Microsoft Docs
-description: "Använd Azure IoT kant för att skapa en transparent gateway-enhet som kan bearbeta information för flera enheter"
+description: Använd Azure IoT kant för att skapa en transparent gateway-enhet som kan bearbeta information för flera enheter
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0378cb2964a496a2bfe5a0bc08296cbab462a409
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Skapa en insticksenhet för IoT som fungerar som en transparent gateway - förhandsgranskning
 
@@ -73,10 +73,10 @@ Du kan använda exempel Powershell och Bash-skript som beskrivs i [hantera CA-ce
 
 ### <a name="bash"></a>Bash
 
-Skapa det nya enhetscertifikatet:
+Skapa det nya enhetscertifikatet.  **INTE** namn på `myGatewayCAName` ska vara detsamma som namnet på din gateway-värd.  Gör klientcertifiering mot dessa certifikat misslyckas.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate myGateway
+   ./certGen.sh create_edge_device_certificate myGatewayCAName
    ```
 
 Nya filer skapas:.\certs\new-edge-device.* innehåller den offentliga nyckeln och PFX och.\private\new-edge-device.key.pem innehåller enhetens privat nyckel.
@@ -84,6 +84,7 @@ Nya filer skapas:.\certs\new-edge-device.* innehåller den offentliga nyckeln oc
 I den `certs` directory, kör följande kommando för att få fullständig kedja av den offentliga nyckeln för enhet:
 
    ```bash
+   cd ./certs
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
@@ -116,11 +117,11 @@ Ger information för enheten och certifikat till IoT kant-körningsmiljön.
 I Linux, använder du Bash utdata:
 
    ```bash
-   sudo iotedgectl setup --connection-string {device connection string}
-        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
-        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+   sudo iotedgectl setup --connection-string {device connection string} \
+        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com} \
+        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem \
+        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem \
+        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem \
         --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
    ```
 

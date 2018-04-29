@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
 > [!NOTE] 
 > Hanterade tjänstidentiteten för Apptjänst och Azure Functions är för närvarande under förhandsgranskning. Apptjänst på Linux- och webbprogrammet för behållare stöds inte för närvarande.
+
+
+> [!Important] 
+> Hanterade tjänstidentiteten för Apptjänst och Azure Functions fungerar inte som förväntat om din app flyttas över prenumerationer/klienter. Appen måste du skaffa en ny identitet och befintlig identitet kan inte tas bort korrekt utan att ta bort själva platsen. Appen kommer att behöva återskapas med en ny identitet och underordnade resurser måste du ha åtkomstprinciper uppdateras för att använda den nya identiteten.
+
 
 Det här avsnittet visar hur du skapar en hanterad app identitet för App Service och Azure Functions program och hur du använder den för att komma åt andra resurser. En hanterad tjänstidentitet från Azure Active Directory kan din app att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera alla hemligheter. Mer information om hanterade tjänstidentiteten finns i [hanterade tjänstidentiteten översikt](../active-directory/managed-service-identity/overview.md).
 

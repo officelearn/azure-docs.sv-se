@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion) | Microsoft Docs
-description: Hantera Azure Blob-behållare och Blobbar med Lagringsutforskaren (förhandsversion)
+title: Hantera Azure Blob Storage-resurser med Lagringsutforskaren | Microsoft Docs
+description: Hantera Azure Blob-behållare och Blobbar med Lagringsutforskaren
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Hantera Azure Blob Storage-resurser med Lagringsutforskaren
 ## <a name="overview"></a>Översikt
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) är en tjänst för att lagra stora mängder Ostrukturerade data, till exempel text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS.
-Du kan använda Blob Storage för att exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Lagringsutforskaren (förhandsversion) att arbeta med blob-behållare och blobbar.
+Du kan använda Blob Storage för att exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Lagringsutforskaren för att arbeta med blobbbehållare och blobbar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com)
+* [Hämta och installera Lagringsutforskaren](http://www.storageexplorer.com)
 * [Ansluta till ett Azure-lagringskonto eller en Azure-lagringstjänst](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Skapa en blobbehållare
 Alla blobbar måste finnas i en blobbbehållare som är en logisk gruppering av blobbar. Ett konto kan innehålla ett obegränsat antal behållare, och varje behållare kan lagra ett obegränsat antal blobbar.
 
-Följande steg visar hur du skapar en blobbbehållare i Lagringsutforskaren (förhandsversion).
+Följande steg visar hur du skapar en blobbbehållare i Lagringsutforskaren.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. Expandera det lagringskonto där du vill skapa blob-behållaren i den vänstra rutan.
 3. Högerklicka på **Blobbbehållare**, och på snabbmenyn - väljer **skapa Blob-behållaren**.
 
@@ -51,9 +51,9 @@ Följande steg visar hur du skapar en blobbbehållare i Lagringsutforskaren (fö
 ## <a name="view-a-blob-containers-contents"></a>Visa innehållet i en blob-behållare
 BLOB-behållare innehåller blobbar och mappar (som kan också innehålla BLOB).
 
-Följande steg visar hur du visar innehållet i en blobbbehållare i Lagringsutforskaren (förhandsversion):
+Följande steg visar hur du visar innehållet i en blobbbehållare i Lagringsutforskaren:
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. Expandera det lagringskonto som innehåller blob-behållare du vill visa i den vänstra rutan.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Högerklicka på blob-behållare som du vill visa, och på snabbmenyn - väljer **Öppna Redigeraren för Blob-behållaren**.
@@ -67,9 +67,9 @@ Följande steg visar hur du visar innehållet i en blobbbehållare i Lagringsutf
 ## <a name="delete-a-blob-container"></a>Ta bort en blob-behållare
 BLOB-behållare kan enkelt skapas och tas bort efter behov. (Att se hur finns i avsnittet om du vill ta bort enskilda blobbar [hantera blobbar i en blobbbehållare](#managing-blobs-in-a-blob-container).)
 
-Följande steg visar hur du tar bort en blobbbehållare i Lagringsutforskaren (förhandsversion):
+Följande steg visar hur du tar bort en blobbbehållare i Lagringsutforskaren:
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. Expandera det lagringskonto som innehåller blob-behållare du vill visa i den vänstra rutan.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Högerklicka på blob-behållare som du vill ta bort, och på snabbmenyn - väljer **ta bort**.
@@ -81,11 +81,11 @@ Följande steg visar hur du tar bort en blobbbehållare i Lagringsutforskaren (f
    ![Ta bort blobben behållare bekräftelse][5]
 
 ## <a name="copy-a-blob-container"></a>Kopiera en blob-behållare
-Lagringsutforskaren (förhandsversion) kan du kopiera en blob-behållare till Urklipp och klistra in den blob-behållaren i ett annat lagringskonto. (Se hur du kopiera enskilda blobbar, finns i avsnittet [hantera blobbar i en blobbbehållare](#managing-blobs-in-a-blob-container).)
+Lagringsutforskaren kan du kopiera en blob-behållare till Urklipp och klistra in den blob-behållaren i ett annat lagringskonto. (Se hur du kopiera enskilda blobbar, finns i avsnittet [hantera blobbar i en blobbbehållare](#managing-blobs-in-a-blob-container).)
 
 Följande steg visar hur du kopierar en blob-behållare från ett lagringskonto till en annan.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. I den vänstra rutan, expanderar du lagringskontot som innehåller blob-behållare du vill kopiera.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Högerklicka på blob-behållare som du vill kopiera, och på snabbmenyn - väljer **kopiera Blob-behållaren**.
@@ -101,7 +101,7 @@ Det innebär att du kan ge en klient begränsad behörighet till objekt på ditt
 
 Följande steg visar hur du skapar en SAS för en blob-behållare:
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. I den vänstra rutan, expanderar du lagringskontot som innehåller blob-behållare som du vill hämta en SAS.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Högerklicka på den önskade blobbehållaren, och på snabbmenyn - väljer **hämta signatur för delad åtkomst**.
@@ -120,7 +120,7 @@ Följande steg visar hur du skapar en SAS för en blob-behållare:
 ## <a name="manage-access-policies-for-a-blob-container"></a>Hantera principer för åtkomst för en blob-behållare
 Nedan visas hur du hanterar (lägga till och ta bort) åtkomstprinciper för en blob-behållare:
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. I den vänstra rutan, expanderar du lagringskontot som innehåller blob-behållaren vars åtkomstprinciper som du vill hantera.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Välj önskad blob-behållaren och - snabbmenyn - **hantera åtkomstprinciper**.
@@ -140,7 +140,7 @@ Varje blob-behållaren är som standard ”ingen offentlig åtkomst”.
 
 Följande steg visar hur du anger en offentlig åtkomstnivån för en blob-behållare.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. I den vänstra rutan, expanderar du lagringskontot som innehåller blob-behållaren vars åtkomstprinciper som du vill hantera.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Välj önskad blob-behållaren och - snabbmenyn - **ange offentliga åtkomstnivå**.
@@ -156,7 +156,7 @@ När du har skapat en blob-behållare kan du ladda upp en blobb till att blob-be
 
 Följande steg visar hur du hanterar blobbar (och mappar) i en blobbbehållare.
 
-1. Öppna Lagringsutforskaren (förhandsversion).
+1. Öppna Storage Explorer.
 2. I den vänstra rutan, expanderar du lagringskontot som innehåller blob-behållare du vill hantera.
 3. Expandera lagringskontot **Blobbbehållare**.
 4. Dubbelklicka på blob-behållare som du vill visa.
@@ -212,7 +212,7 @@ Följande steg visar hur du hanterar blobbar (och mappar) i en blobbbehållare.
      3. Välj **Ja** i bekräftelsedialogen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Visa [ viktig information och videor för den senaste Storage Explorer-versionen (förhandsutgåva)](http://www.storageexplorer.com).
+* Visa [viktig information och videor för den senaste Storage Explorer-versionen](http://www.storageexplorer.com).
 * Läs mer om hur du [skapar program med Azure-blobbar, tabeller köer och filer](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

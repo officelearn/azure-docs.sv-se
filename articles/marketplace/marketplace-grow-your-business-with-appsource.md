@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: de7716a540737d4f2cc6f0f495180533ef6aa90a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Växa med AppSource
 Både Azure Marketplace och AppSource är startar punkter för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, marketplace-erbjudande mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande. Microsofts kunder Besök vår molnet marknadsplatser varje dag för att hitta rätt appar och tjänster för att öka verksamheten. Vårt mål är att ansluta organisationer med lösningar och tjänster från Microsoft och våra partner-ekosystemet. 
@@ -117,7 +117,7 @@ Att lägga till de här parametrarna AppSource URL: en kan du granska effektivit
 
 #### <a name="marketplace-gtm-benefits"></a>Marketplace GTM fördelar 
 
-Nya listor AppSource är berättigad till ledigt marketplace GTM fördelar. När visas vårt team av marknadsföring specialister nå ut till dig, och arbeta med marknadsföring kontakten att rivstarta dessa aktiviteter. Aktiviteter som vi tillhandahåller varierar beroende på din lösningsstatus i vår marketplace. Fördelar öka för erbjudanden som medföljer en utvärderingsversionen. Microsofts Gold partners kan komma åt ytterligare fördelar. Om du vill maximera effekten av dessa aktiviteter gärna du ha din starta plan som är redo att köra. Du kanske vill utnyttja dina Landningssida för många av dessa metoder. Observera att en extern Partner (OCP) katalog är en fördel av medlemmar i Microsoft Partner Network. Anvisningar om hur du skapar en bra landningssida finns [skapa en bra hamnar sida](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Ytterligare gå till marknaden stöder till exempel mallar, webbinnehåll, utbildning och verktyg för att utveckla ditt företag, finns [ https://www.MicrosoftGoToMarket.com ](https://www.MicrosoftGoToMarket.com). 
+Nya listor AppSource är berättigad till ledigt marketplace GTM fördelar. När visas vårt team av marknadsföring specialister nå ut till dig, och arbeta med marknadsföring kontakten att rivstarta dessa aktiviteter. Aktiviteter som vi tillhandahåller varierar beroende på din lösningsstatus i vår marketplace. Fördelar öka för erbjudanden som medföljer en utvärderingsversionen. Microsofts Gold partners kan komma åt ytterligare fördelar. Om du vill maximera effekten av dessa aktiviteter gärna du ha din starta plan som är redo att köra. Du kanske vill utnyttja dina Landningssida för många av dessa metoder. Observera att en extern Partner (OCP) katalog är en fördel av medlemmar i Microsoft Partner Network. Anvisningar om hur du skapar en bra landningssida finns [skapa en bra hamnar sida](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Ytterligare gå till marknaden stöder till exempel mallar, webbinnehåll, utbildning och verktyg för att utveckla ditt företag, finns [ https://www.MicrosoftGoToMarket.com ](https://www.MicrosoftGoToMarket.com). 
 
 #### <a name="enable-lead-sharing"></a>Aktivera delning av lead 
 Se till att lead management är aktiverat i Marketplace-erbjudande så att du får du kontaktinformationen för företagsanvändare som försök dina appar eller som är intresserade av dina tjänster. Dessa leads utgör grunden för bredd för nurture kampanjer, försäljning rörelser av dina säljare och information om hur erbjudandet utförs. Metodtips för dessa leads inkluderar:

@@ -8,18 +8,19 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 9d1763697e93ea0bd5eaeaeb92f5f882f39a6c64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/25/2018
+ms.openlocfilehash: 6dd96ee96201b05e4b272214983e955fcc5b9125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statisk eller saktas ändra karaktär används för att utföra en sökning eller att korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata med Azure Data Factory-referensen kan data omvandlas eller kopieras till Azure Blob storage för användning som referensdata från [valfritt antal molnbaserade och lokalt datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blob-namn. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av den senaste blobben i sekvensen.
 
 Stream Analytics har en **gränsen på 100 MB per blob** men jobb kan bearbeta flera referens blobbar med hjälp av den **sökvägar** egenskapen.
 
+Det finns inte stöd för komprimering för referensdata. 
 
 ## <a name="configuring-reference-data"></a>Konfigurera referensdata
 Om du vill konfigurera din referensdata måste du först skapa indata som är av typen **referensdata**. Tabellen nedan beskriver varje egenskap måste du ange när du skapar referens indata med beskrivningen:
@@ -49,7 +50,7 @@ Om du vill konfigurera din referensdata måste du först skapa indata som är av
 </tr>
 <tr>
 <td>Sökvägar</td>
-<td>Sökvägen som används för att hitta dina blobbar i den angivna behållaren. I sökvägen, kan du välja att ange en eller flera instanser av följande 2 variabler:<BR>{date} {time}<BR>Exempel 1: products/{date}/{time}/product-list.csv<BR>Exempel 2: products/{date}/product-list.csv
+<td>Sökvägen som används för att hitta dina blobbar i den angivna behållaren. I sökvägen, kan du välja att ange en eller flera instanser av följande 2 variabler:<BR>{date}, {time}<BR>Exempel 1: products/{date}/{time}/product-list.csv<BR>Exempel 2: products/{date}/product-list.csv
 </tr>
 <tr>
 <td>[Valfritt] datumformat</td>
@@ -91,16 +92,9 @@ Om din referensdata är en långsamt föränderliga datauppsättning, sedan stö
 2. Referens för data-blobs är **inte** sorteras i blob ”senaste” modifierades men endast av datum och tid som anges i blob med {date} och {time} ersättningar.
 3. Om du vill undvika att behöva listan stort antal blobbar, Överväg att ta bort gamla mycket blobbar som bearbetningen inte längre kommer att ske. Observera att ASA kan gå har Ombearbeta lite i vissa scenarier, t.ex. en omstart.
 
-## <a name="get-help"></a>Få hjälp
-Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
-
 ## <a name="next-steps"></a>Nästa steg
-Du har fått en introduktion till Stream Analytics, en hanteringstjänst för analys av dataströmmar från Internet of Things. Mer information om den här tjänsten finns här:
-
-* [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: sashan
-ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker att läsa in saldo skrivskyddade frågeresultat arbetsbelastningar (förhandsgranskning)
 
@@ -21,11 +21,13 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="overview-of-read-scale-out"></a>Översikt över Läs skalbar
 
-Varje databas i Premium-nivån ([DTU-baserade inköpsmodell](sql-database-service-tiers.md#dtu-based-purchasing-model)) eller i företag kritiska nivåer ([vCore-baserade inköpsmodell](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) etableras automatiskt med flera alltid på replikerna stöd för tillgänglighets-SLA. De här replikeringarna etableras med samma prestandanivå som skrivskyddad replik som används av vanlig databas-anslutningar. Den **Läs skalbar** funktionen kan du läsa in saldo SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för skrivskyddade repliker istället för att dela skrivskyddad replik. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, t.ex analytics, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
+Varje databas i Premium-nivån ([DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md)) eller i företag kritiska nivåer ([vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md)) etableras automatiskt med flera Always ON stöd för tillgänglighets-SLA replikerna. De här replikeringarna etableras med samma prestandanivå som skrivskyddad replik som används av vanlig databas-anslutningar. Den **Läs skalbar** funktionen kan du läsa in saldo SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för skrivskyddade repliker istället för att dela skrivskyddad replik. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, t.ex analytics, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
 
 Om du vill använda funktionen för Läs skalbar med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att anropa den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Nya AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets eller via Azure Resource Manager REST-API med hjälp av [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod. 
 
 När Läs skalbar har aktiverats för en databas måste program som ansluter till databasen kommer att dirigeras till skrivskyddad-repliken eller till en skrivskyddad replik av databasen enligt den `ApplicationIntent` egenskapen som konfigurerats i programmets anslutningssträng. Mer information om den `ApplicationIntent` egenskapen finns [ange Programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+
+Om Läs skalbar är inaktiverat eller egenskapen ReadScale på en tjänstnivå som inte stöds, dirigeras alla anslutningar till skrivskyddad replik, oberoende av den `ApplicationIntent` egenskapen.
 
 > [!NOTE]
 > Under förhandsgranskningen gör stöds frågan datalager och Extended Events inte på skrivskyddade repliker.
@@ -54,6 +56,12 @@ Något av följande anslutningssträngar ansluter klienten till en skrivskyddad 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+Du kan kontrollera om du är ansluten till en skrivskyddad replik genom att köra följande fråga. READ_ONLY när du är ansluten till en skrivskyddad replik returneras.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Aktivera och inaktivera Läs skalbar med hjälp av Azure PowerShell
@@ -96,7 +104,7 @@ Body:
 } 
 ```
 
-För ytterligare information, se [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate).
+Mer information finns i [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate).
 
 ## <a name="next-steps"></a>Nästa steg
 

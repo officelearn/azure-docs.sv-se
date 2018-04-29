@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3e23bab6d67cc4911dd46c226ebc9b87e40e2fa2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Kvarhållning av IP-adress för redundans för virtuell Azure-dator
 
@@ -34,24 +34,24 @@ Krav för IP-Kvarhållning (t.ex. för program Bindningar) får har företag A s
 
 Här är nätverksarkitekturen ser ut före redundans:
 - Programmets virtuella datorer finns i Azure Östasien använder Azure-nätverk med adressutrymme 10.1.0.0/16. Det här virtuella nätverket har namnet **källa VNet**.
-- Programbelastningar delas över tre undernät – 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, respektive med namnet **undernät 1**, **undernät 2**, **undernät 3**.
+- Programbelastningar delas över tre undernät – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respektive med namnet **undernät 1**, **undernät 2**, **undernät 3**.
 - Azure Sydostasien är målet region och har ett virtuellt nätverk för återställning som efterliknar adresskonfiguration för adressutrymmet och undernätsegenskaperna på källan. Det här virtuella nätverket har namnet **Recovery VNet**.
-- Replik noder, till exempel de som krävs för alltid på domänkontrollanten, etc. placeras i ett virtuellt nätverk med adressutrymme 20.1.0.0/16 i undernätet 4 med adressen 20.1.0.0/24. Det virtuella nätverket har namnet **Azure VNet** och är på Azure Sydostasien.
+- Replik noder, till exempel de som krävs för alltid på domänkontrollanten, etc. placeras i ett virtuellt nätverk med adressutrymme 10.2.0.0/16 i undernätet 4 med adressen 10.2.4.0/24. Det virtuella nätverket har namnet **Azure VNet** och är på Azure Sydostasien.
 - **Datakällan VNet** och **Azure VNet** är anslutna via VPN plats-till-plats-anslutning.
 - **Återställning VNet** inte är kopplad till något virtuellt nätverk.
 - **Företagets A** tilldelar/verifierar mål-IP-adress för replikerade objekt. I det här exemplet är samma som käll-IP för varje virtuell mål-IP.
 
-![Azure-Azure-anslutningen innan växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover.png)
+![Azure-Azure-anslutningen innan växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Fullständig region växling vid fel
 
 Vid ett regionalt strömavbrott **företag A** kan återställa dess hela distributionen snabbt och enkelt med hjälp av Azure Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md). Har redan angetts mål-IP-adress för varje virtuell dator innan redundans, **företag A** kan dirigera redundans och automatisera anslutningen upprättas mellan Recovery virtuella nätverk och Azure Vnet som visas i den under diagrammet.
 
-![Azure-Azure-anslutningen fullständig region redundans](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover.png)
+![Azure-Azure-anslutningen fullständig region redundans](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
 Beroende på kraven för application anslutningar mellan två Vnet på målregionen som kan vara etablerade före, under (som ett steg) eller efter växling vid fel. Använd [återställningsplaner](site-recovery-create-recovery-plans.md) att lägga till skript och definiera ordningen för växling vid fel.
 
-Företag A har också välja att använda VNet-peering eller plats-till-plats VPN för att upprätta en anslutning mellan Recovery virtuella nätverk och Azure VNet. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNET-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN-gatewayen mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). För växling vid fel är det att efterlikna käll-anslutningen, inklusive anslutningstypen för att minimera oförutsägbart incidenter som härrör från ändringar i nätverket.
+Företag A har också välja att använda VNet-peering eller plats-till-plats VPN för att upprätta en anslutning mellan Recovery virtuella nätverk och Azure VNet. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN Gateway mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). För växling vid fel är det att efterlikna käll-anslutningen, inklusive anslutningstypen för att minimera oförutsägbart incidenter som härrör från ändringar i nätverket.
 
 ### <a name="isolated-application-failover"></a>Isolerat program växling vid fel
 
@@ -62,23 +62,23 @@ Ett bättre sätt att redovisa på undernätsnivå programkrav för växling vid
 Om du vill skapa enskilda program för återhämtning, är det bäst att innehålla ett program i sitt eget dedikerade virtuella nätverk och upprätta en anslutning mellan dessa virtuella nätverk som krävs. Detta ger isolerat program redundans men behålla ursprungliga privata IP-adresser.
 
 Sedan pre-redundans-konfiguration ser ut som följer:
-- Programmets virtuella datorer finns i Azure Östasien använder Azure-nätverk med adressutrymme 10.1.0.0/16 för det första programmet och 15.1.0.0/16 för det andra programmet. Virtuella nätverk är namngivna **källa VNet1** och **källa VNet2** för programmets första och andra respektive.
+- Programmets virtuella datorer finns i Azure Östasien använder Azure-nätverk med adressutrymme 10.1.0.0/16 för det första programmet och 10.2.0.0/16 för det andra programmet. Virtuella nätverk är namngivna **källa VNet1** och **källa VNet2** för programmets första och andra respektive.
 - Varje VNet är ytterligare uppdelad i två undernät.
 - Azure Sydostasien är målet region och recovery virtuella nätverk Recovery VNet1 och återställning VNet2.
-- Replik noder, till exempel de som krävs för Always On, domänkontrollant, etc. placeras i ett virtuellt nätverk med adressutrymme 20.1.0.0/16 inuti **undernät 4** med adressen 20.1.0.0/24. Det virtuella nätverket kallas Azure VNet och är på Azure Sydostasien.
+- Replik noder, till exempel de som krävs för Always On, domänkontrollant, etc. placeras i ett virtuellt nätverk med adressutrymme 10.3.0.0/16 inuti **undernät 4** med adressen 10.3.4.0/24. Det virtuella nätverket kallas Azure VNet och är på Azure Sydostasien.
 - **Datakällan VNet1** och **Azure VNet** är anslutna via VPN plats-till-plats-anslutning. På liknande sätt **källa VNet2** och **Azure VNet** också är anslutna via VPN plats-till-plats-anslutning.
 - **Datakällan VNet1** och **källa VNet2** också ansluten via S2S VPN i det här exemplet. Eftersom två Vnet i samma region, kan VNet-peering också användas i stället för S2S VPN.
 - **Återställning VNet1** och **Recovery VNet2** är inte kopplad till något virtuellt nätverk.
 - Om du vill minska recovery tid mål för Återställningstid VPN-gatewayer har konfigurerats på **Recovery VNet1** och **Recovery VNet2** före redundans.
 
-![Azure-Azure-anslutningen isolerade program före redundans](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover.png)
+![Azure-Azure-anslutningen isolerade program före redundans](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
 Vid en katastrof situation som påverkar endast ett program (i det här exemplet sparades i källan VNet2), kan företag A återställa programmet på följande sätt:
 - VPN-anslutningar mellan **källa VNet1** och **källa VNet2**, och mellan **källa VNet2** och **Azure VNet** är frånkopplad.
 - VPN-anslutningar upprättas mellan **källa VNet1** och **Recovery VNet2**, och mellan **Recovery VNet2** och **Azure VNet**.
 - Virtuella datorer från **källa VNet2** redundansväxlats till **Recovery VNet2**.
 
-![Azure-Azure-anslutningen isolerade program efter växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover.png)
+![Azure-Azure-anslutningen isolerade program efter växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
 Den ovan isolerade redundans exempel kan utökas för att inkludera fler program och nätverksanslutningar. Rekommenderar vi att du följer en liknande-liknande anslutning modell, så långt möjligt när redundansväxla från källan till målet.
 
@@ -92,13 +92,13 @@ För det andra scenariot Vi anser att **företag B** som har en del av sin infra
 
 Här är nätverksarkitekturen ser ut före redundans:
 - Programmets virtuella datorer finns i Azure Östasien använder Azure-nätverk med adressutrymme 10.1.0.0/16. Det här virtuella nätverket har namnet **källa VNet**.
-- Programbelastningar delas över tre undernät – 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, respektive med namnet **undernät 1**, **undernät 2**, **undernät 3**.
+- Programbelastningar delas över tre undernät – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respektive med namnet **undernät 1**, **undernät 2**, **undernät 3**.
 - Azure Sydostasien är målet region och har ett virtuellt nätverk för återställning som efterliknar adresskonfiguration för adressutrymmet och undernätsegenskaperna på källan. Det här virtuella nätverket har namnet **Recovery VNet**.
 - Virtuella datorer i Azure Östasien är anslutna till lokala datacenter via ExpressRoute eller plats-till-plats-VPN.
 - Om du vill minska recovery tid mål för Återställningstid etablerar företag B gateways på Recovery VNet i Azure Sydostasien före redundans.
 - **Företag B** tilldelar/verifierar mål-IP-adress för replikerade objekt. I det här exemplet är mål-IP samma som käll-IP för varje virtuell dator
 
-![På lokal-till-Azure-anslutningen innan växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover.png)
+![På lokal-till-Azure-anslutningen innan växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Fullständig region växling vid fel
 
@@ -106,7 +106,7 @@ Vid ett regionalt strömavbrott **företag B** kan återställa dess hela distri
 
 Den ursprungliga anslutningen mellan Azure Östasien och lokala datacenter ska kopplas bort innan du upprättar anslutningen mellan Azure Sydostasien och lokala datacenter. Lokal routning även konfigureras om för att peka till mål-region och gateways efter växling vid fel.
 
-![På lokal-till-Azure-anslutningen efter växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover.png)
+![På lokal-till-Azure-anslutningen efter växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
 ### <a name="subnet-failover"></a>Undernät växling vid fel
 

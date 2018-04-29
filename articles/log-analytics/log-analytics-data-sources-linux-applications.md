@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Samla in prestandaräknare för Linux-program i logganalys 
 Den här artikeln innehåller information om hur du konfigurerar den [OMS-Agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program.  Program som ingår i den här artikeln är:  
 
 - [MySQL](#MySQL)
-- [Apache HTTP Server](#apache-http-server)
+- [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
 Om MySQL-Server eller MariaDB Server har identifierats på datorn när OMS-agenten är installerad, installeras en provider för MySQL-Server för prestandaövervakning automatiskt. Den här providern ansluter till den lokala MySQL/MariaDB servern att exponera prestandastatistik. MySQL-autentiseringsuppgifter måste konfigureras så att providern har åtkomst till MySQL-servern.
@@ -50,7 +50,7 @@ Poster i autentiseringsfilen beskrivs i följande tabell.
 | Egenskap | Beskrivning |
 |:--|:--|
 | Port | Representerar den aktuella porten MySQL-instans lyssnar på. Port 0 anger att egenskaperna för följande används för standardinstansen. |
-| Bind-Address| Aktuell MySQL bind-adress. |
+| Bind-adress| Aktuell MySQL bind-adress. |
 | användarnamn| MySQL-användare som används för att använda för att övervaka MySQL-serverinstansen. |
 | Base64-kodat lösenord| Lösenordet för MySQL övervakning användaren kodad i Base64. |
 | Automatisk uppdatering| Anger om genomsökning efter ändringar i filen my.cnf och skriva över filen MySQL OMI autentisering när MySQL OMI providern uppgraderas. |
@@ -78,9 +78,9 @@ Följande tabell innehåller information om syntaxen för att använda mycimprov
 
 | Åtgärd | Exempel | Beskrivning
 |:--|:--|:--|
-| automatisk uppdatering *FALSKT\|SANT* | mycimprovauth automatisk uppdatering false | Anger huruvida autentiseringsfilen uppdateras automatiskt på Starta om eller uppdatera. |
+| automatisk uppdatering *FALSKT eller SANT* | mycimprovauth automatisk uppdatering false | Anger huruvida autentiseringsfilen uppdateras automatiskt på Starta om eller uppdatera. |
 | standard *användarlösenordet för bind-adress* | mycimprovauth standard 127.0.0.1 rot pwd | Anger standardinstansen i MySQL OMI autentiseringsfilen.<br>Lösenordsfältet ska anges i klartext - lösenordet i filen MySQL OMI autentisering blir Base64-kodade. |
-| ta bort *standard\|portnummer* | mycimprovauth 3308 | Tar bort den angivna instansen som antingen standard eller av portnummer. |
+| ta bort *standard eller portnummer* | mycimprovauth 3308 | Tar bort den angivna instansen som antingen standard eller av portnummer. |
 | hjälp | mycimprov hjälp | Visar en lista med kommandon för att använda. |
 | Skriv ut | mycimprov utskrift | Visar en lättläst MySQL OMI autentiseringsfilen. |
 | Uppdatera portnummer *användarlösenordet för bind-adress* | mycimprov uppdatering 3307 127.0.0.1 rot pwd | Uppdaterar den angivna instansen eller lägger till instansen om det inte finns. |
@@ -100,7 +100,7 @@ MySQL-användare behöver åtkomst till följande frågor för att samla in pres
 MySQL-användaren kräver också väljer åtkomst till standard i tabellerna nedan.
 
 - information_schema
-- mysql. 
+- MySQL. 
 
 Dessa behörigheter kan tilldelas genom att köra följande kommandon för bevilja.
 
@@ -136,7 +136,7 @@ När du konfigurerar OMS-Agent för Linux för att skicka data till logganalys, 
 | MySQL-server | Tabell Cache används Pct |
 | MySQL-server | Tabell Lås konkurrens Pct |
 
-## <a name="apache-http-server"></a>Apache HTTP Server 
+## <a name="apache-http-server"></a>Apache HTTP-Server 
 Om Apache HTTP-Server har identifierats på datorn när omsagent-paket installeras, installeras en provider för Apache HTTP-Server för prestandaövervakning automatiskt. Den här providern förlitar sig på en Apache-modulen måste läsas in i Apache HTTP-Server för att komma åt prestandadata. Går att läsa in modulen med följande kommando:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
@@ -153,10 +153,10 @@ När du konfigurerar OMS-Agent för Linux för att skicka data till logganalys, 
 
 | Objektnamn | Räknarens namn |
 |:--|:--|
-| Apache HTTP Server | Upptagen arbetare |
-| Apache HTTP Server | Inaktiv arbetare |
-| Apache HTTP Server | PCT upptagen arbetare |
-| Apache HTTP Server | Totalt antal Pct CPU |
+| Apache HTTP-Server | Upptagen arbetare |
+| Apache HTTP-Server | Inaktiv arbetare |
+| Apache HTTP-Server | PCT upptagen arbetare |
+| Apache HTTP-Server | Totalt antal Pct CPU |
 | Apache virtuell värddator | Fel per minut - klient |
 | Apache virtuell värddator | Fel per minut - Server |
 | Apache virtuell värddator | KB per begäran |

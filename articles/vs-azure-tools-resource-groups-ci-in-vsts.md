@@ -1,11 +1,11 @@
 ---
 title: Kontinuerlig integration i VS Team Services med Azure-resursgruppsprojekt | Microsoft Docs
-description: "Beskriver hur du ställer in kontinuerlig integration i Visual Studio Team Services med hjälp av projekt för distribution av Azure-resursgrupp i Visual Studio."
+description: Beskriver hur du ställer in kontinuerlig integration i Visual Studio Team Services med hjälp av projekt för distribution av Azure-resursgrupp i Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integration i Visual Studio Team Services med hjälp av projekt för distribution av Azure-resursgrupp
 För att distribuera en Azure-mall måste du utföra uppgifter i olika faser: skapa, testa, kopiera till Azure (kallas även ”mellanlagring”) och distribuerar mallen. Det finns två olika sätt att distribuera mallar till Visual Studio Team Services (VS Team Services). Båda metoderna ger samma resultat, så Välj det alternativ som passar bäst för ditt arbetsflöde.
@@ -74,11 +74,11 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
       ![Tjänstens huvudnamn alternativet][5]
    5. Lägga till din Azure-prenumerationsinformation på den **Lägg till Azure-prenumeration** dialogrutan. Du måste ange följande:
       
-      * Prenumerations-Id
+      * Prenumeration-ID
       * Prenumerationsnamn
       * Tjänstens huvudnamn Id
       * Tjänstens huvudnamn nyckel
-      * Klient-Id
+      * Klient-ID
    6. Lägga till ett namn för ditt val att den **prenumeration** namnrutan. Det här värdet senare visas i den **Azure-prenumeration** listrutan i VS Team Services. 
    7. Om du inte vet Azure prenumerations-ID, kan du använda något av följande kommandon för att hämta den.
       
@@ -106,7 +106,7 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
    
    | Parameter | Beskrivning |
    | --- | --- |
-   | -ResourceGroupLocation |Värdet geografiska plats där resursgruppen finns, som **eastus** eller **'Östra USA'**. (Lägga till enkla citattecken om namnet är ett blanksteg.) Se [Azure-regioner](https://azure.microsoft.com/en-us/regions/) för mer information. |
+   | -ResourceGroupLocation |Värdet geografiska plats där resursgruppen finns, som **eastus** eller **'Östra USA'**. (Lägga till enkla citattecken om namnet är ett blanksteg.) Se [Azure-regioner](https://azure.microsoft.com/regions/) för mer information. |
    | -ResourceGroupName |Namnet på resursgruppen som används för den här distributionen. |
    | -UploadArtifacts |Den här parametern när anger att artefakter som behöver överföras till Azure från det lokala systemet. Du behöver bara ange den här växeln om mallen distributionen kräver extra artefakter som du vill att mellanlagra med hjälp av PowerShell-skript (exempelvis konfigurationsskript eller kapslade mallar). |
    | -StorageAccountName |Namnet på lagringskontot används för att mellanlagra artefakter för den här distributionen. Den här parametern används bara om du Förproduktion artefakter för distribution. Om den här parametern anges skapas ett nytt lagringskonto om skriptet inte har skapat något under en tidigare distribution. Om parametern anges finnas lagringskontot redan. |

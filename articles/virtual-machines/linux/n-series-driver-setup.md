@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/03/2018
+ms.date: 04/27/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6b91f09b6c38c5461638b953f3a0df921fc7c30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -321,7 +321,7 @@ Decimaltecknet BusID hittar du genom att köra
 echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
-BusID kan ändras när en virtuell dator hämtar omfördelats startas om. Därför kan du kanske vill använda ett skript för att uppdatera BusID i X11 konfiguration när en virtuell dator startas. Exempel:
+BusID kan ändras när en virtuell dator hämtar omfördelats startas om. Därför kan du kanske vill skapa ett skript för att uppdatera BusID i X11 konfiguration när en virtuell dator startas. Till exempel skapa ett skript som heter `busidupdate.sh` (eller ett annat namn som du väljer) med följande innehåll:
 
 ```bash 
 #!/bin/bash
@@ -330,7 +330,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Den här filen kan anropas som rot på Start genom att skapa en post för den i `/etc/rc.d/rc3.d`.
+Skapa sedan en post för uppdateringen skriptet i `/etc/rc.d/rc3.d` så anropas skriptet som rot på Start.
 
 ## <a name="troubleshooting"></a>Felsökning
 

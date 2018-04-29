@@ -6,20 +6,20 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b4ccb612314fc1f65be4033bc0d0893d17843a86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
 >[!NOTE]
 > Site Recovery replikering för virtuella Azure-datorer är för närvarande under förhandsgranskning.
 
-Den här artikeln innehåller vägledning för nätverk när du replikerar och återställa virtuella Azure-datorer från en region till en annan, med hjälp av [Azure Site Recovery](site-recovery-overview.md). 
+Den här artikeln innehåller vägledning för nätverk när du replikerar och återställa virtuella Azure-datorer från en region till en annan, med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -29,11 +29,11 @@ Lär dig hur Site Recovery tillhandahåller katastrofåterställning för [det h
 
 Följande diagram visar en typisk Azure miljö för program som körs på virtuella Azure-datorer:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Om du använder Azure ExpressRoute eller en VPN-anslutning från ditt lokala nätverk till Azure, miljön ser ut så här:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
+![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
 Oftast skyddas nätverk brandväggar och nätverkssäkerhetsgrupper (NSG: er). Brandväggar Använd URL eller IP-baserade vitlistning för att kontrollera nätverksanslutningen. NSG: er innehåller regler som använder IP-adressintervall för att kontrollera nätverksanslutningen.
 
@@ -57,19 +57,18 @@ login.microsoftonline.com | Krävs för autentiseringen och auktoriseringen till
 
 Om du använder en IP-baserade brandväggen proxy eller NSG-regler för att styra utgående anslutning, måste dessa IP-adressintervall som ska tillåtas.
 
-- Alla IP-adressintervall som motsvarar källplatsen.
-    - Du kan hämta den [IP-adressintervall](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+- Alla IP-adressintervall som motsvarar storage-konton i källan region
+    - Du måste skapa en [Storage service-tagg](../virtual-network/security-overview.md#service-tags) baserat NSG regeln för käll-region.
     - Du måste tillåta adresserna så att data kan skrivas till cache storage-konto från den virtuella datorn.
 - Alla IP-adressintervall som motsvarar Office 365 [autentisering och identitet IP V4-slutpunkter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
     - Om ny adress läggs till Office 365-adressintervall i framtiden, måste du skapa nya NSG-regler.
-- Site Recovery tjänstslutpunkten IP-adresser. Dessa är tillgängliga i en [XML-filen](https://aka.ms/site-recovery-public-ips), och beror på din målplats.
--  Du kan [hämtar och använder det här skriptet](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702), för att automatiskt skapa regler som krävs på NSG: N. 
+- Site Recovery tjänstslutpunkten IP-adresser. Dessa är tillgängliga i en [XML-filen](https://aka.ms/site-recovery-public-ips) och beror på din målplats.
+-  Du kan [hämtar och använder det här skriptet](https://aka.ms/nsg-rule-script), för att automatiskt skapa regler som krävs på NSG: N.
 - Vi rekommenderar att du skapar nödvändiga NSG-regler på ett test NSG och kontrollera att det inte finns några problem innan du skapar regler på en NSG för produktion.
-- Se till att prenumerationen är godkända för att skapa antalet NSG-regler som krävs. Kontakta Azure stöd för att öka gränsen för NSG-regel i din prenumeration.
 
-IP-adressintervall är följande:
 
->
+Site Recovery IP-adressintervall är följande:
+
    **mål** | **Site Recovery IP** |  **Site Recovery övervakning IP**
    --- | --- | ---
    Östasien | 52.175.17.132 | 13.94.47.61
@@ -99,50 +98,73 @@ IP-adressintervall är följande:
    Storbritannien, norra | 51.142.209.167 | 13.87.102.68
    Centrala Korea | 52.231.28.253 | 52.231.32.85
    Sydkorea | 52.231.298.185 | 52.231.200.144
-   
-   
-  
+   Frankrike, centrala | 52.143.138.106 | 52.143.136.55
+   Frankrike, södra | 52.136.139.227 |52.136.136.62
+
 
 ## <a name="example-nsg-configuration"></a>NSG exempelkonfiguration
 
-Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator för att replikera. 
+Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator för att replikera.
 
-- Om du använder NSG-regler för att styra utgående anslutning kan du använda ”Tillåt utgående HTTPS” regler för alla de nödvändiga IP-adressintervall.
-- Exemplet förutsätter att källplatsen VM är ”östra USA” och målplatsen är ”centrala USA.
+- Om du använder NSG-regler för att styra utgående anslutning kan du använda ”Tillåt utgående HTTPS” regler för port: 443 för alla de nödvändiga IP-adressintervall.
+- Exemplet förutsätter att källplatsen VM är ”Öst oss” och målplatsen är ”centrala USA”.
 
 ### <a name="nsg-rules---east-us"></a>NSG-regler - östra USA
 
-1. Skapa regler som motsvarar [Öst oss IP-adressintervall](https://www.microsoft.com/download/confirmation.aspx?id=41653). Detta krävs så att data kan skrivas till cache storage-konto från den virtuella datorn.
-2. Skapa regler för alla IP-adressintervall som motsvarar Office 365 [autentisering och identitet IP V4-slutpunkter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Skapa regler som motsvarar målplatsen:
+1. Skapa ett utgående säkerhetsregel HTTPS (443) för ”Storage.EastUS” på NSG: N som visas i skärmbilden nedan.
+
+      ![Storage-tagg](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Skapa regler för utgående HTTPS (443) för alla IP-adressintervall som motsvarar Office 365 [autentisering och identitet IP V4-slutpunkter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Skapa regler för utgående HTTPS (443) för Site Recovery IP-adresser som motsvarar målplatsen:
 
    **Plats** | **Site Recovery-IP-adress** |  **Site Recovery övervakning IP-adress**
     --- | --- | ---
    Centrala USA | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>NSG - regler i centrala USA 
+### <a name="nsg-rules---central-us"></a>NSG - regler i centrala USA
 
 Reglerna krävs så att replikering kan aktiveras från målregionen som för den källa region postredundans:
 
-* Reglerna som motsvarar [centrala USA IP-intervall](https://www.microsoft.com/download/confirmation.aspx?id=41653). Dessa krävs så att data kan skrivas till cache storage-konto från den virtuella datorn.
+1. Skapa ett utgående säkerhetsregel HTTPS (443) för ”Storage.CentralUS” på NSG: N.
 
-* Regler för alla IP-adressintervall som motsvarar Office 365 [autentisering och identitet IP V4-slutpunkter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Skapa regler för utgående HTTPS (443) för alla IP-adressintervall som motsvarar Office 365 [autentisering och identitet IP V4-slutpunkter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Regler som motsvarar källplatsen:
-    - Östra USA
-    - Site Recovery-IP-adress: 13.82.88.226
-    - Site Recovery övervakning av IP-adress: 104.45.147.24
+3. Skapa regler för utgående HTTPS (443) för Site Recovery IP-adresser som motsvarar källplatsen:
 
+   **Plats** | **Site Recovery-IP-adress** |  **Site Recovery övervakning IP-adress**
+    --- | --- | ---
+   Centrala USA | 13.82.88.226 | 104.45.147.24
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN 
+## <a name="network-virtual-appliance-configuration"></a>Virtuell installation nätverkskonfiguration
+
+Om du använder virtuella nätverksinstallationer (NVAs) för att styra utgående nätverkstrafik från virtuella datorer kan hämta begränsas anordningen om replikeringstrafiken som passerar genom en NVA. Vi rekommenderar att du skapar en tjänstslutpunkt för nätverk i ditt virtuella nätverk för ”lagring” så att replikeringstrafiken inte går att en NVA.
+
+### <a name="create-network-service-endpoint-for-storage"></a>Skapa nätverk tjänstslutpunkten för lagring
+Du kan skapa en tjänstslutpunkt för nätverk i ditt virtuella nätverk för ”lagring” så att replikeringstrafiken inte lämnar Azure gräns.
+
+- Markera din virtuella Azure-nätverket och klicka på Tjänsteslutpunkter
+
+    ![Storage-slutpunkt](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- Klicka på ”Lägg till' och 'Lägga till Tjänsteslutpunkter” fliken öppnas
+- Välj Microsoft.Storage om du under ”tjänst” och nödvändiga undernät under 'undernät-fält och klicka på ”Lägg till'
+
+>[!NOTE]
+>Begränsa inte åtkomst till virtuella nätverk till dina lagringskonton som används för automatisk Systemåterställning. Du måste tillåta åtkomst från ”alla nätverk”
+
+## <a name="expressroutevpn"></a>ExpressRoute/VPN
 
 Följ riktlinjerna i det här avsnittet om du har en ExpressRoute- eller VPN-anslutning mellan lokala och Azure-plats.
 
 ### <a name="forced-tunneling"></a>Tvingad tunneltrafik
 
-Normalt kan du definiera en standardväg (0.0.0.0/0) som tvingar utgående Internet-trafiken flöda via den lokala platsen. Vi rekommenderar inte detta. Lämna inte Azure gränsen replikeringstrafik och Site Recovery service-kommunikation. Lösningen är att lägga till användardefinierade vägar (udr: er) för [dessa IP-adressintervall](#outbound-connectivity-for-azure-site-recovery-ip-ranges) så att replikeringstrafiken inte gå lokalt.
+Normalt definierar du en standardväg (0.0.0.0/0) som tvingar utgående Internet-trafiken flöda via den lokala platsen eller. Vi rekommenderar inte detta. Replikeringstrafiken bör inte lämna Azure gränsen.
 
-### <a name="connectivity"></a>Anslutning 
+Du kan [skapa ett nätverk tjänstslutpunkten](#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för ”lagring” så att replikeringstrafiken inte lämnar Azure gräns.
+
+
+### <a name="connectivity"></a>Anslutning
 
 Följ dessa riktlinjer för anslutningar mellan platsen och den lokala platsen:
 - Om ditt program behöver ansluta till lokala datorer eller om det finns klienter som ansluter till programmet från lokala via VPN/ExpressRoute, se till att du har minst en [plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) mellan mål-Azure-region och lokala datacenter.

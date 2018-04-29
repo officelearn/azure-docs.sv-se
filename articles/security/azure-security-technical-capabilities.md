@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0cef0a261b0362fcb9776e63c10e96aedc408b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>De tekniska funktionerna i Azure-säkerhet
 
@@ -134,7 +134,7 @@ När du använder Azure Active Directory B2C kan kan dina användare registrera 
 
 #### <a name="device-registration"></a>Enhetsregistrering
 
-[Azure AD-enhetsregistrering](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) är grunden för enhetsbaserad [villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) scenarier. När en enhet är registrerad innehåller enhetsregistrering för Azure AD enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att genomdriva principer för villkorlig åtkomst för program som finns i molnet och lokalt.
+[Azure AD-enhetsregistrering](https://docs.microsoft.com/azure/active-directory/device-management-introduction) är grunden för enhetsbaserad [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) scenarier. När en enhet är registrerad innehåller enhetsregistrering för Azure AD enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att genomdriva principer för villkorlig åtkomst för program som finns i molnet och lokalt.
 
 När den kombineras med en [hantering av mobila enheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) lösning, till exempel Intune, attributen i Azure Active Directory uppdateras med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav.
 

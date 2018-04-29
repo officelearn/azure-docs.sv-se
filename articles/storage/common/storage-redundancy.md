@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replikering
 
@@ -46,7 +46,7 @@ Se [priser för Azure Storage](https://azure.microsoft.com/pricing/details/stora
 > Premium-lagring stöder endast lokalt redundant lagring (LRS). Information om Premium-lagring finns [Premium-lagring: högpresterande lagring för arbetsbelastningar på virtuella Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Ändra replikeringsstrategi
-Vi kan du ändra replikeringsstrategi för ditt lagringskonto med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), eller en av många [ Azures klientbibliotek](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). Ändra replikeringstyp för ditt lagringskonto resulterar inte i stillestånd.
+Vi kan du ändra replikeringsstrategi för ditt lagringskonto med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), eller en av många [ Azures klientbibliotek](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Ändra replikeringstyp för ditt lagringskonto resulterar inte i stillestånd.
 
    > [!NOTE]
    > För närvarande kan använda du inte portalen eller API för att konvertera ditt konto till ZRS. Men planerar vi att stödja migrera till ZRS från LRS-, GRS- och RA-GRS när ZRS är allmänt tillgänglig. Se [zonen-redundant lagring (ZRS)](storage-redundancy-zrs.md) mer information.

@@ -1,6 +1,6 @@
 ---
-title: "Azure Snabbstart – Köra Batch-jobb – .NET"
-description: "Kör snabbt Batch-jobb och aktiviteter med Batch .NET-klientbibliotek."
+title: Azure Snabbstart – Köra Batch-jobb – .NET
+description: Kör snabbt Batch-jobb och aktiviteter med Batch .NET-klientbibliotek.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API
 
@@ -26,9 +26,9 @@ Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på A
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 eller en senare version). 
+* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 eller senare). 
 
-* Ett Batch-konto och ett länkat allmänt lagringskonto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
+* Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-[Hämta eller klona exempelappen](https://github.com/Azure-Samples/batch-dotnet-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
+[Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-dotnet-quickstart) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
 ```
 git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
@@ -46,7 +46,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Gå till den katalog som innehåller filen med Visual Studio-lösningen `BatchDotNetQuickstart.sln`.
 
-Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifter i `program.cs` med värdena för dina konton. Till exempel:
+Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `program.cs` med värdena för dina konton. Till exempel:
 
 ```csharp
 // Batch account credentials
@@ -65,9 +65,9 @@ Om du vill se Batch arbetsflödet jobba ska du skapa och köra appen. När du ha
 
 * Högerklicka på lösningen i Solution Explorer och klicka på **Skapa lösning**. 
 
-* Bekräfta återställningen av NuGet-paket om du uppmanas att göra det. Om du behöver hämta paket som saknas ska du se till att [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) är installerad.
+* Bekräfta återställningen av NuGet-paket om du uppmanas att göra det. Om du behöver ladda ned paket som saknas ska du se till att [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) är installerat.
 
-Kör den. När du kör exempelappen ser konsolens utdata ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till Batch-kontot på [Azure-portalen](https://portal.azure.com) för att övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna.
+Kör det. När du kör exempelappen ser utdata i konsolen ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till Batch-kontot på [Azure-portalen](https://portal.azure.com) för att övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna.
 
 ```
 Sample start: 12/4/2017 4:02:54 PM
@@ -180,7 +180,7 @@ try
 
 Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder metoden [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) för att skapa ett jobb på din pool. 
 
-Metoden [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) skickar jobbet till Batch-tjänsten. Från början har jobbet inga aktiviteter.
+Metoden [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) skickar jobbet till Batch-tjänsten. Från början har jobbet inga uppgifter.
 
 ```csharp
 try

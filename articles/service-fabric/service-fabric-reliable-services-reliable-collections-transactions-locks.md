@@ -1,6 +1,6 @@
 ---
-title: "Transaktioner och låslägen i Azure Service Fabric tillförlitliga samlingar | Microsoft Docs"
-description: "Azure Service Fabric tillförlitliga tillstånd Manager och tillförlitlig samlingar transaktioner och låsa."
+title: Transaktioner och låslägen i Azure Service Fabric tillförlitliga samlingar | Microsoft Docs
+description: Azure Service Fabric tillförlitliga tillstånd Manager och tillförlitlig samlingar transaktioner och låsa.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktioner och låslägen i Azure Service Fabric tillförlitliga samlingar
 
 ## <a name="transaction"></a>Transaktionen
 En transaktion är en sekvens med åtgärder som utförs som en logisk enhet på arbetet.
-En transaktion måste uppvisa följande ACID-egenskaper. (se: https://technet.microsoft.com/en-us/library/ms190612)
+En transaktion måste uppvisa följande ACID-egenskaper. (se: https://technet.microsoft.com/library/ms190612)
 * **Odelbarhet**: en transaktion måste vara ett atomic arbetsenheten. Med andra ord antingen alla dataändringar utförs eller ingen av dem har utförts.
 * **Konsekvenskontroll**: när du är klar, en transaktion måste lämna alla data i ett konsekvent tillstånd. Alla interna datastrukturer måste vara korrekt i slutet av transaktionen.
 * **Isolering**: ändringar som görs av samtidiga transaktioner måste isoleras från de ändringar som gjorts av andra samtidiga transaktioner. Isoleringsnivån som används för en åtgärd i en ITransaction bestäms av IReliableState utför åtgärden.
@@ -34,13 +34,13 @@ En transaktion måste uppvisa följande ACID-egenskaper. (se: https://technet.mi
 Isoleringsnivå som definierar i vilken grad som transaktionen måste isoleras från ändringar som görs av andra transaktioner.
 Det finns två isoleringsnivåer som stöds i tillförlitliga samlingar:
 
-* **Upprepbar läsning**: Anger att rapporterna inte kan läsa data som har ändrats, men ännu inte har skickats av andra transaktioner och att inga andra transaktioner kan ändra data som har lästs av den aktuella transaktionen tills den aktuella transaktionen har slutförts. Mer information finns i [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Upprepbar läsning**: Anger att rapporterna inte kan läsa data som har ändrats, men ännu inte har skickats av andra transaktioner och att inga andra transaktioner kan ändra data som har lästs av den aktuella transaktionen tills den aktuella transaktionen har slutförts. Mer information finns i [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Ögonblicksbild**: Anger att data läses av någon instruktion i en transaktion är transaktionellt konsekvent versionen av informationen som fanns i början av transaktionen.
   Transaktionen kan identifiera endast dataändringar som har genomförts före början av transaktionen.
   Dataändringar har gjorts av andra transaktioner efter starten av den aktuella transaktionen är inte synliga för instruktioner som körs i den aktuella transaktionen.
   Effekten blir som om alla uttryck i en transaktion hämta en ögonblicksbild av den allokerade data som den såg i början av transaktionen.
   Ögonblicksbilder är konsekventa för tillförlitlig samlingar.
-  Mer information finns i [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+  Mer information finns i [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Tillförlitliga samlingar väljer automatiskt Isoleringsnivån som ska användas för en viss Läsåtgärd beroende på åtgärden och rollen för repliken vid tidpunkten för skapandet av transaktionen.
 Följande är den tabell som visar isolering nivån standardvärden för tillförlitlig ordlista och kön.

@@ -1,29 +1,26 @@
 ---
-title: SQL Data Warehouse Transact-SQL-språkelement | Microsoft Docs
-description: Lista med länkar till Referensinnehåll för Transact-SQL-språkelement som används för SQL Data Warehouse.
+title: T-SQL-språkelement - Azure SQL Data Warehouse | Microsoft Docs
+description: Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: dd9dc070c817a7276369a9be7126b0d48dc9e4eb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="language-elements"></a>Språkelement
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>T-SQL-språkelement som stöds i Azure SQL Data Warehouse
+Länkar till dokumentationen för T-SQL-språkelement som stöds i Azure SQL Data Warehouse.
+
 ## <a name="core-elements"></a>Core element
-* [syntaxen konventioner](https://msdn.microsoft.com/library/ms177563.aspx)
+* [syntaxen konventioner](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [namngivningsregler](https://msdn.microsoft.com/library/ms175874.aspx)
 * [reserverade nyckelord](https://msdn.microsoft.com/library/ms189822.aspx)
 * [sorteringar](https://msdn.microsoft.com/library/ff848763.aspx)
@@ -32,24 +29,24 @@ ms.lasthandoff: 03/28/2018
 * [Datatyper](https://msdn.microsoft.com/library/ms187752.aspx)
 * [KÖRA](https://msdn.microsoft.com/library/ms188332.aspx)
 * [Uttryck](https://msdn.microsoft.com/library/ms190286.aspx)
-* [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
+* [AVSLUTA](https://msdn.microsoft.com/library/ms173730.aspx)
 * [IDENTITET egenskapen lösning](https://msdn.microsoft.com/library/ms186775.aspx)
-* [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
-* [USE](https://msdn.microsoft.com/library/ms188366.aspx)
+* [SKRIV UT](https://msdn.microsoft.com/library/ms176047.aspx)
+* [ANVÄND](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Batchar för flödeskontroll och variabler
 * [BÖRJA... END](https://msdn.microsoft.com/library/ms190487.aspx)
-* [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
+* [BRYT](https://msdn.microsoft.com/library/ms181271.aspx)
 * [DEKLARERA @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 * [OM... ANNAN](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 * [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
 * [FÖRSÖK... CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
-* [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
+* [TAG](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operatorer
-* [+ (Add)](https://msdn.microsoft.com/library/ms178565.aspx)
+* [+ (Lägg till)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Strängsammanfogning)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [-(Negativt)](https://msdn.microsoft.com/library/ms189480.aspx)
 * [-(Subtrahera)](https://msdn.microsoft.com/library/ms189518.aspx)
@@ -67,12 +64,12 @@ ms.lasthandoff: 03/28/2018
 * [! = (Inte lika med)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [OCH](https://msdn.microsoft.com/library/ms188372.aspx)
 * [MELLAN](https://msdn.microsoft.com/library/ms187922.aspx)
-* [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
+* [DET FINNS](https://msdn.microsoft.com/library/ms188336.aspx)
 * [I](https://msdn.microsoft.com/library/ms177682.aspx)
 * [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
-* [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
+* [T.EX.](https://msdn.microsoft.com/library/ms179859.aspx)
 * [INTE](https://msdn.microsoft.com/library/ms189455.aspx)
-* [OR](https://msdn.microsoft.com/library/ms188361.aspx)
+* [ELLER](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Binär operatorer
 * [& (Bitvis AND)](https://msdn.microsoft.com/library/ms174965.aspx)
@@ -93,11 +90,11 @@ ms.lasthandoff: 03/28/2018
 * [ABS](https://msdn.microsoft.com/library/ms189800.aspx)
 * [ACOS](https://msdn.microsoft.com/library/ms178627.aspx)
 * [ASCII](https://msdn.microsoft.com/library/ms177545.aspx)
-* [ASIN](https://msdn.microsoft.com/library/ms181581.aspx)
-* [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
+* [ARCSIN](https://msdn.microsoft.com/library/ms181581.aspx)
+* [ARCTAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
-* [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
+* [ÄRENDE](https://msdn.microsoft.com/library/ms181765.aspx)
 * [CAST och CONVERT](https://msdn.microsoft.com/library/ms187928.aspx)
 * [TAK](https://msdn.microsoft.com/library/ms189818.aspx)
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
@@ -127,7 +124,7 @@ ms.lasthandoff: 03/28/2018
 * [DAG](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
 * [DB_NAME](https://msdn.microsoft.com/library/ms189753.aspx)
-* [DEGREES](https://msdn.microsoft.com/library/ms178566.aspx)
+* [GRADER](https://msdn.microsoft.com/library/ms178566.aspx)
 * [DENSE_RANK](https://msdn.microsoft.com/library/ms173825.aspx)
 * [SKILLNADEN](https://msdn.microsoft.com/library/ms188753.aspx)
 * [TAL](https://msdn.microsoft.com/library/hh213020.aspx)
@@ -147,12 +144,12 @@ ms.lasthandoff: 03/28/2018
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
 * [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
+* [FÖRDRÖJNING](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
-* [LEAD](https://msdn.microsoft.com/library/hh213125.aspx)
+* [LEDA](https://msdn.microsoft.com/library/hh213125.aspx)
 * [VÄNSTER](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
+* [LOGG](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
 * [LÄGRE](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
@@ -176,12 +173,12 @@ ms.lasthandoff: 03/28/2018
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
 * [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
-* [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
+* [RADIANER](https://msdn.microsoft.com/library/ms189742.aspx)
 * [SLUMP](https://msdn.microsoft.com/library/ms177610.aspx)
-* [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
-* [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
+* [RANGORDNING](https://msdn.microsoft.com/library/ms176102.aspx)
+* [ERSÄTT](https://msdn.microsoft.com/library/ms186862.aspx)
 * [Replikera](https://msdn.microsoft.com/library/ms174383.aspx)
-* [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
+* [OMVÄND](https://msdn.microsoft.com/library/ms180040.aspx)
 * [HÖGER](https://msdn.microsoft.com/library/ms177532.aspx)
 * [AVRUNDA](https://msdn.microsoft.com/library/ms175003.aspx)
 * [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
@@ -190,19 +187,19 @@ ms.lasthandoff: 03/28/2018
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
-* [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
+* [LOGGA](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
 * [SPACE](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
-* [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
-* [SQUARE](https://msdn.microsoft.com/library/ms173569.aspx)
+* [ROT](https://msdn.microsoft.com/library/ms176108.aspx)
+* [RUTA](https://msdn.microsoft.com/library/ms173569.aspx)
 * [STATS_DATE](https://msdn.microsoft.com/library/ms190330.aspx)
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
+* [INNEHÅLL](https://msdn.microsoft.com/library/ms188043.aspx)
 * [DELSTRÄNGEN](https://msdn.microsoft.com/library/ms187748.aspx)
 * [SUMMA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
@@ -219,12 +216,12 @@ ms.lasthandoff: 03/28/2018
 * [TYPE_NAME](https://msdn.microsoft.com/library/ms189750.aspx)
 * [TYPEPROPERTY](https://msdn.microsoft.com/library/ms188419.aspx)
 * [UNICODE](https://msdn.microsoft.com/library/ms180059.aspx)
-* [UPPER](https://msdn.microsoft.com/library/ms180055.aspx)
+* [ÖVRE](https://msdn.microsoft.com/library/ms180055.aspx)
 * [ANVÄNDAREN](https://msdn.microsoft.com/library/ms186738.aspx)
-* [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
+* [ANVÄNDARNAMN](https://msdn.microsoft.com/library/ms188014.aspx)
 * [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 * [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-* [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
+* [ÅR](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transaktioner
@@ -257,15 +254,15 @@ ms.lasthandoff: 03/28/2018
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>SET-instruktioner
-* [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
+* [ANGE ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
-* [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
+* [ANGE ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
 * [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
 * [ANGE ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
 * [ANGE ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
 * [ANGE ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
-* [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
+* [ANGE CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [SET DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [SET DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
 * [SET FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
@@ -279,5 +276,5 @@ ms.lasthandoff: 03/28/2018
 * [ANGE XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer TSQL-referens, [SQL Data Warehouse T-SQL-uttryck](sql-data-warehouse-reference-tsql-statements.md).
+Läs mer till referens [T-SQL-uttryck i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), och [systemvyer i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
 

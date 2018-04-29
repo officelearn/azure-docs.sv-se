@@ -1,20 +1,20 @@
 ---
-title: "Konfigurera SSL-anslutning i Azure-databas för PostgreSQL"
-description: "Anvisningar och information för att konfigurera Azure-databas för PostgreSQL och associerade program ska använda SSL-anslutningar."
+title: Konfigurera SSL-anslutning i Azure-databas för PostgreSQL
+description: Anvisningar och information för att konfigurera Azure-databas för PostgreSQL och associerade program ska använda SSL-anslutningar.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
 ms.service: postgresql
-ms.custom: 
+ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Konfigurera SSL-anslutning i Azure-databas för PostgreSQL
 Azure-databas för PostgreSQL föredrar ansluta ditt klientprogram till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
@@ -98,7 +98,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>För Windows
 Installera OpenSSL på en Windows-dator kan du göra detta på följande sätt:
-1. **(Rekommenderas)**  Använder inbyggda Bash för Windows-funktioner i Windows 10 och senare, OpenSSL installeras som standard. Anvisningar om hur du aktiverar Bash för Windows-funktioner i Windows 10 finns [här](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Rekommenderas)**  Använder inbyggda Bash för Windows-funktioner i Windows 10 och senare, OpenSSL installeras som standard. Anvisningar om hur du aktiverar Bash för Windows-funktioner i Windows 10 finns [här](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Genom att hämta ett Win32/64-program som tillhandahålls av gruppen. Medan OpenSSL Software Foundation inte stöder eller stödja en specifik Windows-installationsprogram, ger en lista över tillgängliga installationsprogram [här](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Avkoda certifikatfil

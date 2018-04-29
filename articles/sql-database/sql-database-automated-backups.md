@@ -11,11 +11,11 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Lär dig mer om automatisk säkerhetskopiering i SQL-databas
 
@@ -44,13 +44,16 @@ Fullständiga databassäkerhetskopieringar inträffa varje vecka, differentiella
 Backup storage geo-replikering inträffar baserat på schemat för Azure Storage-replikering.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Hur länge håller du Mina säkerhetskopior?
-Varje säkerhetskopiering i SQL-databas har en kvarhållningsperiod som baseras på den [tjänstnivå](sql-database-service-tiers.md) av databasen. Kvarhållningsperiod för en databas i den:
+Varje säkerhetskopiering i SQL-databas har en kvarhållningsperiod som baseras på tjänstnivån för databasen och skiljer sig mellan den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md). 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>Databasen kvarhållning för DTU-baserade inköpsmodell
+Kvarhållningsperiod för en databas i DTU-baserade inköpsmodell beror på tjänstnivån. Kvarhållningsperiod för en databas på den:
 
 * Grundläggande tjänstnivå är 7 dagar.
 * Standard-tjänstnivå är 35 dagar.
 * Premiumnivån är 35 dagar.
-* Generella nivå kan konfigureras med 35 dagar maximala (7 dagar som standard) *
+* Allmänna nivån kan konfigureras med 35 dagar maximala (7 dagar som standard) *
 * Kritiska affärsnivå (förhandsversion) kan konfigureras med 35 dagar maximala (7 dagar som standard) *
 
 \* Under förhandsgranskningen gör säkerhetskopior kvarhållningsperioden kan inte konfigureras och löses till 7 dagar.
@@ -63,7 +66,13 @@ Om du tar bort en-databas håller säkerhetskopieringar på samma sätt som för
 
 > [!IMPORTANT]
 > Om du tar bort Azure SQL-server som är värd för SQL-databaser, tas även bort alla databaser som hör till servern och kan inte återställas. Du kan inte återställa en server som har tagits bort.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Databasen kvarhållning för vCore-baserade inköpsmodell (förhandsgranskning)
+
+Lagring för säkerhetskopiering av databaser har allokerats för att stödja punkten i tiden återställa (PITR) och lång sikt Kvarhållning (LTR) funktioner i SQL-databas. Denna lagring är allokerade separat för varje databas och debiteras som två separata per databas avgifter. 
+
+- **PITR**: individuell databas säkerhetskopiorna kopieras till RA-GRS lagring är automatiskt. Lagringsutrymme ökar storleken dynamiskt när nya säkerhetskopior skapas.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Användningen av lagringsutrymme beror på frekvensen för ändring av databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minsta lagringsutrymme mängd lika med 1 x datastorleken tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra 7 dagar för säkerhetskopior. Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **LTR**: SQL-databas kan konfigurera långsiktig kvarhållning av fullständiga säkerhetskopieringar för upp till 10 år. Om LTR principen är aktiverad kommer de här säkerhetskopior lagras i RA-GRS lagring automatiskt, men du kan styra hur ofta säkerhetskopiorna kopieras. För att uppfylla olika krav kan välja du olika kvarhållningsperioder för säkerhetskopiering varje vecka, månad och år. Den här konfigurationen definierar hur mycket lagringsutrymme som ska användas för LTR säkerhetskopieringar. Du kan använda LTR prisnivå Kalkylatorn för att beräkna kostnaden för LTR lagring. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Hur du utökar säkerhetskopiering loggperioden?
 
@@ -76,7 +85,7 @@ När du lägger till LTR principen till en databas med Azure-portalen eller API 
 När TDE är aktiverat för en Azure SQL database, är säkerhetskopior också krypterade. Alla nya Azure SQL-databaser har konfigurerats med TDE aktiverad som standard. Mer information om TDE finns [Transparent datakryptering med Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>Följer automatiska säkerhetskopieringar BNPR?
-Om säkerhetskopian innehåller personliga data, vilket är föremål allmänna Data Protection förordning (BNPR) krävs att vidta åtgärder för ökad säkerhet för att skydda data från obehörig åtkomst. För att följa BNPR behöver du ett sätt att hantera databegäranden från en dataägare utan att behöva komma åt säkerhetskopieringar.  För säkerhetskopiering på kort sikt, en lösning kan vara att förkorta säkerhetskopieringen fönstret till under 30 dagar, vilket är tid som tillåts för att slutföra åtkomstbegäranden data.  Om längre sikt säkerhetskopieringar krävs, rekommenderas att lagra endast ”sysselsättningsuppgifter” data i säkerhetskopieringar. Till exempel om information om en person behöver tas bort eller uppdatera kräver det inte ta bort eller uppdatera befintliga säkerhetskopior. Du hittar mer information om metodtips för BNPR i [datastyrning BNPR kompatibilitet](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
+Om säkerhetskopian innehåller personliga data, vilket är föremål allmänna Data Protection förordning (BNPR) krävs att vidta åtgärder för ökad säkerhet för att skydda data från obehörig åtkomst. För att följa BNPR behöver du ett sätt att hantera databegäranden från en dataägare utan att behöva komma åt säkerhetskopieringar.  För kortsiktig säkerhetskopiering till en lösning kan vara att förkorta säkerhetskopieringen fönstret till under 30 dagar, vilket är tid som tillåts för att slutföra åtkomstbegäranden data.  Om längre sikt säkerhetskopieringar krävs, rekommenderas att lagra endast ”sysselsättningsuppgifter” data i säkerhetskopieringar. Till exempel om information om en person behöver tas bort eller uppdatera kräver det inte ta bort eller uppdatera befintliga säkerhetskopior. Du hittar mer information om metodtips för BNPR i [datastyrning BNPR kompatibilitet](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

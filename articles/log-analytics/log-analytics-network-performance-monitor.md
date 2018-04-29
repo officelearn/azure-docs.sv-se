@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -216,7 +216,7 @@ Välj **visa topologi** att visa hopp av hopp topologin vägar mellan käll-
 
 Varje visas en ögonblicksbild av nätverkets tillstånd vid en viss tidpunkt. Senaste status visas som standard. Längst upp på sidan visar punkten i tiden som status visas för. Om du vill visa en ögonblicksbild av nätverkets tillstånd vid ett tidigare tillfälle, Välj **åtgärder**. Du kan också aktivera eller inaktivera automatisk uppdatering för en sida när du visar det aktuella tillståndet. 
 
- ![Network State Recorder](media/log-analytics-network-performance-monitor/network-state-recorder.png)
+ ![Nätverket lådan](media/log-analytics-network-performance-monitor/network-state-recorder.png)
 
  
 
@@ -249,6 +249,24 @@ Topologin visas på kartan är nivå 3-topologi och innehåller inte nivå 2-enh
 ## <a name="log-analytics-search"></a>Logganalys Sök 
 
 Alla data som är exponerade grafiskt via Network Performance Monitor-instrumentpanelen och nedåt sidor finns också internt i [logganalys söka](log-analytics-log-search-new.md). Du kan utföra interaktiv analys av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller delbart länk. Den **vanliga frågor** område i instrumentpanelen har vissa användbara frågor som du kan använda som utgångspunkt för att skapa egna frågor och rapporter. 
+
+## <a name="alerts"></a>Aviseringar
+
+Network Performance Monitor används aviseringar i [Azure-Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+
+Det innebär att alla aviseringar hanteras med hjälp av [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+
+Om du är en NPM-användare som skapar en avisering via OMS: 
+1. Ser du en länk som omdirigeras du till Azure-portalen. Klicka på den för att komma åt portalen.
+2. Klicka på panelen Network Performance Monitor-lösning. 
+3. Gå till Konfigurera.  
+4. Markera test som du vill skapa en avisering på och följ de nämns stegen nedan.
+
+Om du är en NPM-användare som skapar en avisering via Azure Portal:  
+1. Du kan välja att ange din e-post direkt eller du kan välja att skapa aviseringar via åtgärdsgrupper.
+2. Om du väljer att ange din e-post direkt åtgärd grupp med namnet **NPM e-ActionGroup** skapas och e-post-ID: t har lagts till i åtgärdsgruppen.
+3. Om du väljer att använda åtgärdsgrupper måste du välja en tidigare skapad grupp. Du kan lära dig hur du skapar en grupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+4. Du kan använda länken Hantera aviseringar för att hantera dina aviseringar när aviseringen har skapats. 
 
 ##<a name="pricing"></a>Prissättning
 

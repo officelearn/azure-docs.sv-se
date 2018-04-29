@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Övervaka nätverksanslutningar med Nätverksbevakaren i Azure med Azure-portalen
 
 Lär dig hur du använder Övervakaren anslutning för att övervaka nätverksanslutningen mellan Azure virtuell dator (VM) och en IP-adress. Övervakaren anslutning innehåller övervakning mellan käll- och IP-adress och port. Övervakaren anslutning möjliggör scenarier som övervakning anslutningen från en virtuell dator i ett virtuellt nätverk till en virtuell dator kör SQLServer i samma eller olika virtuella nätverk, via port 1433. Övervakaren anslutning innehåller anslutningens svarstid som ett Azure-Monitor-mått registreras var 60: e sekund. Dessutom ger dig en hopp som nexthop-topologi, och identifierar konfigurationsproblem som påverkar anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du slutför stegen i den här artikeln:
 
@@ -31,7 +31,7 @@ Du måste uppfylla följande krav innan du slutför stegen i den här artikeln:
 * En virtuell dator och övervaka. Om du vill veta hur du skapar en virtuell dator, se Skapa en [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
 * Har den `AzureNetworkWatcherExtension` installerad på den virtuella datorn som du vill övervaka en anslutning från. Om du vill installera tillägget i en Windows VM [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och installera tillägget i en Linux VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkt som du vill övervaka.
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure 
+## <a name="sign-in-to-azure"></a>Logga in på Azure 
 
 Logga in på [Azure-portalen](http://portal.azure.com).
 
@@ -52,7 +52,7 @@ Följande steg aktivera övervakning av anslutning till ett mål VM via portarna
     
     |Inställning  |Värde          |
     |---------|---------      |
-    |namn     | AppToDB(1433) |
+    |Namn     | AppToDB(1433) |
     |Port     | 1433          |
 
 ## <a name="view-connection-monitoring"></a>Visa anslutning övervakning
@@ -69,4 +69,4 @@ Följande steg aktivera övervakning av anslutning till ett mål VM via portarna
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig att automatisera paket insamlingar med VM-aviseringar efter [skapar en avisering utlöses paketinsamling](network-watcher-alert-triggered-packet-capture.md).
-- Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn med hjälp av [IP-flöde Kontrollera](network-watcher-check-ip-flow-verify-portal.md).
+- Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn med hjälp av [IP-flöde Kontrollera](diagnose-vm-network-traffic-filtering-problem.md).

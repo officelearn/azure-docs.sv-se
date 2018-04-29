@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9a18193ee0d216416cda3145c85c8357813f794d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B användare från specifika organisationer
 
@@ -145,7 +145,7 @@ Om du vill ange Tillåt eller neka listan princip, Använd den [Set AzureADPolic
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-För att få principen kan använda den [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Exempel:
+För att få principen kan använda den [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Exempel:
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

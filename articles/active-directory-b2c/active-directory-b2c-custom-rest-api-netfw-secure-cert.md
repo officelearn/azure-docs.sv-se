@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Skydda din RESTful-tjänst med hjälp av klientcertifikat
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 I en relaterad artikel du [skapa en RESTful-tjänst](active-directory-b2c-custom-rest-api-netfw.md) som samverkar med Azure Active Directory B2C (Azure AD B2C).
 
 Lär dig hur du begränsar åtkomsten till ditt Azure webbapp (RESTful-API) med hjälp av ett klientcertifikat i den här artikeln. Den här mekanismen kallas TLS ömsesidig autentisering, eller *klientcertifikatautentisering*. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C kan komma åt tjänsten.

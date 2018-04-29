@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Så här schemalägger du starta och stoppa en integration Azure SSIS-körning 
 Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) en avgift som associeras med den. Du vill därför IR endast körs när du behöver köra SSIS-paket i Azure och stoppa den när du inte behöver den. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Här följer de övergripande stegen som beskrivs i den här artikeln:
@@ -123,7 +123,7 @@ Följande procedur innehåller steg för att skapa en PowerShell-runbook. Skript
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -204,7 +204,7 @@ Följ instruktionerna i [skapa en webhook](../automation/automation-webhooks.md#
 
 1. I den **Runbook** väljer **Webhooks** från den vänstra menyn och välj **+ Lägg till Webhook** i verktygsfältet. 
 
-    ![Webhooks -> Add Webhook](./media/how-to-schedule-azure-ssis-integration-runtime/add-web-hook-menu.png)
+    ![Webhooks -> Lägg till Webhooken](./media/how-to-schedule-azure-ssis-integration-runtime/add-web-hook-menu.png)
 2. I den **lägga till Webhook** väljer **skapa nya webhook**, och göra följande: 
 
     1. För **namn**, ange **StartAzureSsisIR**. 
@@ -226,7 +226,7 @@ Det här avsnittet visar hur du använder en webbaktivitet för att anropa webho
 Du skapar pipeline består av tre aktiviteter. 
 
 1. Först **Web** aktivitet anropar första webhooken för att starta Azure SSIS IR. 
-2. Den **lagrade proceduren** aktiviteten körs ett SQL-skript som körs SSIS-paket. Andra **Web** aktiviteten slutar Azure SSIS IR. Mer information om hur du anropar ett SSIS-paket från Data Factory-pipelinen med hjälp av aktiviteten lagrad procedur finns [anropa ett SSIS-paket](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+2. Den **köra SSIS-paket** aktivitet eller **lagrade proceduren** aktiviteten körs SSIS-paket.
 3. Andra **Web** aktivitet anropar webhooken om du vill stoppa Azure SSIS IR. 
 
 När du skapar och testar pipeline, skapa en schema-utlösare och associera med pipeline. Utlösaren schema definierar ett schema för pipeline. Anta att du skapar en utlösare som är schemalagda att köras varje dag kl 23. Utlösaren körs pipeline kl 23 varje dag. Pipelinen startar Azure SSIS-IR kör SSIS-paket och stoppar Azure SSIS IR. 
@@ -278,69 +278,55 @@ När du skapar och testar pipeline, skapa en schema-utlösare och associera med 
     3. För **brödtext**, ange `{"message":"hello world"}`. 
    
         ![Första webbaktivitet – fliken Inställningar](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-5. Musen aktiviteten lagrad procedur från den **allmänna** avsnitt i den **aktiviteter** verktygslådan. Ange namnet på aktiviteten för **RunSSISPackage**. 
-6. Växla till den **konto för SQL** fliken i den **egenskaper** fönster. 
-7. För **länkade tjänsten**, klickar du på **+ ny**.
-8. I den **ny länkade tjänst** och utföra följande åtgärder: 
 
-    1. Välj **Azure SQL Database** för **typen**.
-    2. Välj din Azure SQL-server som är värd för den **SSISDB** databasen för den **servernamn** fältet. Azure SSIS IR etableringsprocessen skapar en SSIS-katalog (SSIDB-databasen) i Azure SQL-server som du anger.
-    3. Välj **SSISDB** för **databasnamnet**.
-    4. För **användarnamn**, ange namnet på användaren som har åtkomst till databasen.
-    5. För **lösenord**, ange lösenordet för användaren. 
-    6. Testa anslutningen till databasen genom att klicka på **Anslutningstestet** knappen.
-    7. Spara den länkade tjänsten genom att klicka på den **spara** knappen.
-9. I den **egenskaper** och växla till den **lagrade proceduren** fliken från den **konto för SQL** fliken och gör följande: 
+4. Dra och släpp aktiviteten köra SSIS-paket eller aktiviteten lagrad procedur från den **allmänna** avsnitt i den **aktiviteter** verktygslådan. Ange namnet på aktiviteten för **RunSSISPackage**. 
 
-    1. För **lagrat procedurnamn**väljer **redigera** , och ange **sp_executesql**. 
-    2. Välj **+ ny** i den **lagrade procedurparametrar** avsnitt. 
-    3. För **namn** för parametern, ange **infogandekolumner**. 
-    4. För **typen** för parametern, ange **sträng**. 
-    5. För **värdet** för parametern, ange följande SQL-fråga:
+5. Om du väljer aktiviteten köra SSIS-paket, följ instruktionerna i [kör ett SSIS-paket som använder SSIS-aktivitet i Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md) slutföra aktiviteten.  Se till att du anger ett tillräckligt antal nya försök som förekommer ofta att vänta på tillgängligheten för Azure-SSIS-IR eftersom det tar att starta upp till 30 minuter. 
 
-        I SQL-frågan anger rätt värden för den **mappnamn**, **projekt_namn**, och **paketnamn** parametrar. 
+    ![Inställningar för nya försök](media/how-to-schedule-azure-ssis-integration-runtime/retry-settings.png)
 
-        ```sql
-        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
+6. Om du väljer aktiviteten lagrad procedur, följ instruktionerna i [anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory](how-to-invoke-ssis-package-stored-procedure-activity.md) slutföra aktiviteten. Kontrollera att du infogar ett Transact-SQL-skript som väntar på tillgängligheten för Azure-SSIS-IR eftersom det tar att starta upp till 30 minuter.
+    ```sql
+    DECLARE @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-        -- Wait until Azure-SSIS IR is started
-        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
-        BEGIN
-            WAITFOR DELAY '00:00:01';
-        END
+    -- Wait until Azure-SSIS IR is started
+    WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+    BEGIN
+        WAITFOR DELAY '00:00:01';
+    END
 
-        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
-            @project_name=N'YourProject', @package_name=N'YourPackage',
-            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
-            @execution_id=@exe_id OUTPUT 
+    EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+        @project_name=N'YourProject', @package_name=N'YourPackage',
+        @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+        @execution_id=@exe_id OUTPUT 
 
-        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
 
-        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+    EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
 
-        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
-        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
-        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
-        BEGIN
-            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
-            RAISERROR(@err_msg, 15, 1)
-        END
+    -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/
+    -- failed (4)/pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+    IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+    BEGIN
+        SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+        RAISERROR(@err_msg, 15, 1)
+    END
+    ```
 
-        ```
-10. Anslut den **Web** aktivitet för att den **lagrade proceduren** aktivitet. 
+7. Anslut den **Web** aktivitet för att den **köra SSIS-paket** eller **lagrade proceduren** aktivitet. 
 
     ![Ansluta webb- och lagrade proceduren aktiviteter](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
 
-11. Musen och en annan **Web** aktiviteten till höger om den **lagrade proceduren** aktivitet. Ange namnet på aktiviteten för **StopIR**. 
-12. Växla till den **inställningar** fliken i den **egenskaper** fönstret och göra följande: 
+8. Dra och släpp en annan **Web** aktiviteten till höger om den **köra SSIS-paket** aktivitet eller **lagrade proceduren** aktivitet. Ange namnet på aktiviteten för **StopIR**. 
+9. Växla till den **inställningar** fliken i den **egenskaper** fönstret och göra följande: 
 
     1. För **URL**, klistra in Webbadressen för webhooken som slutar Azure SSIS IR. 
     2. För **metoden**väljer **efter**. 
     3. För **brödtext**, ange `{"message":"hello world"}`.  
-4. Anslut den **lagrade proceduren** aktiviteten till senast **Web** aktivitet.
+10. Anslut den **köra SSIS-paket** aktivitet eller **lagrade proceduren** aktiviteten till senast **Web** aktivitet.
 
     ![Fullständig pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. Verifiera inställningarna för pipeline genom att klicka på **verifiera** i verktygsfältet. Stäng den **Pipeline verifieringsrapport** genom att klicka på **>>** knappen. 
+11. Verifiera inställningarna för pipeline genom att klicka på **verifiera** i verktygsfältet. Stäng den **Pipeline verifieringsrapport** genom att klicka på **>>** knappen. 
 
     ![Verifiera pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

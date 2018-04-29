@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
@@ -31,10 +31,10 @@ Du rekommenderas att klientprogrammet har logik så att den kan återupprätta e
 Tillfälligt fel fel visas vanligtvis som en av följande felmeddelanden från ditt program för klienter:
 
 * Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;
-* Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
+* Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;. (Microsoft SQL Server, fel: 40613)
 * En befintlig anslutning tvingades att stänga av fjärrvärden.
 * System.Data.Entity.Core.EntityCommandExecutionException: Ett fel uppstod när kommandodefinition. Se ursprungsundantag för detaljer. ---> System.Data.SqlClient.SqlException: ett fel uppstod när resultat skulle tas emot från servern. (providern: Session-providern, fel: 19 - fysiska anslutningen kan inte användas)
-* Ett anslutningsförsök till en sekundär databas misslyckades eftersom databasen håller på att reconfguration och den är upptagen med att tillämpa nya sidor i mitten av en aktiv transation på den primära databasen. 
+* Ett anslutningsförsök till en sekundär databas misslyckades eftersom databasen håller på att omkonfiguration och den är upptagen med att tillämpa nya sidor i mitten av en aktiv transaktion i den primära databasen. 
 
 Kodexempel för logik finns:
 
@@ -50,7 +50,7 @@ Följande fel är tillfälligt och bör göras i programlogiken:
 | ---:| ---:|:--- |
 | 4060 |16 |Det går inte att öppna databasen ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. |
 | 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod: %d.<br/><br/>Du får detta felmeddelande när tjänsten är igång på grund av andra failover-problem, maskinvarufel eller uppgraderingar av maskinvara eller programvara. Felkoden (%d) som är inbäddad i meddelandet för fel 40197 tillhandahåller ytterligare information om vilken typ av fel eller växling vid fel som inträffat. Några exempel på koder är inbäddade i meddelandet för fel 40197 felet är 40020, 40143, 40166 och 40540.<br/><br/>Ansluta till SQL Database-server automatiskt ansluter till en felfri kopia av databasen. Programmet måste fånga 40197, felloggen inbäddade felkoden (%d) i meddelandet för att felsöka och försök ansluta till SQL-databas tills resurserna som är tillgängliga, och anslutningen har upprättats igen. |
-| 40501 |20 |Tjänsten är upptagen. Gör en begäran om efter 10 sekunder. Incident-ID: %ls. Felkod: %d.<br/><br/>Mer information finns i:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
+| 40501 |20 |Tjänsten är upptagen. Gör en begäran om efter 10 sekunder. Incident-ID: %ls. Felkod: %d.<br/><br/>Mer information finns i:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 40613 |17 |Databasen '%.&#x2a;ls' på servern '%.&#x2a;ls' är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och ger dem session spårnings-ID (%.&#x2a;ls). |
 | 49918 |16 |Det går inte att bearbeta begäran. Det finns inte tillräckligt med resurser för att behandla begäran.<br/><br/>Tjänsten är upptagen. Försök begäran senare. |
 | 49919 |16 |Bearbeta det går inte att skapa eller uppdatera begäran. För många skapande- eller uppdateringsåtgärder pågår för prenumerationen ”% ld”.<br/><br/>Tjänsten är upptagen bearbeta flera skapa eller uppdatera begäranden för din prenumeration eller server. Begäranden blockeras för resursoptimering. Frågan [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) för väntande åtgärder. Vänta tills väntande skapa eller uppdatera begäranden har slutförts eller ta bort en av dina väntande begäranden och försök igen med din begäran senare. |
@@ -86,12 +86,12 @@ Följande fel orsakas av överdriven användning av resurser när du arbetar med
 
 Relaterade ämnen:
 
-* Mer information finns här: [gränserna för Azure SQL Database](sql-database-service-tiers.md).
+* Mer information finns här: [gränserna för Azure SQL Database](sql-database-service-tiers-dtu.md).
 
 | Felkod | Allvarsgrad | Beskrivning |
 | ---:| ---:|:--- |
-| 10928 |20 |Resurs-ID: %d. %S-gränsen för databasen är %d och har nåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
-| 10929 |20 |Resurs-ID: %d. Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Annars, försök igen senare.<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers.md). |
+| 10928 |20 |Resurs-ID: %d. %S-gränsen för databasen är %d och har nåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resurs-ID: %d. Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Annars, försök igen senare.<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Databasen har uppnått sin kvot i storlek. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. |
 | 40549 |16 |Sessionen avslutas eftersom du har en tidskrävande transaktion. Försök att göra transaktionen kortare. |
 | 40550 |16 |Sessionen har avslutats eftersom den genererade för många Lås. Försök att läsa eller ändra färre rader i en enda transaktion. |
@@ -115,7 +115,7 @@ Följande fel relaterade till skapa och använda elastiska pooler:
 | 40862 |EX_USER |Namn på elastisk pool måste vara anges om tjänstmålet elastisk pool har angetts. |Ingen |Elastisk pool tjänstmålet identifiera inte unikt en elastisk pool. |Ange namn på elastisk pool om du använder tjänstmålet elastisk pool. |
 | 40864 |EX_USER |Dtu: erna för den elastiska poolen måste vara minst (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen; elastiska pooltjänstnivå. |Försöker ange dtu: erna för den elastiska poolen under minimigränsen. |Gör om inställningen dtu: erna för elastiska pool till minst den lägsta tillåtna värdet. |
 | 40865 |EX_USER |Dtu: erna för den elastiska poolen får inte överskrida (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen; elastiska pooltjänstnivå. |Försöker ange dtu: erna för den elastiska poolen ovan maxgränsen. |Försök ange dtu: erna för den elastiska poolen till inte är större än den maximala gränsen. |
-| 40867 |EX_USER |Max DTU per databas måste vara minst (%d) för tjänstnivån ' %. * ls'. |Max DTU per databas. elastiska pooltjänstnivå |Försöker ange max DTU per databas under gränsen som stöds. | onsider med hjälp av den elastiska pooltjänstnivå som har stöd för önskad inställningen. |
+| 40867 |EX_USER |Max DTU per databas måste vara minst (%d) för tjänstnivån ' %. * ls'. |Max DTU per databas. elastiska pooltjänstnivå |Försöker ange max DTU per databas under gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställningen. |
 | 40868 |EX_USER |Max DTU per databas får inte överskrida (%d) för tjänstnivån ' %. * ls'. |Max DTU per databas. elastiska pooltjänstnivå. |Försöker ange max DTU per databas, utöver gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställningen. |
 | 40870 |EX_USER |Minsta DTU per databas får inte överskrida (%d) för tjänstnivån ' %. * ls'. |Minsta DTU per databas. elastiska pooltjänstnivå. |Försöker ange minsta DTU per databas, utöver gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställningen. |
 | 40873 |EX_USER |Antalet databaser (%d) och minsta DTU per databas (%d) får inte överskrida dtu: erna för den elastiska poolen (%d). |Antalet databaser i elastiska poolen; Minsta DTU per databas. Dtu: er för elastisk pool. |Försöker ange minsta DTU för databaser i den elastiska poolen som överskrider dtu: erna för den elastiska poolen. | Överväg att öka dtu: erna för den elastiska poolen, eller minska minsta DTU per databas, eller minska antalet databaser i den elastiska poolen. |
@@ -173,11 +173,11 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | 40607 |16 |Windows-inloggningar stöds inte i den här versionen av SQL Server. |
 | 40611 |16 |Servrar kan ha högst 128 brandväggsregler definierats. |
 | 40614 |16 |Första IP-adress för brandväggsregeln får inte överstiga sista IP-adress. |
-| 40615 |16 |Det går inte att öppna servern '{0}' som begärdes vid inloggningen. Klienten med IP-adressen '{1}' är inte tillåtet att ansluta till servern.<br /><br />Använda portalen för SQL-databasen för att möjliggöra åtkomst eller köra sp\_ange\_brandväggen\_regeln på huvuddatabasen för att skapa en brandväggsregel för IP-adressen eller adressintervallet. Det kan ta upp till fem minuter för att ändringen ska börja gälla. |
+| 40615 |16 |Det går inte att öppna servern '{0}som begärdes vid inloggningen. Klienten med IP-adressen{1}' är inte tillåtet att ansluta till servern.<br /><br />Använda portalen för SQL-databasen för att möjliggöra åtkomst eller köra sp\_ange\_brandväggen\_regeln på huvuddatabasen för att skapa en brandväggsregel för IP-adressen eller adressintervallet. Det kan ta upp till fem minuter för att ändringen ska börja gälla. |
 | 40617 |16 |Namnet på brandväggsregeln som inleds med (Regelnamnet) är för långt. Maxlängden är 128. |
 | 40618 |16 |Namnet på brandväggsregeln får inte vara tomt. |
 | 40620 |16 |Inloggningen misslyckades för användaren ”%.&#x2a;ls”. Det gick inte att ändra lösenordet. Lösenordsändring under inloggning stöds inte i den här versionen av SQL Server. |
-| 40627 |20 |Åtgärden på servern och databasen: {0} '{1}' pågår. Vänta några minuter innan du försöker igen. |
+| 40627 |20 |Åtgärden på servern '{0}'och'{1}' pågår. Vänta några minuter innan du försöker igen. |
 | 40630 |16 |Lösenordsverifieringen misslyckades. Lösenordet uppfyller inte principkraven eftersom det är för kort. |
 | 40631 |16 |Lösenordet som du angav är för långt. Lösenordet ska ha mer än 128 tecken. |
 | 40632 |16 |Lösenordsverifieringen misslyckades. Lösenordet uppfyller inte principkraven eftersom det inte är tillräckligt komplicerat. |
@@ -199,11 +199,12 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | 40652 |16 |Det går inte att flytta eller skapa server. Prenumeration (prenumerations-id) kommer att överskrida serverkvoten. |
 | 40671 |17 |Kommunikationsfel mellan gateway och management-tjänsten. Försök igen senare. |
 | 40852 |16 |Det går inte att öppna databasen ' %. \*ls' på servern ' %. \*ls' begärdes vid inloggningen. Åtkomst till databasen tillåts endast med hjälp av en säkerhetsaktiverad anslutningssträng. Om du vill få åtkomst till den här databasen måste ändra din anslutningssträngar för att innehålla säker i serverns FQDN - 'servernamn'.database.windows .net ska ändras till 'servernamn'.database. `secure`. windows.net. |
-| 40914 | 16 | Det går inte att öppna servern '*[servernamn]*som begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.<br /><br />Om du vill åtgärda, Överväg att lägga till en [virtuellt nätverk regeln](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 40914 | 16 | Det går inte att öppna servern '*[servernamn]* som begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.<br /><br />Om du vill åtgärda, Överväg att lägga till en [virtuellt nätverk regeln](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |SQL Azure-systemet är under belastning och placerar en övre gräns för samtidiga DB CRUD-åtgärder för en enskild server (t.ex. Skapa databas). Den server som anges i felmeddelandet har överskridit det maximala antalet samtidiga anslutningar. Försök igen senare. |
 | 45169 |16 |SQL azure-systemet är under belastning och placerar en övre gräns för antalet samtidiga server CRUD-åtgärder för en enda prenumeration (t.ex. Skapa server). Det abonnemang som angavs i felmeddelandet överskred det maximala antalet samtidiga anslutningar och begäran nekades. Försök igen senare. |
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [Azure SQL Database-funktioner](sql-database-features.md).
-* Läs mer om [tjänstnivåer](sql-database-service-tiers.md).
+* Läs mer om [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md).
+* Läs mer om [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 

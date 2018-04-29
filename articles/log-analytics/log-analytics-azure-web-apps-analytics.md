@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla webbprogram i Azure-resurser
 
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> Azure Web Apps Analytics-lösningen är föråldrad.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men Azure Web Apps Analytics går inte att lägga till nya arbetsytor.
+
 Lösningen Azure Web Apps Analytics (förhandsversion) ger insikter om din [Azure Web Apps](../app-service/app-service-web-overview.md) genom att samla in olika mått för alla webbprogram i Azure-resurser. Med lösningen kan du analysera och söka efter måttdata för web app resurs.
 
 Med lösningen, kan du visa den:
@@ -84,7 +88,7 @@ När du har konfigurerat lösningen ska data börjar flöda till din arbetsyta i
 
 När du lägger till Azure Web Apps Analytics lösningen till din arbetsyta i **Azure Web Apps Analytics** panel har lagts till översikt över instrumentpanelen. Den här panelen visar antalet Azure Web Apps att lösningen har åtkomst till i din Azure-prenumeration.
 
-![Azure Web Apps Analytics tile](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-tile.png)
+![Azure Web Apps Analytics sida vid sida](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-tile.png)
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Visa information om Azure Web Apps Analytics
 
@@ -93,10 +97,10 @@ Klicka på den **Azure Web Apps Analytics** öppna den **Azure Web Apps Analytic
 
 | Kolumn | Beskrivning |
 | --- | --- |
-| Azure Webapps |   |
+| Azure Webbappar |   |
 | Trender för Web Apps begäran | Visar ett linjediagram för Web Apps begäran trend för intervallet som du har valt och visar en lista över de översta tio webbegäranden. Klicka på linjediagram om du vill köra en logg sökning efter <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Klicka på en webbserver begärandeobjekt om du vill köra en logg-sökning för web begäran mått trender som begär. |
 | Svarstid för Web Apps | Visar ett linjediagram för Web Apps svarstiden för intervallet som du har valt. Dessutom visas en lista över en lista över de tio Web Apps svar gånger. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Klicka på ett webbprogram för att köra en logg sökning returnerar svarstider för webbprogrammet. |
-| Web Apps Traffic | Visar ett linjediagram för Web Apps trafik i MB och visar upp Web Apps trafik. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett webbprogram för att köra en logg sökning visar antal byte som tagits emot och skickats för webbprogrammet. |
+| Appar webbtrafik | Visar ett linjediagram för Web Apps trafik i MB och visar upp Web Apps trafik. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett webbprogram för att köra en logg sökning visar antal byte som tagits emot och skickats för webbprogrammet. |
 | Azure App Service-planer |   |
 | App Service-planer med CPU-användning &gt; 80% | Visar det totala antalet Apptjänstplaner som har mer än 80% CPU-användning och visar en lista över de översta 10 Apptjänstplaner per CPU-användning. Klicka på området totala om du vill köra en logg sökning efter <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Den visar en lista med din App Service-planer och deras Genomsnittlig CPU-belastning. Klicka på en Apptjänstplan för att köra en logg sökning visar den genomsnittliga processoranvändningen. |
 | App Service-planer med minnesanvändning &gt; 80% | Visar det totala antalet Apptjänstplaner som minnesanvändningen är större än 80% och visar en lista över de översta 10 Apptjänstplaner av minnesanvändning. Klicka på området totala om du vill köra en logg sökning efter <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Den visar en lista med din App Service-planer och deras genomsnittliga minnesanvändningen. Klicka på en Apptjänstplan för att köra en logg sökning visar den genomsnittliga minnesanvändningen. |

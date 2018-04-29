@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL Database vCore-baserade köp modellen gränser (förhandsgranskning)
 
@@ -31,7 +31,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |vCores|1|2|4|8|16|
 |Minne (GB)|7|14|28|56|112|
 |Columnstore-support|Ja|Ja|Ja|Ja|Ja|
-|Minnesintern OLTP lagringsutrymme (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnesintern OLTP lagringsutrymme (GB)|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (CA)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|
 |Maxstorlek för data (GB)|1024|1024|1536|3072|4096|
@@ -40,11 +40,10 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |Mål-IOPS|320|640|1280|2560|5120|
 |I/o-svarstid (CA)|5-7 ms (skriva)
 |Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|3200|
-|Maximalt antal samtidiga inloggningar|200|400|800|1600|3200|
-|Högsta tillåtna sessioner|3000|3000|3000|3000|3000|
+|Högsta tillåtna sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|
-|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|
-|Läsa skalbar|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
+|Läsa skalbar|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||
 
@@ -63,10 +62,9 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |Mål-IOPS|5000|10000|20000|40000|80000|
 |I/o-svarstid (CA)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|3200|
-|Maximalt antal samtidiga inloggningar|200|400|800|1600|3200|
-|Högsta tillåtna sessioner|3000|3000|3000|3000|3000|
+|Högsta tillåtna sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|3|3|3|3|3|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|
+|Flera AZ|Ja|Ja|Ja|Ja|Ja|
 |Läsa skalbar|Ja|Ja|Ja|Ja|Ja|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||
@@ -109,7 +107,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |vCores|1|2|4|8|16|
 |Minne (GB)|7|14|28|56|112|
 |Columnstore-support|Ja|Ja|Ja|Ja|Ja|
-|Minnesintern OLTP lagringsutrymme (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnesintern OLTP lagringsutrymme (GB)|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |Maxstorlek för data (GB)|512|756|1536|2048|3584|
 |Maxstorlek|154|227|461|614|1075|
@@ -117,18 +115,17 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |Mål-IOPS|320|640|1280|2560|5120|
 |I/o-svarstid (CA)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|
 |Maximalt antal samtidiga arbetare (antal begäranden)|210|420|840|1680|3360|
-|Maximalt antal samtidiga inloggningar|210|420|840|1680|3360|
-|Högsta tillåtna sessioner|3000|3000|3000|3000|3000|
+|Högsta tillåtna sessioner|30000|30000|30000|30000|30000|
 |Max poolen densitet|100|200|500|500|500|
-|Minsta/högsta elastisk pool Klicka-slutar|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
+|Minsta/högsta elastisk pool Klicka-slutar|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Antal repliker|1|1|1|1|1|
-|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|
-|Läsa skalbar|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
+|Läsa skalbar|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||
 
 ### <a name="business-critical-service-tier"></a>Kritisk tjänst affärsnivå
-|Prestandanivå|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Prestandanivå|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|
 |vCores|1|2|4|8|16|
@@ -142,11 +139,10 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |Mål-IOPS|320|640|1280|2560|5120|
 |I/o-svarstid (CA)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maximalt antal samtidiga arbetare (antal begäranden)|210|420|840|1680|3360|
-|Maximalt antal samtidiga inloggningar|210|420|840|1680|3360|
-|Högsta tillåtna sessioner|3000|3000|3000|3000|3000|
-|Max poolen densitet|Saknas|50|100|100|100|
-|Minsta/högsta elastisk pool Klicka-slutar|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|
+|Högsta tillåtna sessioner|30000|30000|30000|30000|30000|
+|Max poolen densitet|Gäller inte|50|100|100|100|
+|Minsta/högsta elastisk pool Klicka-slutar|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
+|Flera AZ|Ja|Ja|Ja|Ja|Ja|
 |Läsa skalbar|Ja|Ja|Ja|Ja|Ja|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||
@@ -203,7 +199,7 @@ När den påträffar hög beräkning användning inkluderar minskning alternativ
 - Öka prestandanivåerna för databasen eller elastisk pool för att ge mer vCores databasen. Se [enskild databas: ändra cVcores](#single-database-change-vcores) och [elastisk pool: ändra vCores](#elastic-pool-change-vcores).
 - Optimera frågor för att minska resursanvändningen för varje fråga. Mer information finns i [frågan finjustera/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 När databasutrymme används når den maximala storleksgränsen, infogas i databasen och uppdateringar som ökar storleken på data misslyckas och klienter tar emot en [felmeddelande](sql-database-develop-error-messages.md). Databasen väljer och BORTTAGNINGAR fortsätter att fungera.
 

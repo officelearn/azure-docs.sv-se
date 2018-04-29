@@ -1,10 +1,10 @@
 ---
-title: "Internet av saker säkerhetsmetoder | Microsoft Docs"
-description: "Artikeln innehåller en granskad lista över Microsoft Internet saker säkerhetsmetoder och allmänna rekommendationer."
+title: Internet av saker säkerhetsmetoder | Microsoft Docs
+description: Artikeln innehåller en granskad lista över Microsoft Internet saker säkerhetsmetoder och allmänna rekommendationer.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: StevenPo
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="internet-of-things-security-best-practices"></a>Internet av saker säkerhetsmetoder
+
 Skydda Sakernas Internet (IoT)-infrastruktur är en kritisk företag alla som sysslar med IoT-lösningar. På grund av antalet enheter som är inblandade och distribuerade uppbyggnad enheterna effekten en säkerhetshändelse relaterade till skada för miljontals IoT-enheter är icke-trivial och kan ha stor inverkan.
 
 Därför säkerhetsbehov IoT säkerhet ingående-information. Data behöver vara säkert i molnet och som flyttas över privata och offentliga nätverk. Metoder måste vara på plats för att etablera sig IoT-enheter på ett säkert sätt. Varje lager från enhet till nätverket, till molnet backend-behöver garantier för hög säkerhet.
@@ -35,6 +36,7 @@ Metodtips för IoT kan kategoriseras på följande sätt:
 Den här artikeln sammanfattar [Internet av saker säkerhetsmetoder](../iot-suite/iot-security-best-practices.md). Läs artikeln mer detaljerad information.
 
 ## <a name="iot-hardware-manufacturer-or-integrator"></a>IoT-maskinvarutillverkaren eller integrator
+
 Följ metodtips nedan om du är en IoT programvaran eller en integrator maskinvara:
 
 * **Omfång maskinvara minimikrav**: maskinvara designen ska innehålla minsta funktioner som krävs för åtgärden för maskinvara, och inget mer. 
@@ -43,6 +45,7 @@ Följ metodtips nedan om du är en IoT programvaran eller en integrator maskinva
 * **Göra uppgraderingar säker**: uppgradera firmware under livslängden för enheten inte är.
 
 ## <a name="iot-solution-developer"></a>IoT-lösningen utvecklare
+
 Följ metodtips nedan om du utvecklar en IoT-lösningen:
 
 * **Följ säker software development metoder**: utveckla säkra program kräver grunden tänka säkerhet från starten av projektet ända till dess implementering, testning och distribution.
@@ -50,12 +53,14 @@ Följ metodtips nedan om du utvecklar en IoT-lösningen:
 * **Integrera med försiktighet**: många säkerhetsbrister programvara finns på gränsen för bibliotek och API: er. 
 
 ## <a name="iot-solution-deployer"></a>Distribueraren för IoT-lösning
+
 Följ metodtips nedan om du är en IoT-lösningen deployer:
 
 * **Distribuera maskinvara på ett säkert sätt**: IoT-distributioner kan kräva maskinvara som distribueras i osäkra platser, exempelvis offentliga blanksteg eller oövervakade språk.
 * **Skydda autentiseringsnycklar**: under distribution varje enhet kräver enhets-ID och tillhörande autentiseringsnycklar som genererats av Molntjänsten. Skydda de här nycklarna fysiskt även efter distributionen. Alla avslöjade nyckeln kan användas av en obehörig enhet till ut som en befintlig enhet.
 
 ## <a name="iot-solution-operator"></a>IoT-lösningen operator
+
 Följ metodtips nedan om du är operatör IoT-lösningen:
 
 * **Kontinuerligt system**: Kontrollera enhetens operativsystem och alla enhetsdrivrutiner uppdateras till de senaste versionerna. 

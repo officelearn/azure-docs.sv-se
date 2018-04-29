@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Självstudier: Lägga till ett Content Delivery Network (CDN) i en Azure App Service
 
@@ -47,7 +47,7 @@ För att skapa webbappen som du ska arbeta med följer du [snabbstarten för sta
 
 ### <a name="have-a-custom-domain-ready"></a>Ha ett anpassat domän redo
 
-För att slutföra det anpassade domänsteget i den här självstudien måste du äga en anpassad domän och ha tillgång till DNS-registren för domänleverantören (till exempel GoDaddy). För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du ha tillgång till att konfigurera DNS-inställningarna för rotdomänen `contoso.com`.
+För att slutföra det anpassade domänsteget i den här självstudien måste du äga en anpassad domän och ha tillgång till DNS-registret för domänleverantören. För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du ha tillgång till att konfigurera DNS-inställningarna för rotdomänen `contoso.com`.
 
 Om du inte redan har ett domännamn kan du följa [självstudien för App Service-domän](custom-dns-web-site-buydomains-web-app.md) för att köpa en domän med Azure Portal. 
 
@@ -57,7 +57,7 @@ Om du inte redan har ett domännamn kan du följa [självstudien för App Servic
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Skapa en CDN-profil och en slutpunkt
 
-I det vänstra navigeringsfönstret väljer du **Apptjänster** och sedan väljer du den app som du skapade i [static HTML quickstart](app-service-web-get-started-html.md) (snabbstart för statisk HTML).
+I det vänstra navigeringsfönstret väljer du **App Services** och sedan väljer du den app som du skapade i [static HTML quickstart](app-service-web-get-started-html.md) (snabbstart för statisk HTML).
 
 ![Välj App Service-app i portalen](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: ''
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Påskynda realtid stordata med Spark connector för Azure SQL Database och SQL Server
 
@@ -38,6 +38,10 @@ I dataströmmen är följande:
 1. Noden som Spark ansluter till SQL Server eller Azure SQL Database och läser in data från en viss tabell eller med en specifik SQL-fråga
 2. Noden som Spark distribuerar data till arbetsnoder för omvandling. 
 3. Arbetsnoden ansluter till SQL Server eller Azure SQL-databas och skriver data till databasen. Användaren kan välja att använda rad för rad infogning eller bulk insert.
+
+Följande diagram illustrerar dataflödet.
+
+   ![Arkitektur](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Skapa Spark till SQL DB-koppling
 För närvarande använder connector projektet maven. Du kan köra för att skapa anslutningen utan beroenden:
@@ -153,7 +157,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Konfigurera krav
 Om du använder token-baserad autentisering åtkomstläge, måste du hämta [azure activedirectory-biblioteket-för-java-](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java byggsökväg.
 
-Se [Använd Azure Active Directory-autentisering för autentisering med SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) att lära dig hur du får åtkomst till Azure SQL database-token.
+Se [Använd Azure Active Directory-autentisering för autentisering med SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) att lära dig hur du får åtkomst till Azure SQL database-token.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +215,5 @@ Om du inte redan gjort hämta Spark-kopplingen för Azure SQL Database och SQL S
 -   [Exemplet Azure Databricks bärbara datorer](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Exempel på skript (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Du kanske också vill granska den [datauppsättningar Guide, DataFrames och Apache Spark SQL](http://spark.apache.org/docs/latest/sql-programming-guide.html) och [Azure Databricks dokumentationen](https://docs.microsoft.com/en-us/azure/azure-databricks/).
+Du kanske också vill granska den [datauppsättningar Guide, DataFrames och Apache Spark SQL](http://spark.apache.org/docs/latest/sql-programming-guide.html) och [Azure Databricks dokumentationen](https://docs.microsoft.com/azure/azure-databricks/).
 

@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en Windows-dator med hjälp av PowerShell i Azure-stacken
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en virtuell dator med Windows Server med PowerShell i Azure-stacken
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Den här guiden information som använder PowerShell för att skapa en virtuell Windows Server 2016-dator i Azure-stacken. Du kan köra stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via VPN.
+Du kan skapa en virtuell dator i Windows Server 2016 med hjälp av PowerShell för Azure-stacken. Följ stegen i den här artikeln för att skapa och använda en virtuell dator. Den här artikeln kan du också stegen för att:
+
+* Ansluta till den virtuella datorn med en fjärransluten klient.
+* Installera IIS-webbservern och visa standardstartsida.
+* Rensa dina resurser.
+
+>[!NOTE]
+ Du kan köra stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via ett VPN.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -1,6 +1,6 @@
 ---
 title: Hur man monterar Azure Blob storage som ett filsystem i Linux | Microsoft Docs
-description: "Montera en Azure Blob storage-behållare med SÄKRAD på Linux"
+description: Montera en Azure Blob storage-behållare med SÄKRAD på Linux
 services: storage
 documentationcenter: linux
 author: seguler
@@ -10,11 +10,11 @@ ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Hur man monterar Blob storage som ett filsystem med blobfuse (förhandsgranskning)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 Den här guiden visar hur du använder blobfuse och montera en behållare för Blob storage på Linux- och komma åt data. Mer information om blobfuse läsa informationen i [blobfuse databasen](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse garanterar inte 100% POSIX kompatibilitet som det innebär helt enkelt begäranden till [Blob REST API: er](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). Byt namn på åtgärder är t.ex, atomisk i POSIX, men inte i blobfuse.
+> Blobfuse garanterar inte 100% POSIX kompatibilitet som det innebär helt enkelt begäranden till [Blob REST API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Byt namn på åtgärder är t.ex, atomisk i POSIX, men inte i blobfuse.
 > En fullständig lista över skillnaderna mellan ett filsystem och blobfuse finns [blobfuse kod källdatabasen](https://github.com/azure/azure-storage-fuse).
 > 
 

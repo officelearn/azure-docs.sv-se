@@ -1,8 +1,8 @@
 ---
-title: "Hantera registrerade servrar med Azure filsynkronisering (förhandsversion) | Microsoft Docs"
-description: "Lär dig hur du registrerar och Avregistrerar en Windows-Server med en Azure-filen Sync Storage Sync-tjänst."
+title: Hantera registrerade servrar med Azure filsynkronisering (förhandsversion) | Microsoft Docs
+description: Lär dig hur du registrerar och Avregistrerar en Windows-Server med en Azure-filen Sync Storage Sync-tjänst.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Hantera registrerade servrar med Azure filsynkronisering (förhandsgranskning)
 Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -139,7 +139,7 @@ Detta kan också utföras med ett enkelt PowerShell.skript:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Login-AzureRmAccount
+$accountInfo = Connect-AzureRmAccount
 Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"

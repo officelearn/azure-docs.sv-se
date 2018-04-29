@@ -1,13 +1,13 @@
 ---
-title: "Utforma och implementera en Oracle-databas på Azure | Microsoft Docs"
-description: "Utforma och implementera en Oracle-databas i Azure-miljön."
+title: Utforma och implementera en Oracle-databas på Azure | Microsoft Docs
+description: Utforma och implementera en Oracle-databas i Azure-miljön.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
 
@@ -64,7 +64,7 @@ I följande tabell visas några av skillnaderna mellan en lokal implementering o
 
 Det finns fyra möjliga problemområden som du kan finjustera för att förbättra prestanda i en Azure-miljö:
 
-- Storlek på virtuell dator
+- Virtuell datorstorlek
 - Dataflödet i nätverket
 - Disktyper och konfigurationer
 - Inställningar för cachelagring av disk
@@ -90,7 +90,7 @@ Följande är de mätvärden som kan hämtas från AWR rapporten:
 - Totalt antal kärnor
 - CPU-klockfrekvens
 - Totalt minne i GB
-- CPU-användning
+- Processoranvändning
 - Högsta överföringshastighet
 - Antalet i/o-ändringar (läsa/skriva)
 - Gör om loggen hastighet (MBPs)
@@ -99,7 +99,7 @@ Följande är de mätvärden som kan hämtas från AWR rapporten:
 - Databasens storlek i GB
 - Byte som tagits emot via SQL * Net från/till klienten
 
-### <a name="virtual-machine-size"></a>Storlek på virtuell dator
+### <a name="virtual-machine-size"></a>Virtuell datorstorlek
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. VM-storlek för uppskattning baserat på CPU, minne och i/o-användning i rapporten AWR
 
@@ -136,7 +136,7 @@ Det totala genomflödet beräknas baserat på följande information:
 
 ![Skärmbild av SQL * Net genomflöde](./media/oracle-design/sqlnet_info.png)
 
-Baserat på din kraven på nätverksbandbredd finns olika typer av gateway som du kan välja från. Dessa inkluderar basic VpnGw och Azure ExpressRoute. Mer information finns i [VPN-gateway sida med priser](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Baserat på din kraven på nätverksbandbredd finns olika typer av gateway som du kan välja från. Dessa inkluderar basic VpnGw och Azure ExpressRoute. Mer information finns i [VPN-gateway sida med priser](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Rekommendationer**
 

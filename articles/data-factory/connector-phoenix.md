@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 56559adbc2ebd4e4379326607a28333d538504da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8cc6fa994c750f4718e6cc065819763d8be4f18c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med Azure Data Factory 
 
@@ -46,7 +46,7 @@ Följande egenskaper stöds för Phoenix länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Phoenix** | Ja |
 | värd | IP-adressen eller värdnamnet namnet på Phoenix-servern. (det vill säga 192.168.222.160)  | Ja |
-| port | TCP-porten som Phoenix-servern använder för att lyssna efter anslutningar. Standardvärdet är 8765.  | Nej |
+| port | TCP-porten som Phoenix-servern använder för att lyssna efter anslutningar. Standardvärdet är 8765. Om du ansluter till Azure HDInsights ange porten som 443. | Nej |
 | httpPath | Partiell URL som motsvarar Phoenix-server. (det vill säga /gateway/sandbox/phoenix/version). Standardvärdet är `hbasephoenix` om du använder WindowsAzureHDInsightService.  | Nej |
 | AuthenticationType | Den autentiseringsmetod som används för att ansluta till servern Phoenix. <br/>Tillåtna värden är: **anonym**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till servern Phoenix.  | Nej |
@@ -67,7 +67,7 @@ Följande egenskaper stöds för Phoenix länkade tjänsten:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
+            "port" : "443",
             "httpPath" : "hbasephoenix",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",

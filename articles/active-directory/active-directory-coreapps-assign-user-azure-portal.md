@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: luleon
-ms.openlocfilehash: 89508f555f9d56e9de2af188e696b7c5f465691d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 50e122ba3912d295adfc9207c7efda685f2d4625
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
 Om du vill tilldela en användare eller grupp till en enterprise-app, du måste ha behörighet att hantera enterprise-appen och du måste vara global administratör för katalogen.
@@ -72,6 +72,8 @@ Om du vill tilldela en användare eller grupp till en enterprise-app, du måste 
 
 Mer information om hur du tilldelar en användare till en roll för program finns i dokumentationen för [ny AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
+Om du vill tilldela en grupp till en enterprise-app måste du ersätta `Get-AzureADUser` med `Get-AzureADGroup`.
+
 ### <a name="example"></a>Exempel
 
 Det här exemplet tilldelas användaren Britta Simon till den [Microsoft arbetsplats Analytics](https://products.office.com/en-us/business/workplace-analytics) program med hjälp av PowerShell.
@@ -94,7 +96,7 @@ Det här exemplet tilldelas användaren Britta Simon till den [Microsoft arbetsp
         
 3. Kör kommandot `$sp.AppRoles` ska visas rollerna som är tillgängliga för arbetsplats Analytics-programmet. I det här exemplet ska vi tilldelas Britta Simon rollen analytiker (begränsad åtkomst).
     
-    ![Workplace Analytics Role](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
+    ![Arbetsplats Analytics roll](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
 
 4. Tilldela rollnamn för den `$app_role_name` variabeln.
         

@@ -9,11 +9,11 @@ ms.custom: reference
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: f98337044bdad788d2a4c9eac0c67a2031810430
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -23,32 +23,32 @@ Den aktuella versionen av SQL-databas är V12. Version V11 har tagits bort.
 ## <a name="what-is-the-sla-for-sql-database"></a>Vad är SLA för SQL-databasen?
 Vi garanterar minst 99,99% av tiden, du har en anslutning mellan Microsoft Azure SQL Database och våra Internet-gateway, oavsett dina tjänstnivån. Mer information finns i [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Whatis den nya vCore-baserade inköpsmodell för Azure SQL Database?
+## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Whatis den nya vCore-baserade inköpsmodell (förhandsversion) för Azure SQL Database?
 
-Nya inköpsmodell är ett tillägg till den befintliga modellen DTU-baserade. VCore-baserade-modellen är utformad att ge kunderna flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta arbetsbelastningskraven för lokalt till molnet. Det gör även kunder att skala bearbetning och lagring utifrån deras behov av arbetsbelastning. Enskilda databaser och elastiska poolen alternativ med hjälp av vCore modellen också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Se [tjänstnivåer](sql-database-service-tiers.md) information om DTU-baserade inköpsmodell såväl vCore-baserade inköpsmodell.
+Nya inköpsmodell är ett tillägg till den befintliga modellen DTU-baserade. VCore-baserade modellen är utformad att ge kunderna flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Det gör även kunder att skala bearbetning och lagring utifrån deras behov av arbetsbelastning. Enskilda databaser och elastiska poolen alternativ med hjälp av vCore modellen också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Se [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) för mer information. 
 
-## <a name="what-is-a-vcore"></a>Vad är en virtuell kärna? 
+## <a name="what-is-a-vcore"></a>Vad är en virtuell kärna (vCore)? 
 En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer.
 
-## <a name="is-moving-to-the-vcore-based-model-required"></a>Flyttar till vCore-baserade modellen krävs?
+## <a name="is-moving-to-the-vcore-based-model-required"></a>Är det obligatoriskt att flytta till den vCore-baserade modellen?
 Nej, visar införandet av modellen vCore-baserade elastiska poolen och distributionsalternativ för enskild databas vårt arbete för kunden kan välja och flexibilitet. Om kunder vill fortsätta med den DTU-baserade modellen, de behöver inte göra något med det här meddelandet och deras erfarenhet och fakturering förblir oförändrad. 
 
 I många fall utnyttja program enkelhet för ett förkonfigurerade paket av resurser. Därför kan fortsätter vi att erbjuda och stöd för dessa DTU-baserade val för våra kunder. Om du använder dem och att den uppfyller dina affärskrav, ska du fortsätta att göra detta.
 
-DTU och vCore-baserade modeller fortsätter sida vid sida finns. Vi startar vCore-baserade modellen som svar på kundernas önskemål för flera genomskinlighet runt sina databasresurser och möjligheten att skala beräkning och lagring separat. Modellen vCore-baserade kan också ytterligare besparingar för kunder med aktiv Software Assurance via Azure Hybrid-förmån för SQL Server.
+Både den DTU- och den vCore-baserade modellen kommer att finnas kvar fortsättningsvis. Vi lanserar den vCore-baserade modellen som svar på efterfrågan från kunder om mer transparens i fråga om databasresurser och möjlighet att skala beräkning och lagring separat. Modellen vCore-baserade kan också ytterligare besparingar för kunder med aktiv Software Assurance via Azure Hybrid-förmån för SQL Server.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Hur väljer jag mellan vs DTU-baserade köp modellen vCore-baserade inköpsmodell? 
-Database Transaction Unit (DTU) är baserad på ett blandat mått av CPU, minne, läser och skriver. DTU-baserade prestandanivåer motsvarar förkonfigurerade paket med resurser till enheten olika nivåer av programprestanda. Kunder som inte vill bry dig om de underliggande resurserna och föredrar enkelhet för ett förkonfigurerade paket när betalar ett fast belopp varje månad kanske DTU-baserade modell passar för deras behov. För kunder som behöver större insyn i de underliggande resurserna eller behöver för att skala dem separat om du vill uppnå bästa prestanda, kommer vCore-baserade modellen dock bäst.  Dessutom, om en kund har en aktiv Software Assurance (SA) för SQL Server, de kan utnyttja befintliga investeringar och spara upp till 30% med [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Alternativ inom varje köp modeller ger fördelarna med en helt hanterad tjänst som automatisk säkerhetskopiering, uppdateringar och korrigeringsfiler. 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>Hur väljer jag mellan vs DTU-baserade köp modellen vCore-baserade inköpsmodell (förhandsgranskning)? 
+Dataöverföringsenheten (DTU, Database Transaction Unit) baseras på ett blandat mått av CPU, minne, läsningar och skrivningar. DTU-baserade prestandanivåer motsvarar förkonfigurerade paket av resurser för att driva olika nivåer av programprestanda. Kunder som inte vill bry dig om de underliggande resurserna och föredrar enkelhet för ett förkonfigurerade paket när betalar ett fast belopp varje månad kanske DTU-baserade modell passar för deras behov. För kunder som behöver större insyn i de underliggande resurserna eller behöver för att skala dem separat om du vill uppnå bästa prestanda, kommer vCore-baserade modellen dock bäst.  Dessutom, om en kund har en aktiv Software Assurance (SA) för SQL Server, de kan utnyttja befintliga investeringar och spara upp till 30% med [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Alternativ inom varje köp modeller ger fördelarna med en helt hanterad tjänst som automatisk säkerhetskopiering, uppdateringar och korrigeringsfiler. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Vad är Azure Hybrid-förmån för SQL Server? 
-Den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) hjälper dig att maximera värdet från din aktuella licensiering investeringar och öka sina migrering till molnet. Azure Hybrid-förmån för SQL Server är en fördel med Azure som gör att du kan använda SQL Server-licenser med Software Assurance betala en minskad hastighet (”grundavgift”) på SQL-databas. Azure Hybrid-förmån för SQL Server är tillgänglig på förhandsversion av vCore-baserade inköpsmodell för SQL-databas enskilda databaser och elastiska pooler. Du kan tillämpa detta även om SKU: N är aktiv men Observera att den grundläggande hastigheten kopplas från den tidpunkt som du väljer i Azure-portalen. Ingen kredit ska utfärdas i efterhand.
+Den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) hjälper dig att maximera värdet från din aktuella licensiering investeringar och öka sina migrering till molnet. Azure Hybrid-förmån för SQL Server är en fördel med Azure som gör att du kan använda SQL Server-licenser med Software Assurance betala en minskad hastighet (”grundavgift”) på SQL-databas. Azure Hybrid-förmån för SQL Server är tillgänglig på förhandsversion av vCore-baserade köp modellen (förhandsversion) för SQL-databas enskilda databaser och elastiska pooler. Du kan tillämpa detta även om SKU: N är aktiv men Observera att den grundläggande hastigheten kopplas från den tidpunkt som du väljer i Azure-portalen. Ingen kredit utfärdas retroaktivt.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Finns det dubbla användarrättigheter med Azure Hybrid förmån för SQL Server?
 Du har 180 dagar efter dubbel användning rättigheter för att kontrollera migrering körs sömlöst. Efter den 180-dagarsperioden SQL Server-licens kan endast användas i molnet i SQL-databas och inte har dubbel användning rättigheter lokalt och i molnet.
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hur skiljer sig Azure Hybrid-förmån för SQL Server från licensera mobility?
-Idag är erbjuder vi SQL Server-kunder med Software Assurance licens mobility fördelar som gör att omtilldelning av sina licenser till servrar från tredje part delas. Detta kan användas på Azure IaaS och AWS EC2.
+Idag är erbjuder vi SQL Server-kunder med Software Assurance licens mobility fördelar som gör att omtilldelning av licenser till tredje parts delade servrar. Detta kan användas på Azure IaaS och AWS EC2.
 Azure Hybrid-förmån för SQL Server skiljer sig från licensmobilitet i två huvuddelar:
 - Det ger ekonomiska fördelar för att flytta hög virtualiserade arbetsbelastningar till Azure. SQL EE kunder kan få 4 kärnor i Azure i allmänna ändamål SKU: N för varje core de äger lokalt för mycket virtualiserade program. Licensmobilitet tillåter inte någon särskild kostnadsfördelar för att flytta virtualiserade arbetsbelastningar till molnet.
 - Det ger för PaaS mål på Azure som är kompatibel med SQL Server-lokala – hanteras SQL-databasinstansen.
@@ -92,7 +92,7 @@ Du kan konfigurera säkerhetskopiering kvarhållning för PITR mellan 7 och 35 d
 Vårt mål är att aktivera maximal flexibilitet så att du kan välja en prestanda-konfiguration som stämmer överens med behoven för programmet. Tabellen ovan visar skillnaderna mellan Gen4 och Gen5. I synnerhet erbjuder Gen4 maskinvara betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkning mycket högre. Vi vill göra dessa skillnader transparent så att du kan uppnå optimal pris och prestanda förhållandet för ditt program.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Behöver jag göra min programmet offline för att konvertera från en DTU-baserad databas till en tjänstnivå med vCore? 
-Nya tjänstnivåer erbjuder en enkel onlinekonvertering-metod som liknar befintliga processen med att uppgradera databaser från Standard till premiumnivån och vice versa. Den här konverteringen kan initieras med hjälp av portalen, ARM, PowerShell, Azure CLI eller T-SQL. Se [hantera enskilda databaser](sql-database-single-database-resources.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+De nya tjänstenivåerna erbjuder en enkel konverteringsmetod online som liknar den befintliga processen att uppgradera databaser från tjänstenivån Standard till Premium och vice versa. Den här konverteringen kan inledas via portalen, ARM, PowerShell, Azure CLI eller T-SQL. Se [hantera enskilda databaser](sql-database-single-database-resources.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Kan jag konvertera en databas från en tjänstnivå med vCore till en DTU-baserade? 
 Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med hjälp av portalen eller programmässigt Portal, ARM, PowerShell, Azure CLI eller T-SQL. Se [hantera enskilda databaser](sql-database-single-database-resources.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
@@ -109,13 +109,13 @@ Eftersom vCore modellen tillåter oberoende kontroll över mängden etablerade b
 Så ofta du vill. Se [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hur lång tid tar det att ändra servicenivå för nivå eller prestanda för en enskild databas eller flytta en databas till och från en elastisk pool?
-Ändra tjänstnivån för en databas och flyttas till och från en pool måste databasen som ska kopieras på plattformen som bakgrunden. Ändra tjänstnivån kan ta några minuter till flera timmar beroende på storleken på databaserna. I båda fallen förblir databaserna online och tillgänglig under flytten. Mer information om hur du ändrar enskilda databaser finns [ändra tjänstnivån för en databas](sql-database-service-tiers.md). 
+Ändra tjänstnivån för en databas och flyttas till och från en pool måste databasen som ska kopieras på plattformen som bakgrunden. Ändra tjänstnivån kan ta några minuter till flera timmar beroende på storleken på databaserna. I båda fallen förblir databaserna online och tillgänglig under flytten. Mer information om hur du ändrar enskilda databaser finns [ändra tjänstnivån för en databas](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>När bör jag använda en enskild databas jämfört med elastiska databaser?
 I allmänhet elastiska pooler är utformade för att en typisk [programmönster för programvara som en tjänst (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), där det finns en databas per kund eller klient. Att köpa separata databaser och skaffa stora resurser som kan möta de varierande och de högsta behoven för varje databas är sällan en kostnadseffektiv lösning. Du hanterar den samlade prestandan för poolen med pooler, och databaserna skala upp eller ned automatiskt. Azures intelligent motorn rekommenderar en pool för databaser när en användningsmönstret på grund av den. Mer information finns i [elastisk pool vägledning](sql-database-elastic-pool.md).
 
 ## <a name="how-does-the-usage-of-sql-database-using-the-dtu-based-purchasing-model-show-up-on-my-bill"></a>Hur användningen av SQL-databas med DTU-baserade inköpsmodell visas på min faktura?
-Växlar SQL-databas på en förutsägbar timvis avgift baserat på de [köp modellen](sql-database-service-tiers.md). Faktiska användningen beräknas och proportionerligt varje timma, så fakturan kan visa delar av en timme. Om det finns en databas för 12 timmar i månaden, visar fakturan användning av 0,5 dagar. 
+Växlar SQL-databas på en förutsägbar timvis avgift baserat på de [köp modellen](sql-database-service-tiers-dtu.md). Faktiska användningen beräknas och proportionerligt varje timma, så fakturan kan visa delar av en timme. Om det finns en databas för 12 timmar i månaden, visar fakturan användning av 0,5 dagar. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Vad händer om en enskild databas är aktiv för mindre än en timme eller använder en högre tjänstnivå för mindre än en timme?
 Du debiteras för varje timme finns en databas med högsta tjänstnivån + prestandanivå som tillämpas under den timmen, oavsett användning eller om databasen var aktiv för mindre än en timme. Om du skapar en databas och ta bort den fem minuter senare visar fakturan en avgift för en databas timme. 
@@ -143,7 +143,7 @@ Elastiska pooler debiteras per följande egenskaper:
 * Om du ändrar storlek på en elastisk pool sedan faktureras poolen inte enligt den nya mängden resurser förrän storleksändring åtgärden har slutförts. Det följer samma mönster som ändrar prestandanivåerna för enskilda databaser.
 * Priset på en elastisk pool baseras på resurser av poolen. Priset på en elastisk pool är oberoende av antalet och användning av de elastiska databaserna i den.
 
-Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) och [tjänstnivåer](sql-database-service-tiers.md).
+Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md), och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>Hur vCore-baserade användningen visas i min faktura? 
 I modellen vCore-baserade tjänsten faktureras på en avgift för förutsägbar, per timme baserat på tjänstnivån, etablerade beräkning i vCores, etablerats lagringsutrymme i GB/månad och förbrukad lagring för säkerhetskopiering. Om lagring av säkerhetskopiering överskrider den totala databasstorleken (det vill säga 100% av databasens storlek), finns det ytterligare avgifter. vCore timmar, konfigurerade databaslagring, förbrukade-i/o och lagring för säkerhetskopiering är tydligt specificerade i växeln, vilket gör det enklare att se detaljer för resurser som du har använt. Säkerhetskopiera lagring på upp till 100% av den maximala databasstorleken ingår, utöver som du debiteras i GB/månad som används i en månad.
@@ -151,7 +151,7 @@ I modellen vCore-baserade tjänsten faktureras på en avgift för förutsägbar,
 Exempel:
 - Om SQL-databasen finns i 12 timmar i månaden, växeln Visar användningsinformation för vCore 12 timmar. Om SQL-databasen har etablerats ytterligare 100 GB lagringsutrymme, visar växeln lagringskvoten i enheter om GB/månad proportionellt fördelad varje timme och antal IOs som används i en månad.
 - Om SQL-databasen är aktiv för mindre än en timme, debiteras du för varje timme databasen finns med högsta tjänstnivån markerad etablerats lagrings- och -i/o som tillämpas under den timmen, oavsett användning eller om databasen var aktiv för mindre än en timme.
-- Om du skapar en instans som hanteras och ta bort den fem minuter senare debiteras du för en databas timme.
+- Om du skapar en hanterad instans och tar bort den efter fem minuter debiteras du för en databastimme.
 - Om du skapar en hanterad instans i nivån generell användning med 8 vCores och därefter genast uppgraderar den till 16 vCores debiteras du 16 vCore-kostnaden för den första timmen.
 
 > [!NOTE]

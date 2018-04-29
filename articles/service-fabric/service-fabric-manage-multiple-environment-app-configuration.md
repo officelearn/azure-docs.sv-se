@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
 
@@ -48,8 +48,8 @@ Den konfiguration som du anger kan delas i två kategorier:
 
 När du skapar en namngiven programinstanser i Service Fabric har du möjlighet att skicka in-parametrar. Hur du gör det beror på hur du skapar programinstansen.
 
-  - I PowerShell den [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet tar parametrar för program som en hash-tabell.
-  - Med hjälp av sfctl, den [ `sfctl application create` ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) kommandot tar parametrar som en JSON-sträng. Skriptet install.sh använder sfctl.
+  - I PowerShell den [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet tar parametrar för program som en hash-tabell.
+  - Med hjälp av sfctl, den [ `sfctl application create` ](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) kommandot tar parametrar som en JSON-sträng. Skriptet install.sh använder sfctl.
   - Visual Studio ger en uppsättning parametern filer i mappen parametrar i projektet för konsolprogrammet. Parameterfilerna används vid publicering från Visual Studio med hjälp av Visual Studio Team Service eller Team Foundation Server. I Visual Studio som parametern-filer skickas till skriptet du distribuera FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Nästa steg

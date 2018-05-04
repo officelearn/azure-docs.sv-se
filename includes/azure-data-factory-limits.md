@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 7f74f100dca5dfe83ef88ca20f69a1b7af38b333
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 Datafabriken är en tjänst med flera klienter som har följande standardgränser för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna som kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 
@@ -32,7 +32,7 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | Maximalt antal parametrar per pipeline | 20 | 30 |
 | Byte per objekt för pipeline-objekt <sup>1</sup> | 200 KB | 200 KB |
 | Byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> | 100 KB | 2000 KB |
-| Molnet data movement enheter <sup>3</sup> | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Molnet data movement enheter per aktivitet kör <sup>3</sup> | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Antal för pipeline aktivitetskörningar försök | 1 day(timeout) | 1 dag (timeout) |
 | Skriva API-anrop | 2500/timme<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Läs API-anrop | 12 500/timme<br/><br/> Den här gränsen har införts av Azure Resource Manager kan inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -49,7 +49,7 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | Byte per objekt för pipeline-objekt <sup>1</sup> |200 KB |200 KB |
 | Byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> |100 KB |2000 KB |
 | HDInsight-kluster på begäran kärnor inom en prenumeration <sup>2</sup> |60 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Molnet data movement enheter <sup>3</sup> |32 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Molnet data movement enheter per aktivitet kör <sup>3</sup> |32 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Antal för pipeline aktivitetskörningar försök |1000 |MaxInt (32-bitars) |
 
 <sup>1</sup> pipeline, datamängd och länkade tjänstobjekt representerar en logisk gruppering av din arbetsbelastning. Begränsningar för dessa objekt inte är relaterade till mängden data som du kan flytta och bearbeta med Azure Data Factory-tjänsten. Datafabriken är utformat för att skala för att hantera petabyte med data.

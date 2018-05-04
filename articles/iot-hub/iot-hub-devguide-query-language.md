@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: f1c578b6ebb766f71d6e8b65b02724d91dde3126
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning
 
@@ -29,9 +29,9 @@ IoT-hubb ger en kraftfull SQL-liknande språk för att hämta information om [en
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>Enheten dubbla frågor
-[Enheten twins] [ lnk-twins] godtyckliga JSON-objekt kan innehålla både taggar och egenskaper. IoT-hubb kan du fråga enheten twins som enda JSON-dokument som innehåller alla dubbla enhetsinformation.
-Anta exempelvis att din IoT-hubb enheten twins har följande struktur:
+## <a name="device-and-module-twin-queries"></a>Enheten och modulen dubbla frågor
+[Enheten twins] [ lnk-twins] och modulen twins kan innehålla godtycklig JSON-objekt som både taggar och egenskaper. IoT-hubb kan du fråga enheten twins och modulen twins som enda JSON-dokument som innehåller alla dubbla information.
+Anta exempelvis att din IoT-hubb enheten twins har följande struktur (modulen dubbla skulle vara liknande precis med en ytterligare moduleId):
 
 ```json
 {
@@ -82,6 +82,8 @@ Anta exempelvis att din IoT-hubb enheten twins har följande struktur:
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Enheten dubbla frågor
 
 IoT-hubb visar twins för enheten som en dokumentsamling som heter **enheter**.
 Följande fråga hämtar så hela uppsättningen med enheten twins:
@@ -158,6 +160,26 @@ Projektionsfrågor kan utvecklare returnerar bara de egenskaper som de är intre
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Modulen dubbla frågor
+
+Frågar på modulen twins liknar frågan på enheten twins, men använder en annan samling/namnrymd, dvs. i stället för ”från enheter” som du kan fråga
+
+```sql
+SELECT * FROM devices.modules
+```
+
+Vi kan inte koppling mellan enheter och devices.modules samlingar. Om du vill fråga modulen twins över enheter som gör du det baserat på taggar. Frågan returnerar alla modulen twins på alla enheter med statusen sökning:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Den här frågan returnerar alla modulen twins med skanning status, men endast på angivna delmängden av enheter.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C#-exempel
@@ -554,8 +576,8 @@ Följande matematiska funktioner stöds i vägar villkor:
 | Square(x) | Returnerar kvadratroten av det angivna numeriska värdet. |
 | CEILING(x) | Returnerar det minsta heltalsvärdet större än eller lika med det angivna numeriska uttrycket. |
 | FLOOR(x) | Returnerar det största heltalet mindre än eller lika med det angivna numeriska uttrycket. |
-| SIGN(x) | Returnerar positivt (+ 1), noll (0) eller minustecken (-1) för det angivna numeriskt uttrycket.|
-| SQRT(x) | Returnerar kvadratroten av det angivna numeriskt värdet. |
+| Sign(x) | Returnerar positivt (+ 1), noll (0) eller minustecken (-1) för det angivna numeriskt uttrycket.|
+| Rot(x) | Returnerar kvadratroten av det angivna numeriskt värdet. |
 
 I vägar villkor stöds följande typkontroll och omvandling funktioner:
 

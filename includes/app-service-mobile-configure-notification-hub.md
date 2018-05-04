@@ -8,4 +8,4 @@ Funktionen Mobilappar i Azure App Service använder [Azure Notification Hubs] at
 Nu har du anslutit en meddelandehubb i projektet Mobile Apps serverdel. Senare kan du konfigurera den här meddelandehubben för att ansluta till ett plattform meddelandesystem (PNS) för att skicka till enheter.
 
 [Azure-portalen]: https://portal.azure.com/
-[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Azure Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

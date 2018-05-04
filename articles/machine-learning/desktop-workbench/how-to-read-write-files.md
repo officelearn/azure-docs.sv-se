@@ -1,6 +1,6 @@
 ---
-title: "Läsa och skriva stora datafiler | Microsoft Docs"
-description: "Läsa och skriva stora filer i Azure Machine Learning-experiment."
+title: Läsa och skriva stora datafiler | Microsoft Docs
+description: Läsa och skriva stora filer i Azure Machine Learning-experiment.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Spara ändringarna och arbetar med stora filer
 Du kan konfigurera olika mål för körning med tjänsten Azure Machine Learning-experiment. Vissa mål är lokal kan till exempel en lokal dator eller en dockerbehållare på en lokal dator. Andra användare är fjärranslutna till exempel en dockerbehållare på en fjärrdator eller ett HDInsight-kluster. Mer information finns i [översikt av Azure Machine Learning experimentera körningstjänsten](experimentation-service-configuration.md). 

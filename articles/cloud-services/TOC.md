@@ -92,7 +92,7 @@
 #### [Vanliga frågor och svar om distribution](cloud-services-deployment-faq.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [.csdef XML-schema](schema-csdef-file.md)
 ### [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md)
 ### [WebRole-schema](schema-csdef-webrole.md)

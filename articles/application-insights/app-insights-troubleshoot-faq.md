@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -82,7 +82,7 @@ Informationen beror på vilken typ av projekt. För ett webbprogram:
 * Infogar objekt till:
 
   * Web.config
-  * packages.config
+  * Packages.config-fil
 * (Nytt projekt endast - om du [lägga till Application Insights till ett befintligt projekt][start], du måste göra det manuellt.) Infogar kodavsnitt i koden för klienten och servern att initiera dem med Application Insights-resurs-ID. Till exempel i en MVC-app infogas kod huvudsida Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur uppgraderar jag från äldre versioner av SDK?
@@ -211,7 +211,7 @@ Varje objekt som överförs utför en `itemCount` egenskap som visar hur många 
 ```
 
 
-## <a name="automation"></a>Automatisering
+## <a name="automation"></a>Automation
 
 ### <a name="configuring-application-insights"></a>Konfigurera Application Insights
 
@@ -254,15 +254,37 @@ Tillåt att webbservern ska skicka telemetri till vår slutpunkter https://dc.se
 
 ### <a name="proxy"></a>Proxy
 
-Vidarebefordra trafik från servern till en gateway på intranätet, genom att ange detta i ApplicationInsights.config:
+Dirigera trafik från servern till en gateway på intranätet, overwritting exempel ApplicationInsights.config-inställningarna. Om de här egenskaperna ”Endpoint” inte finns i konfigurationen, med dessa klasser standardvärden som visas i exemplet nedan.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>Exempel ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443/v2/track
+_Obs ApplicationIdProvider finns tillgängligt i v2.6.0_
+
+Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443
+
+Ersätt värdena ovan med: `http://<your.gateway.address>/<relative path>`
+ 
+Exempel: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan jag köra webbtester för tillgänglighet på en server för intranät?
 

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 8526988685faec0318d0f048b10971712942eef5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure-databas för PostgreSQL prisnivåer
 
@@ -23,9 +23,9 @@ Du kan skapa en Azure-databas för PostgreSQL-server i en av tre olika prisnivå
 |:---|:----------|:--------------------|:---------------------|
 | Compute-generering | Gen 4 Gen 5 | Gen 4 Gen 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Minne per vCore | Baslinje | 2x Basic | 2 x generella |
+| Minne per vCore | Baslinje | 2 x Basic | 2 x generella |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 2 TB | 5 GB till 2 TB |
-| Lagringstyp | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
 | Databasen period för lagring av säkerhetskopior. | 7-35 dagar | 7-35 dagar | 7-35 dagar |
 
 Använd följande tabell som utgångspunkt för att välja en prisnivå.
@@ -36,7 +36,8 @@ Använd följande tabell som utgångspunkt för att välja en prisnivå.
 | Generellt syfte | De flesta arbetsbelastningar som kräver belastningsutjämnade beräknings- och minneskapaciteten med skalbara i/o-genomströmning. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
 | Minnesoptimerad | För högpresterande databasarbetsbelastningar som kräver InMemory-prestanda för snabbare transaktionsbearbetning och högre samtidighet. Exempel: servrar för att bearbeta data i realtid och högpresterande Transaktionsreplikering eller analytiska appar.|
 
-När du har skapat en server, kan antalet vCores ändras uppåt eller nedåt inom några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och säkerhetskopiering kvarhållningsperioden uppåt eller nedåt utan avbrott för programmet. Mer information finns i avsnittet ”skala resurser”.
+När du har skapat en server, kan antalet vCores ändras uppåt eller nedåt (inom samma prisnivån) inom några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och säkerhetskopiering kvarhållningsperioden uppåt eller nedåt utan avbrott för programmet. Du kan inte ändra prisnivån eller typen lagring för säkerhetskopiering när en server har skapats. Mer information finns i [skala](#scale-resources) avsnitt.
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>Beräkna generationer, vCores och minne
 
@@ -53,13 +54,13 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 | Västra USA 2 |  | X |
 | Centrala Kanada | X | X |
 | Östra Kanada | X | X |
-| Södra Brasilien | X |  |
+| Södra Brasilien | X | X |
 | Norra Europa | X | X |
 | Västra Europa | X | X |
 | Storbritannien, västra |  | X |
 | Storbritannien, södra |  | X |
 | Östasien | X |  |
-| Sydostasien | X |  |
+| Sydostasien | X | X |
 | Östra Australien |  | X |
 | Indien, centrala | X |  |
 | Indien, västra | X |  |
@@ -75,7 +76,7 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 
 |    | **Basic** | **Generella** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Lagringstyp | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 2 TB | 5 GB till 2 TB |
 | Öka lagringsstorlek | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
@@ -90,7 +91,7 @@ Tjänsten tar automatiskt säkerhetskopior av servern. Minsta kvarhållningsperi
 
 ## <a name="scale-resources"></a>Skala resurser
 
-När du har skapat din server ändra du oberoende vCores, mängden lagringsutrymme och säkerhetskopiering kvarhållningsperioden. Du kan inte ändra prisnivån eller typen lagring för säkerhetskopiering när en server har skapats. vCores och säkerhetskopiering kvarhållningsperioden kan skalas upp eller ned. Lagringsstorleken kan bara ökas. Skalning av resurser kan göras antingen via portalen eller Azure CLI. Ett exempel på skalning med Azure CLI, se [Övervakare och skala en Azure-databas för PostgreSQL-servern med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
+När du har skapat din server ändra du oberoende vCores, mängden lagringsutrymme och säkerhetskopiering kvarhållningsperioden. Du kan inte ändra prisnivån eller typen lagring för säkerhetskopiering när en server har skapats. Antalet vCores kan skalas upp eller ned inom samma prisnivå. Säkerhetskopiering kvarhållningsperioden kan skalas upp eller ned från 7 till 35 dagar. Lagringsstorleken kan bara ökas.  Skalning av resurser kan göras antingen via portalen eller Azure CLI. Ett exempel på skalning med Azure CLI, se [Övervakare och skala en Azure-databas för PostgreSQL-servern med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
 När du ändrar antalet vCores, skapas en kopia av den ursprungliga servern för den nya beräknings-fördelningen. När den nya servern är igång, växlas anslutningar till den nya servern. Inga nya anslutningar kan upprättas vid den tidpunkt då när datorn växlar till den nya servern, och alla ogenomförda transaktioner återställs. Det här fönstret varierar, men i de flesta fall är mindre än en minut.
 

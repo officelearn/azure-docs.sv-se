@@ -1,23 +1,21 @@
 ---
-title: "Felsöka HBase med Azure HDInsight | Microsoft Docs"
-description: "Få svar på vanliga frågor om hur du arbetar med HBase och Azure HDInsight."
+title: Felsöka HBase med Azure HDInsight | Microsoft Docs
+description: Få svar på vanliga frågor om hur du arbetar med HBase och Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinver
 manager: ashitg
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 04d8e37791c12078754a661f7a1aa8a76a6b3c44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Felsöka HBase med Azure HDInsight
 
@@ -47,7 +45,7 @@ Utför följande steg för att göra otilldelade regioner till normalt läge:
 
 En möjlig orsak för timeout problem när du använder den `hbck` kommandot kan vara att flera regioner är i tillståndet ”i ett övergångsstadium” under lång tid. Du kan se dessa regioner som offline i HBase Master UI. Eftersom ett stort antal regioner försöker övergång, HBase Master kan timeout och går inte att sätta dessa regioner online igen.
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Logga in på HDInsight-HBase-kluster med hjälp av SSH.
 2. Om du vill ansluta till ZooKeeper-shell, kör den `hbase zkcli` kommando.
@@ -128,7 +126,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är mindre än eller nära HDFS replikering faktorn.
 
-### <a name="resolution-steps"></a>Lösningssteg 
+### <a name="resolution-steps"></a>Lösningsanvisningar 
 
 1. Hämta status för i HDFS på HDInsight-kluster genom att köra följande kommandon:
 
@@ -213,7 +211,7 @@ HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är
 
 ## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hur kan jag åtgärda JDBC eller SQLLine anslutningen problem med Apache Phoenix?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 För att ansluta med Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper-nod. Se till att tjänsten ZooKeeper till vilka sqlline.py försöker ansluta är igång.
 1. Logga in till HDInsight-kluster med hjälp av SSH.
@@ -278,7 +276,7 @@ Under start HMaster har en grundläggande `list` på dessa mappar. Om HMaster se
 
 Försök att identifiera tidslinjen då filen skapades och se om det fanns en process krasch runt den tid då filen skapades i serverloggen region. (Kontakta HBase support att hjälpa dig att göra detta). Det här hjälper oss tillhandahålla mer robusta mekanismer så att du kan undvika träffa programfelet och se till att rätt processen avstängningar.
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 Kontrollera anropsstacken och försök att avgöra vilken mapp den orsakar problemet (till exempel kanske inte WALs mappen eller tmp). I Cloud Explorer eller med hjälp av HDFS-kommandon, försök sedan att leta reda på problemfilen. Detta är normalt en \*-renamePending.json-filen. (Den \*-renamePending.json-filen är en journal som används för att genomföra åtgärden namnbyte i WASB-drivrutinen. På grund av programfel i den här implementeringen kan dessa filer lämnas efter egna processer som kraschat osv.) Force-ta bort den här filen i Cloud Explorer eller med hjälp av HDFS-kommandon. 
 
@@ -294,7 +292,7 @@ Ingen serveradressen listas i *hbase: meta* för region xxx.
 
 Du kan se ett meddelande på ditt Linux-kluster som indikerar att den *hbase: meta* tabellen är inte online. Kör `hbck` kan rapportera som ”hbase: meta tabell replicaId 0 hittades inte på en region”. Problemet kan bero på att HMaster inte kunde initiera när du har startat om HBase. I loggarna HMaster, kan du se meddelandet ”: ingen serveradress som anges i hbase: metadata för region hbase: säkerhetskopiering \<regionnamn\>”.  
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Ange följande kommandon (ändra faktiska värden i tillämpliga fall) i HBase-gränssnittet:  
 
@@ -333,7 +331,7 @@ Det här problemet kan uppstå om du har många tabeller och regioner som inte h
 
 Detta är ett känt problem med tjänsten HMaster. Allmän klustret startades uppgifter kan ta lång tid. HMaster stängs av eftersom tabellen namnområde ännu inte tilldelats. Detta inträffar endast i situationer där stora mängden unflushed data finns och en tidsgräns på fem minuter är inte tillräcklig.
   
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Ambari UI, gå till **HBase** > **konfigurationerna**. Lägg till följande inställning i filen anpassade hbase-site.XML: 
 
@@ -411,7 +409,7 @@ På grund av abrupt avstängning kan den port som är associerade med processen 
    ... 15 more
    ```
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Försök att minska belastningen på HBase region servrar innan du startar en omstart. 
 2. Du kan också (om steg 1 inte hjälper), försök att starta om region servrar på arbetsnoderna med hjälp av följande kommandon:

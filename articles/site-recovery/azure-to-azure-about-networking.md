@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: b4ccb612314fc1f65be4033bc0d0893d17843a86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
@@ -31,7 +31,7 @@ Följande diagram visar en typisk Azure miljö för program som körs på virtue
 
 ![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Om du använder Azure ExpressRoute eller en VPN-anslutning från ditt lokala nätverk till Azure, miljön ser ut så här:
+Om du använder Azure ExpressRoute eller en VPN-anslutning från ditt lokala nätverk till Azure, verkar miljön enligt följande:
 
 ![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -58,11 +58,11 @@ login.microsoftonline.com | Krävs för autentiseringen och auktoriseringen till
 Om du använder en IP-baserade brandväggen proxy eller NSG-regler för att styra utgående anslutning, måste dessa IP-adressintervall som ska tillåtas.
 
 - Alla IP-adressintervall som motsvarar storage-konton i källan region
-    - Du måste skapa en [Storage service-tagg](../virtual-network/security-overview.md#service-tags) baserat NSG regeln för käll-region.
-    - Du måste tillåta adresserna så att data kan skrivas till cache storage-konto från den virtuella datorn.
+    - Skapa en [Storage service taggen](../virtual-network/security-overview.md#service-tags) baserat NSG regeln för käll-region.
+    - Tillåt adresserna så att data kan skrivas till cache storage-konto från den virtuella datorn.
 - Alla IP-adressintervall som motsvarar Office 365 [autentisering och identitet IP V4-slutpunkter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Om ny adress läggs till Office 365-adressintervall i framtiden, måste du skapa nya NSG-regler.
-- Site Recovery tjänstslutpunkten IP-adresser. Dessa är tillgängliga i en [XML-filen](https://aka.ms/site-recovery-public-ips) och beror på din målplats.
+    - Om nya adresser läggs till Office 365-adressintervall i framtiden, måste du skapa nya NSG-regler.
+- Site Recovery-tjänsten endpoint IP-adresser – tillgängliga i en [XML-filen](https://aka.ms/site-recovery-public-ips) och beror på din målplats.
 -  Du kan [hämtar och använder det här skriptet](https://aka.ms/nsg-rule-script), för att automatiskt skapa regler som krävs på NSG: N.
 - Vi rekommenderar att du skapar nödvändiga NSG-regler på ett test NSG och kontrollera att det inte finns några problem innan du skapar regler på en NSG för produktion.
 
@@ -153,42 +153,11 @@ Du kan skapa en tjänstslutpunkt för nätverk i ditt virtuella nätverk för �
 >[!NOTE]
 >Begränsa inte åtkomst till virtuella nätverk till dina lagringskonton som används för automatisk Systemåterställning. Du måste tillåta åtkomst från ”alla nätverk”
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN
-
-Följ riktlinjerna i det här avsnittet om du har en ExpressRoute- eller VPN-anslutning mellan lokala och Azure-plats.
-
 ### <a name="forced-tunneling"></a>Tvingad tunneltrafik
 
-Normalt definierar du en standardväg (0.0.0.0/0) som tvingar utgående Internet-trafiken flöda via den lokala platsen eller. Vi rekommenderar inte detta. Replikeringstrafiken bör inte lämna Azure gränsen.
-
-Du kan [skapa ett nätverk tjänstslutpunkten](#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för ”lagring” så att replikeringstrafiken inte lämnar Azure gräns.
-
-
-### <a name="connectivity"></a>Anslutning
-
-Följ dessa riktlinjer för anslutningar mellan platsen och den lokala platsen:
-- Om ditt program behöver ansluta till lokala datorer eller om det finns klienter som ansluter till programmet från lokala via VPN/ExpressRoute, se till att du har minst en [plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) mellan mål-Azure-region och lokala datacenter.
-
-- Om du förväntar dig en mängd trafik mellan mål-Azure-region och lokala datacenter, bör du skapa en annan [ExpressRoute-anslutning](../expressroute/expressroute-introduction.md) mellan aktuella Azure-region och lokala datacenter.
-
-- Om du vill behålla IP-adresser för virtuella datorer när de växlar över hålla den målregionen plats-till-plats/ExpressRoute-anslutning i frånkopplat tillstånd. Detta är att kontrollera att det finns inga intervall krockar mellan käll-region IP-intervall och mål region IP-adressintervall.
-
-### <a name="expressroute-configuration"></a>ExpressRoute-konfiguration
-Följa dessa rekommendationer för ExpressRoute-konfiguration:
-
-- Skapa en ExpressRoute-krets i både käll- och områden. Sedan måste du skapa en anslutning mellan:
-    - Det virtuella nätverket för källa och det lokala nätverket via ExpressRoute-kretsen i området för källa.
-    - Det virtuella målnätverket och det lokala nätverket via ExpressRoute-kretsen i mål-region.
-
-
-- Som en del av ExpressRoute-standard, kan du skapa kretsar i samma geopolitiska region. Om du vill skapa ExpressRoute-kretsar i olika geopolitiska regioner Azure ExpressRoute Premium krävs, vilket innebär att en inkrementell kostnad. (Om du redan använder ExpressRoute Premium, det finns inget extra kostnad.) Mer information finns i [ExpressRoute platser dokumentet](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [ExpressRoute priser](https://azure.microsoft.com/pricing/details/expressroute/).
-
-- Vi rekommenderar att du använder olika IP-adressintervall i käll- och områden. ExpressRoute-kretsen kommer inte att kunna ansluta till två virtuella Azure-nätverk med samma IP-adressintervall samtidigt.
-
-- Du kan skapa virtuella nätverk med samma IP-adressintervall i båda regioner och sedan skapa ExpressRoute-kretsar i båda regioner. Koppla bort kretsen från det virtuella nätverket källa vid en redundansväxling och Anslut krets i det virtuella målnätverket.
-
- >[!IMPORTANT]
- > Om den primära regionen inte är helt kan koppla från åtgärden misslyckas. Som förhindrar att virtuella målnätverket komma ExpressRoute-anslutning.
+Du kan åsidosätta Azures system standardvägen för adressprefixet 0.0.0.0/0 med en [anpassade väg](../virtual-network/virtual-networks-udr-overview.md#custom-routes) och minska VM-trafiken till en lokal virtuell nätverksenhet (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar, bör du [skapa ett virtuellt nätverk tjänstslutpunkten](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för ”lagring” så att replikeringstrafiken inte lämnar Azure gränsen.
 
 ## <a name="next-steps"></a>Nästa steg
-Börja skydda dina arbetsbelastningar av [replikering av Azure virtuella datorer](site-recovery-azure-to-azure.md).
+- Börja skydda dina arbetsbelastningar av [replikering av Azure virtuella datorer](site-recovery-azure-to-azure.md).
+- Lär dig mer om [IP-adress kvarhållning](site-recovery-retain-ip-azure-vm-failover.md) för redundans för virtuell dator i Azure.
+- Mer information om återställning av [virtuella Azure-datorer med ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).

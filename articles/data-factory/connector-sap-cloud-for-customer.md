@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 571c77a0de4bb30f5476f1bc79a7d4bd8d1cd322
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-molnet för kund (C4C) med hjälp av Azure Data Factory
 
@@ -141,7 +141,7 @@ Exempelfråga för att hämta data för en viss dag: `"query": "$filter=CreatedO
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {
@@ -207,13 +207,13 @@ När du kopierar data från SAP-molnet för kunden, används följande mappninga
 
 | SAP C4C OData-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | byte] |
 | Edm.Boolean | Booleskt |
-| Edm.Byte | Byte[] |
+| Edm.Byte | byte] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Dubbel |
-| Edm.Single | Ogift |
+| Edm.Single | Enkel |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

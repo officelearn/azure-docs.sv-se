@@ -1,5 +1,3 @@
-# [Dokumentation om Azure Active Directory](index.md)
-
 # Översikt
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Om Azures identitetshantering](identity-fundamentals.md)
@@ -46,7 +44,6 @@
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
 ### [Tilldela användare administrativa roller](active-directory-users-assign-role-azure-portal.md)
-### [Återställa en borttagen användare](active-directory-users-restore.md)
 ### [Lägga till gästanvändare från annan katalog (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Administratörer som lägger till B2B-användare](active-directory-b2b-admin-add-users.md)
 #### [Informationsarbetare som lägger till B2B-användare](active-directory-b2b-iw-add-users.md)
@@ -56,7 +53,6 @@
 #### [E-postinbjudan](active-directory-b2b-invitation-email.md)
 #### [Inlösning av inbjudan](active-directory-b2b-redemption-experience.md)
 #### [Lägga till B2B-användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
-#### [Tillåta eller blockera inbjudningar](active-directory-b2b-allow-deny-list.md)
 #### [Villkorlig åtkomst för B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B-delningsprinciper](active-directory-b2b-delegate-invitations.md)
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
@@ -80,8 +76,7 @@
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell för Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](active-directory-groups-membership-azure-portal.md)
@@ -89,17 +84,16 @@
 #### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
-#### [Migrera användare mellan produktlicenser](active-directory-licensing-group-product-migration.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 #### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
-### [Framtvinga en namnprincip för grupper](groups-naming-policy.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
-### [Hantera gruppinställningar](active-directory-groups-settings-azure-portal.md)
-
+### Hantera gruppinställningar
+#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
+#### [Cmdletar](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Skapa avancerade regler
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
@@ -116,7 +110,6 @@
 #### [Konfigurera namngivna platser](active-directory-named-locations.md)
 #### [Hitta aktivitetsrapporter](active-directory-reporting-migration.md)
 #### [Använd innehållspaketet för Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
-#### [Åtgärda användare som har flaggats för risk](active-directory-report-security-user-at-risk-remediation.md)
 ### Referens
 #### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
@@ -185,19 +178,10 @@
 ##### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Användaretablering och -avetablering till SaaS-appar](active-directory-saas-app-provisioning.md)
-#### [Självstudier om appintegration](active-directory-saas-tutorial-list.md)
-#### [Automatisera etablering till SCIM-aktiverade appar](active-directory-scim-provisioning.md)
-#### [Anpassa attributmappningar](active-directory-saas-customizing-attribute-mappings.md)
-#### [Skriva uttryck för attributmappningar](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-#### [Använda omfångsfilter](active-directory-saas-scoping-filters.md)
-#### [Rapportera om automatisk användaretablering](active-directory-saas-provisioning-reporting.md)
-#### [Felsöka användaretablering](active-directory-application-provisioning-content-map.md)
 
 ### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
 #### Kom igång
 ##### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
-##### [Stöd för GDPR](active-directory-application-proxy-gdpr.md)
 ##### [Publicera appar](application-proxy-publish-azure-portal.md)
 ##### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
 #### [Enkel inloggning](application-proxy-sso-overview.md)
@@ -208,6 +192,8 @@
 ##### [Anslutningsappar](application-proxy-understand-connectors.md)
 ##### [Säkerhet](application-proxy-security-considerations.md)
 ##### [Nätverk](application-proxy-network-topology-considerations.md)
+
+
 ##### [Uppgradera från TMG eller UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Avancerade konfigurationer
@@ -218,16 +204,13 @@
 ##### [Tyst installation](active-directory-application-proxy-silent-installation.md)
 ##### [Anpassad startsida](application-proxy-office365-app-launcher.md)
 ##### [Översätt infogade länkar](application-proxy-link-translation.md)
-##### [Program med jokertecken](active-directory-application-proxy-wildcard.md)
-
 #### Publicera genomgångar
 ##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
-#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-#### [Felsöka](active-directory-application-proxy-troubleshoot.md)
+##### [Tableau](active-directory-application-proxy-tableau.md)
 
+#### [Felsöka](active-directory-application-proxy-troubleshoot.md)
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)
@@ -238,9 +221,9 @@
 #### [Hantera användarens kontoetablering](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Hantera enkel inloggning för företagsappar](active-directory-enterprise-apps-manage-sso.md)
 #### [Avancerad certifikatsignering för SAML-appar](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Dölja ett program från en användarmiljö](active-directory-coreapps-hide-third-party-app.md)
+#### [Dölja en tredjepartsapp för en användare](active-directory-coreapps-hide-third-party-app.md)
 ### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](active-directory-auto-acceleration-using-hrd.md)
-### [Migrera AD FS-appar till Azure AD](migrate-adfs-apps-to-azure.md)
+
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 #### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
 #### [Certifikat för enkel inloggning](active-directory-sso-certs.md)
@@ -255,13 +238,6 @@
 ##### [Konfiguration](active-directory-application-config-content-map.md)
 ##### [Inloggning](active-directory-application-sign-in-content-map.md)
 ##### [Etablering](active-directory-application-provisioning-content-map.md)
-###### [Verifiering av en användare har etablerats](application-provisioning-when-will-provisioning-finish-specific-user.md)
-###### [Etableringen tar lång tid](application-provisioning-when-will-provisioning-finish.md)
-###### [Konfigurera användaretablering](application-provisioning-config-how-to.md)
-###### [Konfigurera etablering problem](application-provisioning-config-problem.md)
-###### [Problem med att spara autentiseringsuppgifter för administratörer](application-provisioning-config-problem-storage-limit.md)
-###### [Inga användare etableras](application-provisioning-config-problem-no-users-provisioned.md)
-###### [Fel användare etableras](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Hantera åtkomst](active-directory-application-access-content-map.md)
 ##### [Åtkomstpanel](active-directory-application-access-panel-content-map.md)
 ##### [Programproxy](active-directory-application-proxy-content-map.md)
@@ -288,16 +264,15 @@
 
 ### [Integrera lokala identiteter med Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Hantera åtkomst till Azure](toc.yml)
+## [Hantera åtkomst till Azure](../role-based-access-control/toc.yml)
 
 ## Delegera åtkomst till resurser
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
-#### [Tilldela administratörsroll till en användare](active-directory-users-assign-role-azure-portal.md)
-#### [Jämföra behörigheter för medlemmar och gästanvändare](users-default-permissions.md)
-### [Säker privilegierad åtkomst](admin-roles-best-practices.md) 
-### [Skapa åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
+#### [Tilldela administratörsroller](active-directory-users-assign-role-azure-portal.md)
+#### [Standardinställningar för användarbehörigheter](users-default-permissions.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
+### [Hantera åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Åtkomstgranskningar
 ### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -309,17 +284,17 @@
 ### [Hantera användaråtkomst med granskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Hantera program och kontroller](active-directory-azure-ad-controls-manage-programs-controls.md)
 
-
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Villkor](active-directory-conditional-access-conditions.md)
-#### [Platsvillkor](active-directory-conditional-access-locations.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
 #### [Konsekvensverktyg](active-directory-conditional-access-whatif.md)
+#### Snabbstart
+##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
 #### Uppgifter
 ##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
@@ -331,6 +306,9 @@
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 
+### Windows Hello
+#### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)
+#### [Aktivera Windows Hello för företag](active-directory-azureadjoin-passport-deployment.md)
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -349,15 +327,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## Integrera andra tjänster med Azure AD
-### [Integrera LinkedIn med Azure AD](linkedin-integration.md)
-
-## [Distribuera AD DS på virtuella Azure-datorer](virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Windows Server Active Directory på virtuella Azure-datorer](active-directory-deploying-ws-ad-guidelines.md)
-### [Replikeringsdomänkontrollant i ett virtuellt Azure-nätverk](active-directory-install-replica-active-directory-domain-controller.md)
-### [Ny skog i ett virtuellt Azure-nätverk](active-directory-new-forest-virtual-machine.md)
-
-
+## [Integrera andra tjänster med Azure AD]()
+### [Aktivera LinkedIn-integrering](linkedin-integration.md)
 
 ## [Distribuera AD FS i Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Hög tillgänglighet](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -374,7 +345,7 @@
 
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell-cmdletar](/powershell/azure/overview)
 ## [Java API-referens](/java/api)
 ## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)

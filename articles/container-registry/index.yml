@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Container Registry-dokumentation
 metadata:
   title: Dokumentation om Azure Container Registry – självstudier | Microsoft Docs
-  description: Med Azure Container Registry kan du lagra och hantera avbildningar av alla typer av behållardistributioner. Lär dig hur du använder Azure Container Registry med de här snabbstarterna, självstudierna och exemplen.
+  description: Med Azure Container Registry kan du skapa, lagra och hantera avbildningar av alla typer av behållardistributioner. Lär dig hur du använder Azure Container Registry med de här snabbstarterna, självstudierna och exemplen.
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: c4b8cc1a9d56f1fcf94e79fbef3c025fa8e51641
-  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.openlocfilehash: 9cb59b1c9a8e3e219346b6dbac98246fc92b2412
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/28/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
-  description: Med Azure Container Registry kan du lagra och hantera avbildningar av alla typer av behållardistributioner. Lär dig hur du använder Azure Container Registry med de här snabbstarterna, självstudierna och exemplen.
+  description: Med Azure Container Registry kan du skapa, lagra och hantera avbildningar av alla typer av behållardistributioner. Lär dig hur du använder Azure Container Registry med de här snabbstarterna, självstudierna och exemplen.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
@@ -48,6 +48,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Skapa behållaravbildningar med ACR Build (förhandsgranskning)</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry med geo-replikering (förhandsversion)</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry med Azure Container Instances</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry med Azure Container Service (AKS)</a>

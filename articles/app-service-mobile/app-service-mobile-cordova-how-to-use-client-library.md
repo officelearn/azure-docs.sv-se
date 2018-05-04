@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Apache Cordova-pluginprogrammet för Azure Mobile Apps"
-description: "Hur du använder Apache Cordova-pluginprogrammet för Azure Mobile Apps"
+title: Hur du använder Apache Cordova-pluginprogrammet för Azure Mobile Apps
+description: Hur du använder Apache Cordova-pluginprogrammet för Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Hur du använder Apache Cordova-klientbiblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -105,7 +105,7 @@ Följ instruktionerna för att lägga till dina lokala inställningar i konfigur
              "https://localhost:3000"
          ],
 
-    Ersätt URL: er med URL: er för din tjänst.  Exempel är ”http://localhost: 3000” (för Node.js-exempel service) eller ”http://localhost:4400” (för små service).  Dessa URL: er är dock exempel - sätt, inklusive för de tjänster som anges i exempel kan vara olika.
+    Ersätt URL: er med URL: er för din tjänst.  Exempel är ”http://localhost:3000” (för Node.js-exempel service), eller ”http://localhost:4400” (för små service).  Dessa URL: er är dock exempel - sätt, inklusive för de tjänster som anges i exempel kan vara olika.
 8. Klicka på den **läsning och skrivning** knappen i det övre högra hörnet på skärmen.
 9. Klicka på gröna **PLACERA** knappen.
 
@@ -118,7 +118,7 @@ Lägg även till dessa loopback-URL: er CORS-inställningarna för din Apptjäns
 4. Klicka på **CORS** API-menyn.
 5. Ange den URL som du vill lägga till i rutan som visas och tryck RETUR.
 6. Ange ytterligare URL: er som behövs.
-7. Klicka på **spara** spara inställningarna.
+7. Spara inställningarna genom att klicka på **Spara**.
 
 Det tar cirka 10 – 15 sekunder för de nya inställningarna ska börja gälla.
 
@@ -180,4 +180,4 @@ Du hittar detaljerad information om API i vår [API-dokumentationen](http://azur
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-enhet]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

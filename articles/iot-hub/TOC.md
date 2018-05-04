@@ -1,7 +1,7 @@
+# [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
 # [Dokumentation om IoT Hub](index.md)
 
 # Översikt
-## [Azure och IoT](iot-hub-what-is-azure-iot.md)
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
 
@@ -169,7 +169,7 @@
 ##### [Skapa certifikat – PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +186,18 @@
 ## [REST (jobb)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Relaterat
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT Hub Device Provisioning-tjänst](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Lösningar 
+### [Förinställda lösningar för IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Plattformstjänster 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning-tjänst](/azure/iot-dps)
+### [IoT-tjänst-SDK:er](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Platsbaserade tjänster](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [SDK:er för IoT-enheter](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Resurser
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)

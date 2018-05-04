@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -51,6 +51,7 @@ Du kan etablera en ny resurs i Azure eller välj en befintlig resurs. Du måste 
 - [Timeout](sql-database-metrics-diag-logging.md#time-outs-dataset): innehåller information om fel som inträffat på en databas.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): innehåller information om att blockera händelser som inträffade på en databas.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): innehåller Intelligent insikter. [Mer information om Intelligent insikter](sql-database-intelligent-insights.md).
+- **Granska** / **SQLSecurityAuditEvents**: för närvarande inte tillgänglig.
 
 Om du väljer Händelsehubbar eller ett lagringskonto måste ange du en bevarandeprincip. Den här principen tar bort data som är äldre än en vald tidsperiod. Om du anger logganalys beror bevarandeprincipen på den valda prisnivån. Mer information finns i [logganalys priser](https://azure.microsoft.com/pricing/details/log-analytics/). 
 

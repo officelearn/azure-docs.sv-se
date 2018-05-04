@@ -246,11 +246,13 @@
       items:
         - name: Övervakningsöversikt
           href: service-fabric-diagnostics-overview.md
-        - name: Klusterhändelser
+        - name: Klusterövervakning
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Användningskanal
-              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Service Fabric-händelser
+              href: service-fabric-diagnostics-events.md
+            - name: Översikt över EventStore
+              href: service-fabric-diagnostics-eventstore.md
             - name: Reliable Services-händelser
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors-händelser
@@ -507,6 +509,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
+                - name: Kluster med unika namn för certifikat
+                  href: service-fabric-create-cluster-using-cert-cn.md
             - name: Skala
               items:
                 - name: Manuellt
@@ -519,6 +523,10 @@
               href: service-fabric-cluster-security-roles.md
             - name: Öppna en port i belastningsutjämnaren
               href: create-load-balancer-rule.md
+            - name: Ändra klustercertifikat till unika namn
+              href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+            - name: Förnya klustercertifikat manuellt
+              href: service-fabric-cluster-rollover-cert-cn.md
             - name: Hantera klustercertifikat
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Ta bort
@@ -567,6 +575,8 @@
               href: service-fabric-diagnostics-oms-containers.md
         - name: Övervaka kluster
           items:
+            - name: 'Fråga EventStore-API:er'
+              href: service-fabric-diagnostics-eventstore-query.md
             - name: Windows Azure Diagnostics
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure Diagnostics
@@ -630,6 +640,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Service Fabric-händelser
+      href: service-fabric-diagnostics-event-generation-operational.md
     - name: Konfigurera klusterinställningar och uppgraderingsprincip för infrastruktur
       href: service-fabric-cluster-fabric-settings.md
     - name: XML-schema för tjänstmodell

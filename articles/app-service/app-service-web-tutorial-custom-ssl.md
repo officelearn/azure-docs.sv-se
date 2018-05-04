@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -232,9 +232,17 @@ Din app tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0
 
 Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **TLS-version** väljer du sedan den lägsta TLS-version du vill använda.
 
-![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![Kräv TLS 1.1 eller 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 När åtgärden är klar avvisar appen alla anslutningar med lägre TLS-version.
+
+## <a name="renew-certificates"></a>Förnya certifikat
+
+Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bindningen är IP-baserad. Detta är särskilt viktigt att ha i åtanke när du förnyar ett certifikat som redan finns i en IP-baserad bindning. Du kan förhindra att appens IP-adress ändras genom att följa stegen nedan i ordning:
+
+1. Ladda upp det nya certifikatet.
+2. Bind det nya certifikatet till önskad anpassad domän utan att ta bort det gamla. Med den här åtgärden ersätts bindningen i stället för att den gamla tas bort.
+3. Ta bort det gamla certifikatet. 
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
@@ -278,7 +286,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Offentliga certifikat (valfritt)
-Du kan ladda upp [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till din webbapp. Du kan även använda offentliga certifikat för appar i App Service-miljöer. Om du behöver lagra certifikatet i certifikatarkivet LocalMachine måste du använda en webbapp i App Service Environment. Mer information finns i [Så här konfigurerar du offentliga certifikat till din webbapp](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Du kan ladda upp [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till din webbapp så att appen kan ansluta till en extern tjänst som kräver certifikatautentisering.  Mer information om hur du läser in och använder ett offentligt certifikat i din app finns i [Använda ett SSL-certifikat i programkoden i Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  Du kan även använda offentliga certifikat med appar i App Service Environment. Om du behöver lagra certifikatet i certifikatarkivet LocalMachine måste du använda en webbapp i App Service Environment. Mer information finns i [Så här konfigurerar du offentliga certifikat till din webbapp](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Ladda upp ett offentligt certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

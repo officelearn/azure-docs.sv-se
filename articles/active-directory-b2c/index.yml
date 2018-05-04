@@ -11,11 +11,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/29/2018
   ms.author: davidmu
-  ms.openlocfilehash: 5ca78abe01132ec557b4722d457f7b76684ce3c0
-  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+  ms.openlocfilehash: 000874bd089583cfc75dfa0a4d28769b91808a11
+  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/18/2018
+  ms.lasthandoff: 04/30/2018
 abstract:
   description: Azure Active Directory (Azure AD) B2C är en identitetshanteringstjänst som hjälper dig att anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklas för bland annat iOS, Android och .NET. Azure AD B2C möjliggör dessa åtgärder samtidigt som kundernas identiteter skyddas. Lär dig hur du använder Azure AD B2C med våra snabbstarter, självstudier och exempel.
   aside:
@@ -61,30 +61,6 @@ sections:
       html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registrera program</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Autentisera användare</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Bevilja API-åtkomst</a></p>
     - title: En sida
       html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registrera program</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Autentisera användare</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Bevilja API-åtkomst</a></p>
-- title: Kostnadsfri videoutbildning för Pluralsight
-  items:
-  - type: list
-    style: cards
-    className: cardsF
-    items:
-    - title: Hantera identitet, program och nätverkstjänster
-      href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
-      html: <p>I modul 6 får du lära dig hur du skapar en klientorganisation, registrerar en app och skapar principer.</p>
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
-    - title: Skydda ett program utan server
-      href: https://www.pluralsight.com/courses/azure-serverless-applications
-      html: <p>I modul 6 får du lära dig varför du bör använda Azure AD B2C för att skydda en app utan server.</p>
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-serverless-applications
-    - title: ASP.NET Core 2 och Azure AD B2C
-      href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
-      html: <p>I modul 8 får du lära dig hur du lägger till funktioner för registrering, inloggning och profilredigering i en ASP.NET Core 2-app.</p>
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
 - title: Exempel
   items:
   - type: paragraph

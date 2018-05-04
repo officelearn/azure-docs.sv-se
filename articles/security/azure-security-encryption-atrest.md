@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: c0bc3c8774b68b49be95d5df86319a2e0463e6ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data kryptering i vila
 Det finns flera verktyg i Microsoft Azure för att skydda data efter behov för säkerhet och efterlevnad av ditt företag. Det här dokumentet fokuserar på:
@@ -236,10 +236,10 @@ En kund med Azure-infrastrukturen som en tjänst (IaaS)-funktioner kan uppnå kr
 
 #### <a name="azure-storage"></a>Azure-lagring
 
-Azure Blob och filen har stöd för kryptering i vila för serversidan krypterade scenarier samt kundens krypterade data (kryptering på klientsidan).
+Alla Azure Storage-tjänster (Blob storage, Queue storage, Table storage och Azure-filer) stöd för serversidan kryptering i vila, med vissa tjänster som stöder kundhanterad nycklar och kryptering på klientsidan.  
 
-- Serversidan: kunder som använder Azure blob storage kan aktivera kryptering i vila på varje resurs Azure storage-konto. En gång aktiverad serversidan datakryptering görs transparent till programmet. Se [Azure Storage Service-kryptering för Data i vila](https://docs.microsoft.com/azure/storage/storage-service-encryption) för mer information.
-- På klientsidan: kryptering på klientsidan av Azure BLOB stöds. När med hjälp av klientsidan kryptering kunder kryptera data och ladda upp data som en krypterad blob. Nyckelhantering görs av kunden. Se [kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) för mer information.
+- Serversidan: Alla Azure-lagringstjänster aktiverar kryptering på serversidan som standard med hjälp av service-hanterade nycklar som är transparent för programmet. Mer information finns i [Azure Storage Service-kryptering för Data i vila](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage och Azure-filer stöder också kundhanterad nycklar i Azure Key Vault. Mer information finns i [Lagringstjänstens kryptering med kundhanterad nycklar i Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- På klientsidan: Azure-Blobbar, tabeller och köer stöd för kryptering på klientsidan. När du använder klientsidan kryptering kunder kryptera data och ladda upp data som en krypterad blob. Nyckelhantering görs av kunden. Mer information finns i [kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -259,8 +259,8 @@ Klientsidan kryptering av data i SQL Azure stöds via den [Always Encrypted](htt
 | SQLServer (IaaS)                |                | Ja                 | Ja                          | Ja                          | Ja    |
 | Azure SQL (PaaS)                 |                | Ja                 | Ja                          | -                            | Ja    |
 | Azure Storage (blockera/Sidblobbar) |                | Ja                 | Ja                          | -                            | Ja    |
-| Azure Storage (filer)            |                | Ja                 | -                            | -                            | -      |
-| Azure Storage (tabeller, köer)   |                | -                   | -                            | -                            | Ja    |
+| Azure Storage (filer)            |                | Ja                 | Ja                          | -                            | -      |
+| Azure Storage (tabeller, köer)   |                | Ja                 | -                            | -                            | Ja    |
 | Cosmos DB (dokumentet DB)          |                | Ja                 | -                            | -                            | -      |
 | StorSimple                       |                | Ja                 | -                            | -                            | Ja    |
 | Backup                           |                | -                   | -                            | -                            | Ja    |

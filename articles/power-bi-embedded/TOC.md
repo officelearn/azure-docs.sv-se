@@ -28,7 +28,7 @@
 # Referens
 ## API:er
 ### [Azure Resource Manager REST API:er](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### ,[Power BI REST-API:er](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### ,[Power BI REST-API:er](https://msdn.microsoft.com/library/mt147898.aspx)
 
 # Resurser
 ## [Power BI Community](http://community.powerbi.com/t5/Developer/bd-p/Developer)

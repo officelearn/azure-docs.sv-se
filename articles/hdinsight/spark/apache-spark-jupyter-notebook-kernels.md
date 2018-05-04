@@ -1,9 +1,9 @@
 ---
-title: "Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight | Microsoft Docs"
-description: "Läs mer om PySpark och PySpark3 Spark kärnor för Jupyter-anteckningsbok med Spark-kluster i Azure HDInsight."
-keywords: "jupyter-anteckningsbok på spark jupyter spark"
+title: Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight | Microsoft Docs
+description: Läs mer om PySpark och PySpark3 Spark kärnor för Jupyter-anteckningsbok med Spark-kluster i Azure HDInsight.
+keywords: jupyter-anteckningsbok på spark jupyter spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 58a0bf27109af3131bd102fd43e9367d267525f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight 
 
@@ -83,7 +81,7 @@ Här är några fördelar med att använda de nya kärnor med Jupyter notebook i
    | Magiskt tal | Exempel | Beskrivning |
    | --- | --- | --- |
    | hjälp |`%%help` |Genererar en tabell med alla tillgängliga användbara med exempel och beskrivning |
-   | info |`%%info` |Utdata sessionsinformation för den aktuella Livius slutpunkten |
+   | Info |`%%info` |Utdata sessionsinformation för den aktuella Livius slutpunkten |
    | konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Flaggan force (-f) om en session redan har skapats, vilket garanterar att sessionen släppas och återskapas. Titta på [Liviuss POST /sessions brödtext i begäran](https://github.com/cloudera/livy#request-body) en lista över giltiga parametrar. Parametrar måste överföras i som en JSON-sträng och måste vara på nästa rad efter magic, som visas i Exempelkolumnen. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den %% lokala Python kontext som en [Pandas](http://pandas.pydata.org/) dataframe. |
    | lokal |`%%local`<br>`a=1` |Alla koden i efterföljande rader körs lokalt. Koden måste vara giltig Python2 kod även oavsett kernel som du använder. Så även om du har valt **PySpark3** eller **Spark** kärnor när du skapar den bärbara datorn om du använder den `%%local` magiskt i en cell, cellen får bara ha giltig Python2 kod... |

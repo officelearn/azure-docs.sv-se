@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL Database DTU benchmark-översikt
 ## <a name="overview"></a>Översikt
-I DTU-baserade inköpsmodell Microsoft Azure SQL Database erbjuder tre [tjänstnivåer](sql-database-service-tiers.md) med flera prestandanivåer. Varje prestandanivå innehåller en ökande uppsättning resurser och ström, utformats för att ge allt högre genomströmning.
+I DTU-baserade inköpsmodell Microsoft Azure SQL Database erbjuder tre [tjänstnivåer](sql-database-service-tiers-dtu.md) med flera prestandanivåer. Varje prestandanivå innehåller en ökande uppsättning resurser och ström, utformats för att ge allt högre genomströmning.
 
 > [!IMPORTANT]
-> Azure SQL Database stöder nu också en vCore-baserade inköpsmodell (förhandsversion). Mer information finns i [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+> Azure SQL Database stöder nu också en vCore-baserade inköpsmodell (förhandsversion). Mer information finns i [vCore-baserade inköpsmodell](sql-database-service-tiers-vcore.md).
 
 Det är viktigt för att kunna beräkna hur ökande kraften i varje prestandanivå översätter till ökad databasprestanda. Om du vill göra det här Microsoft har utvecklat Azure SQL Database Benchmark (ASDB). Benchmark utför en blandning av grundläggande åtgärder som finns i alla OLTP-arbetsbelastningar. Vi mäter genomflödet uppnås för databaser som körs i varje prestandanivå.
 
@@ -126,6 +126,8 @@ Azure SQL Database Benchmark mäter den relativa prestandan för Azure SQL Datab
 ## <a name="resources"></a>Resurser
 [Introduktion till SQL-databas](sql-database-technical-overview.md)
 
-[Servicenivåer och prestandanivåer](sql-database-service-tiers.md)
+[DTU-baserade servicenivåer och prestandanivåer](sql-database-service-tiers-dtu.md)
+
+[vCore-baserade servicenivåer och prestandanivåer](sql-database-service-tiers-vcore.md)
 
 [Prestandaråd för enskilda databaser](sql-database-performance-guidance.md)

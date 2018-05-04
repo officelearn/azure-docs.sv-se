@@ -26,7 +26,7 @@
 ## [Visa relaterade datatillgångar](data-catalog-how-to-view-related-data-assets.md) 
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Sök i syntaxreferens](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Utvecklarkoncept](data-catalog-developer-concepts.md)

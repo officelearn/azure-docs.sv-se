@@ -1,8 +1,8 @@
 ---
-title: "Felsöka problem med Apache Spark-kluster i Azure HDInsight | Microsoft Docs"
-description: "Lär dig om problem relaterade till Apache Spark-kluster i Azure HDInsight och hur du undviker de."
+title: Felsöka problem med Apache Spark-kluster i Azure HDInsight | Microsoft Docs
+description: Lär dig om problem relaterade till Apache Spark-kluster i Azure HDInsight och hur du undviker de.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem med Apache Spark-kluster i HDInsight
 
 Det här dokumentet håller reda på kända problem för HDInsight Spark public preview.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livius läcker interaktiva sessionen
-När Livius startas (från Ambari eller på grund av headnode 0 virtuella omstart) med en interaktiv session fortfarande lever har en interaktiv jobbet session läckts. Därför nya jobb kan ha fastnat i tillståndet godkända och kan inte startas.
+När Livius startas om (från Ambari eller på grund av headnode 0 virtuella omstart) med en interaktiv session fortfarande lever har en interaktiv jobbet session läckts. Därför kan nya jobb ha fastnat i tillståndet godkända.
 
 **Lösning:**
 
@@ -54,7 +52,12 @@ Spark historik Server startas inte automatiskt efter ett kluster skapas.
 Starta servern historik manuellt från Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problem i Spark loggkatalogen
-När hdiuser skickar ett jobb med spark-submit, det finns ett fel java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (behörighet nekas) och drivrutin loggfilerna skrivs inte. 
+hdiuser får följande fel när du skickar ett jobb med hjälp av spark-skicka:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+Och inga drivrutinen loggen skapas. 
 
 **Lösning:**
 
@@ -65,7 +68,7 @@ När hdiuser skickar ett jobb med spark-submit, det finns ett fel java.io.FileNo
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Spark Phoenix anslutningen stöds inte
 
-Spark Phoenix anslutningen stöds för närvarande inte med ett HDInsight Spark-kluster.
+HDInsight Spark-kluster stöder inte Spark Phoenix kopplingen.
 
 **Lösning:**
 
@@ -75,10 +78,10 @@ I stället måste du använda Spark-HBase-anslutningen. Instruktioner finns i av
 Följande är några kända problem som rör Jupyter-anteckningsböcker.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Bärbara datorer med icke-ASCII-tecken i filnamn
-Jupyter-anteckningsböcker som kan användas i HDInsight Spark-kluster ska inte ha icke-ASCII-tecken i filnamn. Om du försöker överföra en fil med Jupyter UI, som har ett icke-ASCII-filnamn, misslyckas tyst (det vill säga Jupyter kan inte överföra filen, men felet visas inte utlösa antingen). 
+Använd inte icke-ASCII-tecken i Jupyter-anteckningsbok filnamn. Om du försöker överföra en fil med Jupyter UI, som har ett icke-ASCII-filnamn, misslyckas utan något felmeddelande visas. Jupyter kan inte överföra filen, men felet visas utlösa inte antingen.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fel vid inläsning av bärbara datorer av större storlek
-Ett fel kan uppstå  **`Error loading notebook`**  när du läser in anteckningsböcker som är större.  
+Ett fel kan uppstå **`Error loading notebook`** när du läser in anteckningsböcker som är större.  
 
 **Lösning:**
 
@@ -99,7 +102,7 @@ Den första koden instruktionen i Jupyter-anteckningsbok med Spark magic kan ta 
 Detta beror på att när den första kodcellen körs. I bakgrunden detta startar sessionskonfigurationen och Spark, SQL och Hive sammanhang anges. När dessa sammanhang anges, den första satsen körs och det ger intryck som tog lång tid att slutföra i instruktionen.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter notebook timeout för att skapa sessionen
-När Spark-kluster har slut på resurser, kommer Spark och PySpark-kernel i Jupyter-anteckningsbok Tidsgränsen nåddes vid försök att skapa sessionen. 
+När Spark-kluster har slut på resurser, kommer Spark och PySpark-kernel i Jupyter-anteckningsbok försök att skapa sessionen. 
 
 **Åtgärder:** 
 

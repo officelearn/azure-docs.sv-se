@@ -4,15 +4,14 @@ description: Läs ett white paper som ger en översikt över hur du migrerar lok
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: be322596da0c3e5ba18aa64285c437cdb823fc4b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 8ba490998ea5f20efca591327716a6e39e9c1ba8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrating-your-on-premises-workloads-to-azure"></a>Migrera dina lokala arbetsbelastningar till Azure
 
@@ -27,11 +26,11 @@ Den här serien av migreringsartiklar visar hur du kan planera och skapa en migr
 
 **Scenario** | **Lösning** | **Tjänster** | **Artikel** 
 --- | --- | --- | ---
-[Scenario 1: Identifiering och utvärdering](migrate-scenarios-assessment.md) | Utforska och utvärdera lokala virtuella appar och data för migrering till Azure | Data Migration Assistant, tjänsten Azure Migrate  | Tillgängligt nu
-**Scenario 2: Lift and shift-migrering** | Rehosting av interna appar i Azure. Optimera i Azure efter migrering. | Azure Site Recovery, Azure Database Migration Service, Azure SQL-hanterad instans | Tillgängligt nu
-**Scenario 3: Omstrukturera och migrera** | Modernisera och omstrukturera lokala kundappar under migreringen till Azure. | Under planering | Planerad
-**Scenario 4: Omformning och migrering** | Omforma och migrera transaktionella webbplatser under migreringen till Azure. | Under planering | Planerad
-**Scenario 5: Återskapa** |Återskapa och migrera egna appar och data till Azure | Under planering | Planerad
+[Scenario 1: Identifiering och utvärdering](migrate-scenarios-assessment.md) | Identifiera och utvärdera lokala appar, data och infrastruktur för migrering till Azure | Data Migration Assistant, tjänsten Azure Migrate  | Tillgängligt nu
+**[Scenario 2: Rehost-app](migrate-scenarios-lift-and-shift.md)** | Lift och SKIFT appar till Azure. | Azure Site Recovery, Azure Database Migration Service, Azure SQL-hanterad instans | Tillgängligt nu
+**Scenario 3: Flytta app** | Refactor appar under migreringen till Azure. | Under planering | Planerad
+**Scenario 4: Rearchitect app** | Rearchitect appar under migreringen till Azure. | Under planering | Planerad
+**Scenario 5: Återskapa appen** |Återskapa appar under migreringen till Azure | Under planering | Planerad
 
 
 

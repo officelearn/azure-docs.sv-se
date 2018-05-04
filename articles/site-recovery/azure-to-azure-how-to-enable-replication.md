@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4479f7bbe657908d4c1ed94f5eaa00401efcb87e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -48,7 +48,7 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
 4. I **inställningar**, du kan också konfigurera platsinställningar för mål:
 
     - **Målplatsen**: den plats där källdata virtuella datorn kommer att replikeras. Beroende på din plats för valda datorer, tillhandahåller Site Recovery listan över målregioner lämplig. Vi rekommenderar att du behåller målplatsen samma som plats för Recovery Services-valvet.
-    - **Målresursgruppen**: resursgruppen där alla de replikerade virtuella datorerna tillhör. Som standard skapar Azure Site Recovery en ny resursgrupp i området mål med namn med suffixet ”asr”. Resursgruppen som skapats av Azure Site Recovery redan finns återanvänds. Du kan också välja att anpassa den som visas i följande avsnitt.
+    - **Målresursgruppen**: resursgruppen där alla de replikerade virtuella datorerna tillhör. Som standard skapar Azure Site Recovery en ny resursgrupp i området mål med namn med suffixet ”asr”. Resursgruppen som skapats av Azure Site Recovery redan finns återanvänds. Du kan också välja att anpassa den som visas i följande avsnitt. Målresursgruppen kan vara någon Azure-region utom den region som är värd för virtuella källdatorer.
     - **Rikta virtuellt nätverk**: som standard skapar Site Recovery ett nytt virtuellt nätverk i målregionen med namn med suffixet ”asr”. Detta är mappad till nätverket källa och används för alla framtida skydd. [Lär dig mer](site-recovery-network-mapping-azure-to-azure.md) om nätverksmappning.
     - **Rikta Storage-konton (om datakällan inte använder VM-hanterade diskar)**: som standard Site Recovery skapar ett nytt lagringskonto för frihandsbilden lagringskonfigurationen källa VM-mål. Om lagringskontot redan återanvänds.
     - **Replik hanterade diskar (om ditt Virtuella källdatorn använder hanterade diskar)**: Site Recovery skapar den nya repliken hanterade diskar i målregionen för spegling av källa VM hanterade diskar med samma lagringstyp (Standard eller premium) som den Virtuella källdatorns hanterad disk.

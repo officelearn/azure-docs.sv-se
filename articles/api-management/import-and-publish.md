@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: 26a5ab93c82b523063632c4899daadbde70dd7d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a72e870b1c98ec363b217030cf1e2f61ceaad5d9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API 
 
@@ -26,7 +26,7 @@ I den här kursen visas hur du importerar en OpenAPI-specifikation för serverde
 
 När serverdels-API:et importeras i API Management (APIM) blir APIM-API:et en fasad för serverdels-API:et. När du importerar serverdels-API:et är käll-API:et och APIM-API:et identiska. Med APIM kan du anpassa fasaden efter dina behov utan att behöva röra serverdels-API:et. Mer information finns i [Transformera och skydda ditt API](transform-api.md). 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Importera ditt första API
@@ -55,7 +55,7 @@ I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifika
     |Inställning|Värde|Beskrivning|
     |---|---|---|
     |**OpenAPI-specifikation**|http://conferenceapi.azurewebsites.net?format=json|Refererar till tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
-    |**Visningsnamn**|*Demokonferens-API*|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON. <br/>Det här namnet visas i utvecklarportalen.|
+    |**Visningsnamn**|*Demokonferens-API*|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON. <br/>Det här namnet visas i Developer-portalen.|
     |**Namn**|*demo-conference-api*|Tillhandahåller ett unikt namn för API:et. <br/>Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
     |**Beskrivning**|Ange en valfri beskrivning av API: et.|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
     |**URL-schema**|*HTTPS*|Fastställer vilka protokoll som kan användas för att få åtkomst till API:et. |
@@ -64,7 +64,7 @@ I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifika
     |Vilken är versionen för det här API:et?||Om du vill ha mer versionsinformation kan du gå till [Publicera flera versioner av ditt API](api-management-get-started-publish-versions.md)|
     
     >[!NOTE]
-    > Om du vill publicera API:et måste du associera det med en produkt. Du kan göra det från sidan **Inställningar**.
+    > Om du vill publicera API:t måste du associera det med en produkt. Du kan göra det från sidan **Inställningar**.
     
 3. Välj **Skapa**.
 
@@ -99,7 +99,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Importera ditt första API
 > * Testa API:et i Azure Portal
-> * Testa API:et i utvecklarportalen
+> * Testa API:et i Developer-portalen
 
 Gå vidare till nästa kurs:
 

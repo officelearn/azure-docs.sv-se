@@ -129,6 +129,8 @@
           items:
             - name: Haveriberedskap för virtuella Azure-datorer efter migrering till Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Haveriberedskap för virtuella Azure-datorer med PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Replikering, redundans och återställning efter fel'
           items:
             - name: Aktivera Azure till Azure-replikering

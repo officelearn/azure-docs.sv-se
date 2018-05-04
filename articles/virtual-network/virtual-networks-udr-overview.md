@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -38,7 +38,7 @@ Varje väg innehåller ett adressprefix och en nästa hopp-typ. När trafik läm
 |-------|---------                                               |---------      |
 |Standard|Unikt för det virtuella nätverket                           |Virtuellt nätverk|
 |Standard|0.0.0.0/0                                               |Internet       |
-|Standard|10.0.0.0/8                                              |Inget           |
+|Standard|10.0.0.0/8                                              |Ingen           |
 |Standard|172.16.0.0/12                                           |Ingen           |
 |Standard|192.168.0.0/16                                          |Ingen           |
 |Standard|100.64.0.0/10                                           |Ingen           |
@@ -110,7 +110,7 @@ Namnet som visas och refereras för nästa hopptyper är olika för Azure-portal
 |Virtuellt nätverk                 |VNetLocal                                       |VNETLocal (inte tillgängligt i CLI 1.0 i asm-läge)|
 |Internet                        |Internet                                        |Internet (inte tillgängligt i CLI 1.0 i asm-läge)|
 |Virtuell installation               |VirtualAppliance                                |VirtualAppliance|
-|Inget                            |Ingen                                            |Null (inte tillgängligt i CLI 1.0 i asm-läge)|
+|Ingen                            |Ingen                                            |Null (inte tillgängligt i CLI 1.0 i asm-läge)|
 |Virtuell nätverkspeering         |VNET-peering                                    |Inte tillämpligt|
 |Slutpunkt för virtuellt nätverk|VirtualNetworkServiceEndpoint                   |Inte tillämpligt|
 
@@ -122,7 +122,9 @@ En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i A
 - **VPN**: Du kan eventuellt använda BGP. Mer information finns i [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (BGP med plats-till-plats-VPN-anslutningar).
 
 När du skickar vägar till Azure med hjälp av BGP läggs en separat väg till i routningstabellen för alla undernät i ett virtuellt nätverk för varje annonserat prefix. Vägen läggs till med *Virtuell nätverksgateway* angiven som källa och nästa hopptyp. 
- 
+
+Du kan inaktivera BGP-spridning av vägar för ett undernät med hjälp av en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN fås med hjälp av anpassade vägar](#custom-routes) där nästa hopp har typen VPN. Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](/manage-route-table#create-a-route-table.md).
+
 ## <a name="how-azure-selects-a-route"></a>Hur Azure väljer en väg
 
 När utgående trafik skickas från ett undernät väljer Azure en väg baserat på mål-IP-adressen med matchningsalgoritmen med det längsta prefixet. Exempel: En routningstabell har två vägar: En väg anger adressprefixet 10.0.0.0/24 och den andra vägen anger adressprefixet 10.0.0.0/16. Azure dirigerar trafik som är avsedd för 10.0.0.5 till nästa hopptyp som är angiven i vägen med adressprefixet 10.0.0.0/24. Det beror på att prefixet 10.0.0.0/24 är längre än 10.0.0.0/16, trots att 10.0.0.5 är inom båda adressprefixen. Azure dirigerar trafik som är avsedd för 10.0.1.5 till nästa hopptyp som är angiven i vägen med adressprefixet 10.0.0.0/16. Det beror på att 10.0.1.5 inte ingår i adressprefixet 10.0.0.0/24, och därför är vägen med adressprefixet 10.0.0.0/16 det längsta prefix som matchar.
@@ -247,14 +249,15 @@ Routningstabellen för *Subnet2* på bilden innehåller följande vägar:
 |Standard |Active |10.0.0.0/8          |Ingen                      |                   |
 |Standard |Active |100.64.0.0/10       |Ingen                      |                   |
 |Standard |Active |172.16.0.0/12       |Inget                      |                   |
-|Standard |Active |192.168.0.0/16      |Inget                      |                   |
+|Standard |Active |192.168.0.0/16      |Ingen                      |                   |
 
 Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar och den valfria VNet-peeringen och de valfria vägarna för virtuell nätverksgateway. Azure la till de valfria vägarna till alla undernät i det virtuella nätverket när gatewayen och peeringen lades till i det virtuella nätverket. Azure tog bort vägarna för adressprefixen 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 och 100.64.0.0/10 från routningstabellen för *Subnet1* när den användardefinierade vägen för adressprefixet 0.0.0.0/0 lades till i *Subnet1*.  
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en användardefinierad routningstabellen med vägar och en virtuell nätverksenhet](tutorial-create-route-table-portal.md)
-- [Konfigurera BGP för en Azure VPN-gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- 
+  [Konfigurera BGP för Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Använda BGP med ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Visa alla vägar för ett undernät](virtual-network-routes-troubleshoot-portal.md). En användardefinierad routningstabell visar bara de användardefinierade vägarna och inte standardvägarna och BGP-vägarna för ett undernät. Om du visar alla vägar ser du standardvägarna, GBP- och de användardefinierade vägarna för undernätet som ett nätverksgränssnitt finns i.
 - [Bestäm nästa hopptyp](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mellan en virtuell dator och en mål-IP-adress. Nästa hopp-funktionen Azure Network Watcher gör att du kan bestämma om trafik som lämnar ett undernät dirigeras dit du önskar.

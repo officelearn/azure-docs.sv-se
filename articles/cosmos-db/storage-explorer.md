@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 8c584ec0c8d89a232d573399cfabe02fc8aa1c87
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Hantera Azure Cosmos DB i Azure Storage Explorer
 
@@ -76,7 +76,7 @@ Ett alternativt sätt att ansluta till en Azure Cosmos DB är att använda en an
 
 Använd följande steg för att ansluta till en Azure Cosmos DB med en Emulator, stöder enbart SQL-konto för tillfället.
 
-1. Installera Emulatorn och starta. Information om hur du installerar emulatorn finns i [Cosmos DB-emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+1. Installera Emulatorn och starta. Information om hur du installerar emulatorn finns i [Cosmos DB-emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Hitta **Lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB-konton** och välj **Anslut till Cosmos DB-emulator...**
 
@@ -210,7 +210,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-[Microsoft Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) är en fristående app som gör det möjligt att ansluta till Azure Cosmos DB-konton som finns på Azure och i nationella moln från Windows, macOS eller Linux. Det gör det möjligt för dig att hantera Microsoft Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer.
+[Microsoft Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) är en fristående app som gör det möjligt att ansluta till Azure Cosmos DB-konton som finns på Azure och i nationella moln från Windows, macOS eller Linux. Det gör det möjligt för dig att hantera Microsoft Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer.
 
 Det finns lösningar på vanliga problem för Azure Cosmos DB i Storage Explorer.
 

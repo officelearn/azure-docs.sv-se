@@ -1,12 +1,12 @@
 ---
-title: "Skicka händelser till Händelsehubbar i Azure med hjälp av C | Microsoft Docs"
-description: "Skicka händelser till Händelsehubbar i Azure med hjälp av C"
+title: Skicka händelser till Händelsehubbar i Azure med hjälp av C | Microsoft Docs
+description: Skicka händelser till Händelsehubbar i Azure med hjälp av C
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Händelsehubbar i Azure med hjälp av C
 
 ## <a name="introduction"></a>Introduktion
 Händelsehubbar är en mycket skalbar införandet system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När uppgifterna väl samlats i en händelsehubb kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalys eller lagringskluster.
 
-Mer information finns i [översikt av Händelsehubbar] [översikt av Händelsehubbar].
+Mer information finns i [översikt av Händelsehubbar](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
 
 Den här självstudiekursen beskrivs hur du skickar händelser till en händelsehubb med hjälp av ett konsolprogram i C. Mer information om att ta emot händelser, klickar du på det mottagande språket i den vänstra tabellen i innehållet.
 
@@ -33,7 +33,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * En C-utvecklingsmiljö. Den här kursen förutsätter gcc stacken på en virtuell Azure Linux-dator med Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Skicka meddelanden till Event Hubs
 I det här avsnittet visar hur du skriver en app C för att skicka händelser till din event hub. Koden använder Proton AMQP-bibliotek från den [Apache Qpid projekt](http://qpid.apache.org/). Detta är detsamma som använder Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i [Qpid Proton dokumentationen](http://qpid.apache.org/proton/index.html).

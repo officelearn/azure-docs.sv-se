@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Förstå aviseringar i logganalys
 
@@ -67,7 +67,7 @@ Varningsregler definieras av följande information:
  
     - **Falsklarm**. Ibland aviseringsfrågorna är utformade för att identifiera frånvaro av händelser. Ett exempel på detta identifiering när en virtuell dator är offline genom att söka efter uteblivna pulsslag. Som ovan, om pulsslag inte är tillgänglig för sökningen i tidsfönstret aviseringen sedan en avisering genereras eftersom heartbeat-data inte ännu sökbara och därför saknas. Detta är samma resultat som om den virtuella datorn har legitimt offline och inga heartbeat-data som genereras av den. Frågan körs nästa dag via fönstret rätt tid visar att det fanns pulsslag och aviseringar misslyckades. I själva verket på pulsslag inte har tillgängliga för sökning eftersom tidsfönstret aviseringen har angetts för liten.
 
-- **Frekvensen**.  Anger hur ofta frågan ska köras och kan användas för att se aviseringar snabbare för vanliga fall. Värdet kan vara mellan 5 minuter och 24 timmar och ska vara lika med eller mindre än tidsfönstret avisering.  Om värdet är större än tidsfönstret riskerar du poster som saknas.<br>Om målet är tillförlitliga för fördröjningar upp till 30 minuter och normal fördröjningen är 10 minuter, tidsfönstret ska vara en timme och värdet för testfrekvens måste vara 10 minuter. Detta skulle utlösa en avisering med data som har en 10 minut införandet fördröjning mellan 10 och 20 minuter för när aviseringsdata genererades.<br>Att undvika att skapa flera aviseringar för samma data eftersom tidsfönstret är för breda de [undertrycka aviseringar](log-analytics-tutorial-response.md#create-alerts) alternativet kan användas för att undertrycka aviseringar minst så länge som tidsfönstret.
+- **Frekvensen**.  Anger hur ofta frågan ska köras och kan användas för att se aviseringar snabbare för vanliga fall. Värdet kan vara mellan 5 minuter och 24 timmar och ska vara lika med eller mindre än tidsfönstret avisering.  Om värdet är större än tidsfönstret riskerar du poster som saknas.<br>Om målet är tillförlitliga för fördröjningar upp till 30 minuter och normal fördröjningen är 10 minuter, tidsfönstret ska vara en timme och värdet för testfrekvens måste vara 10 minuter. Detta skulle utlösa en avisering med data som har en 10 minut införandet fördröjning mellan 10 och 20 minuter för när aviseringsdata genererades.<br>Om du vill undvika flera aviseringar för samma data eftersom tidsfönstret är för breda kan alternativet Ignorera aviseringar användas för att undertrycka aviseringar minst så länge som tidsfönstret.
   
 - **Tröskelvärde för**. Resultaten av loggen sökningen utvärderas för att avgöra om en avisering ska skapas. Tröskelvärdet är olika för olika typer av Varningsregler.
 

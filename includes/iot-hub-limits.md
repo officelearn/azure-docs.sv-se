@@ -42,7 +42,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser:
 
 
 > [!NOTE]
-> Det maximala antalet enheter som du kan ansluta till en enda IoT-hubben är för närvarande 500 000. Om du vill höja denna gräns Kontakta [Microsoft-supporten](https://azure.microsoft.com/en-us/support/options/).
+> Det maximala antalet enheter som du kan ansluta till en enda IoT-hubben är för närvarande 500 000. Om du vill höja denna gräns Kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/).
 
 Tjänsten IoT Hub begränsar begärandena om följande kvoter överskrids:
 

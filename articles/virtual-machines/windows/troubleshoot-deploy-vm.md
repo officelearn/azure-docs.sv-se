@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka distribution problem med Windows virtuell dator i Azure
 
@@ -95,10 +95,6 @@ Drivrutiner för Windows-baserade virtuella datorer är placerade [här](n-serie
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Jag kan inte hitta en GPU-instans i den virtuella datorn N-serien
 
 Om du vill dra nytta av GPU-funktionerna i Azure N-serien virtuella datorer som kör Windows Server 2016 eller Windows Server 2012 R2, måste du installera drivrutinerna grafik på varje virtuell dator efter distributionen. Drivrutinen installationsinformationen är tillgängliga för [virtuella Windows-datorer](n-series-driver-setup.md) och [virtuella Linux-datorer](../linux/n-series-driver-setup.md).
-
-## <a name="are-client-images-supported-for-n-series"></a>Stöds klientavbildningar för N-serien?
-
-Azure stöder för närvarande endast N-serien på virtuella datorer som kör Windows Server- och Linux-operativsystem.
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>Är N-serien virtuella datorer i min region?
 

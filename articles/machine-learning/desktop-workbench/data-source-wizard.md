@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Source-guiden för Azure Machine Learning | Microsoft Docs"
-description: "Beskriver guiden Datakälla AML arbetsstationen"
+title: Azure Data Source-guiden för Azure Machine Learning | Microsoft Docs
+description: Beskriver guiden Datakälla AML arbetsstationen
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: 4f9a2249142220f3c57cb2e479a175d4227749fd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-source-wizard"></a>Guiden datakälla #
 
@@ -22,7 +22,7 @@ Guiden datakälla är ett snabbt och enkelt sätt att sätta en datamängd i Azu
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>Steg 1: Starta guiden datakälla ## 
 
-Hämta data till ett projekt med hjälp av guiden datakälla. Välj den  **+**  knappen bredvid sökrutan i datavyn och välj Lägg till datakälla. 
+Hämta data till ett projekt med hjälp av guiden datakälla. Välj den **+** knappen bredvid sökrutan i datavyn och välj Lägg till datakälla. 
 
 ![Lägga till en datakälla](media/data-source-wizard/add-data-source.png)
 

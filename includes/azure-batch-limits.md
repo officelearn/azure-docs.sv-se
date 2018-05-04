@@ -3,7 +3,7 @@
 | Batch-konton per region per prenumeration | 1 - 3 |50 |
 | Dedikerad kärnor per Batch-kontot | 10 - 100 | N/A<sup>1</sup> |
 | Låg prioritet kärnor per Batch-kontot | 10 - 100 | EJ TILLÄMPLIGT<sup>2</sup> |
-| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-kontot | 20 - 100 | 5000<sup>4</sup> |
+| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-kontot | 100 - 300 | 5000<sup>4</sup> |
 | Pooler per Batch-konto | 20 - 100 | 2500 |
 
 > [!NOTE]

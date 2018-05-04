@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 17b2f1b65463f87f81ffe06bae5ac559a84bcb2a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Självstudiekurs: Övervaka och diagnostisera ett ASP.NET Core-program i Service Fabric
-Den här självstudien är del fyra i en serie. Den går igenom stegen för att konfigurera övervakning och diagnostik för ett ASP.NET Core-program som körs på ett Service Fabric-kluster med Application Insights. Vi samlar in telemetri från program som utvecklats i den första delen av självstudien [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md). 
+Den här självstudien är del fem i en serie. Den går igenom stegen för att konfigurera övervakning och diagnostik för ett ASP.NET Core-program som körs på ett Service Fabric-kluster med Application Insights. Vi samlar in telemetri från program som utvecklats i den första delen av självstudien [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md). 
 
 I del fyra av den här självstudieserien får du lära dig att:
 > [!div class="checklist"]
@@ -35,6 +35,7 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md)
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Konfigurera övervakning och diagnostik för programmet
 
@@ -104,8 +105,7 @@ Gör följande för att konfigurera NuGet:
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
     
-    2. I den kapslade *return*-instruktionen *CreateServiceInstanceListeners()* eller *CreateServiceReplicaListeners()*, under *ConfigureServices* > *-tjänsterna*, mellan de två Singleton-tjänsterna som deklarerats, lägger du till: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
-    Detta lägger till *Tjänstkontext* i din telemetri för att underlätta förståelsen av källan för din telemetri i Application Insights. Den kapslade *return*-instruktionen i *VotingWeb.cs* bör se ut så här:
+    2. I den kapslade *return*-instruktionen i *CreateServiceInstanceListeners()* eller *CreateServiceReplicaListeners()* under *ConfigureServices* > *services*, mellan de två deklarerade Singleton-tjänsterna, lägger du till följande: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` Det här gör att *tjänstkontext* tas med i telemetrin, så att du får bättre förståelse för var telemetrin kommer ifrån i Application Insights. Den kapslade *return*-instruktionen i *VotingWeb.cs* bör se ut så här:
     
     ```csharp
     return new WebHostBuilder()

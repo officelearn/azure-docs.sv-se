@@ -15,11 +15,11 @@ ms.date: 04/18/2018
 ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19eb8399c59efa94e68c0d334ba708f900ce841a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -71,7 +71,7 @@ Till exempel om ett webbprogram för klienten behöver läsa kalenderinformation
 
 Medgivande framework bygger på OAuth 2.0 och dess olika flöden som koden bevilja och klienten autentiseringsuppgifter bevilja med hjälp av offentliga eller konfidentiell klienter. Med hjälp av OAuth 2.0 går Azure AD det att skapa många olika typer av program, t.ex på en telefon, surfplatta, server eller ett webbprogram och få åtkomst till resurserna som krävs.
 
-Mer information om hur du använder medgivande framework med OAuth2.0 auktorisering ger finns [auktorisera åtkomst till webbprogram med hjälp av OAuth 2.0 och Azure AD](active-directory-protocols-oauth-code.md) och[Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md). Information om hur du får en auktoriserad åtkomst till Office 365 via Microsoft Graph finns [App autentisering med Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Mer information om hur du använder medgivande framework med OAuth2.0 auktorisering ger finns [auktorisera åtkomst till webbprogram med hjälp av OAuth 2.0 och Azure AD](active-directory-protocols-oauth-code.md) och [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md). Information om hur du får en auktoriserad åtkomst till Office 365 via Microsoft Graph finns [App autentisering med Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Exempel på medgivande-upplevelse
 

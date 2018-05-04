@@ -1,3 +1,5 @@
+- name: Grunderna i Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Dokumentation om Azure Time Series Insights
   href: index.yml
 - name: Översikt
@@ -57,16 +59,36 @@
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
     - name: Frågesyntax
       href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Relaterat
+  items:
+    - name: Lösningar
+      items:
+        - name: Förinställda lösningar för IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning-tjänst
+          href: /azure/iot-dps
+        - name: Platsbaserade tjänster
+          href: /azure/location-based-services
+        - name: 'Tjänst-SDK:er'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Azure Stream Analytics
+      href: /azure/stream-analytics/
 - name: Resurser
   items:
-    - name: Relaterade tjänster
-      items:
-        - name: Azure IoT Suite
-          href: /azure/iot-suite/
-        - name: Azure Event Hubs
-          href: /azure/event-hubs/
-        - name: Azure Stream Analytics
-          href: /azure/stream-analytics/
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Prissättning

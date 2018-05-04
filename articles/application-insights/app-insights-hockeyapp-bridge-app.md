@@ -1,6 +1,6 @@
 ---
 title: Utforska HockeyApp data i Azure Application Insights | Microsoft Docs
-description: "Analysera användnings- och prestanda för din Azure-app med Application Insights."
+description: Analysera användnings- och prestanda för din Azure-app med Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Utforska HockeyApp data i Application Insights
 
 > [!NOTE]
-> Visual Studio App Center är nu den rekommenderade tjänsten från Microsoft för att övervaka ny mobila appar. [Lär dig hur du ställer in dina appar med App Center och Application Insights](app-insights-mobile-center-quickstart.md).
-> 
-> 
+> HockeyApp är inte längre tillgänglig för nya program. Befintliga distributioner av HockeyApp fortsätter att fungera. Visual Studio App Center är nu den rekommenderade tjänsten från Microsoft för att övervaka ny mobila appar. [Lär dig hur du ställer in dina appar med App Center och Application Insights](app-insights-mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) är en tjänst för övervakning av live stationära och mobila appar. Du kan skicka anpassade från HockeyApp och spåra telemetri för att övervaka användningen och hjälpa diagnostisera (förutom komma kraschdata). Dataströmmen telemetri kan efterfrågas med hjälp av den kraftfulla [Analytics](app-insights-analytics.md) funktion i [Azure Application Insights](app-insights-overview.md). Dessutom kan du [exportera ett anpassat och spåra telemetri](app-insights-export-telemetry.md). Om du vill aktivera de här funktionerna kan du ställa in en brygga som vidarebefordrar HockeyApp anpassade data till Application Insights.
 

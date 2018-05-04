@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-description: Lär dig hur du synkroniserar kataloger och möjliggör enkel inloggning. Dokumentationen visar hur du integrerar en fullständig uppsättning funktioner för identitetshantering.
 title: Dokumentation om Azure Active Directory – Självstudier, API-referens | Microsoft Docs
+description: Azure Active Directory (Azure AD) är Microsofts molnbaserade katalogtjänst för identitetshantering för flera innehavare som kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en och samma lösning.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -10,122 +10,31 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: 39226c7ada2bf3672cb62b6a0def4191bee342c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 30019a733bd4869d22c060d0793423b71b0df166
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Dokumentation om Azure Active Directory
 
-Lär dig hur du synkroniserar kataloger och möjliggör enkel inloggning med Azure Active Directory (Azure AD). Självstudier, API-referenser och annan dokumentation visar hur du integrerar funktioner för identitethantering inklusive Multi-Factor Authentication, enhetsregistrering, rollbaserad åtkomstkontroll, säkerhetsövervakning och avisering.
+Azure Active Directory (Azure AD) är en molnbaserad katalog- och identitetshanteringstjänst för flera innehavare.
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/active-directory/active-directory-whatis">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/active-directory.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Läs mer om Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Videobibliotek för Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-howto-tenant">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Kom igång med Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-get-started-premium">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Kom igång med Azure Active Directory Premium</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-       <li>
-        <a href="/azure/active-directory/develop/active-directory-developers-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Hantera appar med Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li> 
-</ul>
-
----
-
-<h2>Referens</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Kommandorad</h3>
-                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
+                        <h3>Grunder</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-whatis">Vad är Azure AD?</a><br/>
+                        <a href="/azure/active-directory/understand-azure-identity-solutions">Identitetslösningar</a><br/>
+                        <a href="/azure/active-directory/get-started-azure-ad">Komma igång</a><br/>
+                        <a href="/azure/active-directory/whats-new">Nyheter</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -136,10 +45,15 @@ Lär dig hur du synkroniserar kataloger och möjliggör enkel inloggning med Azu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Språk</h3>
-                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                   </div>
+                        <h3>Företagsanvändare</h3>
+                        <p>
+                        <a href="/azure/active-directory/add-users-azure-active-directory">Användare</a><br/>
+                        <a href="/azure/active-directory/active-directory-manage-groups">Grupper</a><br/>
+                        <a href="/azure/active-directory/license-users-groups">Licenser</a><br/>
+                        <a href="/azure/active-directory/active-directory-administer">Kataloghantering</a><br/>
+                        <a href="/azure/active-directory/active-directory-assign-admin-roles-azure-portal">Administratörsroller</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,8 +63,159 @@ Lär dig hur du synkroniserar kataloger och möjliggör enkel inloggning med Azu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Annat</h3>
-                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Tjänstens begränsningar</a></p>
+                        <h3>Externa användare</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Business-to-business (B2B)</a><br/>
+                        <a href="/azure/active-directory-b2c/">Business-to-customer (B2C)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Autentisering</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-passwords-overview">Lösenord</a><br/>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Multi-Factor Authentication</a><br/>
+                        <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
+                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Certifikatbaserad autentisering</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Skydd</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-identityprotection">Identitetsskydd</a><br/>
+                        <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Villkorlig åtkomst</a><br/>
+                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged Identity Management</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Enheter</h3>
+                        <p>
+                        <a href="/azure/active-directory/device-management-introduction">Enhetshantering</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10-enheter</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Anslutna enheter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Program</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-enable-sso-scenario">Apphantering</a><br/>
+                        <a href="/azure/active-directory/cloudappdiscovery-get-started">Appidentifiering</a><br/>
+                        <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Företagets appar</a><br/>
+                        <a href="/azure/active-directory/active-directory-managing-access-to-apps">Åtkomst till appar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Autentisering för utvecklare</h3>
+                        <p>
+                        <a href="/azure/active-directory/develop/active-directory-authentication-scenarios">Grundläggande om autentisering</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-integrating-applications">Appintegrering</a><br/>
+                        <a href="/azure/active-directory/managed-service-identity/overview">Hanterad identitet</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-code-samples">Kodexempel</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Referens</h3>
+                        <p>
+                        <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
+                        <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>
+                        <a href="/cli/azure/ad">Azure CLI</a><br/>
+                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
+                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
+                        <a href="/java/api/overview/azure/activedirectory">Java</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Hybridorganisationer</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">Hybrididentitetslösning</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect">Lokal katalogintegrering</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect-azure-adfs">Federation Services</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Efterlevnad och rapporter</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview">Åtkomstgranskningar</a><br/>
+                        <a href="/azure/active-directory/active-directory-tou">Användningsvillkor</a><br/>
+                        <a href="/azure/active-directory/active-directory-reporting-azure-portal">Rapporter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Domäner</h3>
+                        <p>
+                        <a href="/azure/active-directory-domain-services/">Domain Services</a>
+                        </p>
                     </div>
                 </div>
             </div>

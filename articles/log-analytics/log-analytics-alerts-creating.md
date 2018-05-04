@@ -1,8 +1,8 @@
 ---
 title: Skapa aviseringar i OMS Log Analytics | Microsoft Docs
-description: "Aviseringar i Log Analytics kan identifiera viktig information i OMS-databasen och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskriver hur du skapar en aviseringsregel och information om olika åtgärder som de kan ta."
+description: Aviseringar i Log Analytics kan identifiera viktig information i OMS-databasen och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskriver hur du skapar en aviseringsregel och information om olika åtgärder som de kan ta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,34 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b692822660ab12f89b274cea75727fb808d673f8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Arbeta med Varningsregler i logganalys
-Aviseringar skapas med Varningsregler som automatiskt kör loggen söker regelbundet.  De skapar en avisering post om resultaten uppfyller specifika villkor.  Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process.   
+
+> [!NOTE]
+> Den här artikeln beskriver klassiska logganalys-aviseringar som hanteras i OMS-portalen.  Aviseringar i logganalys [förlängs till Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  När det är klart sedan du skapar och redigerar Varningsregler i Azure-portalen och Observera använda procedurerna i den här artikeln.
+
+
+Aviseringar skapas från varningsregler som automatiskt kör regelbundna loggsökningar.  De skapar en avisering post om resultaten uppfyller specifika villkor.  Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddela dig om aviseringen eller anropa en annan process.   
 
 Den här artikeln beskriver processer för att skapa och redigera Varningsregler med hjälp av OMS-portalen.  Mer information om de olika inställningarna och hur du implementerar logik som krävs finns [förstå aviseringar i logganalys](log-analytics-alerts.md).
 
->[!NOTE]
-> Du kan för närvarande skapar eller ändrar en aviseringsregel med hjälp av Azure portal. 
 
-## <a name="create-an-alert-rule"></a>Skapa en aviseringsregel
+## <a name="create-an-alert-rule"></a>Skapa en varningsregel
 
 Om du vill skapa en aviseringsregel med hjälp av OMS-portalen, börja med att skapa en logg-sökning för de poster som ska anropa aviseringen.  Den **avisering** knappen är tillgängliga så att du kan skapa och konfigurera varningsregeln.
 
 >[!NOTE]
-> Högst 250 Varningsregler kan för närvarande skapas i en OMS-arbetsyta. 
+> Högst 250 Varningsregler kan för närvarande skapas i logganalys-arbetsytan. 
 
 1. Översikt över OMS-sidan klickar du på **loggen Sök**.
 2. Skapa en ny logg sökfråga eller välj en sparad logg-sökning. 
-3. Klicka på **avisering** längst upp på sidan för att öppna den **lägga till Varningsregeln** skärmen.
+3. Klicka på **Avisering** längst upp på sidan för att öppna skärmen **Lägg till varningsregel**.
 4. Konfigurera varningsregeln med hjälp av informationen i [information om Varningsregler](#details-of-alert-rules) nedan.
-6. Klicka på **spara** att slutföra varningsregeln.  Den ska börja köras omedelbart.
+6. Klicka på **Spara** för att slutföra varningsregeln.  Den ska börja köras omedelbart.
 
 
 ## <a name="edit-an-alert-rule"></a>Redigera en varningsregel
@@ -59,7 +62,7 @@ Du kan utföra flera åtgärder från den här vyn.
 ## <a name="details-of-alert-rules"></a>Information om Varningsregler
 När du skapar eller redigerar en aviseringsregel i OMS-portalen kan du arbeta med den **Lägg till regel varning** eller **redigera Aviseringsregel** sidan.  Följande tabeller beskriver fälten i den här skärmen.
 
-![Varningsregeln](media/log-analytics-alerts/add-alert-rule.png)
+![Varningsregel](media/log-analytics-alerts/add-alert-rule.png)
 
 ### <a name="alert-information"></a>Aviseringsinformation
 Dessa är grundläggande inställningar för varningsregeln och aviseringar som skapas.
@@ -88,7 +91,7 @@ Definierar hur ofta frågan ska köras.
 | Aviseringsfrekvensen | Anger hur ofta frågan ska köras. Kan vara ett värde mellan 5 minuter och 24 timmar. Måste vara lika med eller mindre än tidsperioden.  Om värdet är större än tidsfönstret riskerar du poster som saknas.<br><br>Tänk dig ett tidsfönster på 30 minuter och en frekvens som 60 minuter.  Om frågan körs 1:00, returnerar poster mellan 12:30 och 1:00.  Nästa gång frågan körs är 2:00 när återgår den poster mellan 1:30 och 2:00.  Alla poster som skapats mellan 01:00 och 1:30 skulle aldrig utvärderas. |
 
 
-### <a name="generate-alert-based-on"></a>Generera en avisering baserat på
+### <a name="generate-alert-based-on"></a>Generera avisering baserat på
 Definierar de kriterier som ska utvärderas mot resultatet av frågan för att avgöra om en avisering ska skapas.  Detaljerna är olika beroende på vilken typ av regel för varning som du väljer.  Du kan hämta information för olika varningsregeln typer från [förstå aviseringar i logganalys](log-analytics-alerts.md).
 
 | Egenskap | Beskrivning |
@@ -99,14 +102,14 @@ Definierar de kriterier som ska utvärderas mot resultatet av frågan för att a
 
 | Egenskap | Beskrivning |
 |:--- |:---|
-| Antalet resultat |En avisering skapas om antalet poster som returneras av frågan är antingen **större än** eller **mindre än** värdet du anger.  |
+| Antal resultat |En avisering skapas om antalet poster som returneras av frågan är antingen **större än** eller **mindre än** värdet du anger.  |
 
 #### <a name="metric-measurement-alert-rules"></a>Mått mätning Varningsregler
 
 | Egenskap | Beskrivning |
 |:--- |:---|
-| Samlat värde | Tröskelvärde som varje samlat värde i resultatet får överstiga ska anses vara ett intrång. |
-| Utlösaren avisering baserat på | Antal överträdelser för en varning ska skapas.  Du kan ange **Totalt antal överträdelser** för valfri kombination av överträdelser över resultaten eller **på varandra följande överträdelser** att kräva att överträdelserna måste ske i beräkningar. |
+| Samlingsvärde | Tröskelvärde som varje samlat värde i resultatet får överstiga ska anses vara ett intrång. |
+| Utlös avisering baserat på | Antal överträdelser för en varning ska skapas.  Du kan ange **Totalt antal överträdelser** för valfri kombination av överträdelser över resultaten eller **på varandra följande överträdelser** att kräva att överträdelserna måste ske i beräkningar. |
 
 ### <a name="actions"></a>Åtgärder
 Varningsregler skapas alltid en [Varna post](#alert-records) när tröskelvärdet är uppfyllt.  Du kan också definiera en eller flera svar som ska köras som skickar ett e-postmeddelande eller starta en runbook.
@@ -120,7 +123,7 @@ E-post-åtgärder skicka ett e-postmeddelande med information om aviseringen til
 |:--- |:---|
 | E-postavisering |Ange **Ja** om du vill att ett e-postmeddelande ska skickas när en avisering utlöses. |
 | Ämne |Ämne för e-postmeddelandet.  Du kan inte ändra innehållet i e-postmeddelandet. |
-| mottagare |Tar med alla e-postmottagare.  Om du anger fler än en adress sedan Avgränsa adresserna med semikolon (;). |
+| Mottagare |Tar med alla e-postmottagare.  Om du anger mer än en adress kan du avgränsa dem med semikolon (;). |
 
 #### <a name="webhook-actions"></a>Webhook-åtgärder
 Webhook-åtgärder kan du anropa en extern process via en enkel HTTP POST-begäran.

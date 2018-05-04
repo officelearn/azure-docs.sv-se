@@ -102,6 +102,8 @@
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Så här aktiverar du Write Accelerator
+          href: how-to-enable-write-accelerator.md
         - name: Felsöka anslutna virtuella hårddiskar
           href: troubleshoot-vhds.md
     - name: Nätverk
@@ -187,6 +189,8 @@
           href: move-vm.md
         - name: Ändra storlek på en virtuell dator
           href: resize-vm.md
+        - name: Växla OS-disk
+          href: os-disk-swap.md
         - name: Tagga en virtuell dator
           href: tag.md
         - name: Köra skript på en virtuell dator

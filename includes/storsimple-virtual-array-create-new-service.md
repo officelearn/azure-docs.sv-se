@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
-1.  Logga in på Azure Portal på följande URL genom att ange autentiseringsuppgifterna för ditt Microsoft-konto: <https://portal.azure.com/>. Om distribuerar enheten i Government portal, logga in på: <https://portal.azure.us/>
+1.  Med hjälp av din Microsoft-kontouppgifter, logga in på Azure-portalen på denna URL: <https://portal.azure.com/>. Om distribuerar enheten i Government portalen kan du logga in på: <https://portal.azure.us/>
 
 2.  I Azure-portalen klickar du på **+ skapa en resurs** &gt; **lagring** &gt; **virtuella StorSimple-serien**.
 
@@ -18,7 +18,7 @@
 
         -   Om du har befintliga arbetsbelastningar i Azure som du också tänker distribuera med din StorSimple-enhet, rekommenderar vi att du använder det datacentret.
 
-        -   Din StorSimple-Enhetshanteraren och Azure-lagring kan vara två olika platser. I så fall måste du skapa StorSimple Device Manager-kontot och Azure-lagringskontot separat. Du skapar ett Azure-lagringskonto genom att gå till Azure Storage-tjänsten på Azure Portal och följa stegen i [Skapa ett Azure Storage-konto](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). När du har skapat kontot lägger du till det till StorSimple Device Manager-tjänsten genom att följa stegen i [Konfigurera ett nytt lagringskonto för tjänsten](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Din StorSimple-Enhetshanteraren och Azure-lagring kan vara två olika platser. I så fall måste du skapa StorSimple Device Manager-kontot och Azure-lagringskontot separat. Du skapar ett Azure-lagringskonto genom att gå till Azure Storage-tjänsten på Azure Portal och följa stegen i [Skapa ett Azure Storage-konto](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). När du har skapat kontot lägger du till det till StorSimple Device Manager-tjänsten genom att följa stegen i [Konfigurera ett nytt lagringskonto för tjänsten](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
 
         -   Om du distribuerar den virtuella enheten i Government Portal, är StorSimple Device Manager-tjänsten tillgänglig i Iowa för oss och vi Virginia platser.
 

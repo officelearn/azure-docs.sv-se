@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/18/2018
+ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 285ee153a86270fe65846dc6a22786e007a8a595
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -70,7 +70,7 @@ Den **läge** bestämmer vilka typer av resurser som ska utvärderas för en pri
 * `all`: utvärderar resursgrupper och alla typer av resurser
 * `indexed`: endast utvärdera resurstyper som har stöd för etiketter och plats
 
-Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, måste du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** värdet den som standard `indexed` för bakåtkompatibilitet kompatibilitet.
+Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, kan du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** värdet den som standard `all` i Azure PowerShell och till `null` i Azure CLI, vilket motsvarar `indexed`, för bakåtkompatibilitet kompatibilitet.
 
 `indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Detta är inte obligatoriskt, men de resurser som inte stöder taggar och platser ska visas som icke-kompatibla i kompatibilitetsresultaten. Det enda undantaget är **resursgrupper**. Principer som försöker använda plats eller taggarna i en resursgrupp ska ange **läge** till `all` och specifikt mål för den `Microsoft.Resources/subscriptions/resourceGroup` typen. Ett exempel finns [genomdriva grupp resurstaggar](scripts/enforce-tag-rg.md).
 

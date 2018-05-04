@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Azure hanterade program | Microsoft Docs"
-description: "Beskriver konceptet för Azure hanterade program"
+title: Översikt över Azure hanterade program | Microsoft Docs
+description: Beskriver konceptet för Azure hanterade program
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över hanterade program i Azure
 
@@ -52,7 +52,7 @@ Information om hur du publicerar ett hanterat program till Marketplace finns [sk
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
-Resurser för ett hanterat program finns vanligtvis i två resursgrupper. Konsumenten hanterar en resursgrupp och utgivaren hanterar andra resursgruppen. När du definierar det hanterade programmet anger utgivaren av åtkomstnivåer. Följande bild illustrerar ett scenario där utgivaren begär rollen ägare för den hantera resursgruppen. Utgivaren placera ett skrivskyddat lås på den här resursgruppen konsumenten.
+Resurser för ett hanterat program finns vanligtvis i två resursgrupper. Konsumenten hanterar en resursgrupp och utgivaren hanterar andra resursgruppen. När du definierar det hanterade programmet anger utgivaren av åtkomstnivåer. Följande bild illustrerar ett scenario där utgivaren begär rollen ägare för den hantera resursgruppen. Utgivaren placera ett skrivskyddat lås på den här resursgruppen konsumenten. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 
 ![Åtkomst till företagsresurser grupp](./media/overview/access.png)
 

@@ -1,4 +1,4 @@
-# [Dokumentation om Key Vault](index.md)
+# [Dokumentation om Key Vault](index.yml)
 
 # Översikt
 ## [Översikt över Key Vault](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Skapa Key Vault – Portal](quick-create-portal.md)
 
 # Självstudier
-## [Konfigurera ett Azure-webbprogram för att läsa en hemlighet från Key Vault ](tutorial-web-application-keyvault.md)
-# Exempel
-## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# Begrepp
+## [Läsa en hemlighet från Key Vault ](tutorial-web-application-keyvault.md)
 ## [Kom igång med Key Vault](key-vault-get-started.md)
 ## [Konfigurera nyckelrotation och granskning](key-vault-key-rotation-log-monitoring.md)
 ## [Använd Key Vault från en webbapp](key-vault-use-from-web-application.md)
+# Exempel
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Begrepp
 ## [Säkerhetsvärldar](key-vault-ovw-security-worlds.md)
 ## [Mjuk borttagning](key-vault-ovw-soft-delete.md)
 ## [Lagringskontonycklar](key-vault-ovw-storage-keys.md)

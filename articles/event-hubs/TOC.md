@@ -47,7 +47,7 @@
 ### [Skapa och distribuera en Event Hub med en Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)

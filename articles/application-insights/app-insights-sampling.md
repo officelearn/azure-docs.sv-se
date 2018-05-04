@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -38,7 +38,8 @@ Samplingsfrekvensen minskar kostnaderna för trafik och data och hjälper dig at
 ## <a name="types-of-sampling"></a>Typer av provtagning
 Det finns tre alternativ provtagningsmetoder:
 
-* **Anpassningsbar provtagning** justeras automatiskt telemetrivolym som skickas från SDK i din ASP.NET-app. Från och med SDK v 2.0.0-beta3 är detta standard urvalsmetoden. Anpassningsbar provtagning är för närvarande endast tillgängligt för ASP.NET serversidan telemetri. 
+* **Anpassningsbar provtagning** justeras automatiskt telemetrivolym som skickas från SDK i din ASP.NET-app. Från och med SDK v 2.0.0-beta3 är detta standard urvalsmetoden. Anpassningsbar provtagning är för närvarande endast tillgängligt för ASP.NET serversidan telemetri. För Asp.NET Core program targetting fullständig Framework, anpassningsbar provtagning är tillgänglig från version 1.0.0 av Microsoft.ApplicationInsights.AspNetCore SDK. Anpassningsbar provtagning är tillgänglig från 2.2.0-beta1 Microsoft.ApplicationInsights.AspNetCore SDK för Asp.NET Core program targetting NetCore.
+
 * **Fast räntesats provtagning** minskar mängden telemetri som skickas från båda ASP.NET eller Java-servern och från användarnas webbläsare. Anges. Klienten och servern ska synkronisera sina provtagning så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
 * **Införandet provtagning** fungerar i Azure-portalen. Den tar bort vissa av telemetri som tas emot från din app på en samplingsfrekvensen som du anger. Det minskar inte telemetri trafik som skickas från din app, men hjälper dig att hålla inom den månatliga kvoten. Den största fördelen med införandet provtagning är att du kan ange samplingsfrekvensen utan att omdistribuera din app och det fungerar enhetligt för alla servrar och klienter. 
 
@@ -335,7 +336,7 @@ Fast räntesats provtagning funktion i SDK i ASP.NET-versioner från 2.0.0 och J
 
 Algoritmen provtagning bestämmer vilka telemetri objekt att släppa och vilka som ska sparas (om den är i SDK eller Application Insights-tjänsten). Sampling beslutet baseras på flera regler som syftar till att bevara alla relaterade datapunkter intakta, underhålla Avbrottsfritt diagnostik i Application Insights som är tillämplig och tillförlitlig även med en minskad datauppsättning. Till exempel om din app skickar ytterligare telemetri objekt (till exempel undantag och spårningar som loggats från denna begäran) för en misslyckad begäran, provtagning inte delar upp denna begäran och andra telemetri. Den fortsätter eller utelämnar dem samtidigt. När du tittar på begäran-information i Application Insights kan du därför alltid se begäran tillsammans med dess associerade telemetri-objekt. 
 
-För program som definierar ”användare” (det vill säga de vanligaste webbprogram), provtagning beslut baserat på hash för användar-id, vilket innebär att all telemetri för en viss användare är antingen bevaras eller tas bort. För typerna av program som inte definierar användare (till exempel webbtjänster) baserat provtagning beslutet på åtgärds-id för begäran. Slutligen för telemetri objekten som varken har användaren eller åtgärden-id som angetts (till exempel telemetri objekt som rapporterats från asynkron trådar med ingen kontext för http) provtagning bara samlar in en del av telemetri varje typ av objekt. 
+Sampling beslutet baseras på åtgärds-id för begäran, vilket innebär att alla telemetri objekt som hör till en viss åtgärd är bevaras eller tas bort. För telemetri-objekt som inte har åtgärden avbildar id uppsättningen (till exempel telemetri objekt som rapporterats från asynkron trådar med ingen kontext för http) provtagning bara en del av telemetri varje typ av objekt. Före 2.5.0-beta2 av .NET SDK och 2.2.0-beta3 av ASP.NET Core SDK, var provtagning beslut utifrån hash för användar-id för program som definierar ”användare” (det vill säga de vanligaste webbprogram). För typerna av program som inte har definierat användare (till exempel webbtjänster) var provtagning beslut baserat på åtgärds-id för begäran.
 
 När presenterar telemetri för dig, justeras Application Insights-tjänsten mätvärdena av samma samplingsprocenten som användes vid tidpunkten för insamling, för att kompensera för saknade datapunkter. När du tittar på telemetri i Application Insights, därför kan ser användarna statistiskt korrekt approximeringar som ligger mycket nära reellt tal.
 

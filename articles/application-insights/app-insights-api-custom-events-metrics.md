@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e93b3348c933f65067114bfce4ac517f1204af34
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -79,7 +79,7 @@ Hämta en instans av `TelemetryClient` (förutom i JavaScript i webbsidor):
 
 TelemetryClient är trådsäkra.
 
-Inkommande HTTP-begäranden som automatiskt avbildas för ASP.NET och Java-projekt. Du kanske vill skapa ytterligare instanser av TelemetryClient för andra modulen av din app. Du kan exempelvis har en TelemetryClient-instans i klassen mellanprogram till rapporten affärshändelser logik. Du kan ange egenskaper, till exempel användar-ID och DeviceId för att identifiera datorn. Den här informationen är ansluten till alla händelser som instace skickar. 
+Inkommande HTTP-begäranden som automatiskt avbildas för ASP.NET och Java-projekt. Du kanske vill skapa ytterligare instanser av TelemetryClient för andra modulen av din app. Du kan exempelvis har en TelemetryClient-instans i klassen mellanprogram till rapporten affärshändelser logik. Du kan ange egenskaper, till exempel användar-ID och DeviceId för att identifiera datorn. Den här informationen är ansluten till alla händelser som skickar instansen. 
 
 *C#*
 
@@ -352,7 +352,7 @@ Telemetrin är tillgängliga i den `customMetrics` tabell i [Application Insight
 * `valueSum` -Detta är summan av mått. Om du vill ha medelvärdet dividera med `valueCount`.
 * `valueCount` -Antalet mått som har aggregerats till detta `trackMetric(..)` anropa.
 
-## <a name="page-views"></a>Sidvisningar
+## <a name="page-views"></a>Sidvisning
 I en enhet eller en webbsida app skickas sidan Visa telemetri som standard när varje skärmen eller sidan har lästs in. Men du kan ändra det om du vill spåra sidvisningar vid ytterligare eller olika tidpunkter. I en app som visar flikarna eller blad, kanske du vill spåra en sida när användaren öppnar ett nytt blad.
 
 ![Användning linsen på bladet översikt](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -1136,7 +1136,7 @@ Om du anger dessa värden själv kan du ta bort den aktuella raden från [Applic
 * **Sessionen**: användarens session. ID som anges till ett genererat värde ändras när användaren inte har varit aktiv under en stund.
 * **Användaren**: användarinformation.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 Använd för att undvika träffa hastighetsbegränsning data [provtagning](app-insights-sampling.md).

@@ -62,7 +62,7 @@ Lär dig mer information om molnet initiering på Azure:
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell önskad tillstånd Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) är en plattform för att definiera konfigurationen av måldatorerna. DSC kan även användas på Linux via den [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell önskad tillstånd Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) är en plattform för att definiera konfigurationen av måldatorerna. DSC kan även användas på Linux via den [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
 DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. Motorn för lokala Configuration Manager (MGM) körs på varje målnoden som bearbetar begärda åtgärder baserat på intryckt konfigurationer. En pull-server är en webbtjänst som körs på en central värd för lagring av DSC-konfigurationer och associerade resurser. Pull-servern kommunicerar med MGM-motorn på varje målvärden för att ange konfigurationerna som krävs och rapportera om kompatibiliteten.
 
@@ -84,7 +84,7 @@ Lär dig att:
 - [Skapa en virtuell Windows-dator med Azure PowerShell och använda tillägget för anpassat skript](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 
-## <a name="packer"></a>Packer
+## <a name="packer"></a>Packare
 [Packare](https://www.packer.io) automatiserar skapar när du skapar en anpassad VM-avbildning i Azure. Du kan använda förpackaren för att definiera OS och kör efter konfigurationsskript för att anpassa den virtuella datorn för dina specifika behov. När du konfigurerat avbildas den virtuella datorn sedan som en hanterad diskavbildning. Packare automatiserar processen att skapa källan VM, nätverk och lagringsresurser, kör konfigurationsskript och sedan skapa VM-avbildning.
 
 Lär dig att:

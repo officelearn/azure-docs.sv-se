@@ -1,6 +1,6 @@
 ---
 title: Montera en hemlig volym i Azure Container instanser
-description: "Lär dig hur du monterar en hemlig volym för att lagra känslig information för åtkomst av behållarinstanser"
+description: Lär dig hur du monterar en hemlig volym för att lagra känslig information för åtkomst av behållarinstanser
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 6f8e1b6faac11b668a143f8013a198831a428c51
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: MT
+ms.openlocfilehash: e20dc3b37bc766b2a8a352eb62c03f5e2ee14c52
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montera en hemlig volym i Azure Container instanser
 
@@ -35,6 +35,7 @@ Först fylla i `volumes` matris i behållargruppen `properties` avsnitt i mallen
 
 Till exempel skapas följande Resource Manager-mall en behållare grupp bestående av en enskild behållare. Behållaren monteringar en *hemlighet* volym som består av två Base64-kodad hemligheter.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Ett exempel på distribution av behållare-instans med en Azure Resource Manager-mall finns i [distribuera flera behållare grupper i Azure Behållarinstanser](container-instances-multi-container-group.md).

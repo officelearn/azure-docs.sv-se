@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.openlocfilehash: e84683fc529ebf91f1879727b478681c8697feb4
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
 ---

@@ -1,28 +1,26 @@
 ---
-title: "Skapa ett Apache Spark maskininlärning pipeline - Azure HDInsight | Microsoft Docs"
-description: "Använda Apache Spark machine learning-biblioteket för att skapa data pipelines."
+title: Skapa ett Apache Spark maskininlärning pipeline - Azure HDInsight | Microsoft Docs
+description: Använda Apache Spark machine learning-biblioteket för att skapa data pipelines.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: maxluk
-ms.openlocfilehash: 238ab5f940fbea836b75e20b015ae16f22eef3e9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 75fdc427be42ff8895cde8add7c7b0623da6a808
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Skapa ett Spark machine learning försäljningsförlopp
+# <a name="create-a-spark-machine-learning-pipeline"></a>Skapa en Spark-maskininlärningspipeline
 
 Apache Spark skalbara machine learning-biblioteket (MLlib) ger modellering funktioner för en distribuerad miljö. Spark-paketet [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning övergripande API: er som bygger på DataFrames. Dessa API: er kan du skapa och finjustera praktiska machine learning pipelines.  *Väck maskininlärning* refererar till den här MLlib DataFrame-baserad API inte äldre RDD-baserade pipeline API.
 
@@ -36,7 +34,7 @@ Varje tillståndslös instans av en transformator eller en exteriörbedömning h
 
 ## <a name="pipeline-example"></a>Pipeline-exempel
 
-Om du vill visa en praktisk användning av en pipeline ML det här exemplet används exemplet `HVAC.csv` datafil som är förinstallerade på standardlagring för ditt HDInsight-kluster eller Azure Storage Data Lake Store. Om du vill visa innehållet i filen, navigera till den `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv`innehåller en uppsättning klockslag med mål- och faktiska temperaturer för HVAC (*uppvärmning, ventilation och luftkonditionering*) system i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperaturen för en given byggnad.
+Om du vill visa en praktisk användning av en pipeline ML det här exemplet används exemplet `HVAC.csv` datafil som är förinstallerade på standardlagring för ditt HDInsight-kluster eller Azure Storage Data Lake Store. Om du vill visa innehållet i filen, navigera till den `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` innehåller en uppsättning klockslag med mål- och faktiska temperaturer för HVAC (*uppvärmning, ventilation och luftkonditionering*) system i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperaturen för en given byggnad.
 
 Följande kod:
 

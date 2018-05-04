@@ -1,6 +1,6 @@
 ---
 title: Distribuera en Azure Machine Learning-modell till en Azure IoT-enhet | Microsoft Docs
-description: "Det här dokumentet beskrivs hur Azure Machine Learning-modeller kan distribueras till Azure IoT-gränsenheterna."
+description: Det här dokumentet beskrivs hur Azure Machine Learning-modeller kan distribueras till Azure IoT-gränsenheterna.
 services: machine-learning
 author: tedway
 ms.author: tedway
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ms.openlocfilehash: ceab96b1ef28527c8aa2692b83d3609f133f339c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Distribuera en Azure Machine Learning-modell till en Azure IoT-enhet
 
@@ -31,11 +31,11 @@ Följande är ytterligare saker att Observera.
 ### <a name="add-registry-credentials-to-the-edge-runtime-on-your-edge-device"></a>Lägga till registret autentiseringsuppgifter körningsmiljön kanten på Edge-enhet
 Lägg till autentiseringsuppgifterna i registret på datorn där du kör IoT kant så att körningen kan få åtkomst till pull-behållaren.
 
-För Windows, kör du följande kommando:
+I Windows kör du följande kommando:
 ```cmd/sh
 iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
 ```
-Kör följande kommando för Linux:
+I Linux kör du följande kommando:
 ```cmd/sh
 sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
 ```

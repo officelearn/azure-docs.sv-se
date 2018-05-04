@@ -1,6 +1,6 @@
 ---
-title: "Hitta körs med bästa riktigheten och lägsta varaktighet i Azure Machine Learning arbetsstationen | Microsoft Docs"
-description: "En slutpunkt till slutpunkt användningsfall hitta bästa noggrannhet via CLI med Azure Machine Learning arbetsstationen"
+title: Hitta körs med bästa riktigheten och lägsta varaktighet i Azure Machine Learning arbetsstationen | Microsoft Docs
+description: En slutpunkt till slutpunkt användningsfall hitta bästa noggrannhet via CLI med Azure Machine Learning arbetsstationen
 services: machine-learning
 author: totekp
 ms.author: kefzhou
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Hitta körs med bästa riktigheten och lägsta varaktighet
 Flera körs är, användningsfall att hitta körs med bästa noggrannhet. En metod är att använda kommandoradsgränssnittet (CLI) med en [JMESPath](http://jmespath.org/) frågan. Mer information om hur du använder JMESPath i Azure CLI finns [använder JMESPath frågor med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). I följande exempel skapas fyra körs med korrekta värden 0, 0,98, 1 och 1. Kör filtreras om de är i intervallet `[MaxAccuracy-Threshold, MaxAccuracy]` där `Threshold = .03`.

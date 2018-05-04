@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="set-throughput-for-azure-cosmos-db-containers"></a>Ange dataflöde för Azure DB som Cosmos-behållare
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Ange och få genomströmning för Azure DB som Cosmos-behållare
 
 Du kan ange dataflöde för din Azure DB som Cosmos-behållare i Azure-portalen eller genom att använda klient-SDK: er. 
 
@@ -96,6 +96,43 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+## <a id="GetLastRequestStatistics"></a>Hämta genomströmning genom att använda MongoDB API GetLastRequestStatistics-kommando
+
+MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran avgifterna för en viss åtgärd.
+
+Till exempel köra åtgärden som du vill kontrollera begäran kostnad för i Mongo-gränssnittet.
+```
+> db.sample.find()
+```
+
+Kör sedan kommandot *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med vanliga åtgärder som körs mot ett representativt objekt som används av ditt program och sedan beräkna den antal åtgärder som du vill utföra varje sekund.
+
+> [!NOTE]
+> Om du har objekttyper som varierar kraftigt när det gäller storlek och antalet indexerade egenskaper som är associerade med varje tillämplig åtgärden begäran enhet kostnad registrera *typen* för vanliga objekt.
+> 
+> 
+
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Hämta dataflöde med hjälp av portalen MongoDB API-mått
+
+Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter för MongoDB-API-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *begäran kostnad* diagram, kan du få en uppskattning av hur många begäran enheter varje åtgärden förbrukar och hur många enheter som begäran som de använder i förhållande till varandra.
+
+![Portalen MongoDB API-mått][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
+Program som överskrider det tillhandahållna dataflödet för en behållare kommer att vara begränsad hastighet förrän åtgången sjunker under dataflöde hastighet. När en hastighet-begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en `16500` felkoden - `Too Many Requests`. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du tar emot många `Too Many Requests` felkoder du bör du överväga att lägga till en logik i ditt program felhantering rutiner eller [öka etablerat dataflöde för behållaren](set-throughput.md).
+
 ## <a name="throughput-faq"></a>Genomströmning vanliga frågor och svar
 
 **Kan jag in min genomströmning till mindre än 400 RU/s?**
@@ -109,3 +146,5 @@ Det finns inget MongoDB-API-tillägg för att ange genomflöde. Rekommendationen
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om etablering och pågående planeten skalning med Cosmos-DB i [partitionering och skalning med Cosmos DB](partition-data.md).
+
+[1]: ./media/set-throughput/api-for-mongodb-metrics.png

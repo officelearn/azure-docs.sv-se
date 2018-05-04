@@ -34,7 +34,7 @@ Följande avsnitt innehåller mer information om stödjande tekniker och länkar
 
 Besök den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) för Linux och Windows VM-avbildningar och utformad för HPC-lösningar. Exempel:
 
-* [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
+* [RogueWave CentOS-baserade HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server för HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 *  [TIBCO rutnätet Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Azure datavetenskap virtuell dator för Windows och Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
@@ -57,7 +57,7 @@ Kör anpassade eller kommersiella HPC-program i Azure. Flera exempel i det här 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB distribuerad databehandling Server](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
@@ -165,7 +165,7 @@ Virtuella Azure-datorer, virtuella datorer, Batch och relaterade beräknings-tj�
 Här följer exempel på kunder som har löst affärsproblem med Azure HPC-lösningar:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
-* [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
+* [AXA globala P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
@@ -181,7 +181,7 @@ Här följer exempel på kunder som har löst affärsproblem med Azure HPC-lösn
 * Mer information om stora Compute lösningar för [engineering simuleringen](https://simulation.azure.com/), [återgivning](https://simulation.azure.com/), [bank- och kapital marknader](https://finance.azure.com/), och [genomik](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Du hittar den senaste informationen i [Microsoft HPC- och Batch-bloggen](http://blogs.technet.com/b/windowshpc/) och i [Azure-bloggen](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Använda hanterade och skalbar Azure [Batch](https://azure.microsoft.com/services/batch/) -tjänsten för att köra arbetsbelastningar för beräkningsintensiva, utan att hantera underliggande infrastruktur [Läs mer](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Använda hanterade och skalbar Azure [Batch](https://azure.microsoft.com/services/batch/) -tjänsten för att köra arbetsbelastningar för beräkningsintensiva, utan att hantera underliggande infrastruktur [Läs mer](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

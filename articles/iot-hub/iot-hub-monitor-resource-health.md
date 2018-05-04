@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: 28903c4cc530937b4b39a5239d2a6d1ea6896924
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed0bde0945a36c4fa194059f3b17557d566047a2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -244,7 +244,7 @@ Kategorin direkt metoder spårar begäran respons interaktioner som skickades ti
 
 Du kan skapa program som läser ut loggarna så att du kan vidta åtgärder baserat på informationen i dem när du har skapat händelseloggning via inställningarna för webbprogramdiagnostik. Den här exempelkoden hämtar loggarna från en händelsehubb:
 
-```
+```csharp
 class Program 
 { 
     static string connectionString = "{your AMS eventhub endpoint connection string}"; 

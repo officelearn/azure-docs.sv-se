@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 90a1a7c836c0cd75adf003e8f7cdad4f90f42f51
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du betrakta dem--som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med än installation av en agent krävs ingen konfiguration.
@@ -28,8 +28,8 @@ Den här artikeln innehåller information om konfigurera Tjänstkarta och onboar
 ## <a name="dependency-agent-downloads"></a>Hämtar Beroendeagent
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
+| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>Anslutna källor
@@ -87,7 +87,7 @@ Använd alternativen i följande tabell för att installera från en kommandorad
 | Flaggan | Beskrivning |
 |:--|:--|
 | /? | Hämta en lista över kommandoradsalternativ. |
-| /S | Utföra en tyst installation utan uppmaningar för användaren. |
+| / S | Utföra en tyst installation utan uppmaningar för användaren. |
 
 Filer för Windows Beroendeagent placeras i C:\Program Files\Microsoft beroende agenten som standard.
 
@@ -116,11 +116,11 @@ Filer för Beroendeagent placeras i följande kataloger:
 
 | Filer | Plats |
 |:--|:--|
-| -Filer | /opt/microsoft/dependency-agent |
-| Loggfiler | /var/opt/microsoft/dependency-agent/log |
-| Config-filer | /etc/opt/microsoft/dependency-agent/config |
-| Tjänsten körbara filer | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| Binära filer | /var/opt/microsoft/dependency-agent/storage |
+| -Filer | /OPT/Microsoft/Dependency-Agent |
+| Loggfiler | /var/OPT/Microsoft/Dependency-Agent/log |
+| Config-filer | /etc/OPT/Microsoft/Dependency-Agent/config |
+| Tjänsten körbara filer | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binära filer | /var/OPT/Microsoft/Dependency-Agent/Storage |
 
 ## <a name="installation-script-examples"></a>Exempel på skript för installation
 För att enkelt distribuera agenten beroende på flera servrar samtidigt, hjälper det för att använda ett skript. Du kan använda i följande skriptexempel att ladda ned och installera agenten beroende på Windows- eller Linux.

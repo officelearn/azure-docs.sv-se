@@ -1,6 +1,6 @@
 ---
 title: Kombinera kolumner genom exempel omvandling med Azure Machine Learning arbetsstationen
-description: "Referensdokumentet för transformeringen kombinera kolumner efter exempel"
+description: Referensdokumentet för transformeringen kombinera kolumner efter exempel
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kombinera kolumner med exempel omvandling
 Den här omvandlingen tillåter användaren att lägga till en ny kolumn genom att kombinera värden från flera kolumner. Användaren kan ange en avgränsare eller ange kombinerade exempelvärden att utföra den här transformationen. När användaren ger exempel på kombination, omvandlingen hanteras av samma **av exempel** motor som används i den **härledd kolumn efter exempel** transformeringen.
@@ -50,7 +50,7 @@ En användare kan redigera en befintlig **kombinera kolumn av exempel** transfor
 
 Ett komma följt av ett blanksteg används som avgränsare i det här exemplet för att kombinera den *gata*, *Stad*, *tillstånd*, och *ZIP* kolumner.
 
-|Gatuadress|Ort|Status|ZIP|Kolumn|
+|Gatuadress|Ort|Status|ZIP-|Kolumn|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th sätt|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th sätt|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|

@@ -1,9 +1,9 @@
 ---
-title: "Använda Livius Spark för att skicka jobb till Spark-kluster i Azure HDInsight | Microsoft Docs"
-description: "Lär dig hur du använder Apache Spark REST API för att skicka Spark jobb via fjärranslutning till ett Azure HDInsight-kluster."
+title: Använda Livius Spark för att skicka jobb till Spark-kluster i Azure HDInsight | Microsoft Docs
+description: Lär dig hur du använder Apache Spark REST API för att skicka Spark jobb via fjärranslutning till ett Azure HDInsight-kluster.
 keywords: Apache spark rest-api, Livius spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,21 +11,19 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använd Apache Spark REST API för att skicka remote jobb till ett HDInsight Spark-kluster
 
-Lär dig hur du använder Livius Apache Spark REST API, som används för att skicka remote jobb till ett Azure HDInsight Spark-kluster. Mer detaljerad dokumentation finns [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Lär dig hur du använder Livius Apache Spark REST API, som används för att skicka remote jobb till ett Azure HDInsight Spark-kluster. Mer detaljerad dokumentation finns [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
 
 Du kan använda Livius för att köra interaktiva Spark tankar eller skicka batchjobb körs på Spark. Den här artikeln handlar om med Livy för att skicka batchjobb. Kodavsnitt i den här artikeln använder cURL till REST API-anrop till Livius Spark-slutpunkten.
 

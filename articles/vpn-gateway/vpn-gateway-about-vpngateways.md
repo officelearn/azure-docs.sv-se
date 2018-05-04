@@ -1,45 +1,44 @@
 ---
-title: 'Översikt över VPN Gateway: Skapa VPN-anslutningar till virtuella Azure-nätverk på olika platser | Microsoft Docs'
-description: Den här artikeln beskriver vad en VPN-gateway är och visar hur du kan ansluta till virtuella Azure-nätverk med hjälp av en VPN-anslutning via Internet. Översikten innehåller också diagram över grundläggande anslutningskonfigurationer.
+title: Azure VPN Gateway | Microsoft Docs
+description: Läs mer om vad en VPN-gateway är och hur du kan använda en VPN-gateway för anslutning till ett virtuellt Azure-nätverk. Du kan bland annat använda IPsec/IKE-lösningar mellan olika platser eller VNet, eller från punkter till lokala VPN.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="about-vpn-gateway"></a>Om VPN Gateway
+# <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
-En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad trafik över en offentlig anslutning till en lokal plats. Du kan också använda VPN-gatewayer för att skicka krypterad trafik mellan virtuella Azure-nätverk över Microsoft-nätverket. Om du vill skicka krypterad nätverkstrafik mellan ett virtuellt Azure-nätverk och lokala platser måste du skapa en virtuell nätverksgateway för ditt VPN.
-
-Varje virtuellt nätverk kan ha endast en VPN-gateway, men du kan skapa flera anslutningar till samma VPN-gateway. Ett exempel på detta är en konfiguration med anslutning till flera platser. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar, inklusive punkt-till-plats-VPN, den bandbredd som är tillgänglig för gatewayen.
+En VPN-gateway är en viss typ av virtuell nätverksgateway som används till att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via internet. Du kan också använda en VPN-gateway till att skicka krypterad trafik mellan virtuella Azure-nätverk via Microsofts nätverk. Varje virtuellt nätverk kan bara ha en VPN-gateway. Du kan dock skapa flera anslutningar till samma VPN-gateway. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar på den tillgängliga bandbredden.
 
 ## <a name="whatis"></a>Vad är en virtuell nätverksgateway?
 
-En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett specifikt undernät med namnet GatewaySubnet. De virtuella datorerna som finns i GatewaySubnet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt och du bör aldrig distribuera ytterligare resurser till GatewaySubnet.
+En virtuell nätverksgateway består av två eller flera virtuella datorer som distribuerats till ett specifikt undernät som kallas för *gatewayundernätet*. De virtuella datorerna i gatewayundernätet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan inte konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt, och du bör aldrig distribuera ytterligare resurser till gatewayundernätet.
 
-När du skapar en virtuell nätverksgateway med hjälp av gatewaytypen 'Vpn ”, skapas en viss typ av virtuell nätverksgateway som krypterar trafiken: en VPN-gateway. Det kan ta upp till 45 minuter att skapa en VPN-gateway. Detta beror på att de virtuella datorerna för VPN-gateway distribueras till GatewaySubnet och konfigureras med de inställningar som du angett. Den Gateway-SKU som du väljer avgör hur kraftfulla de virtuella datorerna är.
+Det kan ta upp till 45 minuter att skapa en VPN-gateway. När du skapar en VPN-gateway distribueras de virtuella gatewaydatorerna till gatewayundernätet, och de konfigureras med de inställningar du anger. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en VPN-anslutning från en punkt till en plats (VPN över IKEv2 eller SSTP). Då kan du fjärransluta till ditt virtuella nätverk, till exempel från en konferens eller från hemmakontoret.
 
-## <a name="configuring"></a>Konfigurera en VPN-gateway
+## <a name="configuring"></a>Konfigurera en VPN gateway
 
-En anslutning för VPN-gateway är beroende av flera resurser som är konfigurerade med specifika inställningar. De flesta resurserna kan konfigureras separat, även om de måste konfigureras i en viss ordning i vissa fall.
+En anslutning för VPN-gateway är beroende av flera resurser som är konfigurerade med specifika inställningar. De flesta av resurserna kan konfigureras separat, men vissa resurser måste konfigureras i en viss ordning.
 
 ### <a name="settings"></a>Inställningar
 
-De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN-gateway finns [Om inställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md). Den här artikeln innehåller information om gatewaytyper, VPN-typer, anslutningstyper, gatewayundernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
+De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN Gateway finns [Om inställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Den här artikeln innehåller information om gatewaytyper, gateway-SKU:er, VPN-typer, anslutningstyper, gatewayundernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
 
 ### <a name="tools"></a>Distributionsverktyg
 
@@ -47,7 +46,7 @@ Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsver
 
 ### <a name="models"></a>Distributionsmodell
 
-När du konfigurerar en VPN-gateway varierar instruktionerna som du följer beroende på vilken distributionsmodell du använde för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjerna och instruktionerna för den modellen när du skapar och konfigurerar dina VPN Gateway-inställningar. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md).
+Det finns för närvarande två distributionsmodeller för Azure. När du konfigurerar en VPN-gateway varierar instruktionerna som du följer beroende på vilken distributionsmodell du använde för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjerna och instruktionerna för den modellen när du skapar och konfigurerar dina VPN Gateway-inställningar. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ### <a name="planningtable"></a>Planeringstabell
 
@@ -83,7 +82,7 @@ En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en V
 
 ### <a name="Multi"></a>Anslutning till flera platser
 
-Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du skapar fler än en VPN-anslutning från din virtuella nätverksgateway, vanligtvis sker anslutningen till flera lokala platser. När du arbetar med flera anslutningar måste du använda en RouteBased VPN-typ (kallas även en ”dynamisk gateway” för klassiska virtuella nätverk). Eftersom varje virtuellt nätverk bara kan ha en VPN-gateway delar alla anslutningar via gatewayen på den tillgängliga bandbredden. Det här kallas ofta en ”anslutning till flera platser”.
+Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du skapar fler än en VPN-anslutning från din virtuella nätverksgateway, vanligtvis sker anslutningen till flera lokala platser. När du arbetar med flera anslutningar måste du använda en RouteBased VPN-typ (kallas även en ”dynamisk gateway” för klassiska virtuella nätverk). Eftersom varje virtuellt nätverk bara kan ha en VPN-gateway delar alla anslutningar via gatewayen på den tillgängliga bandbredden. Den här typen av anslutning kallas ofta för en ”anslutning till flera platser”.
 
 ![Exempel på Azure VPN Gateway-anslutningar för flera platser](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
@@ -98,7 +97,7 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 Till skillnad från S2S-anslutningar, kräver P2S-anslutningar en lokal offentlig IP-adress eller en VPN-enhet. P2S-anslutningar kan användas tillsammans med S2S-anslutningar via samma VPN-gateway, under förutsättning att alla konfigurationskrav för båda anslutningarna är kompatibla. Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
 
-![Exempel på Azure VPN-Gateway-anslutningar för punkt-till-plats](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+![Exempel på Azure VPN Gateway-anslutningar från punkt till plats](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
 ### <a name="deployment-models-and-methods-for-p2s"></a>Distributionsmodeller och -metoder för P2S
 
@@ -130,11 +129,11 @@ Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt vi
 
 ## <a name="ExpressRoute"></a>ExpressRoute (privat anslutning)
 
-Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning.
+Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning.
 
 ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att ExpressRoute-anslutningar är tillförlitligare, snabbare, har kortare svarstider och högre säkerhet än vanliga anslutningar över Internet.
 
-En ExpressRoute-anslutning använder inte en VPN-gateway, men en virtuell nätverksgateway används som en del i den obligatoriska konfigurationen. I en ExpressRoute-anslutning konfigureras den virtuella nätverksgatewayen med gatewaytypen ”ExpressRoute” istället för ”Vpn”. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
+För ExpressRoute-anslutningar används en virtuell nätverksgateway som en del i den obligatoriska konfigurationen. I en ExpressRoute-anslutning konfigureras den virtuella nätverksgatewayen med gatewaytypen ”ExpressRoute” istället för ”Vpn”. Även om trafiken i en ExpressRoute-krets inte är krypterad som standard så kan du skapa en lösning där du skickar krypterad trafik i en ExpressRoute-krets. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="coexisting"></a>Plats-till-plats- och samexisterande ExpressRoute-anslutningar
 
@@ -152,15 +151,15 @@ Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxling
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
-Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN-gateway.
+Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN Gateway.
 
 ## <a name="faq"></a>Vanliga frågor och svar
 
-Vanliga frågor om VPN-gateway finns i [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
+Vanliga frågor om VPN Gateway finns i [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Planera konfigurationen av din VPN-gateway. Se [Planering och design för VPN-gateway](vpn-gateway-plan-design.md).
-- Mer information finns i avsnittet [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
+- Planera konfigurationen av din VPN-gateway. Se [Planering och design för VPN Gateway](vpn-gateway-plan-design.md).
+- Mer information finns i avsnittet [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md).
 - Läs [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md#networking-limits).
 - Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

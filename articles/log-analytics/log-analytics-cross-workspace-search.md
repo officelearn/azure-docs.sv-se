@@ -1,24 +1,24 @@
 ---
-title: "Söka på flera resurser med Azure Log Analytics | Microsoft Docs"
-description: "Den här artikeln beskriver hur du kan fråga mot resurser från flera arbetsytor och App Insights app i din prenumeration."
+title: Söka på flera resurser med Azure Log Analytics | Microsoft Docs
+description: Den här artikeln beskriver hur du kan fråga mot resurser från flera arbetsytor och App Insights app i din prenumeration.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 5485b1634013c73b58932aafa6e17d636558715d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Cross-resurs loggen sökning i logganalys  
 
@@ -30,7 +30,7 @@ Nu kan du fråga inte bara över flera logganalys arbetsytor, utan också data f
 Om du vill referera till en annan arbetsyta i frågan, Använd den [ *arbetsytan* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifierare, och en app från Application Insights använder den [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identifierare.  
 
 ### <a name="identifying-workspace-resources"></a>Identifiera resurser i arbetsytan
-Följande exempel visar frågor över logganalys arbetsytor att returnera sammanfattade antalet uppdateringar som krävs för deras klassificering från tabellen uppdateringen från både den aktuella arbetsytan och en annan arbetsyta med namnet  *contosoretail it*. 
+Följande exempel visar frågor över logganalys arbetsytor att returnera sammanfattade antal uppdateringar från tabellen uppdatering på en arbetsyta med namnet *contosoretail it*. 
 
 Identifiera en arbetsyta kan vara utfört en av flera olika sätt:
 

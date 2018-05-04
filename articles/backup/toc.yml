@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Mallar för Resurshanteraren
+      href: backup-rm-template-samples.md
 - name: Begrepp
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
@@ -67,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Skydda arbetsbelastningar
           items:
-            - name: Säkerhetskopiera en VMware-server med hjälp av Azure Backup Server
+            - name: VMware-server
               href: backup-azure-backup-server-vmware.md
-            - name: Säkerhetskopiera Exchange med hjälp av Azure Backup Server
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Säkerhetskopiera en SharePoint-grupp med hjälp av Azure Backup Server
+            - name: SharePoint-grupp
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Säkerhetskopiera SQL med hjälp av Azure Backup Server
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Skydda systemtillstånd och Bare Metal Recovery
               href: backup-mabs-system-state-and-bmr.md
+            - name: Filer och program på Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Återställa data från Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
     - name: Azure-filresurser

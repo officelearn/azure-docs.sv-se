@@ -21,6 +21,14 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Skapa behållaravbildningar (förhandsgranskning)
+      items:
+        - name: 1 – Skapa avbildningar i Azure
+          href: container-registry-tutorial-quick-build.md
+        - name: 2 – Automatisera skapandet av avbildningar
+          href: container-registry-tutorial-build-task.md
+        - name: 3 – Grundläggande uppdateringar av avbildningar
+          href: container-registry-tutorial-base-image-update.md
     - name: Geo-replikering (förhandsversion)
       items:
         - name: 1 – Förbered behållarregister

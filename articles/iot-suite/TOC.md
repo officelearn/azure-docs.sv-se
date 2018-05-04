@@ -1,3 +1,4 @@
+# [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
 # [Dokumentation om IoT Suite](index.md)
 
 # Översikt
@@ -94,10 +95,20 @@
 ## [Säkerhet från grunden](securing-iot-ground-up.md)
 
 # Relaterat
+## Lösningar 
+### [Förinställda lösningar för IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Plattformstjänster 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning-tjänst](/azure/iot-dps)
+### [IoT-tjänst-SDK:er](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Platsbaserade tjänster](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [SDK:er för IoT-enheter](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # Resurser

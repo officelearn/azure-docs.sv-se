@@ -1,8 +1,8 @@
 ---
-title: "Skapa Apache Spark machine learning-program på Azure HDInsight | Microsoft Docs"
-description: "Stegvisa instruktioner för hur du skapar maskininlärning Apache Spark-program HDInsight Spark kluster med Jupyter-anteckningsbok"
+title: Skapa Apache Spark machine learning-program på Azure HDInsight | Microsoft Docs
+description: Stegvisa instruktioner för hur du skapar maskininlärning Apache Spark-program HDInsight Spark kluster med Jupyter-anteckningsbok
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 95daab2bd7bc57d01bc9e3c05404958edd71eecc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Skapa Apache Spark machine learning-program på Azure HDInsight
 
@@ -185,7 +183,7 @@ I det här programmet använder du en Spark [ML pipeline](https://spark.apache.o
 10. Stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Avslutas och stänga den bärbara datorn.
 
 ## <a name="anaconda"></a>Använd Anaconda scikit-Läs bibliotek för Spark machine learning
-Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Detta omfattar även den **scikit-Läs** bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogrammen direkt från en Jupyter-anteckningsbok. Exempel på med scikit-Läs biblioteket, se [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Detta omfattar även den **scikit-Läs** bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogrammen direkt från en Jupyter-anteckningsbok. Exempel på med scikit-Läs biblioteket, se [ http://scikit-learn.org/stable/auto_examples/index.html ](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="seealso"></a>Se även
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)

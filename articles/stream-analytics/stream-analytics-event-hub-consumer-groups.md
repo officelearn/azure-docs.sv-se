@@ -1,6 +1,6 @@
 ---
-title: Felsöka hubb händelsemottagare i Azure Stream Analytics
-description: Fråga bästa praxis för att bedöma Händelsehubbar konsumentgrupper i Stream Analytics-jobb.
+title: Felsöka händelsehubbmottagare i Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder flera konsumentgrupper för Händelsehubbar indata i Stream Analytics-jobb.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,21 +8,45 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 20614986fc6c6afa9a92d163bf973a148e0517c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/27/2018
+ms.openlocfilehash: aaa8c4e8d273b44f453d3f63f0be1d4baf980649
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Felsöka Azure Stream Analytics med event hub mottagare
+# <a name="troubleshoot-event-hub-receivers-in-azure-stream-analytics"></a>Felsöka händelsehubbmottagare i Azure Stream Analytics
 
 Du kan använda Azure Händelsehubbar i Azure Stream Analytics infognings-eller utdata från ett jobb. Bästa praxis för att använda Händelsehubbar är att använda flera konsumentgrupper så jobbet skalbarhet. En orsak är att antalet läsare i Stream Analytics-jobbet för specifika indata påverkar antalet läsare i en enskild konsument-grupp. Det exakta antalet mottagare baseras på interna implementeringsinformation för logiken i skalbar topologi. Antalet mottagare exponeras inte externt. Antalet läsare kan ändra efter jobbets starttid eller under uppgraderingar av jobbet.
+
+Felet visas när antalet mottagare överskrider maximalt är: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > När antalet läsare ändras under en uppgradering av jobb, skrivs tillfälligt varningar till granskningsloggar. Stream Analytics-jobb återskapa automatiskt från dessa tillfälliga problem.
 
+## <a name="add-a-consumer-group-in-event-hubs"></a>Lägg till en konsumentgrupp i Händelsehubbar
+Följ dessa steg för att lägga till en ny konsumentgrupp i Händelsehubbar-instans:
+
+1. Logga in på Azure Portal.
+
+2. Leta upp din Händelsehubbar.
+
+3. Välj **Händelsehubbar** under den **entiteter** rubrik.
+
+4. Välj Händelsehubben efter namn.
+
+5. På den **Event Hubs instans** sidan under den **entiteter** rubrik, Välj **konsumentgrupper**. En konsumentgrupp med namnet **$Default** visas.
+
+6. Välj **+ konsumentgrupp** att lägga till en ny konsumentgrupp. 
+
+   ![Lägg till en konsumentgrupp i Händelsehubbar](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
+
+7. När du skapade indata i Stream Analytics-jobbet så att den pekar till Händelsehubben angett du det konsumentgrupp. $Default används om inget anges. När du skapar en ny konsumentgrupp kan redigera Event Hub-indata i Stream Analytics-jobbet och ange namnet på den nya konsumentgruppen.
+
+
 ## <a name="number-of-readers-per-partition-exceeds-event-hubs-limit-of-five"></a>Antalet läsare per partition överskrider Händelsehubbar gräns på fem
+
+Om strömning frågesyntaxen refererar till samma Event Hub indataresursen flera gånger, kan jobb-motorn använda flera läsare per fråga från samma konsumentgrupp för. När det finns för många referenser till samma konsumentgrupp, jobbet kan överskrida gränsen på fem och genereras ett fel. I dessa fall kan dela du ytterligare med hjälp av flera inmatningar över flera konsumentgrupper med lösningen som beskrivs i följande avsnitt. 
 
 Följande: scenarier där antalet läsare per partition är längre än Händelsehubbar fem
 
@@ -73,12 +97,6 @@ FROM data
 Skapa separata konsumentgrupper för frågor som tre eller flera inmatningar är anslutna till samma Händelsehubbar konsumentgruppen. Detta kräver att skapa ytterligare Stream Analytics-indata.
 
 
-## <a name="get-help"></a>Få hjälp
-Mer hjälp, försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 ## <a name="next-steps"></a>Nästa steg
-* [Introduktion till Stream Analytics](stream-analytics-introduction.md)
-* [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Språkreferens för Stream Analytics-fråga](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Strömma Analytics management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)

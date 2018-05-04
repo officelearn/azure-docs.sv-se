@@ -1,6 +1,6 @@
 ---
-title: "Detaljerad vägledning om hur du använder Azure Machine Learning Data förberedelser | Microsoft Docs"
-description: "Det här dokumentet innehåller en översikt och information om hur du löser problem med Azure Machine Learning Data förberedelser"
+title: Detaljerad vägledning om hur du använder Azure Machine Learning Data förberedelser | Microsoft Docs
+description: Det här dokumentet innehåller en översikt och information om hur du löser problem med Azure Machine Learning Data förberedelser
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 9fc0ae8929f12447123321a5c64ac89309c68dca
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-preparations-user-guide"></a>Data användarhandboken för förberedelser 
 Azure Machine Learning Data förberedelser upplevelsen ger mycket omfattande funktioner. Den här artikeln dokumenteras djupaste delarna i miljön.
@@ -58,7 +58,7 @@ Det finns ett antal prover strategier som kan användas, var och en med olika pa
 #### <a name="top"></a>Överst
 Den här strategin kan tillämpas på lokala eller fjärranslutna filer. Det tar de första N raderna (anges av antal) i datakällan.
 
-#### <a name="random-n"></a>Random N 
+#### <a name="random-n"></a>Slumpmässiga N 
 Den här strategin kan tillämpas endast för lokala filer. Det tar slumpmässiga N rader (anges av antal) i datakällan. Du kan ange en specifik startvärde för att säkerställa att samma prov genereras, förutsatt att antalet också är samma.
 
 #### <a name="random-"></a>Slumpmässiga % 

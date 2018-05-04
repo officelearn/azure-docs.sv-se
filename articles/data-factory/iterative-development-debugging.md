@@ -4,7 +4,7 @@ description: Lär dig mer om att utveckla och felsöka Data Factory pipelines up
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och felsökning med Azure Data Factory
 
@@ -45,9 +45,17 @@ När du testa kör du behöver publicera ändringarna innan du väljer datafabri
 
 ## <a name="setting-breakpoints-for-debugging"></a>Ange brytpunkter för felsökning
 
-Data Factory kan du felsöka tills du når en viss aktivitet i pipeline-arbetsytan. Fört in en brytpunkt på aktiviteten som du vill testa och välj **felsöka**. Data Factory säkerställer att testet körs endast till aktiviteten brytpunkt på arbetsytan pipeline. Detta *Debug tills* funktionen är praktisk när du inte vill testa hela pipeline, men bara en del av aktiviteter i pipelinen.
+Data Factory kan du felsöka tills du når en viss aktivitet på arbetsytan pipeline. Fört in en brytpunkt på aktiviteten som du vill testa och välj **felsöka**. Data Factory säkerställer att testet körs endast till aktiviteten brytpunkt på arbetsytan pipeline. Detta *Debug tills* funktionen är praktisk när du inte vill testa hela pipeline, men bara en del av aktiviteter i pipelinen.
 
 ![Brytpunkter på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-image4.png)
+
+Markera ett element på arbetsytan pipeline för att ställa in en brytpunkt. En *Debug tills* alternativet visas som en tom röd cirkel i det övre högra hörnet av elementet.
+
+![Innan du ställer in en brytpunkt på det valda elementet](media/iterative-development-debugging/iterative-development-image5.png)
+
+När du har valt den *Debug tills* alternativet ändras till en fylld röd cirkel att ange den brytpunkten har aktiverats.
+
+![När du har angett en brytpunkt på det valda elementet](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Kontinuerlig integrering och distribution i Azure Data Factory](continuous-integration-deployment.md)

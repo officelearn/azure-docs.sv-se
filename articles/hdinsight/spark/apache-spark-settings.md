@@ -1,30 +1,28 @@
 ---
-title: "Konfigurera inställningar för Spark - Azure HDInsight | Microsoft Docs"
-description: "Hur du konfigurerar Spark för HDInsight-kluster."
+title: Konfigurera inställningar för Spark - Azure HDInsight | Microsoft Docs
+description: Hur du konfigurerar Spark för HDInsight-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-spark-settings"></a>Konfigurera inställningar för Spark
+# <a name="configure-spark-settings"></a>Konfigurera Spark-inställningar
 
-Ett HDInsight Spark-kluster innehåller en installation av Apache Spark-biblioteket.  Varje HDInsight-kluster innehåller standard konfigurationsparametrar för alla installerade tjänsterna, inklusive Spark.  En viktig del av hantering av ett HDInsight Hadoop-kluster övervakar arbetsbelastning, inklusive Spark-jobb, kontrollera att de körs på ett förutsägbart sätt. Överväg att fysiska klusterkonfigurationen för att köra Spark bäst jobb när du bestämmer hur du optimerar logiska klusterkonfigurationen.
+Ett HDInsight Spark-kluster innehåller en installation av Apache Spark-biblioteket.  Varje HDInsight-kluster innehåller standard konfigurationsparametrar för alla installerade tjänsterna, inklusive Spark.  En viktig del av hantering av ett HDInsight Hadoop-kluster övervakar arbetsbelastning, inklusive Spark-jobb, kontrollera att jobben körs på ett förutsägbart sätt. Överväg att fysiska klusterkonfigurationen för att köra Spark bäst jobb när du bestämmer hur du optimerar logiska klusterkonfigurationen.
 
 Standard HDInsight Apache Spark-kluster innehåller följande noder: tre ZooKeeper-noder, två huvudnoderna och en eller flera arbetsnoderna:
 
@@ -34,9 +32,13 @@ Antal virtuella datorer och VM-storlekar för noderna i ditt HDInsight-kluster k
 
 ## <a name="spark-versions"></a>Spark-versioner
 
-Du bör också den bästa versionen av Spark för klustret.  Spark 2.x kan köra mycket bättre än Väck 1.x. Spark 2.x har ett antal prestandaoptimeringar, till exempel volfram och Catalyst optimeringsnivån.  HDInsight-tjänsten innehåller flera versioner av både Spark och HDInsight sig själv.  Varje version av Spark innehåller en uppsättning standardinställningar för klustret.  När du skapar ett nytt kluster är här de aktuella Spark-versionerna att välja mellan:
+Använd den bästa Spark-versionen för klustret.  HDInsight-tjänsten innehåller flera versioner av både Spark och HDInsight sig själv.  Varje version av Spark innehåller en uppsättning standardinställningar för klustret.  
+
+När du skapar ett nytt kluster är här de aktuella Spark-versionerna att välja mellan:
 
 ![Spark-versioner](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x kan köra mycket bättre än Väck 1.x. Spark 2.x har ett antal prestandaoptimeringar, till exempel volfram och Catalyst optimeringsnivån.  
 
 > [!NOTE]
 > Standardversionen av Apache Spark i HDInsight-tjänst kan ändras utan föregående meddelande. Om du har ett beroende rekommenderar Microsoft att du anger att viss version när du skapar kluster med .NET SDK-/ Azure PowerShell och Azure CLI.
@@ -47,7 +49,7 @@ Apache Spark har tre system configuration platser:
 * Miljövariabler kan användas för att ange inställningar för per dator, till exempel IP-adress via den `conf/spark-env.sh` skript på varje nod.
 * Loggning kan konfigureras via `log4j.properties`.
 
-När du väljer en viss version av Spark innehåller standardinställningarna i klustret.  Du kan ändra standardvärden för konfigurering av Spark genom att tillhandahålla en anpassad Spark-konfigurationsfil.  Ett exempel visas nedan.
+När du väljer en viss version av Spark innehåller standardinställningarna i klustret.  Du kan ändra standardvärden för konfigurering av Spark genom att använda en anpassad Spark-konfigurationsfil.  Ett exempel visas nedan.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ När du väljer en viss version av Spark innehåller standardinställningarna i 
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-I exemplet ovan åsidosätter flera standardvärden för parametrar med fem Spark-konfiguration.  Dessa är komprimerings-codec, Hadoop mapreduce dela minsta storlek och parkettgolv blockstorlekar och även Spar SQL-partition och öppna filstorlekar standardvärdena.  De här konfigurationsändringarna väljs eftersom associerade data och jobb (i det här exemplet genom data) har specifika egenskaper som utför bättre med följande inställningar för anpassad konfiguration.
+I exemplet ovan åsidosätter flera standardvärden för parametrar med fem Spark-konfiguration.  Dessa är komprimerings-codec, Hadoop MapReduce dela minsta storlek och parkettgolv blockstorlekar och även Spar SQL-partition och öppna filstorlekar standardvärdena.  De här konfigurationsändringarna väljs eftersom associerade data och jobb (i det här exemplet genom data) har specifika egenskaper som utför bättre med följande inställningar för anpassad konfiguration.
 
 ---
 
@@ -76,7 +78,7 @@ Om du vill se och ändra enskilda Spark konfigurationsvärden, markerar du en l�
 * Anpassade Spark2 standardvärden
 * Anpassade Spark2-mått-egenskaper
 * Avancerade Spark2 standardvärden
-* Advanced Spark2-env
+* Avancerade Spark2 env
 * Avancerade spark2-hive-plats-åsidosättande
 
 Om du skapar en uppsättning konfigurationsvärden inte är standard, kan du också se historiken över configuration-uppdateringar.  Konfigurationshistorik för den här kan vara användbart att se vilken konfiguration som inte är standard har optimala prestanda.
@@ -86,7 +88,7 @@ Om du skapar en uppsättning konfigurationsvärden inte är standard, kan du ock
 
 ## <a name="configuring-spark-executors"></a>Konfigurera Spark executors
 
-Följande diagram visar viktiga Spark-objekt: driver-program och dess associerade Spark-kontext och Klusterhanteraren och dess  *n*  arbetsnoderna.  Varje arbetsnod innehåller en utförare en cache och  *n*  uppgift instanser.
+Följande diagram visar viktiga Spark-objekt: driver-program och dess associerade Spark-kontext och Klusterhanteraren och dess *n* arbetsnoderna.  Varje arbetsnod innehåller en utförare en cache och *n* uppgift instanser.
 
 ![Klusterobjekt](./media/apache-spark-settings/spark-arch.png)
 
@@ -105,9 +107,9 @@ Du kan också använda Ambari REST API för att verifiera HDInsight Spark-kluste
 
 Du kan bestämma att en icke-Spark standardkonfiguration innehåller fler optimerade Spark jobbet körningar beroende på din Spark-arbetsbelastning.  Du bör utföra benchmark testning med exempel arbetsbelastningar för att verifiera alla klusterkonfigurationer som inte är standard.  Några av de gemensamma parametrarna kan du justera är:
 
-* `--num-executors`Anger antalet executors.
-* `--executor-cores`Anger antalet kärnor för varje utförare. Vi rekommenderar att du använder middle-sized executors som en del av det tillgängliga minnet förbrukar även i andra processer.
-* `--executor-memory`kontroller minnesstorlek (heapstorlek) för varje utföraren på YARN, och du behöver lämna minne för körning av arbetet.
+* `--num-executors` Anger antalet executors.
+* `--executor-cores` Anger antalet kärnor för varje utförare. Vi rekommenderar att du använder middle-sized executors som en del av det tillgängliga minnet förbrukar även i andra processer.
+* `--executor-memory` kontroller minnesstorlek (heapstorlek) för varje utföraren på YARN, och du behöver lämna minne för körning av arbetet.
 
 Här är ett exempel på två arbetarnoder med olika konfigurationsvärden:
 
@@ -115,10 +117,10 @@ Här är ett exempel på två arbetarnoder med olika konfigurationsvärden:
 
 I följande lista visar viktiga Spark utföraren minne parametrar.
 
-* `spark.executor.memory`definierar den totala mängden tillgängligt minne för en utförare.
-* `spark.storage.memoryFraction`(standard ~ 60%) definierar mängden ledigt minne för att lagra beständiga RDDs.
-* `spark.shuffle.memoryFraction`(standard ~ 20%) definierar hur mycket minne som reserverats för blanda.
-* `spark.storage.unrollFraction`och `spark.storage.safetyFraction` (summering ~ 30% av det totala minnet) - dessa värden används internt av Spark och bör inte ändras.
+* `spark.executor.memory` definierar den totala mängden tillgängligt minne för en utförare.
+* `spark.storage.memoryFraction` (standard ~ 60%) definierar mängden ledigt minne för att lagra beständiga RDDs.
+* `spark.shuffle.memoryFraction` (standard ~ 20%) definierar hur mycket minne som reserverats för blanda.
+* `spark.storage.unrollFraction` och `spark.storage.safetyFraction` (summering ~ 30% av det totala minnet) - dessa värden används internt av Spark och bör inte ändras.
 
 YARN styr maximala summan av minne som används av behållare på varje nod i Spark. Följande diagram visar per nod relationerna mellan YARN konfiguration och Spark-objekt.
 
@@ -126,7 +128,7 @@ YARN styr maximala summan av minne som används av behållare på varje nod i Sp
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Ändra parametrarna för ett program som körs i Jupyter-anteckningsbok
 
-Spark-kluster i HDInsight innehåller ett antal komponenter som standard. Var och en av dessa komponenter inkluderar standardvärden för konfiguration som kan åsidosättas vid behov.
+Spark-kluster i HDInsight innehåller ett antal komponenter som standard. Var och en av dessa komponenter inkluderar standardvärden för konfiguration, som kan åsidosättas vid behov.
 
 * Väck Core - Spark Core, Spark SQL, Väck strömmande API: er, GraphX och MLlib
 * Anaconda - paketet en python manager
@@ -148,12 +150,12 @@ Koden nedan visar hur du ändrar konfigurationen för ett program som körs i en
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Det finns ett antal kärnor konfigurationsinställningar som du behöver för att övervaka och justera för att säkerställa Spark-jobb som körs på ett förutsägbart och performant sätt. De här inställningarna kan fastställa bästa Spark klusterkonfigurationen för dina specifika arbetsbelastningar.  Du måste också att övervaka körning av tidskrävande och/eller resurs förbrukar Spark jobbet körningar.  Den vanligaste utmaningar center runt minnesbelastning på grund av felaktiga konfigurationer (särskilt felaktigt storlek executors), långvariga åtgärder och aktiviteter som resulterar i kartesiska åtgärder.
+Det finns ett antal kärnor konfigurationsinställningar som du behöver för att övervaka och justera för att säkerställa Spark-jobb som körs på ett förutsägbart och performant sätt. De här inställningarna kan fastställa bästa Spark klusterkonfigurationen för dina specifika arbetsbelastningar.  Du måste också att övervaka körning av tidskrävande och/eller resurs förbrukar Spark jobbet körningar.  Den vanligaste utmaningar center runt minnesbelastning på grund av felaktiga konfigurationer (särskilt felaktigt storlek executors), långvariga åtgärder och aktiviteter, vilket resulterar i kartesiska åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Komponenterna i Hadoop och versioner som är tillgängliga med HDInsight?](../hdinsight-component-versioning.md)
 * [Hantera resurser för ett Spark-kluster i HDInsight](apache-spark-resource-manager.md)
 * [Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html)
+* [Apache Spark-konfiguration](https://spark.apache.org/docs/latest/configuration.html)
 * [Köra Spark på YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

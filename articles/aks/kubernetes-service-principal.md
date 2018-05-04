@@ -1,23 +1,23 @@
 ---
-title: "Tjänstens huvudnamn för Azure Kubernetes-kluster"
-description: "Skapa och hantera en tjänsts huvudnamn för Azure Active Directory för ett Kubernetes-kluster i AKS"
+title: Tjänstens huvudnamn för Azure Kubernetes-kluster
+description: Skapa och hantera en tjänsts huvudnamn för Azure Active Directory för ett Kubernetes-kluster i AKS
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Tjänstens huvudnamn med Azure Container Service (AKS)
 
-Ett AKS-kluster kräver ett [Azure Active Directory-huvudnamn för tjänsten][aad-service-principal] för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar][user-defined-routes] och [lager 4 för Azure Load Balancer][azure-load-balancer-overview].
+Ett AKS-kluster kräver ett [Azure Active Directory-huvudnamn för tjänsten][aad-service-principal] för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt skapa och hantera resurser som [Azure Load Balancer][azure-load-balancer-overview].
 
 Den här artikeln beskriver olika alternativ för att konfigurera ett huvudnamn för tjänsten för ett Kubernetes-kluster i AKS.
 
@@ -80,10 +80,10 @@ Tänk på följande när du arbetar med AKS och Azure AD-tjänstens huvudnamn.
 
 * Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
 * Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (till exempel: `https://www.contoso.org/example`). URL:en för programmet behöver inte vara en verklig slutpunkt.
-* När du anger **klient-ID:t** för tjänstobjektet kan du använda värdet för `appId` (som anges i den här artikeln) eller motsvarande `name` för tjänstobjektet (till exempel `https://www.contoso.org/example`).
+* När du anger **klient-id:t** för tjänstens huvudnamn använder du värdet för `appId` (som visas i den här artikeln) eller motsvarande `name` för tjänstens huvudnamn (till exempel `https://www.contoso.org/example`).
 * På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`.
-* Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/acsServicePrincipal.json` på den dator som används för att köra kommandot.
-* När du tar bort ett AKS-kluster som har skapats av `az aks create` tas inte tjänstens huvudnamn som skapades automatiskt bort. Du kan använda `az ad sp delete --id $clientID` för att ta bort den.
+* Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
+* När du tar bort ett AKS-kluster som har skapats av `az aks create` tas inte tjänstens huvudnamn som skapades automatiskt bort. Använd `az ad sp delete --id $clientID` för att ta bort det.
 
 ## <a name="next-steps"></a>Nästa steg
 

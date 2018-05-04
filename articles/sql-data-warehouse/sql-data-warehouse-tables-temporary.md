@@ -1,41 +1,26 @@
 ---
-title: "Temporära tabeller i SQL Data Warehouse | Microsoft Docs"
-description: "Komma igång med temporära tabeller i Azure SQL Data Warehouse."
+title: Temporära tabeller i SQL Data Warehouse | Microsoft Docs
+description: Grundläggande riktlinjer för att använda temporära tabeller och visar principerna för sessionen nivån temporära tabeller.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a3e06a4074bc7b5cd8612162a624718107a50656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Temporära tabeller i SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Översikt över][Overview]
-> * [Datatyper][Data Types]
-> * [Distribuera][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistik][Statistics]
-> * [Tillfällig][Temporary]
-> 
-> 
-
-Temporära tabeller är användbara vid bearbetning av data - särskilt under omvandling där mellanliggande resultat är tillfälligt. Temporära tabeller finns på nivån session i SQL Data Warehouse.  De är bara synliga för sessionen har skapats och tas bort automatiskt när den aktuella sessionen loggar ut.  Temporära tabeller erbjuder en prestandafördelar eftersom resultaten skrivs till lokala i stället för Fjärrlagring.  Temporära tabeller är något annorlunda i Azure SQL Data Warehouse än Azure SQL Database som de kan nås från var som helst i sessionen, inklusive både i och utanför en lagrad procedur.
-
 Den här artikeln innehåller grundläggande information om hur du använder temporära tabeller och visar principerna för sessionen nivån temporära tabeller. Med hjälp av informationen i den här artikeln kan hjälpa dig modularize koden, förbättra både återanvändning och enkelhet för underhåll av din kod.
+
+## <a name="what-are-temporary-tables"></a>Vad är temporära tabeller?
+Temporära tabeller är användbara vid bearbetning av data - särskilt under omvandling där mellanliggande resultat är tillfälligt. Temporära tabeller finns på nivån session i SQL Data Warehouse.  De är bara synliga för sessionen har skapats och tas bort automatiskt när den aktuella sessionen loggar ut.  Temporära tabeller erbjuder en prestandafördelar eftersom resultaten skrivs till lokala i stället för Fjärrlagring.  Temporära tabeller är något annorlunda i Azure SQL Data Warehouse än Azure SQL Database som de kan nås från var som helst i sessionen, inklusive både i och utanför en lagrad procedur.
 
 ## <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 Temporära tabeller skapas med din tabellnamn med en `#`.  Exempel:
@@ -112,7 +97,7 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS`är ett kraftfullt kommando har fördelen att effektivt i sin användning av transaktion loggutrymme. 
+> `CTAS` är ett kraftfullt kommando har fördelen att effektivt i sin användning av transaktion loggutrymme. 
 > 
 > 
 
@@ -232,20 +217,5 @@ DROP TABLE #stats_ddl;
 SQL Data Warehouse införa några begränsningar när du implementerar temporära tabeller.  För närvarande bara begränsade temporära tabeller stöds.  Globala temporära tabeller stöds inte.  Dessutom kan vyer inte skapas på temporära tabeller.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i artiklar på [tabell översikt][Overview], [Data tabelltyper][Data Types], [distribuerar en tabell][Distribute], [indexering av en tabell][Index], [partitionering en tabell] [ Partition] och [underhålla tabellstatistik][Statistics].  Mer information om metodtips finns [Metodtips för SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Mer information om hur du utvecklar tabeller finns i [tabell översikt](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

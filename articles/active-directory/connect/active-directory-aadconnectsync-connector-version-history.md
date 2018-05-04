@@ -16,7 +16,7 @@ ms.date: 03/22/2018
 ms.author: davidste
 ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
 ---

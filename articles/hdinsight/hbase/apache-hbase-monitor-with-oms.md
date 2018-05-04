@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 78190576fb17409fac929b5afa50b71046f4d0e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-hbase-with-log-analytics"></a>Övervakaren HBase med logganalys
 
@@ -56,7 +54,7 @@ När du etablerar en lösning för övervakning av HBase i HDInsight kan du skap
 9. Välj **Skapa**.  
 10. Om du vill använda denna lösning för hantering i arbetsytan, gå till **logganalys** > ***Arbetsytenamn*** > **lösningar**. En post för din lösning visas i listan. Välj posten att navigera till lösningen.
 
-    ![Log Analytics Solutions](./media/apache-hbase-monitor-with-oms/log-analytics-solutions.png)  
+    ![Loggen Analyslösningar](./media/apache-hbase-monitor-with-oms/log-analytics-solutions.png)  
 
 11. Fönstret för din HDInsight HBase övervakningslösning visas.
 

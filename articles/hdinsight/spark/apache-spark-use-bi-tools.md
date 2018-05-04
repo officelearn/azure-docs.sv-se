@@ -1,9 +1,9 @@
 ---
-title: "Spark BI med hjälp av verktyg för visualisering av data på Azure HDInsight | Microsoft Docs"
-description: "Använd verktyg för visualisering av data för analytics med hjälp av BI för Apache Spark i HDInsight-kluster"
-keywords: "Apache spark bi, spark bi, spark datavisualisering Väck affärsinformation"
+title: Spark BI med hjälp av verktyg för visualisering av data på Azure HDInsight | Microsoft Docs
+description: Använd verktyg för visualisering av data för analytics med hjälp av BI för Apache Spark i HDInsight-kluster
+keywords: Apache spark bi, spark bi, spark datavisualisering Väck affärsinformation
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI med hjälp av verktyg för visualisering av data med Azure HDInsight
 
@@ -44,7 +42,7 @@ Jupyter-anteckningsbok som du skapade i den [tidigare kursen](apache-spark-load-
     SHOW TABLES
     ```
 
-    Det ser ut som utdata:
+    De utdata som returneras ser ut så här:
 
     ![Visa tabellerna i Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
@@ -58,7 +56,7 @@ Jupyter-anteckningsbok som du skapade i den [tidigare kursen](apache-spark-load-
     SELECT * FROM hvac LIMIT 10
     ```
 
-    Det ser ut som utdata:
+    De utdata som returneras ser ut så här:
 
     ![Visa rader från hvac-tabellen i Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 

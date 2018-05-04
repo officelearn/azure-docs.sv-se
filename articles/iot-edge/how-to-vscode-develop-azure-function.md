@@ -10,10 +10,10 @@ ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 47d420b4b283b390f67719233c4bea59495a589a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Använda Visual Studio-koden för att utveckla och distribuera Azure Functions Azure IoT kant
 
@@ -136,7 +136,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 
 8. Spara filen.
 
-### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den i registret
+### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den till ditt register
 
 1. I VS Code-utforskaren expanderar du **Docker**-mappen. Expandera sedan mappen för din behållarplattform, antingen **linux-x64** eller **windows-nano**.
 2. Högerklicka på **Dockerfile**-filen och klicka **Skapa IoT Edge-modul Docker-avbildning**. 

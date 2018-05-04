@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4206d90ddd65f58bcdb92661f64d005a5e40563
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -83,7 +83,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 ## <a name="family-5-releases"></a>Familj 5 versioner
 **Windows Server 2016**
 
-.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET framework har installerats: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras.
@@ -111,7 +111,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 ## <a name="family-4-releases"></a>Familj 4 versioner
 **Windows Server 2012 R2**
 
-.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework har installerats: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras
@@ -138,7 +138,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 ## <a name="family-3-releases"></a>Familj 3-versioner
 **Windows Server 2012**
 
-.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework har installerats: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras
@@ -165,7 +165,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 ## <a name="family-2-releases"></a>Familj 2 versioner
 **Windows Server 2008 R2 SP1**
 
-.NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework har installerats: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras
@@ -201,9 +201,9 @@ Lista över korrigeringsprogram som ingår i varje månad gäst-OS-version är t
 | --- | --- |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
-| 3 |Version 1.8+ |
-| 2 |Version 1.3+ |
-| 1 |Version 1.0+ |
+| 3 |Version 1.8 + |
+| 2 |Version 1.3 + |
+| 1 |Version 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Information för gäst-OS-versionen
 Det finns tre datum som är viktiga för gäst-OS-versioner: **släpper** datum, **inaktiverad** datum och **giltighetstid** datum. Ett gäst-OS anses vara tillgänglig när den är i portalen och kan väljas som mål Gästoperativsystem. När ett gäst-OS når den **inaktiverad** datum, den tas bort från Azure. Alla Molntjänsten som mål som Gästoperativsystem fortfarande fungerar dock som vanligt.
@@ -247,7 +247,7 @@ Om du manuellt uppdatera gäst-OS finns det [Gästoperativsystem pensionering pr
 Principen för Gästoperativsystem support och tillbakadragning förklaras [här][retirepolicy].
 
 [gäst OS uppdatera RSS-Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -265,4 +265,4 @@ Principen för Gästoperativsystem support och tillbakadragning förklaras [här
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx

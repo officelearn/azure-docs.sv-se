@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 0b56b15af7c573304db9a1b6e6e9f37453a63458
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Självstudie 3: Klassificera Iris – distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -120,7 +120,7 @@ Om du vill distribuera webbtjänsten tillsammans med modellfilen behöver du ock
 
 Du är nu redo att förbereda miljön för att operationalisera modellen.
 
-## <a name="prepare-to-operationalize-locally"></a>Förbereda för att operationalisera lokalt
+## <a name="prepare-to-operationalize-locally-for-development-and-testing-your-service"></a>Förbereda för att operationalisera lokalt [för utveckling och testning av din tjänst]
 Använd _lokalt läge_ som distribution för att köra i Docker-behållare lokalt.
 
 Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måste köras lokalt när du ska utföra följande steg och operationalisera modellen. Du kan använda flaggan `-h` i slutet av varje kommando för att visa motsvarande hjälpmeddelande.
@@ -257,7 +257,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
    docker ps
    ```
 
-## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>Skapa en realtidswebbtjänst med separata kommandon
+## <a name="optional-alternative-create-a-real-time-web-service-by-using-separate-commands"></a>[Valfritt alternativ] Skapa en realtidswebbtjänst med separata kommandon
 Som ett alternativ till kommandot **az ml service create realtime** som visades tidigare kan du utföra stegen separat. 
 
 Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen och skapa webbtjänsten. Med den här stegvisa metoden får du mer flexibilitet vid varje steg. Du kan även återanvända entiteterna som genererats i tidigare steg så att du endast återskapar entiteterna när det behövs.

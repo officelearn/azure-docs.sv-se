@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valvet
 
@@ -39,7 +39,9 @@ Mer information om hur du skyddar virtuella datorer med Premium Storage finns i 
 Du hittar mer information om vad du kan se och går inte att säkerhetskopiera [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> I den här självstudiekursen förutsätter vi att du redan har en virtuell dator i din Azure-prenumeration och att du har utfört nödvändiga åtgärder för att ge säkerhetskopieringstjänsten åtkomst till den virtuella datorn.
+> Tjänsten säkerhetskopiering skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra återställning punkt samling. Kunder bör inte låsa resursgruppen som skapats för användning av Backup-tjänsten.
+Namnformatet för resursgruppen som skapats av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>`
+<br>Exempel: AzureBackupRG_northeurope_1
 >
 >
 

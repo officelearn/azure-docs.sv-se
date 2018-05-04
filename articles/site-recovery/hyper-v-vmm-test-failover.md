@@ -1,6 +1,6 @@
 ---
-title: "Kör en DR-test för Hyper-V virtuella datorer till en sekundär plats med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du kör en DR-test för Hyper-V virtuella datorer i VMM-moln till ett sekundärt datacenter med hjälp av Azure Site Recovery."
+title: Kör en DR-test för Hyper-V virtuella datorer till en sekundär plats med hjälp av Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du kör en DR-test för Hyper-V virtuella datorer i VMM-moln till ett sekundärt datacenter med hjälp av Azure Site Recovery.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Kör en DR-test för Hyper-V virtuella datorer till en sekundär plats
 
@@ -30,7 +30,7 @@ Du kan köra ett redundanstest från den primära servern till den sekundära pl
     - Kör redundans med ett befintligt nätverk. Vi rekommenderar att du inte använder ett produktionsnätverk.
     - Kör växling vid fel och kan Site Recovery automatiskt skapa ett testnätverk. I det här fallet Site Recovery skapar nätverket automatiskt, och rensa när redundanstestet har slutförts.
 - Du måste välja en återställningspunkt för att testa redundans: 
-    - **Senaste bearbetas**: det här alternativet växlar en virtuell dator till den senaste återställningspunkten som bearbetas av Site Recovery. Det här alternativet ger en låga RTO (mål), eftersom ingen tid läggs obearbetade data bearbetas.
+    - **Senaste bearbetas**: det här alternativet växlar en virtuell dator till den senaste återställningspunkten som bearbetas av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
     - **Senaste programkonsekventa**: det här alternativet redundansväxlas en virtuell dator till den senaste programkonsekventa återställningspunkten bearbetas av Site Recovery. 
     - **Senaste**: det här alternativet först bearbetar alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan åtgärden misslyckas över till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter växling vid fel har alla data som replikeras till Site Recovery när redundans utlöstes.
     - **Senaste multi-VM bearbetas**: tillgänglig för återställningsplaner som innehåller en eller flera virtuella datorer som har aktiverats för flera Virtuella datorer. Virtuella datorer med inställningen aktiverad växlas över till den senaste vanliga multi-VM konsekventa återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.
@@ -45,17 +45,24 @@ När du kör ett redundanstest uppmanas du att välja nätverksinställningar f�
 
 **Alternativet** | **Detaljer** 
 --- | --- 
-Ingen | Den Virtuella testdatorn har skapats på den värd som replikerade virtuella datorn finns. Det är inte lägga till i molnet och är inte ansluten till något nätverk.<br/><br/> Du kan ansluta datorn till ett Virtuellt datornätverk när den har skapats.
+**Ingen** | Den Virtuella testdatorn har skapats på den värd som replikerade virtuella datorn finns. Det är inte lägga till i molnet och är inte ansluten till något nätverk.<br/><br/> Du kan ansluta datorn till ett Virtuellt datornätverk när den har skapats.
 **Använd befintlig** | Den Virtuella testdatorn har skapats på den värd som replikerade virtuella datorn finns. Det är inte lägga till i molnet.<br/><br/>Skapa ett Virtuellt datornätverk som är isolerat från produktionsnätverket.<br/><br/>Om du använder ett VLAN-baserade nätverk, rekommenderar vi att du skapar ett separat logiskt nätverk (används inte i produktion) i VMM för detta ändamål. Det här logiska nätverket används för att skapa Virtuella datornätverk för redundanstestning.<br/><br/>Det logiska nätverket ska kopplas till minst ett nätverkskort för alla Hyper-V-servrar som är värd för virtuella datorer.<br/><br/>För VLAN logiska nätverk, ska nätverksplatser som du lägger till det logiska nätverket isoleras.<br/><br/>Om du använder ett Windows-Nätverksvirtualisering – logiska nätverk med skapar Azure Site Recovery automatiskt isolerade Virtuella nätverk. 
 **Skapa ett nätverk** | En tillfällig testnätverket skapas automatiskt utifrån den inställning som du anger i **logiskt nätverk** och dess relaterade nätverksplatser.<br/><br/> Växling vid fel kontrollerar du att virtuella datorer skapas. |Du bör använda det här alternativet om en återställningsplan använder mer än ett Virtuellt datornätverk.<br/><br/> Om du använder Windows nätverksvirtualiseringsnätverk kan det här alternativet automatiskt skapa Virtuella datornätverk med samma inställningar (undernät och IP-adresspooler) i nätverket för den virtuella replikdatorn. Dessa Virtuella datornätverk rensas automatiskt när du testar redundansen är klar.<br/><br/> Testet virtuell dator skapas på värden där den replikerade virtuella datorn finns. Det är inte lägga till i molnet.
 
 ### <a name="best-practices"></a>Bästa praxis
 
 - Testa ett produktionsnätverk orsakar driftstopp för produktionsarbetsbelastningar. Be användarna inte att använda relaterade appar när disaster recovery ökad pågår.
-- Testnätverket behöver inte matcha typ av VMM logiskt nätverk som används för att testa redundans. Men vissa kombinationer fungerar inte: - om repliken använder DHCP- och VLAN-baserad isolering kan det Virtuella datornätverket för repliken inte behöver en statisk IP-adresspool. Det med hjälp av Windows-Nätverksvirtualisering för att testa redundans fungerar inte eftersom ingen adresspool är tillgängliga. 
-        -Testa redundans fungerar inte om repliken nätverket använder ingen isolering och testnätverket använder Windows-Nätverksvirtualisering. Det beror på att ingen isolering nätverket saknar undernät som krävs för att skapa ett nätverk för Windows-Nätverksvirtualisering.
+
+- Testnätverket behöver inte matcha typ av VMM logiskt nätverk som används för att testa redundans. Men vissa kombinationer fungerar inte:
+
+     - Om replikeringen använder DHCP- och VLAN-baserad isolering, behöver det Virtuella datornätverket för repliken inte en statisk IP-adresspool. Det med hjälp av Windows-Nätverksvirtualisering för att testa redundans fungerar inte eftersom ingen adresspool är tillgängliga. 
+        
+     - Testa redundans fungerar inte om repliken nätverket använder ingen isolering och testnätverket använder Windows-Nätverksvirtualisering. Det beror på att ingen isolering nätverket saknar undernät som krävs för att skapa ett nätverk för Windows-Nätverksvirtualisering.
+        
 - Vi rekommenderar att du inte använder det nätverk som du har valt för nätverksmappning för att testa redundans.
+
 - Hur replikerade virtuella datorerna är anslutna till mappade VM-nätverk efter växling vid fel som beror på hur det Virtuella datornätverket har konfigurerats i VMM-konsolen.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Virtuellt datornätverk utan isolering eller VLAN-isolering
 
@@ -116,7 +123,7 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 2. På den **Redundanstestning** bladet anger hur replikering VMs ska vara anslutna till nätverk efter redundanstestet.
 3. Följa redundansförloppet på den **jobb** fliken.
 4. När redundansväxlingen är klar kontrollerar du att de virtuella datorerna startas.
-5. När du är klar klickar du på **Rensa redundanstestet** på återställningsplanen. I **anteckningar**, registrera och spara observationer från redundanstestningen. Det här steget tar bort alla virtuella datorer och nätverk som har skapats av Site Recovery under redundanstestningen. 
+5. När du är klar klickar du på **Rensa redundanstestet** på återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen. Det här steget tar bort alla virtuella datorer och nätverk som har skapats av Site Recovery under redundanstestningen. 
 
 ![Testa redundans](./media/hyper-v-vmm-test-failover/TestFailover.png)
  

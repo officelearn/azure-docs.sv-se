@@ -9,16 +9,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-klustret för att läsa och skriva data till Azure SQL-databas
 
@@ -87,7 +85,7 @@ I det här avsnittet kan du läsa data från en tabell (till exempel **SalesLT.A
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
-    Tryck på **SKIFT + RETUR** att köra kodcellen.  
+    Kör kodcellen genom att trycka på **SKIFT + RETUR**.  
 
 2. Följande kodavsnitt bygger en JDBC-URL som du kan överföra till Spark-dataframe API: er skapas en `Properties` objekt som innehåller parametrar. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
 
@@ -132,7 +130,7 @@ I det här avsnittet använder vi en CSV-exempelfil tillgängliga i klustret att
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
-    Tryck på **SKIFT + RETUR** att köra kodcellen.  
+    Kör kodcellen genom att trycka på **SKIFT + RETUR**.  
 
 2. Följande kodavsnitt bygger en JDBC-URL som du kan överföra till Spark-dataframe API: er skapas en `Properties` objekt som innehåller parametrar. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
 

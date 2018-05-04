@@ -1,8 +1,8 @@
 ---
 title: Med U-SQL kognitiva funktioner i Azure Data Lake Analytics | Microsoft Docs
-description: "Lär dig hur du använder intelligence kognitiva funktioner i U-SQL"
+description: Lär dig hur du använder intelligence kognitiva funktioner i U-SQL
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Självstudier: Kom igång med U-SQL kognitiva funktioner
 
@@ -37,8 +37,8 @@ Följande kognitiva funktioner är tillgängliga:
 
 Den övergripande processen är enkel:
 
-* Använd instruktionen REFERENSSAMMANSÄTTNING för att aktivera funktionerna kognitiva för U-SQL-skript
-* Använda processen på en Indataraduppsättningen med hjälp av en kognitiva UDO för att generera utdata raduppsättning
+* Använd den `REFERENCE ASSEMBLY` -instruktionen för att aktivera funktionerna kognitiva för U-SQL-skript
+* Använd den `PROCESS` på en Indataraduppsättningen med hjälp av en kognitiva UDO för att generera utdata raduppsättning
 
 ### <a name="detecting-objects-in-images"></a>Identifiering av objekt i bilder
 

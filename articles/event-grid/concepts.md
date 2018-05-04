@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure händelse rutnätet
 
@@ -20,7 +20,7 @@ Grundbegreppen i rutnätet för Azure-händelse är:
 
 ## <a name="events"></a>Händelser
 
-En händelse är den minsta mängden information som beskriver fullständigt något som har inträffat i systemet.  Alla händelser har gemensamma information, till exempel: källan för händelsen, tiden händelsen tog plats och unik identifierare.  Alla händelser har också specifik information som endast är relevanta för typ av händelse. Till exempel en händelse om en ny fil skapas i Azure Storage innehåller information om filen som den `lastTimeModified` värde. Eller en händelse om en virtuell dator startas om innehåller namnet på den virtuella datorn och orsaken till omstart. Varje händelse är begränsat till 64 KB med data.
+En händelse är den minsta mängden information som beskriver fullständigt något som har inträffat i systemet. Alla händelser har gemensamma information, till exempel: källan för händelsen, tiden händelsen tog plats och unik identifierare. Alla händelser har också specifik information som endast är relevanta för typ av händelse. Till exempel en händelse om en ny fil skapas i Azure Storage innehåller information om filen som den `lastTimeModified` värde. Eller en händelse om en virtuell dator startas om innehåller namnet på den virtuella datorn och orsaken till omstart. Varje händelse är begränsat till 64 KB med data.
 
 ## <a name="event-sourcespublishers"></a>Källor/händelseutfärdare
 
@@ -32,7 +32,7 @@ Utgivare kategorisera händelser i avsnitt. Avsnittet innehåller en slutpunkt d
 
 System avsnitten är inbyggt avsnitt som tillhandahålls av Azure-tjänster. Anpassade avsnitt är program- och tredjeparts-avsnitt.
 
-När du skapar ditt program, skapar du ett anpassat ämne för varje kategori av relaterade händelser. Tänk dig ett program som skickar händelser relaterade till ändring av användarkonton och bearbetning av order. Det är inte troligt alla händelsehanteraren vill båda typer av händelser. Skapa två anpassade avsnitt och kan prenumerera på det som intresserar dem händelsehanterare. När du prenumererar på avsnittet anpassade kan händelsehanteraren filtrera efter händelsetyp.
+När du skapar ditt program bör ha du flexibilitet när du bestämmer hur många avsnitt för att skapa. Skapa en anpassad avsnittet för varje kategori av relaterade händelser för stora lösningar. Tänk dig ett program som skickar händelser relaterade till ändring av användarkonton och bearbetning av order. Det är inte troligt alla händelsehanteraren vill båda typer av händelser. Skapa två anpassade avsnitt och kan prenumerera på det som intresserar dem händelsehanterare. För små lösningar, kanske du föredrar att skicka alla händelser till ett ämne. Händelse-prenumeranter kan filtrera händelsetyper som de vill.
 
 ## <a name="event-subscriptions"></a>Prenumerationer på händelser
 
@@ -40,7 +40,7 @@ En prenumeration instruerar händelse rutnätet på vilka händelser på ett äm
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
-En ur händelse rutnätet är en händelsehanterare den plats där händelsen att skickas. Hanteraren tar vissa ytterligare åtgärder för att bearbeta händelsen.  Händelsen rutnätet har stöd för flera typer av prenumeranten. Beroende på vilken typ av prenumeranten följer händelse rutnätet olika metoder för att garantera att leveransen av händelsen.  För händelsehanterare för HTTP-webhook händelsen försöks tills hanteraren returnerar statuskoden `200 – OK`. För Azure Storage Queue är händelser igen förrän kötjänsten kan behandla meddelande push-meddelandet i kön.
+En ur händelse rutnätet är en händelsehanterare den plats där händelsen att skickas. Hanteraren tar vissa ytterligare åtgärder för att bearbeta händelsen. Händelsen rutnätet har stöd för flera typer av prenumeranten. Beroende på vilken typ av prenumeranten följer händelse rutnätet olika metoder för att garantera att leveransen av händelsen. För händelsehanterare för HTTP-webhook händelsen försöks tills hanteraren returnerar statuskoden `200 – OK`. För Azure Storage Queue är händelser igen förrän kötjänsten kan behandla meddelande push-meddelandet i kön.
 
 ## <a name="filters"></a>Filter
 

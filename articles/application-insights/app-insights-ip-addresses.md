@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6ea915ac10314f6304c98e40a50b26e3d1ee79eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och logganalys
 Den [Azure Application Insights](app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kanske behöver dessa adresser om den app som du övervakar finns bakom en brandvägg.
@@ -49,11 +49,6 @@ Status Monitor-konfiguration – behövs bara när du gör ändringar.
 | Konfiguration |`auth.gfx.ms` | |`443` |
 | Konfiguration |`login.live.com` | |`443` |
 | Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet-nedladdningar) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| Syfte | URL | IP-adress | Portar |
-| --- | --- | --- | --- |
-| Kraschdata |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Tillgänglighetstester
 Detta är listan över adresser som [tillgänglighet webbtester](app-insights-monitor-web-app-availability.md) körs. Om du vill köra webbtester på din app, men din server är begränsad till betjänar specifika klienter, har att tillåta inkommande trafik från våra tillgänglighet test-servrar.
@@ -218,7 +213,7 @@ Obs! *. applicationinsights.io domän som ägs av Application Insights-teamet.
 
 Obs! *. loganalytics.io domän som ägs av logganalys-teamet.
 
-## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure-Portaltillägg
+## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure-portalen tillägg
 
 | Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |

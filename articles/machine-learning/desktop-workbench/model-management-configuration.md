@@ -1,6 +1,6 @@
 ---
 title: Installation av Azure Machine Learning modellen hantering och konfiguration | Microsoft Docs
-description: "Det här dokumentet beskriver stegen och begrepp som är involverad i installera och konfigurera hantering av modellen i Azure Machine Learning."
+description: Det här dokumentet beskriver stegen och begrepp som är involverad i installera och konfigurera hantering av modellen i Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 
@@ -38,7 +38,7 @@ Du skulle behöva installera CLIs på andra system.
 
 ### <a name="installing-or-updating-on-windows"></a>Installera (eller uppdatera) i Windows
 
-Install Python from https://www.python.org/. Se till att du har valt för att installera pip.
+Installera Python från https://www.python.org/. Se till att du har valt för att installera pip.
 
 Öppna Kommandotolken med hjälp av kör som administratör och kör följande kommandon:
 
@@ -83,7 +83,7 @@ Börja med en lokal distribution, verifiera att din modell koden fungerar och se
 Om du vill starta, måste du konfigurera din distributionsmiljö. Inställningen av miljön är en tid. När installationen är klar kan återanvända du miljön för efterföljande distributioner. Se följande avsnitt för mer information.
 
 När installationen miljö:
-- Du uppmanas att logga in på Azure. Logga in genom att använda en webbläsare att öppna sidan https://aka.ms/devicelogin och ange den angivna koden för att autentisera.
+- Du uppmanas att logga in på Azure. Logga in genom att använda en webbläsare och gå till sidan https://aka.ms/devicelogin och ange den angivna koden för att autentisera.
 - Under autentiseringen efterfrågas ett konto för att autentisera med. Viktigt: Välj ett konto som har ett giltigt Azure-prenumeration och tillräcklig behörighet för att skapa resurser för kontot. - när du är klar logga in på din prenumerationsinformation visas och du tillfrågas om du vill fortsätta med den valda kontot.
 
 ### <a name="environment-setup"></a>Miljökonfiguration

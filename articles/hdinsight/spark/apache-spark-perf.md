@@ -1,25 +1,23 @@
 ---
 title: Optimera prestanda - Azure HDInsight Spark jobb | Microsoft Docs
-description: "Visar vanliga strategier för bästa prestanda för Spark-kluster."
+description: Visar vanliga strategier för bästa prestanda för Spark-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 64ddb70f071a9fadc6fef64dcd3506c6d6255481
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 381f9ef2dac2c1dfdada32a917626b17c5969a98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="optimize-spark-jobs"></a>Optimera Spark-jobb
 
@@ -82,7 +80,7 @@ Spark innehåller sin egen interna cachelagring mekanismer som kan användas via
     * Använder i minnet och cachelagring i SSD.
 
 * Lokala HDFS (rekommenderas)
-    * `hdfs://mycluster`sökvägen.
+    * `hdfs://mycluster` sökvägen.
     * Använder SSD cachelagring.
     * Cachelagrade data går förlorade när du tar bort klustret, som kräver en återskapning av en cache.
 
@@ -164,9 +162,9 @@ Beroende på din Spark-klusterarbetsbelastning, kan du bestämma att en icke-fö
 
 Här följer några vanliga parametrar som du kan justera:
 
-* `--num-executors`Anger antalet executors.
-* `--executor-cores`Anger antalet kärnor för varje utförare. Normalt bör du ha middle-sized executors som andra processer använder vissa av det tillgängliga minnet.
-* `--executor-memory`Anger minnesstorleken för varje utföraren som styr heapstorlek på YARN. Du bör lämna minne för körning av arbetet.
+* `--num-executors` Anger antalet executors.
+* `--executor-cores` Anger antalet kärnor för varje utförare. Normalt bör du ha middle-sized executors som andra processer använder vissa av det tillgängliga minnet.
+* `--executor-memory` Anger minnesstorleken för varje utföraren som styr heapstorlek på YARN. Du bör lämna minne för körning av arbetet.
 
 ### <a name="select-the-correct-executor-size"></a>Välj rätt utföraren storlek
 

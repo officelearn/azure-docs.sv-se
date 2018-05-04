@@ -1,19 +1,19 @@
 ---
-title: "Använda Azure Policy för att skapa och hantera principer för att använda organisatorisk efterlevnad | Microsoft Docs"
-description: "Använd Azure Policy för att genomdriva standarder, efterleva krav på regelefterlevnad och granskning, kontrollera kostnader, behålla en konsekvent säkerhet och prestanda och tillämpa företagsomfattande principer."
+title: Använda Azure Policy för att skapa och hantera principer för att använda organisatorisk efterlevnad | Microsoft Docs
+description: Använd Azure Policy för att genomdriva standarder, efterleva krav på regelefterlevnad och granskning, kontrollera kostnader, behålla en konsekvent säkerhet och prestanda och tillämpa företagsomfattande principer.
 services: azure-policy
-keywords: 
-author: bandersmsft
-ms.author: banders
-ms.date: 01/18/2018
+keywords: ''
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0b6e77d080ce4e4483709b9a5e47dca21c22e1d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
@@ -372,7 +372,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Undanta en icke-kompatibel eller nekad resurs med Exkludering
 
-När du har angett att principdefinitionen kräver version 12.0 av SQL Server skulle en SQL-server som har skapats med en annan version nekas, precis som i exemplet ovan. I det här avsnittet går du igenom hur man löser ett nekat försök till att skapa en SQL-server med en annan version genom att begära ett undantag. Undantaget förhindrar principtillämpning. Ett undantag kan tillämpas på en resursgrupp eller så kan du begränsa undantaget till enskilda resurser.
+När du har angett att principdefinitionen kräver version 12.0 av SQL Server skulle en SQL-server som har skapats med en annan version än 12.0 nekas, precis som i exemplet ovan. I det här avsnittet går du igenom hur du löser ett nekat försök till att skapa en SQL-server genom att begära en exkludering av vissa resurser. Undantaget förhindrar principtillämpning. I följande exempel tillåts valfri version av SQL-servern. Ett undantag kan tillämpas på en resursgrupp eller så kan du begränsa undantaget till enskilda resurser.
 
 1. Välj **Tilldelningar** i det vänstra fönstret.
 2. Bläddra igenom alla principtilldelningar och öppna tilldelningen *Kräv SQL Server version 12.0*.
@@ -384,7 +384,7 @@ När du har angett att principdefinitionen kräver version 12.0 av SQL Server sk
 
 4. Klicka på **Tilldela**.
 
-I det här avsnittet har du löst nekandet av ditt försök att skapa en SQL-server med version 12.0 genom att begära en exkludering till resurserna.
+I det här avsnittet har du löst nekandet av ditt försök att skapa en SQL-server genom att begära en exkludering av resurserna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

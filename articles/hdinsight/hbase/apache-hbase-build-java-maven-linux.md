@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 82fffa23a7688b66be486cc3147c134fa849a33e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 564bfb9c80fe835bd5defb4321607e0970c9f0aa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Skapa Java-program för Apache HBase
 
@@ -41,9 +41,6 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
 * [Maven 3.](http://maven.apache.org/)
 
 * [Ett Linux-baserade Azure HDInsight-kluster med HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > Stegen i det här dokumentet har testats med HDInsight-kluster version 3.4 och 3.5. De standardvärden som i exemplen är för ett kluster i HDInsight 3.5.
 
 ## <a name="create-the-project"></a>Skapa projektet
 

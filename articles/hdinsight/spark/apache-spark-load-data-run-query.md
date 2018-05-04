@@ -1,38 +1,36 @@
 ---
-title: "Köra interaktiva frågor i ett Azure HDInsight Spark-kluster | Microsoft Docs"
+title: Köra interaktiva frågor i ett Azure HDInsight Spark-kluster | Microsoft Docs
 description: HDInsight Spark-snabbstart om hur du skapar ett Apache Spark-kluster i HDInsight.
-keywords: "spark-snabbstart,interaktiv spark,interaktiv fråga,hdinsight spark,azure spark"
+keywords: spark-snabbstart,interaktiv spark,interaktiv fråga,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Köra interaktiva frågor i Spark-kluster i HDInsight
 
 Lär dig hur du använder Jupyter-anteckningsboken för att köra interaktiva Spark SQL-frågor mot Spark-kluster. 
 
-[Jupyter-anteckningsbok](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) är ett webbaserat program som utökar konsolbaserad interaktiva upplevelse på webben. Spark i HDInsight innehåller också [Zeppelin anteckningsboken](apache-spark-zeppelin-notebook.md). Jupyter-anteckningsbok används i den här kursen.
+[Jupyter-anteckningsbok](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) är ett webbaserat program som utökar konsolbaserad interaktiva upplevelse på webben. Spark i HDInsight innehåller också [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook används i den här självstudien.
 
-Jupyter-anteckningsböcker på HDInsight-kluster stöder tre kernel - **PySpark**, **PySpark3**, och **Spark**. Den **PySpark** kernel används i den här kursen. Mer information om kärnor och fördelarna med att använda **PySpark**, se [Använd Jupyter-anteckningsbok kärnor med Apache Spark-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md). Om du vill använda Zeppelin anteckningsboken finns [använda Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+Jupyter-anteckningsböcker på HDInsight-kluster har stöd för tre kernels – **PySpark**, **PySpark3** och **Spark**. Kerneln **PySpark** används i den här självstudien. Mer information om dessa kernlar, och om fördelarna med att använda **PySpark**, finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md). Om du vill använda Zeppelin anteckningsboken finns [använda Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight](./apache-spark-zeppelin-notebook.md).
 
 I kursen får fråga du efter data i en csv-fil. Du måste först läsa in data i Spark som en dataframe. Du kan köra frågor på dataframe med Jupyter-anteckningsbok. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Azure HDInsight Spark-kluster**. Instruktioner finns i avsnittet [skapar ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **En Jupyter-anteckningsbok med PySpark**. Instruktioner finns i avsnittet [skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).

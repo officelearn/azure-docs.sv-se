@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera från Mobile Services till Azure App Service"
-description: "Lär dig hur du lätt att uppgradera ditt Mobile Services-program till en Apptjänst Mobile App"
+title: Uppgradera från Mobile Services till Azure App Service
+description: Lär dig hur du lätt att uppgradera ditt Mobile Services-program till en Apptjänst Mobile App
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga Mobiltjänst för .NET-Azure till App Service
 Apptjänst Mobile är ett nytt sätt att skapa mobila program med Microsoft Azure. Läs mer i [vad är Mobilappar?].
@@ -138,7 +138,7 @@ I Azure Mobile Apps Systemegenskaper inte längre har en särskild format och ha
 
 * CreatedAt
 * updatedAt
-* ta bort
+* borttaget
 * version
 
 Mobile Apps klienten SDK: er använda de nya egenskaper för namn, så inga ändringar krävs för att klientkod. Men om du direkt gör REST-anrop till din tjänst bör du ändra dina frågor i enlighet med detta.
@@ -270,5 +270,5 @@ När du har den nya klientversionen redo prova mot projektet uppgraderade server
 [hur du använder SDK för .NET-server]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[priser för Apptjänst]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[priser för Apptjänst]: https://azure.microsoft.com/pricing/details/app-service/
 [översikt över SDK för .NET server]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

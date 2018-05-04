@@ -1,5 +1,5 @@
 ---
-title: "Så här skalar du ett Azure Container Service-kluster för Machine Learning | Microsoft Docs"
+title: Så här skalar du ett Azure Container Service-kluster för Machine Learning | Microsoft Docs
 description: Skala en ACS-kluster - Autoskala och statiska skalning; skala antalet noder i klustret
 services: machine-learning
 author: aashishb
@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
 ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Skalning av klustret för att hantera web service genomflöde
 

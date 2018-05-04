@@ -16,6 +16,8 @@
       href: cdn-map-content-to-custom-domain.md
     - name: Konfigurera HTTPS på en anpassad domän
       href: cdn-custom-ssl.md
+    - name: Konfigurera cachelagringsregler
+      href: cdn-caching-rules-tutorial.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -156,6 +158,8 @@
           href: cdn-pop-locations.md
         - name: POP-platser efter förkortning
           href: cdn-pop-abbreviations.md
+    - name: Så här fungerar fakturering för Azure CDN
+      href: cdn-billing.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN-forum

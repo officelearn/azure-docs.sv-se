@@ -1,25 +1,25 @@
 ---
 title: Rapporter om inloggningfelkoder i Azure Active Directory-portalen | Microsoft Docs
-description: "Referens för felkoder för inloggningsaktivitet."
+description: Referens för felkoder för inloggningsaktivitet.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -65,6 +65,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50055|Ogiltigt lösenord, ange lösenordet som har gått ut.|
 |50057|Användarkontot är inaktiverat.|
 |50058|Det gick inte att hitta information om användarens identitet finns bland angivna autentiseringsuppgifter eller användaren i klienten eller En tyst inloggningsbegäran har skickats men ingen användare är inloggad eller det gick inte att autentisera användaren.|
+|50072|Användaren måste registrera sig för tvåfaktorsautentisering (interaktiv)|
 |50074|Användaren godkändes inte av MFA-kontrollen.|
 |50079|Användaren måste registrera sig för tvåfaktorsautentisering.|
 |50089|Verifiering av flödestoken misslyckades på grund av att flödestoken upphörde att gälla.|
@@ -97,7 +98,6 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |81013|Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett.|
 |90014|Används i olika fall när ett förväntat fält inte finns i autentiseringsuppgifterna.|
 |90093|Diagram som returneras med otillåten felkod för begäran.|
-
 
 
 ## <a name="next-steps"></a>Nästa steg

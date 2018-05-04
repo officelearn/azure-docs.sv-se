@@ -14,18 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 918af6da62e0e3a1409528691bdd460b2ad61a3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Samråd Azure Marketplace-tjänster
 Rådgivning i Azure Marketplace innehåller Microsoft-partner målet vid anslutning av kunder med stöd för och utöka användningen av Azure-tjänster. Lista över samråd Tjänsterbjudanden från partner System Integrator (SI) av Microsoft har stöd för Azure Marketplace. 
 
 Dessa samråd Tjänsterbjudanden är kundspecifika åtaganden. De är fast i omfattning och längd kan, vara fast pris eller ledigt och har en definierad resultatet. Potentiella kunder kan enkelt begära kontaktas av partners. Partners få ett meddelande i sina CRM-systemet och de syftar till att svara på begäranden inom 48 timmar.
 
-Rådgivning i Azure Marketplace vs AppSource storefront marketplace-skyltfönster ligger i linje med målgrupper och Microsoft cloud-produkter som hjälper kunder att söka efter de behöver. Varje storefront erbjuder specialiserade publiceringsalternativ som hjälper dig att maximera investeringen publishing. I följande tabell sammanfattas dessa alternativ:
+## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Rådgivning i Azure Marketplace vs AppSource Storefront
+Marketplace-skyltfönster ligger i linje med målgrupper och Microsoft cloud-produkter som hjälper kunder att söka efter de behöver. Varje storefront erbjuder specialiserade publiceringsalternativ som hjälper dig att maximera investeringen publishing. I följande tabell sammanfattas dessa alternativ:
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|

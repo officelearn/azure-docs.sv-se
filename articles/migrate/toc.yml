@@ -24,6 +24,8 @@
           href: migrate-scenarios-overview.md
         - name: Scenario 1 – utvärdera lokala resurser för migrering till Azure
           href: migrate-scenarios-assessment.md
+        - name: 'Scenario 2: Lift and shift-migrering till Azure'
+          href: migrate-scenarios-lift-and-shift.md
     - name: Utforska och utvärdera en stor miljö
       href: how-to-scale-assessment.md
     - name: Gruppera datorer

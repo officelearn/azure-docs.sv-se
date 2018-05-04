@@ -1,6 +1,6 @@
 ---
-title: "Översikt över funktioner för förhandsgranskning av Azure Machine Learning | Microsoft Docs"
-description: "En översikt över funktionerna förhandsversionen av Azure Machine Learning prenumerationer, konton, arbetsytor, projekt, t.ex."
+title: Översikt över funktioner för förhandsgranskning av Azure Machine Learning | Microsoft Docs
+description: En översikt över funktionerna förhandsversionen av Azure Machine Learning prenumerationer, konton, arbetsytor, projekt, t.ex.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - begrepp
 
@@ -34,7 +34,7 @@ Den här artikeln definierar och beskriver de koncept som du behöver veta för 
 - **Arbetsytan:** en arbetsyta är den primära komponenten för delning och samarbete i Azure ML. Projekt grupperas i en arbetsyta. En arbetsyta kan sedan delas med flera användare som har lagts till kontot experiment.
 
 
-- **Projekt:** i Azure Machine Learning är en logisk behållare för allt arbete som utförs för att lösa ett problem i ett projekt. Mappas till en enda mapp på den lokala hårddisken, och du kan lägga till filer eller sub mappar till den. Ett projekt kan du kan också vara associerat med en Git-lagringsplats för källkontroll och samarbete.  
+- **Projekt:** i Azure Machine Learning är en logisk behållare för allt arbete som utförs för att lösa ett problem i ett projekt. Det mappas till en enda mapp på den lokala hårddisken, och du kan lägga till filer eller undermappar till det. Ett projekt kan du kan också vara associerat med en Git-lagringsplats för källkontroll och samarbete.  
 
 - **Experiment:** i Azure ML ett experiment är en eller flera kod källfiler som kan utföras från en enda kontaktpunkt. Den kan innehålla uppgifter, till exempel datapåfyllning funktionen tekniker, modell utbildning eller utvärdering av modellen. För närvarande Azure ML stöder Python eller PySpark-experimenten endast.
 

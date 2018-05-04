@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/10/2018
-ms.openlocfilehash: f78a68704f1670b4670384931a07d9651cd646e3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6628ea218c4c7a9aacc0c2899c1ea4e5b6169b51
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrera SQL Server till Azure SQL Database hanteras-instans med DMS
 Du kan använda tjänsten Azure Database migrering för att migrera databaser från en lokal SQL Server-instans till en [Azure SQL-hanterade databasinstans](../sql-database/sql-database-managed-instance.md) med nära noll avbrottstid. Ytterligare metoder som kräver vissa avbrott, se [SQL Server-instansen migrering till Azure SQL-hanterade databasinstans](../sql-database/sql-database-managed-instance-migrate.md).
@@ -43,7 +43,7 @@ Den här kursen behöver du:
 - Skapa en nätverksresurs som tjänsten Azure Database migrering kan använda för att säkerhetskopiera källdatabasen.
 - Kontrollera att tjänstkontot som kör SQL Server-instansen källa har skrivbehörighet för den nätverksresurs som du skapade.
 - Anteckna en Windows-användare (och lösenord) som har behörigheten Fullständig behörighet för den nätverksresurs som du skapade ovan. Tjänsten Azure Database migrering personifierar användarens inloggningsuppgifter för att ladda upp säkerhetskopian till Azure storage-behållare för återställningen.
-- Skapa en blob-behållare och hämta dess SAS-URI med hjälp av stegen i artikeln [hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), måste du markera alla behörigheter (läsa, skriva, ta bort, lista) i fönstret princip När du skapar SAS-URI. Detta ger tillgång till ditt konto lagringsbehållaren för uppladdning av de säkerhetskopiera filerna som används för att migrera tjänsten Azure Database migrering databaser till hanterade Azure SQL Database-instans
+- Skapa en blob-behållare och hämta dess SAS-URI med hjälp av stegen i artikeln [hantera Azure Blob Storage-resurser med Lagringsutforskaren](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), måste du markera alla behörigheter (läsa, skriva, ta bort, lista) i fönstret principen när Skapa SAS-URI. Detta ger tillgång till ditt konto lagringsbehållaren för uppladdning av de säkerhetskopiera filerna som används för att migrera tjänsten Azure Database migrering databaser till hanterade Azure SQL Database-instans
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registerresursleverantören Microsoft.DataMigration
 

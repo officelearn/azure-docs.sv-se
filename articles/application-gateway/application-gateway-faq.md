@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor för Programgateway
 
@@ -178,6 +178,11 @@ Nej, men Application Gateway har ett mått på genomflödet som kan användas f�
 **FRÅGOR. Stöder manuell skala upp eller ned orsak driftavbrott?**
 
 Det finns inget driftstopp, instanser är fördelade på uppgraderingsdomäner och feldomäner.
+
+**FRÅGOR. Stöder programmet gateway stöd anslutning tömmer?**
+
+Ja. Du kan konfigurera anslutningen tömmer om du vill ändra medlemmar i en serverdelspool utan avbrott. Detta gör att befintliga anslutningar till att skickas till deras tidigare plats tills anslutningen har stängts eller en konfigurerbar tidsgränsen har nåtts. Observera tömmer endast väntar för aktuella relä anslutningar att slutföra anslutningen. Programgateway är inte medveten om programmet sessionstillstånd.
+
 
 **FRÅGOR. Kan jag ändra instansstorleken från medelstora till stora utan avbrott?**
 

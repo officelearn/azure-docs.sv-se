@@ -1,26 +1,24 @@
 ---
-title: "Skapa hög tillgänglighet Spark Streaming jobb i YARN - Azure HDInsight | Microsoft Docs"
-description: "Hur du ställer in Spark Streaming för ett scenario med hög tillgänglighet."
+title: Skapa hög tillgänglighet Spark Streaming jobb i YARN - Azure HDInsight | Microsoft Docs
+description: Hur du ställer in Spark Streaming för ett scenario med hög tillgänglighet.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Skapa hög tillgänglighet Spark Streaming jobb med YARN
 
@@ -117,7 +115,7 @@ Sammanfattningsvis med kontrollpunkter, förnyelse + tillförlitliga mottagare k
 
 * Du bör segmentera tidskrävande jobb.  När ett program med Spark Streaming skickas till klustret måste ha definierats YARN kön där jobbet körs. Du kan använda en [YARN kapacitet Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) skicka tidskrävande jobb till separata köer.
 
-* Stäng strömmande programmet avslutas. Om din förskjutningar är kända och alla programtillstånd lagras externt, kan du programmässigt stoppa strömning programmet på rätt plats. En metod är att använda ”tråd hook” i Spark, genom att kontrollera en extern flaggan varje  *n*  sekunder. Du kan också använda en *markör filen* som har skapats på HDFS när programmet startas och sedan tas bort när du vill avbryta. Använd en separat tråd för en markör filen metod i ditt Spark-program som anropar koden ut ungefär så här:
+* Stäng strömmande programmet avslutas. Om din förskjutningar är kända och alla programtillstånd lagras externt, kan du programmässigt stoppa strömning programmet på rätt plats. En metod är att använda ”tråd hook” i Spark, genom att kontrollera en extern flaggan varje *n* sekunder. Du kan också använda en *markör filen* som har skapats på HDFS när programmet startas och sedan tas bort när du vill avbryta. Använd en separat tråd för en markör filen metod i ditt Spark-program som anropar koden ut ungefär så här:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

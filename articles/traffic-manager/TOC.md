@@ -34,7 +34,7 @@
 ### [Felsök degraderat tillstånd på Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)

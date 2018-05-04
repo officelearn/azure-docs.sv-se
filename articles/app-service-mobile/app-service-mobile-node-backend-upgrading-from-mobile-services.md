@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera från Mobile Services till Azure App Service - Node.js"
-description: "Lär dig hur du lätt att uppgradera ditt Mobile Services-program till en Apptjänst Mobile App"
+title: Uppgradera från Mobile Services till Azure App Service - Node.js
+description: Lär dig hur du lätt att uppgradera ditt Mobile Services-program till en Apptjänst Mobile App
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga Mobiltjänst för Node.js-Azure till App Service
 Apptjänst Mobile är ett nytt sätt att skapa mobila program med Microsoft Azure. Läs mer i [vad är Mobilappar?].
@@ -61,12 +61,12 @@ Fullständig dispositionen för uppgraderingen är följande:
 
 Borttagningen kan inträffa när du inte ser någon trafik på din ursprungliga migrerade mobiltjänst.
 
-## <a name="install-npm-package"></a>Installera kraven
+## <a name="install-npm-package"></a> Installera kraven
 Du bör installera [Node] på den lokala datorn.  Du bör också installera paketet för kompatibilitet.  När noden har installerats kan köra du följande kommando från en ny cmd eller PowerShell-Kommandotolken:
 
 ```npm i -g azure-mobile-apps-compatibility```
 
-## <a name="obtain-ams-scripts"></a>Hämta Azure Mobile Services-skript
+## <a name="obtain-ams-scripts"></a> Hämta Azure Mobile Services-skript
 * Logga in på [Azure Portal].
 * Med hjälp av **alla resurser** eller **Apptjänster**, hitta Mobile Services-plats.
 * Inom platsen klickar du på **verktyg** -> **Kudu** -> **Gå** öppna Kudu-webbplatsen.
@@ -76,14 +76,14 @@ Du bör installera [Node] på den lokala datorn.  Du bör också installera pake
 
 Detta hämtas skript i ZIP-format.  Skapa en ny katalog på den lokala datorn och packa upp den `scripts.ZIP` fil i katalogen.  Detta skapar en `scripts` directory.
 
-## <a name="scaffold-app"></a>Autogenerera den nya Azure Mobile Apps-serverdelen
+## <a name="scaffold-app"></a> Autogenerera den nya Azure Mobile Apps-serverdelen
 Kör följande kommando från katalogen som innehåller skriptkatalogen:
 
 ```scaffold-mobile-app scripts out```
 
 Detta skapar en autogenererade Azure Mobile Apps-serverdel i den `out` directory.  Även om de inte krävs, är det en bra idé att kontrollera den `out` katalogen i en databas med källan kod du väljer.
 
-## <a name="deploy-ama-app"></a>Distribuera Azure Mobile Apps-serverdel
+## <a name="deploy-ama-app"></a> Distribuera Azure Mobile Apps-serverdel
 Under distributionen behöver du göra följande:
 
 1. Skapa en ny Mobile App i den [Azure Portal].
@@ -146,7 +146,7 @@ När du har den nya klientversionen redo prova mot projektet uppgraderade server
 
 <!-- URLs. -->
 
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
 [vad är Mobilappar?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
@@ -159,7 +159,7 @@ När du har den nya klientversionen redo prova mot projektet uppgraderade server
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[priser för Apptjänst]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[priser för Apptjänst]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Autentiseringskoncept]: ../app-service/app-service-authentication-overview.md
 [autentisering Quickstart]: app-service-mobile-auth.md

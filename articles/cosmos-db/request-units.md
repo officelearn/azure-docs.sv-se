@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rimman
-ms.openlocfilehash: 182f9fcfd03d736f66dd8ca11720c88c9f5b36fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -209,38 +209,6 @@ Exempel:
 5. Registrera begäran enhet tillägget för alla anpassade skript (lagrade procedurer, utlösare, användardefinierade funktioner) kan användas av programmet
 6. Beräkna de nödvändiga frågeenheter anges uppskattade antal åtgärder som du vill köra varje sekund.
 
-## <a id="GetLastRequestStatistics"></a>Använd MongoDB API GetLastRequestStatistics kommando
-MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran avgifterna för en viss åtgärd.
-
-Till exempel köra åtgärden som du vill kontrollera begäran kostnad för i Mongo-gränssnittet.
-```
-> db.sample.find()
-```
-
-Kör sedan kommandot *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med vanliga åtgärder som körs mot ett representativt objekt som används av ditt program och sedan beräkna den antal åtgärder som du vill utföra varje sekund.
-
-> [!NOTE]
-> Om du har objekttyper som varierar kraftigt när det gäller storlek och antalet indexerade egenskaper som är associerade med varje tillämplig åtgärden begäran enhet kostnad registrera *typen* för vanliga objekt.
-> 
-> 
-
-## <a name="use-mongodb-api-portal-metrics"></a>Använda portalen MongoDB API-mått
-Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter för MongoDB-API-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *begäran kostnad* diagram, kan du få en uppskattning av hur många begäran enheter varje åtgärden förbrukar och hur många enheter som begäran som de använder i förhållande till varandra.
-
-![Portalen MongoDB API-mått][6]
-
 ## <a name="a-request-unit-estimate-example"></a>Ett exempel på begäran uppskattning
 Överväg följande ~ 1 KB dokument:
 
@@ -344,9 +312,6 @@ Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall
 
 Om du har mer än ett klientoperativsystem kumulativt högre begärandehastighet, försök standardbeteendet inte finns tillräckligt och klienten genereras en `DocumentClientException` med statusen code 429 till programmet. I detta fall kanske du vill överväga hantering försök beteende och logiken i ditt program felhantering rutiner eller öka dataflöde för behållaren.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
-Program som överskrider det tillhandahållna dataflödet för en behållare kommer att vara begränsad hastighet förrän åtgången sjunker under dataflöde hastighet. När en hastighet-begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en `16500` felkoden - `Too Many Requests`. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du tar emot många `Too Many Requests` felkoder du bör du överväga att lägga till en logik i ditt program felhantering rutiner eller [öka etablerat dataflöde för behållaren](set-throughput.md).
-
 ## <a name="next-steps"></a>Nästa steg
 Utforska gärna dessa resurser om du vill veta mer om reserverat dataflöde med Azure Cosmos DB databaser kan:
 
@@ -361,4 +326,3 @@ Om du vill komma igång med skalning och prestandatester med Azure Cosmos DB, se
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png

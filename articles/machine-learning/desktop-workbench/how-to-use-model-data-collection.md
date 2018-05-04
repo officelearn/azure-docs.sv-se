@@ -1,6 +1,6 @@
 ---
 title: Funktionen modellen data samling i Azure Machine Learning arbetsstationen | Microsoft Docs
-description: "Den här artikeln handlar om hur du använder funktionen modellen samling i Azure Machine Learning arbetsstationen"
+description: Den här artikeln handlar om hur du använder funktionen modellen samling i Azure Machine Learning arbetsstationen
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
 ms.openlocfilehash: 2251f8d241f3ec47d46c04160caf997bcd025124
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Samla in modelldata med hjälp av datainsamling
 
@@ -38,7 +38,7 @@ Kör följande kommando:
 
     pip install azureml.datacollector
 
-## <a name="set-environment-variables"></a>Uppsättning miljövariabler
+## <a name="set-environment-variables"></a>Ange miljövariabler
 
 Insamling av modellen beror på två miljövariabler. AML_MODEL_DC_STORAGE_ENABLED måste anges till **SANT** (gemener) och AML_MODEL_DC_STORAGE måste anges i anslutningssträngen för Azure Storage-konto där du vill lagra data.
 

@@ -5,6 +5,7 @@
     - name: Om Virtual Network
       href: virtual-networks-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa virtuellt nätverk – portal
       href: quick-create-portal.md

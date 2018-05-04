@@ -6,7 +6,7 @@
 ## [Aktivera driftsäkerhet](../azure-operational-security.md)
 ## [Styrning i Azure](../governance-in-azure.md)
 ## [Isolering i Azure-molnet](../azure-isolation.md)
-## [Skydda hybridnätverksarkitektur](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Skydda hybridnätverksarkitektur](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Tekniska funktioner för säkerhet](../azure-security-technical-capabilities.md)
 
 # [Datasäkerhet och kryptering](../security-azure-encryption-overview.md)

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: ed0f992985b49e4d84ca42a2e9d73121466a2c74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 8390284f969fe9375a70801724881db26806a1d8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Anpassad installation för Azure-SSIS-integrering runtime
 
@@ -36,6 +36,8 @@ Du kan installera både ledigt eller olicensierad komponenter och betald eller l
     ```
 
 -   Du kan inte anropa direkt `gacutil.exe` installera sammansättningar i den globala sammansättningscachen (GAC) just nu. Som en tillfällig lösning kan du använda `gacinstall.cmd` (ingår i behållaren Public Preview).
+
+-   Om du behöver ansluta till din Azure-SSIS-IR med anpassad installation till ett virtuellt nätverk stöds endast Azure Resource Manager VNet. Klassiska VNet stöds inte.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,7 +64,7 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
 4.  Hämta, installera och starta [Azure Lagringsutforskaren](http://storageexplorer.com/).
 
-    1.  Under **(lokala och bifogad)**höger väljer **Lagringskonton** och välj **Anslut till Azure storage**.
+    1.  Under **(lokala och bifogad)** höger väljer **Lagringskonton** och välj **Anslut till Azure storage**.
 
        ![Anslut till Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 

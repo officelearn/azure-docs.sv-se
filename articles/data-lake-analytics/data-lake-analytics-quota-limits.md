@@ -1,9 +1,9 @@
 ---
-title: Azure Data Lake Analytics Quota Limits
-description: "Lär dig hur du justerar och öka kvotgränserna i Azure Data Lake Analytics (ADLA)-konton."
+title: Kvotgränserna för Azure Data Lake Analytics
+description: Lär dig hur du justerar och öka kvotgränserna i Azure Data Lake Analytics (ADLA)-konton.
 services: data-lake-analytics
 keywords: Azure Data Lake Analytics
-documentationcenter: 
+documentationcenter: ''
 author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
@@ -12,21 +12,25 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics Quota Limits
+# <a name="azure-data-lake-analytics-quota-limits"></a>Kvotgränserna för Azure Data Lake Analytics
 
 Lär dig hur du justerar och öka kvotgränserna i Azure Data Lake Analytics (ADLA)-konton. Känna till dessa begränsningar kan hjälpa dig förstå din U-SQL-jobbet beteende. Alla kvotgränserna är mjuka, så du kan öka de maximala gränserna genom att kontakta Azure-supporten.
 
 ## <a name="azure-subscriptions-limits"></a>Azure-prenumerationer gränser
 
-**Maximalt antal ADLA konton per prenumeration:** 5
+**Maximalt antal ADLA konton per prenumeration per region:** 5
 
-Detta är det maximala antalet ADLA konton som du kan skapa per prenumeration per region. Om du försöker skapa ett sjätte ADLA konto får du felmeddelandet ”du har nått det maximala antalet Data Lake Analytics-konton tillåts (5) i regionen under prenumerationsnamn”. I så fall kan du välja en annan region om lämpliga eller ta bort alla oanvända ADLA konton i samma region eller kontakta Azure support av [öppna ett supportärende](#increase-maximum-quota-limits) att begära en ökad kvot.
+Om du försöker skapa ett sjätte ADLA konto får du felmeddelandet ”du har nått det maximala antalet Data Lake Analytics-konton tillåts (5) i regionen under prenumerationsnamn”. 
+
+Om du vill sträcker sig utöver den här gränsen kan du testa dessa alternativ:
+* Välj en annan region om lämplig
+* Kontakta Azure-supporten av [öppna ett supportärende](#increase-maximum-quota-limits) att begära en ökad kvot.
 
 ## <a name="adla-account-limits"></a>ADLA gränser
 

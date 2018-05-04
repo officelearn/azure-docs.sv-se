@@ -1,6 +1,6 @@
 ---
 title: Framkalla Chaos i Service Fabric-kluster | Microsoft Docs
-description: "Använda fel Injection och klustret Analysis Service API: er för att hantera Chaos i klustret."
+description: 'Använda fel Injection och klustret Analysis Service API: er för att hantera Chaos i klustret.'
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 40ceb62e544d2aa71296e24da957cb062029da9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Framkalla kontrollerade Chaos i Service Fabric-kluster
 Stora distribuerade system som molninfrastrukturer är natur instabilt. Azure Service Fabric kan utvecklare skriva tillförlitliga distribuerade tjänster på ett instabilt infrastruktur. Om du vill skriva robust distribuerade tjänster på en infrastruktur med instabilt behöver utvecklare för att kunna testa stabiliteten i sina tjänster medan den underliggande instabilt infrastrukturen gå igenom komplicerade tillståndsövergångar på grund av fel.
@@ -33,7 +33,7 @@ När du har konfigurerat Chaos med frekvensen och typ av fel, kan du starta Chao
 > I sin nuvarande form startar Chaos endast säker fel, vilket innebär att om externa fel en förlorar kvorum eller förlust av data sker aldrig.
 >
 
-När Chaos körs, ger olika händelser som Spara tillståndet för körs för tillfället. En ExecutingFaultsEvent innehåller till exempel alla fel som Chaos har valt att köra i den iterationen. En ValidationFailedEvent innehåller information om valideringsfelet (hälsa eller stabilitet problem) som hittades under valideringen av klustret. Du kan anropa GetChaosReport API (C#, Powershell eller REST) för att få rapporten Chaos körs. Dessa händelser hämta kvar i en [tillförlitliga ordlista](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), som har en trunkering princip enligt två konfigurationer: **MaxStoredChaosEventCount** (standardvärdet är 25000) och **StoredActionCleanupIntervalInSeconds** (standardvärdet är 3600). Varje *StoredActionCleanupIntervalInSeconds* Chaos kontroller och alla men den senaste *MaxStoredChaosEventCount* händelser, rensas från tillförlitliga ordlistan.
+När Chaos körs, ger olika händelser som Spara tillståndet för körs för tillfället. En ExecutingFaultsEvent innehåller till exempel alla fel som Chaos har valt att köra i den iterationen. En ValidationFailedEvent innehåller information om valideringsfelet (hälsa eller stabilitet problem) som hittades under valideringen av klustret. Du kan anropa GetChaosReport API (C#, Powershell eller REST) för att få rapporten Chaos körs. Dessa händelser hämta kvar i en [tillförlitliga ordlista](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), som har en trunkering princip enligt två konfigurationer: **MaxStoredChaosEventCount** (standardvärdet är 25000) och **StoredActionCleanupIntervalInSeconds** (standardvärdet är 3600). Varje *StoredActionCleanupIntervalInSeconds* Chaos kontroller och alla men den senaste *MaxStoredChaosEventCount* händelser, rensas från tillförlitliga ordlistan.
 
 ## <a name="faults-induced-in-chaos"></a>Fel i Chaos
 Chaos genererar fel över hela Service Fabric-kluster och komprimerar fel som visas i månader eller år till några timmar. Kombinationen av överlagrad fel med hög feltolerans hastighet hittar specialfall som annars kan missas. Den här övningen kaotisk leder till en betydande förbättringar i koden Tjänstkvalitet.

@@ -1,6 +1,6 @@
 ---
-title: "Använda Python utökningsbarhet med Azure Machine Learning Data förberedelser | Microsoft Docs"
-description: "Det här dokumentet innehåller en översikt och detaljerad exempel på hur du använder Python-kod för att utöka funktionerna i förberedelse av data"
+title: Använda Python utökningsbarhet med Azure Machine Learning Data förberedelser | Microsoft Docs
+description: Det här dokumentet innehåller en översikt och detaljerad exempel på hur du använder Python-kod för att utöka funktionerna i förberedelse av data
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
 Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
@@ -29,7 +29,7 @@ Data förberedelser har följande anpassade steg där användare kan skriva kod:
 * Lägg till kolumn
 * Avancerat filter
 * Transformera dataflöde
-* Transform Partition
+* Transformera Partition
 
 * De här stegen stöds inte för närvarande i ett Spark-körning.
 
@@ -303,7 +303,7 @@ def transform(df):
 ```
   
 
-## <a name="transform-partition"></a>Transform Partition  
+## <a name="transform-partition"></a>Transformera Partition  
 ### <a name="purpose"></a>Syfte 
 Transformera Partition tillägget punkten kan du omvandla en partition av dataflödet. Du har åtkomst till en Pandas dataframe som innehåller alla kolumner och rader för den aktuella partitionen. Din kod måste returnera en Pandas dataframe med de nya data. 
 

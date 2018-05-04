@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse
 
@@ -50,7 +50,7 @@ När du använder Azure Active Directory med geo-replikering, måste Azure Activ
 
 Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utföra aktiviteter, till exempel autentisering av användare via medlemskap i säkerhetsgrupper eller skapa nya användare. För detta ska fungera måste du bevilja behörigheter till hanterade instans att läsa Azure AD. Det finns två sätt att göra det: från portalen och PowerShell. Följande steg båda metoderna.
 
-1. Klicka på anslutningen till listrutan en lista över möjliga Active kataloger i Azure-portalen i det övre högra hörnet. 
+1. Välj din anslutning till listrutan en lista över möjliga Active kataloger i Azure-portalen i det övre högra hörnet. 
 2. Välja rätt Active Directory som standard Azure AD. 
 
    Det här steget länkar prenumerationen som är associerade med Active Directory med hanterade instans att se till att samma prenumeration används för både Azure AD och hanteras-instans.
@@ -58,7 +58,7 @@ Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utf�
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4.  Klicka på listen ovanpå Administrationssida för Active Directory. Om du är inloggad som Global/företagets administratör i Azure AD kan göra du det från Azure-portalen eller med hjälp av PowerShell.
+4.  Välj på banderoll ovanpå Administrationssida för Active Directory. Om du är inloggad som Global/företagets administratör i Azure AD kan göra du det från Azure-portalen eller med hjälp av PowerShell.
 
     ![bevilja behörigheter-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -70,17 +70,17 @@ Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utf�
 
     ![lyckades](./media/sql-database-aad-authentication/success.png)
 
-6.  Du kan nu välja din Azure AD-administratör för din hanterade instans. För att Active Directory-administratör, på sidan **ange admin** kommando.
+6.  Du kan nu välja din Azure AD-administratör för din hanterade instans. För att på sidan Active Directory-administratören välja **ange admin** kommando.
 
     ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
-7. Lägg till administratör sidan Sök efter en användare väljer användaren eller gruppen vara administratör och klicka sedan på **Välj**. 
+7. Lägg till administratör sidan Sök efter en användare väljer användaren eller gruppen vara administratör och välj sedan **Välj**. 
 
    Sidan Active Directory visas alla medlemmar och grupper i Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. Visa en lista över stöds administratörer i [Azure AD-funktioner och begränsningar](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller bara för Azure-portalen och sprids inte till SQL Server.
 
     ![Lägg till administratör](./media/sql-database-aad-authentication/add-admin.png)
 
-8. Överst på sidan Active Directory, klickar du på **spara**.
+8. Överst på sidan Active Directory, Välj **spara**.
 
     ![spara](./media/sql-database-aad-authentication/save.png)
 
@@ -90,7 +90,7 @@ Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utf�
 > När du konfigurerar Azure AD-administratör kan inte nya admin-namnet (användare eller grupp) redan finnas i virtuella master-databasen som en användare för SQL Server-autentisering. Om den finns, misslyckas installationen för Azure AD-administratör och återställer den skapades, vilket betyder att sådana administratör (namn) redan finns. Alla arbete för att ansluta till servern med hjälp av Azure AD-autentisering misslyckas eftersom SQL Server-autentisering användaren inte är en del av Azure AD.
 
 > [!TIP]
-> För att ta bort en administratör överst på sidan för Active Directory-administratör senare klickar du på **ta bort admin**, och klicka sedan på **spara**.
+> För att ta bort en administratör överst på sidan för Active Directory-administratör senare väljer **ta bort admin**, och välj sedan **spara**.
  
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Etablera en Azure Active Directory-administratör för din Azure SQL Database-server
 
@@ -100,17 +100,24 @@ Din hanteras instans behöver behörighet att läsa Azure AD för att kunna utf�
 Följande två procedurer visar hur du etablerar en Azure Active Directory-administratör för din Azure SQL-server i Azure-portalen och med hjälp av PowerShell.
 
 ### <a name="azure-portal"></a>Azure Portal
-1. I den [Azure-portalen](https://portal.azure.com/), i det övre högra hörnet klickar du på anslutningen som du vill se en lista över möjliga Active kataloger. Välja rätt Active Directory som standard Azure AD. Det här steget länkar prenumeration-associerade Active Directory med Azure SQL server att se till att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-server kan vara värd för Azure SQL Database eller Azure SQL Data Warehouse.)   
+1. I den [Azure-portalen](https://portal.azure.com/), Välj din anslutning vill se en lista över möjliga Active kataloger i det övre högra hörnet. Välja rätt Active Directory som standard Azure AD. Det här steget länkar prenumeration-associerade Active Directory med Azure SQL server att se till att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-server kan vara värd för Azure SQL Database eller Azure SQL Data Warehouse.)   
     ![Välj ad][8]   
     
-2. Välj i den vänstra banderollen **SQL-servrar**, Välj din **SQLServer**, och klicka sedan på den **SQL Server** klickar du på **Active Directory-administratör**.   
-3. I den **Active Directory-administratör** klickar du på **ange admin**.   
+2. Välj i den vänstra banderollen **alla tjänster**, och i filtertypen **SQLServer**. Välj **Sql-servrar**. 
+
+    ![sqlservers.PNG](media/sql-database-aad-authentication/sqlservers.png)    
+
+    >[!NOTE]
+    > På den här sidan innan du väljer **SQL-servrar**, kan du välja den **stjärna** bredvid namnet *favorit* kategori och Lägg till **SQL-servrar**till det vänstra navigeringsfältet. 
+
+1. På **SQL Server** väljer **Active Directory-administratör**.   
+2. I den **Active Directory-administratör** väljer **ange admin**.   
     ![Välj active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. I den **lägga till administratören** sidan, söka efter en användare, Välj användaren eller grupp för en administratör och klicka sedan på **Välj**. (Sidan Active Directory visas alla medlemmar och grupper i Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i den **Azure AD-funktioner och begränsningar** avsnitt i [Använd Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.   
+4. I den **lägga till administratören** sidan, söka efter en användare, Välj användaren eller grupp för en administratör och välj sedan **Välj**. (Sidan Active Directory visas alla medlemmar och grupper i Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i den **Azure AD-funktioner och begränsningar** avsnitt i [Använd Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.   
     ![Välj admin](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. Längst upp i den **Active Directory-administratör** klickar du på **spara**.   
+5. Längst upp i den **Active Directory-administratör** väljer **spara**.   
     ![Spara admin](./media/sql-database-aad-authentication/save-admin.png)   
 
 Processen att ändra administratören kan ta några minuter. Sedan den nya administratören visas i den **Active Directory-administratör** rutan.
@@ -120,7 +127,7 @@ Processen att ändra administratören kan ta några minuter. Sedan den nya admin
    > 
 
 
-Ta bort senare administratör överst i den **Active Directory-administratör** klickar du på **ta bort admin**, och klicka sedan på **spara**.
+Ta bort senare administratör överst i den **Active Directory-administratör** väljer **ta bort admin**, och välj sedan **spara**.
 
 ### <a name="powershell"></a>PowerShell
 Om du vill köra PowerShell-cmdlets som du behöver ha Azure PowerShell installerade och körs. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
@@ -273,7 +280,7 @@ Använd den här metoden om du är inloggad Windows med Azure Active Directory-a
 1. Starta Management Studio eller Dataverktyg och i den **Anslut till Server** (eller **Anslut till databasmotor**) i dialogrutan den **autentisering** väljer  **Active Directory - integrerade**. Inget lösenord krävs eller kan anges eftersom din befintliga autentiseringsuppgifter kommer att visas för anslutningen.   
 
     ![Välj AD-integrerad autentisering][11]
-2. Klicka på den **alternativ** knappen, och på den **anslutningsegenskaper** sidan den **Anslut till databas** skriver namnet på den databasen du vill ansluta till. (Den **AD domän namn eller klient-ID**”alternativet stöds bara för **Universal med MFA anslutning** alternativ, annars den är nedtonat.)  
+2. Välj den **alternativ** knappen, och på den **anslutningsegenskaper** sidan den **Anslut till databas** skriver du namnet på den du vill ansluta till databasen. (Den **AD domän namn eller klient-ID**”alternativet stöds bara för **Universal med MFA anslutning** alternativ, annars den är nedtonat.)  
 
     ![Välj databasnamnet][13]
 
@@ -289,7 +296,7 @@ En intern användare är en explicit skapats i Azure AD och som autentiseras med
 3. I den **lösenord** Skriv ditt användarnamn lösenord för Azure Active Directory-konto eller federerad domänkonto.
 
     ![Välj autentisering av AD-lösenord][12]
-4. Klicka på den **alternativ** knappen, och på den **anslutningsegenskaper** sidan den **Anslut till databas** skriver namnet på den databasen du vill ansluta till. (Se bilden i föregående alternativ.)
+4. Välj den **alternativ** knappen, och på den **anslutningsegenskaper** sidan den **Anslut till databas** skriver du namnet på den du vill ansluta till databasen. (Se bilden i föregående alternativ.)
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>Använda en Azure AD-identitet för att ansluta från ett klientprogram
 

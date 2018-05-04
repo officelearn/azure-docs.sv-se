@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Skydda din Azure SQL-databas
 
-SQL Database skyddar dina data genom att begränsa åtkomsten till databasen med hjälp av brandväggsregler, autentiseringsmekanismer som kräver att användare bevisar sin identitet och auktorisering till data via rollbaserade medlemskap och behörigheter, såväl som säkerhet på radnivå och dynamisk datamaskering.
+SQL Database skyddar dina data genom: 
+- Begränsad åtkomst till databasen med hjälp av brandväggsregler 
+- Autentiseringsmekanismer där identiteten kontrolleras
+- Databehörigheter via rollbaserade medlemskap och behörigheter 
+- Säkerhet på radnivå
+- Dynamisk datamaskning
+
+SQL Database har även avancerade funktioner för övervakning, granskning och hotidentifiering. 
 
 Med några få enkla steg kan du förbättra databasens skydd mot obehöriga användare och obehörig åtkomst. I den här självstudien får du lära du dig att: 
 
@@ -155,7 +162,7 @@ Med transparent datakryptering för Azure SQL Database krypteras vilande data au
 
 3. Om det behövs väljer du PÅ för **Datakryptering** och klickar på **Spara**.
 
-Krypteringsprocessen startas i bakgrunden. Du kan övervaka förloppet genom att ansluta till SQL Database med [SQL Server Management Studio](./sql-database-connect-query-ssms.md), genom att fråga encryption_state-kolumnen i vyn `sys.dm_database_encryption_keys`.
+Krypteringsprocessen startas i bakgrunden. Du kan övervaka förloppet genom att ansluta till SQL Database med [SQL Server Management Studio](./sql-database-connect-query-ssms.md) och köra en fråga mot kolumnen encryption_state i vyn [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Tillståndet 3 anger att databasen är krypterad. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Aktivera SQL Database-granskning om det behövs
 

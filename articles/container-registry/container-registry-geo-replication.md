@@ -1,27 +1,27 @@
 ---
-title: "GEO-replikering en Azure-behållaren registret"
-description: "Börja skapa och hantera georeplikerad Azure-behållaren register."
+title: GEO-replikering en Azure-behållaren registret
+description: Börja skapa och hantera georeplikerad Azure-behållaren register.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="geo-replication-in-azure-container-registry"></a>GEO-replikering i Azure-behållaren registret
+# <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
 Företag som vill lokala förekomst eller en varm säkerhetskopiering, välja att köra tjänster från Azure-regioner. Som bästa praxis kan placera en behållare registret i varje region där avbildningar kör nätverket Stäng åtgärder, aktivera snabb och tillförlitlig bild layer överföringar.
 
 GEO-replikering kan en Azure-behållaren registret för att fungera som ett enda register betjäna flera regioner med multimaster regionala register.
 
 > [!IMPORTANT]
-> Funktionen geo-replikering i Azure Container registret är för närvarande i **preview**. Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner den [kompletterande villkor för användning](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras innan allmän tillgänglighet (GA).
+> Funktionen för geo-replikering för Azure Container Registry är finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
 Ett geo-replikerade register ger följande fördelar:
@@ -59,8 +59,8 @@ Vanliga utmaningar för flera register inkluderar:
 
 Med funktionen geo-replikering i Azure Container registret kan realiseras dessa fördelar:
 
-* Hantera ett enda register över alla regioner:`contoso.azurecr.io`
-* Hantera en enda konfiguration av distributioner som alla regioner används samma bild-URL:`contoso.azurecr.io/public/products/web:1.2`
+* Hantera ett enda register över alla regioner: `contoso.azurecr.io`
+* Hantera en enda konfiguration av distributioner som alla regioner används samma bild-URL: `contoso.azurecr.io/public/products/web:1.2`
 * Push till ett enda register medan ACR hanterar geo-replikering, inklusive regionala webhooks för lokala meddelanden
 
 ## <a name="configure-geo-replication"></a>Konfigurera geo-replikering
@@ -70,15 +70,15 @@ GEO-replikering är en funktion i [Premium register](container-registry-skus.md)
 
 ![Växla SKU: er i Azure-portalen](media/container-registry-skus/update-registry-sku.png)
 
-Logga in på Azure-portalen på http://portal.azure.com om du vill konfigurera geo-replikering för Premium-registret.
+Om du vill konfigurera geo-replikering för Premium-registret, logga in på Azure-portalen på http://portal.azure.com.
 
 Navigera till din Azure-behållare registret och markera **replikeringar**:
 
-![Replikeringar i Azure portal behållaren registret UI](media/container-registry-geo-replication/registry-services.png)
+![Replikeringar i användargränssnittet i behållarregister i Azure-portalen](media/container-registry-geo-replication/registry-services.png)
 
 En karta visas med alla aktuella Azure-regioner:
 
- ![Region kartan i Azure-portalen](media/container-registry-geo-replication/registry-geo-map.png)
+ ![Regionskarta i Azure Portal](media/container-registry-geo-replication/registry-geo-map.png)
 
 * Blå Sexhörningar representerar aktuella repliker
 * Grön Sexhörningar representerar möjliga replik områden
@@ -86,7 +86,7 @@ En karta visas med alla aktuella Azure-regioner:
 
 Om du vill konfigurera en replik, Välj en grön Sexhörning och sedan **skapa**:
 
- ![Skapa replikering Användargränssnittet i Azure-portalen](media/container-registry-geo-replication/create-replication.png)
+ ![Skapa replikerings-UI i Azure-portalen](media/container-registry-geo-replication/create-replication.png)
 
 Om du vill konfigurera ytterligare repliker, Välj grön Sexhörningar för andra regioner, och klicka sedan **skapa**.
 

@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Grunderna i Azure IoT
+metadata:
+  title: Grunderna i Azure IoT
+  description: Azure IoT är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals Sakernas Internet-resurser.
+  services: iot
+  author: BryanLa
+  manager: timlt
+  ms.service: iot
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/20/2018
+  ms.author: bryanla
+  ms.openlocfilehash: a86827616c96dd877a88fdd89cb5b0205c2cface
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 04/28/2018
+abstract:
+  description: Välkommen till Microsoft Azure och Sakernas Internet (Internet of Things, IoT). Azure IoT är en omfattande uppsättning tjänster och lösningar som är utformade för att hjälpa dig att skapa IoT-program från slutpunkt till slutpunkt på Azure. Azure IoT tillhandahåller en omfattande uppsättning alternativ och verktyg som är anpassade efter dina branschbehov och företagets färdigheter och resurser, från värdbaserade och fullständigt hanterade SaaS-lösningar till distinkta och specialiserade PaaS-erbjudanden samt tekniker för att skapa intelligenta Edge-produkter.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Se hur snabbt/enkelt du kan lära dig om Azure IoT genom att utforska de här snabbstarterna
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-central/quick-deploy-iot-central">Lär dig hur du skapar ett nytt centralt program för Azure IoT.</a>
+    - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Lär dig hur du skapar en IoT Hub och ansluter din första simulerade enhet till Azure (Node.js).</a>
+    - html: <a href="/azure/iot-edge/quickstart-linux">Distribuera din första IoT Edge-modul och bearbeta data på en simulerad enhet på Windows, Linux eller Mac.</a>
+    - html: <a href="/azure/location-based-services/quick-demo-map-app">Starta en app för kartsökning med Azure Location Based Services (förhandsversion).</a>
+    - html: <a href="/azure/time-series-insights/time-series-quickstart">Utforska Time Series Insights.</a>
+- title: Tekniker och lösningar
+  items:
+  - type: paragraph
+    text: Komma igång snabbt med förkonfigurerade lösningar och SaaS-erbjudanden.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-suite">IoT Suite</a>
+    - html: <a href="/azure/iot-central">IoT Central</a>
+  - type: paragraph
+    text: Skapa på PaaS-erbjudanden (Platform as a Service).
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-hub">IoT Hub</a>
+    - html: <a href="/azure/iot-dps">IoT Hub Device Provisioning Services</a>
+    - html: <a href="/azure/location-based-services">Azure Location Based Services</a>
+    - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">SDK:er för IoT-tjänster</a>
+  - type: paragraph
+    text: Skapa en intelligent gräns.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-edge">IoT Edge</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">SDK:er för IoT-enheter</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Hitta exempel för vanliga enheter och språk.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0">Alla exempel</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=C">C-exempel</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=dotnet">.NET-exempel</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=python">Python-exempel</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=nodejs">Node.js-exempel</a>
+- title: Videoklipp
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
+      html: <p>Contoso HVAC:s digitala omvandling med Sakernas Internet-lösningar</p>
+      image:
+        src: media/index/i_video.png
+      title: Introduktion
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      html: <p>Kodlös IoT-lösning med Azure IoT Central</p>
+      image:
+        src: media/index/i_video.png
+      title: Demonstration
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/iot">Azure CLI</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Azure IoT CLI-tillägg</a></p>
+    - title: Språk
+      html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT-SDK:er för .Net, C, Java, Node.js, Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p><p><a href="/rest/api/location-based-services-management/">Hantering av platsbaserade tjänster</a></p><p><a href="/rest/api/location-based-services/">Funktioner i platsbaserade tjänster</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights-hantering</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

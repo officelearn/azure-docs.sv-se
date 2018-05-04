@@ -1,6 +1,6 @@
 ---
-title: "Använd data transformeringar för förberedelse av data i Azure Machine Learning | Microsoft Docs"
-description: "Den här artikeln innehåller en fullständig lista över transformationer som är tillgängliga för Azure Machine Learning förberedelse av data."
+title: Använd data transformeringar för förberedelse av data i Azure Machine Learning | Microsoft Docs
+description: Den här artikeln innehåller en fullständig lista över transformationer som är tillgängliga för Azure Machine Learning förberedelse av data.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Använd data transformeringar för förberedelse av data i Azure Machine Learning
 
@@ -34,7 +34,7 @@ Snabbmenyn visar endast giltiga transformeringar för den datatyp som valts. Huv
 
 En liten del av kontextuella transformeringar är tillgänglig genom att högerklicka på en cell. Dessa transformeringar är kopia, Ersätt, och filtrera. Dessa är data typ-medveten, så alternativ för en kolumn med tal skiljer sig för en strängkolumn.
 
-## <a name="derive-column-by-example"></a>Härledd kolumn efter exempel
+## <a name="derive-column-by-example"></a>Härled kolumn efter exempel
 Använd den här transformeringen för att skapa en ny kolumn som ett derivat av en eller flera befintliga kolumner. Transformera söker i indatakolumnerna (markerade) och exemplet och anger önskad utdata i den nya kolumnen. 
 
 Välj en eller flera kolumner om du vill använda den här transformeringen. Lägg till en ny (tom) härledd kolumn efter exempel. Skriv ett exempel på vad du vill se i kolumnen härledda (förutsatt att den är härledd från andra kolumner) och ”av exemplet” teknik försöker att fylla i de andra cellerna i kolumnen. 

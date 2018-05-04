@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3473cb5260773fda0534c4f0aca1db731cce74eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="templates-for-azure-policy"></a>Mallar för Azure-princip
 
@@ -79,6 +79,9 @@ Följande tabell innehåller länkar till json-mallar för Azure-principen. De h
 | [Tillåtna resurstyper](scripts/allowed-res-types.md) | Garanterar att bara godkända resurstyper distribueras. Du anger en matris med resurstyper som tillåts.  |
 | [Tillåtna lagringskonto SKU: er](scripts/allowed-stor-acct-skus.md) | Kräver att storage-konton använder en godkänd SKU. Du anger en matris med godkända SKU: er. |
 | [Tillämpa taggen och ett standardvärde](scripts/apply-tag-def-val.md) | Lägger till angivna taggnamn och värde, om taggen inte har angetts. Du kan ange taggnamnet och värdet ska gälla.  |
+| [Gransknings-och kryptering för SQL-databas](scripts/sql-database-encryption-audit.md) | Granskningar om SQL-databasen inte har transparent datakryptering är aktiverat. |
+| [Granska inställningarna för SQL Server audit](scripts/sql-server-audit.md) | Granskningar SQLServer baserat på om granskningsinställningarna är aktiverade. |
+| [Framtvinga kryptering för Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nekar alla Data Lake Store-konton som inte har kryptering aktiverat. |
 | [Framtvinga taggen och dess värde](scripts/enforce-tag-val.md) | Kräver angivna taggnamn och värde. Du kan ange taggnamn och värde för att genomdriva.  |
 | [Inte tillåtet resurstyper](scripts/not-allowed-res-type.md) | Förhindrar att distributionen av angivna resurstyper. Du anger en matris med resurstyper att blockera.  |
 | [Kräv SQL Server version 12.0](scripts/req-sql-12.md) | Kräver SQL-servrar att använda versionen 12.0.  |

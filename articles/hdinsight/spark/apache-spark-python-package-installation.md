@@ -1,8 +1,8 @@
 ---
-title: "Script åtgärden - installera Python-paket med Jupyter på Azure HDInsight | Microsoft Docs"
-description: "Stegvisa instruktioner om hur du använder skriptåtgärd till att konfigurera tillgängliga Jupyter-anteckningsböcker med HDInsight Spark-kluster att använda externa python-paket."
+title: Script åtgärden - installera Python-paket med Jupyter på Azure HDInsight | Microsoft Docs
+description: Stegvisa instruktioner om hur du använder skriptåtgärd till att konfigurera tillgängliga Jupyter-anteckningsböcker med HDInsight Spark-kluster att använda externa python-paket.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: cf4721e57d846db299ec6b8cdb7dc8cceb9d638f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4d9d1e0aaf6a1c0155f9ab74a5e63302635a0c11
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter-anteckningsböcker i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]

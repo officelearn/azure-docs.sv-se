@@ -45,6 +45,8 @@
       href: container-instances-troubleshooting.md
     - name: Jenkins-versionsagenter på ACI
       href: container-instances-jenkins.md
+    - name: Övervaka användning av processor och minne
+      href: container-instances-monitor.md
     - name: Konfigurera datavolymer
       items:
         - name: Azure Files

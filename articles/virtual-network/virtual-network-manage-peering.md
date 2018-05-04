@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f200e4ae019d918bfe7e8dfc3200a4568a50dfdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 773bfd3c4106bead85542970b3d27fd5dad25049
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
@@ -127,7 +127,7 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
 - Ett virtuellt nätverk kan peerkoppla till ett annat virtuellt nätverk och också vara ansluten till ett annat virtuellt nätverk med en gateway för virtuella Azure-nätverket. När virtuella nätverk är anslutna via peering och en gateway, flödar trafik mellan virtuella nätverk via peering konfigurationen i stället för gatewayen.
 - En nominell avgift tas ut för ingående och utgående trafik som använder virtuell nätverks-peering. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-network).
 * <a name="cross-region"></a>Du kan peer-virtuella nätverk i samma region eller olika regioner. Följande begränsningar gäller inte när båda virtuella nätverk finns i den *samma* region, men gäller när de virtuella nätverken är globalt peerkoppla: 
-    - Virtuella nätverk kan bara finnas på följande områden: Väst centrala oss (Wyoming), USA, västra centrala USA (Iowa), oss östra 2 (Virginia), Kanada Central (Stockholmsderbyt), Kanada Öst (orten Quebec), 2 (Washington), Sydostasien (Singapore) Korea söder (Buscan), Syd Indien (Chennai), centrala Indien (Pune), västra Indien (Mumbai), Storbritannien Syd (London), västra Storbritannien (Cardiff), Västeuropa (Nederländerna)
+    - Virtuella nätverk kan finnas i en region för offentliga Azure-molnet, men inte i Azure nationella moln.
     - Resurser i ett virtuellt nätverk inte kan kommunicera med IP-adressen för en Azure intern belastningsutjämnare i peered virtuella nätverk. Belastningsutjämnaren och resurser som kommunicerar med den måste vara i samma virtuella nätverk.
     - Du kan inte använda remote gateways eller tillåta gateway-överföring. För att använda remote gateways eller tillåta överföring av gateway, måste båda virtuella nätverken i peering finns i samma region. 
 

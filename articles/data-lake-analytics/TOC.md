@@ -4,7 +4,7 @@
 ## [Vad är Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Kom igång
-## [Azure-portalen](data-lake-analytics-get-started-portal.md)
+## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # Gör så här för att
 
 ## Hantera Data Lake Analytics
-### [Azure-portalen](data-lake-analytics-manage-use-portal.md)
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -24,29 +24,33 @@
 ### [Justera kvotgränser](data-lake-analytics-quota-limits.md)
 
 ## Utveckla U-SQL-program
-### [U-SQL-grunder](data-lake-analytics-u-sql-get-started.md)
-### [Språkreferens för U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
-### [U-SQL-katalog](data-lake-analytics-u-sql-catalog.md)
-### [U-SQL-användardefinierade operatörer](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-### [U-SQL Python-tillägg](data-lake-analytics-u-sql-python-extensions.md)
-### [U-SQL R-tillägg](data-lake-analytics-u-sql-r-extensions.md)
-### [Kognitiva tillägg för U-SQL](data-lake-analytics-u-sql-cognitive.md)
-### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
-### [Anpassad U-SQL-kod för Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-### [U-SQL för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-### [Exportera U-SQL-databas](data-lake-analytics-data-lake-tools-export-database.md)
 
-## Felsöka U-SQL-program
-### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Felsöka ett avvikande, återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-### [Felsöka C#-kod i U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
-### [Använd jobbwebbläsare och jobbvy](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Använda körningsvy för brytpunkter](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-### [Lokal körning och lokal felsökning i VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
-### [U-SQL-programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
+### U-SQL-språk
+#### [U-SQL-grunder](data-lake-analytics-u-sql-get-started.md)
+#### [Språkreferens för U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+#### [U-SQL-katalog](data-lake-analytics-u-sql-catalog.md)
+#### [U-SQL-användardefinierade operatörer](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [U-SQL Python-tillägg](data-lake-analytics-u-sql-python-extensions.md)
+#### [U-SQL R-tillägg](data-lake-analytics-u-sql-r-extensions.md)
+#### [Kognitiva tillägg för U-SQL](data-lake-analytics-u-sql-cognitive.md)
+#### [U-SQL-programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
+#### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
+#### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+### Visual Studio
+#### [Använd jobbwebbläsare och jobbvy](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [Felsöka C#-kod i U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
+#### [Felsöka ett avvikande, återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [Använda körningsvy för brytpunkter](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [Exportera U-SQL-databas](data-lake-analytics-data-lake-tools-export-database.md)
+
+### Visual Studio-koden
+#### [U-SQL för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Anpassad U-SQL-kod för Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [Lokal körning och lokal felsökning i VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)

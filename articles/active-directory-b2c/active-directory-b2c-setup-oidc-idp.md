@@ -6,20 +6,24 @@ documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: parakhj
+ms.assetid: 357d193a-e33b-469c-8a93-0a8f45a60a9f
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: davidmu
-ms.openlocfilehash: 52cefd4fad96e94dd2cf0871fac12a9a4d74b96f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46223f1ec6b82828983861dae26ec8d777b77b86
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="azure-active-directory-b2c-add-a-custom-openid-connect-identity-provider-in-built-in-policies"></a>Azure Active Directory B2C: Lägga till en anpassad provider för OpenID Connect identitet i inbyggda principer
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0 som kan användas på ett säkert sätt loggar användarna in. De flesta leverantörer som använder det här protokollet, t.ex Azure AD stöds i Azure AD B2C. Den här artikeln förklarar hur du lägger till anpassade OpenID Connect identitetsleverantörer i din inbyggda principer.
+>[!NOTE]
+> Den här funktionen är tillgänglig som förhandsversion. Använd inte funktionen i produktionsmiljöer.
+
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0 som kan användas på ett säkert sätt loggar användarna in. De flesta identitetsleverantörer som använder detta protokoll, exempelvis [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), stöds i Azure AD B2C. Den här artikeln förklarar hur du lägger till anpassade OpenID Connect identitetsleverantörer i din inbyggda principer.
 
 ## <a name="configuring-a-custom-openid-connect-identity-provider"></a>Konfigurera en anpassad OpenID Connect identitetsleverantören.
 
@@ -60,7 +64,7 @@ Svarstypen beskriver vilken typ av information skickas tillbaka i det första an
 * `id_token`: Ett ID-token returneras tillbaka till Azure AD B2C från anpassade identitetsleverantören.
 
 
-#### <a name="response-mode"></a>Svaret läge
+#### <a name="response-mode"></a>Svarsläge
 
 Svaret läge definierar den metod som ska användas för att skicka informationen tillbaka från anpassade identitetsleverantören till Azure AD B2C.
 
@@ -68,7 +72,7 @@ Svaret läge definierar den metod som ska användas för att skicka informatione
 * `query`: Kod eller token returneras som en frågeparameter.
 
 
-#### <a name="domain-hint"></a>Domän-tipset
+#### <a name="domain-hint"></a>Tips för domänen
 
 Domän-tipset kan användas för att hoppa över direkt till inloggningssidan för den angivna identitetsleverantören, i stället för att användaren gör ett val i listan över tillgängliga identitetsleverantörer. Ange ett värde för domän-tipset så att den här typen av problem.
 

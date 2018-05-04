@@ -11,23 +11,23 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: v-daveng
-ms.openlocfilehash: b10d3e469ffac22a2b0994708f50125d21496fef
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3585a47e0823a765bd59b28f4b399aed7c5fcae3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>Använda Go för att köra frågor mot en Azure SQL Database
 
-Den här snabbsjälvstudien visar hur du ansluter till en Azure SQL-databas med [Go](https://godoc.org/github.com/denisenkom/go-mssqldb). Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.
+Den här snabbstarten visar hur du använder [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL Database. Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att kunna slutföra den här snabbstartskursen behöver du följande:
+För att kunna slutföra den här snabbstarten behöver du följande:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen för datorn som du använder för den här snabbstartskursen.
+- En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen till datorn som du använder för den här snabbstarten.
 
 - Du har installerat Go och relaterad programvara för ditt operativsystem:
 

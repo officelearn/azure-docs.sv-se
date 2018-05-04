@@ -36,6 +36,7 @@
 ## [Programregistrering](active-directory-integrating-applications.md)
 ## [Appar för flera klienter](active-directory-devhowto-multi-tenant-overview.md)
 ## [Villkorlig åtkomst](active-directory-conditional-access-developer.md)
+## [Behörigheter](active-directory-permissions.md)
 ## OAuth och OpenID Connect
 ### [OpenID Connect-protokoll](active-directory-protocols-openid-connect-code.md)
 ### [Beviljande av OAuth 2.0-auktoriseringkod](active-directory-protocols-oauth-code.md)
@@ -69,9 +70,9 @@
 ## [ACS Migration](active-directory-acs-migration.md)
 ## [Metodtips för felhantering för ADAL](active-directory-devhowto-adal-error-handling.md)
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Auth-bibliotek (ADAL)](active-directory-authentication-libraries.md)
-## [Artikel med kodexempel](active-directory-code-samples.md)
+## [Kodexempel efter scenario](active-directory-code-samples.md)
 ## [Ordlista](active-directory-dev-glossary.md)
 ## [Autentiseringsprotokoll](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +98,8 @@
 ### Mobilappar och skrivbordsappar
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (Windows-skrivbordsversionen)](guidedsetups/active-directory-windesktop.md)
+#### [Windows-skrivbord .NET](guidedsetups/active-directory-windesktop.md)
+#### [Universal Windows Platform](guidedsetups/active-directory-uwp-v2.md)
 ### Webbappar
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +111,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guider
 ### [Registrera en app](active-directory-v2-app-registration.md)
+### [Referens för registrering av appar](active-directory-v2-registration-portal.md)
 ## Referens
 ### [Autentiseringsbibliotek](active-directory-v2-libraries.md)
+### [v2.0-kodexempel efter scenario](active-directory-v2-code-samples.md)
 ### [v2.0 autentiseringsprotokoll](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Beviljande av OAuth 2.0-auktoriseringskod](active-directory-v2-protocols-oauth-code.md)

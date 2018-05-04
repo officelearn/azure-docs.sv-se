@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure-funktioner)
 
@@ -77,6 +77,7 @@ Den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
 * **CreatedTime**: den tid då funktionen orchestrator började köras.
 * **LastUpdatedTime**: tidpunkt då orchestration senaste kontrollpunkt.
 * **Inkommande**: indata för funktionen som ett JSON-värde.
+* **CustomStatus**: anpassad orchestration status i JSON-format. 
 * **Utdata**: resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om orchestrator-funktionen misslyckades, tas den här egenskapen information om felet. Om orchestrator-funktionen har avslutats tas den här egenskapen angivna orsak till uppsägningen (eventuella).
 * **RuntimeStatus**: ett av följande värden:
     * **Kör**: instansen har startats.

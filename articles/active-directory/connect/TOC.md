@@ -36,7 +36,7 @@
 ##### [Hur fungerar det?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Vanliga frågor och svar](active-directory-aadconnect-sso-faq.md)
 ##### [Felsöka](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [Användarsekretess och sömlös enkel inloggning för Azure AD](active-directory-aadconnect-sso-gdpr.md)
 #### [Direktautentisering](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Djupgående om säkerhet](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [Användarsekretess och Azure Active Directory-direktautentisering](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Stöd för flera domäner vid federering](active-directory-aadconnect-multiple-domains.md)
 ### [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## Hantera Azure AD Connect Sync
-### [GDPR-kompatibilitet och Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Användarsekretess och Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Önskad dataplats för O365-resurser](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synkronisering av lösenordshash](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD-tjänstkonto](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [Så här återställer du från LocalDB med en gräns på 10 GB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Identitetssynkronisering och duplicerad attributåterhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Portar och protokoll som krävs för hybrididentitet](active-directory-aadconnect-ports.md)
 ## [Funktioner i förhandsgranskningen](active-directory-aadconnect-feature-preview.md)

@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: Webhook-åtgärder för loggaviseringar
           href: monitor-alerts-unified-log-webhook.md
+        - name: Skapa en nyare måttavisering med en Resource Manager-mall
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: Skapa en klassisk måttavisering med en Resource Manager-mall
           href: monitoring-enable-alerts-using-template.md
         - name: Kopiera aviseringar från OMS-portalen till Azure Portal

@@ -1,0 +1,84 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Network Watcher
+metadata:
+  document_id: 
+  title: Network Watcher
+  meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+  services: network-watcher
+  author: jdial
+  manager: jeconnoc
+  ms.service: virtual-network
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/24/2018
+  ms.author: jdial
+  ms.openlocfilehash: 8458b8cb21a0b9699a5856ad5b46abf88d1e3659
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 04/28/2018
+abstract:
+  description: Lär dig hur du använder Azure Network Watcher. Snabbstarter, självstudier med mera visar dig hur du kan få insikter i ditt virtuella Azure-nätverk med verktyg som paketinsamling och NSG-flödesloggar som hjälper dig att diagnostisera problem med trafikfiltrering och routning samt övervaka anslutningar.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du diagnostiserar problem med trafikfiltrering till och från en virtuell dator.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/portal.svg
+      text: Azure Portal
+      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem
+    - image:
+        src: ./media/index/powershell.svg
+      text: Azure PowerShell
+      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
+    - image:
+        src: ./media/index/cli.svg
+      text: Azure CLI
+      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du felsöker problem i ditt virtuella nätverk.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnostisera problem med nätverksroutning för virtuella datorer</a>
+- title: Kostnadsfri videoutbildning för Pluralsight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Implementera Microsoft Azure-nätverk
+      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Planering och design av lösningar för Microsoft Azure-nätverk
+      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+    - title: Microsoft Azure-administration för AWS-administratörer
+      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/powershell/module/azurerm.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">Azure CLI</a></p>
+    - title: Språk
+      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/network-watcher/">REST API-referens</a></p>

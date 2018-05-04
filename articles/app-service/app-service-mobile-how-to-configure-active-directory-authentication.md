@@ -1,31 +1,31 @@
 ---
-title: "Konfigurera Azure Active Directory-autentisering för tillämpningsprogrammet Apptjänster"
-description: "Lär dig hur du konfigurerar Azure Active Directory-autentisering för ditt program med App-tjänster."
+title: Konfigurera Azure Active Directory-autentisering för tillämpningsprogrammet Apptjänster
+description: Lär dig hur du konfigurerar Azure Active Directory-autentisering för ditt program med App-tjänster.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Konfigurera App Service-appen för att använda Azure Active Directory-inloggning
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Den här artikeln visar hur du konfigurerar Azure App Services att använda Azure Active Directory som en autentiseringsprovider.
 
-## <a name="express"></a>Konfigurera Azure Active Directory med standardinställningar
+## <a name="express"> </a>Konfigurera Azure Active Directory med standardinställningar
 1. I den [Azure-portalen], navigera till din Apptjänst-app. I det vänstra navigeringsfönstret väljer **autentisering / auktorisering**.
 2. Om **autentisering / auktorisering** är inte aktiverad, Välj **på**.
 3. Välj **Azure Active Directory**, och välj sedan **Express** under **hanteringsläge**.
@@ -37,10 +37,10 @@ Den här artikeln visar hur du konfigurerar Azure App Services att använda Azur
 
 Du är nu redo att använda Azure Active Directory för autentisering i Apptjänst-app.
 
-## <a name="advanced"></a>(Alternativ metod) manuellt konfigurera Azure Active Directory med avancerade inställningar
+## <a name="advanced"> </a>(Alternativ metod) Manuellt konfigurera Azure Active Directory med avancerade inställningar
 Du kan också välja att ange konfigurationsinställningar manuellt. Detta är den bästa lösningen om AAD-klient som du vill använda skiljer sig från den klient som du loggar in i Azure. Om du vill slutföra konfigurationen måste du först skapa en registrering i Azure Active Directory och du måste ange några av registreringsinformation till App Service.
 
-### <a name="register"></a>Registrera din Apptjänst-app med Azure Active Directory
+### <a name="register"> </a>Registrera din Apptjänst-app med Azure Active Directory
 1. Logga in på den [Azure-portalen], och navigera till din Apptjänst-app. Kopiera appen **URL**. Du använder detta för att konfigurera Azure Active Directory app registreringen.
 2. Gå till **Active Directory**och välj den **App registreringar**, klicka på **nya appregistrering** längst upp för att starta en ny appregistrering. 
 3. I den **skapa** anger en **namn** registreringen appen, Välj den **Web App / API** Skriv i den **inloggnings-URL** rutan klistra in den programmets URL (från steg 1). Klicka på **skapa**.
@@ -52,9 +52,9 @@ Du kan också välja att ange konfigurationsinställningar manuellt. Detta är d
 9. Stäng den **registrerad app** sidan. På den **App registreringar** klickar du på den **slutpunkter** knappen överst och sedan kopiera den **Federation Metadata dokumentet** URL. 
 10. Öppna ett nytt webbläsarfönster och navigera till URL: en genom att klistra in och bläddra till XML-sidan. Längst upp i dokumentet är ett **EntityDescriptor** element, bör det finnas en **ID för entiteterna** attribut med formatet `https://sts.windows.net/` följt av ett GUID som är specifika för din klient (kallas en ”klient-ID”). Kopiera det här värdet – den fungerar som din **utfärdar-URL**. Du konfigurerar ditt program för senare användning.
 
-### <a name="secrets"></a>Lägg till Azure Active Directory-information till din Apptjänst-app
+### <a name="secrets"> </a>Lägga till information om Azure Active Directory App Service-appen
 1. I den [Azure-portalen], navigera till din Apptjänst-app. Klicka på **autentisering/auktorisering**. Om funktionen autentisering/auktorisering inte är aktiverad, aktivera växeln **på**. Klicka på **Azure Active Directory**, under autentiseringsproviders, konfigurera din app. (Valfritt) Som standard Apptjänst ger autentisering, men begränsar inte auktoriserad åtkomst till webbplatsens innehåll och API: er. Du måste auktorisera användare i din Appkod. Ange **åtgärd att vidta när begäran inte har autentiserats** till **logga in med Azure Active Directory**. Det här alternativet kräver att alla förfrågningar autentiseras och alla oautentiserade begäranden omdirigeras till Azure Active Directory för autentisering.
-2. i Active Directory-autentisering-konfigurationen klickar du på **Avancerat** under **hanteringsläge**. Klistra in program-ID i rutan klient-ID (från steg 8) och klistra in i ID för entiteterna (från steg 10) i utfärdar-URL-värdet. Klicka sedan på **OK**.
+2. I Active Directory-autentisering-konfigurationen klickar du på **Avancerat** under **hanteringsläge**. Klistra in program-ID i rutan klient-ID (från steg 8) och klistra in i ID för entiteterna (från steg 10) i utfärdar-URL-värdet. Klicka sedan på **OK**.
 3. På sidan för konfiguration av Active Directory-autentisering **spara**.
 
 Du är nu redo att använda Azure Active Directory för autentisering i Apptjänst-app.
@@ -74,7 +74,7 @@ Azure Active Directory kan du också registrera interna klienter, vilket ger dig
 
 Du har nu konfigurerat native client-program som har åtkomst till din Apptjänst-app.
 
-## <a name="related-content"></a>Relaterat innehåll
+## <a name="related-content"> </a>Relaterat innehåll
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->

@@ -1,18 +1,22 @@
 # [Dokumentation för Analysis Services](index.md)
 
 # Översikt
-## [Om Analysis Services](analysis-services-overview.md)
-## [Datakällor som stöds](analysis-services-datasource.md)
-## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
-## [Ansluta till lokala datakällor](analysis-services-gateway.md)
-## [Efterlevnadsnivå](analysis-services-compat-level.md)
-## [Hög tillgänglighet](analysis-services-bcdr.md)
+## [Vad är Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Kom igång
 ## [Skapa en server på Azure-portalen](analysis-services-create-server.md)
 ## [Skapa en server med Azure PowerShell](analysis-services-create-powershell.md)
 ## [Distribuera en modell från Visual Studio](analysis-services-deploy.md)
 ## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
+
+# Begrepp
+## [Datakällor som stöds](analysis-services-datasource.md)
+## [Ansluta till lokala datakällor](analysis-services-gateway.md)
+## [Ansluta till servrar](analysis-services-connect.md)
+## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
+## [Efterlevnadsnivå](analysis-services-compat-level.md)
+## [Hög tillgänglighet](analysis-services-bcdr.md)
 
 # Så här gör du 
 ## [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)

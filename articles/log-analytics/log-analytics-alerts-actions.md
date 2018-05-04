@@ -12,16 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 717adf1b19b9de8542ec507df3a01b187d0df8a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Lägg till åtgärder i Varningsregler i logganalys
+
+> [!NOTE]
+> Aviseringar i logganalys [förlängs till Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Aviseringar i Azure används [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md) definiera sina åtgärder i stället för informationen i den här artikeln.
+
+
 När en [avisering skapas i logganalys](log-analytics-alerts.md), har möjlighet att [konfigurera varningsregeln](log-analytics-alerts.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika åtgärder som är tillgängliga och information om hur du konfigurerar varje slag.
 
 | Åtgärd | Beskrivning |
@@ -32,7 +37,7 @@ När en [avisering skapas i logganalys](log-analytics-alerts.md), har möjlighet
 
 
 ## <a name="email-actions"></a>E-post-åtgärder
-E-post-åtgärder skicka ett e-postmeddelande med information om aviseringen till en eller flera mottagare.  Du kan ange ämnet för e-post, men dess innehåll är ett standardformat genom logganalys.  Den innehåller översiktsinformation till exempel namnet för aviseringen förutom information om upp till tio poster som returneras av loggen sökningen.  Den innehåller också en länk till en logg sökning i logganalys som att returnera hela uppsättningen av poster från frågan.   Avsändaren av e-postmeddelandet är *Microsoft Operations Management Suite-teamet &lt; noreply@oms.microsoft.com &gt;* . 
+E-post-åtgärder skicka ett e-postmeddelande med information om aviseringen till en eller flera mottagare.  Du kan ange ämnet för e-postmeddelandet, men innehållet är ett standardformat som Log Analytics sammanställer.  Den innehåller översiktsinformation till exempel namnet för aviseringen förutom information om upp till tio poster som returneras av loggen sökningen.  Den innehåller också en länk till en logg sökning i logganalys som returnerar hela uppsättningen av poster från frågan.   Avsändaren av e-postmeddelandet är *Microsoft Operations Management Suite-teamet &lt; noreply@oms.microsoft.com &gt;* . 
 
 E-post-åtgärder kräver egenskaperna i följande tabell.
 
@@ -44,7 +49,7 @@ E-post-åtgärder kräver egenskaperna i följande tabell.
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 
-Webhook-åtgärder kan du anropa en extern process via en enkel HTTP POST-begäran.  Tjänsten som anropas bör stöder webhooks och kontrollera hur den använder alla nyttolast tas emot.  Du kan också kontakta en REST-API som inte uttryckligen stöder webhooks som begäran finns i ett format som kan användas med API: et.  Exempel på användning av en webhook som svar på en avisering skickas ett meddelande [Slack](http://slack.com) eller skapa en incident i [PagerDuty](http://pagerduty.com/).  En fullständig genomgång för att skapa en aviseringsregel med en webhook att anropa Slack finns på [Webhooks i logganalys aviseringar](log-analytics-alerts-webhooks.md).
+Webhook-åtgärder kan du anropa en extern process via en enkel HTTP POST-begäran.  Tjänsten som anropas bör stöder webhooks och avgöra hur den använder alla nyttolast tas emot.  Du kan också kontakta en REST-API som inte uttryckligen stöder webhooks som begäran finns i ett format som kan användas med API: et.  Exempel på användning av en webhook som svar på en avisering skickas ett meddelande [Slack](http://slack.com) eller skapa en incident i [PagerDuty](http://pagerduty.com/).  En fullständig genomgång för att skapa en aviseringsregel med en webhook att anropa Slack finns på [Webhooks i logganalys aviseringar](log-analytics-alerts-webhooks.md).
 
 Webhook-åtgärder kräver egenskaperna i följande tabell.
 
@@ -56,8 +61,6 @@ Webhook-åtgärder kräver egenskaperna i följande tabell.
 
 Webhooks är en URL och en nyttolast som har formaterats i JSON som är data som skickas till externa-tjänsten.  Som standard innehåller nyttolasten värdena i tabellen nedan.  Du kan välja att ersätta den här nyttolasten med ett anpassat egen.  Du kan i så fall använda variabler i tabellen för var och en av parametrarna ta sina värdet i din anpassade nyttolast.
 
->[!NOTE]
-> Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md) har webhook-nyttolasten ändrats.  Mer information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Du kan se ett exempel i [exempel](#sample-payload) nedan.
 
 | Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
@@ -85,7 +88,7 @@ Nyttolasten i det här exemplet skulle matchas till något som liknar följande 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-Inkludera sökresultat i en anpassad nyttolast genom att lägga till följande rad som en egenskap för översta nivån i json-nyttolast.  
+Inkludera sökresultat i en anpassad nyttolast genom att lägga till följande rad som en översta egenskap i json-nyttolast.  
 
     "IncludeSearchResults":true
 
@@ -110,9 +113,9 @@ Runbook-åtgärder kräver egenskaperna i följande tabell.
 | Runbook | Runbook som du vill starta när en avisering skapas. |
 | Kör på | Ange **Azure** att köra runbook i molnet.  Ange **Hybrid worker** att köra runbook på en agent med [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) installerad.  |
 
-Runbook-åtgärder starta en runbook med hjälp av en [webhook](../automation/automation-webhooks.md).  När du skapar varningsregeln automatiskt skapas en ny webhook för runbook med namnet **OMS avisering reparation** följt av ett GUID.  
+Runbook-åtgärder starta en runbook med hjälp av en [webhook](../automation/automation-webhooks.md).  När du skapar regeln skapas automatiskt en ny webhook för runbook med namnet **OMS avisering reparation** följt av ett GUID.  
 
-Direkt kan du fylla i parametrar av runbook, men [$WebhookData parametern](../automation/automation-webhooks.md) innehåller information om aviseringen, inklusive resultaten av den logg som den skapades.  Runbook måste du definiera **$WebhookData** som en parameter att komma åt egenskaper för aviseringen.  Aviseringen data är tillgängliga i json-format i en enda egenskap som kallas **SearchResult** (för runbook-åtgärder och webhook-åtgärder med standard nyttolast) eller **SearchResults** (webhook-åtgärder med anpassade nyttolasten inklusive **IncludeSearchResults ”: true**) i den **RequestBody** -egenskapen för **$WebhookData**.  Detta har med egenskaper i följande tabell.
+Du kan inte direkt fylla parametrar i runbooken men [$WebhookData parametern](../automation/automation-webhooks.md) finns information om aviseringen, inklusive resultaten av den logg som den skapades.  Runbook måste definiera **$WebhookData** som en parameter att komma åt egenskaper för aviseringen.  Aviseringen data är tillgängliga i json-format i en enda egenskap som kallas **SearchResult** (för runbook-åtgärder och webhook-åtgärder med standard nyttolast) eller **SearchResults** (webhook-åtgärder med anpassade nyttolasten inklusive **IncludeSearchResults ”: true**) i den **RequestBody** -egenskapen för **$WebhookData**.  Detta har med egenskaperna i följande tabell.
 
 >[!NOTE]
 > Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan runbook-nyttolasten har ändrats.  Mer information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Du kan se ett exempel i [exempel](#sample-payload) nedan.  
@@ -126,38 +129,7 @@ Direkt kan du fylla i parametrar av runbook, men [$WebhookData parametern](../au
 Följande runbooks skulle exempelvis extrahera de poster som returneras av loggen sökningen och tilldela olika egenskaper baserat på vilken typ av varje post.  Observera att startar runbook genom att konvertera **RequestBody** från json så att den kan bearbetas med som ett objekt i PowerShell.
 
 >[!NOTE]
-> Använder båda dessa runbooks **SearchResult** egenskap som innehåller resultat för runbook-åtgärder och webhook-åtgärder med standard nyttolast.  Om runbook har anropas från en webhook-svaret med hjälp av en anpassad nyttolast, behöver du ändra den här egenskapen till **SearchResults**.
-
-Följande runbook fungerar med nyttolast från en [äldre logganalys-arbetsytan](log-analytics-log-search-upgrade.md).
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-Följande runbook fungerar med nyttolast från en [uppgraderas logganalys-arbetsytan](log-analytics-log-search-upgrade.md).
+> Denna runbook använder **SearchResult** egenskap som innehåller resultat för runbook-åtgärder och webhook-åtgärder med standard nyttolast.  Om runbook har anropas från en webhook-svaret med hjälp av en anpassad nyttolast, behöver du ändra den här egenskapen till **SearchResults**.
 
     param ( 
         [object]$WebhookData
@@ -208,88 +180,12 @@ Följande runbook fungerar med nyttolast från en [uppgraderas logganalys-arbets
 
 
 ## <a name="sample-payload"></a>Exempel nyttolast
-Det här avsnittet visas exempel nyttolasten för webhook och runbook-åtgärder i både en äldre och en [uppgraderas logganalys-arbetsytan](log-analytics-log-search-upgrade.md).
+Det här avsnittet visas exempel nyttolasten för webhook och runbook-åtgärder.
 
 ### <a name="webhook-actions"></a>Webhook-åtgärder
-Båda de här exemplen använder **SearchResult** egenskap som innehåller resultat för webhook-åtgärder med standard nyttolast.  Om webhooken används en anpassad nyttolast som innehåller sökresultat, den här egenskapen är **SearchResults**.
+Det här exemplet används **SearchResult** egenskap som innehåller resultat för webhook-åtgärder med standard nyttolast.  Om webhooken används en anpassad nyttolast som innehåller sökresultat, den här egenskapen är **SearchResults**.
 
-#### <a name="legacy-workspace"></a>Äldre arbetsyta.
-Följande är ett exempel nyttolast för ett webhook-åtgärden i en äldre arbetsyta.
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### <a name="upgraded-workspace"></a>Uppgraderade arbetsyta.
-Följande är ett exempel nyttolast för ett webhook-åtgärden i en uppgraderad arbetsyta.
+Följande är ett exempel nyttolast för ett webhook-åtgärd.
 
     {
     "WorkspaceId": "workspaceID",
@@ -427,64 +323,7 @@ Följande är ett exempel nyttolast för ett webhook-åtgärden i en uppgraderad
 
 ### <a name="runbooks"></a>Runbooks
 
-#### <a name="legacy-workspace"></a>Äldre arbetsytan
-Följande är ett exempel nyttolasten för en runbook-åtgärden i en äldre arbetsyta.
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### <a name="upgraded-workspace"></a>Uppgraderade arbetsytan
-Följande är ett exempel nyttolasten för en runbook-åtgärden i en uppgraderad arbetsyta.
+Följande är ett exempel nyttolasten för en runbook-åtgärden.
 
     {
     "WorkspaceId": "workspaceID",

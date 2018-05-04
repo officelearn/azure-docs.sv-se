@@ -1,6 +1,6 @@
 ---
-title: "Stöd för kombinationer av körningen och data miljöer för Azure Machine Learning Data förberedelser | Microsoft Docs"
-description: "Det här dokumentet innehåller en fullständig lista över kombinationer som stöds av olika körningar och datakällor för Data förberedelser för Azure Machine Learning"
+title: Stöd för kombinationer av körningen och data miljöer för Azure Machine Learning Data förberedelser | Microsoft Docs
+description: Det här dokumentet innehåller en fullständig lista över kombinationer som stöds av olika körningar och datakällor för Data förberedelser för Azure Machine Learning
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,20 +8,20 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: bdd1c51c915787d9e9522f6691ae0ff06d546484
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Matris som stöds för den här versionen 
 När koden läser in data med hjälp av Azure Machine Learning-datakällor eller Azure Machine Learning Data förberedelser, komma antingen Pandas eller Spark dataframe, följande kombinationer av experimentet compute miljöer och data platser stöds:
 
-|     |Lokala filer  |Azure Blob Storage  |SQL Server database***  |
+|     |Lokala filer  |Azure Blob Storage  |SQL Server-databasen ***  |
 |---------|---------|---------|---------|---------|
 |Lokala Python    |     Stöds    |Stöds inte         | Stöds inte        |         |
 |Docker (Linux VM) Python     |Stöds endast projektfiler *         | Stöds inte        |        Stöds inte |         |

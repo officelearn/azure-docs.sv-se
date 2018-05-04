@@ -15,7 +15,7 @@ ms.date: 04/10/2018
 ms.author: arluca
 ms.openlocfilehash: d80e0fc35b8c20bd61a78a68542f3311c1a40952
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
 ---

@@ -1,14 +1,14 @@
 ---
-title: "Konfigurera övervakning med Händelsehubbar i Azure för Logikappar i Azure | Microsoft Docs"
-description: "Övervaka dataströmmar skicka händelser med dina logic apps med hjälp av Azure Event Hubs och ta emot händelser"
+title: Konfigurera övervakning med Händelsehubbar i Azure för Logikappar i Azure | Microsoft Docs
+description: Övervaka dataströmmar skicka händelser med dina logic apps med hjälp av Azure Event Hubs och ta emot händelser
 services: logic-apps
-keywords: "dataströmmen, övervakning, händelsehubbar"
+keywords: dataströmmen, övervakning, händelsehubbar
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Övervaka, ta emot och skicka händelser med Händelsehubbar connector
 
@@ -76,11 +76,28 @@ En [ *utlösaren* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) är
 3. Välj Händelsehubb för att övervaka och ställa in intervall och frekvens för när du vill söka Händelsehubben.
 
     ![Ange Händelsehubb eller konsumentgrupp](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Ingen Händelsehubb utlösare *lång avsökning* utlösare, vilket innebär att när en utlösare utlöses utlösaren bearbetar alla händelser och väntar sedan på 30 sekunder innan fler händelser visas i hubben.
+    > Om inga händelser tas emot i 30 sekunder ignoreras utlösare för körning. Annars fortsätter utlösaren läsa händelser tills Händelsehubb är tom.
+    > Nästa utlösaren omröstningen baseras på Upprepningsintervall som angetts i egenskaperna för den utlösaren.
 
-    > [!TIP]
-    > Välj att du kan också välja en konsumentgrupp för att läsa händelser **visa avancerade alternativ**.
 
-4. Spara din logikapp. Välj **Spara** i designerverktygsfältet.
+4. Välj för att du kan också välja några av de avancerade utlösarvillkor **visa avancerade alternativ**.
+
+    ![Aktivera avancerade alternativ](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Egenskap | Information |
+    | --- | --- |
+    | Innehållstyp  |Välj de händelser innehållstyp i den nedrullningsbara listan. Program/oktett-ström är markerad som standard. |
+    | Innehåll schema |Ange innehåll schemat i JSON efter de händelser som läses från Event Hub. |
+    | Konsumenten gruppnamn |Ange Händelsehubben [konsumenten gruppnamn](../event-hubs/event-hubs-features.md#consumer-groups) att läsa händelser. När konsumenten gruppnamn inte anges används standard konsumentgrupp. |
+    | Minsta partitionsnyckel |Ange minst [partition](../event-hubs/event-hubs-features.md#partitions) ID att läsa. Som standard är alla partitioner skrivskyddade. |
+    | Maximal partitionsnyckel |Ange maximalt [partition](../event-hubs/event-hubs-features.md#partitions) ID att läsa. Som standard är alla partitioner skrivskyddade. |
+    | Antal största händelser |Ange ett värde för högsta antalet händelser. Utlösaren returnerar mellan ett och antalet händelser som anges av egenskapen. |
+    |||
+
+5. Spara din logikapp. Välj **Spara** i designerverktygsfältet.
 
 Nu när logikappen kontrollerar valda Händelsehubben och hittar en ny händelse, körs utlösaren åtgärderna i din logikapp för händelsen hittades.
 

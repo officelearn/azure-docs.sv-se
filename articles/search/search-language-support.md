@@ -6,13 +6,13 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: cb011ee54894f53cda81d9d116899dcaeb558b6d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Skapa ett index för dokument på flera språk i Azure Search
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Många webb- och mobilprogram kan du hantera användare över hela världen med 
 
 Om språket för agenten skickar en fråga kallas en sökbegäran kan vara begränsad till ett visst fält som använder den **searchFields** Frågeparametern. Följande fråga utfärdas endast mot beskrivningen i polska:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 Du kan fråga ditt index från portalen med hjälp av **Sök explorer** att klistra in i en fråga som liknar det som visas ovan. Sök explorer är tillgänglig från kommandofältet i bladet service. Se [fråga ditt Azure Search-index i portalen](search-explorer.md) mer information.
 
@@ -77,7 +77,7 @@ Ibland är språket för agenten skickar en fråga Okänd, i vilket fall frågan
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 Om du är en .NET-utvecklare, Observera att du kan konfigurera språkanalys med hjälp av den [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). Den senaste versionen innehåller stöd för Microsoft språkanalys samt.
 

@@ -10,23 +10,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8928a69436cfa0fc601c4a0c544433f3b87a90f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med Python
 
- Den här snabbstartssjälvstudien visar hur du ansluter till en Azure SQL-databas med [Python](https://python.org) och kör frågor mot data med Transact-SQL-uttryck. För ytterligare information om sdk ska du titta på vår [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/sql), ett pyodbc[exempel](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) och [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub-lagringsplatsen.
+ Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure SQL-databas och hur du använder Transact-SQL-uttryck för att köra frågor mot data. För ytterligare information om sdk ska du titta på vår [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/sql), ett pyodbc[exempel](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) och [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub-lagringsplatsen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kontrollera att du har följande för att kunna genomföra den här snabbstartskursen:
+Kontrollera att du har följande så att du kan genomföra den här snabbstarten:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen för datorn som du använder för den här snabbstartskursen.
+- En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen till datorn som du använder för den här snabbstarten.
 
 - Du har installerat Python och relaterad programvara för ditt operativsystem:
 

@@ -299,10 +299,12 @@
     - name: Definitionsspråk för arbetsflödesschema
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: Åtgärder och utlösare för arbetsflöde
+          href: logic-apps-workflow-actions-triggers.md
+        - name: Definitionsspråk för arbetsflödesfunktioner
+          href: workflow-definition-language-functions-reference.md
         - name: Allmän tillgänglighet – schemahistorik
           href: logic-apps-schema-2016-04-01.md
-    - name: Åtgärder och utlösare för arbetsflöde
-      href: logic-apps-workflow-actions-triggers.md
     - name: Spårningsscheman
       items:
         - name: AS2-spårningsschema

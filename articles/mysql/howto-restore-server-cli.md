@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för MySQL med hjälp av Azure CLI
 
@@ -68,14 +68,14 @@ Du välja mellan att konfigurera servern för lokalt redundant säkerhetskopieri
 
 När du skapar en server via den `az mysql server create` kommando, den `--geo-redundant-backup` parametern beslutar alternativ för redundans en säkerhetskopia. Om `Enabled`, geo-redundant säkerhetskopieringar vidtas. Eller om `Disabled` lokalt redundant säkerhetskopieringar vidtas. 
 
-Säkerhetskopiering loggperioden anges av parametern `--backup-retention-days`. 
+Säkerhetskopiering loggperioden anges av parametern `--backup-retention`. 
 
 Mer information om hur du anger dessa värden under skapa finns i [Azure-databas för MySQL server CLI Quickstart](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Säkerhetskopiering kvarhållningsperiod på en server kan ändras på följande sätt:
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 Föregående exempel ändrar säkerhetskopiering kvarhållningsperioden för mydemoserver på 10 dagar.

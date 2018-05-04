@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
@@ -87,9 +87,14 @@ I följande diagram visas zonen redundant version av arkitekturen för hög till
 ## <a name="read-scale-out"></a>Läs skalbar
 Enligt beskrivningen, tjänsten Premium och företag kritiska (förhandsgranskning) nivåer utnyttjar kvorum-uppsättningar och AlwaysON-teknik för både i samma zon och redundanta konfigurationer med hög tillgänglighet. En av fördelarna med AlwasyON är att replikerna är alltid i ett konsekvent tillstånd. Eftersom replikerna har samma prestandanivå som den primära servern, programmet kan dra nytta av den extra kapaciteten för att underhålla skrivskyddade arbetsbelastningar utan extra kostnad (skrivskyddade skalbar). Det här sättet skrivskyddad frågorna isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs skalbar funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som till exempel analytics och därför kan utnyttja denna ytterligare kapacitet utan att ansluta till primärt. 
 
-Om du vill använda funktionen för Läs skalbar med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att anropa den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Nya AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets eller via Azure Resource Manager REST-API med hjälp av [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod.
+Om du vill använda funktionen för Läs skalbar med en viss databas, måste du uttryckligen aktivera den när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att anropa den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets eller via Azure Resource Manager REST-API med hjälp av [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod.
 
-När Läs skalbar har aktiverats för en databas måste program som ansluter till databasen kommer att dirigeras till skrivskyddad-repliken eller till en skrivskyddad replik av databasen enligt den `ApplicationIntent` egenskapen som konfigurerats i programmets anslutningssträng. Mer information om den `ApplicationIntent` egenskapen finns [ange Programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+När Läs skalbar har aktiverats för en databas måste program som ansluter till databasen kommer att dirigeras till skrivskyddad-repliken eller till en skrivskyddad replik av databasen enligt den `ApplicationIntent` egenskapen som konfigurerats i programmets anslutningssträng. Mer information om den `ApplicationIntent` egenskapen finns [ange Programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Om Läs skalbar är inaktiverat eller egenskapen ReadScale på en tjänstnivå som inte stöds, dirigeras alla anslutningar till skrivskyddad replik, oberoende av den `ApplicationIntent` egenskapen.  
+
+> [!NOTE]
+> Det är möjligt att aktivera Läs skalbar på en Standard- eller en generella databas, även om inte resulterar i Routning den skrivskyddade avsedd-session till en separat replik. Detta görs för att stödja befintliga program som skala upp eller ned mellan Standard/allmänt syfte och Premium/företag kritiska nivåer.  
 
 Läs skalbar-funktionen stöder sessionskonsekvens nivå. Om den skrivskyddade sessionen återansluts när ett anslutningsfel orsaka av repliken inte finns, kan det omdirigeras till en annan replik. Medan osannolik, resultera det i att bearbeta den datamängd som är inaktuell. Likaså om ett program skriver data med hjälp av en skrivskyddad-session och läser den med hjälp av den skrivskyddade sessionen omedelbart, är det möjligt att nya data inte visas direkt.
 

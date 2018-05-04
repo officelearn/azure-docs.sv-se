@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Hanterad instans
       href: sql-database-managed-instance.md
-    - name: Tjänstnivåer
-      href: sql-database-service-tiers.md
+    - name: DTU-baserade tjänstnivåer
+      href: sql-database-service-tiers-dtu.md
+    - name: vCore-baserade tjänstnivåer
+      href: sql-database-service-tiers-vcore.md
     - name: Lässkalbarhet
       href: sql-database-read-scale-out.md
     - name: DTU-baserade resursbegränsningar
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Rapportering mellan klientorganisationer
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: ETL för analys
-              href: saas-tenancy-tenant-analytics.md
+            - name: Klientorganisationsanalys
+              items:
+                - name: Med SQL DB
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Med SQL DW
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Haveriberedskap med hjälp av geo-återställning
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Haveriberedskap med hjälp av geo-replikering av databas

@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -67,9 +67,9 @@ I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du
 
 ![Enkel inloggning](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>vCore-baserade inköpsmodell
+## <a name="vcore-based-purchasing-model-preview"></a>vCore-baserade inköpsmodell (förhandsgranskning)
 
-VCore-baserade inköpsmodell ger din flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. Modellen vCore också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+VCore-baserade inköpsmodell (förhandsversion) ger ditt flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. Modellen vCore också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara.
 - Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
@@ -186,7 +186,7 @@ Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats f�
 Metod för migrering utnyttjar SQL-säkerhetskopiering till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instans. Om du vill återställa en befintlig SQL-databas till en hanterad instans kan du:
 
 - Använd [Data migrering Service (DMS)](/sql/dma/dma-overview). En självstudiekurs finns [migrera till en hanterad instans med Azure databas migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en säkerhetskopia av databasen
-- Använd den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Använd den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - En självstudiekurs visar hur du återställer Wide World Importers - standarddatabasen säkerhetskopian finns [återställer en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md). Den här kursen visar du måste överföra en säkerhetskopia till Azure blogg lagring och skydda den med hjälp av en signatur (SAS) för delade åtkomstnyckeln.
   - Information om återställning från URL finns [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Importera från en BACPAC-fil](sql-database-import.md)

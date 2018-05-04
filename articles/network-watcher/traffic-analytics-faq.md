@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik analytics
 
@@ -104,11 +104,15 @@ ms.lasthandoff: 04/16/2018
 
         Du ser resurser information på instrumentpanelen; dock finns inga flödet-relaterad statistik. Data finns inte på grund av ingen kommunikation som flödar mellan resurser. Vänta 60 minuter och kontrollera status. Om du är säker på att kommunikationsflöden mellan resurserna finns, och sedan öka frågor i den [röst användarforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Hur prissätts trafik analytics?
+14. Kan jag konfigurera trafik analytics med hjälp av PowerShell eller en mall för Azure Resource Manager?
+
+    Nej, trafik analytics endast konfigureras med Azure-portalen.
+
+15.  Hur prissätts trafik analytics?
 
         Trafik analytics förbrukade för att utöka minskade loggar och lagra förbättrad loggar i logganalys-arbetsytan. Under förhandsgranskning, debiteras trafiken analytics inte för att utöka minskade loggarna, men förvaring av data i en arbetsyta regleras fakturering på publicerade priser. Det här svaret kommer att uppdateras när priser för trafik analytics är tillgänglig.
 
-15.  Hur kan jag navigera på tangentbordet i Geo kartvyn?
+16.  Hur kan jag navigera på tangentbordet i Geo kartvyn?
 
         Sidan geo-mappning innehåller två huvudavsnitt:
     

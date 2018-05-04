@@ -1,25 +1,23 @@
 ---
-title: "Felsöka Spark med Azure HDInsight | Microsoft Docs"
-description: "Få svar på vanliga frågor om hur du arbetar med Apache Spark och Azure HDInsight."
-keywords: "Azure HDInsight Spark, vanliga frågor och svar, felsökning guide, vanliga problem, konfiguration, Ambari"
+title: Felsöka Spark med Azure HDInsight | Microsoft Docs
+description: Få svar på vanliga frågor om hur du arbetar med Apache Spark och Azure HDInsight.
+keywords: Azure HDInsight Spark, vanliga frågor och svar, felsökning guide, vanliga problem, konfiguration, Ambari
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
 ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: b75aca7d9f78cb425099cc33034b44a80d7b6b81
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c097a346e64fa378f171e0a0fe03155551da98ed
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Felsöka Spark med Azure HDInsight
 
@@ -27,7 +25,7 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Apac
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hur konfigurerar jag ett Spark-program genom att använda Ambari på kluster?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 Tidigare konfigurationsvärden för den här proceduren har ställts in i HDInsight. För att fastställa vilka Spark måste anges och vilka värden, se [vad som orsakar en Spark OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
@@ -96,7 +94,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hur konfigurerar jag ett Spark-program med hjälp av en Jupyter-anteckningsbok på kluster?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. För att fastställa vilka Spark måste anges och vilka värden, se [vad som orsakar en Spark OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception).
 
@@ -111,7 +109,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hur konfigurerar jag ett Spark-program med hjälp av Livius på kluster?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. För att fastställa vilka Spark måste anges och vilka värden, se [vad som orsakar en Spark OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
@@ -128,7 +126,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hur konfigurerar ett program med hjälp av spark-skicka Spark på kluster?
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. För att fastställa vilka Spark måste anges och vilka värden, se [vad som orsakar en Spark OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception).
 
@@ -193,7 +191,7 @@ java.lang.OutOfMemoryError
 
 Den mest troliga orsaken till det här undantaget är att det finns inte tillräckligt med minne för heap tilldelas Java virtuella datorer (JVMs). Dessa JVMs startas som executors eller drivrutiner som en del av Spark-program. 
 
-### <a name="resolution-steps"></a>Lösningssteg
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Avgöra den maximala storleken på data i Spark programmet hanterar. Du kan göra en gissning baserat på den maximala storleken för indata, mellanliggande data som produceras av omvandla indata och utdata som skapas när programmet ytterligare förändrar mellanliggande data. Den här processen kan vara en iterativ om du inte göra en första formella gissning. 
 

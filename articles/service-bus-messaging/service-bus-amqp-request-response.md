@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 i Microsoft Azure Service Bus: begäran-svar-baserade åtgärder
 
@@ -69,7 +69,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Överföra ett meddelande om begäran  
 
 Överför ett meddelande om begäran.  
-  
+Tillståndet transaktion kan läggas till (valfritt) för åtgärder som har stöd för transaktionen.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +80,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Ta emot ett svarsmeddelande  
@@ -118,7 +123,7 @@ Service Bus-entiteter måste åtgärdas på följande sätt:
   
 ## <a name="message-operations"></a>Meddelandeåtgärder  
   
-### <a name="message-renew-lock"></a>Message Renew Lock  
+### <a name="message-renew-lock"></a>Meddelandet förnya Lås  
 
 Utökar låset för meddelanden av den tid som anges i Entitetsbeskrivningen.  
   
@@ -195,7 +200,7 @@ Kartan som representerar ett meddelande måste innehålla följande:
   
 ### <a name="schedule-message"></a>Schema-meddelande  
 
-Schemalägger meddelanden.  
+Schemalägger meddelanden. Den här åtgärden har stöd för transaktionen.
   
 #### <a name="request"></a>Förfrågan  
 
@@ -216,9 +221,10 @@ Kartan som representerar ett meddelande måste innehålla följande:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|message-id|sträng|Ja|`amqpMessage.Properties.MessageId` som en sträng|  
-|sessions-id|sträng|Ja|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|sträng|Ja|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|meddelande-id|sträng|Ja|`amqpMessage.Properties.MessageId` som en sträng|  
+|sessions-id|sträng|Nej|`amqpMessage.Properties.GroupId as string`|  
+|Partitionsnyckeln|sträng|Nej|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via partitionsnyckel|sträng|Nej|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |meddelande|matris med byte|Ja|AMQP 1.0 överföring-kodat meddelande.|  
   
 #### <a name="response"></a>Svar  
@@ -323,7 +329,7 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|from-sequence-number|lång|Ja|Sekvensnummer som du vill starta titt.|  
+|från sekvensnummer|lång|Ja|Sekvensnummer som du vill starta titt.|  
 |antalet meddelanden|int|Ja|Maximalt antal meddelanden för att granska.|  
 |sessions-id|sträng|Ja|Sessions-ID.|  
   
@@ -428,8 +434,8 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|tidsstämpel|Ja|Filtreras så att endast de sessioner som har uppdaterats efter en viss tidpunkt.|  
-|skip|int|Ja|Hoppa över ett antal sessioner.|  
+|senast uppdaterad tid|tidsstämpel|Ja|Filtreras så att endast de sessioner som har uppdaterats efter en viss tidpunkt.|  
+|Hoppa över|int|Ja|Hoppa över ett antal sessioner.|  
 |Upp|int|Ja|Maximalt antal sessioner.|  
   
 #### <a name="response"></a>Svar  
@@ -445,7 +451,7 @@ Meddelandetexten svar måste bestå av en **amqp-värdet** avsnitt som innehåll
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|skip|int|Ja|Antal överhoppade sessioner om statuskoden 200.|  
+|Hoppa över|int|Ja|Antal överhoppade sessioner om statuskoden 200.|  
 |sessioner-ID|Strängmatris|Ja|Matris med sessions-ID. Om statuskoden 200.|  
   
 ## <a name="rule-operations"></a>Åtgärder för regeln  
@@ -473,21 +479,21 @@ Den **beskrivning av regel** karta måste innehålla följande poster där **sql
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |sql-filter|karta|Ja|`sql-filter`, som anges i nästa avsnitt.|  
-|correlation-filter|karta|Ja|`correlation-filter`, som anges i nästa avsnitt.|  
-|sql-rule-action|karta|Ja|`sql-rule-action`, som anges i nästa avsnitt.|  
+|Korrelations-filter|karta|Ja|`correlation-filter`, som anges i nästa avsnitt.|  
+|SQL-Regelåtgärd|karta|Ja|`sql-rule-action`, som anges i nästa avsnitt.|  
   
 Sql-filter karta måste innehålla följande uppgifter:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|expression|sträng|Ja|Filteruttrycket för SQL.|  
+|uttryck|sträng|Ja|Filteruttrycket för SQL.|  
   
 Den **Korrelations-filter** karta måste innehålla minst en av följande uppgifter:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |Korrelations-id|sträng|Nej||  
-|message-id|sträng|Nej||  
+|meddelande-id|sträng|Nej||  
 |till|sträng|Nej||  
 |Svara till|sträng|Nej||  
 |Etikett|sträng|Nej||  
@@ -500,7 +506,7 @@ Den **sql Regelåtgärd** karta måste innehålla följande uppgifter:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|expression|sträng|Ja|SQL-uttryck för åtgärden.|  
+|uttryck|sträng|Ja|SQL-uttryck för åtgärden.|  
   
 #### <a name="response"></a>Svar  
 
@@ -537,6 +543,85 @@ Svarsmeddelandet måste innehålla de följande egenskaperna:
 |statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
 |StatusDescription|sträng|Nej|Beskrivning av status.|  
   
+### <a name="get-rules"></a>Hämta regler
+
+#### <a name="request"></a>Förfrågan
+
+Begärandemeddelandet måste innehålla de följande egenskaperna:
+
+|Nyckel|Värdetyp|Krävs|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+|åtgärden|sträng|Ja|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Nej|Timeout för åtgärden server i millisekunder.|  
+
+Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande uppgifter:  
+  
+|Nyckel|Värdetyp|Krävs|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+|Upp|int|Ja|Antal regler för att hämta på sidan.|  
+|Hoppa över|int|Ja|Antal regler för att hoppa över. Definierar startIndex (+ 1) i listan över regler. | 
+
+#### <a name="response"></a>Svar
+
+Svarsmeddelandet innehåller följande egenskaper:
+
+|Nyckel|Värdetyp|Krävs|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+|statuskod|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|regler| matris med karta|Ja|Matris med regler. Varje regel representeras av en karta.|
+
+Varje post i matrisen innehåller följande egenskaper:
+
+|Nyckel|Värdetyp|Krävs|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+|Beskrivning av regel|matris med beskrivs objekt|Ja|`com.microsoft:rule-description:list` med AMQP beskrivs kod 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` är en matris med beskrivs objekt. Matrisen innehåller följande:
+
+|Index|Värdetyp|Krävs|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+| 0 | matris med beskrivs objekt | Ja | `filter` som anges nedan. |
+| 1 | matris med beskrivs objekt | Ja | `ruleAction` som anges nedan. |
+| 2 | sträng | Ja | Namnet på regeln. |
+
+`filter` kan vara något av följande typer:
+
+| Säkerhetsbeskrivning namn | Koden i beskrivningen | Värde |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL-filter |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtret för korrelation |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | True filter som representerar 1 = 1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | FALSKT filter som representerar 1 = 0 |
+
+`com.microsoft:sql-filter:list` är en beskrivs matris som innehåller:
+
+|Index|Värdetyp|Krävs|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+| 0 | sträng | Ja | SQL-uttryck |
+
+`com.microsoft:correlation-filter:list` är en beskrivs matris som innehåller:
+
+|Index (om det finns)|Värdetyp|Värdet innehållet|  
+|---------|----------------|--------------|--------------------|  
+| 0 | sträng | Korrelations-id |
+| 1 | sträng | Meddelande-ID |
+| 2 | sträng | Till |
+| 3 | sträng | Svara |
+| 4 | sträng | Etikett |
+| 5 | sträng | Sessions-ID |
+| 6 | sträng | Svara sessions-ID|
+| 7 | sträng | Innehållstyp |
+| 8 | Karta | Karta över egenskaper för program som har definierats |
+
+`ruleAction` kan vara något av följande typer:
+
+| Säkerhetsbeskrivning namn | Koden i beskrivningen | Värde |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Tom Regelåtgärd - ingen Regelåtgärd finns |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL-Regelåtgärd |
+
+`com.microsoft:sql-rule-action:list` är en matris med beskrivs objekt vars första posten är en sträng som innehåller SQL-Regelåtgärd uttryck.
+
 ## <a name="deferred-message-operations"></a>Uppskjuten meddelandeåtgärder  
   
 ### <a name="receive-by-sequence-number"></a>Ta emot med sekvensnumret  
@@ -557,7 +642,7 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |sekvensnummer|matris med lång|Ja|Sekvensnummer.|  
-|receiver-settle-mode|ubyte|Ja|**Mottagaren kvitta** läge som anges i AMQP core v1.0.|  
+|mottagaren kvitta läge|ubyte|Ja|**Mottagaren kvitta** läge som anges i AMQP core v1.0.|  
   
 #### <a name="response"></a>Svar  
 
@@ -578,12 +663,12 @@ Kartan som representerar ett meddelande måste innehålla följande:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|lock-token|UUID|Ja|Lås token om `receiver-settle-mode` är 1.|  
+|Lås-token|UUID|Ja|Lås token om `receiver-settle-mode` är 1.|  
 |meddelande|matris med byte|Ja|AMQP 1.0 överföring-kodat meddelande.|  
   
 ### <a name="update-disposition-status"></a>Uppdatera status för disposition  
 
-Uppdaterar disposition statusen för uppskjuten meddelanden.  
+Uppdaterar disposition statusen för uppskjuten meddelanden. Den här åtgärden stöder transaktioner.
   
 #### <a name="request"></a>Förfrågan  
 
@@ -600,9 +685,9 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |---------|----------------|--------------|--------------------|  
 |disposition-status|sträng|Ja|Slutförd<br /><br /> Avbrutna<br /><br /> avbruten|  
 |Lås-token|matris med uuid|Ja|Meddelandet lock-tokens för att uppdatera disposition status.|  
-|deadletter-reason|sträng|Nej|Du kan ange om disposition status anges till **avbruten**.|  
+|systemkön orsak|sträng|Nej|Du kan ange om disposition status anges till **avbruten**.|  
 |systemkön-beskrivning|sträng|Nej|Du kan ange om disposition status anges till **avbruten**.|  
-|properties-to-modify|karta|Nej|Lista över Service Bus asynkrona egenskaper för att ändra.|  
+|Egenskaper för att ändra|karta|Nej|Lista över Service Bus asynkrona egenskaper för att ändra.|  
   
 #### <a name="response"></a>Svar  
 

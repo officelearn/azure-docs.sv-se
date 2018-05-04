@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med RealtimeBoard | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RealtimeBoard."
+title: 'Självstudier: Azure Active Directory-integrering med RealtimeBoard | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RealtimeBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5734d9ae2f5633fc7386b5cb0754769af9bf96bc
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Självstudier: Azure Active Directory-integrering med RealtimeBoard
 
@@ -32,7 +32,7 @@ Integrera RealtimeBoard med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med RealtimeBoard, behöver du följande:
 
@@ -108,13 +108,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och RealtimeBoard domän med enkel inloggning information](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url.png)
 
-    I den **identifierare** textruta Skriv en URL som:`https://realtimeboard.com/`
+    I den **identifierare** textruta Skriv en URL som: `https://realtimeboard.com/`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL som:`https://realtimeboard.com/sso/saml`
+    I den **inloggnings-URL** textruta Skriv en URL som: `https://realtimeboard.com/sso/saml`
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -124,7 +124,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Konfigurera enkel inloggning på **RealtimeBoard** sida, måste du skicka den hämtade **XML-Metadata för** till [RealtimeBoard supportteamet](mailto:support@realtimeboard.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+7. Konfigurera enkel inloggning på den **RealtimeBoard** sida, följer du de [RealtimeBoard instruktioner](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-), och använda data från din hämtade **XML-Metadata för**.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

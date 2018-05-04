@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Genomics: Vanliga frågor | Microsoft Docs"
+title: 'Microsoft Genomics: Vanliga frågor | Microsoft Docs'
 titleSuffix: Azure
-description: "Svar på vanliga frågor kunder fråga om Microsoft Genomics."
+description: Svar på vanliga frågor kunder fråga om Microsoft Genomics.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Vanliga frågor
 
-Den här artikeln visar upp frågor som du kanske avser Microsoft Genomics. Mer information om tjänsten Microsoft Genomics finns [vad är Microsoft Genomics?](overview-what-is-genomics.md) 
+Den här artikeln innehåller de vanligaste frågorna som du kan ha relaterade till Microsoft Genomics. Läs mer på tjänsten Microsoft Genomics [vad är Microsoft Genomics?](overview-what-is-genomics.md). Mer information om felsökning finns i vår [felsökningsguiden](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Vad är SLA för Microsoft Genomics?
@@ -35,7 +35,7 @@ Du får en fullständig lista över tillgängliga kommandon och argument genom a
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Vilka är de vanligaste använda kommandon för det `msgen` klienten?
 De vanligaste kommandona är argument för den `msgen` klienten inkluderar: 
 
- |**Kommandot**          |  **Fältbeskrivning** |
+ |**Kommando**          |  **Fältbeskrivning** |
  |:--------------------|:-------------         |
  |`list`               |Returnerar en lista över jobb som du har skickat. Argument, se `msgen help list`.  |
  |`submit`             |Skickar en begäran om arbetsflödet till tjänsten. Argument, se `msgen help submit`.|
@@ -57,7 +57,7 @@ Din lagringskontonyckel används för att skapa kortsiktig åtkomsttoken för tj
 ## <a name="what-genome-references-can-i-use"></a>Vilka påvisa refererar till kan jag använda?
 
 Dessa referenser stöds:
- |Referens              | Värdet för`-pa/--process-args` |
+ |Referens              | Värdet för `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -74,13 +74,13 @@ Blanksteg ignoreras.
 
  |Kommandoradsargument            | Konfiguration av fil rad |
  |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://URL*    |
+ |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:Key*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Nästa steg
 
 Använd följande resurser för att komma igång med Microsoft Genomics:
-- Kom igång genom att köra ditt första arbetsflöde via tjänsten Microsoft Genomics. [Köra ett arbetsflöde via tjänsten Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Kom igång genom att köra ditt första arbetsflöde via tjänsten Microsoft Genomics. [Köra ett arbetsflöde via tjänsten Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
 - Skicka data för bearbetning av tjänsten Microsoft Genomics: [länkas FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera FASTQ eller BAM](quickstart-input-multiple.md) 
 

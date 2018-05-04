@@ -1,25 +1,23 @@
 ---
-title: "Microsoft kognitiva Toolkit med Azure HDInsight Spark för djup learning | Microsoft Docs"
-description: "Lär dig hur en tränad modell Microsoft kognitiva Toolkit djup learning kan tillämpas på en datamängd med Spark Python API i ett Azure HDInsight Spark-kluster."
+title: Microsoft kognitiva Toolkit med Azure HDInsight Spark för djup learning | Microsoft Docs
+description: Lär dig hur en tränad modell Microsoft kognitiva Toolkit djup learning kan tillämpas på en datamängd med Spark Python API i ett Azure HDInsight Spark-kluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: ebbbcd7a1d61ba0eac13a184aa48cacb800524e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7afb891642e3e53da5eb1e17ee654fb5fb42c313
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft kognitiva Toolkit djup Lär modell med Azure HDInsight Spark-kluster
 
@@ -75,9 +73,9 @@ Anvisningar om hur du använder Azure Portal för att köra skriptåtgärder fin
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Överför Jupyter-anteckningsbok till Azure HDInsight Spark-kluster
 
-Om du vill använda Microsoft kognitiva Toolkit med Azure HDInsight Spark-kluster måste du ladda Jupyter-anteckningsbok **CNTK_model_scoring_on_Spark_walkthrough.ipynb** i Azure HDInsight Spark-klustret. Den här anteckningsboken finns på GitHub på [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+Om du vill använda Microsoft kognitiva Toolkit med Azure HDInsight Spark-kluster måste du ladda Jupyter-anteckningsbok **CNTK_model_scoring_on_Spark_walkthrough.ipynb** i Azure HDInsight Spark-klustret. Den här anteckningsboken finns på GitHub på [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. Klona lagringsplatsen GitHub [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Anvisningar att klona finns [kloning av en databas](https://help.github.com/articles/cloning-a-repository/).
+1. Klona lagringsplatsen GitHub [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Anvisningar att klona finns [kloning av en databas](https://help.github.com/articles/cloning-a-repository/).
 
 2. Öppna bladet Spark-kluster som du redan etablerats, klickar du på Azure-portalen **Klusterinstrumentpanel**, och klicka sedan på **Jupyter-anteckningsbok**.
 

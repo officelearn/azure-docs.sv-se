@@ -253,6 +253,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: Felsöka prestandaproblem
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Felsöka problem med domän och certifikat
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: VANLIGA FRÅGOR OCH SVAR
           items:
             - name: 'Vanliga frågor och svar om tillgänglighet, prestanda och program'

@@ -1,24 +1,24 @@
 ---
-title: "Logga Analytics datasäkerhet | Microsoft Docs"
-description: "Läs mer om hur logganalys skyddar din integritet och skyddar dina data."
+title: Logga Analytics datasäkerhet | Microsoft Docs
+description: Läs mer om hur logganalys skyddar din integritet och skyddar dina data.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics datasäkerhet
 Det här dokumentet är avsett att ge Azure logganalys specifik information för att komplettera informationen på [Azure Säkerhetscenter](../security/security-microsoft-trust-center.md).  
@@ -46,7 +46,7 @@ Som en del av din [prenumerationsavtalet](https://azure.microsoft.com/support/le
 
 I följande tabell visas några av de tillgängliga lösningarna och ger exempel på typ av information som samlas in.
 
-| Lösning | **Datatyper** |
+| **Lösning** | **Datatyper** |
 | --- | --- |
 | Kapacitet och prestanda |Prestandadata och metadata |
 | Utvärdering av skadlig kod |Konfigurationsdata och metadata |
@@ -59,11 +59,11 @@ I följande tabell visas exempel på datatyper:
 
 | **Datatyp** | **Fält** |
 | --- | --- |
-| Varning |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Konfiguration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Varning |Varna namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
+| Konfiguration |CustomerID, AgentID, ID för entiteterna, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** när du skriver händelser med anpassade fält i Windows-händelseloggen OMS samlar in dem. |
-| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
-| Prestanda |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
+| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, nätverksnamn, IP-adress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP-adress, NetbiosDomainName, LogicalProcessors, DNS-namn, DisplayName, DomainDnsName, ActiveDirectorySite, huvudkontot, OffsetInMinuteFromGreenwichTime |
+| Prestanda |Objektnamn, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysisk säkerhet
@@ -155,9 +155,9 @@ I Windows eller management server-agenten cachelagrade data skyddas av operativs
 Enligt beskrivningen ovan, skickas data från hanteringsservern eller direktanslutna agenter via SSL till Microsoft Azure-datacenter. Du kan även använda ExpressRoute för att ge extra säkerhet för data. ExpressRoute är ett sätt att ansluta direkt till Azure från ditt befintliga WAN-nätverk, t.ex. flera protokoll etikett växling (MPLS) VPN, som tillhandahålls av en nätverkstjänstleverantören. Mer information finns i [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Logganalys-tjänsten som tar emot och bearbetar data
-Den här logganalys-tjänsten gör att inkommande data från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. Obearbetat rådata lagras sedan i en Azure-Händelsehubb i den region så småningom kommer att lagras data i vila. Vilken typ av data som lagras beror på vilka typer av lösningar som har importerats och används för att samla in data. Log Analytics-tjänsten processer rådata och en i databasen.
+Logganalys-tjänsten gör att inkommande data från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. Obearbetat rådata lagras sedan i en Azure-Händelsehubb i den region så småningom kommer att lagras data i vila. Vilken typ av data som lagras beror på vilka typer av lösningar som har importerats och används för att samla in data. Log Analytics-tjänsten processer rådata och en i databasen.
 
-Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av valda när arbetsytan skapades planen.  För nivån betald insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 365 dagar.  Dessa data krypteras inte ännu i vila och planeras för mid 2018. 
+Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisavtal. För den *lediga* nivån insamlade data är tillgängliga för 7 dagar. För den *betald* nivån insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 720 dagar. Data lagras krypterat i vila i Azure storage så datasekretess. De senaste två veckorna data lagras också SSD-baserad cache och det här cacheminnet för närvarande inte är krypterad.  Vi planerar att stödja dessa kryptering i den senare halvan av 2018.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Använda Log Analytics för att komma åt data
 Komma åt logganalys-arbetsytan kan du logga in på Azure-portalen med organisationens konto eller Microsoft-konto som du skapat tidigare. All trafik mellan portalen och Log Analytics-tjänsten skickas via en säker kanal för HTTPS. När du använder portalen ett sessions-ID genereras på klienten (webbläsare) för användaren och data lagras i ett lokalt cacheminne tills sessionen avslutas. När avslutas, bort cacheminnet. Klientsidans cookies, som inte innehåller personligt identifierbar information, tas inte bort automatiskt. Sessionscookies är markerad HTTPOnly och skyddas. Efter en förbestämd inaktiv period avslutas Azure portal sessionen.

@@ -16,7 +16,7 @@
 ## [Uppgift 2: Konfigurera nätverksinställningar](active-directory-ds-getting-started-network.md)
 ## [Uppgift 3: Konfigurera administratörsgrupp och aktivera Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ## [Uppgift 4: Uppdatera DNS-inställningar för virtuellt nätverk](active-directory-ds-getting-started-dns.md)
-## [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
+## [Uppgift 5: aktivera hashsynkronisering för lösenord](active-directory-ds-getting-started-password-sync.md)
 
 # Gör så här för att
 ## [Kontrollera en hanterad domäns hälsostatus](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Relaterat
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

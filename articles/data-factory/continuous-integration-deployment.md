@@ -10,19 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
 Kontinuerlig Integration är praxis för att testa varje ändring så att din codebase och automatiskt så snart som möjligt. Kontinuerlig distribution följer testning som sker under kontinuerlig Integration och skickar ändringarna till ett system för mellanlagring och produktion.
 
 För Azure Data Factory innebär kontinuerlig integration & distribution att flytta Data Factory pipelines från en miljö (utveckling, test, produktion) till en annan. Du kan använda Data Factory UI-integrering med Azure Resource Manager-mallar för att göra kontinuerlig integrering och distribution. Data Factory-Gränssnittet kan generera en Resource Manager-mall när du väljer den **ARM-mallen** alternativ. När du väljer **exportera ARM-mallen**, portalen genererar Resource Manager-mall för data factory och en konfigurationsfil som innehåller alla anslutningar strängar och andra parametrar. Du måste sedan skapa en konfigurationsfil för varje miljö (utveckling, test, produktion). Huvudfilen för Resource Manager-mallen är densamma för alla miljöer.
+
+Titta på följande videoklipp för en minut nio introduktion och demonstration av den här funktionen:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Skapa en Resource Manager-mall för varje miljö
 Välj **exportera ARM-mallen** att exportera Resource Manager-mall för din data factory i utvecklingsmiljön.

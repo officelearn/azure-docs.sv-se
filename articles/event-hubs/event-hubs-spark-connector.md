@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm;sagrewal
-ms.openlocfilehash: b430b731bdb38f6fe8af347e082fdfb1ef36a945
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: shvija
+ms.openlocfilehash: 09790852d28f2f68e854b37256ca1c8edba992e6
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integrera Apache Spark med Azure Event Hubs
 
-Händelsehubbar i Azure integreras sömlöst med [Apache Spark](https://spark.apache.org/) för att skapa distribuerade program för strömning enkelt. Denna integration stöder [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [strukturerade strömning](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Händelsehubbar connector för Apache Spark är tillgängligt på [GitHub](https://github.com/Azure/azure-event-hubs-spark). Det här biblioteket är också tillgängligt för användning i Maven-projekt från den [Maven centrallager](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Händelsehubbar i Azure integreras sömlöst med [Apache Spark](https://spark.apache.org/) att skapa distribuerade program för strömning. Denna integration stöder [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [strukturerade strömning](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Händelsehubbar connector för Apache Spark är tillgängligt på [GitHub](https://github.com/Azure/azure-event-hubs-spark). Det här biblioteket är också tillgängligt för användning i Maven-projekt från den [Maven centrallager](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
-Den här artikeln visar hur du gör en kontinuerlig programmet i [Azure Databricks](https://azure.microsoft.com/services/databricks/). När den här artikeln använder [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark-kluster finns också med [HDInsight](../hdinsight/spark/apache-spark-overview.md).
+Den här artikeln visar hur du skapar en kontinuerlig program i [Azure Databricks](https://azure.microsoft.com/services/databricks/). När den här artikeln använder [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark-kluster finns också med [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 
 I följande exempel används två Scala anteckningsböcker: en för strömning händelser från en händelsehubb och en annan för att skicka händelser till den.
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) kluster: Azure självstudiekursen
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Azure Resource Manager](../../../resource-manager-deployment-model.md) och klassisk. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Azure Resource Manager-modellen.
 
 > [!NOTE]
-> MariaDB Enterprise kluster är nu tillgänglig i Azure Marketplace. Nytt erbjudande distribuera automatiskt ett MariaDB Galera kluster på Azure Resource Manager. Du bör använda ett nytt erbjudande från [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
+> MariaDB Enterprise kluster är nu tillgänglig i Azure Marketplace. Nytt erbjudande distribuera automatiskt ett MariaDB Galera kluster på Azure Resource Manager. Du bör använda ett nytt erbjudande från [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
 >
 >
 

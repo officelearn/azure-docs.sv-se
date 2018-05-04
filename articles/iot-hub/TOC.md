@@ -78,6 +78,7 @@
 #### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
 #### [Prissättningsexempel](iot-hub-devguide-pricing.md)
 #### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
+#### [Utveckla för mobila enheter](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT-support](iot-hub-mqtt-support.md)
 #### [Ordlista](iot-hub-devguide-glossary.md)
 ### [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
@@ -191,7 +192,7 @@
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Plattformstjänster 
 ### [IoT Hub](/azure/iot-hub) 
-### [IoT Hub Device Provisioning-tjänst](/azure/iot-dps)
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
 ### [IoT-tjänst-SDK:er](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
 ### [Platsbaserade tjänster](/azure/location-based-services) 
 ### [Time Series Insights](/azure/time-series-insights) 

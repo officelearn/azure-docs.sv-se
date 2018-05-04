@@ -53,6 +53,7 @@
 #### [E-postinbjudan](active-directory-b2b-invitation-email.md)
 #### [Inlösning av inbjudan](active-directory-b2b-redemption-experience.md)
 #### [Lägga till B2B-användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
+#### [Tillåta eller blockera inbjudningar](active-directory-b2b-allow-deny-list.md)
 #### [Villkorlig åtkomst för B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B-delningsprinciper](active-directory-b2b-delegate-invitations.md)
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
@@ -273,6 +274,7 @@
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 ### [Hantera åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
+### [Skydda privilegierade roller](admin-roles-best-practices.md)
 
 ## Åtkomstgranskningar
 ### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)

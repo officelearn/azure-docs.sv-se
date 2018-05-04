@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: Prenumerationer på frågehändelser
       href: query-event-subscriptions.md
+    - name: Använd CloudEvents-schema
+      href: cloudevents-schema.md
 - name: Referens
   items:
     - name: Azure CLI

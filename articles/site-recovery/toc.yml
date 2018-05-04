@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Om Azure Traffic Manager med Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: Om ExpressRoute med Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: site-recovery-faq.md
 - name: Instruktionsguider
@@ -119,12 +121,14 @@
       items:
         - name: Nätverk
           items:
-            - name: Hantera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+            - name: Hantera nätverk för haveriberedskap för virtuella Azure-datorer
               href: azure-to-azure-about-networking.md
             - name: Förbereda nätverksmappning i haveriberedskap för virtuella Azure-datorer
               href: azure-to-azure-network-mapping.md
             - name: Konfigurera IP-adresser för redundans
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute med Azure VM-haveriberedskap
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Haveriberedskap
           items:
             - name: Haveriberedskap för virtuella Azure-datorer efter migrering till Azure

@@ -94,8 +94,6 @@
       items:
         - name: Konfigurera identitetsprovidrar
           items:
-            - name: Anpassad OpenID Connect
-              href: active-directory-b2c-setup-oidc-idp.md
             - name: Microsoft-konto
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -114,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (enskild klient)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: Anpassad OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Konfigurera återställning av lösenord för självbetjäning
           href: active-directory-b2c-reference-sspr.md
         - name: Anpassa gränssnittet

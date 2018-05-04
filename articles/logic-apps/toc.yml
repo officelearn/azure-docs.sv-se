@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: Hantera fel och undantag
           href: logic-apps-exception-handling.md
+        - name: Hantera stora meddelanden
+          href: logic-apps-handle-large-messages.md
         - name: Skydda dina logikappar
           href: logic-apps-securing-a-logic-app.md
         - name: Utveckla anpassade anslutningsappar

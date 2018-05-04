@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/24/2018
   ms.author: jdial
-  ms.openlocfilehash: 8458b8cb21a0b9699a5856ad5b46abf88d1e3659
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: d8f4996aedec1083ccdb3e05e17bf068bdeffe22
+  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 05/01/2018
 abstract:
   description: Lär dig hur du använder Azure Network Watcher. Snabbstarter, självstudier med mera visar dig hur du kan få insikter i ditt virtuella Azure-nätverk med verktyg som paketinsamling och NSG-flödesloggar som hjälper dig att diagnostisera problem med trafikfiltrering och routning samt övervaka anslutningar.
 sections:
@@ -49,6 +49,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnostisera problem med nätverksroutning för virtuella datorer</a>
+    - html: <a href="/azure/network-watcher/connection-monitor">Övervaka nätverkskommunikation mellan en virtuell dator och en slutpunkt</a>
 - title: Kostnadsfri videoutbildning för Pluralsight
   items:
   - type: list

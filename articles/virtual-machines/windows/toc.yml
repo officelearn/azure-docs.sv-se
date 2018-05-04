@@ -105,7 +105,11 @@
         - name: Så här aktiverar du Write Accelerator
           href: how-to-enable-write-accelerator.md
         - name: Felsöka anslutna virtuella hårddiskar
-          href: troubleshoot-vhds.md
+          items:
+            - name: Fel vid borttagning av lagringsresurs
+              href: storage-resource-deletion-errors.md
+            - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+              href: unexpected-reboots-attached-vhds.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt

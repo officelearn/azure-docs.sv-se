@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Prestanda och skalning
           href: durable-functions-perf-and-scale.md
+        - name: Haveriberedskap och geo-replikering
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Instruktionsguider
   items:
     - name: Utveckla

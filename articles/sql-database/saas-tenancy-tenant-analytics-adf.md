@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
 ms.openlocfilehash: 487dcd75113b92c1e50caca2ae9df34b4fb2548f
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
 ---

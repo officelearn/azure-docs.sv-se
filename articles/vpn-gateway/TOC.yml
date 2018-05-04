@@ -1,17 +1,17 @@
 - name: Dokumentation om VPN Gateway
-  href: index.md
+  href: index.yml
 - name: Översikt
   items:
     - name: Om VPN Gateway
       href: vpn-gateway-about-vpngateways.md
-- name: Självstudier
-  items:
-    - name: Skapa och hantera VPN Gateway
-      href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Exempel
   items:
     - name: Azure PowerShell
       href: powershell-samples.md
+- name: Självstudier
+  items:
+    - name: Skapa och hantera VPN Gateway
+      href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Begrepp
   items:
     - name: Planering och design för VPN Gateway

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: bccd889ba8a063613f1f3f385b39e4bfe8afcc89
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 27ce89f205efa6b8f2d29e034c6e5002065879fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Använda Caffe för distribuerade djup learning på Azure HDInsight Spark
 
@@ -29,7 +29,7 @@ Djupgående learning är påverkar allt från hälsovård till transport till ti
 
 Det finns [många populära ramverk](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), inklusive [Microsoft kognitiva Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, osv. Caffe är en av de mest berömda ramverk för icke-symboliska (viktigt) neurala nätverket, och som används ofta i många områden, inklusive datorn vision. Dessutom [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) kombinerar Caffe med Apache Spark, i vilket fall djupt learning enkelt kan användas på ett befintligt Hadoop-kluster. Du kan använda djup learning tillsammans med Spark ETL pipelines degressiv system komplexitet och svarstid för komplett lösning.
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) ett moln Hadoop erbjuder som ger optimal öppen källkod analytiska kluster för Spark, Hive, Hadoop, HBase, Storm, Kafka och R Server. HDInsight backas upp av en SLA för 99,9%. Var och en av dessa tekniker för stordata och ISV-program kan enkelt distribueras som hanterade kluster med säkerhet och övervakning för företag.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) ett moln Hadoop erbjuder som ger optimal öppen källkod analytiska kluster för Spark, Hive, Hadoop, HBase, Storm, Kafka och R Server. HDInsight backas upp av en SLA för 99,9%. Var och en av dessa tekniker för stordata och ISV-program kan enkelt distribueras som hanterade kluster med säkerhet och övervakning för företag.
 
 Den här artikeln visar hur du installerar [Caffe på Spark](https://github.com/yahoo/CaffeOnSpark) för ett HDInsight-kluster. Den här artikeln använder också inbyggda MNIST demo för att visar hur du använder distribuerade djup Learning med HDInsight Spark på processorer.
 

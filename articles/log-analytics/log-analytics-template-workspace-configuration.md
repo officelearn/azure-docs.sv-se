@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: 0d9848a6477dbf1b93a7f640bc44adf627b40a45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att skapa och konfigurera logganalys arbetsytor. Exempel på uppgifter som du kan utföra med mallar:
@@ -230,7 +230,7 @@ I följande exempel mallen visas hur du:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ Azure quickstart mallgalleriet innehåller flera mallar för Log Analytics, inkl
 * [Distribuera en virtuell dator som kör Linux med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Övervaka Azure Site Recovery med en befintlig logganalys-arbetsyta](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Övervaka Azure Web Apps med hjälp av en befintlig logganalys-arbetsyta](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Övervaka SQL Azure med hjälp av en befintlig logganalys-arbetsyta](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Distribuera ett Service Fabric-kluster och övervaka med en befintlig logganalys-arbetsyta](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Distribuera ett Service Fabric-kluster och skapa en logganalys-arbetsytan för att övervaka det](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Lägg till ett befintligt lagringskonto i OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Distribuera agenter till virtuella Azure-datorer med hjälp av Resource Manager-mallar](log-analytics-azure-vm-extension.md)
+* [Distribuera Windows-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/windows/extensions-oms.md).
+* [Distribuera Linux-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/linux/extensions-oms.md).
 

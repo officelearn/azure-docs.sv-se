@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 8390284f969fe9375a70801724881db26806a1d8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: af92eec8b6461563a366805d5eb4cbb964b028a5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Anpassad installation för Azure-SSIS-integrering runtime
 
@@ -29,13 +29,7 @@ Du kan installera både ledigt eller olicensierad komponenter och betald eller l
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
--   Du kan inte direkt använda skript som anropar xcopy eller robocopy eller liknande verktyg för att kopiera filer just nu. Som en tillfällig lösning kan du skapa en `cmd` -fil som innehåller skript som anropar xcopy eller robocopy verktyg (till exempel `install.cmd`), och anropa detta `cmd` fil i stället. Exempel:
-
-    ```
-    start /wait cmd /c "call install.cmd > %CUSTOM\_SETUP\_SCRIPT\_LOG\_DIR%\\install.cmd.log"
-    ```
-
--   Du kan inte anropa direkt `gacutil.exe` installera sammansättningar i den globala sammansättningscachen (GAC) just nu. Som en tillfällig lösning kan du använda `gacinstall.cmd` (ingår i behållaren Public Preview).
+-   Om du vill använda `gacutil.exe` för att installera sammansättningar i den globala sammansättningscachen (GAC), du måste ange den som en del av din anpassade konfiguration, eller använda kopian som tillhandahålls i behållaren Public Preview.
 
 -   Om du behöver ansluta till din Azure-SSIS-IR med anpassad installation till ett virtuellt nätverk stöds endast Azure Resource Manager VNet. Klassiska VNet stöds inte.
 
@@ -125,7 +119,7 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
     c. Markera den anslutna Public Preview-behållaren och dubbelklicka på den `CustomSetupScript` mapp. I den här mappen är följande:
 
-       1. En `Sample` mapp som innehåller en anpassad installation om du vill installera en standardaktivitet på varje nod i Azure-SSIS-IR. Uppgiften ingenting men strömsparläge under några sekunder. Mappen innehåller `gacinstall.cmd` ersätta `gacutil.exe`.
+       1. En `Sample` mapp som innehåller en anpassad installation om du vill installera en standardaktivitet på varje nod i Azure-SSIS-IR. Uppgiften ingenting men strömsparläge under några sekunder. Mappen innehåller en `gacutil` mapp som innehåller `gacutil.exe`.
 
        2. En `UserScenarios` mapp som innehåller åtta anpassade inställningar för verkliga scenarier.
 
@@ -133,21 +127,23 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
     d. Dubbelklicka på den `UserScenarios` mapp. I den här mappen är följande:
 
-       1. En `BCP` mapp som innehåller en anpassad installation för att installera SQL Server-kommandoradsverktyg (`MsSqlCmdLnUtils.msi`), inklusive program för bulk copy program (`bcp`), på varje nod i Azure-SSIS-IR.
+       1. En `.NET FRAMEWORK 3.5` mapp som innehåller en anpassad installation för att installera en tidigare version av .NET Framework som kan krävas för anpassade komponenter på varje nod i Azure-SSIS-IR.
 
-       2. En `EXCEL` mapp som innehåller en anpassad installation för att installera sammansättningar med öppen källkod (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i Azure-SSIS-IR.
+       2. En `BCP` mapp som innehåller en anpassad installation för att installera SQL Server-kommandoradsverktyg (`MsSqlCmdLnUtils.msi`), inklusive program för bulk copy program (`bcp`), på varje nod i Azure-SSIS-IR.
 
-       3. En `MSDTC` mapp som innehåller en anpassad installation för att aktivera och starta tjänsten Microsoft Distributed Transaction Coordinator (MSDTC) på varje nod i Azure-SSIS-IR.
+       3. En `EXCEL` mapp som innehåller en anpassad installation för att installera sammansättningar med öppen källkod (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i Azure-SSIS-IR.
 
-       4. En `ORACLE ENTERPRISE` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera drivrutinen för Oracle OCI på varje nod i din Azure-SSIS IR Enterprise Edition (privat förhandsvisning). Den här installationen kan du använda Anslutningshanteraren för Oracle, källa och mål. Först, måste du hämta `winx64_12102_client.zip` från [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) och sedan ladda upp den tillsammans med `main.cmd` och `client.rsp` till din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överföra den till din behållare, så den kan kopieras till Oracle-installationsmappen under installationen.
+       4. En `MSDTC` mapp som innehåller en anpassad installation om du vill ändra nätverks- och konfigurationer för Microsoft Distributed Transaction Coordinator (MSDTC)-instans på varje nod i Azure-SSIS-IR..
 
-       5. En `ORACLE STANDARD` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) att installera drivrutinen för Oracle ODP.NET på varje nod i Azure-SSIS-IR. Den här installationen kan du använda ADO.NET Anslutningshanteraren, källa och mål. Hämta först `ODP.NET_Managed_ODAC122cR1.zip` från [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), och sedan ladda upp den tillsammans med `main.cmd` till din behållare.
+       5. En `ORACLE ENTERPRISE` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera drivrutinen för Oracle OCI på varje nod i din Azure-SSIS IR Enterprise Edition (privat förhandsvisning). Den här installationen kan du använda Anslutningshanteraren för Oracle, källa och mål. Först, måste du hämta `winx64_12102_client.zip` från [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) och sedan ladda upp den tillsammans med `main.cmd` och `client.rsp` till din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överföra den till din behållare, så den kan kopieras till Oracle-installationsmappen under installationen.
 
-       6. En `SAP BW` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) att installera sammansättningen för SAP .NET-koppling (`librfc32.dll`) på varje nod i din Azure-SSIS IR Enterprise Edition (privat förhandsvisning). Den här installationen kan du använda Anslutningshanteraren för SAP BW, källa och mål. Först överföra 64-bitars eller 32-bitarsversionen av `librfc32.dll` från SAP-installationsmappen till din behållare, tillsammans med `main.cmd`. Skriptet kopieras SAP-sammansättningen i den `%windir%\SysWow64` eller `%windir%\System32` mappen under installationen.
+       6. En `ORACLE STANDARD` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) att installera drivrutinen för Oracle ODP.NET på varje nod i Azure-SSIS-IR. Den här installationen kan du använda ADO.NET Anslutningshanteraren, källa och mål. Hämta först `ODP.NET_Managed_ODAC122cR1.zip` från [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), och sedan ladda upp den tillsammans med `main.cmd` till din behållare.
 
-       7. En `STORAGE` mapp som innehåller en anpassad installation för att installera Azure PowerShell på varje nod i Azure-SSIS-IR. Den här installationen kan du distribuera och köra SSIS-paket som kör [PowerShell-skript för att hantera dina Azure Storage-konto](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Kopiera `main.cmd`, ett exempel på en `AzurePowerShell.msi` (eller installera den senaste versionen) och `storage.ps1` till din behållare. Använd PowerShell.dtsx som en mall för dina paket. Mallen paketet kombinerar en [Azure Blob hämta uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), vilka uppdateringar som `storage.ps1` som ett PowerShell-skript som kan ändras och en [köra processaktiviteten](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) som kör skriptet på varje nod.
+       7. En `SAP BW` mapp som innehåller en anpassad installationsskriptet (`main.cmd`) att installera sammansättningen för SAP .NET-koppling (`librfc32.dll`) på varje nod i din Azure-SSIS IR Enterprise Edition (privat förhandsvisning). Den här installationen kan du använda Anslutningshanteraren för SAP BW, källa och mål. Först överföra 64-bitars eller 32-bitarsversionen av `librfc32.dll` från SAP-installationsmappen till din behållare, tillsammans med `main.cmd`. Skriptet kopieras SAP-sammansättningen i den `%windir%\SysWow64` eller `%windir%\System32` mappen under installationen.
 
-       8. En `TERADATA` mapp som innehåller en anpassad installationsskriptet (`main.cmd)`, dess associerade filen (`install.cmd`), och installer-paket (`.msi`). De här filerna installerar Teradata kopplingar, TPT-API och ODBC-drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition (privat förhandsvisning). Den här installationen kan du använda Anslutningshanteraren för Teradata, källa och mål. Först hämta filen Teradata verktyg och hjälpmedel (TTU) 15.x zip (till exempel `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) från [Teradata](http://partnerintelligence.teradata.com), och överföra den tillsammans med ovanstående `.cmd` och `.msi` filer till en behållare.
+       8. En `STORAGE` mapp som innehåller en anpassad installation för att installera Azure PowerShell på varje nod i Azure-SSIS-IR. Den här installationen kan du distribuera och köra SSIS-paket som kör [PowerShell-skript för att hantera dina Azure Storage-konto](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Kopiera `main.cmd`, ett exempel på en `AzurePowerShell.msi` (eller installera den senaste versionen) och `storage.ps1` till din behållare. Använd PowerShell.dtsx som en mall för dina paket. Mallen paketet kombinerar en [Azure Blob hämta uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), vilka uppdateringar som `storage.ps1` som ett PowerShell-skript som kan ändras och en [köra processaktiviteten](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) som kör skriptet på varje nod.
+
+       9. En `TERADATA` mapp som innehåller en anpassad installationsskriptet (`main.cmd)`, dess associerade filen (`install.cmd`), och installer-paket (`.msi`). De här filerna installerar Teradata kopplingar, TPT-API och ODBC-drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition (privat förhandsvisning). Den här installationen kan du använda Anslutningshanteraren för Teradata, källa och mål. Först hämta filen Teradata verktyg och hjälpmedel (TTU) 15.x zip (till exempel `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) från [Teradata](http://partnerintelligence.teradata.com), och överföra den tillsammans med ovanstående `.cmd` och `.msi` filer till en behållare.
 
     ![Mappar i mappen scenarier](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

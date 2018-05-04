@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure-databas för MySQL prisnivåer
 
@@ -44,7 +44,7 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 
 | **Azure-region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Centrala USA |  | X |
+| Centrala USA | X |  |
 | Östra USA | X | X |
 | Östra USA 2 | X | X |
 | Norra centrala USA | X |  |
@@ -55,14 +55,16 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 | Östra Kanada | X | X |
 | Södra Brasilien | X | X |
 | Norra Europa | X | X |
-| Västra Europa | X | X |
+| Västra Europa |  | X |
 | Storbritannien, västra |  | X |
 | Storbritannien, södra |  | X |
 | Östasien | X |  |
 | Sydostasien | X | X |
 | Östra Australien |  | X |
+| Sydöstra Australien |  | X |
 | Indien, centrala | X |  |
 | Indien, västra | X |  |
+| Södra Indien |  | X |
 | Östra Japan | X | X |
 | Västra Japan | X | X |
 | Sydkorea |  | X |

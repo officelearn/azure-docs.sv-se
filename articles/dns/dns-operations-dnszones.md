@@ -3,7 +3,7 @@ title: Hantera DNS-zoner i Azure DNS - PowerShell | Microsoft Docs
 description: Du kan hantera DNS-zoner med hjälp av Azure Powershell. Den här artikeln beskriver hur du uppdaterar, ta bort och skapa DNS-zoner på Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: gwallace
-ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: kumud
+ms.openlocfilehash: e7b0bc32d3fa8fbcf73298b6988655fca7cfa793
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Hur du hanterar DNS-zoner med hjälp av PowerShell
 
@@ -52,7 +52,7 @@ I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Mana
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS stöder nu också privata DNS-zoner (för närvarande i förhandsversion).  Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur du skapar en privat DNS-zon finns [Kom igång med privata Azure DNS-zoner med hjälp av PowerShell](./private-dns-getstarted-powershell.md).
+Azure DNS stöder nu också privata DNS-zoner (för närvarande i förhandsversion).  Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur man kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Hämta en DNS-zon
 
@@ -71,15 +71,15 @@ NumberOfRecordSets    : 2
 MaxNumberOfRecordSets : 5000
 ```
 
-## <a name="list-dns-zones"></a>Lista över DNS-zoner
+## <a name="list-dns-zones"></a>Lista DNS-zoner
 
-Genom att utelämna zonnamnet från `Get-AzureRmDnsZone`, kan du räkna upp alla zoner i en resursgrupp. Den här åtgärden returnerar en matris med zonen objekt.
+Genom att utelämna zonnamnet från `Get-AzureRmDnsZone` kan du räkna upp alla zoner i en resursgrupp. Den här åtgärden returnerar en matris med zonobjekt.
 
 ```powershell
 $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
-Genom att utelämna både zonnamnet och resursgruppens namn från `Get-AzureRmDnsZone`, kan du räkna upp alla zoner i Azure-prenumeration.
+Genom att utelämna både zonnamnet och resursgruppsnamnet från `Get-AzureRmDnsZone` kan du räkna upp alla zoner i Azure-prenumerationen.
 
 ```powershell
 $zoneList = Get-AzureRmDnsZone
@@ -87,7 +87,7 @@ $zoneList = Get-AzureRmDnsZone
 
 ## <a name="update-a-dns-zone"></a>Uppdatera en DNS-zon
 
-En DNS-zon resurs kan ändras med hjälp av `Set-AzureRmDnsZone`. Denna cmdlet inte uppdatera alla DNS-postuppsättningar i zonen (se [hur du hanterar DNS-poster](dns-operations-recordsets.md)). Den används endast för att uppdatera egenskaper för resursen zonen. Skrivbar zonegenskaperna är för tillfället begränsad till den [Azure Resource Manager-taggar ”för resursen zonen](dns-zones-records.md#tags).
+Du kan göra ändringar i en DNS-zonresurs med `Set-AzureRmDnsZone`. Den här cmdleten uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets.md)). Den används endast för att uppdatera zonresursens egenskaper. Skrivbar zonegenskaperna är för tillfället begränsad till den [Azure Resource Manager-taggar ”för resursen zonen](dns-zones-records.md#tags).
 
 Använd någon av följande två sätt att uppdatera en DNS-zon:
 
@@ -124,12 +124,12 @@ När du använder `Set-AzureRmDnsZone` med ett $zone-objekt [Etag kontrollerar](
 DNS-zoner kan tas bort med den `Remove-AzureRmDnsZone` cmdlet.
 
 > [!NOTE]
-> En DNS-zon också tar du bort DNS-poster i zonen. Den här åtgärden kan inte ångras. Om DNS-zonen misslyckas tjänster med hjälp av zonen när zonen tas bort.
+> Om du tar bort en DNS-zon så tar du även bort DNS-posterna i zonen. Du kan inte ångra den här åtgärden. Om DNS-zonen används, så misslyckas de tjänster som använder zonen när zonen tas bort.
 >
->För att skydda mot oavsiktlig zonen borttagning finns [Skydda DNS-zoner och poster](dns-protect-zones-recordsets.md).
+>Hur du gör för att förebygga oavsiktlig zonborttagning beskrivs i [Skydda DNS-zoner och poster](dns-protect-zones-recordsets.md).
 
 
-Använd någon av följande två sätt att ta bort en DNS-zon:
+Använd något av följande två sätt när du ska ta bort en DNS-zon:
 
 ### <a name="specify-the-zone-using-the-zone-name-and-resource-group-name"></a>Ange zonen med zonnamnet och resursgruppens namn
 
@@ -139,14 +139,14 @@ Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### <a name="specify-the-zone-using-a-zone-object"></a>Ange zonen med ett $zone-objekt
 
-Du kan ange zonen som ska tas bort med hjälp av en `$zone` objektet som returnerades av `Get-AzureRmDnsZone`.
+Du kan ange zonen som ska tas bort med hjälp av ett `$zone`-objekt som returnerats av `Get-AzureRmDnsZone`.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 Remove-AzureRmDnsZone -Zone $zone
 ```
 
-Objektet zon kan även skickas i stället för att skickas som en parameter:
+Zonobjektet kan även pipas i stället för att skickas som en parameter:
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone
@@ -155,17 +155,17 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 Precis som med `Set-AzureRmDnsZone`, ange en zon med hjälp av en `$zone` objekt gör det möjligt för Etag-kontroller för att säkerställa samtidiga ändringar inte tas bort. Använd den `-Overwrite` växel för att ignorera dessa kontroller.
 
-## <a name="confirmation-prompts"></a>Konfigurera meddelanden
+## <a name="confirmation-prompts"></a>Bekräftelsemeddelanden
 
-Den `New-AzureRmDnsZone`, `Set-AzureRmDnsZone`, och `Remove-AzureRmDnsZone` cmdlets alla stöder konfigurera meddelanden.
+Cmdletarna `New-AzureRmDnsZone`, `Set-AzureRmDnsZone` och `Remove-AzureRmDnsZone` stöder alla bekräftelsemeddelanden.
 
-Båda `New-AzureRmDnsZone` och `Set-AzureRmDnsZone` fråga efter bekräftelse om de `$ConfirmPreference` PowerShell inställningsvariabeln har värdet `Medium` eller lägre. På grund av potentiellt hög effekten av att ta bort en DNS-zon på `Remove-AzureRmDnsZone` cmdlet uppmanas att bekräfta om den `$ConfirmPreference` PowerShell variabel har ett värde annat än `None`.
+Både `New-AzureRmDnsZone` och `Set-AzureRmDnsZone` frågar efter bekräftelse om `$ConfirmPreference` PowerShell-inställningsvariabeln har värdet `Medium` eller lägre. På grund av den potentiellt höga effekten av att ta bort en DNS-zon så uppmanar `Remove-AzureRmDnsZone`-cmdleten dig att bekräfta att `$ConfirmPreference` PowerShell-variabeln har något värde annat än `None`.
 
-Eftersom standardvärdet för `$ConfirmPreference` är `High`, endast `Remove-AzureRmDnsZone` uppmanas att bekräfta som standard.
+Eftersom standardvärdet för `$ConfirmPreference` är `High`, så frågar endast `Remove-AzureRmDnsZone` om bekräftelse som standard.
 
-Du kan åsidosätta aktuellt `$ConfirmPreference` inställningen med hjälp av den `-Confirm` parameter. Om du anger `-Confirm` eller `-Confirm:$True` , så uppmanas du att bekräfta innan den körs. Om du anger `-Confirm:$False` , cmdleten visas inte efter bekräftelse.
+Du kan åsidosätta den aktuella `$ConfirmPreference`-inställningen med hjälp av parametern `-Confirm`. Om du anger `-Confirm` eller `-Confirm:$True`, så uppmanar cmdleten dig att bekräfta detta innan den körs. Om du anger `-Confirm:$False`, som ber cmdleten dig inte om bekräftelse.
 
-Mer information om `-Confirm` och `$ConfirmPreference`, se [om variabler för](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+Mer information om `-Confirm` och `$ConfirmPreference` finns i [Om inställningsvariabler](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
 ## <a name="next-steps"></a>Nästa steg
 

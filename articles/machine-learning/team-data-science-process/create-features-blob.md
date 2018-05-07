@@ -3,7 +3,7 @@ title: Skapa funktioner för Azure blob storage-data med hjälp av Panda | Micro
 description: Så här skapar du funktioner för data som lagras i Azure blob-behållaren med Panda Python-paketet.
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
-ms.openlocfilehash: a5a4b92f04fcb4683f792263f3477ecea4d7239e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 7d105e8e8cf67cd28c0be8a02b26913a25eed023
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Skapa funktioner för Azure Blob Storage-data med Panda
 Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i Azure blob-behållaren med den [Pandas](http://pandas.pydata.org/) Python-paketet. Efter beskriver hur du läser in data i ett Panda data visas hur du skapar kategoriska funktioner med hjälp av Python-skript med indikatorn värden och diskretisering funktioner.

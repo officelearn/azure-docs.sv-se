@@ -1,9 +1,9 @@
 ---
-title: "Skapa Hive-tabeller och Läs in data från Azure Blob Storage | Microsoft Docs"
-description: "Skapa Hive-tabeller och läsa in data i blob till hive tabeller"
+title: Skapa Hive-tabeller och Läs in data från Azure Blob Storage | Microsoft Docs
+description: Skapa Hive-tabeller och läsa in data i blob till hive tabeller
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 7634a8bdc7492d674801a256a4d5bb73170311ee
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och Läs in data från Azure Blob Storage
 Det här avsnittet innehåller allmänna Hive-frågor som skapar Hive-tabeller och läsa in data från Azure blob storage. Vägledning finns även på partitionering Hive-tabeller och använda den optimerade raden kolumner (ORC) formatering för att förbättra frågeprestanda.
@@ -143,7 +143,7 @@ Här är Hive-frågan som skapar en Hive-tabell.
 Nedan följer beskrivningar av de fält som du ska ansluta och andra konfigurationer:
 
 * **<database name>**: namnet på databasen som du vill skapa. Om du vill använda standarddatabasen frågan *Skapa databas...*  kan utelämnas.
-* **<table name>**: namnet på den tabell som du vill skapa inom den angivna databasen. Om du vill använda standarddatabasen tabellen kan refereras direkt av  *<table name>*  utan <database name>.
+* **<table name>**: namnet på den tabell som du vill skapa inom den angivna databasen. Om du vill använda standarddatabasen tabellen kan refereras direkt av *<table name>* utan <database name>.
 * **<field separator>**: avgränsare som avgränsar fälten i filen ska överföras till Hive-tabell.
 * **<line separator>**: avgränsare som avgränsar rader i datafilen.
 * **<storage location>**: Azure storage-plats att spara data för Hive-tabeller. Om du inte anger *plats <storage location>* , lagras i databasen och tabeller i *hive/datalager/* katalogen i standardbehållaren för Hive-klustret som standard. Om du vill ange lagringsplatsen måste lagringsplatsen vara i standardbehållaren för databasen och tabeller. Den här platsen måste vara kallas klustrets i formatet plats i förhållande till standardbehållaren *' wasb: / / / < katalogen 1 > / ”* eller *' wasb: / / / < katalogen 1 > / < katalogen 2 > /”*osv. När frågan körs, skapas de relativa katalogerna i standardbehållaren.
@@ -154,7 +154,7 @@ Här är Hive-frågan som läser in data i en Hive-tabell.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Om blob-filen ska överföras till Hive-tabell är i standardbehållaren för HDInsight Hadoop-kluster i  *<path to blob data>*  ska vara i formatet *' wasb: / / /<directory in this container> / <blob file name>'*. Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet  *<path to blob data>*  ska vara i formatet *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **<path to blob data>**: Om blob-filen ska överföras till Hive-tabell är i standardbehållaren för HDInsight Hadoop-kluster i *<path to blob data>* ska vara i formatet *' wasb: / / /<directory in this container> / <blob file name>'*. Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet *<path to blob data>* ska vara i formatet *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > Blob-data ska överföras till Hive-tabell måste vara i standard eller ytterligare en behållare på lagringskontot för Hadoop-kluster. I annat fall den *Läs in DATA* frågan inte kunde köras klagande att det går inte att komma åt data.
@@ -230,7 +230,7 @@ Välj data från den externa tabellen i steg 1 och infoga i tabellen ORC
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Det är säkert att släppa den  *<external textfile table name>*  när med följande fråga efter alla data som har infogats i  *<database name>.<ORC table name>* :
+Det är säkert att släppa den *<external textfile table name>* när med följande fråga efter alla data som har infogats i *<database name>.<ORC table name>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

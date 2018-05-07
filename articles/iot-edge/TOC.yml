@@ -53,8 +53,6 @@
           href: how-to-vscode-debug-csharp-module.md
         - name: Felsöka Azure Functions
           href: how-to-vscode-debug-azure-function.md
-    - name: CI/CD i VSTS
-      href: how-to-ci-cd.md
     - name: Lagra data på gränsen
       href: sql-storage.md
     - name: Felsöka

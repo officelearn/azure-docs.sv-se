@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med QuickHelp | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och QuickHelp."
+title: 'Självstudier: Azure Active Directory-integrering med QuickHelp | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och QuickHelp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4a7bc895e2ee9b4a66bc59f309971c577be8019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb51a61ebe67f583b47ad516ddb40cd5b84b905
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Självstudier: Azure Active Directory-integrering med QuickHelp
 
@@ -31,7 +31,7 @@ Integrera QuickHelp med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med QuickHelp, behöver du följande:
 
@@ -110,12 +110,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://quickhelp.com/<instancename>/#/Login`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://quickhelp.com/<ROUTEURL>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.quickhelp.com`
+    b. I den **identifierare** textruta, ange ett URL-Adressen: `https://auth.quickhelp.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [QuickHelp klienten supportteamet](https://support.quickhelp.com/) att hämta dessa värden. 
+    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL. Kontakta din organisations QuickHelp eller din kreativitet Client lyckade Manager för att hämta värdet.
  
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -152,10 +152,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     e. I den **efternamn** textruta `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. I den **Åtgärdsfältet**, klickar du på **spara**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.

@@ -1,24 +1,24 @@
 ---
 title: Azure reservera VM-instanser Windows programvarukostnader | Microsoft Docs
-description: "Lär dig vilka Windows programvara mätare ingår inte i den reserverade virtuella datorinstans kostnader."
+description: Lär dig vilka Windows programvara mätare ingår inte i den reserverade virtuella datorinstans kostnader.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Windows programvarukostnader ingår inte i reserverade instanser
 
@@ -29,7 +29,7 @@ Om du inte har en Azure Hybrid Använd fördel på reserverade virtuella datorer
 | Mätar-ID | MeterName i filen för användning | Används av virtuell dator |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Windows-reservation Svr Burst (1 kärna) | B-serien |
-| cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Windows-reservation Svr Burst (2 kärnor) | B-serien |
+| cac255a2-9f0f-4c62-8BD6-f0fa449c5f76 | Windows-reservation Svr Burst (2 kärnor) | B-serien |
 | 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Windows-reservation Svr Burst (4 kärnor) | B-serien |
 | e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Windows-reservation Svr Burst (8 kärnor) | B-serien |
 | f65a06cf-c9c3-47a2-8104-f17a8542215a | Windows-reservation Svr (1 kärna) | Allt utom B-serien |

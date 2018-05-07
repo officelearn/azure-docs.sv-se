@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Information om priser för Azure IoT-hubb
 
@@ -35,9 +35,9 @@ ms.lasthandoff: 04/03/2018
 | Meddelanden moln till enhet | Skickade meddelanden debiteras i 4 KB-block, till exempel ett meddelande på 6 KB debiteras 2 meddelanden. |
 | Filöverföringar | Filöverföring till Azure Storage mäts inte i IoT Hub. Filen överföring stöd för start och slutförande meddelanden debiteras som postmeddelandet förbrukade i steg 4 KB. Till exempel debiteras överföra en fil på 10 MB två meddelanden förutom kostnaden för Azure Storage. |
 | Direkta metoder | Lyckad metodbegäranden debiteras i 4 KB-block, debiteras svar med icke-tom organ i 4 KB-block som ytterligare meddelanden. Begäranden till frånkopplade enheter debiteras som meddelanden i 4 KB-block. Till exempel debiteras en metod med 6 KB brödtext som resulterar i ett svar med ingen brödtext från enheten, som två meddelanden. En metod med 6 KB brödtext som resulterar i ett 1-KB-svar från enheten debiteras som två meddelanden för begäran plus ett annat meddelande för svaret. |
-| Läsoperationer för enhetstvilling | Enheten dubbla läser från enheten och lösningen tillbaka slutet debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsa en 6 KB enheten dubbla som 12 meddelanden. |
-| Dubbla uppdateringar (taggar och egenskaper) | Dubbla uppdateringar från enheten och lösningens serverdel debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsa en 6 KB enheten dubbla som 12 meddelanden. |
-| Enheten dubbla frågor | Frågor debiteras som meddelanden beroende på storleken på resultatet i 512 byte-segment. |
+| Enheten och modulen dubbla läser | Dubbla läser från enheten eller modulen och lösningen tillbaka slutet debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsa en 6 KB dubbla som 12 meddelanden. |
+| Modulen dubbla uppdateringar för enhet och (taggar och egenskaper) | Dubbla uppdateringar från enheten eller modulen och lösningens serverdel debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsa en 6 KB dubbla som 12 meddelanden. |
+| Enheten och modulen dubbla frågor | Frågor debiteras som meddelanden beroende på storleken på resultatet i 512 byte-segment. |
 | Jobbåtgärder <br/> (skapa, uppdatera, visa, ta bort) | Inte debiteras. |
 | Åtgärder för jobb per enhet | Jobb-åtgärder (till exempel dubbla uppdateringar och metoder) debiteras som vanligt. Till exempel debiteras ett jobb som ledde till 1000 metodanrop med 1 KB och -svar för tom brödtext 1000 meddelanden. |
 

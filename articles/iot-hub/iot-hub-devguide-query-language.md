@@ -1,6 +1,6 @@
 ---
 title: Förstå Azure IoT Hub-frågespråket | Microsoft Docs
-description: Utvecklarhandbok - beskrivning av SQL-liknande IoT-hubb frågespråk som används för att hämta information om enheten twins och jobb från din IoT-hubb.
+description: Utvecklarhandbok - fråga beskrivning av IoT-hubb SQL-liknande språk som används för att hämta information om enhet-modulen twins och jobb från din IoT-hubb.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: f1c578b6ebb766f71d6e8b65b02724d91dde3126
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT-hubb frågespråk för enheten och modulen twins, jobb och meddelanderoutning
 
 IoT-hubb ger en kraftfull SQL-liknande språk för att hämta information om [enhet twins] [ lnk-twins] och [jobb][lnk-jobs], och [meddelanderoutning][lnk-devguide-messaging-routes]. Den här artikeln beskriver:
 

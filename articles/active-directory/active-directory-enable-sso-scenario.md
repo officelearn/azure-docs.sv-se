@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e05b2d515b997e769306146a5390d4d44fd5cf50
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Hantera program med Azure Active Directory
 Utöver det faktiska arbetsflödet eller innehåll har företag två grundläggande krav för alla program:
@@ -111,6 +111,6 @@ Du kan skydda dina program med detaljerade åtkomstprinciper och förintegrerade
 Om du vill komma igång med att integrera program med Azure AD kan ta en titt på den [integrera Azure Active Directory med program komma igång](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Se också
-[Artikel Index för programhantering i Azure Active Directory](active-directory-apps-index.md)
-[stegvisa distributionsplan för enkel inloggning till ett SaaS-program](http://aka.ms/ssodeploymentplan)
+* [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
+* [Stegvisa distributionsplan för enkel inloggning till ett SaaS-program](http://aka.ms/ssodeploymentplan)
 

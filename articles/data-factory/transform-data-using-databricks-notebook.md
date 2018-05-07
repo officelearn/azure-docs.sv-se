@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 3.  I fönstret **Ny datafabrik** anger du **ADFTutorialDataFactory** under **Namn**.
 
-    Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel **\<dittnamn\>ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules).
+    Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel **\<dittnamn\>ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Ange ett namn för den nya datafabriken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -61,7 +61,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     
     - Välj **Skapa ny** och ange namnet på en resursgrupp.
 
-    Vissa av stegen i den här snabbstarten förutsätter att du använder namnet **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+    Vissa av stegen i den här snabbstarten förutsätter att du använder namnet **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1.  För **Version** väljer du **V2 (förhandsversion)**.
 
@@ -149,7 +149,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
           ![Skapa en ny mapp](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Skapa en ny Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) och namnge den **mynotebook** under **adftutorial**-mappen**,** klicka sedan på **skapa.**
+       3. [Skapa en ny Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) och namnge den **mynotebook** under **adftutorial**-mappen **,** klicka sedan på **skapa.**
 
           ![Skapa en ny notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

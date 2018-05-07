@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -32,7 +32,7 @@ Syftet med den här artikeln är att visa hur du få insikter och felsöka från
 
 ## <a name="monitoring-in-app-insights"></a>Övervakning av App Insights
 
-Application Insights har en omfattande med Service Fabric. På översiktssidan innehåller AI viktig information om tjänsten, till exempel svarstid och antal begäranden som bearbetas. Du kan se en lista över senaste begäranden i ditt program genom att klicka på ”Sök” längst upp. Dessutom kan skulle du kunna finns här misslyckade begäranden och diagnostisera vilka fel uppstod.
+Application Insights har en omfattande out-of-box experience när du använder Service Fabric. På översiktssidan innehåller AI viktig information om tjänsten, till exempel svarstid och antal begäranden som bearbetas. Du kan se en lista över senaste begäranden i ditt program genom att klicka på ”Sök” längst upp. Dessutom kan skulle du kunna finns här misslyckade begäranden och diagnostisera vilka fel uppstod.
 
 ![AI-översikt](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

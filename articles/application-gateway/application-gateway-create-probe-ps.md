@@ -3,8 +3,8 @@ title: Skapa en anpassad avsökning - Azure Application Gateway - PowerShell | M
 description: Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med PowerShell i Resource Manager
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: 5180e659851a0ef5dbe92c451a9e2ba545821d07
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökningsåtgärd för Programgateway i Azure med hjälp av PowerShell för Azure Resource Manager
 

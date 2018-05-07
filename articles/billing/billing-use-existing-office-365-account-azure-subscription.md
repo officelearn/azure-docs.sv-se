@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: e9f90127bce0502147572c5ac6bd65e47dbe8c35
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dfb39b809f9a1082682d269d8bd4c180c8a264ce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Registrera dig för en Azure-prenumeration med ditt Office 365-konto
 Om du har en Office 365-prenumeration kan använda du Office 365-konto för att skapa en Azure-prenumeration. Logga in på den [Azure-portalen](https://portal.azure.com/) med ditt Office 365-användarnamn och lösenord. Om du vill konfigurera virtuella datorer eller andra Azure-tjänster måste du registrera dig för en Azure-prenumeration. Du kan dela din Azure-prenumeration med andra och [använda rollbaserad åtkomstkontroll för att hantera åtkomst till din Azure-prenumeration och resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

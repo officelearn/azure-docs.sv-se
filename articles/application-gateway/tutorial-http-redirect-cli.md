@@ -1,26 +1,26 @@
 ---
 title: Skapa en Programgateway med ett certifikat - Azure CLI | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway och lägga till ett certifikat för SSL-avslutning med hjälp av Azure CLI."
+description: Lär dig hur du skapar en Programgateway och lägga till ett certifikat för SSL-avslutning med hjälp av Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
-ms.author: davidmu
-ms.openlocfilehash: b055bfcd077ae0c16c471aaa9c31e61303068ca5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 645ccad03997256a050b48aab7104e9fe9ae7ef3
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med hjälp av Azure CLI
 
 Du kan använda Azure CLI för att skapa en [Programgateway](application-gateway-introduction.md) med ett certifikat för SSL-avslutning. En regel för vidarebefordran används för att dirigera HTTP-trafik till HTTPS-porten i Programgateway. I det här exemplet du också skapa en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för serverdelspoolen för Programgateway som innehåller två virtuella instanser.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
@@ -172,7 +172,7 @@ az network application-gateway rule create \
   --redirect-config httpToHttps
 ```
 
-## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
 I det här exemplet skapar du en virtuell dator skaluppsättningen namngivna *myvmss* som ger servrar för serverdelspoolen i programgatewayen. De virtuella datorerna i skaluppsättning som är associerade med *myBackendSubnet* och *appGatewayBackendPool*. Att skapa skala, kan du använda [az vmss skapa](/cli/azure/vmss#az_vmss_create).
 
@@ -203,13 +203,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda för att hämta den offentliga IP-adressen för programgatewayen [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+Du kan använda för att hämta den offentliga IP-adressen för programgatewayen [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 az network public-ip show \

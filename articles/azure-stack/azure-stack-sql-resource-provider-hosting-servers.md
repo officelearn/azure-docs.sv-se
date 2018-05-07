@@ -1,39 +1,35 @@
 ---
-title: "SQL som värd för servrar på Azure-stacken | Microsoft Docs"
-description: "Hur du lägger till SQL-instanser för att etablera via Resource Provider för SQL-kort"
+title: SQL som värd för servrar på Azure-stacken | Microsoft Docs
+description: Hur du lägger till SQL-instanser för att etablera via Resource Provider för SQL-kort
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Lägg till värdservrar för användning av SQL-kort
-
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovidern
 Du kan använda SQL-instanser på virtuella datorer i i din [Azure Stack](azure-stack-poc.md), eller en instans utanför din Azure Stack-miljö tillhandahålls resursprovidern kan ansluta till den. Allmänna krav är:
 
 * SQL-instansen måste vara dedikerade för användning av arbetsbelastningar RP och användare. Du kan inte använda en SQL-instans som används av några andra konsumenten, inklusive Apptjänster.
-* RP-nätverkskort är inte ansluten till en domän och kan bara ansluta med SQL-autentisering.
-* Du måste konfigurera ett konto med rätt behörighet för användning av RP.
-* RP och användare, till exempel Web Apps använda nätverkets användare, så krävs anslutning till SQL-instans på det här nätverket. Det här kravet innebär vanligtvis IP-Adressen för din SQL-instanser måste vara i ett offentligt nätverk.
-* Hantering av SQL-instanser och deras värdar är; RP matchar inte utföra uppdatering, säkerhetskopiering, autentiseringsuppgifter rotation, osv.
+* SQL-resursprovidern VM är inte ansluten till en domän och kan bara ansluta med SQL-autentisering.
+* Du måste konfigurera ett konto med rätt behörighet för användning av resursprovidern.
+* Resursprovidern och användare, till exempel Web Apps använda nätverkets användare, så krävs anslutning till SQL-instans på det här nätverket. Det här kravet innebär vanligtvis IP-Adressen för din SQL-instanser måste vara i ett offentligt nätverk.
+* Hantering av SQL-instanser och deras värdar är; resursprovidern matchar inte utföra uppdatering, säkerhetskopiering, autentiseringsuppgifter rotation, osv.
 * SKU: er kan användas för att skapa olika klasser av SQL-funktioner, till exempel prestanda, alltid på osv.
 
-
-Ett antal SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Se till att du alltid den senaste versionen av SQL IaaS tillägget innan du distribuerar en virtuell dator med hjälp av en Marketplace-objektet. SQL-avbildningar är desamma som de SQL virtuella datorer som är tillgängliga i Azure. Tillhandahåller funktioner som automatisk uppdatering och funktionerna för säkerhetskopiering för SQL virtuella datorer skapas från dessa avbildningar IaaS-tillägget och motsvarande portalen förbättringar.
+Ett antal SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Se till att du alltid ladda ned den senaste versionen av den **SQL IaaS tillägget** innan du distribuerar en virtuell dator med hjälp av en Marketplace-objektet. SQL-avbildningar är desamma som de SQL virtuella datorer som är tillgängliga i Azure. Tillhandahåller funktioner som automatisk uppdatering och funktionerna för säkerhetskopiering för SQL virtuella datorer skapas från dessa avbildningar IaaS-tillägget och motsvarande portalen förbättringar.
 
 Det finns andra alternativ för att distribuera SQL virtuella datorer, inklusive mallar i den [Azure Stack Snabbstartsgalleriet](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -65,7 +61,7 @@ Följ dessa steg för att lägga till en fristående värd server som redan har 
 
   Den **värd för SQL-servrar** bladet är där du kan ansluta Resource Provider för SQL Server till faktiska instanser av SQL Server som fungerar som den resursprovidern backend.
 
-  ![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+  ![Värdservrar](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
 3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen.
 
@@ -84,7 +80,10 @@ Följ dessa steg för att lägga till en fristående värd server som redan har 
 
   SKU-namnet bör avspegla egenskaper så att användarna kan placera sina databaser på lämpligt sätt. Alla värdservrar i en SKU ska ha samma funktioner.
 
-    Ett exempel:
+> [!IMPORTANT]
+> Specialtecken, inklusive blanksteg och punkter, stöds inte i den **familj** eller **nivå** namn när du skapar en SKU för SQL och MySQL-resursprovidrar.
+
+Ett exempel:
 
 ![SKU:er](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -130,7 +129,7 @@ Så här lägger du till SQL alltid på värdservrar:
 
 4. Den här kryssrutan om du vill aktivera stöd för instanser av SQL Always On-Tillgänglighetsgruppen.
 
-    ![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+    ![Värdservrar](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Lägga till en SQL Always On-instans till en SKU. Du kan blanda fristående servrar med Always On-instanser i samma SKU: N. Som bestäms när du lägger till den första värdservern. Försök att blanda typer efteråt resulterar i ett fel.
 
@@ -140,27 +139,6 @@ Så här lägger du till SQL alltid på värdservrar:
 Skapa planer och erbjudanden om du vill göra SQL-databaser som är tillgängliga för användare. Lägg till tjänsten Microsoft.SqlAdapter i planen och lägga till en befintlig kvot eller skapa en ny. Om du skapar en kvot kan ange du kapacitet för att tillåta användaren.
 
 ![Skapa planer och erbjudanden om du vill inkludera databaser](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>Underhåll av SQL-kortet RP
-
-Underhåll av SQL-instanser omfattas inte här, förutom rotation lösenordsinformation. Du är ansvarig för uppdatering och säkerhetskopiering/återställning av database-servrar som används med SQL-kort.
-
-### <a name="patching-and-updating"></a>Uppdateringsverktyg och uppdatera
- SQL-kortet servas inte som en del av Azure-stacken eftersom det är en tilläggskomponent. Microsoft tillhandahåller uppdateringar till SQL-kort efter behov. SQL-Adapter instansieras på en _användaren_ virtuell dator i prenumerationen Standard Provider. Därför är det nödvändigt att ange Windows korrigeringsfiler, antivirus signaturer osv. Windows uppdateringspaket som tillhandahålls som en del av korrigeringsfil och uppdateringscykeln kan användas för att installera uppdateringar för Windows-VM. När en uppdaterad adapter släpps, tillhandahålls ett skript för att installera uppdateringen. Det här skriptet skapar en ny RP VM och migrera några tillstånd som du redan har.
-
- ### <a name="backuprestoredisaster-recovery"></a>Säkerhetskopiering/återställning/Disaster Recovery
- SQL-kortet säkerhetskopieras inte som en del av Azure Stack BC-DR-processen, eftersom det är en tilläggskomponent. Skript kommer att tillhandahållas för att underlätta:
-- Säkerhetskopiering av nödvändiga statusinformation (som lagras i ett lagringskonto i Azure-Stack)
-- Återställer RP återställning av en fullständig stack blir nödvändigt.
-Databasservrar måste återställas först (om det behövs), innan RP återställs.
-
-### <a name="updating-sql-credentials"></a>Uppdatera autentiseringsuppgifterna för SQL
-
-Du ansvarar för att skapa och underhålla system administratörskonton på SQL-servrar. RP måste ha ett konto med dessa behörigheter för att hantera databaser åt användare - behöver inte åtkomst till data i dessa databaser. Om du behöver uppdatera sa-lösenord på SQL-servrar använda du update möjligheterna för den RP administratörsgränssnittet för att ändra det lagrade lösenordet som används av RP. Lösenord lagras i ett Nyckelvalv på Azure Stack-instansen.
-
-Om du vill ändra inställningarna klickar du på **Bläddra** &gt; **ADMINISTRATIONSRESURSER** &gt; **värd för SQL-servrar** &gt; **SQL-inloggningar** och välj ett inloggningsnamn. Den måste ändras för SQL-instans först (och alla repliker, om det behövs). I den **inställningar** panelen, klickar du på **lösenord**.
-
-![Uppdatera administratörslösenordet](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>Nästa steg

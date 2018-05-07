@@ -1,30 +1,30 @@
 ---
-title: "Azure händelse rutnätet prenumeration schema"
-description: "Beskriver egenskaper för att prenumerera på en händelse med Azure händelse rutnätet."
+title: Azure händelse rutnätet prenumeration schema
+description: Beskriver egenskaper för att prenumerera på en händelse med Azure händelse rutnätet.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 888196225ec5998405113842344469d02a2cf5c7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 406eb2c1974958eef5e83915e6b21e385cf7d2c7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Händelseschema rutnätet prenumeration
 
 Om du vill skapa en händelse rutnätet prenumeration skicka en begäran att skapa händelsen prenumerationen igen. Använd följande format:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Till exempel vill skapa en händelseprenumeration för ett lagringskonto med namnet `examplestorage` i en resursgrupp med namnet `examplegroup`, Använd följande format:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller egenskaperna och schemat för brödtexten i begär
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| destination | objekt | Det objekt som definierar slutpunkten. |
+| Mål | objekt | Det objekt som definierar slutpunkten. |
 | filter | objekt | Ett valfritt fält för att filtrera vilka typer av händelser. |
 
 ### <a name="destination-object"></a>Målobjekt
@@ -51,7 +51,7 @@ Den här artikeln innehåller egenskaperna och schemat för brödtexten i begär
 | includedEventTypes | matris | Matcha när händelsetypen i händelsemeddelandet är exakt matchar ett av dessa namn för typen av händelse. Genererar ett fel när händelsenamn inte matchar typnamnen registrerade händelser för händelsekällan. Standard matchar alla händelsetyper. |
 | subjectBeginsWith | sträng | En prefixmatchning filtrera ämnesfältet i meddelandet. Matchar alla standard eller tom sträng. | 
 | subjectEndsWith | sträng | En suffix matchning filtrera ämnesfältet i meddelandet. Matchar alla standard eller tom sträng. |
-| subjectIsCaseSensitive | sträng | Kontroller skiftlägeskänsliga matchningen för filter. |
+| isSubjectCaseSensitive | sträng | Kontroller skiftlägeskänsliga matchningen för filter. |
 
 
 ## <a name="example-subscription-schema"></a>Exempel prenumeration schema
@@ -69,7 +69,7 @@ Den här artikeln innehåller egenskaperna och schemat för brödtexten i begär
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
-      "subjectIsCaseSensitive": "true"
+      "isSubjectCaseSensitive ": "true"
     }
   }
 }

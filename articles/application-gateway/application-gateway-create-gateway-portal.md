@@ -1,21 +1,21 @@
 ---
 title: Skapa en Programgateway - Azure-portalen | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway med hjälp av Azure portal."
+description: Lär dig hur du skapar en Programgateway med hjälp av Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 0df71c445d2c5fc6827b69f708203a3b3e6e2b53
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Skapa en Programgateway med Azure-portalen
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure portal [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
@@ -60,11 +60,11 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
 1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
 2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-    ![Skapa ett undernät](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
+    ![Skapa undernät](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
 3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-## <a name="create-backend-servers"></a>Skapa backend-servrar
+## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
@@ -75,15 +75,15 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 3. Ange dessa värden för den virtuella datorn:
 
     - *myVM* – namnet på den virtuella datorn.
-    - *azureuser* - för administratörsanvändarnamn.
+    - *azureuser* – för administratörens användarnamn.
     - *Azure123456!* för lösenordet.
     - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
 4. Klicka på **OK**.
-5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+5. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
-7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
-8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+7. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
+8. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
 ### <a name="install-iis"></a>Installera IIS
 
@@ -123,7 +123,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 
     ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
     ![Testa Programgateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
@@ -134,4 +134,4 @@ Ta bort resursgruppen och Programgateway alla relaterade resurser när de inte l
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en resursgrupp, nätverksresurser och backend-servrar. Du kan sedan använda resurserna för att skapa en Programgateway. Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.
+I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du kan sedan använda resurserna för att skapa en Programgateway. Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

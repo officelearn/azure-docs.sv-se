@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integration av Azure Stack datacenter - identitet
 Du kan distribuera Azure-stacken använder Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantörer. Innan du distribuerar Azure stacken måste du göra valet. Distribution med AD FS är kallas även distribuera Azure-stacken i frånkopplat läge.
@@ -60,6 +60,8 @@ Krav:
 
 ## <a name="setting-up-graph-integration"></a>Konfigurering av Graph-integrering
 
+Diagrammet har endast stöd för integrering med Active Directory-skog. Om det finns flera skogar, används den skog som angetts i konfigurationen för att hämta användare och grupper.
+
 Följande information krävs som indata för automation-parametrar:
 
 
@@ -95,12 +97,14 @@ Använda en dator i ditt datacenternätverk som kan kommunicera med den privileg
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   När du uppmanas du ange autentiseringsuppgifter för det användarkonto som du vill använda för Graph-tjänsten (till exempel graphservice).
+   När du uppmanas du ange autentiseringsuppgifter för det användarkonto som du vill använda för Graph-tjänsten (till exempel graphservice). Indata för cmdleten Register-DirectoryService måste vara skogens namn / root domän i skogen i stället för alla domäner i skogen.
 
    > [!IMPORTANT]
    > Vänta tills autentiseringsuppgifterna som popup (Get-Credential stöds inte i den privilegierade slutpunkten) och ange autentiseringsuppgifterna för tjänstkontot för diagrammet.
 
 #### <a name="graph-protocols-and-ports"></a>Diagram-protokoll och portar
+
+Diagrammet tjänsten i Azure-stacken använder följande protokoll och portar för att kommunicera med en skrivbar Global katalog-Server (GC) och KDC Key Distribution Center () som kan bearbeta inloggningsbegäranden i målet Active Directory-skog.
 
 Diagram tjänsten i Azure-stacken använder följande protokoll och portar för att kommunicera med målet Active Directory:
 

@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Tillåt användare att logga in på en identitetsleverantör för flera innehavare Azure AD med anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare som använder gemensamma slutpunkten för Azure Active Directory (AD Azure) med [anpassade principer](active-directory-b2c-overview-custom.md).
+Den här artikeln visar hur du aktiverar inloggning för användare med flera innehavare slutpunkten för Azure Active Directory (AD Azure) med [anpassade principer](active-directory-b2c-overview-custom.md). Detta gör att användare från flera Azure AD-klienter att logga in på Azure AD B2C utan att konfigurera en teknisk provider för varje klient. Gästen medlemmar i någon av dessa klienter dock **inte** att kunna logga in. För att du behöver [konfigurerar varje klient](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > Vi använder ”contoso.com” för organisations Azure AD-klient och ”fabrikamb2c.onmicrosoft.com” som Azure AD B2C-klient i följande instruktioner.
@@ -36,25 +36,22 @@ Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-
 De här stegen innefattar:
      
 1. Skapa ett Azure Active Directory B2C-klient (Azure AD B2C).
-2. Skapar ett program för Azure AD B2C.    
-3. Registrering av två principmodulen program.  
-4. Inställning av nycklar. 
-5. Konfigurera startpaket.
+1. Skapar ett program för Azure AD B2C.    
+1. Registrering av två principmodulen program.  
+1. Inställning av nycklar. 
+1. Konfigurera startpaket.
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>Steg 1. Skapa en app för flera innehavare Azure AD
 
-Om du vill aktivera inloggning för användare med flera innehavare Azure AD-slutpunkten måste ha ett program för flera innehavare som registrerats i någon av Azure AD-klienter. I den här artikeln visas hur du skapar ett flera innehavare Azure AD-program i din Azure AD B2C-klient. Aktivera inloggning för användare genom att använda den Azure AD-program med flera innehavaren.
-
->[!NOTE]
-> Om du vill att Azure AD-användare **och användare med Microsoft-konton** för att logga in, hoppa över det här avsnittet och i stället registrera ett program i den [Microsoft developer-portalen](https://apps.dev.microsoft.com).
+Om du vill aktivera inloggning för användare med flera innehavare Azure AD-slutpunkten måste ha ett program för flera innehavare som registrerats i något av Azure AD-klienter. I den här artikeln visas hur du skapar ett flera innehavare Azure AD-program i din Azure AD B2C-klient. Aktivera inloggning för användare genom att använda den Azure AD-program med flera innehavaren.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ditt konto på den översta raden. Från den **Directory** Välj Azure AD B2C-klient för att registrera Azure AD-program (fabrikamb2c.onmicrosoft.com).
-2. Välj **fler tjänster** i den vänstra rutan och söka efter ”App registreringar”.
-3. Välj **Ny programregistrering**.
-4. Ange ett namn för ditt program (till exempel `Azure AD B2C App`).
-5. Välj **Webbapp/API** som programtyp.
-6. För **inloggnings-URL**, ange följande URL, där `yourtenant` ersättas med namnet på din Azure AD B2C-klient (`fabrikamb2c.onmicrosoft.com`):
+1. Välj **fler tjänster** i den vänstra rutan och söka efter ”App registreringar”.
+1. Välj **Ny programregistrering**.
+1. Ange ett namn för ditt program (till exempel `Azure AD B2C App`).
+1. Välj **Webbapp/API** som programtyp.
+1. För **inloggnings-URL**, ange följande URL, där `yourtenant` ersättas med namnet på din Azure AD B2C-klient (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >Värdet för ”yourtenant” måste vara gemener i den **inloggnings-URL**.
@@ -82,8 +79,8 @@ Du måste registrera nyckeln för programmet i Azure AD B2C-inställningar. Gör
    * För **namn**, Välj ett namn som matchar din Azure AD-klientnamn (till exempel `AADAppSecret`).  Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
    * Klistra in nyckeln program i den **hemlighet** rutan.
    * Välj **signatur**.
-5. Välj **Skapa**.
-6. Bekräfta att du har skapat nyckeln `B2C_1A_AADAppSecret`.
+1. Välj **Skapa**.
+1. Bekräfta att du har skapat nyckeln `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>Steg 3. Lägg till en anspråksprovider i en grundläggande princip
 
@@ -114,11 +111,12 @@ Du kan definiera Azure AD som en anspråksprovider genom att lägga till Azure A
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +148,15 @@ Du kan definiera Azure AD som en anspråksprovider genom att lägga till Azure A
 1. Uppdatera värdet för `<Description>`.
 1. Ange `<Item Key="client_id">` program-ID: t från Azure AD mulity klienten app-registrering.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>Steg 3.1 [valfritt] begränsa åtkomsten till särskilda lista över Azure AD-klienter
-Du kanske vill uppdatera listan över giltiga token utfärdare och begränsa åtkomsten till specifik lista med Azure AD-klienter användare kan logga in. Om du vill hämta värdena du behöver titta på metadata för varje Azure AD-klienter som du vill att användare loggar in från. Formatet för data som ser ut ungefär så här: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, där `yourAzureADtenant` är ditt Azure AD-klientnamn (contoso.com eller andra Azure AD-klient).
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Steg 3.1 begränsa åtkomsten till en specifik lista med Azure AD-klienter
+
+> [!NOTE]
+> Med hjälp av `https://sts.windows.net` som värde för **ValidTokenIssuerPrefixes** tillåter alla Azure AD-användare kan logga in på din app.
+
+Du måste uppdatera listan över giltiga token utfärdare och begränsa åtkomsten till specifik lista med Azure AD-klienter användare kan logga in. Om du vill hämta värdena du behöver titta på metadata för varje Azure AD-klienter som du vill att användare loggar in från. Formatet för data som ser ut ungefär så här: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, där `yourAzureADtenant` är ditt Azure AD-klientnamn (contoso.com eller andra Azure AD-klient).
 1. Öppna webbläsaren och gå till metadata-URL.
 1. Leta efter 'issuer-objektet i webbläsaren och kopiera värdet. Det bör se ut ungefär så här: `https://sts.windows.net/{tenantId}/`.
 1. Klistra in värdet för den `ValidTokenIssuerPrefixes` nyckel. Du kan lägga till flera genom att avgränsa dem med kommatecken. Ett exempel på detta är kommenterade i exemplet ovan XML.
-
-> [!NOTE]
-> Med hjälp av `https://sts.windows.net` som prefixvärdet tillåter alla Azure AD-användare kan logga in på din app.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>Steg 4. Registrera anspråksprovider för Azure AD-konto
 
@@ -212,11 +211,11 @@ Nu måste du uppdatera filen förlitande part (RP) som initierar användaren res
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Steg 6: Överför principen till din klient
 
 1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext för din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och välj sedan **Azure AD B2C**.
-2. Välj **identitet upplevelse Framework**.
-3. Välj **alla principer**.
-4. Välj **överföra princip**.
-5. Välj den **skriva över principen om den finns** kryssrutan.
-6. Överför den `TrustFrameworkExtensions.xml` RP- fil (t.ex. `SignUpOrSignInWithAAD.xml`) och se till att de valideras.
+1. Välj **identitet upplevelse Framework**.
+1. Välj **alla principer**.
+1. Välj **överföra princip**.
+1. Välj den **skriva över principen om den finns** kryssrutan.
+1. Överför den `TrustFrameworkExtensions.xml` RP- fil (t.ex. `SignUpOrSignInWithAAD.xml`) och se till att de valideras.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Steg 7: Testa den anpassade principen genom att använda Kör nu
 

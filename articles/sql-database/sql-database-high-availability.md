@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
@@ -30,7 +30,7 @@ Kunder som är mest intresserad återhämtning av sina egna databaser och är mi
 
 För data som använder SQL-databas både lokal lagring (LS) baserat på direkt anslutna diskar/virtuella hårddiskar och Fjärrlagring (RS) baserat på Azure Premium Storage sidblobar. 
 - Lokal lagring används i Premium eller Business (förhandsgranskning) databaser och elastiska pooler som är utformade för uppdragskritiska kritiska OLTP-program med höga krav på IOPS. 
-- Fjärrlagring används för Basic och Standard servicenivåer, utformad för budget inriktade arbetsbelastningar som kräver lagring och beräkningskraft kan skalas för sig. De kan använda en enda sidblob för databasen och loggfilerna och inbyggda lagring mekanismer för replikering och redundans.
+- Fjärrlagring används i Basic, Standard och generella servicenivåer, som är utformade för budget inriktade arbetsbelastningar som kräver lagring och beräkningskraft kan skalas för sig. De kan använda en enda sidblob för databasen och loggfilerna och inbyggda lagring mekanismer för replikering och redundans.
 
 I båda fallen replikering, felidentifiering och mekanismer för växling vid fel för SQL-databas är helt automatiserad och fungerar utan mänsklig inblandning. Den här arkitekturen är utformat för att se till att spara data aldrig går förlorade och att data hållbarhet företräde framför allt annat.
 
@@ -56,7 +56,7 @@ Den [Service Fabric](../service-fabric/service-fabric-overview.md) redundans sys
 
 ## <a name="remote-storage-configuration"></a>Fjärrlagring konfiguration
 
-Exakt en kopia underhålls i fjärranslutna blob storage, med hjälp av system lagringskapacitet för hållbarhet, redundans och bitars ringröta identifiering för Fjärrlagring konfigurationer (nivåerna Basic och Standard). 
+Exakt en kopia underhålls i fjärranslutna blob storage, med hjälp av system lagringskapacitet för hållbarhet, redundans och bitars ringröta identifiering för Fjärrlagring konfigurationer (nivåerna Basic, Standard eller generella). 
 
 Följande diagram visas arkitektur för hög tillgänglighet:
  

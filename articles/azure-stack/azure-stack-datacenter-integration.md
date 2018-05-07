@@ -1,25 +1,25 @@
 ---
-title: "Allmänna datacenter integration överväganden för Azure-stacken integrerat system | Microsoft Docs"
-description: "Lär dig vad du kan göra för att planera nu och förbereder för integrering av datacenter med flera noder Azure Stack."
+title: Allmänna datacenter integration överväganden för Azure-stacken integrerat system | Microsoft Docs
+description: Lär dig vad du kan göra för att planera nu och förbereder för integrering av datacenter med flera noder Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integrering överväganden för Azure-stacken integrerat system
 Om du är intresserad av en Azure-stacken integrerat system, bör du förstå några viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden som hjälper dig att fatta viktiga infrastruktur beslut för ditt system med flera noder Azure stacken. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM när de distribuerar Azure Stack till ditt datacenter.  
@@ -50,7 +50,9 @@ När en högre nivå av åtkomst krävs för att felsöka problem som inte är l
 ## <a name="identity-considerations"></a>Identity-överväganden
 
 ### <a name="choose-identity-provider"></a>Välj identitetsleverantören.
-Du behöver överväga vilka identitetsleverantör som du vill använda för distribution av Azure-stacken, Azure AD eller AD FS. Du kan inte växla identitetsleverantörer efter distributionen utan Omdistributionen för hela systemet.
+Du behöver överväga vilka identitetsleverantör som du vill använda för distribution av Azure-stacken, Azure AD eller AD FS. Du kan inte växla identitetsleverantörer efter distributionen utan Omdistributionen för hela systemet. Om du inte äger Azure AD-kontot och använder ett konto som du fått av din Molntjänstleverantör, och om du vill växla providern och använder en annan Azure AD-kontot, då du måste kontakta din leverantör om du vill distribuera om lösningen f eller du dina kostnader.
+
+
 
 Önskat identity-providern påverkar inte på virtuella datorer, identitet och konton som de använder, om de kan ansluta till en Active Directory-domän, osv. Detta är separat.
 

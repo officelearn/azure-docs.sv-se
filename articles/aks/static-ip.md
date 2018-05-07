@@ -1,6 +1,6 @@
 ---
-title: "Använda en statisk IP-adress med belastningsutjämnaren Azure Container Service (AKS)"
-description: "Använda en statisk IP-adress med Azure Container Service (AKS) belastningsutjämnare."
+title: Använda en statisk IP-adress med belastningsutjämnaren Azure Container Service (AKS)
+description: Använda en statisk IP-adress med Azure Container Service (AKS) belastningsutjämnare.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Använda en statisk IP-adress med belastningsutjämnaren Azure Container Service (AKS)
 
@@ -59,9 +59,11 @@ Anteckna IP-adressen.
 
  Om det behövs, adressen som kan hämtas med hjälp av den [az offentliga ip-lista över] [ az-network-public-ip-list] kommando.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 Om den statiska IP-adressen inte har skapats eller har skapats i fel resursgrupp, misslyckas skapa en tjänst. Returnera service-skapande händelser med hur du felsöker det [kubectl beskrivs] [ kubectl-describe] kommando.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>

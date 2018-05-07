@@ -1,26 +1,26 @@
 ---
-title: "Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure CLI | Microsoft Docs"
-description: "Lär dig hur du skapar URL sökväg-baserade regler för vidarebefordran för ett program gateway och den virtuella datorn skaluppsättningen med hjälp av Azure CLI."
+title: Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar URL sökväg-baserade regler för vidarebefordran för ett program gateway och den virtuella datorn skaluppsättningen med hjälp av Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: eeba6ce5bd082cb6b9c3266fcc95deb1785e8cce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Skapa en Programgateway med URL: en sökväg-baserade regler för routning med hjälp av Azure CLI
 
 Du kan använda Azure CLI för att konfigurera [URL-sökväg-baserade regler för routning](application-gateway-url-route-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med hjälp av en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan kan du skapa regler för routning som kontrollerar Internet-trafik anländer till rätt servrar i poolerna.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -213,13 +213,13 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda för att hämta den offentliga IP-adressen för programgatewayen [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. T.ex, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, eller *http://40.121.222.19:8080/video/test.htm*.
+Du kan använda för att hämta den offentliga IP-adressen för programgatewayen [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. T.ex, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, eller *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \

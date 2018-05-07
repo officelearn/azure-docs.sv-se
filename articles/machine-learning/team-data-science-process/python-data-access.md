@@ -3,7 +3,7 @@ title: Åtkomst till datamängder med Machine Learning Python klientbiblioteket 
 description: Installera och använda Python klientbiblioteket komma åt och hantera Azure Machine Learning data på ett säkert sätt från en lokal Python-miljö.
 services: machine-learning
 documentationcenter: python
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 5f0823e07f0e583e32829b664a1d3d463092169e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: f97fbb76ddf48fb3c7ec79b6b2ed8cee3e0ceabb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsgranskning av Microsoft Azure Machine Learning Python klientbiblioteket kan aktivera säker åtkomst till din Azure Machine Learning datamängder från en lokal Python-miljö och möjliggör skapande och hantering av datauppsättningar i en arbetsyta.
@@ -41,7 +41,7 @@ Klientbibliotek för Python har testats enligt följande miljöer:
 Det finns ett beroende på följande paket:
 
 * förfrågningar
-* python-dateutil
+* Python-dateutil
 * pandas
 
 Vi rekommenderar att du använder en Python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [trädtak](https://store.enthought.com/downloads/), som medföljer Python, IPython och tre paket i listan ovan installerad. Även om IPython inte är absolut nödvändigt, är det en bra miljö för hantering och visualisera data interaktivt.

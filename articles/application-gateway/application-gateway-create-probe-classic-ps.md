@@ -1,11 +1,11 @@
 ---
-title: "Skapa en anpassad avsökningsåtgärd - Azure Application Gateway - PowerShell klassisk | Microsoft Docs"
-description: "Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med PowerShell i den klassiska distributionsmodellen"
+title: Skapa en anpassad avsökningsåtgärd - Azure Application Gateway - PowerShell klassisk | Microsoft Docs
+description: Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med PowerShell i den klassiska distributionsmodellen
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Skapa en anpassad avsökningsåtgärd för Azure-Programgateway (klassiskt) med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -151,7 +151,7 @@ Konfigurationsparametrarna är:
 |---|---|
 |**Namn** |Referensnamn för anpassade avsökningen. |
 * **Protokollet** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
-| **Värden** och **sökväg** | Fullständiga URL-sökväg som anropas av Programgateway fastställa hälsotillståndet för instansen. Till exempel om du har en webbplats http://contoso.com/ kan sedan den anpassa avsökningen konfigureras för ”http://contoso.com/path/custompath.htm” för avsökning kontrollerar att ett lyckat HTTP-svar.|
+| **Värden** och **sökväg** | Fullständiga URL-sökväg som anropas av Programgateway fastställa hälsotillståndet för instansen. Om du har en webbplats till exempel http://contoso.com/, och sedan den anpassa avsökningen kan konfigureras för ”http://contoso.com/path/custompath.htm” för avsökning kontrollerar att ett lyckat HTTP-svar.|
 | **Intervall** | Konfigurerar kontroller för avsökning intervall i sekunder.|
 | **Timeout** | Definierar avsökningen timeout-värdet för en kontroll för HTTP-svar.|
 | **UnhealthyThreshold** | Antal misslyckade HTTP-svar som behövs för att flaggan backend-instans som *ohälsosamt*.|

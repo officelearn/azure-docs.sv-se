@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a873aa9835ffab8b0d195d9fc9588167ea134128
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure DB Cosmos database-säkerhet
 
@@ -78,7 +78,7 @@ Nu ska vi prova var och en i detalj.
 |Svara på attacker|När du har kontaktat Azure-supporten om du vill rapportera ett potentiellt angrepp, inletts en process i steg 5 incidenter. Målet med steg 5-processen är att återställa normal drift säkerhet och åtgärder så snabbt som möjligt när ett problem upptäcks och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure Security Response i molnet](https://aka.ms/securityresponsepaper).|
 |Geobegränsning|Azure Cosmos-DB säkerställer datastyrning och kompatibilitet för suveräna regioner (till exempel Tyskland Kina oss Gov).|
 |Skyddade lokaler|Data i Azure Cosmos databasen lagras på SSD i Azures skyddade datacenter.<br><br>Läs mer i [globala Microsoft-datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS-kryptering|Alla klient-till-tjänst Azure Cosmos DB interaktioner är SSL/TLS 1.2 tillämpas. All inom datacentret och mellan datacenter replikering är också SSL/TLS 1.2 tillämpas.|
+|HTTPS/SSL/TLS-kryptering|Alla klient-till-tjänst Azure Cosmos DB interaktioner är SSL/TLS 1.2-kompatibla. All inom datacentret och mellan datacenter replikering är också SSL/TLS 1.2 tillämpas.|
 |Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypterat i vila. Läs mer i [Azure Cosmos DB kryptering i vila](.\database-encryption-at-rest.md)|
 |Korrigeringsfil servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och korrigering av servrar, som har utförts för dig, automatiskt.|
 |Administrativa konton med starka lösenord|Det är svårt att tro behöver vi även nämnt detta krav, men till skillnad från vissa av våra konkurrenter, är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos-databasen.<br><br> Säkerhet via SSL och HMAC hemliga autentisering är inbyggd i som standard.|

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med TrackVia | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TrackVia."
+title: 'Självstudier: Azure Active Directory-integrering med TrackVia | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TrackVia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Självstudier: Azure Active Directory-integrering med TrackVia
 
@@ -108,13 +108,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och TrackVia domän med enkel inloggning information](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url.png)
 
-    I den **identifierare** textruta Skriv värdet:`TrackVia`
+    I den **identifierare** textruta Skriv värdet: `TrackVia`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och TrackVia domän med enkel inloggning information](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://companyname.trackvia.com`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://companyname.trackvia.com`
      
     > [!NOTE] 
     > Inloggning URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [TrackVia klienten supportteamet](mailto:support@trackvia.com) att hämta det här värdet.
@@ -126,11 +126,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Konfigurera enkel inloggning på **TrackVia** sida, måste du skicka den hämtade **XML-Metadata för** till [TrackVia supportteamet](mailto:support@trackvia.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. På den **TrackVia Configuration** klickar du på **konfigurera TrackVia** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID** från den **Snabbreferens avsnitt.**
+
+    ![TrackVia konfiguration](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. I olika webbläsarfönster, inloggning till webbplatsen TrackVia företag som administratör.
+
+9. Klicka på Trackvia **mitt konto** inställningar och väljer sedan **enkel inloggning** fliken, utför följande steg:
+
+    ![TrackVia konfiguration](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. I den **identitet providern enhets-ID** textruta klistra in **SAML enhets-ID** -värde som du har kopierat från Azure-portalen.
+
+    b. Välj den **Välj fil** att överföra metadatafilen som du hämtade från Azure-portalen.
+
+    c. Klicka på **Spara**
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -212,8 +223,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +236,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

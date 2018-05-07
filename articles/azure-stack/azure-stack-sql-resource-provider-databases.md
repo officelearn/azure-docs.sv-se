@@ -1,33 +1,31 @@
 ---
-title: "Med hjälp av databaser som tillhandahålls av SQL-kort RP Azure stacken | Microsoft Docs"
-description: "Hur du skapar och hanterar SQL-databaser som etablerats med hjälp av Resource Provider för SQL-kort"
+title: Med hjälp av databaser som tillhandahålls av SQL-kort RP Azure stacken | Microsoft Docs
+description: Hur du skapar och hanterar SQL-databaser som etablerats med hjälp av Resource Provider för SQL-kort
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39f6cc30191f07a7c891446a9132222a6d264dc4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.reviewer: jeffgo
+ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-sql-databases"></a>Skapa SQL-databaser
-
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
-
 Självbetjäning databaser tillhandahålls via Företagsportalen användarupplevelsen. En användare behöver en prenumeration som har ett erbjudande som innehåller database-tjänsten.
 
 1. Logga in på den [Azure Stack](azure-stack-poc.md) användarportalen (service-administratörer kan också använda administrationsportal).
 
-2. Klicka på **+ ny** &gt; **Data + lagring ”** &gt; **SQL Server-databas (förhandsgranskning)** &gt; **Lägg till**.
+2. Klicka på **+ ny** &gt; **Data + lagring ”** &gt; **SQL Server-databas** &gt; **lägga till**.
 
 3. Fyll i formuläret med databasinformation, inklusive en **databasnamnet**, **maxstorleken**, och ändra de andra parametrarna efter behov. Du uppmanas att välja en SKU för din databas. När värdservrar läggs tilldelats de en SKU. Databaser skapas i den poolen, vara värd för servrar som utgör SKU: N.
 
@@ -47,17 +45,15 @@ Självbetjäning databaser tillhandahålls via Företagsportalen användarupplev
 
     ![Hämta anslutningssträngen](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## <a name="delete-sql-databases"></a>Ta bort SQL-databaser
-Från portalen
-
->[!NOTE]
->
->När SQL AlwaysOn-databasen tas bort från RP tagits bort har från den primära servern och AlwaysOn-tillgänglighetsgruppen det men placerar databasen i återställningsläge i varje replik av Design SQL AG och släppa inte databasen om utlöses. Om en databas inte tas bort går de sekundära replikerna att inte synkronisera tillstånd. Om du lägger till en ny databas för AG med samma via RP fortfarande fungerar. Se ![tar bort en sekundär databas](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/remove-a-secondary-database-from-an-availability-group-sql-server)
-
-## <a name="manage-database-credentials"></a>Hantera Databasautentiseringsuppgifter
-Du kan uppdatera Databasautentiseringsuppgifter (inloggningsinställningar).
+## <a name="delete-sql-alwayson-databases"></a>Ta bort SQL AlwaysOn-databaser
+När SQL AlwaysOn-databasen tas bort från resursprovidern tagits bort har från den primära servern och AlwaysOn-tillgänglighetsgruppen grupp, det men placerar databasen i återställningsläge i varje replik av Design, SQL AG och släppa inte databasen om utlöses. Om en databas inte tas bort går de sekundära replikerna att inte synkronisera tillstånd. Om du lägger till en ny databas för AG med samma via RP fortfarande fungerar.
 
 ## <a name="verify-sql-alwayson-databases"></a>Verifiera SQL AlwaysOn-databaser
 AlwaysOn-databaser ska visas som synkroniserats och är tillgängliga på alla instanser och i tillgänglighetsgruppen. Databasen bör sömlöst ansluta efter redundans. Du kan använda SQL Server Management Studio för att verifiera att en databas synkroniseras:
 
-![Verify AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![Kontrollera AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+
+## <a name="next-steps"></a>Nästa steg
+
+[Underhåll av SQL Server-resursprovidern](azure-stack-sql-resource-provider-maintain.md)

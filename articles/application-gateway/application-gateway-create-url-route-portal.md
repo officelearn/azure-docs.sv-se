@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 554618b055ce5afcc67f95afa0242d36e74fabc0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökväg-baserade regler för routning med Azure-portalen
 
 Du kan använda Azure-portalen för att konfigurera [URL-sökväg-baserade regler för routning](application-gateway-url-route-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med hjälp av virtuella datorer. Sedan kan du skapa regler för routning som kontrollerar Internet-trafik anländer till rätt servrar i poolerna.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en programgateway
@@ -82,16 +82,16 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
 3. Ange dessa värden för den virtuella datorn:
 
-    - *myVM1* – namnet på den virtuella datorn.
-    - *azureuser* - för administratörsanvändarnamn.
+    - *myVM1* – för den virtuella datorns namn.
+    - *azureuser* – för administratörens användarnamn.
     - *Azure123456!* för lösenordet.
     - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
 4. Klicka på **OK**.
-5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+5. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
-7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
-8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+7. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
+8. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
 ### <a name="install-iis"></a>Installera IIS
 
@@ -102,7 +102,7 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -153,7 +153,7 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 
     ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. T.ex, http://http://40.121.222.19.
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. T.ex, http://http://40.121.222.19.
 
     ![Testa bas-URL i Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

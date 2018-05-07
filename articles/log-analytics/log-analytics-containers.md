@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -34,8 +34,9 @@ Lösningen visar vilka behållare är kör, vilka behållare avbildningen de kö
 - Service Fabric
 - Red Hat OpenShift
 
+Om du vill övervaka prestanda för din arbetsbelastning distribueras till Kubernetes miljöer värdbaserade på AKS (Azure Container Service), se [övervakaren Azure Container Service](../monitoring/monitoring-container-health.md).  Övervakning av behållare lösningen inkluderar inte stöd för att övervaka den plattformen.  
 
-Följande diagram visar relationerna mellan olika behållare värdar och -agenter med OMS.
+Följande diagram visar relationerna mellan olika behållare värdar och -agenter med logganalys.
 
 ![Behållare diagram](./media/log-analytics-containers/containers-diagram.png)
 
@@ -53,8 +54,8 @@ I följande tabell beskrivs de Docker orchestration och stöd för behållaren i
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Tjänst<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat öppna<br>Skift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
-| Windows Server<br>(standalone) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Linux-server<br>(standalone) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Windows Server<br>(fristående) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Linux-server<br>(fristående) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
 
 ### <a name="docker-versions-supported-on-linux"></a>Docker-versioner som stöds på Linux
@@ -91,7 +92,7 @@ I följande tabell beskrivs de Docker orchestration och stöd för behållaren i
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-1. Lägg till behållaren övervakning lösningen till OMS-arbetsyta från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
+1. Lägg till behållaren övervakning lösningen i logganalys-arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
 
 2. Installera och använda Docker med en OMS-agent. Baserat på operativsystemet och Docker orchestrator, kan du använda följande metoder för att konfigurera agenten.
   - För fristående värdar:
@@ -116,15 +117,15 @@ Granska de [Docker-motorn på Windows](https://docs.microsoft.com/virtualization
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installera och konfigurera värdar för Linux-behållare
 
-När du har installerat Docker, använder du följande inställningar för behållaren värden för att konfigurera agenten för användning med Docker. Du måste först ditt OMS arbetsyte-ID och nyckel som du hittar i Azure-portalen. I arbetsytan, klickar du på **Snabbstart** > **datorer** att visa din **arbetsyte-ID** och **primärnyckel**.  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
+När du har installerat Docker, använder du följande inställningar för behållaren värden för att konfigurera agenten för användning med Docker. Du måste först ditt logganalys arbetsyte-ID och nyckel som du hittar i Azure-portalen. I arbetsytan, klickar du på **Snabbstart** > **datorer** att visa din **arbetsyte-ID** och **primärnyckel**.  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
 
 **För alla värdar på grund av Linux-behållaren utom virtuell CoreOS:**
 
-- Mer information och instruktioner för hur du installerar OMS-Agent för Linux finns [ansluta Linux-datorer till Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- Mer information och instruktioner för hur du installerar OMS-Agent för Linux finns [ansluta Linux-datorer till logganalys](log-analytics-concept-hybrid.md).
 
 **För alla Linux-behållaren värdar inklusive virtuell CoreOS:**
 
-Starta OMS-behållare som du vill övervaka. Ändra och använda följande exempel:
+Starta den behållare som du vill övervaka. Ändra och använda följande exempel:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **För alla Azure Government Linux behållaren värdar inklusive virtuell CoreOS:**
 
-Starta OMS-behållare som du vill övervaka. Ändra och använda följande exempel:
+Starta den behållare som du vill övervaka. Ändra och använda följande exempel:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -142,9 +143,9 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 Om du tidigare använde direkt-installerade agenten och vill använda i stället för en agent som körs i en behållare, måste du först ta bort OMS-Agent för Linux. Se [avinstallerar OMS-Agent för Linux](log-analytics-agent-linux.md) att förstå hur du avinstallera agenten.  
 
-#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Konfigurera en OMS-agent för Docker Swarm
+#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Konfigurera en OMS-Agent för Docker Swarm
 
-Du kan köra OMS-agenten som en global tjänst på Docker Swarm. Använd följande information för att skapa en OMS-Agent-tjänsten. Du måste infoga din OMS arbetsyte-ID och primärnyckel.
+Du kan köra OMS-agenten som en global tjänst på Docker Swarm. Använd följande information för att skapa en OMS-Agent-tjänsten. Du måste ange ditt arbetsyte-ID för Log Analytics och primärnyckel.
 
 - Kör du följande på huvudnoden.
 
@@ -190,8 +191,8 @@ Det finns tre sätt att lägga till OMS-Agent till Red Hat OpenShift att börja 
 
 I det här avsnittet beskriver vi de steg som krävs för att installera OMS-agenten som en OpenShift daemon-uppsättning.  
 
-1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) från GitHub till din huvudnod och ändra värdet med din OMS arbetsyte-ID och primärnyckel.
-2. Kör följande kommandon för att skapa ett projekt för OMS och ange användarkontot.
+1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) från GitHub till din huvudnod och ändra värdet med Log Analytics arbetsyte-ID och primärnyckel.
+2. Kör följande kommandon för att skapa ett projekt för Log Analytics och ange användarkontot.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ I det här avsnittet beskriver vi de steg som krävs för att installera OMS-age
     No events.  
     ```
 
-Utför följande steg om du vill använda hemligheter för att skydda din OMS arbetsyte-ID och primärnyckel när du använder filen daemon set yaml OMS-Agent.
+Utför följande steg om du vill använda hemligheter för att skydda Log Analytics arbetsyte-ID och primärnyckel när du använder filen daemon set yaml OMS-Agent.
 
-1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) och hemlighet genererar skript [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) från GitHub.  Det här skriptet genererar filen hemligheter yaml för OMS arbetsyte-ID och primärnyckel att skydda din secrete information.  
-2. Kör följande kommandon för att skapa ett projekt för OMS och ange användarkontot. Den hemlighet som genererar skript begär din OMS arbetsyte-ID <WSID> och primärnyckel <KEY> och efter slutförande, skapar ocp-secret.yaml-filen.  
+1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) och hemlighet genererar skript [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) från GitHub.  Det här skriptet genererar filen hemligheter yaml för Log Analytics arbetsyte-ID och primärnyckel att skydda din secrete information.  
+2. Kör följande kommandon för att skapa ett projekt för Log Analytics och ange användarkontot. Den hemlighet som genererar skript begär Log Analytics arbetsyte-ID <WSID> och primärnyckel <KEY> och efter slutförande, skapar ocp-secret.yaml-filen.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ Du kan välja att skapa omsagent DaemonSets med eller utan hemligheter.
     1. Kopiera skriptet och hemliga mallfilen och kontrollera att de finns i samma katalog.
         - Hemligt genererar skript - hemlighet gen.sh
         - Hemlig mall - hemlighet template.yaml
-    2. Kör skriptet, som i följande exempel. Skriptet begär OMS arbetsyte-ID och primärnyckel och när du har angett dem skriptet skapar en hemlig yaml-fil så att du kan köra den.   
+    2. Kör skriptet, som i följande exempel. Skriptet begär Log Analytics arbetsyte-ID och primärnyckel och när du har angett dem skriptet skapar en hemlig yaml-fil så att du kan köra den.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -549,19 +550,19 @@ I följande tabell visas exempel på poster som samlas in av lösningen behålla
 | --- | --- | --- |
 | Prestanda för värdar och -behållare | `Perf` | Dator, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning s, nätverket&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
 | Behållaren inventering | `ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
-| Behållaren image inventering | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Behållaren image inventering | `ContainerImageInventory` | TimeGenerated, dator, bild, ImageTag, ImageSize, VirtualSize, körs, pausas, stoppas, misslyckades, SourceSystem, ImageID, TotalContainer |
 | Behållaren logg | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållarnamn LogEntrySource, LogEntry, SourceSystem, behållar-ID |
-| Behållaren loggfiler | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Behållaren nod inventering | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventering | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Behållaren process | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes händelser | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
+| Behållaren loggfiler | `ContainerServiceLog`  | TimeGenerated, dator, TimeOfCommand, bild, kommandot, SourceSystem, behållar-ID |
+| Behållaren nod inventering | `ContainerNodeInventory_CL`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventering | `KubePodInventory_CL` | TimeGenerated, dator, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Behållaren process | `ContainerProcess_CL` | TimeGenerated, dator, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Kubernetes händelser | `KubeEvents_CL` | TimeGenerated, dator, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, meddelande |
 
 Etiketter som läggs till *PodLabel* datatyper är egna etiketter. Tillagda PodLabel etiketterna visas i tabellen är exempel. Därför `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` kommer skiljer sig åt i din miljö datauppsättning och allmänt likna `PodLabel_yourlabel_s`.
 
 
 ## <a name="monitor-containers"></a>Övervaka behållare
-När du har aktiverat i OMS-portalen lösningen i **behållare** panelen visar sammanfattningsinformation om behållaren-värdar och behållare som körs på värdar.
+När du har aktiverat i logganalys-portalen lösningen i **behållare** panelen visar sammanfattningsinformation om behållaren-värdar och behållare som körs på värdar.
 
 ![Behållare sida vid sida](./media/log-analytics-containers/containers-title.png)
 

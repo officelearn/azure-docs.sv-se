@@ -17,8 +17,12 @@
   items:
     - name: Diagnostisera ett problem med VM-routning
       href: diagnose-vm-network-routing-problem.md
-    - name: Övervaka nätverksanslutningar
+    - name: Övervaka kommunikation mellan virtuella datorer
       href: connection-monitor.md
+    - name: Diagnostisera ett kommunikationsproblem mellan nätverk
+      href: diagnose-communication-problem-between-networks.md
+    - name: Logga VM-nätverkstrafik
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: Begrepp
   items:
     - name: Diagnostisera problem med VM-nätverkstrafikfilter
@@ -93,8 +97,6 @@
       items:
         - name: Konfigurera NSG-flödesloggar
           items:
-            - name: Azure Portal
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
@@ -136,8 +138,6 @@
       items:
         - name: Felsöka
           items:
-            - name: Azure Portal
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI

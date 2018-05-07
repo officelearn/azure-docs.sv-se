@@ -1,9 +1,9 @@
 ---
 title: Skapa en Programgateway med interna omdirigering - Azure CLI | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway som omdirigerar interna webbtrafik till i poolen med hjälp av Azure CLI."
+description: Lär dig hur du skapar en Programgateway som omdirigerar interna webbtrafik till i poolen med hjälp av Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 4228a3f534a5dc58ab2efa3c5cf0edd4caee43c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 5bd9e8f2521120dd1d12eb9630663493b89f5844
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Skapa en Programgateway med interna genom att använda Azure CLI
 
 Du kan använda Azure CLI för att konfigurera [web trafik omdirigering](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du en serverdelspool med hjälp av en skaluppsättning för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på domäner som du äger för att kontrollera Internet-trafik anländer till i poolen. Den här kursen förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.contoso.org*.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -190,7 +190,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -208,11 +208,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. T.ex, http://www.contoso.com.
 
 ![Testa plats för contoso i Programgateway](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Ändra adressen till den andra domänen, till exempel http://www.contoso.org och du bör se att trafiken dirigeras till lyssnaren för www.contoso.com.
+Ändra adressen till din domän, till exempel http://www.contoso.org ska du se att trafiken dirigeras till lyssnaren för www.contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 

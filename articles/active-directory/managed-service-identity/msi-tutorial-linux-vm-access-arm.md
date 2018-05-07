@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8beb9e4e8abb09cf3e1a0f89baa33431ee74c160
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 40134f92abaa785ce76f36ec19b8888410585231
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Använd en tilldelad användaridentitet på en Linux-VM för att komma åt Azure Resource Manager
 
@@ -73,7 +73,7 @@ Den här självstudiekursen kommer skapa du först en ny Linux VM. Du kan också
 2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create). Den `-g` parametern anger resursgruppen där MSI skapas och `-n` parametern anger dess namn. Se till att ersätta den `<RESOURCE GROUP>` och `<MSI NAME>` parametervärden med egna värden:
     
     > [!IMPORTANT]
-    > Skapa användartilldelade identiteter med specialtecken (dvs understreck) i namnet stöds inte för närvarande. Använd alfanumeriska tecken. Sök igen efter uppdateringar.  Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+    > Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>

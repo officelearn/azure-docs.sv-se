@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 281f50a942a9396bf1163f5a20feb98bf450e6eb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Hur du loggar in alla Azure Active Directory-användare med flera innehavare programmönster
 Du kan konfigurera programmet att acceptera inloggningar från alla Azure Active Directory (AD)-klient om du tillhandahåller en programvara som en tjänst för många organisationer. Den här konfigurationen kallas för att göra ditt program med flera innehavare. Användare i Azure AD-klient kommer att kunna logga in på ditt program efter principer för att använda sitt konto med ditt program.  
@@ -57,7 +57,8 @@ När Azure AD tar emot en begäran på på/Common slutpunkt, den användaren log
 
 Logga in svaret sedan innehåller en token som representerar användaren. Utfärdaren värdet i token som talar om ett program vilken klient som användaren är från. När ett svar returneras från den/Common slutpunkt utfärdaren värdet i token motsvarar användarens klient. 
 
-> [! IMPORTANTNT] den/Common slutpunkt är inte en klient och är inte en utfärdare, är det bara en multiplexor. När du använder/Common måste logiken i ditt program för att validera token uppdateras för att ta hänsyn till. 
+> [!IMPORTANT]
+> Den/det är bara en multiplexor vanliga slutpunkt är inte en klient och är inte en utfärdare,. När du använder/Common måste logiken i ditt program för att validera token uppdateras för att ta hänsyn till. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Uppdatera din kod för att hantera flera utfärdaren värden
 Webbprogram och webb-API: er får och validera token från Azure AD.  
@@ -156,9 +157,6 @@ Användare och administratörer kan upphäva ditt medgivande till ditt program n
 * Administratörer återkalla åtkomst till program genom att ta bort dem från Azure AD med hjälp av den [företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) avsnitt i den [Azure-portalen][AZURE-portal].
 
 Om en administratör samtycker till ett program för alla användare i en klient, kan användare kan inte återkalla åtkomst individuellt. Endast administratören kan återkalla åtkomst och endast för hela programmet.
-
-### <a name="consent-and-protocol-support"></a>Stöd för godkännande och protokoll
-Medgivande stöds i Azure AD via OAuth OpenID Connect WS-Federation och SAML-protokoll. Protokollen SAML och WS-Federation stöder inte den `prompt=admin_consent` parameter, så admin medgivande är endast möjligt via OAuth och OpenID Connect.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Program med flera klienter och cachelagring åtkomst-token
 Program med flera klienter kan också hämta åtkomsttoken att anropa API: er som skyddas av Azure AD. Ett vanligt fel när du använder Active Directory Authentication Library (ADAL) med ett program med flera innehavare är att först begära en token för en användare som använder/Common, ett svar och sedan begära en efterföljande token för samma användare också använder/Common. Eftersom svaret från Azure AD inte kommer från en klient/vanliga, ADAL cachelagrar token som från klienten. Efterföljande anrop till/Common att få en åtkomsttoken för användaren missar cache-post och användaren uppmanas att logga in igen. Kontrollera följande anrop för en redan inloggad användare görs till klientens slutpunkten för att undvika saknas i cacheminnet.

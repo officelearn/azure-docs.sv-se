@@ -12,34 +12,73 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
-ms.openlocfilehash: e8e40b763f0c6f1f994535ab2ff335cfcbf02cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata för aktiviteten i Azure Data Factory
-GetMetadata-aktiviteten kan användas till att hämta metadata för data i Azure Data Factory. Den här aktiviteten stöds endast för datafabriker för version 2. Den kan användas i följande scenarier:
+GetMetadata-aktiviteten kan användas för att hämta **metadata** alla data i Azure Data Factory. Den här aktiviteten stöds endast för datafabriker för version 2. Den kan användas i följande scenarier:
 
 - Validera metadatainformation för alla data
 - Utlös en pipeline när data är klar / tillgängliga
 
 Följande funktioner är tillgängliga i kontrollflödet:
+
 - Utdata från GetMetadata aktiviteten kan användas i villkorsuttryck för att utföra verifiering.
 - En pipeline kan utlösas när villkoret är uppfyllt via-tills slingor
-
-GetMetadata aktiviteten använder ett dataset som en obligatorisk indata och utdata metadata-information som är tillgängliga som utdata. För närvarande stöds endast Azure blob-datauppsättningen. Metadatafälten stöds är storlek, struktur och lastModified tid.  
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Data Factory V1 dokumentationen](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Aktiviteten GetMetadata tar en datamängd som en obligatorisk indata och utdata metadata-information som är tillgängliga som aktivitetsutdata. För närvarande stöds följande kopplingar med motsvarande strängfält meatadata:
+
+### <a name="supported-connectors"></a>Kopplingar som stöds
+
+**Fillagring:**
+
+| Connector-Metadata | itemName<br>(filen/mappen) | itemType<br>(filen/mappen) | storlek<br>(fil) | skapad<br>(filen/mappen) | Senast ändrad<br>(filen/mappen) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(filen/mappen) |
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Azure-blobb | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| Filsystem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+**Relationsdatabas:**
+
+| Connector-Metadata | struktur | Antal kolumner | Det finns |
+|:--- |:--- |:--- |:--- |
+| Azure SQL Database | √ | √ | √ |
+| Azure SQL Data Warehouse | √ | √ | √ |
+| SQL Server | √ | √ | √ |
+
+### <a name="metadata-options"></a>Metadata-alternativ
+
+Följande typer av metadata kan anges i fältlistan GetMetadata aktiviteten att hämta:
+
+| Metadatatyp | Beskrivning |
+|:--- |:--- |
+| itemName | Namnet på filen eller mappen. |
+| itemType | Typ av filen eller mappen. Utdatavärdet för är `File` eller `Folder`. |
+| storlek | Storlek i byte. Gäller endast filen. |
+| skapad | Skapad datum/tid för filen eller mappen. |
+| Senast ändrad | Senast ändrad datum/tid för filen eller mappen. |
+| childItems | Lista över undermappar och filer i den angivna mappen. Gäller endast mappen. Utdatavärdet är en lista över namn och typ för varje underordnade objekt. |
+| contentMD5 | MD5 för filen. Gäller endast filen. |
+| struktur | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och kolumntypen. |
+| Antal kolumner | Antalet kolumner i filen eller relationella tabell. |
+| Det finns| Om filen/mappen/det finns en tabell eller inte. Observera så länge ”finns” anges i fältlistan GetaMetadata aktiviteten inte misslyckas även när objektet (tabell-filen/mappen) inte finns. i stället returneras `exists: false` i utdata. |
 
 ## <a name="syntax"></a>Syntax
 
-### <a name="get-metadata-activity-definition"></a>Hämta Metadata aktivitetsdefinition:
-I följande exempel returnerar aktiviteten GetMetadata metadata om de data som representeras av MyDataset. 
+**GetMetadata aktivitet:**
 
 ```json
 {
@@ -54,7 +93,8 @@ I följande exempel returnerar aktiviteten GetMetadata metadata om de data som r
     }
 }
 ```
-### <a name="dataset-definition"></a>Datauppsättningsdefinitionen:
+
+**DataSet:**
 
 ```json
 {
@@ -77,27 +117,65 @@ I följande exempel returnerar aktiviteten GetMetadata metadata om de data som r
 }
 ```
 
-### <a name="output"></a>Resultat
+## <a name="type-properties"></a>Typegenskaper
+
+GetMetadata aktivitet kan för närvarande hämta följande typer av metadata-information.
+
+Egenskap | Beskrivning | Krävs
+-------- | ----------- | --------
+Fältlista | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnitt på stöds metadata. | Nej 
+DataSet | Referensdatauppsättningen vars metadata aktivitet är att hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till koppling avsnittet dataset syntax detaljer. | Ja
+
+## <a name="sample-output"></a>Exempel på utdata
+
+GetMetadata-resultatet visas i aktivitetsutdata. Nedan visas två exempel med fullständig metadata-alternativ som valts i fältlistan som referens:
+
+### <a name="get-a-files-metadata"></a>Hämta metadata för en fil
+
 ```json
 {
-    "size": 1024,
-    "structure": [
-        {
-            "name": "id",
-            "type": "Int64"
-        }, 
-    ],
-    "lastModified": "2016-07-12T00:00:00Z"
+  "exists": true,
+  "itemName": "test.csv",
+  "itemType": "File",
+  "size": 104857600,
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "contentMD5": "cMauY+Kz5zDm3eWa9VpoyQ==",
+  "structure": [
+    {
+        "name": "id",
+        "type": "Int64"
+    },
+    {
+        "name": "name",
+        "type": "String"
+    }
+  ],
+  "columnCount": 2
 }
 ```
 
-## <a name="type-properties"></a>Typegenskaper
-För närvarande hämta GetMetadata aktiviteten följande typer av metadata-information från ett Azure storage-datamängd.
+### <a name="get-a-folders-metadata"></a>Hämta metadata för en mapp
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
--------- | ----------- | -------------- | --------
-Fältlista | Visar typerna av metadatainformation som krävs.  | <ul><li>storlek</li><li>struktur</li><li>Senast ändrad</li></ul> |    Nej<br/>Om den är tom returnerar alla 3 stöds metadata-information för aktiviteten. 
-DataSet | Referensdatauppsättningen vars metadata aktivitet är att hämtas av GetMetadata-aktiviteten. <br/><br/>Typen av som stöds är Azure Blob. Två sub egenskaper är: <ul><li><b>Referensnamn</b>: referens till en befintlig Azure-Blobbdatauppsättning</li><li><b>typen</b>: eftersom datamängden hänvisas är av typen ”DatasetReference”</li></ul> |    <ul><li>Sträng</li><li>DatasetReference</li></ul> | Ja
+```json
+{
+  "exists": true,
+  "itemName": "testFolder",
+  "itemType": "Folder",
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "childItems": [
+    {
+      "name": "test.avro",
+      "type": "File"
+    },
+    {
+      "name": "folder hello",
+      "type": "Folder"
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Se annan kontrollflödesaktiviteter som stöds av Data Factory: 

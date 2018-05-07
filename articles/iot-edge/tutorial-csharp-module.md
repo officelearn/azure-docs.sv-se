@@ -9,46 +9,46 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 09e20d9a80b881075d9bb6be7d4daafc739340a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
-Du kan använda IoT kant-moduler för att distribuera kod som implementerar affärslogiken direkt till IoT Edge-enheter. Den här självstudiekursen vägleder dig genom att skapa och distribuera en IoT-Edge-modul som filtrerar sensordata. Ska du använda simulerade IoT gränsenheten som du skapade i distribuera Azure IoT kanten på en simulerad enhet i [Windows] [ lnk-tutorial1-win] eller [Linux] [ lnk-tutorial1-lin]självstudier. I den här guiden får du lära dig hur man:    
+Du kan använda IoT kant-moduler för att distribuera kod som implementerar affärslogiken direkt till IoT Edge-enheter. Den här självstudiekursen vägleder dig genom att skapa och distribuera en IoT-Edge-modul som filtrerar sensordata. Ska du använda simulerade IoT gränsenheten som du skapade i distribuera Azure IoT kanten på en simulerad enhet i [Windows] [ lnk-tutorial1-win] eller [Linux] [ lnk-tutorial1-lin]självstudier. I den här guiden får du lära dig att:    
 
 > [!div class="checklist"]
 > * Använd Visual Studio-koden för att skapa en IoT kant-modul som baseras på .NET core 2.0
 > * Använda Visual Studio Code och Docker för att skapa en docker-avbildning och publicera den i registret 
-> * Distribuera modulen till din IoT-Edge-enhet
+> * Distribuera modulen till din IoT Edge-enhet
 > * Visa genererade data
 
 
 Modulen IoT kant som du skapar i den här självstudiekursen filtrerar temperatur data som genereras av enheten. Den endast skickar meddelanden uppströms om är överskrider ett angivet tröskelvärde. Den här typen av analys i utkanten är användbart för att minska mängden data meddelas och lagras i molnet. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure IoT gränsenheten som du skapade i Snabbstart eller första självstudierna.
 * Primärnyckelns anslutningssträng för IoT Edge-enheten.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT kant-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# för Visual Studio Code (drivs av OmniSharp) tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/) på samma dator som har Visual Studio-koden. Community Edition (CE) är tillräcklig för den här kursen. 
-* [.NET core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
+* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-I de här självstudierna använder Azure IoT kant-tillägget för VS-kod att skapa en modul och skapa en **behållaren image** från filer. Sedan du överför avbildningen till en **registret** som lagrar och hanterar dina bilder. Slutligen kan distribuera du avbildningen från registret ska köras på enheten IoT kant.  
+I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **behållaravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
-Du kan använda alla Docker-kompatibel registret för den här självstudiekursen. Två populära Docker registret tjänster som är tillgängliga i molnet är [Azure Container registret](https://docs.microsoft.com/azure/container-registry/) och [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Den här kursen används Azure Container registret. 
+Du kan använda valfritt Docker-kompatibelt register för den här självstudien. Två populära Docker-registertjänster som finns tillgängliga i molnet är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **skapar du en resurs** > **behållare** > **Azure Container registret** .
-2. Namnge din registret, Välj en prenumeration, välja en resursgrupp och ange SKU: N till **grundläggande**. 
+1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
+2. Namnge ditt register, välj en prenumeration, välj en resursgrupp och ange SKU:n till **Basic**. 
 3. Välj **Skapa**.
-4. När du har skapat behållaren registret går du till den och väljer **åtkomstnycklar**. 
-5. Växla **administratörsanvändare** till **aktivera**.
-6. Kopiera värdena för **inloggningsserver**, **användarnamn**, och **lösenord**. Du ska använda dessa värden senare under kursen när du publicerar Docker-avbildningen i registret, och när du lägger till registernyckeln autentiseringsuppgifterna Edge-körningsmiljön. 
+4. När du har skapat ditt behållarregister, navigerar du till det och väljer **Åtkomstnycklar**. 
+5. Växla till **Administratörsanvändare** för att **Aktivera**.
+6. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du ska använda dessa värden senare under kursen när du publicerar Docker-avbildningen i registret, och när du lägger till registernyckeln autentiseringsuppgifterna Edge-körningsmiljön. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT kant-modul
 Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET core 2.0 med hjälp av Visual Studio Code och Azure IoT kant-tillägget.
@@ -59,7 +59,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-3. Skapa ett projekt för den nya modulen. Följande kommando skapar projektmappen **FilterModule**, med lagringsplatsen för behållaren. Den andra parametern bör vara i form av `<your container registry name>.azurecr.io` om du använder Azure-behållaren registret. Ange följande kommando i den aktuella arbetsmappen:
+3. Skapa ett projekt för den nya modulen. Följande kommando skapar projektmappen **FilterModule**, med lagringsplatsen för behållaren. Den andra parametern bör ha formatet `<your container registry name>.azurecr.io` om du använder Azure-behållarregistret. Ange följande kommando i den aktuella arbetsmappen:
 
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
@@ -115,9 +115,10 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
     // Read TemperatureThreshold from Module Twin Desired Properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
     var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
+    try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    } catch(ArgumentOutOfRangeException e) {
+        Console.WriteLine("Proerty TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates
@@ -216,30 +217,30 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 
 13. Spara filen.
 
-## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den i registret
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den till ditt register
 
-1. Logga in på Docker genom att ange följande kommando i en integrerad terminal VS-kod: 
+1. Logga in på Docker genom att ange följande kommando i den integrerade VS Code-terminalen: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Användarnamn, lösenord och logga in server som ska användas i det här kommandot finns [Azure-portalen] (https://portal.azure.com). Från **alla resurser**, klickar du på panelen för din Azure-behållaren registret för att öppna dess egenskaper och klicka sedan på **åtkomstnycklar**. Kopiera värdena i den **användarnamn**, **lösenord**, och **inloggningsserver** fält. 
+   Om du vill hitta användarnamn, lösenord och inloggningsserver som du ska använda i det här kommandot, gå till [Azure Portal] (https://portal.azure.com). Från **Alla resurser**, klickar du på panelen för ditt Azure-behållarregister för att öppna dess egenskaper och klickar sedan på **Åtkomstnycklar**. Kopiera värdena i fälten **Användarnamn**, **lösenord** och **Inloggningsserver**. 
 
-2. VS kod explorer, högerklicka på den **module.json** fil och klicka på **Build och kant Push IoT modulen Docker avbildning**. I popup-listrutan överst i fönstret VS-kod, väljer du den behållare plattformen antingen **amd64** för Linux-behållare eller **windows amd64** för Windows-behållaren. VS-kod och skapar sedan koden, containerize i `FilterModule.dll` och push i registret för behållaren som du angav.
+2. I VS Code-utforskaren högerklickar du på filen **module.json** och klickar sedan på **Docker-avbildning för Build and Push IoT-modul**. I popup-listrutan överst i VS Code-fönstret väljer du din behållarplattform, antingen **amd64** för Linux-behållare eller **windows amd64** för Windows-behållare. VS-kod och skapar sedan koden, containerize i `FilterModule.dll` och push i registret för behållaren som du angav.
 
 
-3. Du kan få fullständig behållaren image-adress med taggen i VS koden integrerad terminal. Mer information om bygg- och push-definition kan referera till den `module.json` filen.
+3. Den fullständiga adressen med tagg för behållaravbildningen finns i den integrerade VS Code-terminalen. Mer information om versions- och push-definitionen finns i filen `module.json`.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Lägga till registret autentiseringsuppgifter Edge runtime
-Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på datorn där du kör Edge-enhet. Dessa autentiseringsuppgifter ge runtime-åtkomst till pull-behållaren. 
+Lägg till autentiseringsuppgifterna för ditt register i Edge-runtimen på den dator där du kör din Edge-enhet. Dessa autentiseringsuppgifter ge runtime-åtkomst till pull-behållaren. 
 
-- För Windows, kör du följande kommando:
+- I Windows kör du följande kommando:
     
     ```cmd/sh
     iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-- Kör följande kommando för Linux:
+- I Linux kör du följande kommando:
     
     ```cmd/sh
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
@@ -247,18 +248,18 @@ Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på da
 
 ## <a name="run-the-solution"></a>Kör lösningen
 
-1. I den [Azure-portalen](https://portal.azure.com), navigera till din IoT-hubb.
+1. I [Azure Portal](https://portal.azure.com), navigerar du till din IoT-hubb.
 2. Gå till **IoT Edge (förhandsversion)** och välj IoT Edge-enhet.
-3. Välj **ange moduler**. 
+3. Välj **Ange moduler**. 
 4. Kontrollera att den **tempSensor** modulen fylls i automatiskt. Om inte, Använd följande steg för att lägga till den:
-    1. Välj **lägga till IoT kant modul**.
-    2. I den **namn** anger `tempSensor`.
-    3. I den **avbildningen URI** anger `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-    4. Lämna de andra inställningarna oförändrad och klicka på **spara**.
+    1. Välj **Lägg till IoT Edge-modul**.
+    2. I **Namn**-fältet skriver du `tempSensor`.
+    3. I **URI för avbildning**-fältet skriver du `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+    4. Lämna de andra inställningarna oförändrade och klicka på **Spara**.
 5. Lägg till den **filterModule** modul som du skapade i föregående avsnitt. 
-    1. Välj **lägga till IoT kant modul**.
-    2. I den **namn** anger `filterModule`.
-    3. I den **avbildningen URI** , ange din adress bild, till exempel `<your container registry address>/filtermodule:0.0.1-amd64`. Adressen för fullständig avbildning finns i föregående avsnitt.
+    1. Välj **Lägg till IoT Edge-modul**.
+    2. I **Namn**-fältet skriver du `filterModule`.
+    3. I **URI för avbildning**-fältet, anger du adressen till din avbildning, till exempel `<your container registry address>/filtermodule:0.0.1-amd64`. Avbildningens fullständiga adress kan hittas i föregående avsnitt.
     4. Kontrollera den **aktivera** så att du kan redigera modulen dubbla. 
     5. Ersätt JSON i textrutan för modulen dubbla med följande JSON: 
 
@@ -272,7 +273,7 @@ Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på da
  
     6. Klicka på **Spara**.
 6. Klicka på **Nästa**.
-7. I den **ange vägar** steg, kopiera JSON nedan i textrutan. Moduler publicera alla meddelanden i Edge-körningsmiljön. Deklarativ regler i körningsmiljön definiera där meddelanden. I den här kursen behöver du två vägar. Första vägen transporter meddelanden från temperatursensorn till filtermodul via slutpunkten ”input1”, vilket är den slutpunkt du konfigurerade med den **FilterMessages** hanterare. Andra vägen transporter meddelanden från modulen filter till IoT-hubb. I den här vägen `upstream` är särskilda mål som talar om kant-hubb för att skicka meddelanden till IoT-hubb. 
+7. I steget **Ange vägar** kopierar du den JSON nedanför till textrutan. Moduler publicera alla meddelanden i Edge-körningsmiljön. Deklarativ regler i körningsmiljön definiera där meddelanden. I den här kursen behöver du två vägar. Första vägen transporter meddelanden från temperatursensorn till filtermodul via slutpunkten ”input1”, vilket är den slutpunkt du konfigurerade med den **FilterMessages** hanterare. Den andra vägen transporterar meddelanden från filtermodulen till IoT Hub. I den här vägen är `upstream` ett särskilt mål som talar om för Edge-hubben att skicka meddelanden till IoT Hub. 
 
     ```json
     {
@@ -284,12 +285,12 @@ Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på da
     ```
 
 8. Klicka på **Nästa**.
-9. I den **granska mallen** , klicka på **skicka**. 
-10. Gå tillbaka till sidan IoT kant enheten information och klickar på **uppdatera**. Du bör se den nya **filtermodule** körs tillsammans med den **tempSensor** modulen och **IoT kant runtime**. 
+9. I steget **Granska mallen**, klickar du på **Skicka**. 
+10. Återgå till IoT Edge-enhetens informationssida och välj **Uppdatera**. Du bör se den nya **filtermodule** körs tillsammans med den **tempSensor** modulen och **IoT kant runtime**. 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-Så här övervakar enhet till moln-meddelanden som skickas från IoT-Edge-enhet till din IoT-hubb:
+Övervaka meddelanden från enhet till molnet som skickas från din IoT Edge-enhet till din IoT-hubb:
 1. Konfigurera Azure IoT Toolkit-tillägget med anslutningssträngen för din IoT-hubb: 
     1. Öppna Utforskaren VS kod genom att välja **visa** > **Explorer**. 
     2. I Utforskaren klickar du på **IOT HUB-enheter** och klicka sedan på **...** . Klicka på **ange anslutningssträngen för IoT-hubb** och ange anslutningssträngen för IoT-hubb som din IoT insticksenhet ansluter till i popup-fönstret. 

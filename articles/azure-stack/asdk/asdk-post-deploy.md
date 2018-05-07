@@ -1,25 +1,25 @@
 ---
-title: "Bokför distributionskonfigurationer för Azure Stack Development Kit (ASDK) | Microsoft Docs"
-description: "Beskriver de rekommenderade konfigurationsändringarna som gör när du har installerat Azure Stack Development Kit (ASDK)."
+title: Bokför distributionskonfigurationer för Azure Stack Development Kit (ASDK) | Microsoft Docs
+description: Beskriver de rekommenderade konfigurationsändringarna som gör när du har installerat Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera ASDK installation konfigurationsuppgifter
 Efter [installerar ASDK](asdk-install.md), det finns några rekommenderade efter installationen konfigurationen ändras. 
@@ -37,7 +37,10 @@ Set-PSRepository `
 
  Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. 2017-03-09-profil API version profil, som är tillgänglig genom att installera modulen AzureRM.Bootstrapper krävs för Azure-stacken. 
  
- Du kan installera PowerShell för Azure-stacken med eller utan internet-anslutning till värddatorn ASDK:
+ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan internet-anslutning till värddatorn ASDK:
+
+> [!IMPORTANT]
+> Innan du installerar versionen som krävs, se till att du [avinstallera alla befintliga Azure PowerShell-moduler](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
 
 - **Med en Internetanslutning** från värddatorn ASDK. Kör följande PowerShell-skript för att installera dessa moduler på development kit installationen:
 

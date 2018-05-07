@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 7d1103e0ab21d2eac336a0e460156d47012b2a86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c722bd3fae7f6ed7450e0259f9dff0ee465d158
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Azure AD lösenordsåterställning via Självbetjäning för IT-proffs
 
@@ -32,6 +32,8 @@ Med Azure Active Directory (AD Azure) lösenordsåterställning via självbetjä
    * Skicka ett e-postmeddelande till ett godkänt sekundära e-postkonto.
    * Besvara sina säkerhetsfrågor.
 * **Självbetjäning kontoupplåsning**: användaren kan inte logga in med sitt lösenord och är låst. Användaren vill låsa upp sitt konto utan inblandning av administratören med hjälp av sina autentiseringsmetoder.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>Varför ska jag välja Azure AD SSPR
 

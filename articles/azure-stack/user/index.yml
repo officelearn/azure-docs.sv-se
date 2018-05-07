@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2018
   ms.author: jeffgilb
-  ms.openlocfilehash: a9da65ec8634f0e8905d44ef690eb7885fbf6a80
-  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-  ms.translationtype: HT
+  ms.openlocfilehash: 4b258290b197ff4fdee9490012a36519b041622c
+  ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+  ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/23/2018
+  ms.lasthandoff: 05/04/2018
 abstract:
   description: Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href="/azure/azure-stack/">operatorn dokumentationen</a>.<br/><br/>Om du är operatör Azure-stacken är intresserad av i den Azure Stack Development Kit (ASDK), en enda nod distribution av Azure-stacken som du kan hämta och använda gratis Se vår <a href="/azure/azure-stack/asdk">ASDK dokumentationen</a>.
 sections:
@@ -66,6 +66,8 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Distribuera appar till Azure Stack och Azure</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Konfigurera hybrididentitet moln med Azure och Azure Stack-program</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Konfigurera molnet för hybridanslutning med Azure och Azure-stacken</a>
 - title: Referens
   items:
   - type: list

@@ -1,6 +1,6 @@
 ---
-title: Hur du utför en åtkomst-granskning i Privileged Identity Management för Azure-resurser | Microsoft Docs
-description: Det här dokumentet beskriver hur du utför och komma åt granska i PIM för Azure-resurser.
+title: 'Översikt: Utför en åtkomst-granskning i Privileged Identity Management för Azure-resurser | Microsoft Docs'
+description: Det här dokumentet beskriver hur du utför en åtkomst-granskning i PIM för Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,20 +14,28 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: f1bcf114b997c3056016b84cafc28253ea1af28e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 61be9873cac462c096599680a6e071e104f3a54c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="resource-dashboards"></a>Resursen instrumentpaneler
+# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Använd en resurs instrumentpanel för att utföra en åtkomst-granskning
 
-Visning av instrumentpanelen har fyra huvudsakliga komponenter. En grafisk representation av resursen rollen aktiveringar under de senaste sju dagarna. Dessa data är begränsad till den valda resursen och visar aktiveringar för de vanligaste rollerna (ägare, deltagare, administratör för användaråtkomst) och alla roller som kombineras.
+Du kan använda instrumentpanelen för en resurs för att utföra en åtkomst-granskning i Privileged Identity Management (PIM) för Azure-resurser. Admin-visa instrumentpanelen innehåller tre huvudkomponenter:
 
-Till höger om diagrammet aktiveringar finns två diagram som visar fördelningen av rolltilldelningar med Tilldelningstyp för både användare och grupper. Om du väljer en sektor i diagrammet ändras värdet till ett procentvärde (eller vice versa).
+- En grafisk representation av resursen rollen aktiveringar.
+- Två diagram som visar fördelningen av rolltilldelningar med Tilldelningstyp.
+- Ett dataområde som rör nya rolltilldelningar.
 
-![](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Skärmbild för visning av-instrumentpanelen som visar diagram](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-Under diagrammen se antalet användare och grupper med nya rolltilldelningar över de senaste 30 dagarna (vänster) och en lista över roller sorterade efter totala tilldelningar (fallande).
+![Skärmbild av visning av instrumentpanelen som visar data listor](media/azure-pim-resource-rbac/role-settings.png)
 
-![](media/azure-pim-resource-rbac/role-settings.png)
+Grafisk representation av resursen rollen aktiveringar omfattar de senaste sju dagarna. Dessa data är begränsad till den valda resursen och visar aktiveringar för de vanligaste rollerna (ägare, deltagare, administratör för användaråtkomst) och för alla roller som kombineras.
+
+Till höger om diagrammet aktiveringar visa diagrammen fördelningen av rolltilldelningar genom Tilldelningstyp för både användare och grupper. Du kan ändra värdet till ett procentvärde (eller vice versa) genom att välja en sektor i diagrammet.
+
+Under diagrammen se antalet användare och grupper med nya rolltilldelningar över de senaste 30 dagarna och en lista över roller sorterade efter totala tilldelningar (i fallande ordning).
+
+

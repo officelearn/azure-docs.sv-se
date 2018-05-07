@@ -1,9 +1,9 @@
 ---
-title: "Flytta data till en Azure SQL Database för Azure Machine Learning | Microsoft Docs"
-description: "Skapa SQL-tabellen och Läs in data till SQL-tabell"
+title: Flytta data till en Azure SQL Database för Azure Machine Learning | Microsoft Docs
+description: Skapa SQL-tabellen och Läs in data till SQL-tabell
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 Det här avsnittet beskrivs alternativen för att flytta data från flata filer (CSV eller TVS format) eller data som lagras i en lokal SQL Server till en Azure SQL-databas. Dessa uppgifter för att flytta data till molnet är en del av Team av vetenskapliga data.
@@ -48,13 +48,13 @@ De procedurer som beskrivs här måste du ha:
 
 Du kan anpassa de förfaranden som beskrivs här till en uppsättning med dina egna data eller Följ stegen som beskrivs med NYC Taxi dataset. Överför NYC Taxi dataset till din lokala SQL Server-databas genom att följa proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en virtuell dator i Azure, men proceduren för att ladda upp till den lokala SQL Server är samma.
 
-## <a name="file-to-azure-sql-database"></a>Flytta data från en flat filkälla till en Azure SQL database
+## <a name="file-to-azure-sql-database"></a> Flytta data från en flat filkälla till en Azure SQL database
 Data i flat-filer (CSV eller TVS formaterad) kan flyttas till en Azure SQL-databas med en Bulk Insert SQL-fråga.
 
-### <a name="bulk-insert-sql-query"></a>Bulk Insert SQL-fråga
+### <a name="bulk-insert-sql-query"></a> Bulk Insert SQL-fråga
 Anvisningarna för proceduren med hjälp av Bulk Insert SQL-frågan är samma som beskrivs i avsnitten för att flytta data från en flat filkälla till SQL Server på en Azure VM. Mer information finns i [Bulk Insert SQL-frågan](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a>Flytta Data från lokala SQL Server till en Azure SQL database
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Flytta Data från lokala SQL Server till en Azure SQL database
 Om datakällan finns i en lokal SQL Server, finns det olika möjligheter för att flytta data till en Azure SQL database:
 
 1. [Exportera till Flat-fil](#export-flat-file)

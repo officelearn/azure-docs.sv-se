@@ -1,9 +1,9 @@
 ---
 title: Utforska data i ett Hadoop-kluster och skapa modeller i Azure Machine Learning | Microsoft Docs
-description: "Med hjälp av Team datavetenskap Process för en slutpunkt till slutpunkt-scenario med ett HDInsight Hadoop-kluster för att skapa och distribuera en modell."
+description: Med hjälp av Team datavetenskap Process för en slutpunkt till slutpunkt-scenario med ett HDInsight Hadoop-kluster för att skapa och distribuera en modell.
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team vetenskap av data i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången ska vi använda den [Team Data vetenskap processen (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktionen-tekniker data från den allmänt tillgängliga [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset, och att ned exempel data. Om du vill hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter, bygga vi modeller av data med Azure Machine Learning. 
@@ -137,7 +137,7 @@ Hämta .hql filer som innehåller de relevanta Hive-skript från att förbereda 
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Dessa två kommandon hämta alla .hql filer som behövs i den här genomgången till den lokala katalogen ***C:\temp &#92;*** i huvudnoden.
+Dessa två kommandon hämta alla .hql filer som behövs i den här genomgången till den lokala katalogen ***C:\temp&#92;***  i huvudnoden.
 
 ## <a name="#hive-db-tables"></a>Skapa Hive-databasen och tabeller som är partitionerad per månad
 > [!NOTE]

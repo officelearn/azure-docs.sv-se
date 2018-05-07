@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0f167fef2303ff3b552b9924db3eae9a07c1cb69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b8497f03281028c8a26cd66ac6afabf63911a65
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade tjänsten identitet (MSI) på en virtuell Azure-dator med hjälp av Azure CLI
 
@@ -113,10 +113,11 @@ Det här avsnittet vägleder dig genom att skapa en virtuell dator med tilldelni
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Skapa en användare som tilldelats identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create).  Den `-g` parametern anger resursgruppen där användaren som har tilldelats identitet skapas och `-n` parametern anger dess namn.
+2. Skapa en användare som tilldelats identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create).  Den `-g` parametern anger resursgruppen där användaren som har tilldelats identitet skapas och `-n` parametern anger dess namn.    
     
     > [!IMPORTANT]
-    > Skapa användartilldelade identiteter med specialtecken (dvs understreck) i namnet stöds inte för närvarande. Använd alfanumeriska tecken. Sök igen efter uppdateringar.  Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+    > Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+
 
     ```azurecli-interactive
     az identity create -g myResourceGroup -n myUserAssignedIdentity

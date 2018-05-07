@@ -9,15 +9,17 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 285ee153a86270fe65846dc6a22786e007a8a595
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: ba5380813266b3baf981eaf39eda384ad8c91d5a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
 Resursdefinitionen princip som används av principen i Azure kan du etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och åtgärd att vidta. Du kan styra kostnader genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer är tillåtna. Eller, du kan kräva att alla resurser som har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip används för en resursgrupp, är det så gäller för alla resurser i resursgruppen.
+
+Schemat som används av Azure-principen finns här: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
@@ -184,7 +186,7 @@ Utvärderar ett villkor om en **fältet** uppfyller vissa villkor. Villkor som s
 
 När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken (*) i värdet.
 
-När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra `?` för en bokstav och alla andra tecken som representerar det faktiska tecknet. Exempel finns i [godkända VM-avbildningar](scripts/allowed-custom-images.md).
+När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra `?` för en bokstav och alla andra tecken som representerar det faktiska tecknet. Exempel finns i [tillåter flera namn mönster](scripts/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fält
 Villkor bildas genom att använda fält. Ett fält representerar egenskaper i nyttolasten för begäran resurs som används för att beskriva tillståndet för resursen.  

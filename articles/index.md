@@ -6,11 +6,11 @@ description: Lär dig att skapa och hantera kraftfulla program med Microsoft Azu
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ea272619638c8794a17bcd62f818cc9f230167ef
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cd33973a4786b722ff4eafbf6be53ef9fb509f48
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -200,7 +200,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Lagring</h4>
+                                                <h4>Storage</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
@@ -302,7 +302,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Skalningsuppsättningar för Virtual Machines</p>
+                                                <p>Virtual Machine Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
@@ -320,7 +320,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Funktioner</p>
+                                                <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
@@ -533,7 +533,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/china/">
                                                 <img src="media/index/azure-germany.svg" alt="" />
-                                                <p>Microsoft Azure China 21Vianet</p>
+                                                <p>Microsoft Azure Kina 21Vianet</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -556,7 +556,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Belastningsutjämnare</p>
+                                                <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -598,7 +598,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos.svg" alt="" />
-                                                <p>DDOS-skydd</p>
+                                                <p>DDOS Protection</p>
                                             </a>
                                         </li>
                                         <li>
@@ -625,19 +625,19 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/batch-ai/">
                                                 <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch-AI</p>
+                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
-                                                <p>Tjänst för anpassat beslut</p>
+                                                <p>Custom Decision Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
-                                                <p>Länkning av entiteter</p>
+                                                <p>Entity Linking</p>
                                             </a>
                                         </li>
                                         <li>
@@ -667,7 +667,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Språkförståelse (LUIS)</p>
+                                                <p>Language Understanding (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -685,7 +685,7 @@ Terraform </a>
                                         <li>
                                             <a href="https://docs.microsofttranslator.com/speech-translate.html">
                                                 <img src="media/index/API_TranslatorSpeech.svg" alt="" />
-                                                <p>Talöversättning</p>
+                                                <p>Translator Speech</p>
                                             </a>
                                         </li>
                                         <li>
@@ -697,13 +697,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/web-language-model/home">
                                                 <img src="media/index/API_WebLanguageModel.svg" alt="" />
-                                                <p>Webbspråksmodell</p>
+                                                <p>Web Language Model</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-news-search/">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
-                                                <p>Bing-nyheter</p>
+                                                <p>Bing nyheter</p>
                                             </a>
                                         </li>
                                         <li>
@@ -727,7 +727,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-custom-search/">
                                                 <img src="media/index/API_Bing_Custom_Search.svg" alt="" />
-                                                <p>Anpassad Bing-sökning</p>
+                                                <p>Anpassad sökning i Bing</p>
                                             </a>
                                         </li>
                                         <li>
@@ -751,7 +751,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Custom_Speech.svg" alt="" />
-                                                <p>Tjänst för anpassat tal</p>
+                                                <p>Custom Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -793,7 +793,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/API_VideoIndexer.svg" alt="" />
-                                                <p>Videoindexering</p>
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -801,12 +801,12 @@ Terraform </a>
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Lagring</h3>
+                                    <h3>Storage</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Lagring</p>
+                                                <p>Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -854,11 +854,11 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Webbplatsåterställning</p>
+                                                <p>Site Recovery</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Analys</h3>
+                                    <h3>Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -893,7 +893,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Händelsehubbar</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -966,7 +966,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                            <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
                                             </a>
@@ -975,9 +975,9 @@ Terraform </a>
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT Developer Center</p>
+                                                <p>Grunderna i IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -989,7 +989,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
-                                                <p>IoT Hub Device Provisioning-tjänst</p>
+                                                <p>IoT Hub Device Provisioning Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1013,7 +1013,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Händelsehubbar</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1210,7 +1210,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Webbplatsåterställning</p>
+                                                <p>Site Recovery</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1252,7 +1252,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Hanterade program</p>
+                                                <p>Managed Applications</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1312,8 +1312,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Skalningsuppsättningar för Virtual Machines</h3>
-                                                    <p>Hantera och skala upp till tusentals virtuella datorer med Linux och Windows</p>
+                                                    <h3>Virtual Machine Scale Sets</h3>
+                                                    <p>Hantera och skala upp till tusentals virtuella Linux- och Windows-datorer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1369,7 +1369,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Funktioner</h3>
+                                                    <h3>Functions</h3>
                                                     <p>Bearbeta händelser med serverlös kod</p>
                                                 </div>
                                             </div>
@@ -1526,7 +1526,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Belastningsutjämnare</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>Leverera hög tillgänglighet och nätverksprestanda till dina program</p>
                                                 </div>
                                             </div>
@@ -1659,7 +1659,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DDOS-skydd</h3>
+                                                    <h3>DDOS Protection</h3>
                                                     <p>Skydda dina program mot DDoS-attacker (Distributed Denial of Service)</p>
                                                 </div>
                                             </div>
@@ -1702,7 +1702,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Lagring</h3>
+                                                    <h3>Storage</h3>
                                                     <p>Hållbar, högtillgänglig och massivt skalbar molnlagring</p>
                                                 </div>
                                             </div>
@@ -1854,7 +1854,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Webbplatsåterställning</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>Dirigera skydd och återställning av privata moln</p>
                                                 </div>
                                             </div>
@@ -2317,7 +2317,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analys</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2425,7 +2425,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Händelsehubbar</h3>
+                                                    <h3>Event Hubs</h3>
                                                     <p>Få telemetri från miljontals enheter</p>
                                                 </div>
                                             </div>
@@ -2604,7 +2604,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Batch-AI</h3>
+                                                    <h3>Azure Batch AI</h3>
                                                     <p>Experimentera och träna enkelt dina modeller för djupinlärning och AI parallellt i skala</p>
                                                 </div>
                                             </div>
@@ -2637,7 +2637,7 @@ Terraform </a>
                         <a href="#iot">Internet of Things</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2647,7 +2647,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Developer Center</h3>
+                                                    <h3>Grunderna i IoT</h3>
                                                     <p>Kom igång med att ansluta dina enheter</p>
                                                 </div>
                                             </div>
@@ -2704,7 +2704,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Hub Device Provisioning-tjänst</h3>
+                                                    <h3>IoT Hub Device Provisioning Service</h3>
                                                     <p>Zero touch- och just-in-time-etablering för Azure IoT Hub</p>
                                                 </div>
                                             </div>
@@ -2780,7 +2780,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Händelsehubbar</h3>
+                                                    <h3>Event Hubs</h3>
                                                     <p>Få telemetri från miljontals enheter</p>
                                                 </div>
                                             </div>
@@ -3355,7 +3355,7 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                <a href="https://azure.microsoft.com/features/xamarin">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3617,7 +3617,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Hanterade program</h3>
+                                                    <h3>Managed Applications</h3>
                                                     <p>Förenkla hanteringen av molnerbjudanden</p>
                                                 </div>
                                             </div>
@@ -3720,7 +3720,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Microsoft Azure China 21Vianet</h3>
+                                                    <h3>Microsoft Azure Kina 21Vianet</h3>
                                                     <p>Skapa och kör program i enlighet med principer och datahanteringsregler som fastställts av regeringen i Kina</p>
                                                 </div>
                                             </div>
@@ -3732,7 +3732,7 @@ Terraform </a>
                     </li>
                 </ul>
             </li>
-            <li>
+             <li>
                 <a href="#sdkstools">SDK:er/Tools</a>
                 <ul id="sdkstools">
                     <li>
@@ -3754,8 +3754,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">Hämta Azure Libraries för .NET</a>
-                                                </h3>
+Azure för .NET-utvecklare </h3>
                                                 <p>
                                                     <a href="/dotnet/azure">Kom igång</a>
                                                 </p>
@@ -3778,8 +3777,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure">Hämta Azure Libraries för Python</a>
-                                                </h3>
+Azure för Python-utvecklare </h3>
                                                 <p>
                                                     <a href="/python/azure">Kom igång</a>
                                                 </p>
@@ -3802,8 +3800,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/">Hämta Azure Libraries för Node.js</a>
-                                                </h3>
+Azure för Node.js-utvecklare </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">Kom igång</a>
                                                 </p>
@@ -3826,8 +3823,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/azure/java-sdk-azure-install">Hämta Azure Libraries för Java</a>
-                                                </h3>
+Azure för Java-utvecklare </h3>
                                                 <p>
                                                     <a href="/java/azure">Kom igång</a>
                                                 </p>
@@ -3845,47 +3841,17 @@ Terraform </a>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-5.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">Hämta Ruby SDK</a>
-                                                </h3>
+Azure för Go-utvecklare </h3>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Kom igång</a>
+                                                    <a href="/go/azure/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API-referens</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Hämta exempel</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Läs mer</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="/go/azure/">Skaffa Go-SDK</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Kom igång</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referens</a>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API-referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3903,13 +3869,9 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/rest/api/">Kom igång med REST</a>
-                                                </h3>
+REST API:er för Azure </h3>
                                                 <p>
-                                                    <a href="/rest/api">Referens</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Hämta exempel</a>
+                                                    <a href="/rest/api">API-referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3932,15 +3894,12 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Azure CLI 2.0 </h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Hämta Azure CLI 2.0</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">Referens</a>
+                                                    <a href="/cli/azure/reference-index">Referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3957,47 +3916,12 @@ Azure CLI 2.0 </h3>
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>PowerShell</h3>
+                                                <h3>Azure PowerShell</h3>
                                                 <p>
                                                     <a href="/powershell/azure/get-started-azureps">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Ladda ned PowerShell</a>
-                                                </p>
-                                                <p>
                                                     <a href="/powershell/azure/overview">Referens</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-7.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-Azure CLI </h3>
-                                                <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Kom igång</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Ladda ned Azure CLI för Linux</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Ladda ned Azure CLI för Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Ladda ned Azure CLI för Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4015,15 +3939,24 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools för Azure</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Ladda ned</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4041,10 +3974,9 @@ Azure CLI </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker-verktyg</a>
-                                                </h3>
+Docker </h3>
                                                 <p>
-                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Kom igång</a>
+                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Ladda ned till Visual Studio</a>
@@ -4066,15 +3998,44 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools för Visual Studio</a>
+Java-verktyg </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/api/overview/azure/maven/readme">Maven-pluginprogram</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/azure/java-azure-tools">IntelliJ och Eclipse</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/java">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="https://www.visualstudio.com/vs/python">Verktyg för Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Ladda ned</a>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4133,30 +4094,6 @@ SQL-verktyg </h3>
                                                 </p>
                                                 <p>
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Ladda ned till Windows</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Verktyg för Python</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Kom igång med Visual Studio</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/python">Kom igång med Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>

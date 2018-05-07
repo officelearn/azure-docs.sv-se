@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8d1eb3229f22b2da3a356562250fedb3c35c4816
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa prenumerationer Azure Enterprise (förhandsversion)
 
@@ -65,19 +65,19 @@ Azure svarar med en lista över alla registrering konton som du har åtkomst til
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ Azure svarar med en lista med objekt-ID och e-postadresser för konton.
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -117,19 +117,19 @@ Azure svarar med en lista med objekt-ID och e-postadresser för konton.
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ Använd den `principalName` egenskapen för att identifiera det konto som du vil
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Skapa prenumerationer under ett konto för registrering av specifika 
 
-I följande exempel skapas en begäran om att skapa prenumeration med namnet *Dev Team prenumeration* och prenumerationserbjudande *MS-AZR - 0017P* (reguljära EA). Konto för registrering är `<enrollmentAccountId>`, vilket är kontot registrering för MobileOnboardingEng@contoso.com. Även läggs två användare som RBAC ägare för prenumerationen.
+I följande exempel skapas en begäran om att skapa prenumeration med namnet *Dev Team prenumeration* och prenumerationserbjudande *MS-AZR - 0017P* (reguljära EA). Konto för registrering är `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (platshållarvärde, detta är ett GUID), som är registrering konto för SignUpEngineering@contoso.com. Även läggs två användare som RBAC ägare för prenumerationen.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 Använd den `id` av den `enrollmentAccount` i sökvägen för en begäran att skapa prenumerationen.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ I svaret, få tillbaka en `subscriptionOperation` objekt för övervakning. När
 
 Om du vill använda den här preview-modulen, installerar du den genom att köra `Install-Module AzureRM.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera den senaste versionen av PowerShellGet från [Hämtningsmodul PowerShellGet](/powershell/gallery/psget/get_psget_module).
 
-Använd den [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) tillsammans med `enrollmentAccount` namn som den `EnrollmentAccountObjectId` parametern för att skapa en ny prenumeration. 
+Använd den [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) tillsammans med `enrollmentAccount` objekt-ID som den `EnrollmentAccountObjectId` parametern för att skapa en ny prenumeration. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Nej      | Sträng | Visningsnamnet för prenumerationen. Om inget anges anges till namnet på erbjudanden som ”Microsoft Azure Enterprise”.                                 |
 | `OfferType`   | Ja      | Sträng | Erbjudande för prenumerationen. De två alternativen för EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktion) och [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (utveckling och testning, måste vara [aktiverat EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Ja       | Sträng | Objekt-ID för kontot registrering att prenumerationen skapas och debiteras. Detta är ett GUID-värde som du får från `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Nej       | Sträng | Objekt-ID för alla användare som du vill lägga till som ägare RBAC på prenumerationen när den skapas.  |
 | `OwnerSignInName`    | Nej       | Sträng | E-postadress för alla användare som du vill lägga till som ägare RBAC på prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`.|
 | `OwnerApplicationId` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC på prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`.| 
@@ -197,16 +198,17 @@ En fullständig lista över alla parametrar finns [New-AzureRmSubscription](/pow
 
 Om du vill använda den här preview-tillägget, installerar du den genom att köra `az extension add --name subscription` första.
 
-Använd den [az kontot skapa](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) tillsammans med `enrollmentAccount` namn som den `enrollment_account_name` parametern för att skapa en ny prenumeration.
+Använd den [az kontot skapa](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) tillsammans med `enrollmentAccount` objekt-ID som den `enrollment-account-object-id` parametern för att skapa en ny prenumeration.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Nej      | Sträng | Visningsnamnet för prenumerationen. Om inget anges anges till namnet på erbjudanden som ”Microsoft Azure Enterprise”.                                 |
 | `offer-type`   | Ja      | Sträng | Erbjudande för prenumerationen. De två alternativen för EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktion) och [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (utveckling och testning, måste vara [aktiverat EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Ja       | Sträng | Objekt-ID för kontot registrering att prenumerationen skapas och debiteras. Detta är ett GUID-värde som du får från `az billing enrollment-account list`. |
 | `owner-object-id`      | Nej       | Sträng | Objekt-ID för alla användare som du vill lägga till som ägare RBAC på prenumerationen när den skapas.  |
 | `owner-upn`    | Nej       | Sträng | E-postadress för alla användare som du vill lägga till som ägare RBAC på prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id`.|
 | `owner-spn` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC på prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id`.| 
@@ -217,12 +219,12 @@ En fullständig lista över alla parametrar finns [az kontot skapa](/cli/azure/e
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegera åtkomst till ett konto för registrering med RBAC
 
-Att ge en annan användare eller tjänstens huvudnamn möjlighet att skapa prenumerationer mot ett visst konto [ge dem en RBAC ägarrollen vid registrering kontots omfattning](../active-directory/role-based-access-control-manage-access-rest.md). I följande exempel ger en användare i klienten med `principalId` av `<userObjectId>` (för MobileOnboardingEng@contoso.com) en ägare roll för kontot registrering. 
+Att ge en annan användare eller tjänstens huvudnamn möjlighet att skapa prenumerationer mot ett visst konto [ge dem en RBAC ägarrollen vid registrering kontots omfattning](../active-directory/role-based-access-control-manage-access-rest.md). I följande exempel ger en användare i klienten med `principalId` av `<userObjectId>` (för SignUpEngineering@contoso.com) en ägare roll för kontot registrering. 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ När rollen som ägare har tilldelats definitionsområdet registrering konto, Az
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ När rollen som ägare har tilldelats definitionsområdet registrering konto, Az
 Använd den [ny AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) att ge en annan användare ägare åtkomst till ditt konto för registrering.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 Använd den [az rolltilldelning skapa](../active-directory/role-based-access-control-manage-access-azure-cli.md) att ge en annan användare ägare åtkomst till ditt konto för registrering.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

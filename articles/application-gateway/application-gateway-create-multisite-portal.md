@@ -1,26 +1,26 @@
 ---
-title: "Skapa en Programgateway med flera plats-värd - Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure portal."
+title: Skapa en Programgateway med flera plats-värd - Azure-portalen | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Skapa en Programgateway med flera för webbplatsen med hjälp av Azure portal
 
 Du kan använda Azure-portalen för att konfigurera [att vara värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med skalningsuppsättningar i virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på domäner som du äger för att kontrollera Internet-trafik anländer till rätt servrar i poolerna. Den här kursen förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.fabrikam.com*.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en programgateway
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure portal [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
@@ -70,7 +70,7 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
 1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
 2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-    ![Skapa ett undernät](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
+    ![Skapa undernät](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
 3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
@@ -83,15 +83,15 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 3. Ange dessa värden för den virtuella datorn:
 
     - *contosoVM* – namnet på den virtuella datorn.
-    - *azureuser* - för administratörsanvändarnamn.
+    - *azureuser* – för administratörens användarnamn.
     - *Azure123456!* för lösenordet.
     - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
 4. Klicka på **OK**.
-5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+5. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
-7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
-8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+7. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
+8. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
 ### <a name="install-iis"></a>Installera IIS
 
@@ -102,7 +102,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -166,7 +166,7 @@ När programgatewayen har skapats med dess offentliga IP-adress kan du hämta DN
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-1. Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
+1. Ange domännamnet i adressfältet i webbläsaren. T.ex, http://www.contoso.com.
 
     ![Testa plats för contoso i Programgateway](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

@@ -1,22 +1,22 @@
 ---
-title: "Översikt över omvänd DNS i Azure | Microsoft Docs"
-description: "Lär dig hur omvänd DNS fungerar och hur den kan användas i Azure"
+title: Översikt över omvänd DNS i Azure | Microsoft Docs
+description: Lär dig hur omvänd DNS fungerar och hur den kan användas i Azure
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: kumud
+ms.openlocfilehash: 1ce14360d0f62a01172a8003e1d78a45885166f6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Översikt över omvänd DNS- och support i Azure
 
@@ -86,7 +86,7 @@ En omvänd sökning för IP-adressen '192.0.2.129' frågor för en PTR-post med 
 
 ### <a name="ipv6"></a>IPv6
 
-Namnet på en zon för omvänd sökning IPv6 bör vara i följande format:`<IPv6 network prefix in reverse order>.ip6.arpa`
+Namnet på en zon för omvänd sökning IPv6 bör vara i följande format: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
 Till exempel. Skapa en zon för omvänd till värdposter för värdar med IP-adresser som finns i 2001:db8:1000:abdc när:: / 64 prefix zonnamnet skapas genom att isolera nätverksprefixet av adressen (2001:db8:abdc::). Expandera bredvid IPv6-prefix för nätverket att ta bort [noll komprimering](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), om den används för att korta ned IPv6-adressprefix (2001:0db8:abdc:0000::). I omvänd ordning med en period som avgränsare mellan varje hexadecimalt värde prefix, skapa inverterad nätverksprefixet (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) och lägger till suffixet `.ip6.arpa`.
 

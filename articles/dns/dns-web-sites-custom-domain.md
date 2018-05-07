@@ -1,10 +1,10 @@
 ---
-title: "Skapa anpassade DNS-poster för en webbapp | Microsoft Docs"
-description: "Så här skapar du anpassade domäner DNS-poster för webbapp med Azure DNS."
+title: Skapa anpassade DNS-poster för en webbapp | Microsoft Docs
+description: Så här skapar du anpassade domäner DNS-poster för webbapp med Azure DNS.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: d4b0aa817c3fd7f3304b5122ac584166d8079d3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Skapa DNS-poster för ett webbprogram i en anpassad domän
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Tillgängliggöra SQL-databaser till Azure Stack-användare
 Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln (klienter) skapa SQL-databaser som de kan använda med sina moln-ursprungliga appar, webbplatser och arbetsbelastningar. Genom att tillhandahålla dessa anpassade på begäran, molnbaserade databaser till dina användare kan spara du dem tid och resurser. Om du vill ställa in, kommer du att:
@@ -34,8 +34,8 @@ Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln
 
 Distributionsprocessen beskrivs i detalj i den [Använd SQL-databaser på Azure-stacken artikel](azure-stack-sql-resource-provider-deploy.md), som består av följande primära steg:
 
-1. [Distribuera SQL-resursprovidern]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Kontrollera distributionen]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Distribuera SQL-resursprovidern](azure-stack-sql-resource-provider-deploy.md).
+2. [Kontrollera distributionen](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Ange kapacitet genom att ansluta till en SQL-server som värd.
 
 ## <a name="create-an-offer"></a>Skapa ett erbjudande

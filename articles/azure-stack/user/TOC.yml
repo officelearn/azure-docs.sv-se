@@ -23,6 +23,10 @@
   items:
     - name: Distribuera appar till Azure och Azure Stack
       href: azure-stack-solution-pipeline.md
+    - name: Konfigurera cloud hybrididentitet
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Konfigurera molnet för hybridanslutning
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: Instruktionsguider
   items:
     - name: Använda Azure Stack Portal
@@ -51,7 +55,7 @@
               href: azure-stack-manage-vm-disks.md
             - name: Skydda virtuella datorer
               href: azure-stack-manage-vm-protect.md
-        - name: Lagring
+        - name: Storage
           items:
             - name: Översikt
               href: azure-stack-storage-overview.md

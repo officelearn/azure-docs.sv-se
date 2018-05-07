@@ -1,9 +1,9 @@
 ---
-title: "Flytta Data till och från Azure Blob Storage med hjälp av AzCopy | Microsoft Docs"
-description: "Flytta data till och från Azure Blob Storage med AzCopy"
+title: Flytta Data till och från Azure Blob Storage med hjälp av AzCopy | Microsoft Docs
+description: Flytta data till och från Azure Blob Storage med AzCopy
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 928d579da0cb469fd714b8a456a64917158d8ebc
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 936f0a25b101e82f3c0e3ae7e1e3183b9ee38393
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Flytta data till och från Azure Blob Storage med hjälp av AzCopy
 AzCopy är ett kommandoradsverktyg som utformats för att ladda upp, hämtar och kopiering av data till och från Microsoft Azure blob-, fil- och tabellagring.
@@ -35,7 +35,7 @@ Anvisningar om hur du installerar AzCopy och ytterligare information om hur du a
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringsnyckel för det kontot. Innan du laddar upp/hämtar data, måste du känna till din Azure storage-konto och nyckel.
 
 * Om du vill konfigurera en Azure-prenumeration finns [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Villkoren i Azure Active Directory för villkorlig åtkomst 
 
@@ -38,8 +38,10 @@ Kombinationen av dina villkor med din åtkomstkontroller representerar en princi
 
 ![Kontroll](./media/active-directory-conditional-access-conditions/61.png)
 
-Den här artikeln ger en översikt över villkor och hur de används i en princip för villkorlig åtkomst. 
 
+Villkor som du inte har konfigurerat i en princip för villkorlig åtkomst tillämpas inte. Vissa villkor är [obligatoriska](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) att tillämpa en princip för villkorlig åtkomst till en miljö. 
+
+Den här artikeln ger en översikt över villkor och hur de används i en princip för villkorlig åtkomst. 
 
 ## <a name="users-and-groups"></a>Användare och grupper
 
@@ -110,7 +112,7 @@ Enhetsplattformen kännetecknas av operativsystemet som körs på enheten. Azure
 En fullständig lista över enhetsplattformar som stöds finns i [enhet plattform villkoret](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Ett vanligt användningsfall för det här villkoret är en princip som begränsar åtkomsten till dina molnappar till [betrodda enheter](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Fler scenarier inklusive villkoret enhet plattform, se [Azure Active Directory app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md).
+Ett vanligt användningsfall för det här villkoret är en princip som begränsar åtkomsten till dina molnappar till [hanterade enheter](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Fler scenarier inklusive villkoret enhet plattform, se [Azure Active Directory app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md).
 
 
 

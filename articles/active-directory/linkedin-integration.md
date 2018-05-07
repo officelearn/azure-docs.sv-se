@@ -9,21 +9,24 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ab59033fd032cfccd2602a1a518e51a08e09581
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn konto anslutningar för Microsoft-appar och tjänster
 I den här artikeln får du lära dig hur hantera LinkedIn konto anslutningar för din klient i administrationscentret för Azure Active Directory (AD Azure). 
 
 > [!IMPORTANT]
 > LinkedIn konto anslutningar är för närvarande på att släppas till Azure AD-klienter. När den är distribuerat till din klient aktiveras som standard. Det är inte tillgänglig för Förenta staternas myndigheter och organisationer med Exchange Online postlådor som finns i Australien Kanada, Kina, Frankrike, Tyskland, Indien, Sydkorea, Storbritannien, Japan och Sydafrika. Stöd för dessa platser postlådan kommer snart.  En uppdaterad vy över distributionen information finns i [Office 365-översikt](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) sidan.
+
+## <a name="benefit-to-users"></a>Dra till användare
+När användarna ansluta sitt LinkedIn-konto, används LinkedIn information för att visa personlig information och funktioner i olika Microsoft-appar eller tjänster. Användare kan se insikter om personerna som de arbetar med i Microsoft profil-kort, även om de personer utanför organisationen. Över tiden blir deras LinkedIn-upplevelse också mer relevant och skräddarsydd till sitt arbete. Till exempel LinkedIn kan föreslå nya anslutningar baserat på som användare arbetar med eller baserat på insikter om personer i deras kalender för den dagen.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Hur LinkedIn konto anslutningar visas för användaren
 LinkedIn konto anslutningar kan användare Se offentliga LinkedIn-profilinformation i några av sina Microsoft-appar. Användare i din klient kan du ansluta sitt LinkedIn och Microsoft arbete eller skola konton för att visa ytterligare information för LinkedIn-profilen. Mer information finns i [LinkedIn information och funktioner i Microsoft-appar och tjänster](https://go.microsoft.com/fwlink/?linkid=850740).

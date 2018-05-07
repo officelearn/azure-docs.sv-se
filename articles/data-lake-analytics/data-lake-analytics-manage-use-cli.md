@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/29/2018
 ms.author: sngun
-ms.openlocfilehash: a78a7ea619be28f01372a7b80d3cb4a5d35bd50e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
 
@@ -194,6 +194,27 @@ Använd kommandot listan för att hitta jobb-id och sedan använda Avbryt om du 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
+
+## <a name="pipelines-and-recurrences"></a>Pipelines och upprepningar
+
+**Hämta information om pipelines och upprepningar**
+
+Använd `az dla job pipeline`-kommandon för att visa information om pipeline för jobb som skickats tidigare.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Använd `az dla job recurrence`-kommandon för att visa information om upprepningar för jobb som skickats tidigare.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
 
 ## <a name="use-azure-resource-manager-groups"></a>Använda Azure Resource Manager-grupper
 Programmen består vanligtvis av flera komponenter, t.ex. webbapp, databas, databasserver, lagring och tredjepartstjänster. Azure Resource Manager kan du arbeta med resurserna i ditt program som en grupp som kallas en Azure-resursgrupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser i programmet i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Du kan tydliggöra fakturering för din organisation genom att visa upplyfta kostnader för hela gruppen. Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 

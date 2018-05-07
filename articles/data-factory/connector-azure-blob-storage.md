@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c214dc34361bea49ad00cb5dfab71a7e6855996
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 23430ab89c739f504d3c4ed25149c71b68a8c37e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Ange typegenskapen för dataset för att kopiera data till och från Blob storag
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till **AzureBlob**. |Ja |
-| folderPath | Sökvägen till behållaren och mappen i blob storage. Ett exempel är myblobcontainer/myblobfolder /. |Ja |
+| folderPath | Sökvägen till behållaren och mappen i blob storage. Wildcard-filter stöds inte. Ett exempel är myblobcontainer/myblobfolder /. |Ja |
 | fileName | **Namn eller jokertecken-filtret** för blob(s) under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen dataset pekar på alla blobbar i mappen. <br/><br/>För filter som tillåts är jokertecken: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1: `"fileName": "*.csv"`<br/>-Exempel 2: `"fileName": "???20180427.txt"`<br/><br/>Om filnamnet har inte angetts för en datamängd för utdata och **preserveHierarchy** inte anges i aktiviteten-sink kopieringsaktiviteten genererar automatiskt blobbnamnet med följande mönster: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Ett exempel är ”Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”. |Nej |
 | Format | Om du vill kopiera filer som finns mellan filbaserade butiker (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående dataset definitionerna.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Ange den **typen** egenskap under **format** till någon av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv format ](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåerna **Optimal** och **snabbast**. |Nej |

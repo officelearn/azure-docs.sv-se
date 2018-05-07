@@ -12,289 +12,122 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/30/2018
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 25a908c542bf8fdd8008841a1865cdfb40d847fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7af33005d5984dbf76a16a0daa92f5e1ebf85f9e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-Om du utvecklar ett skrivbordsprogram Azure Active Directory (Azure AD) att gör det lätt att autentisera användarna med hjälp av sina lokala Active Directory-konton. Det gör också ditt program att använda alla webb-API som skyddas av Azure AD, till exempel API: er för Office 365 eller Azure API på ett säkert sätt.
+Om du utvecklar ett Android-program, Microsoft att gör det lätt att logga in användare i Azure Active Directory (AD Azure). Azure AD gör att programmet kan användare komma åt data via Microsoft Graph eller egna skyddade webb-API.  
 
-Azure AD innehåller Active Directory Authentication Library (ADAL) för Android-klienter som behöver åtkomst till skyddade resurser. Det enda syftet med ADAL är att göra det lättare för din app för att få åtkomst-token. För att demonstrera hur lätt det är ska vi skapa ett program för Android att göra-lista som:
+Android-biblioteket för Azure AD Authentication Library (ADAL) gör att din app kan börja använda den [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) genom att stödja [ Microsoft Azure Active Directory-konton](https://azure.microsoft.com/services/active-directory/) med hjälp av branschens standard OAuth2 och OpenID Connect. Det här exemplet visar alla normala livscykler ditt program inte bör uppleva, inklusive:
 
-* Hämtar åtkomst till token för att anropa ett API för att göra-lista med [OAuth 2.0-autentiseringsprotokollet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-* Hämtar uppgiftslista för en användare.
-* Loggar ut användare.
+* Hämta en token för Microsoft Graph
+* Uppdatera en token
+* Anropa Microsoft Graph
+* Logga ut användaren
 
-Du behöver en Azure AD-klient som du kan skapa användare och registrera ett program för att komma igång. Om du inte redan har en klient [Lär dig hur du skaffa en](active-directory-howto-tenant.md).
+Du behöver en Azure AD-klient där du kan skapa användare och registrera ett program för att komma igång. Om du inte redan har en klient [Lär dig hur du skaffa en](active-directory-howto-tenant.md).
 
-## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>Steg 1: Hämta och köra Node.js REST API TODO exempelserver
-Node.js REST API TODO-exempel är särskilt utformad för att arbeta mot vår befintliga exemplet för att skapa en enskild klient uppgiften REST API för Azure AD. Det här är en förutsättning för Snabbstart.
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: Logga in användare och anropa Microsoft Graph
 
-Information om hur du konfigurerar detta finns i vår befintliga prover i [Azure Active Directory exempel REST API-tjänsten för Node.js](active-directory-devquickstarts-webapi-nodejs.md).
+![topologi](./media/active-directory-android-topology.png)
+
+Den här appen kan användas för alla Azure AD-konton. Den stöder både enkla och flera organisationens scenarier (beskrivs i steg). Den visar hur en utvecklare kan bygga appar för att ansluta till företaget och komma åt sina Azure + O365 data via Microsoft Graph. Användarna måste logga in under auth-flöde och medgivande till behörigheter för programmet och i vissa fall kan kräva att en administratör att samtycka till appen. Merparten av logiken i det här exemplet visar hur auth en slutanvändare och göra en grundläggande anrop till Microsoft Graph.
+
+## <a name="example-code"></a>Exempelkod
+
+Du kan hitta fullständig exempelkoden [på Github](https://github.com/Azure-Samples/active-directory-android). 
+
+```Java
+// Initialize your app with MSAL
+AuthenticationContext mAuthContext = new AuthenticationContext(
+        MainActivity.this, 
+        AUTHORITY, 
+        false);
 
 
-## <a name="step-2-register-your-web-api-with-your-azure-ad-tenant"></a>Steg 2: Registrera ditt webb-API med Azure AD-klient
-Active Directory har stöd för att lägga till två typer av program:
+// Perform authentication requests
+mAuthContext.acquireToken(
+    getActivity(), 
+    RESOURCE_ID, 
+    CLIENT_ID, 
+    REDIRECT_URI,  
+    PromptBehavior.Auto, 
+    getAuthInteractiveCallback());
 
-- Web API: er som tillhandahåller tjänster till användare
-- Program (som körs på webben eller på en enhet) som har åtkomst till de webb-API: er
+// ...
 
-I det här steget du registrera webb-API som du kör lokalt för att testa det här exemplet. Den här webb-API är normalt en REST-tjänst som erbjuder funktioner som du vill använda en app för att få åtkomst till. Azure AD kan du skydda valfri slutpunkt.
-
-Förutsätter vi att att du registrerar TODO REST-API som refererar till tidigare. Men det här fungerar för alla webb-API som du vill använda Azure Active Directory för att skydda.
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på ditt konto på den översta raden. I den **Directory** Välj Azure AD-klient som du vill registrera ditt program.
-3. Klicka på **alla tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
-4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
-5. Ange ett eget namn för programmet (till exempel **TodoListService**), Välj **webbprogram och/eller webb-API**, och klicka på **nästa**.
-6. Ange den grundläggande Webbadressen för för URL-inloggning. Detta är som standard `https://localhost:8080`.
-7. Klicka på **OK** att slutföra registreringen.
-8. Gå till sidan programmet fortfarande i Azure-portalen, hitta program-ID-värdet och kopiera den. Du behöver det senare när du konfigurerar ditt program.
-9. Från den **inställningar** -> **egenskaper** sidan, uppdatera app-ID URI - ange `https://<your_tenant_name>/TodoListService`. Ersätt `<your_tenant_name>` med namnet på din Azure AD-klient.
-
-## <a name="step-3-register-the-sample-android-native-client-application"></a>Steg 3: Registrera Android Native Client exempelprogrammet
-I det här exemplet måste du registrera ditt webbprogram. På så sätt kan programmet att kommunicera med den precis har registrerats webben-API. Azure AD att neka även tillåta programmet att begära för inloggning om den är registrerad. Som är del av säkerheten för modellen.
-
-Förutsätter vi att att du registrera exempelprogrammet refererar till tidigare. Men den här metoden fungerar för alla appar som du utvecklar.
-
-> [!NOTE]
-> Du kanske undrar varför du ska lägga ett program och ett webb-API i en klient. Du kan skapa en app som ansluter till en extern API som är registrerad i Azure AD från en annan klient som du kan ha gissa. Om du gör det kan uppmanas kunderna att godkänna användningen av API: et i programmet. Active Directory Authentication Library för iOS hand tar om detta godkännande för dig. Får du veta mer avancerade funktioner, visas detta är en viktig del av arbetet som krävs för att komma åt uppsättning Microsoft APIs från Azure och Office, samt-leverantör. Just nu eftersom du har registrerat både webb-API och ditt program under samma klientorganisation, visas inte några uppmaningar om samtycke. Detta är normalt om du utvecklar ett program för ditt företag att använda.
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på ditt konto på den översta raden. I den **Directory** Välj Azure AD-klient som du vill registrera ditt program.
-3. Klicka på **alla tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
-4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
-5. Ange ett eget namn för programmet (till exempel **TodoListClient Android**), Välj **internt klientprogram**, och klicka på **nästa**.
-6. Omdirigerings-URI, ange `http://TodoListClient`. Klicka på **Slutför**.
-7. Hitta värdet för program-ID och kopiera den från sidan program. Du behöver det senare när du konfigurerar ditt program.
-8. Från den **inställningar** väljer **nödvändiga behörigheter** och välj **Lägg till**.  Leta upp och välj TodoListService, Lägg till den **åtkomst TodoListService** behörighet under **delegerade behörigheter**, och klicka på **klar**.
-
-Du kan använda pom.xml på den översta nivån för att skapa med Maven:
-
-1. Klona den här lagringsplatsen i en katalog som du väljer:
-
-  `$ git clone https://github.com/Azure-Samples/active-directory-android.git`  
-2. Följ stegen i den [krav för att konfigurera din Maven-miljö för Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Maven).
-3. Ställ in emulatorn med SDK-19.
-4. Gå till roten i mappen där du klona lagringsplatsen.
-5. Kör det här kommandot: `mvn clean install`
-6. Ändra katalogen till exempel Snabbstart: `cd samples\hello`
-7. Kör det här kommandot: `mvn android:deploy android:run`
-
-   Du bör se app startar.
-8. Ange test autentiseringsuppgifter för försök.
-
-JAR paket skickas bredvid AAR-paketet.
-
-## <a name="step-4-download-the-android-adal-and-add-it-to-your-eclipse-workspace"></a>Steg 4: Ladda ned Android ADAL och lägga till den i ditt Eclipse-arbetsområde
-Vi har gjort det enkelt att du har flera alternativ för att använda ADAL i din Android-projekt:
-
-* Du kan använda källkoden för att importera det här biblioteket i Eclipse och länka till ditt program.
-* Om du använder Android Studio du använder formatet AAR paketet och refererar binärfilerna.
-
-### <a name="option-1-source-zip"></a>Alternativ 1: Källa Zip
-Om du vill hämta en kopia av källkoden, klickar du på **hämta ZIP** till höger på sidan. Du kan också [ladda ned från GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android/releases).
-
-### <a name="option-2-source-via-git"></a>Alternativ 2: Källa via Git
-För att få källkoden för SDK via Git, skriver du:
-
-    git clone https://github.com/AzureAD/azure-activedirectory-library-for-android.git
-    cd ./azure-activedirectory-library-for-android/src
-
-### <a name="option-3-binaries-via-gradle"></a>Alternativ 3: Binärfiler via Gradle
-Du kan hämta de binära filerna från Maven centrala lagringsplatsen. AAR paketet kan ingå i ditt projekt i Android Studio enligt följande:
-
-```gradle
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
-    maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
-    }
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:1.1.1') {
-        exclude group: 'com.android.support'
-    } // Recent version is 1.1.1
-}
+// Get tokens to call APIs like the Microsoft Graph
+mAuthResult.getAccessToken()
 ```
 
-### <a name="option-4-aar-via-maven"></a>Alternativ 4: AAR via Maven
-Om du använder M2Eclipse plugin-program kan du ange beroendet i filen pom.xml:
+## <a name="steps-to-run"></a>Steg för att köra
 
-```xml
-<dependency>
-    <groupId>com.microsoft.aad</groupId>
-    <artifactId>adal</artifactId>
-    <version>1.1.1</version>
-    <type>aar</type>
-</dependency>
-```
+### <a name="register-and-configure-your-app"></a>Registrera och konfigurera din app 
+Behöver du ha en native client-program som har registrerats med Microsoft genom att använda den [Azure-portalen](https://portal.azure.com). 
 
+1. Hämtning av registreringen av appen
+    - Navigera till [Azure-portalen](https://aad.portal.azure.com).  
+    - Välj ***Azure Active Directory*** > ***App registreringar***. 
 
-### <a name="option-5-jar-package-inside-the-libs-folder"></a>Alternativ 5: JAR-paketet i biblioteksmappen
-Du kan hämta JAR-filen från Maven-lagringsplatsen och släpp det i den **libs** mappen i projektet. Du måste kopiera de nödvändiga resurserna i ditt projekt, eftersom JAR-paket inte inkluderas.
+2. Skapa appen
+    - Välj **Ny programregistrering**.  
+    - Ange ett programnamn i den **namn** fältet. 
+    - I **programtyp** Välj **interna**. 
+    - I **omdirigerings-URI**, ange `http://localhost`.  
 
-## <a name="step-5-add-references-to-android-adal-to-your-project"></a>Steg 5: Lägg till referenser till Android ADAL i projektet
-1. Lägg till en referens i projektet och ange den som en Android-biblioteket. Om du är osäker på hur du gör detta kan du få mer information den [Android Studio plats](http://developer.android.com/tools/projects/projects-eclipse.html).
-2. Lägg till ett projekt beroende för felsökning i dina Projektinställningar.
-3. Uppdatera ditt projekt AndroidManifest.xml fil:
+3. Konfigurera Microsoft Graph
+    - Välj **Inställningar > nödvändiga behörigheter**.
+    - Välj **Lägg till**, inuti **väljer en API** Välj ***Microsoft Graph***. 
+    - Välj behörigheten **logga in och Läs användarprofil**, och tryck sedan på **Välj** att spara. 
+        - Den här behörigheten mappar till den `User.Read` omfång. 
+    - Valfritt: I **nödvändiga behörigheter > Windows Azure Active Directory**, ta bort den valda behörigheten **logga in och Läs användarprofil**. På så sätt undviker sidan medgivande lista behörigheten två gånger.   
 
-        <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-        <application
-            android:allowBackup="true"
-            android:debuggable="true"
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme" >
+4. Congrats! Appen har konfigurerats. I nästa avsnitt behöver du:
+    - `Application ID`
+    - `Redirect URI`
 
-            <activity
-                android:name="com.microsoft.aad.adal.AuthenticationActivity"
-                android:label="@string/title_login_hello_app" >
-            </activity>
-            ....
-        <application/>
+### <a name="get-the-sample-code"></a>Hämta exempelkoden
 
-4. Skapa en instans av AuthenticationContext på din huvudaktiviteten. Information om det här anropet är utanför omfattningen för det här avsnittet, men du får en bra start genom att titta på den [Android Native Client exempel](https://github.com/AzureAD/azure-activedirectory-library-for-android). I följande exempel SharedPreferences är standard och utfärdare är i form av `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
+1. Klona koden.
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-android
+    ```
+2. Öppna exemplet i Android Studio.
+    - Välj **öppna ett befintligt Android Studio-projekt**.
 
-    `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
+### <a name="configure-your-code"></a>Konfigurera din kod
 
-5. Kopiera den här kodblock för att hantera slutet av AuthenticationActivity när användaren anger autentiseringsuppgifter och tar emot en Auktoriseringskoden:
+Du kan hitta all konfiguration för det här kodexemplet i den ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** fil.  
 
-        @Override
-         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-             super.onActivityResult(requestCode, resultCode, data);
-             if (mContext != null) {
-                mContext.onActivityResult(requestCode, resultCode, data);
-             }
-         }
+1. Ersätt konstanten `CLIENT_ID` med den `ApplicationID`.
+2. Ersätt konstanten `REDIRECT URI` med den `Redirect URI` du tidigare har konfigurerat (`http://localhost`). 
 
-6. Definiera ett återanrop för att fråga efter en token:
+### <a name="run-the-sample"></a>Kör exemplet
 
-        private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+1. Välj **skapa > Rensa projekt**. 
+2. Välj **kör > Kör app**. 
+3. Appen ska skapa och visa vissa grundläggande UX. När du klickar på den `Call Graph API` knappen, det fråga efter en inloggning och sedan anropa tyst Microsoft Graph-API med den nya token.  
 
-            @Override
-            public void onError(Exception exc) {
-                if (exc instanceof AuthenticationException) {
-                    textViewStatus.setText("Cancelled");
-                    Log.d(TAG, "Cancelled");
-                } else {
-                    textViewStatus.setText("Authentication error:" + exc.getMessage());
-                    Log.d(TAG, "Authentication error:" + exc.getMessage());
-                }
-            }
+## <a name="important-info"></a>Viktig information
 
-            @Override
-            public void onSuccess(AuthenticationResult result) {
-                mResult = result;
-
-                if (result == null || result.getAccessToken() == null
-                        || result.getAccessToken().isEmpty()) {
-                    textViewStatus.setText("Token is empty");
-                    Log.d(TAG, "Token is empty");
-                } else {
-                    // request is successful
-                    Log.d(TAG, "Status:" + result.getStatus() + " Expired:"
-                            + result.getExpiresOn().toString());
-                    textViewStatus.setText(PASSED);
-                }
-            }
-        };
-
-7. Slutligen be om en token med hjälp av att motringning:
-
-    `mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
-                   callback);`
-
-Här följer en förklaring av parametrarna:
-
-* *resursen* krävs och är den resurs som du försöker komma åt.
-* *clientid* krävs och kommer från Azure AD.
-* *RedirectUri* behöver inte anges för acquireToken-anropet. Du kan konfigurera den som ditt paketnamn.
-* *PromptBehavior* bidrar till att be om autentiseringsuppgifter för att hoppa över cache och cookie.
-* *motringning* anropas efter Auktoriseringskoden byts ut mot en token. Den har ett objekt av AuthenticationResult som har åtkomst-token, datum har upphört att gälla och ID tokeninformation.
-* *acquireTokenSilent* är valfritt. Du kan anropa referensen cachelagring och token uppdatera. Det ger också synkroniserade versionen. Den godkänner *userId* som en parameter.
-
-        mContext.acquireTokenSilent(resource, clientid, userId, callback );
-
-Du bör ha vad du behöver kunna integrera med Azure Active Directory med hjälp av den här genomgången. Fler exempel på detta fungerar finns i AzureADSamples / databasen på GitHub.
-
-## <a name="important-information"></a>Viktig information
-
-### <a name="broker"></a>Service Broker
-Appen företagsportal eller Microsoft Authenticator innehåller broker-komponent. Kontot har skapats i AccountManager. Kontotypen är ”com.microsoft.workaccount”. AccountManager kan bara ett enda SSO-konto. Den skapar en SSO-cookie för användaren när du har slutfört enheten utmaning för en av apparna.
-
-Mer information om hur du konfigurerar med hjälp av en koordinator checka ut den [broker wiki-artikeln](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Broker). 
-
-### <a name="authority-url-and-ad-fs"></a>URL: en utfärdare och AD FS
-Active Directory Federation Services (AD FS) identifieras inte som produktion STS, så du måste stänga av instans identifiering och gå till FALSKT i konstruktorn AuthenticationContext.
-
-Utfärdare-URL måste en STS-instans och en [klientnamn](https://login.microsoftonline.com/yourtenant.onmicrosoft.com).
-
-### <a name="querying-cache-items"></a>Fråga cacheobjekt
-ADAL tillhandahåller en standard-cache i SharedPreferences med några enkla cache frågan funktioner. Du kan hämta aktuell cache från AuthenticationContext med hjälp av:
-
-    ITokenCacheStore cache = mContext.getCache();
-
-Du kan också ge din cache-implementering, om du vill anpassa den.
-
-    mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
-
-### <a name="prompt-behavior"></a>Fråga beteende
-ADAL innehåller ett alternativ för att ange fråga beteende. PromptBehavior.Auto visar Användargränssnittet om uppdateringstoken är ogiltig och autentiseringsuppgifter krävs. PromptBehavior.Always kommer att hoppa över cache-användning och alltid visa Användargränssnittet.
-
-### <a name="silent-token-request-from-cache-and-refresh"></a>Tyst tokenbegäran från cache och uppdatera
-En tyst tokenbegäran använder inte popup-Användargränssnittet och kräver inte en aktivitet. Den returnerar en token från cachen om de är tillgängliga. Om token har upphört att gälla, görs uppdatera det här metoden. Om uppdateringstoken som upphört att gälla eller inte fungerar, returnerar AuthenticationException.
-
-    Future<AuthenticationResult> result = mContext.acquireTokenSilent(resource, clientid, userId, callback );
-
-Du kan också göra en synkronisering anropet med hjälp av den här metoden. Du kan ange null till återanrop eller använda acquireTokenSilentSync.
-
-### <a name="diagnostics"></a>Diagnostik
-Det här är de primära informationskällorna för att diagnostisera problem:
-
-* Undantag
-* Logs
-* Nätverksspår
-
-Observera att Korrelations-ID: N är centrala för diagnostik i biblioteket. Du kan ställa in din Korrelation ID: N på grundval av per begäran om du vill att korrelera ett ADAL begäran med andra åtgärder i koden. Om du inte anger en Korrelations-ID, att ADAL generera ett slumpmässigt. Alla loggar meddelanden och samtal nätverket kommer sedan stämplad med Korrelations-ID Självgenererat ID ändringarna för varje begäran.
-
-#### <a name="errors--exceptions"></a>Fel och undantag
-Undantag är den första diagnostiken. Vi försöker tillhandahålla användbara felmeddelanden. Om du hittar en som inte är användbara du filen ett problem och berätta för oss. Innehåller enheten modellen och SDK-nummer.
-
-Mer information om vilka fel som din app ska hantera, checka ut den [felhantering metodtips](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
-
-#### <a name="logs"></a>Logs
-Du kan konfigurera biblioteket för att generera loggmeddelanden som du kan använda för att diagnostisera problem. Du kan konfigurera loggning genom att göra följande anrop för att konfigurera ett återanrop som ADAL använder till manuellt från varje loggmeddelande som genereras.
-
-Aktivera loggning, checka ut den [loggning wiki-artikeln](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Logging).
-
-### <a name="session-cookies-in-webview"></a>Cookies i webbvy
-Android webbvy rensas inte sessionscookies när appen har stängts. Du kan hantera som med hjälp av den här exempelkoden:
-
-    CookieSyncManager.createInstance(getApplicationContext());
-    CookieManager cookieManager = CookieManager.getInstance();
-    cookieManager.removeSessionCookie();
-    CookieSyncManager.getInstance().sync();
-
-Mer information om cookies finns i [CookieSyncManager information på webbplatsen för Android](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
-
-### <a name="ntlm-dialog-box"></a>Dialogrutan för NTLM
-ADAL version 1.1.0 stöder en dialogruta för NTLM som bearbetas via händelsen onReceivedHttpAuthRequest från WebViewClient. Du kan anpassa layout och strängar för dialogrutan.
+1. Checka ut den [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) för mer information om biblioteket säkerhetsnivån och hur du konfigurerar nya scenarier och funktioner. 
+2. I scenarier med interna appen kommer att använda ett inbäddat webbvy och lämnar inte appen. Den `Redirect URI` kan vara skadlig. 
+3. Hitta problem eller har förfrågningar? Du kan skapa ett problem eller ett inlägg i Stackoverflow med taggen `azure-active-directory`. 
 
 ### <a name="cross-app-sso"></a>Enkel inloggning mellan appar
 Läs [aktivera enkel inloggning mellan appar på Android med hjälp av ADAL](active-directory-sso-android.md).  
+
+### <a name="auth-telemetry"></a>Auth telemetri
+ADAL-biblioteket visar auth telemetri för att förstå hur sina appar fungerar och skapa bättre upplevelse för utvecklare av program.  På så sätt kan du avbilda inloggning lyckades, aktiva användare och flera andra intressanta insikter. Med hjälp av auth telemetri kräver apputvecklare att upprätta en telemetri-tjänsten för att sammanställa och lagra händelser.
+
+Läs mer om auth telemetri utcheckning [ADAL Android auth telemetri](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry). 
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

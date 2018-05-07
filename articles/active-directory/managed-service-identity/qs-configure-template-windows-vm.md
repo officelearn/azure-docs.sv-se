@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 521c5a3c0ad55afa0b71628195be7782b0e43b67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 324a1e08e92a2c7ae76d7a6df56536540dc772a1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanteras tjänstidentitet med hjälp av en mall
 
@@ -34,7 +34,7 @@ Lär dig hur du utför följande åtgärder för hanterade tjänstidentiteten p�
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Som i Azure ge portal och skript, Azure Resource Manager-mallar möjlighet att distribuera nya eller ändrade resurser som definierats i en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portal-baserade, inklusive:
+Precis som med Azure portal och skript, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar tillhandahåller möjligheten att distribuera nya eller ändrade resurser som definierats i en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portal-baserade, inklusive:
 
    - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller baseras på en befintlig gemensamma eller [QuickStart mallen](https://azure.microsoft.com/documentation/templates/).
    - Härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen av](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -112,59 +112,14 @@ Om du har en virtuell dator som inte längre behöver en hanterade tjänstidenti
 
 ## <a name="user-assigned-identity"></a>Användaren som har tilldelats identitet
 
-I det här avsnittet skapar du en användar-ID och virtuella Azure-datorn med en Azure Resource Manager-mall.
+I det här avsnittet tilldelar du en identitet för användaren som har tilldelats till en virtuell dator i Azure med hjälp av Azure Resource Manager-mall.
 
- ### <a name="create-and-assign-a-user-assigned-identity-to-an-azure-vm"></a>Skapa och tilldela en användare som tilldelats en Azure VM identitet
+> [!Note]
+> Om du vill skapa en identitet för användaren som har tilldelats med hjälp av en Azure Resource Manager-mall finns [skapa en identitet för användaren som har tilldelats](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-1. Utför först steget i avsnittet [aktivera tilldelade systemidentitet vid skapandet av en virtuell dator i Azure eller på en befintlig virtuell dator](#enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm)
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Tilldela en användare som tilldelats en Azure VM identitet
 
-2.  Lägg till en post för en användare tilldelade identitetsnamn liknar följande under avsnittet variabler som innehåller konfigurationsvariablerna för din virtuella Azure-datorn.  Detta skapar användaren som har tilldelats identitet under skapandeprocessen virtuella Azure-datorn:
-    
-    > [!IMPORTANT]
-    > Skapa användartilldelade identiteter med specialtecken (dvs understreck) i namnet stöds inte för närvarande. Använd alfanumeriska tecken. Sök igen efter uppdateringar.  Mer information finns i [vanliga frågor och kända problem](known-issues.md)
-
-    ```json
-    "variables": {
-        "vmName": "[parameters('vmName')]",
-        //other vm configuration variables...
-        "identityName": "[concat(variables('vmName'), 'id')]"
-    ```
-
-3. Under den `resources` element, Lägg till följande post för att skapa en tilldelad användaridentitet:
-
-    ```json
-    {
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-        "name": "[variables('identityName')]",
-        "apiVersion": "2015-08-31-PREVIEW",
-        "location": "[resourceGroup().location]"
-    },
-    ```
-
-4. Sedan under den `resources` element lägger du till följande post att tilldela hanterade identity-tillägg till den virtuella datorn:
-
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
-        "apiVersion": "2015-05-01-preview",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-5. Lägg sedan till följande post för att tilldela dina användare som tilldelats identitet till den virtuella datorn:
-
+1. Under den `resources` element, Lägg till följande post för att tilldela en identitet för användaren som har tilldelats till den virtuella datorn.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på användaren som har tilldelats identiteten som du skapade.
     ```json
     {
         "apiVersion": "2017-12-01",
@@ -174,15 +129,36 @@ I det här avsnittet skapar du en användar-ID och virtuella Azure-datorn med en
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('identityName'))]"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
             ]
         },
     ```
-6.  När du är klar bör mallen likna följande:
-    > [!NOTE]
-    > Mallen innehåller inte alla nödvändiga variabler för att skapa den virtuella datorn.  `//other configuration variables...` används på alla nödvändiga konfigurationsvariabler för enkelhetens planeringsaspekter.
+    
+2. (Valfritt) Sedan under den `resources` element, Lägg till följande post för att tilldela hanterade identity-tillägget till den virtuella datorn. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS) identitet slutpunkt, för att hämta token samt. Använd följande syntax:
+    ```json
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50342
+            }
+        }
+    }
+    ```
+    
+3.  När du är klar bör mallen likna följande:
 
-      ![Skärmbild av användaren som har tilldelats identitet](../media/msi-qs-configure-template-windows-vm/template-user-assigned-identity.png)
+      ![Skärmbild av användaren som har tilldelats identitet](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>Relaterat innehåll

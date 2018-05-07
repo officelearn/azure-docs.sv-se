@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välj rätt IoT-hubb nivån för din lösning
 
@@ -39,7 +39,7 @@ Standardnivån för IoT-hubb kan du använda alla funktioner och krävs för IoT
 
 När du har skapat din IoT-hubb som du kan uppgradera från den grundläggande nivån till standardnivån om utan att avbryta din befintliga drift. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md).
 
-| Funktion | Basic-nivå | Standardnivå |
+| Funktion | Basic-nivå | Standard-nivå |
 | ---------- | ---------- | ------------- |
 | [Enhet till moln telemetri](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Identitet per enhet](iot-hub-devguide-identity-registry.md) | Ja | Ja |
@@ -48,7 +48,7 @@ När du har skapat din IoT-hubb som du kan uppgradera från den grundläggande n
 | [Etablering av tjänst](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Meddelanden moln till enhet](iot-hub-devguide-c2d-guidance.md) |   | Ja |
-| [Enheten twins](iot-hub-devguide-device-twins.md) och [enhetshantering](iot-hub-device-management-overview.md) |   | Ja |
+| [Enheten twins](iot-hub-devguide-device-twins.md), [modulen twins](iot-hub-devguide-module-twins.md) och [enhetshantering](iot-hub-device-management-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Ja |
 
 IoT-hubb erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Det har alla funktioner av standardnivån, men begränsad meddelanden ersättning. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard. 
@@ -57,23 +57,30 @@ IoT-hubb erbjuder också en kostnadsfri nivå som är avsedd för testning och u
 
 Skillnaden i funktioner som stöds mellan nivåerna basic och standard IoT-hubb innebär att vissa API-anrop inte fungerar med nav grundläggande nivån. I följande tabell visas vilka API: er är tillgängliga: 
 
-| API | Basnivå | Standardnivå |
+| API | Basic-nivå | Standard-nivå |
 | --- | ---------- | ------------- |
 | [Ta bort enheten](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Ja | Ja |
 | [Hämta enhet](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Ja | Ja |
+| Ta bort modulen | Ja | Ja |
+| Hämta modul | Ja | Ja |
 | [Få statistik för registret](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Ja | Ja |
 | [Hämta statistik för tjänster](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Ja | Ja |
 | [Placera enheten](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Ja | Ja |
+| Placera modulen | Ja | Ja |
 | [Fråga om enheter](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Ja | Ja |
+| Frågan moduler | Ja | Ja |
 | [Skapa filöverföringen SAS-URI](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Ja | Ja |
 | [Enheten bunden meddelande](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Ja | Ja |
 | [Skicka enhetshändelse](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Ja | Ja |
+| Skicka modulen händelse | Ja | Ja |
 | [Uppdatera filen Överföringsstatusen](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Ja | Ja |
 | [Enheten massåtgärd](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Ja, förutom IoT kant-funktioner | Ja | 
 | [Rensa kommandot kön](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Ja |
 | [Hämta enheten dubbla](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Ja |
+| Hämta modul dubbla |   | Ja |
 | [Anropa metoden för enhet](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Ja |
 | [Uppdatera enheten dubbla](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Ja | 
+| Uppdatera modulen dubbla |   | Ja | 
 | [Avbryt enheten bunden meddelande](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Ja |
 | [Fullständig enhet bunden meddelande](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Ja |
 | [Avbryta jobb](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Ja |
@@ -95,7 +102,7 @@ Meddelanden från enhet till moln följa riktlinjerna varaktigt dataflöde som e
 
 | Nivå | Varaktigt dataflöde | Varaktiga överföringshastighet |
 | --- | --- | --- |
-| B1, S1 |Upp till 1 111 KB per minut per enhet<br/>(1,5 GB/dag/unit) |Medelvärde för 278 meddelanden per minut per enhet<br/>(400 000 meddelanden/dag per enhet) |
+| B1 S1 |Upp till 1 111 KB per minut per enhet<br/>(1,5 GB/dag/unit) |Medelvärde för 278 meddelanden per minut per enhet<br/>(400 000 meddelanden/dag per enhet) |
 | B2, S2 |Upp till 16 MB per minut per enhet<br/>(22,8 GB/dag/unit) |Medelvärde för 4,167 meddelanden per minut per enhet<br/>(6 miljoner meddelanden/dag per enhet) |
 | B3, S3 |Upp till 814 MB per minut per enhet<br/>(1144.4 GB/dag/unit) |Medelvärde för 208,333 meddelanden per minut per enhet<br/>(300 miljoner meddelanden/dag per enhet) |
 

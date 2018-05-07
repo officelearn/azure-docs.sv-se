@@ -1,9 +1,9 @@
 ---
-title: "Flytta Data till eller från Azure Blob Storage med hjälp av SSIS-anslutningar | Microsoft Docs"
-description: "Flytta Data till eller från Azure Blob Storage med hjälp av SSIS-anslutningar."
+title: Flytta Data till eller från Azure Blob Storage med hjälp av SSIS-anslutningar | Microsoft Docs
+description: Flytta Data till eller från Azure Blob Storage med hjälp av SSIS-anslutningar.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 39feca23532264c1f4c17017f89b064af09e9c1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med hjälp av SSIS-anslutningar
 Den [Funktionspaketet för SQL Server Integration Services för Azure](https://msdn.microsoft.com/library/mt146770.aspx) innehåller komponenter för att ansluta till Azure, överföra data mellan Azure och lokala datakällor och bearbetning av data lagras i Azure.
@@ -36,7 +36,7 @@ En beskrivning av kanoniska scenarier som använder SSIS för att utföra affär
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en Azure-prenumeration och skapa ett Azure storage-konto för att utföra de uppgifter som beskrivs i den här artikeln. Du måste känna till din Azure storage namn och kontonyckel att överföra eller hämta data.
 
 * Att ställa in en **Azure-prenumeration**, se [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
@@ -45,7 +45,7 @@ Du måste ha en Azure-prenumeration och skapa ett Azure storage-konto för att u
 Att använda den **SSIS kopplingar**, måste du hämta:
 
 * **SQL Server 2014 eller Standard 2016 (eller senare)**: Installera omfattar SQL Server Integration Services.
-* **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: dessa kan hämtas, från den [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
+* **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: dessa kan hämtas, från den [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016-Integration Tjänster](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
 
 > [!NOTE]
 > SSIS installeras med SQL Server, men det ingår inte i Express-version. Information om vilka program som ingår i olika utgåvor av SQL Server finns [SQL Server-versioner](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)

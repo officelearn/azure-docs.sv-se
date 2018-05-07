@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsökning av hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -90,7 +90,7 @@ Om inte Azure AD-anslutning hybrid lyckades ger dialogrutan dig information om p
     
     - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på ett inkommande bundna problem med nätverksanslutningen till Azure AD URL-adresser (kontrollera krav). Det kan också vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar **autoworkplace.exe** tyst får en token.
     
-    - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` finns inte på enhetens IE intranätsinställningar och **tillåta uppdateringar av statusfältet via skript** har inte aktiverats för zonen Intranät.
+    - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens IE intranätsinställningar och **tillåta uppdateringar av statusfältet via skript** har inte aktiverats för zonen Intranät.
 
 - En kvot har uppnåtts
 

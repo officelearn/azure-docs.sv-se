@@ -1,22 +1,22 @@
 ---
-title: "Värd för omvänd sökning DNS-zoner i Azure DNS | Microsoft Docs"
-description: "Lär dig hur du använder Azure DNS som värd för omvänd DNS-sökningszoner för IP-adressintervall"
+title: Värd för omvänd sökning DNS-zoner i Azure DNS | Microsoft Docs
+description: Lär dig hur du använder Azure DNS som värd för omvänd DNS-sökningszoner för IP-adressintervall
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: d5dc152af6acb510e12cd42503b6128dc6492e89
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: kumud
+ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värden omvänd DNS-zoner för sökning i Azure DNS
 
@@ -52,7 +52,7 @@ I följande exempel visas hur du skapar en klass C omvänd DNS-zon som heter `2.
 
  ![”Skapa DNS-zonen” rutan med rutor ifylld](./media/dns-reverse-dns-hosting/figure2.png)
 
-**Resursgruppens plats** definierar plats för resursgruppen. Det har ingen inverkan på DNS-zonen. Plats för DNS-zonen är alltid ”globala” och visas inte.
+**Resursgruppens plats** definierar plats för resursgruppen. Det har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.
 
 Följande exempel visar hur du utför den här uppgiften med hjälp av Azure PowerShell och Azure CLI.
 
@@ -83,7 +83,7 @@ I följande exempel visas hur du skapar en IPv6 omvänd DNS-sökningszon med nam
 
  ![”Skapa DNS-zonen” rutan med rutor ifylld](./media/dns-reverse-dns-hosting/figure3.png)
 
-**Resursgruppens plats** definierar plats för resursgruppen. Det har ingen inverkan på DNS-zonen. Plats för DNS-zonen är alltid ”globala” och visas inte.
+**Resursgruppens plats** definierar plats för resursgruppen. Det har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.
 
 Följande exempel visar hur du utför den här uppgiften med hjälp av Azure PowerShell och Azure CLI.
 

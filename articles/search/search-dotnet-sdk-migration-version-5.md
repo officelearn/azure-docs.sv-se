@@ -6,13 +6,13 @@ manager: jlembicz
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: 018388cd2bd85eb86ad7b62ee247bccd6329e9ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 88949f4cf0e4408f5d1e4d9c9a5833b041b5a5ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 Om du använder version 4.0 Förhandsgranska eller äldre av den [Azure Search .NET SDK](https://aka.ms/search-sdk), den här artikeln hjälper dig att uppgradera ditt program att använda version 5.
@@ -57,7 +57,7 @@ Den mest betydande bryta förändringen i version 5 är att den `Microsoft.Azure
  - `Microsoft.Azure.Search`: Det här är ett meta-paket som innehåller alla andra Azure Search paket som beroenden. Om du uppgraderar från en tidigare version av SDK bör bara uppgradera det här paketet och bygga vara tillräckligt för att börja använda den nya versionen.
  - `Microsoft.Azure.Search.Data`: Använd det här paketet om du utvecklar ett .NET-program med Azure Search och du behöver bara fråga eller uppdatera dokument i ditt index. Om du också behöva skapa eller uppdatera index synonymen maps och andra resurser för servicenivåer använder den `Microsoft.Azure.Search` paketet i stället.
  - `Microsoft.Azure.Search.Service`: Använd det här paketet om du utvecklar automatisering i .NET för att hantera Azure Search index synonymen maps, indexerare, datakällor eller andra resurser på tjänstnivå. Om du behöver bara fråga eller uppdatering dokument i ditt index, använder du den `Microsoft.Azure.Search.Data` paketet i stället. Om du behöver alla funktioner i Azure Search kan du använda den `Microsoft.Azure.Search` paketet i stället.
-- `Microsoft.Azure.Search.Common`: Vanliga typer som krävs av Azure Search .NET-bibliotek. Du behöver inte använda det här paketet direkt i ditt program. Det är endast avsett att användas som ett beroende.
+ - `Microsoft.Azure.Search.Common`: Vanliga typer som krävs av Azure Search .NET-bibliotek. Du behöver inte använda det här paketet direkt i ditt program. Det är endast avsett att användas som ett beroende.
  
 Den här ändringen tekniskt bryter eftersom många typer har flyttats mellan sammansättningarna. Det är därför återskapa ditt program krävs för att uppgradera till version 5 av SDK.
 

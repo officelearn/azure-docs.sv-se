@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala Azure Stream Analytics-jobbet för att öka genomströmning
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka genomflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala ditt jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
@@ -31,7 +31,8 @@ Om din fråga i sin natur fullständigt mellan inkommande partitioner, kan du f�
         - Om problemet beror på sink-begränsning kan du behöva öka antalet partitioner för utdata (och även ange partitioner om du vill behålla jobbet fullständigt parallell) eller öka mängden resurser av sink (till exempel antal begäranden för CosmosDB).
     - Jobbet diagram, det finns en per partition eftersläpning händelse mått för varje indata. Om eftersläpning händelse mått fortsätter att öka, men det är också en indikator är så har Systemresursen begränsad (antingen på grund av utdata sink-begränsning eller hög CPU-).
 4.  När du har bestämt vad ett 6 SU-jobb kan nå gränser, du kan dra slutsatser linjärt bearbetningskapacitet jobbet när du lägger till flera SUs, förutsatt att du inte har några data skeva som gör vissa partition ”heta”.
->[!Note]
+
+> [!NOTE]
 > Välj rätt antal enheter för strömning: eftersom Stream Analytics skapar en nod för bearbetning för varje 6 SU lagts till, det är bäst att göra antalet noder divisor av antalet inkommande partitioner, så att partitionerna kan vara jämnt mellan noder.
 > Du har till exempel mäts din 6 SU jobb kan uppnå 4 MB/s bearbetning hastighet och din inkommande partitionsantal är 4. Du kan välja att köra jobbet med 12 SU för att uppnå ungefär 8 MB/s-behandlingstakt eller 24 SU för att uppnå 16 MB/s. Sedan kan du bestämma när ökar antalet SU för att jobbet ska vilket värde som en funktion i vilken takt dina indata.
 

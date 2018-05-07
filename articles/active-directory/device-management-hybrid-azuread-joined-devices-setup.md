@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -83,8 +83,20 @@ Kontrollera att följande URL: er är tillgängliga från datorer i nätverket i
 
 - https://device.login.microsoftonline.com
 
-Om ditt företag kräver åtkomst till Internet via en utgående proxy, måste implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera på Azure AD.
+- Din organisations STS (externa domäner)
 
+Om du inte redan har gjort ska organisationens STS (för externa domäner) tas med i användarinställningar lokalt intranät.
+
+Om din organisation planerar att använda sömlös SSO, följande webbadresser måste kunna nås från datorer i din organisation och de måste också läggas till användarens lokala intranätzonen:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Dessutom följande inställning måste vara aktiverat i användarens intranät: ”Tillåt uppdateringar av statusfältet via skript”.
+
+
+Om din organisation kräver åtkomst till Internet via en utgående proxy, måste du implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera på Azure AD.
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 

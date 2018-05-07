@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till säkerhetsprinciper i Azure Security Center | Microsoft Docs"
-description: "Läs mer om Azure Security Center säkerhetsprinciper och viktiga funktioner."
+title: Introduktion till säkerhetsprinciper i Azure Security Center | Microsoft Docs
+description: Läs mer om Azure Security Center säkerhetsprinciper och viktiga funktioner.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-policies-overview"></a>Översikt över principer för säkerhet
 Den här artikeln innehåller en översikt över säkerhetsprinciper i Security Center.
@@ -31,7 +31,7 @@ Security Center-principer innehåller följande komponenter:
 - **Datainsamling**: Anger agent etablering och [datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) inställningar.
 - **Säkerhetsprincip**: avgör som styr Security Center Övervakare och rekommenderas. Du kan redigera den [säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies) i Security Center. Du kan också använda [Azure princip](security-center-azure-policy.md) (i begränsad förhandsvisning) definiera ytterligare principer för att skapa nya definitioner, och tilldela principer för av hanteringsgrupper.
 - **E-postmeddelanden**: Anger säkerhet kontakter och [meddelanden via e-](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) inställningar.
-- **Prisnivån**: definierar ledigt eller standard [priser markeringen](https://docs.microsoft.com/azure/security-center/security-center-pricing). Den nivå som du väljer avgör vilka Security Center-funktioner är tillgängliga för resurser i sitt omfång. Du kan ange en nivå för prenumerationer och resursgrupper arbetsytor. 
+- **Prisnivån**: definierar ledigt eller standard [priser markeringen](https://docs.microsoft.com/azure/security-center/security-center-pricing). Vilken nivå du väljer avgör vilka Security Center-funktioner som blir tillgängliga för resurser i området. Du kan ange en nivå för prenumerationer och resursgrupper arbetsytor. 
 
 
 ## <a name="who-can-edit-security-policies"></a>Vem kan redigera säkerhetsprinciper?

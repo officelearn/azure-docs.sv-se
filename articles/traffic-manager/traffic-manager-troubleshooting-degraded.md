@@ -1,10 +1,10 @@
 ---
-title: "Felsöka försämrad status på Azure Traffic Manager"
-description: "Felsökning av Traffic Manager-profiler när den visas som försämrad status."
+title: Felsöka försämrad status på Azure Traffic Manager
+description: Felsökning av Traffic Manager-profiler när den visas som försämrad status.
 services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
+documentationcenter: ''
+author: chadmath
+manager: cshepard
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: f5b2f471b13db67411f15f32abad5afc644c04ba
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka försämrad tillstånd på Azure Traffic Manager
 
@@ -43,12 +43,12 @@ Om hälsotillståndet för din Traffic Manager visar en **inaktiv** status båda
 Om du vill felsöka ett avsökningen fel, behöver du ett verktyg som visar HTTP-statuskoden returnerade från URL för webbavsökning. Det finns många verktyg som visar rådata HTTP-svaret.
 
 * [Fiddler](http://www.telerik.com/fiddler)
-* [cURL](https://curl.haxx.se/)
+* [CURL](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Du kan också använda fliken nätverk i F12 felsökningsverktyg i Internet Explorer för att visa HTTP-svar.
 
-Det här exemplet som vi vill se svar från våra URL för webbavsökning: http://watestsdp2008r2.cloudapp.net:80/avsökning. Följande PowerShell-exempel illustrerar problemet.
+Det här exemplet som vi vill se svar från våra URL för webbavsökning: http://watestsdp2008r2.cloudapp.net:80/Probe. Följande PowerShell-exempel illustrerar problemet.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure portal och PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +28,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [övervaka och hantera Data Factory pipelines i version 2](../monitor-visually.md).
 
+Den här artikeln beskriver hur du övervaka, hantera och felsöka din pipelines med hjälp av Azure portal och PowerShell.
+
 > [!IMPORTANT]
 > Övervakning och hantering av programmet ger ett bättre stöd för att övervaka och hantera dina data pipelines och felsöka eventuella problem. Mer information om hur du använder programmet finns [övervaka och hantera Data Factory pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md). 
 
-
-Den här artikeln beskriver hur du övervaka, hantera och felsöka din pipelines med hjälp av Azure portal och PowerShell.
+> [!IMPORTANT]
+> Azure Data Factory version 1 nu använder den nya [Azure-Monitor aviseringar infrastruktur](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Den gamla aviseringsdata infrastrukturen är föråldrad. Därför konfigurerade aviseringarna befintliga för version 1 data fabriker inte längre att fungera. Befintliga aviseringar för v1 datafabriker migreras inte automatiskt. Du måste återskapa dessa aviseringar på nya aviseringar infrastruktur. Logga in på Azure portal och välj **övervakaren** skapa nya aviseringar om mått (till exempel misslyckade körs eller lyckade körs) för din version 1 datafabriker.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Förstå pipelines och aktivitet tillstånd
 Med hjälp av Azure portal, kan du:
@@ -196,7 +198,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Felsöka pipelines
 Azure Data Factory ger omfattande funktioner för dig att felsöka pipelines med hjälp av Azure-portalen och Azure PowerShell.
 
-> [! Observera} är det mycket enklare Felsökte fel med övervakning & Management-appen. Mer information om hur du använder programmet finns [övervaka och hantera Data Factory pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md) artikel. 
+> [!NOTE] 
+> Det är mycket enklare att Felsökte fel med övervakning & Management-appen. Mer information om hur du använder programmet finns [övervaka och hantera Data Factory pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md) artikel. 
 
 ### <a name="find-errors-in-a-pipeline"></a>Sök efter fel i en pipeline
 Om aktiviteten körs inte i en pipeline, är dataset som produceras av pipelinen i ett feltillstånd på grund av felet. Du kan felsöka och felsöka i Azure Data Factory med hjälp av följande metoder.
@@ -296,6 +299,35 @@ Uppdateringstyp är inställd på 'UpstreamInPipeline', vilket innebär att stat
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Skapa aviseringar i Azure-portalen
+
+1.  Logga in på Azure portal och välj **övervakaren -> aviseringar** att öppna sidan aviseringar.
+
+    ![Öppna sidan aviseringar.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Välj **+ ny varningsregeln** att skapa en ny avisering.
+
+    ![Skapa en ny avisering](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Definiera den **Varna villkoret**. (Se till att välja **datafabriker** i den **filtrera efter resurstyp** fält.) Du kan även ange värden för **dimensioner**.
+
+    ![Definiera Aviseringstillståndet - väljer mål](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Definiera villkoret för aviseringen – Lägg till aviseringsvillkoren](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Definiera villkoret för aviseringen – Lägg till avisering logik](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Definiera den **aviseringsinformation**.
+
+    ![Definiera varningsinformationen](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Definiera den **grupp**.
+
+    ![Definiera åtgärd gruppen – skapa en ny grupp](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Definiera åtgärd grupp - egenskaper](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Definiera åtgärd grupp - ny grupp skapas](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Flytta en datafabrik till en annan resursgrupp eller prenumeration
 Du kan flytta en datafabrik till en annan resursgrupp eller en annan prenumeration med hjälp av den **flytta** kommandot liggande knappen på startsidan i din data factory.

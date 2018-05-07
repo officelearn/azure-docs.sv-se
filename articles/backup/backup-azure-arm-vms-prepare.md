@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -56,7 +56,7 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Återställningen misslyckas om du försöker återställa den virtuella datorn när den virtuella datorn finns.
 * Cross-region säkerhetskopiera och Återställ stöds inte.
 * När du konfigurerar tillbaka in, kontrollera att den **brandväggar och virtuella nätverk** storage-konto tillåter åtkomst från alla nätverk.
-* Valda nätverk, när du konfigurerar brandväggen och inställningarna för virtuella nätverk för ditt lagringskonto, Välj **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot** som undantag till Azure Backup-tjänsten för att aktivera åtkomst till nätverket begränsad lagringskontot.
+* Valda nätverk, när du konfigurerar brandväggen och inställningarna för virtuella nätverk för ditt lagringskonto, Välj **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot** som undantag till Azure Backup-tjänsten för att aktivera åtkomst till nätverket begränsad lagringskontot. Återställning på objektnivå stöds inte för nätverket begränsad storage-konton.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga områden av Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds.) Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
 * Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer i [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapats via återställning arbetsflödet i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

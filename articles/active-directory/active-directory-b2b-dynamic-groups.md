@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 5f628f20cbe86d48b1757644df64b36a27dc526c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dynamiska grupper och Azure Active Directory B2B-samarbete
 
@@ -47,12 +47,7 @@ Hur sådan grupp kan se ut:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
-
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
-* [Lägger till en B2B-samarbete användare till en roll](active-directory-b2b-add-guest-to-role.md)
-* [Delegera B2B-samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
-* [B2B-samarbete kod och PowerShell-exempel](active-directory-b2b-code-samples.md)
-* [Konfigurera SaaS-appar för B2B-samarbete](active-directory-b2b-configure-saas-apps.md)
+- [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
+- [Lägger till en B2B-samarbete användare till en roll](active-directory-b2b-add-guest-to-role.md)
+- [Villkorlig åtkomst för användare för B2B-samarbete](active-directory-b2b-mfa-instructions.md)
 

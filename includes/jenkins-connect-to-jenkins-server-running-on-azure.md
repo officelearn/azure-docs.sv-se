@@ -20,7 +20,7 @@
 
 1. Kopiera till Urklipp lösenord som visas i fönstret bash eller terminal.
 
-1. I din webbläsare, navigerar du till `http://localhost:8080`.
+1. Öppna webbläsaren och navigera till `http://localhost:8080`.
 
 1. Klistra in lösenordet som hämtats tidigare i den **administratörslösenord** och markerar **Fortsätt**.
 

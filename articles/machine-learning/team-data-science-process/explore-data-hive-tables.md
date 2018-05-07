@@ -1,9 +1,9 @@
 ---
-title: "Utforska data i Hive-tabeller med Hive-frågor | Microsoft Docs"
-description: "Utforska data i Hive-tabeller med hjälp av Hive-frågor."
+title: Utforska data i Hive-tabeller med Hive-frågor | Microsoft Docs
+description: Utforska data i Hive-tabeller med hjälp av Hive-frågor.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 9cf205abcf9782ceac4d9ac5a920e136b69c57b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: e85530e5297618b9e87f46a5a274621b060fe1fc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Utforska data i Hive-tabeller med Hive-frågor
 Det här dokumentet innehåller exempel på Hive-skript som används för att utforska data i Hive-tabeller i ett HDInsight Hadoop-kluster.
@@ -27,7 +27,7 @@ Följande **menyn** länkar till avsnitt som beskriver hur du använder Verktyg 
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapa ett Azure storage-konto. Om du behöver mer information, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -37,11 +37,11 @@ Den här artikeln förutsätter att du har:
 * Om du behöver information om hur du skicka Hive-frågor finns [så skicka Hive-frågor](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Exempelskript Hive-fråga för datagranskning
-1. Hämta antal observationer per partition`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Hämta antal observationer per dag`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+1. Hämta antal observationer per partition  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Hämta antal observationer per dag  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Hämta nivåerna i en kategoriska kolumn  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. Hämta antalet nivåer i kombination med två kategoriska kolumner`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Hämta antalet nivåer i kombination med två kategoriska kolumner  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Hämta distribution för numeriska kolumner  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extrahera poster från två tabeller

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enheten twins i IoT-hubb
 
@@ -178,21 +178,21 @@ Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomi
 
     - Egenskaper
 
-    | namn | Värde |
+    | Namn | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tidpunkt som meddelandet skickades |
     $iothub-meddelande-källa | twinChangeEvents |
-    $content-encoding | utf-8 |
+    $content-kodning | UTF-8 |
     deviceId | ID för enheten |
     hubName | Namnet på IoT-hubb |
     operationTimestamp | [ISO8601] tidsstämpeln för åtgärden |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-meddelande-schema | deviceLifecycleNotification |
     opType | ”replaceTwin” eller ”updateTwin” |
 
     Meddelandet Systemegenskaper föregås av `'$'` symbolen.
 
-    - Text
+    - Innehåll
         
     Det här avsnittet innehåller dubbla ändringarna i en JSON-format. Samma format används som en korrigering, med skillnaden att den kan innehålla alla två avsnitt: taggar, properties.reported, properties.desired och att den innehåller ”$metadata”-element. Exempel:
 
@@ -352,6 +352,7 @@ Andra referensavsnitten i utvecklarhandboken för IoT-hubben är:
 ## <a name="next-steps"></a>Nästa steg
 Nu har du fått veta om enheten twins du vill ha i följande IoT-hubb developer guide avsnitt:
 
+* [Förstå och använda modulen twins i IoT-hubb][lnk-module-twins]
 * [Anropa en metod som är direkt på en enhet][lnk-methods]
 * [Schema-jobb på flera enheter][lnk-jobs]
 
@@ -385,5 +386,6 @@ Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i f
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

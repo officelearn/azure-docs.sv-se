@@ -3,7 +3,7 @@ title: 'Team vetenskap av data i praktiken: använda SQL Data Warehouse | Micros
 description: Processen för avancerade analyser och teknik i åtgärd
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev
-ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team vetenskap av data i praktiken: använda SQL Data Warehouse
 I den här självstudiekursen vi beskriver hur du skapar och distribuerar en maskininlärningsmodell med hjälp av SQL Data Warehouse (SQL DW) för en offentligt tillgängliga dataset--den [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset. Binär klassificering modellen konstrueras beräknar huruvida ett tips betalat för en resa och modeller för multiklass-baserad klassificering och regression beskrivs också som förutsäga fördelningen för tips belopp betald.
@@ -874,7 +874,7 @@ När bedömningsprofil experimentet har skapats kan du granska den och göra jus
 
 Ett exempel bedömningen experiment finns i bilden nedan. När du är klar att distribuera klickar du på den **publicera WEBBTJÄNSTEN** knappen i det nedre Åtgärdsfältet.
 
-![Azure ML Publish][11]
+![Azure ML publicera][11]
 
 ## <a name="summary"></a>Sammanfattning
 Om du vill Sammanfattningsvis vad vi har gjort i den här genomgången självstudiekursen, du har skapat ett Azure datavetenskap miljö, arbetat med en stor offentliga datauppsättning tar genom Team vetenskap av data, allt från datainsamling till modellen utbildning och sedan till den distribution av en Azure Machine Learning-webbtjänst.

@@ -1,10 +1,10 @@
 ---
-title: "Hantera DNS-poster i Azure DNS använder Azure CLI 2.0 | Microsoft Docs"
-description: "Hantera DNS-postuppsättningar och på Azure DNS-poster när värd för din domän på Azure DNS. Alla CLI 2.0-kommandon för åtgärder på uppsättningar av poster och poster."
+title: Hantera DNS-poster i Azure DNS använder Azure CLI 2.0 | Microsoft Docs
+description: Hantera DNS-postuppsättningar och på Azure DNS-poster när värd för din domän på Azure DNS. Alla CLI 2.0-kommandon för åtgärder på uppsättningar av poster och poster.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: carmonm
+manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -14,16 +14,16 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
-ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Hantera DNS-poster och postuppsättningar i Azure DNS använder Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -223,7 +223,7 @@ Det går inte att lägga till, ta bort eller ändra poster i den automatiskt ska
 
 Till skillnad från de flesta andra typer av poster, får en CNAME-postuppsättning endast innehålla en enskild post.  Därför kan du ersätta det aktuella värdet genom att lägga till en ny post och ta bort den befintliga posten, som för andra typer av poster.
 
-Använd i stället för att ändra en CNAME-post, `az network dns record-set cname set-record`. Hjälp finns i`az network dns record-set cname set-record --help`
+Använd i stället för att ändra en CNAME-post, `az network dns record-set cname set-record`. Hjälp finns i `az network dns record-set cname set-record --help`
 
 Exemplet ändrar CNAME-postuppsättning *www* i zonen *contoso.com*, i resursgrupp *MyResourceGroup*, peka på 'www.fabrikam.net' i stället för det befintliga värdet:
 

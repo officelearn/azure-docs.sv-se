@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e65f64939826a97eae0fca0fe3ae220f5479d2b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75c61894d5562f4bb0cb45fd8500bd9cf0f2bf8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbprogram med hjälp av automatiserade skript
 
@@ -33,9 +33,9 @@ Kör skript genom att tillhandahålla följande obligatoriska uppgifter:
 - Platsen namnprefixet för ditt webbprogram
 - ServiceBus-Namespace.
 
-Skriptet skapar webbappen med hjälp av namnet som du angav (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID** och **klienthemlighet**.
+Skriptet skapar webbappen med hjälp av namnet som du angav (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID**, och **klienthemlighet**.
 
-Spara dessa värden måste dessa när du skapar en anslutning med IT Service Management-anslutningstjänsten.
+Spara dessa värden behöver du dessa värden när du skapar en anslutning med IT Service Management-anslutningstjänsten.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -191,6 +191,8 @@ Write-Output "Web App Deployed successfully!!"
 Add-Type -AssemblyName System.Web
 
 $clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+
+$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
 
 try
 {

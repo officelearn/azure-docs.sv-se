@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM produkter eller tjänster och IT Service Management-koppling (ITSMC) i logganalys centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -271,7 +271,10 @@ När användaren har skapats, status för **Kontrollera installationschecklista*
 
 > [!NOTE]
 
-> ITSM kopplingen kan skicka incidenter till ServiceNow utan några moduler som installerats på ServiceNow-instansen. Om du använder EventManagement modul i din ServiceNow-instans och vill skapa händelser eller varningar i ServiceNow med connector lägger du till följande roller användaren integrering: - evt_mgmt_integration - evt_mgmt_operator  
+> ITSM kopplingen kan skicka incidenter till ServiceNow utan några moduler som installerats på ServiceNow-instansen. Om du använder EventManagement modul i din ServiceNow-instans och vill skapa händelser eller varningar i ServiceNow med connector, lägger du till följande roller till användaren integrering:
+
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Ansluta Provance till IT-tjänst Management-anslutningstjänsten i Azure

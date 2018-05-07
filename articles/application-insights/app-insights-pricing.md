@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och data volym i Application Insights
 
@@ -40,11 +40,8 @@ Aktuella priser i din valuta och region, se [priser för Application Insights][p
 
 Den grundläggande planen är standard priser plan när en ny Application Insights-resurs skapas. Den grundläggande planen är optimalt för alla kunder utom de som har en Operations Management Suite-prenumeration.
 
-* I den grundläggande planen debiteras av datavolym. Datavolym är antalet byte av telemetri som tagits emot av Application Insights. 
-    
-    Datavolymen mäts som storleken på okomprimerade JSON datapaketet som tas emot av Application Insights från ditt program.
-
-    För [tabelldata importeras till Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), datavolym mäts som den okomprimerade storleken för filer som skickas till Application Insights.
+* I den grundläggande planen debiteras av datavolym. Datavolym är antalet byte av telemetri som tagits emot av Application Insights. Datavolymen mäts som storleken på okomprimerade JSON datapaketet som tas emot av Application Insights från ditt program. För [tabelldata importeras till Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), datavolym mäts som den okomprimerade storleken för filer som skickas till Application Insights.
+* Programmets data volym avgifter rapporteras på en ny fakturering mätaren med namnet **Datapåfyllning** från och med April 2018. Detta nya mätaren är delas mellan övervakning tekniker, till exempel program insikter och logganalys och är för närvarande under tjänstnamnet **Apptjänster** (och ändra snarast till **logganalys**). 
 * [Live mått dataströmmen](app-insights-live-stream.md) data inte räknas för prissättning.
 * [Löpande export](app-insights-export-telemetry.md) och [Azure logganalys connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) är tillgängliga gratis i den grundläggande planen från och med April 2018.
 

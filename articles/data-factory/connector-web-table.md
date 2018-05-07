@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f1fa79ed32969f5087107d6105fd2f4baf7640e3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2bc47c8963630351d3097938bc7f3d65116d9e4b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från Webbtabell med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Följande egenskaper stöds för Web tabell länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Web tabell dataset.
 
-Om du vill kopiera data från Webbtabell, ange typegenskapen för datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
+Om du vill kopiera data från Webbtabell, ange typegenskapen för datauppsättningen till **WebTable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -94,7 +94,10 @@ Om du vill kopiera data från Webbtabell, ange typegenskapen för datauppsättni
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
+        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"

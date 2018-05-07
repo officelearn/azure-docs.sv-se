@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 83ce49d9ac368404edcc2d68859493476e74869e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Använda Azure Key Vault från webbprogram
 
@@ -157,7 +157,7 @@ Mer information om hur du skapar ett testcertifikat finns [så här: skapa dina 
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associera certifikatet med ett Azure AD-program
 
-Nu när du har ett certifikat måste du koppla den med Azure AD-program. Azure portal stöder för närvarande kan inte arbetsflöden. Detta kan utföras via PowerShell. Kör följande kommandon för att partner certifikatet med Azure AD-program:
+Nu när du har ett certifikat måste du koppla den med Azure AD-program. Azure portal stöder för närvarande kan inte arbetsflöden. Detta kan utföras via PowerShell. Kör följande kommandon för att associera certifikatet med Azure AD-program:
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

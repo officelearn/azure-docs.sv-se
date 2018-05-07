@@ -1,9 +1,9 @@
 ---
-title: "Flytta data till SQL Server på en virtuell Azure-dator | Microsoft Docs"
-description: "Flytta data från flata filer eller från en lokal SQL Server till SQL Server på Azure VM."
+title: Flytta data till SQL Server på en virtuell Azure-dator | Microsoft Docs
+description: Flytta data från flata filer eller från en lokal SQL Server till SQL Server på Azure VM.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 56a03347556f9ae3452548e85ce5d46f3961ed93
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 Det här avsnittet beskrivs alternativen för att flytta data från flata filer (CSV eller TVS format) eller från en lokal SQL Server till SQL Server på en virtuell Azure-dator. Dessa uppgifter för att flytta data till molnet är en del av Team av vetenskapliga data.
@@ -33,8 +33,8 @@ I följande tabell sammanfattas alternativ för att flytta data till SQL Server 
 
 | <b>KÄLLA</b> | <b>MÅL: SQLServer på Azure VM</b> |
 | --- | --- |
-| <b>Flat-fil</b> |1. <a href="#insert-tables-bcp">Kommandoradsverktyget bulk copy-verktyget (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL-fråga</a><br> 3. <a href="#sql-builtin-utilities">Grafisk inbyggda verktyg i SQLServer</a> |
-| <b>Lokal SQLServer</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuera en SQL Server-databas till en Microsoft Azure VM-guiden</a><br> 2. <a href="#export-flat-file">Exportera till en flat-fil</a><br> 3. <a href="#sql-migration">Migreringsguiden för SQL-databas</a> <br> 4. <a href="#sql-backup">Databasen tillbaka in och återställa</a><br> |
+| <b>Flat-fil</b> |1. <a href="#insert-tables-bcp">Kommandoradsverktyget bulk copy-verktyget (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL-fråga </a><br> 3. <a href="#sql-builtin-utilities">Grafisk inbyggda verktyg i SQLServer</a> |
+| <b>Lokal SQLServer</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuera en SQL Server-databas till en Microsoft Azure VM-guiden</a><br> 2. <a href="#export-flat-file">Exportera till en flat-fil </a><br> 3. <a href="#sql-migration">Migreringsguiden för SQL-databas </a> <br> 4. <a href="#sql-backup">Databasen tillbaka in och återställa </a><br> |
 
 Observera att det här dokumentet förutsätts att SQL-kommandon körs från SQL Server Management Studio eller Visual Studio Database Explorer.
 
@@ -51,11 +51,11 @@ Den här kursen förutsätter att du har:
 * Etablerad **SQLServer på en virtuell dator i Azure**. Instruktioner finns i [ställa in en Azure SQL Server-dator som en bärbar dator IPython server för avancerade analyser](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-## <a name="filesource_to_sqlonazurevm"></a>Flytta data från en flat filkälla till SQL Server på en Azure VM
+## <a name="filesource_to_sqlonazurevm"></a> Flytta data från en flat filkälla till SQL Server på en Azure VM
 Om dina data finns i en flat-fil (ordnade i rader/kolumner), kan den flyttas till SQL Server-VM på Azure via följande metoder:
 
 1. [Kommandoradsverktyget bulk copy-verktyget (BCP)](#insert-tables-bcp)
-2. [Bulk Insert SQL-fråga](#insert-tables-bulkquery)
+2. [Bulk Insert SQL-fråga ](#insert-tables-bulkquery)
 3. [Grafisk inbyggda verktyg i SQLServer (importera och exportera, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Kommandoradsverktyget bulk copy-verktyget (BCP)

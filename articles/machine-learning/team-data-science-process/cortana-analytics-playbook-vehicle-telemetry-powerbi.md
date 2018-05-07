@@ -3,7 +3,7 @@ title: Power BI-instrumentpanel för vehicle hälso- och köra vanor - Azure | M
 description: Använda funktionerna i Cortana Intelligence och få insikter om i realtid och förutsägbara på vehicle hälsa och köra vanor.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: bradsev
-ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 2689e87dd41aa4494cf63c9ead1d1ca011b0b720
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle telemetri Analytics lösning mallen Power BI dashboard instruktioner
 Den här menyn innehåller länkar till kapitlen i den här playbook: 
@@ -192,7 +192,7 @@ Du har konfigurerat ”fordon i åtgärden” rapporten. Du kan skapa nästa rea
 
 5. På den **visualiseringar** väljer den **grupperat stående stapeldiagram** visualiseringen. 
 
-    ![Vin Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png)
+    ![Vin-kort](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png)
 
     ![Grupperat stående stapeldiagram](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 

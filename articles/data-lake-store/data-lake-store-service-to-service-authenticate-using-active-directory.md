@@ -1,8 +1,8 @@
 ---
-title: "Tjänst-till-tjänst-autentisering: Data Lake Store med Azure Active Directory | Microsoft Docs"
-description: "Lär dig att uppnå service to service autentisering med Data Lake Store med Azure Active Directory"
+title: 'Tjänst-till-tjänst-autentisering: Data Lake Store med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå service to service autentisering med Data Lake Store med Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -77,6 +77,9 @@ När programmässigt inloggningen måste ID: T för ditt program. Om programmet 
 7. I den **Lägg till anpassad åtkomst** bladet, klickar du på **OK**. Gruppen nytillagda med associerade behörigheter anges i den **åtkomst** bladet.
    
     ![Tilldela behörigheter till gruppen](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "tilldela behörigheter till gruppen")
+
+> [!NOTE]
+> Om du planerar att begränsa dina Azure Active Directory-program till en viss mapp, du måste också till att ge samma Azure Active directory programmet **kör** permisison till roten för att aktivera åtkomst till filen skapas via den. NET SDK.
 
 > [!NOTE]
 > Om du vill använda SDK: erna för att skapa ett Data Lake Store-konto måste du tilldela Azure AD-webbprogram som en roll till den resursgrupp som du skapar Data Lake Store-konto.

@@ -3,7 +3,7 @@ title: Datagranskning och modellering med Spark | Microsoft Docs
 description: Visar data från kartläggning av naturresurser och modellering funktioner i Spark MLlib toolkit på Azure.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
-ms.openlocfilehash: c796cc5f19ac3a30d2cdf72b8fea2813a1586c1b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d505d432897eb7f4e792b45a95ec91ce1802eeb8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -1047,7 +1047,7 @@ Här är koden för att rita data med Jupyter-server.
 
 **UTDATA:**
 
-![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Aktuella-vs-förutsade-tips-belopp](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="clean-up-objects-from-memory"></a>Rensa objekt från minnet
 Använd `unpersist()` att ta bort objekt som cachelagrats i minnet.
@@ -1089,11 +1089,11 @@ Att använda och resultatet av en oberoende datauppsättning som beskrivs i den 
 
 logisticRegFileLoc = modelDir + ”LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568”
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0317_05_21.577773"
+linearRegFileLoc = modelDir + ”LinearRegressionWithSGD_2016-05-0317_05_21.577773”
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0317_04_11.950206"
+randomForestClassificationFileLoc = modelDir + ”RandomForestClassification_2016-05-0317_04_11.950206”
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0317_06_08.723736"
+randomForestRegFileLoc = modelDir + ”RandomForestRegression_2016-05-0317_06_08.723736”
 
 BoostedTreeClassificationFileLoc = modelDir + ”GradientBoostingTreeClassification_2016-05-0317_04_36.346583”
 

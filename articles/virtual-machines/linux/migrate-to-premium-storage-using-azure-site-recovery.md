@@ -1,12 +1,12 @@
 ---
 title: Migrera din virtuella Linux-datorer till Azure Premium-lagring med Azure Site Recovery | Microsoft Docs
-description: "Migrera dina befintliga virtuella datorer till Azure Premium-lagring med hjälp av Site Recovery. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens."
+description: Migrera dina befintliga virtuella datorer till Azure Premium-lagring med hjälp av Site Recovery. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens.
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium-lagring med hjälp av Azure Site Recovery
 
@@ -202,7 +202,7 @@ Site Recovery skapar en VM-instans vars typ är samma som eller liknande till en
    * För en virtuell dator som skapats via den klassiska distributionsmodellen: lägga till den virtuella datorn till tillgänglighetsuppsättning i Azure-portalen. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../linux/classic/configure-availability-classic.md).
    * För en virtuell dator som skapats via Resource Manager-distributionsmodellen: spara konfigurationen av den virtuella datorn och ta sedan bort och återskapa de virtuella datorerna i tillgänglighetsuppsättningen. Gör du genom att använda skript på [ange Azure Resource Manager VM Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Innan du kör det här skriptet, kontrollera vissa begränsningar och planera din driftstopp.
 
-2. **Ta bort gamla virtuella datorer och diskar**. Kontrollera att diskarna Premium är konsekventa med källan diskar och att de nya virtuella datorerna utför samma funktion som virtuella källdatorer. Ta bort den virtuella datorn och ta bort diskar från källan storage-konton i Azure-portalen. Om det finns ett problem i som disken är inte bort även om du har tagit bort den virtuella datorn, se [Felsöka när du tar bort virtuella hårddiskar](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Ta bort gamla virtuella datorer och diskar**. Kontrollera att diskarna Premium är konsekventa med källan diskar och att de nya virtuella datorerna utför samma funktion som virtuella källdatorer. Ta bort den virtuella datorn och ta bort diskar från källan storage-konton i Azure-portalen. Om det finns ett problem i som disken är inte bort även om du har tagit bort den virtuella datorn, se [felsöker borttagningsfel för storage resource](storage-resource-deletion-errors.md).
 
 3. **Rensa Azure Site Recovery-infrastruktur**. Om Site Recovery inte längre behövs, kan du rensa sin infrastruktur. Ta bort replikerade objekt, konfigurationsservern och återställningsprincipen och tar bort Azure Site Recovery-valvet.
 

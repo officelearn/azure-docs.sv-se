@@ -14,17 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Lagringsutforskaren viktig information
 
-Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.6 (förhandsgranskning) samt viktig information för tidigare versioner.
+Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.0.0 versionen och viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
+
+## <a name="version-100"></a>Version 1.0.0
+2018-04/16
+
+### <a name="download-azure-storage-explorer-100"></a>Hämta Azure Lagringsutforskaren 1.0.0
+- [Azure Lagringsutforskaren 1.0.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Lagringsutforskaren 1.0.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Lagringsutforskaren 1.0.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Ny
+* Förbättrad autentisering som gör att Lagringsutforskaren att använda samma kontoarkiv som Visual Studio 2017. Om du vill använda den här funktionen, behöver du re-logga in på dina konton och ange nytt filtrerade prenumerationer.
+* För Azure Stack-konton som backas upp av AAD hämtar Lagringsutforskaren nu Azure Stack prenumerationer när mål Azure-stacken är aktiverad. Du behöver inte längre att skapa en anpassad inloggnings-miljö.
+* Flera genvägar har lagts till aktivera snabbare navigering. Dessa inkluderar växla mellan olika paneler och flytta mellan redigerare. Visa-menyn för mer information finns i.
+* Lagring Explorer feedback finns nu på GitHub. Du kan nå sidan med våra problem genom att klicka på Feedback längst ned i vänster eller genom att gå till [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). Gärna förslag rapportera problem, Ställ frågor eller lämna andra former av feedback.
+* Om du kör i problem med SSL-certifikat och inte går att hitta certifikatet som felaktiga nu kan du starta Lagringsutforskaren från kommandoraden med den `--ignore-certificate-errors` flaggan. Startades med flaggan ignorerar Lagringsutforskaren SSL-certifikatfel.
+* Det finns nu en '' alternativ på snabbmenyn för blob- och fil.
+* Förbättrad åtkomst och stöd för skärmläsare. Om du förlitar dig om dessa funktioner finns i vår [hjälpmedel dokumentationen](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) för mer information.
+* Lagringsutforskaren använder nu Electron 1.8.3
+
+### <a name="breaking-changes"></a>Gör ändringar
+* Lagringsutforskaren har ändrats till ett nytt autentiseringsbibliotek. Som en del av växla till biblioteket behöver du re-logga in på dina konton och ange nytt filtrerade prenumerationer
+* Den metod som används för att kryptera känsliga data har ändrats. Det kan resultera i en del av din Snabbåtkomst objekten som ska läggas till igen och/eller vissa av du kopplade resurser som ska kopplas.
+
+### <a name="fixes"></a>Korrigeringar
+* Vissa användare bakom proxyservrar skulle ha grupp blob överföringar eller nedladdningar som avbryts av ”det går inte att matcha' felmeddelande. Problemet har åtgärdats.
+* Om inloggning krävs när med en direktlänk, klicka på Logga In frågan skulle popup-ett tomt fönster. Problemet har åtgärdats.
+* På Linux, om Lagringsutforskaren kan inte starta på grund av en GPU processen krasch du nu informeras om krasch, uppmanas du att använda den '--inaktivera gpu-växeln och Lagringsutforskaren kan sedan starta om automatiskt med växeln aktiverad.
+* Ogiltig åtkomstprinciper har svårt att identitet i dialogrutan åtkomstprinciper. Ogiltig åtkomstprincip ID nu beskrivs i rött för mer synlighet.
+* Aktivitetsloggen har ibland stora områden med blanksteg mellan de olika delarna av en aktivitet. Problemet har åtgärdats.
+* I frågeredigeraren tabell om du har lämnat en tidsstämpel-sats i ett ogiltigt tillstånd och sedan försökte ändra en annan instruktion vill redigeraren låsa. Redigeraren för återställs nu tidsstämpel-satsen till sitt senaste giltiga tillstånd när en ändring i en annan instruktion har upptäckts.
+* Om du pausade när du skriver i sökfrågan i trädvyn sökningen ska börja och fokus skulle stjälas textrutan. Nu måste du uttryckligen starta sökningen genom att trycka på RETUR eller genom att klicka på knappen start sökning.
+* Kommandot ”Hämta signatur för delad åtkomst, skulle ibland inaktiveras när Högerklicka på en fil i en filresurs. Problemet har åtgärdats.
+* Om trädnoden resursen med fokus har filtrerats ut vid sökning, det gick inte fliken i trädet för resurser och Använd piltangenterna för att navigera i resursträdet. Nu ska fokuserad resurs trädnoden är dold, den första noden i trädet för resurser automatiskt bestå.
+* En extra avgränsare skulle ibland visas i verktygsfältet editor. Problemet har åtgärdats.
+* Textrutan spåret skulle ibland dataspill. Problemet har åtgärdats.
+* Blob- och filresurs redigerare skulle ibland ständigt uppdatera när du överför många filer samtidigt. Problemet har åtgärdats.
+* Statistik för mapp-funktionen har något syfte i vyn filhantering resursen ögonblicksbilder. Det har nu inaktiverats.
+* På Linux visas inte på Arkiv-menyn. Problemet har åtgärdats.
+* När du laddar upp en mapp till en filresurs som standard laddades bara innehållet i mappen upp. Standardinställningen är nu att överföra innehållet i mappen till en matchande mapp i filresursen.
+* Ordningen på knapparna i flera dialogrutor hade återförts. Problemet har åtgärdats.
+* Olika säkerhetsrelaterade korrigeringar.
+
+### <a name="known-issues"></a>Kända problem
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Det beror på att vi använder Avbryt filter lösningen som beskrivs här. 
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
+* Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
+* Electron-gränssnittet som används av Lagringsutforskaren har problem med vissa maskinvaruacceleration GPU (graphics bearbetning unit). Om Lagringsutforskaren visas en tom (tom) huvudfönstret, kan du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växel:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* För Linux-användare, behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Du behöver kontrollera GCC är uppdaterad – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu 14.04:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Tidigare versioner
+
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 och 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 och 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 och 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Version 0.9.6
 2018-02/28
@@ -66,30 +161,6 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Tidigare versioner
-
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 och 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 och 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 och 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Version 0.9.5
 2018-02/06

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium-lagring med hjälp av Azure Site Recovery
 
@@ -202,7 +202,7 @@ Site Recovery skapar en VM-instans vars typ är samma som eller liknande till en
    * För en virtuell dator som skapats via den klassiska distributionsmodellen: lägga till den virtuella datorn till tillgänglighetsuppsättning i Azure-portalen. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../linux/classic/configure-availability-classic.md).
    * För en virtuell dator som skapats via Resource Manager-distributionsmodellen: spara konfigurationen av den virtuella datorn och ta sedan bort och återskapa de virtuella datorerna i tillgänglighetsuppsättningen. Gör du genom att använda skript på [ange Azure Resource Manager VM Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Innan du kör det här skriptet, kontrollera vissa begränsningar och planera din driftstopp.
 
-2. **Ta bort gamla virtuella datorer och diskar**. Kontrollera att diskarna Premium är konsekventa med källan diskar och att de nya virtuella datorerna utför samma funktion som virtuella källdatorer. Ta bort den virtuella datorn och ta bort diskar från källan storage-konton i Azure-portalen. Om det finns ett problem i som disken är inte bort även om du har tagit bort den virtuella datorn, se [Felsöka när du tar bort virtuella hårddiskar](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Ta bort gamla virtuella datorer och diskar**. Kontrollera att diskarna Premium är konsekventa med källan diskar och att de nya virtuella datorerna utför samma funktion som virtuella källdatorer. Ta bort den virtuella datorn och ta bort diskar från källan storage-konton i Azure-portalen. Om det finns ett problem i som disken är inte bort även om du har tagit bort den virtuella datorn, se [felsöker borttagningsfel för storage resource](storage-resource-deletion-errors.md).
 
 3. **Rensa Azure Site Recovery-infrastruktur**. Om Site Recovery inte längre behövs, kan du rensa sin infrastruktur. Ta bort replikerade objekt, konfigurationsservern och återställningsprincipen och tar bort Azure Site Recovery-valvet.
 

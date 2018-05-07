@@ -1,9 +1,9 @@
 ---
-title: "Skapa och optimera tabeller för snabb parallella import av data till en SQL Server på en virtuell dator i Azure | Microsoft Docs"
-description: "Parallell massimport av data med SQL-tabeller för partition"
+title: Skapa och optimera tabeller för snabb parallella import av data till en SQL Server på en virtuell dator i Azure | Microsoft Docs
+description: Parallell massimport av data med SQL-tabeller för partition
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 55c213e26d39f1f9c27fdeae89e651a5f99a98b5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallell massimport av data med SQL-tabeller för partition
 Det här dokumentet beskrivs hur du skapar partitionerade tabeller för snabb parallella massimport av data till en SQL Server-databas. För stora inläsning/överföring av data till en SQL-databas, importera data till SQL-databas och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. 

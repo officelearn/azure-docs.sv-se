@@ -1,23 +1,23 @@
 ---
-title: "Spara pengar genom före betalar för virtuella datorer i Azure - Azure | Microsoft Docs"
-description: "Läs mer om Azure reserverade virtuella datorinstans att spara på kostnaderna för virtuella datorer."
+title: Spara pengar genom före betalar för virtuella datorer i Azure - Azure | Microsoft Docs
+description: Läs mer om Azure reserverade virtuella datorinstans att spara på kostnaderna för virtuella datorer.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Spara pengar på virtuella datorer med den reserverade virtuella instanser 
 Den reserverade virtuella instanser kan du före betala för ett år eller tre års beräkningskapacitet att få rabatt på de virtuella datorerna som du använder. Minskar avsevärt kostnaderna för virtuella datorer, upp till 72 procent på betalning per användning priser – med Summa åtagande för ett år eller tre år. Den reserverade virtuella instanser är fakturering rabatt och påverkar inte runtime-tillståndet för virtuella datorer.

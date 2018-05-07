@@ -1,11 +1,11 @@
 ---
-title: "Hantera uppsättningar av DNS-poster och poster med Azure DNS | Microsoft Docs"
-description: "Azure DNS ger möjlighet att hantera uppsättningar av DNS-poster och poster om värd för din domän."
+title: Hantera uppsättningar av DNS-poster och poster med Azure DNS | Microsoft Docs
+description: Azure DNS ger möjlighet att hantera uppsättningar av DNS-poster och poster om värd för din domän.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
+author: KumudD
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och postuppsättningar med hjälp av Azure portal
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)

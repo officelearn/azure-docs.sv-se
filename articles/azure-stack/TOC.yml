@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: Kvottyper
               href: azure-stack-quota-types.md
-        - name: Erbjudande om SQL eller MySQL som PaaS
+        - name: Översikt över PaaS-tjänster
+          href: azure-stack-tools-paas-services.md
+        - name: Erbjuda SQL som PaaS
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: Översikt över PaaS-tjänster
-              href: azure-stack-tools-paas-services.md
-            - name: Distribuera MySQL-resursprovider
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: Distribuera SQL-resursprovider
+            - name: Distribuera SQL Server-resursprovidern
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Lägg till värdservrar
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Skapa SQL-databaser
               href: azure-stack-sql-resource-provider-databases.md
+            - name: Uppdatera SQL Server-resursprovidern
+              href: azure-stack-sql-resource-provider-update.md
+            - name: Underhåll av SQL Server-resursprovidern
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Ta bort SQL Server-resursprovidern
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: Erbjudande MySQL som PaaS
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: Erbjudande om App Service som PaaS
           items:
             - name: Översikt över App Service på Azure Stack

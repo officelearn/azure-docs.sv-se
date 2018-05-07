@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -275,7 +275,7 @@ Ungefärlig tid till slutförd: 60 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Azure AD Connect installeras och konfigureras | Byggblock: [katalogsynkronisering - Hash-synkronisering](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| ADLDS instans möte krav | [Teknisk referens för allmän LDAP Connector: översikt över allmän LDAP Connector](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| ADLDS instans möte krav | [Teknisk referens för allmän LDAP Connector: översikt över allmän LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | Lista över arbetsbelastningar som använder och attribut som är kopplade till dessa arbetsbelastningar | [Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ Ungefärlig tid till slutförd: 60 minuter
 
 | Steg | Resurser |
 | --- | --- |
-| Lägg till allmän LDAP Connector | [Teknisk referens för allmän LDAP Connector: skapa en ny koppling](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| Lägg till allmän LDAP Connector | [Teknisk referens för allmän LDAP Connector: skapa en ny koppling](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | Skapa körningsprofiler för kopplingen som skapats (fullständig import, Deltaimport, fullständig synkronisering, Deltasynkronisering, export) | [Skapa en Management Agent kör profil](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Med hjälp av anslutningar med Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Kör fullständig import profil och kontrollera att det finns objekt i anslutarplats | [Sök efter ett utrymme Connector-objekt](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Med hjälp av anslutningar med Azure AD Connect Sync Service Manager: söka Anslutarplats](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Skapa Synkroniseringsregler, så att objekt i Metaversumet har attribut som krävs för arbetsbelastningar | [Azure AD Connect-synkronisering: bästa praxis för att ändra standardkonfigurationen: ändras till Synkroniseringsregler](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect-synkronisering: Förstå deklarativ etablering](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

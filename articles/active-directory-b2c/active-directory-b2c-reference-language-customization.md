@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Anpassning av språk i Azure Active Directory B2C
-
->[!NOTE]
->Den här funktionen är tillgänglig som förhandsversion.
->
 
 Anpassning av språk i Azure Active Directory B2C (Azure AD B2C) gör att din princip för olika språk efter kundens behov.  Microsoft tillhandahåller översättningar för [36 språk](#supported-languages), men du kan också tillhandahålla en egen översättningar för språk. Även om din upplevelse tillhandahålls för bara ett språk kan du anpassa all text på sidorna.  
 
@@ -49,7 +45,7 @@ När du aktiverar språk anpassning på en princip du kan styra språket för tr
 5. Läs informationen i dialogrutan och välj **Ja**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Välj vilka språk i användar-transporten har aktiverats 
-Aktivera en uppsättning språk för dina användare vägen till översättas till när den `ui_locales` parameter har inte angetts.
+Aktivera en uppsättning språk för dina användare vägen till översättas till begäran av webbläsaren utan den `ui_locales` parameter.
 1. Kontrollera att principen har språk anpassning aktiverat från föregående anvisningarna.
 2. Från den **Redigera princip** väljer **språk anpassning**.
 3. Välj ett språk som du vill stödja.
@@ -102,7 +98,7 @@ Ersätt `<ExtensionAttribute>` med namnet på din anpassade attribut.
 Ersätt `<ExtensionAttributeValue>` med den nya strängen som ska visas.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Ange en lista med värden genom att använda LocalizedCollections
-Om du vill ange en fast lista med värden för svar, måste du skapa en `LocalizedCollections` attribut.  `LocalizedCollections` är en matris med `Name` och `Value` par. Att lägga till `LocalizedCollections`, Använd följande format:
+Om du vill ange en fast lista med värden för svar, måste du skapa en `LocalizedCollections` attribut.  `LocalizedCollections` är en matris med `Name` och `Value` par. Ordningen för objekten kommer att den ordning de visas.  Att lägga till `LocalizedCollections`, Använd följande format:
 
 ```JSON
 {
@@ -153,9 +149,9 @@ Du kan läsa in sidan i `fr`. När sidan hämtar HTML- och CSS innehåll, det dr
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Lägg till anpassade språkinställningar
+## <a name="add-custom-languages"></a>Lägg till anpassade språk
 
-Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningar för alla strängar i principen.
+Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningar för alla strängar i principen.  Språk och nationella koder är begränsade till dem i ISO 639-1-standarden. 
 
 1. Från den **Redigera princip** väljer **språk anpassning**.
 2. Välj **lägga till anpassade språk** från sidans överkant.
@@ -165,6 +161,10 @@ Du kan också lägga till språk som Microsoft för närvarande inte tillhandah�
 6. Välj **aktivera**, och din princip visas nu det här språket för dina användare.
 7. Spara språket.
 
+>[!IMPORTANT]
+>Du måste aktivera anpassade språk eller ladda upp åsidosättningar för den innan du kan spara.
+>
+
 ## <a name="additional-information"></a>Ytterligare information
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Page UI-anpassning etiketter som åsidosättningar
@@ -172,7 +172,7 @@ När du aktiverar språk anpassning beständig tidigare ändringar för etikette
 ### <a name="up-to-date-translations"></a>Uppdaterade översättningar
 Microsoft strävar efter att tillhandahålla den senaste översättningar för din användning. Microsoft förbättrar översättningar kontinuerligt och lagras de i kompatibilitet för dig. Microsoft kommer identifiera buggar och ändringar i globala terminologi och göra uppdateringar som kommer att fungera sömlöst i användar-transporten.
 ### <a name="support-for-right-to-left-languages"></a>Stöd för höger-till-vänster-språk
-Microsoft har inte för närvarande stöd för höger-till-vänster-språk. Om du behöver den här funktionen kan du rösta [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft har inte för närvarande stöd för höger-till-vänster-språk. Du kan göra detta med hjälp av anpassade språkinställningar och använder CSS för att ändra det sätt som visas.  Om du behöver den här funktionen kan du rösta [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Sociala identitet providern översättningar
 Microsoft tillhandahåller den `ui_locales` OIDC parametern på sociala inloggningar. Men vissa sociala identitetsleverantörer, inklusive Facebook och Google, respektera inte dem. 
 ### <a name="browser-behavior"></a>Webbläsarens beteende
@@ -187,34 +187,34 @@ Chrome och Firefox både begäran för sitt set-språk. Om det är ett språk so
 | Danska                | da            |
 | Tyska                | de            |
 | Grekiska                 | el            |
-| Engelska               | sv-SE            |
+| Svenska               | en            |
 | Spanska               | es            |
 | Finska               | fi            |
 | Franska                | fr            |
-| Gujarati              | gu            |
-| Hindi                 | hi            |
+| Gujarati              | Gu            |
+| Hindi                 | Hej            |
 | Kroatiska              | tim            |
 | ungerska             | hu            |
 | Italienska               | it            |
 | Japanska              | ja            |
 | Kannada               | kn            |
-| koreanska                | ko            |
+| Koreanska                | ko            |
 | Malayalam             | ml            |
-| Marathi               | mr            |
+| Marathi               | MR            |
 | Malajiska                 | ms            |
 | Norska bokmål      | nb            |
 | Nederländska                 | nl            |
 | Punjabi               | pa            |
-| polska                | pl            |
+| Polska                | pl            |
 | Portugisiska – Brasilien   | pt-br         |
 | Portugisiska – Portugal | pt-pt         |
 | Rumänska              | ro            |
-| ryska               | ru            |
+| Ryska               | ru            |
 | Slovakiska                | Sk            |
-| svenska               | sv            |
+| Svenska               | sv            |
 | Tamilska                 | ta            |
 | Telugu                | te            |
 | Thai                  | TH            |
-| turkiska               | tr            |
+| Turkiska               | TR            |
 | Kinesiska – förenklad  | zh-hans       |
 | Kinesiska – traditionell | zh-hant       |

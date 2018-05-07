@@ -1,11 +1,11 @@
 ---
-title: "Azure DNS felsökningsguiden | Microsoft Docs"
-description: "Felsökning av vanliga problem med Azure DNS"
+title: Azure DNS felsökningsguiden | Microsoft Docs
+description: Felsökning av vanliga problem med Azure DNS
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
-editor: 
+author: chadmath
+manager: cshepard
+editor: ''
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
 ms.service: dns
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
-ms.author: jonatul
-ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 55db36f1312030cde8e820d9eca9b699ec8cdd4c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS felsökningsguiden
 
@@ -94,9 +94,9 @@ Exempel på SRV-postnamn (tjänstnamn ”sip”, protokoll ”tcp”):
 
 [DNS-zoner och -poster](dns-zones-records.md)
 <br>
-[Skapa DNS-postuppsättningar och poster med hjälp av Azure-portalen](dns-getstarted-create-recordset-portal.md)
+[Skapa uppsättningar av DNS-poster och poster med hjälp av Azure portal](dns-getstarted-create-recordset-portal.md)
 <br>
-[SRV-posttyp (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+[SRV-post (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Nästa steg

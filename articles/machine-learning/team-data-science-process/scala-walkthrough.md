@@ -3,7 +3,7 @@ title: Datavetenskap med hjälp av Scala och Spark på Azure | Microsoft Docs
 description: Hur du använder Scala för övervakade machine learning aktiviteter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 8f8b252d8771dff23d0a8c89e057fc17ba321a65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
 Den här artikeln visar hur du använder Scala för övervakade machine learning uppgifter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Den vägleder dig igenom de aktiviteter som utgör den [datavetenskap processen](http://aka.ms/datascienceprocess): datapåfyllning och undersökning, visualisering, funktionen tekniker, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och ökat toningen träd (GBTs), förutom två övervakat utföra vanliga:

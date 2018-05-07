@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 64fe217cf3d845e6a09fe67d03648e79e8a4cadd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b95f5bb2aa93fb29999994ccd83dc898f88f1072
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Konfigurera en VMSS hanterade tjänstidentiteten med hjälp av en mall
 
@@ -36,7 +36,7 @@ Lär dig hur du utför följande åtgärder för hanterade tjänstidentiteten p�
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Som i Azure ge portal och skript, Azure Resource Manager-mallar möjlighet att distribuera nya eller ändrade resurser som definierats i en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portal-baserade, inklusive:
+Precis som med Azure portal och skript, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar tillhandahåller möjligheten att distribuera nya eller ändrade resurser som definierats i en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portal-baserade, inklusive:
 
    - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller baseras på en befintlig gemensamma eller [QuickStart mallen](https://azure.microsoft.com/documentation/templates/).
    - Härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen av](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -51,13 +51,11 @@ I det här avsnittet ska du aktivera och inaktivera tilldelats identitet med hj�
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss"></a>Aktivera system för tilldelade identitet under skapandet av en Azure-VMSS eller en befintlig Azure-VMSS
 
-1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
-
-2. Efter att läsa in mallen i en textredigerare, leta upp den `Microsoft.Compute/virtualMachineScaleSets` resurs av intresse inom den `resources` avsnitt. Din kan skilja sig något från följande skärmbild, beroende på hur du använder redigeraren och om du redigerar en mall för en ny distribution eller befintlig.
+1. Läsa in mallen i en textredigerare, leta upp den `Microsoft.Compute/virtualMachineScaleSets` resurs av intresse inom den `resources` avsnitt. Din kan skilja sig något från följande skärmbild, beroende på hur du använder redigeraren och om du redigerar en mall för en ny distribution eller befintlig.
    
    ![Skärmbild av mall - hitta VM](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
-3. Om du vill aktivera systemidentitet tilldelade lägger du till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachineScaleSets"` egenskapen. Använd följande syntax:
+2. Om du vill aktivera systemidentitet tilldelade lägger du till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachineScaleSets"` egenskapen. Använd följande syntax:
 
    ```JSON
    "identity": { 
@@ -65,7 +63,7 @@ I det här avsnittet ska du aktivera och inaktivera tilldelats identitet med hj�
    },
    ```
 
-4. (Valfritt) Lägga till virtuella datorns skaluppsättning MSI-tillägg som en `extensionsProfile` element. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS)-identiteten för att hämta token samt.  Använd följande syntax:
+3. (Valfritt) Lägga till virtuella datorns skaluppsättning MSI-tillägg som en `extensionsProfile` element. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS)-identiteten för att hämta token samt.  Använd följande syntax:
 
    >[!NOTE] 
    > Följande exempel förutsätter att en virtuell Windows-skala ange tillägg (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.
@@ -89,7 +87,7 @@ I det här avsnittet ska du aktivera och inaktivera tilldelats identitet med hj�
             }
    ```
 
-5. När du är klar bör mallen likna följande:
+4. När du är klar bör mallen likna följande:
 
    ![Skärmbild av mallen efter uppdateringen](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
@@ -100,41 +98,18 @@ I det här avsnittet ska du aktivera och inaktivera tilldelats identitet med hj�
 
 Om du har en virtuell dator skaluppsättningen som inte längre behöver ett system som tilldelats identitet men fortfarande måste användaren som har tilldelats identiteter:
 
-1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
-
-2. Ändra identitetstypen till `'UserAssigned'`
+- Läsa in mallen i en textredigerare och ändra identitetstypen till `'UserAssigned'`
 
 ## <a name="user-assigned-identity"></a>Användaren som har tilldelats identitet
 
-I det här avsnittet skapar du en användare som tilldelats identitet och en Azure-VMSS med en Azure Resource Manager-mall.
+I det här avsnittet tilldelar du en identitet för användaren som har tilldelats till en Azure-VMSS med hjälp av Azure Resource Manager-mall.
 
-### <a name="create-and-assign-a-user-assigned-identity-to-an-azure-vmss"></a>Skapa och tilldela en användare som tilldelats en Azure-VMSS identitet
+> [!Note]
+> Om du vill skapa en identitet för användaren som har tilldelats med hjälp av en Azure Resource Manager-mall finns [skapa en identitet för användaren som har tilldelats](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-1. Utför först steget i avsnittet [aktivera tilldelade systemidentitet under skapandet av en Azure-VMSS på en befintlig VMSS](qs-configure-template-windows-vmss.md#enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss).
+### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Tilldela en användare som tilldelats en Azure-VMSS identitet
 
-2. Lägg till en post för en användare tilldelade identitetsnamn liknar följande under avsnittet som innehåller konfigurationsvariabler för Azure-VMSS för variabler.  Det innehåller värdet för den användare som tilldelats identitet under skapandeprocessen Azure VMSS:
-    
-    > [!IMPORTANT]
-    > Skapa användartilldelade identiteter med specialtecken (dvs understreck) i namnet stöds inte för närvarande. Använd alfanumeriska tecken. Sök igen efter uppdateringar.  Mer information finns i [vanliga frågor och kända problem](known-issues.md)
-
-    ```json
-    "variables": {
-        "vmssPrefix": "vmss",
-        "vmssName": "[concat(variables('vmssPrefix'), uniquestring(resourceGroup().id,deployment().name))]",
-        //other vm configuration variables...
-        "identityName": "[concat(variables('vmssName'), 'id')]"
-    ```
-3. Under den `resources` element lägger du till följande post för att skapa en tilldelad användaridentitet:
-
-    ```json
-    {
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-        "name": "[variables('identityName')]",
-        "apiVersion": "2015-08-31-PREVIEW",
-        "location": "[resourceGroup().location]"
-    },
-    ```
-4. Sedan under den `resources` element lägger du till följande post att tilldela din VMSS användaridentitet tilldelade:
+1. Under den `resources` element, Lägg till följande post för att tilldela en identitet för användaren som har tilldelats till din VMSS.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på användaren som har tilldelats identiteten som du skapade.
 
     ```json
     {
@@ -144,13 +119,13 @@ I det här avsnittet skapar du en användare som tilldelats identitet och en Azu
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/, variables('identityName'))]"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
             ]
         }
 
     }
     ```
-5. (Valfritt) Lägg till följande post under den `extensionProfile` element ska tilldelas din VMSS hanterade identity-tillägget. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS) identitet slutpunkt, för att hämta token samt. Använd följande syntax:
+2. (Valfritt) Lägg till följande post under den `extensionProfile` element ska tilldelas din VMSS hanterade identity-tillägget. Det här steget är valfritt eftersom du kan använda Azure instans Metadata Service (IMDS) identitet slutpunkt, för att hämta token samt. Använd följande syntax:
    
     ```JSON
        "extensionProfile": {
@@ -169,11 +144,9 @@ I det här avsnittet skapar du en användare som tilldelats identitet och en Azu
                     }
                 }
    ```
-6.  När du är klar bör mallen likna följande:
-    > [!NOTE]
-    > Mallen innehåller inte alla nödvändiga variabler för att skapa din VMSS.  `//other configuration variables...` används på alla nödvändiga konfigurationsvariabler för enkelhetens planeringsaspekter.
-
-      ![Skärmbild av användaren som har tilldelats identitet](../media/msi-qs-configure-template-windows-vmss/template-vmss-user-assigned-identity.png)
+3.  När du är klar bör mallen likna följande:
+   
+      ![Skärmbild av användaren som har tilldelats identitet](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 

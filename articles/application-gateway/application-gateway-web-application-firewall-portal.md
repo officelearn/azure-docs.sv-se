@@ -1,27 +1,27 @@
 ---
-title: "Skapa en Programgateway med en brandvägg för webbaserade program - Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure portal."
+title: Skapa en Programgateway med en brandvägg för webbaserade program - Azure-portalen | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program som använder Azure portal
 
 Du kan använda Azure-portalen för att skapa en [Programgateway](application-gateway-introduction.md) med en [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md) (Brandvägg). Brandvägg använder [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regler för att skydda ditt program. Dessa regler innehåller skydd mot attacker, till exempel SQL injection, webbplatser scripting attacker och sessionen hijacks.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en Programgateway med Brandvägg aktiverat
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du:
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure portal [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
@@ -68,11 +68,11 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
 1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
 2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-    ![Skapa ett undernät](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
+    ![Skapa undernät](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
 3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-## <a name="create-backend-servers"></a>Skapa backend-servrar
+## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
@@ -83,15 +83,15 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 3. Ange dessa värden för den virtuella datorn:
 
     - *myVM* – namnet på den virtuella datorn.
-    - *azureuser* - för administratörsanvändarnamn.
+    - *azureuser* – för administratörens användarnamn.
     - *Azure123456!* för lösenordet.
     - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
 4. Klicka på **OK**.
-5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+5. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
-7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
-8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+7. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
+8. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
 ### <a name="install-iis"></a>Installera IIS
 
@@ -132,7 +132,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 I den här kursen använder programgatewayen ett lagringskonto för att lagra data för att upptäcka och förhindra syften. Du kan också använda logganalys eller Händelsehubb för att registrera data.
 
 1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
-2. Välj **lagring**, och välj sedan **lagringskonto - blob, fil, tabell, kö**.
+2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
 3. Ange namnet på lagringskontot, Välj **Använd befintliga** för resursgruppen och välj sedan **myResourceGroupAG**. I det här exemplet är lagringskontonamnet *myagstore1*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **skapa**.
 
 ## <a name="configure-diagnostics"></a>Konfigurera diagnostik
@@ -155,7 +155,7 @@ Konfigurera diagnostik för att registrera data i ApplicationGatewayAccessLog oc
 
     ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
     ![Testa Programgateway](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 

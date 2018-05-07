@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 10d7b5d3670bd7a5f289a6f9f2754ecc6aa18795
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskriver de olika typerna av utdata som är tillgängliga för ett Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobbet. Med utdata kan du göra ytterligare Företagsanalys och datalagring för dina data. 
@@ -290,10 +290,10 @@ I följande tabell sammanfattas partition support och antalet utdata-skrivare f�
 | Azure Blob Storage | Ja | Använd {date} och {time}-token i sökväg-mönster. Välj datumformat, till exempel ÅÅÅÅ-MM/DD, DD/MM/ÅÅÅÅ-MM-DD-ÅÅÅÅ. HH används för tidsformat. | Följer inkommande partitionering för [fullständigt parallell frågor](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Ja | Ja | Varierar beroende på partitionen justering.</br> När utdata utdata Event Hub partitionsnyckel justeras lika med överordnad (föregående) frågesteg, antalet skrivare är samma antalet partitioner i Händelsehubben. Varje skrivare använder Eventhub's [EventHubSender klassen](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. </br> När utdata Event Hub Partitionsnyckeln inte är justerad med överordnad (föregående) frågesteg, antalet skrivare är samma som antalet partitioner i det föregående steget. Varje skrivare använder EventHubClient [SendBatchAsync klassen](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) att skicka händelser till alla utdata-partitioner. |
 | Power BI | Nej | Ingen | Inte tillämpligt. | 
-| Azure Table Storage | Ja | Alla utdata-kolumnen.  | Följer inkommande partitionering för [fullständigt paralyzed frågor](stream-analytics-scale-jobs.md). | 
+| Azure Table Storage | Ja | Alla utdata-kolumnen.  | Följer inkommande partitionering för [fullständigt paralleliserad frågor](stream-analytics-scale-jobs.md). | 
 | Azure Service Bus-ämne | Ja | Valt automatiskt. Antalet partitioner baseras på den [storlek och Service Bus SKU](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.| Samma som antalet partitioner i avsnittet utdata.  |
 | Azure Service Bus-kö | Ja | Valt automatiskt. Antalet partitioner baseras på den [storlek och Service Bus SKU](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.| Samma som antalet partitioner i den utgående kön. |
-| Azure Cosmos DB | Ja | Använd {partition}-token i samlingsnamnsmönstret. {partition} värdet baseras på PARTITION BY-sats i frågan. | Följer inkommande partitionering för [fullständigt paralyzed frågor](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Ja | Använd {partition}-token i samlingsnamnsmönstret. {partition} värdet baseras på PARTITION BY-sats i frågan. | Följer inkommande partitionering för [fullständigt paralleliserad frågor](stream-analytics-scale-jobs.md). |
 | Azure Functions | Nej | Ingen | Inte tillämpligt. | 
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata

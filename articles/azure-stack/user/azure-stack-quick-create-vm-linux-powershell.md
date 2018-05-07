@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e2dbc6020dd317e96c4116811f8e3bf87680bfb
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en virtuell dator Linux server med PowerShell i Azure-stacken
 
@@ -28,6 +28,7 @@ ms.lasthandoff: 04/28/2018
 Du kan skapa en virtuell Ubuntu Server 16.04 LTS-dator med hjälp av PowerShell för Azure-stacken. Följ stegen i den här artikeln för att skapa och använda en virtuell dator.  Den här artikeln kan du också stegen för att:
 
 * Ansluta till den virtuella datorn med en fjärransluten klient.
+* Installera NGINX-webbserver och visa standardstartsida.
 * Rensa oanvända resurser.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -218,6 +219,26 @@ ssh <Public IP Address>
 ```
 
 När du uppmanas, anger du azureuser som användarens inloggning. Om du använder en lösenfras när du har skapat SSH-nycklar, har du att ange lösenfrasen.
+
+## <a name="install-the-nginx-web-server"></a>Installera NGINX-webbserver
+
+Om du vill uppdatera paketet resurser och installera det senaste NGINX-paketet, kör du följande skript:
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
+
+Med NGINX installerat, och port 80 som är öppna på den virtuella datorn, kan du komma åt webbservern med hjälp av den virtuella datorns offentliga IP-adressen. Öppna en webbläsare och gå till ```http://<public IP address>```.
+
+![Välkomstsida för NGINX web server](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

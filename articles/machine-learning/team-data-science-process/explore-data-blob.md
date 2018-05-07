@@ -1,9 +1,9 @@
 ---
 title: Utforska data i Azure blob storage med Pandas | Microsoft Docs
-description: "Så här utforska data som lagras i Azure blob-behållaren med hjälp av Pandas."
+description: Så här utforska data som lagras i Azure blob-behållaren med hjälp av Pandas.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: a46735dde28740087d201d7490f135349aad76f6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 8d769ebba349937448b8eed277d1dfb224f39115
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Utforska data i Azure Blob Storage med Pandas
 Det här dokumentet innehåller information om hur att utforska data som lagras i Azure blob-behållaren med [Pandas](http://pandas.pydata.org/) Python-paketet.
@@ -27,7 +27,7 @@ Följande **menyn** länkar till avsnitt som beskriver hur du använder Verktyg 
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapa ett Azure storage-konto. Om du behöver mer information, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)

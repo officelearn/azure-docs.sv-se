@@ -1,22 +1,22 @@
 ---
 title: Skapa en Programgateway - Azure CLI | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway med Azure CLI."
+description: Lär dig hur du skapar en Programgateway med Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Skapa en Programgateway med hjälp av Azure CLI
 
@@ -60,13 +60,13 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>Skapa backend-servrar
+## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan också installera NGINX på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
 ### <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
 
-Du kan använda en konfigurationsfil för molnet init för att installera NGINX och köra en ”Hello World” Node.js-app på en Linux-dator. Skapa en fil med namnet molnet init.txt och kopiera och klistra in följande konfiguration i gränssnittet i din aktuella shell. Kontrollera att du kopierar hela molnet init filen korrekt, särskilt den första raden:
+Du kan använda en konfigurationsfil för cloud-init för att installera NGINX och köra en Hello World Node.js-app på en virtuell Linux-dator. Skapa en fil med namnet cloud-init.txt i ditt nuvarande gränssnitt och kopiera och klistra in följande konfiguration i gränssnittet. Se till att kopiera hela cloud-init-filen korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -110,7 +110,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Skapa nätverksgränssnitt med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create). Skapa de virtuella datorerna med [az vm skapa](/cli/azure/vm#az_vm_create).
+Skapa nätverksgränssnitt med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create). Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -160,7 +160,7 @@ Det kan ta flera minuter för Programgateway ska skapas. När programgatewayen h
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Offentliga IP-adressen för programgatewayen får använda [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+Offentliga IP-adressen för programgatewayen får använda [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,5 +182,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en resursgrupp, nätverksresurser och backend-servrar. Du kan sedan använda resurserna för att skapa en Programgateway. Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.
+I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du kan sedan använda resurserna för att skapa en Programgateway. Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.
 

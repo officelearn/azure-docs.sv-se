@@ -1,11 +1,11 @@
 ---
 title: Introduktion till hantering av enheter i Azure Active Directory | Microsoft Docs
-description: "Lär dig hur enhetshantering kan du få kontroll över de enheter som har åtkomst till resurser i din miljö."
+description: Lär dig hur enhetshantering kan du få kontroll över de enheter som har åtkomst till resurser i din miljö.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduktion till hantering av enheter i Azure Active Directory
 
@@ -73,7 +73,7 @@ Målet med Azure AD anslutna enheter är att förenkla:
 
 
 Detta sker genom att erbjuda användarna en upplevelse som Självbetjäning för att hämta enheter som ägs av arbetet under kontroll av Azure AD.  
-**Azure AD-anslutning** är avsedd för organisationer som är moln första / endast molnbaserad. Detta är vanligtvis små och medelstora företag som inte har en lokal Windows Server Active Directory-infrastruktur. 
+**Azure AD-anslutning** är avsedd för organisationer som vill vara moln första eller endast molnbaserad. Det finns ingen begränsning för storlek eller typ av organisationer som kan distribuera Azure AD Join. Azure AD-anslutning fungerar bra även i en hybridmiljö och kan ge åtkomst till lokala appar och resurser.
 
 Implementera Azure AD anslutna enheter ger dig följande fördelar:
 
@@ -81,11 +81,14 @@ Implementera Azure AD anslutna enheter ger dig följande fördelar:
 
 - **Enterprise kompatibla centrala** av användarinställningar för domänanslutna enheter. Användare behöver inte ansluta en Microsoft-konto (till exempel Hotmail) om du vill se inställningar över enheter.
 
-- **Åtkomst till Windows Store för företag** med hjälp av AD-kontot. Användarna kan välja från en inventering av program som är markerat i organisationen.
+- **Åtkomst till Windows Store för företag** med hjälp av Azure AD-kontot. Användarna kan välja från en inventering av program som är markerat i organisationen.
 
 - **Windows Hello** stöd för säker och smidig tillgång till arbetsresurser.
 
 - **Begränsning av åtkomst** för appar från enheter som uppfyller policy för efterlevnad.
+
+- **Sömlös åtkomst till lokala resurser** när enheten har fri till den lokala domänkontrollanten.
+
 
 Medan Azure AD-anslutning är främst avsedd för organisationer som inte har en lokal Windows Server Active Directory-infrastruktur, kan fungera utmärkt också använda den i scenarier där:
 

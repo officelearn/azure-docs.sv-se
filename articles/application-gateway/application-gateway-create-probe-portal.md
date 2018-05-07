@@ -1,11 +1,11 @@
 ---
-title: "Skapa en anpassad avsökning - Azure Application Gateway - Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med hjälp av portalen"
+title: Skapa en anpassad avsökning - Azure Application Gateway - Azure-portalen | Microsoft Docs
+description: Lär dig hur du skapar en anpassad avsökningsåtgärd för Programgateway med hjälp av portalen
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökningsåtgärd för Programgateway med hjälp av portalen
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -52,8 +52,8 @@ Avsökningar konfigureras i en tvåstegsprocess via portalen. Det första steget
   |---|---|---|
   |**Namn**|customProbe|Det här värdet är ett eget namn som avsökningen som är tillgänglig i portalen.|
   |**Protokoll**|HTTP eller HTTPS | Det protokoll som använder hälsoavsökningen.|
-  |**Värden**|engångsfaktorautentisering contoso.com|Det här värdet är värdnamnet som används för avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway, Använd annars ”127.0.0.1”. Det här värdet skiljer sig från virtuella datorns värdnamn.|
-  |**Sökväg**|/ eller en annan sökväg|Resten av en fullständig url för den anpassade avsökningen. En giltig sökväg börjar med '/'. Sökvägen till http://contoso.com bara använda '/' |
+  |**Värd**|engångsfaktorautentisering contoso.com|Det här värdet är värdnamnet som används för avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway, Använd annars ”127.0.0.1”. Det här värdet skiljer sig från virtuella datorns värdnamn.|
+  |**Sökväg**|/ eller en annan sökväg|Resten av en fullständig url för den anpassade avsökningen. En giltig sökväg börjar med '/'. För standardsökvägen http://contoso.com bara använda '/' |
   |**Intervall (sek)**|30|Hur ofta avsökningen körs för att söka efter hälsotillstånd. Det rekommenderas inte att ange lägst än 30 sekunder.|
   |**Timeout (sek)**|30|Hur lång tid avsökningen timeout. Timeout-intervall måste vara tillräckligt högt för att en http-anrop kan göras så sidan backend hälsotillstånd är tillgänglig.|
   |**Tröskelvärde för ohälsosamt värde**|3|Antal misslyckade försök att betraktas som ohälsosamt. Ett tröskelvärde 0 betyder som om en hälsokontroll misslyckas serverdel bestäms ohälsosamt omedelbart.|

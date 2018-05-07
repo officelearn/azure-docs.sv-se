@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
 
@@ -294,7 +294,7 @@ Medan du kan använda kryptering på klientsidan för att kryptera data under ö
 
 SSE är aktiverat för alla lagringskonton och kan inte inaktiveras. SSE krypterar dina data automatiskt när du skriver till Azure Storage. När du läser data från Azure Storage, dekrypteras den innan de returneras av Azure Storage. SSE gör det möjligt för dig att skydda dina data utan att ändra koden och lägga till kod för program.
 
-Nycklar som används för SSE hanteras av Microsoft. Microsoft genererar nycklarna ursprungligen och hanterar sina säker lagring samt rotationen reguljära som definieras av intern Microsoft-princip. Kundhanterad nycklar kommer så småningom finnas, tillsammans med en migreringsvägen från Microsoft-hanterad nycklar till kundhanterad nycklar.
+Du kan använda Microsoft-hanterad nycklar eller dina egna anpassade nycklar. Microsoft genererar hanterade nycklar och hanterar sina säker lagring samt rotationen reguljära som definieras av intern Microsoft-princip. Mer information om hur du använder anpassade nycklar finns [Lagringstjänstens kryptering med kundhanterad nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 SSE krypterar automatiskt data på alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (blob, kö, tabell och fil). 
 

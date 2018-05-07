@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Om VPN-gateway för Azure-Stack
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
@@ -94,7 +94,7 @@ Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter
 |**Högpresterande SKU** | 200 Mbit/s    | 5 |
 ***(1)***  VPN-genomströmning är inte en garanterad genomströmning för anslutningar mellan platser över Internet. Värdet utgör dock högsta möjliga genomflöde.  
 ***(2)***  Max tunnlar talet är det totala antalet per distribution av Azure-Stack för alla prenumerationer.  
-***(3)***  BGP stöds inte för grundläggande SKU: N.  
+***(3)***  BGP stöds inte för grundläggande SKU: N.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [inställningar för VPN-gatewayer](azure-stack-vpn-gateway-settings.md) för Azure-stacken.

@@ -2,7 +2,7 @@
 title: Plattformar och verktyg för datavetenskap team projekt - Azure | Microsoft Docs
 description: Specificerar samt information om data och analyser resurser att standardisera Team datavetenskap processen för företag.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Verktyg för datavetenskap grupprojekt och plattformar
 
@@ -40,7 +40,7 @@ I det här dokumentet vi kort beskriver resurserna och innehåller länkar till 
 Datavetenskap virtuella datorn finns på både Windows- och Linux av Microsoft, innehåller populära verktyg för datavetenskap modellering aktiviteter och utveckling. Det innehåller verktyg som:
 
 - Microsoft R Server Developer Edition 
-- Anaconda Python distribution
+- Anaconda Python-distribution
 - Jupyter-anteckningsböcker för Python och R 
 - Visual Studio Community Edition med Python och R verktyg i Windows / Linux-solförmörkelse
 - Power BI desktop för Windows

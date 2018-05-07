@@ -73,6 +73,8 @@
           href: monitoring-enable-alerts-using-template.md
         - name: Kopiera aviseringar från OMS-portalen till Azure Portal
           href: monitoring-alerts-extend-tool.md
+        - name: Aviseringar med dynamiska tröskelvärden
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: Använda åtgärdsgrupper med aviseringar
       items:
         - name: Lär dig mer om webhook-schemat

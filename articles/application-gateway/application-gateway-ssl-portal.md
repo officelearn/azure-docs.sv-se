@@ -1,27 +1,27 @@
 ---
 title: Skapa en Programgateway med SSL-avslutning - Azure-portalen | Microsoft Docs
-description: "Lär dig hur du skapar en Programgateway och lägga till ett certifikat för SSL-avslutning med Azure-portalen."
+description: Lär dig hur du skapar en Programgateway och lägga till ett certifikat för SSL-avslutning med Azure-portalen.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 10796000f913428e39a0ffbd0aa2cbe0c515eb7a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Skapa en Programgateway med SSL-avslutning med Azure-portalen
 
 Du kan använda Azure-portalen för att skapa en [Programgateway](application-gateway-introduction.md) med ett certifikat för SSL-avslutning som använder virtuella datorer för backend-servrar.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure portal [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
@@ -98,11 +98,11 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
 1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
 2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-    ![Skapa ett undernät](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
+    ![Skapa undernät](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
 
 3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-## <a name="create-backend-servers"></a>Skapa backend-servrar
+## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
@@ -113,15 +113,15 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 3. Ange dessa värden för den virtuella datorn:
 
     - *myVM* – namnet på den virtuella datorn.
-    - *azureuser* - för administratörsanvändarnamn.
+    - *azureuser* – för administratörens användarnamn.
     - *Azure123456!* för lösenordet.
     - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
 4. Klicka på **OK**.
-5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+5. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
-7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
-8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+7. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
+8. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
 ### <a name="install-iis"></a>Installera IIS
 
@@ -161,11 +161,11 @@ I det här exemplet skapar du två virtuella datorer som ska användas som backe
 
     ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat, Välj information och fortsätter sedan till webbsidan:
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat, Välj information och fortsätter sedan till webbsidan:
 
     ![Säker varning](./media/application-gateway-ssl-portal/application-gateway-secure.png)
 
-    Skyddad IIS-webbplatsen visas som i följande exempel:
+    Din skyddade IIS-webbplats visas sedan som i exemplet nedan:
 
     ![Testa bas-URL i Programgateway](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 

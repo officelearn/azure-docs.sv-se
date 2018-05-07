@@ -3,7 +3,7 @@ title: Autentiseringsbibliotek för Azure Active Directory v2.0 | Microsoft Docs
 description: Kompatibel klientbibliotek och server mellanprogram bibliotek och relaterade biblioteket, källa och exempel länkar för Azure Active Directory v2.0-slutpunkten.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: SaeedAkhter-MSFT
 manager: mtillman
 editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
-ms.author: dastrock
+ms.date: 04/13/2018
+ms.author: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0d9e2831f9d8676eb3e7fac91c58f3977f2e0f32
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f961f8a6795df156549eece12c2c7e4cc26713ab
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0-autentiseringsbibliotek
-Den [Azure Active Directory (AD Azure) v2.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) stöder branschstandard OAuth 2.0 och OpenID Connect 1.0-protokollet. Du kan använda olika bibliotek från Microsoft och andra företag med v2.0-slutpunkten.
 
-När du skapar ett program som använder v2.0-slutpunkten rekommenderar vi att du använder bibliotek som har skrivits av protokollet domän experter som följer en Security Development Lifecycle (SDL)-metod som [det följt av Microsoft][Microsoft-SDL]. Om du väljer att hand kod stöd för protokoll, rekommenderar vi du följer SDL-metoder och uppmärksam på säkerhetsaspekter i standarderna för varje protokoll.
+Den [Azure Active Directory (AD Azure) v2.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) stöder branschstandard OAuth 2.0 och OpenID Connect 1.0-protokollet. Microsoft Authentication Library (MSAL) är avsedd att fungera med Azure AD v2.0-slutpunkten.  Du kan också använda bibliotek med öppen källkod som stöder OAuth 2.0 och OpenID Connect 1.0.
+
+Det rekommenderas att du använder bibliotek av protokollet domän experter som följer en Security Development Lifecycle (SDL)-metod som [det följt av Microsoft][Microsoft-SDL]. Om du väljer att hand kod stöd för protokoll, följer du en metod som Microsofts SDL och betala Stäng uppmärksam på säkerhet i standarderna för varje protokoll.
 
 > [!NOTE]
 > Letar du efter Azure AD v1.0 bibliotek (ADAL)? Checka ut den [ADAL-biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
@@ -32,13 +33,15 @@ När du skapar ett program som använder v2.0-slutpunkten rekommenderar vi att d
 >
 
 ## <a name="types-of-libraries"></a>Typer av bibliotek
+
 Azure AD v2.0-slutpunkten fungerar med två typer av bibliotek:
 
 * **Klientbibliotek**. Interna klienter och servrar kan du använda klientbibliotek för att få åtkomst-token för att anropa en resurs, till exempel Microsoft Graph.
 * **Servern mellanprogram bibliotek**. Webbappar som använder server mellanprogram bibliotek för användarinloggning. Webb-API: er använda server mellanprogram bibliotek för att validera token som skickas av interna klienter eller av andra servrar.
 
 ## <a name="library-support"></a>Stöd
-Eftersom du kan välja något standardkompatibel bibliotek när du använder v2.0-slutpunkten är det viktigt att du vet var för support. Kontakta ägaren biblioteket problem och funktioner som efterfrågas i biblioteket kod. Kontakta Microsoft-problem och funktioner som efterfrågas i protokollimplementering för tjänsten på klientsidan.
+
+Eftersom du kan välja något standardkompatibel bibliotek när du använder v2.0-slutpunkten är det viktigt att du vet var för support. Kontakta ägaren biblioteket problem och funktioner som efterfrågas i biblioteket kod. Kontakta Microsoft-problem och funktioner som efterfrågas i protokollimplementering för tjänsten på klientsidan. [Filen en funktionsbegäran](https://feedback.azure.com/forums/169401-azure-active-directory) för ytterligare funktioner som du skulle vilja se i protokollet. [Skapa en supportbegäran](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) om du upptäcker ett problem där Azure AD v2.0-slutpunkten inte är kompatibel med OAuth 2.0 eller OpenID Connect 1.0.
 
 Bibliotek finns i två kategorier för support:
 
@@ -47,11 +50,10 @@ Bibliotek finns i två kategorier för support:
 
 En lista över bibliotek som fungerar med v2.0-slutpunkten finns i nästa avsnitt i den här artikeln.
 
-
 ## <a name="microsoft-supported-client-libraries"></a>Stöds av Microsoft klientbibliotek
 
 > [!IMPORTANT]
-> MSAL preview bibliotek är lämpliga för användning i en produktionsmiljö. Vi ger samma nivå produktionsstöd för dessa bibliotek som vi gör våra aktuella produktions-bibliotek (ADAL). Vi kan göra ändringar i MSAL-API, interna format och andra mekanismer för dessa bibliotek utan föregående meddelande, som du behöver ta tillsammans med felkorrigeringar eller funktionsförbättringar under förhandsgranskningen. Detta kan påverka ditt program. Exempelvis kan kan en ändring av cache-format påverka dina användare, till exempel att de behöver logga in igen. Ändra ett API måste du kanske uppdatera din kod. När vi anger versionen för allmän tillgänglighet som vi gör att du måste uppdatera till version för allmän tillgänglighet i sex månader som program som skrivits med en förhandsgranskning fungerar versionen av biblioteket inte längre.
+> MSAL preview bibliotek är lämpliga för användning i en produktionsmiljö. Microsoft tillhandahåller samma nivå produktionsstöd för dessa bibliotek som de aktuella produktions-bibliotek (ADAL). Förvänta dig MSAL API, interna format och andra mekanismer för dessa bibliotek utan föregående meddelande, som du behöver ta tillsammans med felkorrigeringar eller funktionsförbättringar i förhandsversionen. Detta kan påverka ditt program. En ändring av cache-formatet kan exempelvis kräva användarna att logga in igen. Ändra ett API måste du kanske uppdatera din kod. När versionen för allmän tillgänglighet (GA) blir tillgänglig alla program som använder en förhandsversion av biblioteket måste uppdatera i sex månader eller de kan sluta fungera.
 
 | Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
@@ -64,8 +66,8 @@ En lista över bibliotek som fungerar med v2.0-slutpunkten finns i nästa avsnit
 
 | Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
-| .NET 4.x | OWIN OpenID Connect mellanprogram |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[MVC-App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
-| .NET 4.x | OWIN OAuth ägar mellanprogram för AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
+| .NET 4.x | OWIN OpenID Connect mellanprogram |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/) |[MVC-App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
+| .NET 4.x | OWIN OAuth ägar mellanprogram för AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/) |  | |
 | .NET 4.x | JWT-hanterare för .NET 4.5 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET Core | ASP.NET OpenID Connect mellanprogram |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[ASP.NET-säkerhet (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[MVC-app](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |
 | .NET Core | ASP.NET OAuth ägar mellanprogram |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[ASP.NET-säkerhet (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |  |
@@ -73,13 +75,14 @@ En lista över bibliotek som fungerar med v2.0-slutpunkten finns i nästa avsnit
 | Node.js |Azure AD-Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Webbprogram](active-directory-v2-devquickstarts-node-web.md)| |
 
 ## <a name="compatible-client-libraries"></a>Kompatibel klientbibliotek
+
 | Plattform | Biblioteksnamn | Testad version | Källkod | Exempel |
 |:---:|:---:|:---:|:---:|:---:|
-| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Exempel på inbyggda appen](active-directory-v2-devquickstarts-android.md) |
+| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Exempel på inbyggda appen](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Exempel på inbyggda appen](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-| Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
-| PHP | [PHP Leagues oauth2-klient](https://github.com/thephpleague/oauth2-client) | [Version 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-klient](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
+| Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
+| PHP | [PHP Leagues oauth2-klient](https://github.com/thephpleague/oauth2-client) | [Version 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-klient](https://github.com/thephpleague/oauth2-client/) | |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Relaterat innehåll

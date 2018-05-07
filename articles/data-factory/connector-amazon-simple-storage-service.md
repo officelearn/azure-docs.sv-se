@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: bb0b9e3db4637a6b872c7fed9653a16457b848db
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3747b53af0be02fb33e0c4b97ff01aaf505066d3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -93,7 +93,7 @@ Ange typegenskapen för dataset för att kopiera data från Amazon S3, **AmazonS
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **AmazonS3Object** |Ja |
-| bucketName | S3-Bucketnamn. |Ja |
+| bucketName | S3-Bucketnamn. Wildcard-filter stöds inte. |Ja |
 | key | Den **namn eller jokertecken-filtret** S3 objekt nyckel under en angiven bucket. Gäller bara när ”prefixet”-egenskap har inte angetts. <br/><br/>Wildcard-filtret har endast stöd för filen Namndelen men som inte finns i mappen. Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"` |Nej |
 | prefix | Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när ”key”-egenskap inte har angetts. |Nej |
 | version | Versionen av objektet S3 om S3 versionshantering är aktiverad. |Nej |

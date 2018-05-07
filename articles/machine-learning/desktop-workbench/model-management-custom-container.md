@@ -3,18 +3,18 @@ title: Anpassa den behållare bild som används för att distribuera Azure ML-mo
 description: Den här artikeln beskriver hur du anpassar en behållare avbildning för Azure Machine Learning-modeller
 services: machine-learning
 author: tedway
-ms.author: tedway, raymondl
+ms.author: tedway
 manager: mwinkle
-ms.reviewer: mldocs
+ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: f56b651c40187e42361ac12f0cbf4e509385e0d2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 8ff2bca405bbd8faeaa4527f493804950fced6ce
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Anpassa den behållare bild som används för Azure ML-modeller
 

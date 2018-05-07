@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/02/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2d9e0fc50bed4e8301a24a062407b490d688803d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure belastningsutjämnare?
 
@@ -73,7 +73,11 @@ Belastningsutjämnare ger följande grundläggande funktioner för TCP och UDP-p
 
 * **Programmet storleksoberoende och transparent**
 
-    Belastningsutjämnaren interagerar inte direkt med TCP eller UDP eller programlager och alla TCP eller UDP-baserade program scenario kan stödjas. Till exempel även om belastningsutjämnaren inte avslutar TLS sig själv, kan du skapa och skala ut TLS-program med hjälp av belastningsutjämnare och avsluta TLS-anslutning på Virtuellt datorn. Belastningsutjämnaren Avsluta inte ett flöde och protokollet handskakningar på sker alltid direkt mellan klienten och den hash-valt backend-pool-instansen. Till exempel sker en TCP-handskakning alltid mellan klienten och valda backend-VM. Ett svar på en begäran om att en klientdel är ett svar som genereras från backend-VM. Load Balancer utgående nätverkets prestanda begränsas bara av VM-SKU som du väljer och flöden vara aktiv under långa perioder om tidsgränsen för inaktivitet nåddes.
+    Belastningsutjämnaren interagerar inte direkt med TCP eller UDP eller programlager och alla TCP eller UDP-baserade program scenario kan stödjas.  Belastningsutjämnaren matchar inte avsluta eller kommer flöden, interagera med nyttolasten för flödet, innehåller inga program layer gateway-funktionen och protokollet handskakningar på alltid ske direkt mellan klienten och backend-pool-instans.  Ett svar på ett inkommande flöde är alltid ett svar från en virtuell dator.  När flödet anländer på den virtuella datorn, bevaras också ursprungliga källans IP-adress.  Några exempel för att illustrera ytterligare genomskinlighet:
+    - En TCP-handskakning inträffar alltid mellan klienten och valda backend-VM. Ett svar på en begäran om att en klientdel är ett svar som genererats av backend-VM. Du bör använda TCP ping för att verifiera anslutningarna i det här scenariot.  Använd [psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) eller [nmap](https://nmap.org) att kontrollera om en handskakning med en felfri virtuell dator ska lyckas. Observera ICMP är en annan IP-protokoll än UDP eller TCP och stöds inte för detta ändamål.
+    - Programmet nyttolaster är transparent för belastningsutjämnaren och eventuella UDP eller TCP-baserade program kan användas. För arbetsbelastningar som kräver per bearbetning av HTTP-begäranden eller modifiering av application layer nyttolaster (t.ex. tolkning av HTTP-URL: er), bör du använda en lager 7 belastningsutjämning som [Programgateway](https://azure.microsoft.com/en-us/services/application-gateway).
+    - Eftersom belastningsutjämnare är oberoende av TCP-nyttolasten och TLS-avlastning (”SSL”) har inte angetts, kan du skapa slutpunkt till slutpunkt krypterade scenarier med hjälp av belastningsutjämnare och få stor skala ut för TLS-program genom att avsluta TLS-anslutning på Virtuellt datorn.  Sessionen TLS transparens kapacitet begränsas bara efter typ och antal virtuella datorer som du lägger till backend-poolen.  Om du behöver ”SSL genom att avlasta” application layer behandling eller vill delegera certifikathantering till Azure, bör du använda Azures layer 7 belastningsutjämnaren [Programgateway](https://azure.microsoft.com/en-us/services/application-gateway) i stället.
+        
 
 * **Automatisk omkonfiguration**
 

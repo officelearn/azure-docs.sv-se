@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 39d7eeaf565a6c58bac162d110e6fd1cd96ad1f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9fbf4364e22c0b25d224ee0961f7e7ee13ddcef8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka avsnitt med Kafka på HDInsight
 
@@ -65,11 +65,11 @@ Mer information om hur du ansluter två virtuella Azure-nätverk finns [konfigur
 
 Du kan skapa ett virtuellt Azure-nätverk och Kafka kluster manuellt, men det är enklare att använda en Azure Resource Manager-mall. Använd följande steg för att distribuera ett virtuellt Azure-nätverk och två kluster med Kafka till din Azure-prenumeration.
 
-1. Använd knappen följande för att logga in på Azure och öppna mallen i Azure-portalen.
+1. Använd följande knapp för att logga in på Azure och öppna mallen i Azure Portal.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager-mallen finns på **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
+    Azure Resource Manager-mallen finns i **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
     > [!WARNING]
     > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Den här mallen skapar ett Kafka kluster som innehåller tre arbetsnoderna.
@@ -94,7 +94,7 @@ Du kan skapa ett virtuellt Azure-nätverk och Kafka kluster manuellt, men det ä
 
 3. Läs den **villkor**, och välj sedan **jag samtycker till villkoren som anges ovan**.
 
-4. Kontrollera slutligen **fäst på instrumentpanelen** och välj sedan **inköp**. Det tar ungefär 20 minuter för att skapa kluster.
+4. Markera slutligen **Fäst på instrumentpanelen** och välj sedan **Inköp**. Det tar ungefär 20 minuter för att skapa kluster.
 
 > [!IMPORTANT]
 > Namnet på HDInsight-kluster är **källa BASENAME** och **dest BASENAME**, där BASENAME är det namn du angav i mallen. Du kan använda dessa namn i senare steg när du ansluter till kluster.

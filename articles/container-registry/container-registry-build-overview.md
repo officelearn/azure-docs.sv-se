@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 0e10b415f3d1c7ca502cfd63ebd27a6adcb69635
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatisera OS och framework korrigering med ACR skapa
 
@@ -58,7 +58,7 @@ Eftersom ACR skapa dynamiskt identifierar basavbildning beroenden när den bygge
 Lär dig mer om OS och framework korrigering i tredje ACR skapa självstudiekursen [automatisera avbildningen bygger på basavbildning uppdatering med Azure Container registret skapa](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Skapa ACR är i förhandsvisning, bygger basavbildning uppdateringar utlösaren endast när båda bilderna bas- och program finns i samma Azure-behållaren registret.
+> För förhandsversionen av inledande bygger basavbildning uppdateringar utlösaren endast när båda bilderna bas- och program finns i samma Azure-behållaren registret.
 
 ## <a name="next-steps"></a>Nästa steg
 

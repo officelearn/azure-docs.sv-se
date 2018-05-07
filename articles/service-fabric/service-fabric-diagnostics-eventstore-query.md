@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: af97385981c61f32c4136921d3cf14a526fc6ddb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 698117f9f8f8ba955f5c182296af3fd32a4990ae
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Frågan EventStore APIs för klusterhändelser
 
@@ -139,35 +139,35 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 Här följer några exempel på hur du kan anropa händelse Store REST API: er för att förstå statusen för klustret.
 
-1. Uppgraderingar:
+*Uppgraderingar:*
 
 Om du vill se senast klustret har eller försökt uppgraderas föregående vecka, kan du fråga efter API: er för nyligen utförda uppgraderingar till ditt kluster genom att fråga efter ”ClusterUpgradeComplete”-händelser i EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeComplete`
 
-1. Klustret uppgraderingsproblem:
+*Klustret uppgraderingsproblem:*
 
 På samma sätt kan kan det fanns problem med en uppgradering av klustret, du fråga efter alla händelser för entiteten klustret. Olika händelser, inklusive uppgraderingar och varje UD som uppgraderingen samlas via har visas. Du kan även se händelser för platsen där återställningen igång och motsvarande hälsa händelser. Här är den fråga du vill använda för detta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Noden status ändras:
+*Noden status ändras:*
 
 Om du vill se nod status har ändrats under senaste Använd dagarna - när noder gick uppåt eller nedåt, eller har aktiveras eller inaktiveras (av plattformen chaos-tjänsten, eller från användarindata) - följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Programhändelser:
+*Programhändelser:*
 
 Du kan också spåra din senaste application-distributioner och uppgraderingar. Använd följande fråga om du vill se alla relaterade händelser i klustret: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Historiska hälsotillståndet för ett program:
+*Historiska hälsotillståndet för ett program:*
 
 Förutom enbart programhändelser livscykel, kan du också se historiska data om hälsotillståndet för ett visst program. Du kan göra detta genom att ange namnet på programmet som du vill samla in data. Använd den här frågan för att hämta alla händelser för program-hälsa: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. Om du vill inkludera hälsa händelser som kan ha upphört att gälla (rest skickades tiden live (TTL)), Lägg till `,ExpiredDeployedApplicationEvent` till slutet av frågan, för att filtrera på två typer av händelser.
 
-1. Historiska hälsotillstånd för alla tjänster i ”myApp”:
+*Historiska hälsotillstånd för alla tjänster i ”myApp”:*
 
 För närvarande hälsa rapport för tjänster visas händelser som `DeployedServiceHealthReportCreated` händelser under motsvarande program entitet. Använd följande fråga om du vill se hur dina tjänster har gjort för ”App1”: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServiceHealthReportCreated`
 
-1. Omkonfiguration av partitionen:
+*Omkonfiguration av partitionen:*
 
 Visa alla partition-förflyttningar som har inträffat i klustret, fråga efter den `ReconfigurationCompleted` händelse. Detta kan hjälpa dig att ta reda på vilka arbetsbelastningar som kördes på vilken nod vid specifika tidpunkter, när diagnostisera problem i klustret. Här är en exempelfråga som gör detta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.2-preview&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigurationCompleted`
 
-1. Chaos-tjänst:
+*Chaos-tjänst:*
 
 Det finns en händelse när Chaos tjänsten startas eller stoppas som är exponerad på klusternivå. Din senaste användning av tjänsten Chaos, Använd följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

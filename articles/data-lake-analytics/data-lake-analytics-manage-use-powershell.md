@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 57bc38e6c825f0f62e41d2680e0a39da73d3c4d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -69,7 +69,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="managing-accounts"></a>Hantera konton
+## <a name="manage-accounts"></a>Hantera konton
 
 ### <a name="create-a-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
 
@@ -91,7 +91,7 @@ När en resursgrupp och ett Data Lake Store-konto är tillgängligt skapar du et
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-information-about-an-account"></a>Hämta information om ett konto
+### <a name="get-acount-information"></a>Hämta information om konto
 
 Få information om ett konto.
 
@@ -111,7 +111,7 @@ Kontrollera om finns ett visst Data Lake Store-konto. Cmdleten returnerar anting
 Test-AdlStoreAccount -Name $adls
 ```
 
-### <a name="listing-accounts"></a>Visar en lista över konton
+### <a name="list-accounts"></a>Lista över konton
 
 Lista över Data Lake Analytics-konton i den aktuella prenumerationen.
 
@@ -125,48 +125,7 @@ Lista över Data Lake Analytics-konton inom en viss resursgrupp.
 Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
-## <a name="managing-firewall-rules"></a>Hantera brandväggsregler
-
-Visa en lista med brandväggsregler.
-
-```powershell
-Get-AdlAnalyticsFirewallRule -Account $adla
-```
-
-Lägg till en brandväggsregel.
-
-```powershell
-$ruleName = "Allow access from on-prem server"
-$startIpAddress = "<start IP address>"
-$endIpAddress = "<end IP address>"
-
-Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Ändra en brandväggsregel.
-
-```powershell
-Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Ta bort en brandväggsregel.
-
-```powershell
-Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
-```
-
-Tillåt Azure IP-adresser.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
-```
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
-```
-
-## <a name="managing-data-sources"></a>Hantera datakällor
+## <a name="manage-data-sources"></a>Hantera datakällor
 Azure Data Lake Analytics stöder för närvarande följande datakällor:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
@@ -516,6 +475,48 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
+## <a name="manage-firewall-rules"></a>Hantera brandväggsregler
+
+### <a name="list-firewall-rules"></a>Lista brandväggsregler
+
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
+
+### <a name="add-a-firewall-rule"></a>Lägg till en brandväggsregel
+
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
+
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="change-a-firewall-rule"></a>Ändra en brandväggsregel
+
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="remove-a-firewall-rule"></a>Ta bort en brandväggsregel
+
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
+
+### <a name="allow-azure-ip-addresses"></a>Tillåt Azure IP-adresser.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
 
 ## <a name="working-with-azure"></a>Arbeta med Azure
 

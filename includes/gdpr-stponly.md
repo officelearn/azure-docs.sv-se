@@ -5,4 +5,4 @@ MS.Service: azure-policy ms.topic: inkludera ms.date: 04/24/2018 ms.author: lizr
 ---
 
 >[!Note] 
->Om du letar efter allmän information om BNPR finns i [BNPR avsnitt i Säkerhetscenter tjänsten](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+>Om du letar efter allmän information om BNPR finns i [BNPR avsnitt av tjänsten förtroende portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

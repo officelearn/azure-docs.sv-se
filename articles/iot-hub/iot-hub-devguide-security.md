@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c5a9a56d444da232717b023cb7057b96c291c265
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -393,27 +393,27 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-authentication"></a>Anpassad autentisering
+## <a name="custom-device-and-module-authentication"></a>Anpassad autentisering av enheten och modulen
 
-Du kan använda IoT-hubben [identitetsregistret] [ lnk-identity-registry] att konfigurera per enhet säkerhetsreferenser och komma åt styra med hjälp av [token][lnk-sas-tokens]. Om det finns redan en anpassad identitet registret och/eller autentisering schemat för en IoT-lösning, kan du överväga att skapa en *token service* att integrera infrastrukturen med IoT-hubben. På så sätt kan använda du andra IoT-funktioner i din lösning.
+Du kan använda IoT-hubben [identitetsregistret] [ lnk-identity-registry] att konfigurera per-enheten/module säkerhetsreferenser och komma åt styra med hjälp av [token] [ lnk-sas-tokens]. Om det finns redan en anpassad identitet registret och/eller autentisering schemat för en IoT-lösning, kan du överväga att skapa en *token service* att integrera infrastrukturen med IoT-hubben. På så sätt kan använda du andra IoT-funktioner i din lösning.
 
-En token service är en anpassad molntjänst. Den använder en IoT-hubb *delad åtkomstprincip* med **DeviceConnect** behörighet att skapa *enheten omfång* token. Dessa token kan en enhet för att ansluta till din IoT-hubb.
+En token service är en anpassad molntjänst. Den använder en IoT-hubb *delad åtkomstprincip* med **DeviceConnect** eller **ModuleConnect** behörighet att skapa *enheten omfång* eller *modulen omfång* token. Dessa token kan en enhet och en modul som ska ansluta till din IoT-hubb.
 
 ![Steg för tokentjänsten mönster][img-tokenservice]
 
 Här följer Huvudsteg för tokentjänsten mönster:
 
-1. Skapa en IoT-hubb delad åtkomstprincip med **DeviceConnect** behörigheter för din IoT-hubb. Du kan skapa den här principen i den [Azure-portalen] [ lnk-management-portal] eller programmässigt. Tokentjänsten som använder den här principen för att signera token skapas.
-1. När en enhet behöver åtkomst till din IoT-hubb, begär en signerade token från token-tjänsten. Enheten kan autentisera med din anpassade identiteten registret-/ autentiseringsschema att fastställa enhetens identitet som tokentjänsten som används för att skapa token.
-1. Tokentjänsten som returnerar en token. Token som skapas med hjälp av `/devices/{deviceId}` som `resourceURI`, med `deviceId` som den enhet som autentiseras. Token tjänsten använder princip för delad åtkomst för att skapa token.
-1. Enheten använder token direkt med IoT-hubben.
+1. Skapa en IoT-hubb delad åtkomstprincip med **DeviceConnect** eller **ModuleConnect** behörigheter för din IoT-hubb. Du kan skapa den här principen i den [Azure-portalen] [ lnk-management-portal] eller programmässigt. Tokentjänsten som använder den här principen för att signera token skapas.
+1. När en enhet/modul behöver åtkomst till din IoT-hubb, begär en signerade token från din token-tjänst. Enheten kan autentisera med din anpassade identiteten registret-/ autentiseringsschema att fastställa identiteten enhet-modul som använder tjänsten token för att skapa en token.
+1. Tokentjänsten som returnerar en token. Token som skapas med hjälp av `/devices/{deviceId}` eller `/devices/{deviceId}/module/{moduleId}` som `resourceURI`, med `deviceId` som den enhet som autentiseras eller `moduleId` som modulen som autentiseras. Token tjänsten använder princip för delad åtkomst för att skapa token.
+1. Enheten/modulen använder token direkt med IoT-hubben.
 
 > [!NOTE]
 > Du kan använda .NET-klass [SharedAccessSignatureBuilder] [ lnk-dotnet-sas] eller Java-klass [IotHubServiceSasToken] [ lnk-java-sas] att skapa en token i din token-tjänsten.
 
-Tjänsten token kan ange token upphör att gälla efter behov. När token upphör att gälla ned IoT-hubben enhet. Enheten måste sedan begära en ny token från token-tjänsten. En kort förfallotid ökar belastningen på både enheten och tjänsten token.
+Tjänsten token kan ange token upphör att gälla efter behov. När token upphör att gälla ned IoT-hubben enhet-modulen. Enheten/modulen måste sedan begära en ny token från token-tjänsten. En kort förfallotid ökar belastningen på både enheten/modulen och token-tjänsten.
 
-För en enhet kan ansluta till din hubb, måste du ändå lägga till identitetsregistret IoT-hubb – även om enheten använder en token och inte en enhet för att ansluta. Därför kan du kan fortsätta att använda per enhet åtkomstkontroll genom att aktivera eller inaktivera enheten identiteter i den [identitetsregistret][lnk-identity-registry]. Den här metoden minskar riskerna med att använda token med lång upphör att gälla.
+För en enhet/modul att ansluta till din hubb, måste du ändå lägga till identitetsregistret IoT-hubb – även om it använder en token och inte en nyckel för att ansluta. Därför kan du kan fortsätta att använda per-enheten/per-module åtkomstkontroll genom att aktivera eller inaktivera enheten-modulen identiteter i den [identitetsregistret][lnk-identity-registry]. Den här metoden minskar riskerna med att använda token med lång upphör att gälla.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Jämförelse med en anpassad gateway
 
@@ -431,7 +431,7 @@ I följande tabell visas de behörigheter som du kan använda för att styra åt
 | --- | --- |
 | **RegistryRead** |Ger läsbehörighet till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
 | **RegistryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
-| **ServiceConnect** |Ger åtkomst till cloud service-kommunikation och övervakning av slutpunkter. <br/>Ger behörighet att ta emot meddelanden från enhet till moln, skicka meddelanden moln till enhet och hämta motsvarande leverans bekräftelser. <br/>Ger behörighet att hämta leverans bekräftelser för filen filöverföringar. <br/>Ger behörighet att komma åt enheten twins för att uppdatera taggar och önskade egenskaper, hämta rapporterade egenskaper och köra frågor. <br/>Den här behörigheten används av backend-molntjänster. |
+| **ServiceConnect** |Ger åtkomst till cloud service-kommunikation och övervakning av slutpunkter. <br/>Ger behörighet att ta emot meddelanden från enhet till moln, skicka meddelanden moln till enhet och hämta motsvarande leverans bekräftelser. <br/>Ger behörighet att hämta leverans bekräftelser för filen filöverföringar. <br/>Ger behörighet att åtkomst twins att uppdatera taggar och önskade egenskaper, hämta rapporterade egenskaper och köra frågor. <br/>Den här behörigheten används av backend-molntjänster. |
 | **DeviceConnect** |Ger åtkomst till enheten riktade slutpunkter. <br/>Ger behörighet att skicka meddelanden från enhet till moln och ta emot meddelanden moln till enhet. <br/>Ger behörighet att utföra Filöverföring från en enhet. <br/>Ger behörighet att ta emot enheten dubbla önskad egenskapen meddelanden och uppdatera enheten dubbla rapporterade egenskaper. <br/>Ger behörighet att utföra filen filöverföringar. <br/>Den här behörigheten används av enheter. |
 
 ## <a name="additional-reference-material"></a>Ytterligare referensmaterialet
@@ -482,7 +482,7 @@ Om du vill testa vissa av de begrepp som beskrivs i den här artikeln finns föl
 [lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: iot-hub-devguide-security.md#supported-x509-certificates
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md

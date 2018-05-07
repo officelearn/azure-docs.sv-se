@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Åtkomstkontroller i Azure Active Directory för villkorlig åtkomst 
 
@@ -61,7 +61,7 @@ Med grant-kontroller kan du blockera åtkomst helt och hållet eller tillåter �
 
 
 
-### <a name="multi-factor-authentication"></a>Multifaktorautentisering
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Du kan använda den här kontrollen för att kräva multifaktorautentisering att komma åt den angivna molnappen. Den här kontrollen har stöd för följande Multi-Factor-providers: 
 
@@ -75,13 +75,13 @@ Använda Multi-Factor authentication skyddar resurser från används av en obeh�
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
-Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Syftet med en princip för enhetsbaserad villkorlig åtkomst är att ge åtkomst till resurserna som är konfigurerade för endast från betrodda enheter. Kräver en kompatibel enhet är ett alternativ som du behöver definiera är en betrodd enhet. Om det här alternativet väljs, ger princip för villkorlig åtkomst åtkomst till åtkomstförsök med enheter som är anslutna till Azure Active Directory och markeras som kompatibel med din MDM-lösning.
+Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Syftet med en princip för enhetsbaserad villkorlig åtkomst är att ge åtkomst till de konfigurerade resurserna från [hanterade enheter](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Kräver en kompatibel enhet är ett alternativ måste du definiera en hanterad enhet är. Om det här alternativet väljs, princip för villkorlig åtkomst ger åtkomst till åtkomstförsök med enheter som är [registrerade](device-management-introduction.md) till din Azure Active Directory och är markerade som kompatibel med din MDM-lösning.
 
 Mer information finns i [ställa in Azure Active Directory enhetsbaserad villkorliga åtkomstprinciper](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Domänansluten enhet
+### <a name="hybrid-azure-ad-joined-device"></a>Azure AD-hybridlösning enhet
 
-Kräver en domänansluten enhet är ett annat alternativ som du behöver konfigurera principer för enhetsbaserad villkorlig åtkomst. Det här kravet refererar till Windows-arbetsstationer, bärbara datorer och enterprise-surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs, beviljar åtkomst till åtkomstförsök med enheter som är anslutna till din lokala Active Directory och Azure Active Directory princip för villkorlig åtkomst.  
+Kräver en Hybrid Azure AD enhet är ett annat alternativ som du måste konfigurera principer för enhetsbaserad villkorlig åtkomst. Det här kravet refererar till Windows-arbetsstationer, bärbara datorer och enterprise-surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs, beviljar åtkomst till åtkomstförsök med enheter som är anslutna till din lokala Active Directory och Azure Active Directory princip för villkorlig åtkomst.  
 
 Mer information finns i [ställa in Azure Active Directory enhetsbaserad villkorliga åtkomstprinciper](active-directory-conditional-access-policy-connected-applications.md).
 

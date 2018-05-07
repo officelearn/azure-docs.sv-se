@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/03/2018
+---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Förskottsbetala virtuella datorer med reserverade VM-instanser
 
 Betala i förhand för virtuella datorer och spara pengar med den reserverade virtuella instanser. Mer information finns i [reserverade virtuella Datorinstanser erbjudande](https://azure.microsoft.com/pricing/reserved-vm-instances/).

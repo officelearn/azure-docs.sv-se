@@ -1,11 +1,11 @@
 ---
-title: "Skydda backend-tjänster som använder klienten certifikatautentisering - Azure API Management | Microsoft Docs"
-description: "Lär dig hur du skyddar backend-tjänster med hjälp av förautentisering av klientcertifikat i Azure API Management."
+title: Skydda backend-tjänster som använder klienten certifikatautentisering - Azure API Management | Microsoft Docs
+description: Lär dig hur du skyddar backend-tjänster med hjälp av förautentisering av klientcertifikat i Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: c3060765022cabcb877041927886b59d6725c7cf
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Så här säkrar du backend-tjänster som använder klienten certifikatautentisering i Azure API Management
 API Management ger möjlighet att säker åtkomst till backend-tjänst för en API som använder klientcertifikat. Den här guiden visar hur du hanterar certifikat i API publisher portal och hur du konfigurerar en API för att använda ett certifikat för åtkomst till dess backend-tjänst.
 
-Information om hur du hanterar certifikat med hjälp av API Management REST API finns [Azure API Management REST API certifikat entiteten][Azure API Management REST API Certificate entity].
+Information om hur du hanterar certifikat med hjälp av API Management REST API finns <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API certifikat entiteten</a>.
 
 ## <a name="prerequisites"> </a>Nödvändiga komponenter
 Den här guiden visar hur du konfigurerar API Management service-instans om du vill använda klientcertifikatautentisering för åtkomst till backend-tjänst för ett API. Innan du följer stegen i det här avsnittet bör du ha en backend-tjänst som konfigurerats för autentisering av klientcertifikat ([så här konfigurerar du autentisering med datorcertifikat i Azure WebSites referera till den här artikeln][to configure certificate authentication in Azure WebSites refer to this article]), och har åtkomst till certifikatet och lösenordet för certifikatet för uppladdning i API Management publisher-portalen.

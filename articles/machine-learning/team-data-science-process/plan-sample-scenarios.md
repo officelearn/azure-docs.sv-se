@@ -1,9 +1,9 @@
 ---
-title: "Identifiera avancerade analyser scenarier för Azure Machine Learning | Microsoft Docs"
-description: "Välj lämplig scenarier för detta avancerad förutsägelseanalys med Team av vetenskapliga data."
+title: Identifiera avancerade analyser scenarier för Azure Machine Learning | Microsoft Docs
+description: Välj lämplig scenarier för detta avancerad förutsägelseanalys med Team av vetenskapliga data.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 Den här artikeln beskrivs olika exempel datakällor och målscenarier som kan hanteras av den [Team Data vetenskap processen (TDSP)](overview.md). TDSP ger systematiskt för grupper samarbeta i att skapa intelligent program. Scenarier som presenteras här visar alternativen i arbetsflödet databearbetning som beror på dataegenskaper, källplatser och mål-databaser i Azure.

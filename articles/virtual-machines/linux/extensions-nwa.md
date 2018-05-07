@@ -3,7 +3,7 @@ title: Azure Network Watcher Agent virtuella tillägget för Linux | Microsoft D
 description: Distribuera Network Watcher Agent på Linux-dator som använder ett tillägg för virtuell dator.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Nätverk Watcher Agent tillägg för virtuell dator för Linux
 
@@ -39,11 +39,12 @@ Tillägget Network Watcher Agent kan köras mot dessa Linux-distributioner:
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
 | Debian | 7 och 8 |
-| Redhat | 6.x och 7.x |
-| Oracle Linux | 7 x |
-| SUSE | 11 och 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| Redhat | 6 och 7 |
+| Oracle Linux | 6.8 + och 7 |
+| SUSE Linux Enterprise Server | 11 och 12 |
+| OpenSUSE Leap | 42.3 + |
+| CentOS | 6.5 + och 7 |
+| CoreOS | 899.17.0+ |
 
 Observera att virtuell CoreOS inte stöds just nu.
 

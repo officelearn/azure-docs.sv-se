@@ -1,9 +1,9 @@
 ---
-title: "Skapa en Programgateway med flera plats-värd - Azure CLI | Microsoft Docs"
-description: "Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure CLI."
+title: Skapa en Programgateway med flera plats-värd - Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 2e1367db9c2c1d47f34cc35fc088a9eecf00247b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Skapa en Programgateway med flera plats värd med hjälp av Azure CLI
 
 Du kan använda Azure CLI för att konfigurera [att vara värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med skalningsuppsättningar i virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på domäner som du äger för att kontrollera Internet-trafik anländer till rätt servrar i poolerna. Den här kursen förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.fabrikam.com*.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -205,7 +205,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
@@ -226,7 +226,7 @@ Användning av A-poster rekommenderas inte eftersom VIP kan ändras när program
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. T.ex, http://www.contoso.com.
 
 ![Testa plats för contoso i Programgateway](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

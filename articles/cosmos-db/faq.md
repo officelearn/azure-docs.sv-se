@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -214,6 +214,7 @@ Det finns vissa skillnader i som användare som kommer från Azure Table storage
 * Tabellnamn i Azure Table storage är inte skiftlägeskänsliga, men de finns i Azure Cosmos DB tabell API
 * Vissa av Azure Cosmos DB internt format för kodning information, till exempel binära fält är inte så effektivt en kanske gillar. Därför kan det orsaka oväntade begränsningar på datastorlek. Exempelvis använder för närvarande en gick inte fullständig 1 MB på en tabellentiteten för att lagra binära data eftersom den kodningen ökar storleken på data.
 * Entitetsnamnet egenskapen ”Id” för närvarande inte stöds
+* TableQuery TakeCount är inte begränsat till 1000
 
 Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmos DB tabell API med avseende på REST API:
 | REST-metoder | REST-slutpunkt/frågealternativet | Doc-URL: er | Förklaring |

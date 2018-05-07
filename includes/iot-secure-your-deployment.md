@@ -74,7 +74,7 @@ Azure IoT-hubb och andra tjänster som kan vara en del av lösningen kan hanteri
 Data som inhämtas av Azure IoT-hubb kan användas av en mängd olika tjänster, till exempel Azure Stream Analytics och Azure-blobblagring. Dessa tjänster tillåta åtkomst. Läs mer om dessa tjänster och tillgängliga alternativ:
 
 * [Azure Cosmos-DB][lnk-cosmosdb]: en skalbar, -indexerat databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och egenskaper för säkerhetsbehörighet. Azure Cosmos-DB ger hög prestanda och hög genomströmning bearbetning, schema-oberoende indexering av data och en omfattande SQL-gränssnitt.
-* [Azure Stream Analytics][lnk-asa]: realtid dataströmmen som bearbetas i molnet som gör att du kan snabbt utveckla och distribuera en billig analytics lösning för att upptäcka realtidsinsikter från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till någon volym och ändå upprätthålla högt genomflöde, låg latens och återhämtning.
+* [Azure Stream Analytics][lnk-asa]: realtid dataströmmen som bearbetas i molnet som gör att du kan snabbt utveckla och distribuera en billig analytics lösning för att upptäcka realtidsinsikter från enheter, sensorer, infrastruktur, och program. Data från den här fullständigt hanterade tjänsten kan skalas till någon volym och ändå upprätthålla högt genomflöde, låg latens och återhämtning.
 * [Azure Apptjänst][lnk-appservices]: en molnplattform för att skapa kraftfulla webb- och mobilappar som ansluter till data var som helst; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out box anslutningen till massor av molnbaserade tjänster och företagsprogram. Kod i dina Favoriter språk och IDE (.NET, Node.js, PHP, Python eller Java) att skapa webbprogram och API: er snabbare än någonsin.
 * [Logic Apps][lnk-logicapps]: funktion i Logic Apps i Azure App Service hjälper till att integrera IoT-lösningen till din befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan exekverar en följd av steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps erbjuder out box-anslutning till ett brett spektrum av SaaS, molnbaserade, och lokala program.
 * [Azure-blobblagring][lnk-blob]: tillförlitliga ekonomiska molnlagring för de data som dina enheter skicka till molnet.
@@ -89,7 +89,7 @@ Den här artikeln innehåller översikt över implementering information för at
 [lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-protocols]: ../articles/iot-hub/iot-hub-devguide-security.md
-[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246

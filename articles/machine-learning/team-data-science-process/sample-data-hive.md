@@ -1,9 +1,9 @@
 ---
-title: "Exempel på data i Azure HDInsight Hive-tabeller | Microsoft Docs"
+title: Exempel på data i Azure HDInsight Hive-tabeller | Microsoft Docs
 description: Ned provtagning data i Azure HDInsight (Hadopop) Hive-tabeller
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: d765c2adc8a3aa77d903490875c7f8ad622ef4d2
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: b40aae9d494f3e7ebeae56fcad48f0ff47798bbc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Exempeldata i Azure HDInsight Hive-tabeller
 Den här artikeln beskriver hur du ned-sample data som lagras i Azure HDInsight Hive-tabeller som använder Hive-frågor för att minska det till en mer användarvänlig för analys storlek. Den omfattar tre provtagningsmetoder för vilket populärt används:
@@ -39,7 +39,7 @@ Sampling uppgiften är ett steg i den [Team Data vetenskap processen (TDSP)](htt
 ## <a name="how-to-submit-hive-queries"></a>Hur du skickar in Hive-frågor
 Du kan skicka hive-frågor från Hadoop kommandoradskonsol i huvudnod i Hadoop-kluster. Gör detta genom att logga in huvudnod Hadoop-kluster, öppna Hadoop kommandoradskonsol och skicka Hive-frågor därifrån. Anvisningar för att skicka Hive-frågor i Hadoop kommandoradskonsol finns [så skicka Hive-frågor](move-hive-tables.md#submit).
 
-## <a name="uniform"></a>Enhetlig slumpmässig provtagning
+## <a name="uniform"></a> Enhetlig slumpmässig provtagning
 Enhetligt slumpmässiga urval innebär att varje rad i datamängden som har ett lika risken för att sampla. Den kan implementeras genom att lägga till ett extra fält rand() datauppsättningen i frågan ”Välj” inre och yttre ”Välj” frågan villkoret på slumpmässiga fältet.
 
 Här är en exempelfråga:
@@ -57,7 +57,7 @@ Här är en exempelfråga:
 
 Här kan `<sample rate, 0-1>` anger andelen poster som användare vill använda som exempel.
 
-## <a name="group"></a>Slumpmässigt urval av grupper
+## <a name="group"></a> Slumpmässigt urval av grupper
 När provtagning kategoriska data, du kanske vill inkludera eller exkludera alla instanser för vissa kategoriska variabelns värde. Den här typen av provtagning kallas ”sampling av grupp”. Om du har en kategoriska variabel till exempel ”*tillstånd*”, som innehåller värden som NY, MA, CA, NJ och PA, om du vill att posterna från varje tillstånd så att förekomma tillsammans, om de samplas eller inte.
 
 Här är en exempelfråga som exempel av grupp:

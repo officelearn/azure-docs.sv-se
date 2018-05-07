@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: bwren
-ms.openlocfilehash: 2a8313640d2d0bd678d0e10da39c87de8cfce00b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cab92187c6c36dc4670e202b15b35db8ad510239
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Information om samlingen för hanteringslösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](monitoring-solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det ger också information på deras metod och frekvens för datainsamling till logganalys.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgänglig och att förstå de trafikflöde och anslutningen kraven för olika lösningar. 
@@ -53,7 +53,7 @@ Beskrivningar av kolumnerna är följande:
 | [Azure Application Gateway Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | på meddelande |
 | **Lösning** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data som skickas via management-grupp** | **Frekvens för samlingen** |
 | [Azure Nätverkssäkerhetsgruppen Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | på meddelande |
-| [Azure SQL Analytics (förhandsgranskning)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 10 minuter |
+| [Azure SQL Analytics (förhandsgranskning)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minut |
 | [Säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | Saknas |
 | [Kapacitet och prestanda (förhandsgranskning)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |anländer |
 | [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |

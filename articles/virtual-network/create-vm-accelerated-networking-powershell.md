@@ -14,19 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 105a32f37c0a6a212888f9ee8457844769b9a3c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d7e41b2b631fcecefd835a10e9b91fd9bb3f17d
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med snabbare nätverk
-
-> [!IMPORTANT]
-> Virtuella datorer måste skapas med snabbare nätverk aktiverad. Den här funktionen kan inte aktiveras på befintliga virtuella datorer. Utför följande steg för att möjliggöra snabbare nätverksfunktioner:
->   1. Ta bort den virtuella datorn
->   2. Skapa den virtuella datorn med snabbare nätverksfunktioner som är aktiverad
->
 
 Lär dig hur du skapar en Windows-dator (VM) med snabbare nätverk i den här självstudiekursen. Om du vill skapa en Linux VM med snabbare nätverk finns [skapa ett Linux VM med snabbare nätverk](create-vm-accelerated-networking-cli.md). Snabbare nätverksfunktioner kan single-root I/O virtualization (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden dess nätverksprestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande nätverksbelastning på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan snabbare nätverksfunktioner:
 
@@ -43,23 +37,30 @@ Fördelarna med snabbare nätverksfunktioner gäller endast för den virtuella d
 * **Minskar jitter:** virtuella växeln bearbetning beror på mängden principinformation som måste tillämpas och arbetsbelastningen processorkraft som utför bearbetning. Avlastning tvingande principer till maskinvaran som tar bort den variationen genom att leverera paket direkt till den virtuella datorn, ta bort värden till programvara avbrott och kontext växlar för VM-kommunikation och alla.
 * **Minskas CPU-användning:** kringgår den virtuella växeln på värden leder till färre CPU-belastningen för bearbetning av nätverkstrafik.
 
-## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Microsoft Windows Server 2012 R2 Datacenter och Windows Server 2016.
+## <a name="limitations-and-constraints"></a>Begränsningar och begränsningar
 
-## <a name="supported-vm-instances"></a>VM-instanser som stöds
-Snabbare nätverksfunktioner stöds på mest generella och beräknings-optimerad instans storlekar med 4 eller fler vCPUs. På instanser, till exempel D/DSv3 eller E/ESv3 som stöder hypertrådar stöds snabbare nätverk för VM-instanser med 8 eller flera vCPUs. Stöds serien är: D/DSv2, D/DSv3, E/ESv3, Fsv2-F/Fs och Ms-/ Mms.
+### <a name="supported-operating-systems"></a>Operativsystem som stöds
+Out of box från Azure-galleriet stöds följande distributioner: 
+* **Windows Server 2016 Datacenter** 
+* **Windows Server 2012 R2 Datacenter** 
+
+### <a name="supported-vm-instances"></a>VM-instanser som stöds
+Snabbare nätverksfunktioner stöds på mest generella och beräknings-optimerad instans storlekar med vCPUs 2 eller högre.  Dessa serier som stöds är: D/DSv2 och F/Fs
+
+På instanser som har stöd för hypertrådar stöds snabbare nätverk för VM-instanser med 4 eller fler vCPUs. Stöds serien är: D/DSv3, E/ESv3, Fsv2 och Ms-/ Mms
 
 Mer information om VM-instanser finns [Windows VM-storlekar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="regions"></a>Regioner
+### <a name="regions"></a>Regioner
 Tillgänglig i alla offentliga Azure-regioner och Azure Government-molnet.
 
-## <a name="limitations"></a>Begränsningar
-Följande begränsningar gäller när du använder den här funktionen:
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Aktivera snabbare nätverk på en aktiv virtuell dator
+En VM-storlek som stöds utan snabbare nätverksfunktioner som är aktiverad kan bara ha funktionen aktiverad när den stoppas och frigöra.
 
-* **Network interface skapa:** Accelerated nätverk kan bara aktiveras för en ny nätverkskort. Det går inte att aktivera för en befintlig nätverkskort.
-* **Skapa en virtuell dator:** A nätverkskortet med snabbare nätverksfunktioner som är aktiverad kan endast kopplas till en virtuell dator när den virtuella datorn skapas. Nätverkskortet kan inte kopplas till en befintlig virtuell dator. Om du lägger till den virtuella datorn i en befintlig tillgänglighetsuppsättning måste alla virtuella datorer i tillgänglighetsuppsättningen också ha snabbare nätverk som är aktiverad.
-* **Distribution via Azure Resource Manager:** virtuella datorer (klassisk) kan inte distribueras med snabbare nätverk.
+### <a name="deployment-through-azure-resource-manager"></a>Distribution via Azure Resource Manager
+Virtuella datorer (klassisk) kan inte distribueras med snabbare nätverk.
+
+## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Skapa en Windows VM med Azure snabbare nätverksfunktioner
 
 Även om den här artikeln innehåller steg för att skapa en virtuell dator med snabbare nätverk med hjälp av Azure PowerShell, kan du också [skapa en virtuell dator med snabbare nätverk med Azure-portalen](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen under **inställningar**väljer **aktiverad**under **snabbare nätverk**. Att aktivera snabbare nätverksfunktioner inte visas i portalen om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances). När den virtuella datorn skapas, måste du slutföra anvisningarna i [bekräfta drivrutinen är installerad i operativsystemet](#confirm-the-driver-is-installed-in-the-operating-system).
 
@@ -210,3 +211,91 @@ När du skapar den virtuella datorn i Azure kan ansluta till den virtuella dator
     ![Enhetshanteraren](./media/create-vm-accelerated-networking/device-manager.png)
 
 Snabbare nätverksfunktioner har nu aktiverats för den virtuella datorn.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Aktivera snabbare nätverk på befintliga virtuella datorer
+Om du har skapat en virtuell dator utan snabbare nätverk, är det möjligt att aktivera den här funktionen på en befintlig virtuell dator.  Den virtuella datorn måste ha stöd för snabbare nätverk genom att uppfylla följande krav som också beskrivs ovan:
+
+* Den virtuella datorn måste ha en storlek som stöds för snabbare nätverk
+* Den virtuella datorn måste vara en Azure-galleriet bildtyper (och kernel-version för Linux)
+* Alla virtuella datorer i en tillgänglighetsuppsättning eller VMSS måste vara stoppad/frigjorts innan du aktiverar snabbare nätverk på ett nätverkskort
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>Ange enskilda virtuella datorer och virtuella datorer i en tillgänglighetsgrupp
+Först stoppa/frigöra den virtuella datorn, eller om en Tillgänglighetsuppsättning, alla virtuella datorer i uppsättningen:
+
+```azurepowershell
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+Viktiga, ange Tänk på att om den virtuella datorn skapades individuellt, utan en tillgänglighetsuppsättning du bara behöver stoppa/frigöra den enskilda VM för att möjliggöra snabbare nätverk.  Om den virtuella datorn har skapats i en tillgänglighetsuppsättning, måste alla virtuella datorer i tillgänglighetsuppsättningen ska stoppas/frigjorts innan du aktiverar snabbare nätverk på något av nätverkskorten. 
+
+När stoppats kan du aktivera snabbare nätverk på nätverkskortet på den virtuella datorn:
+
+```azurepowershell
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    -Name "myNic"
+
+$nic.EnableAcceleratedNetworking = $true
+
+$nic | Set-AzureRmNetworkInterface
+```
+
+Starta om din Virtuella eller, om i en Tillgänglighetsuppsättning, alla virtuella datorer i uppsättningen och kontrollera att snabbare nätverk har aktiverats: 
+
+```azurepowershell
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+### <a name="vmss"></a>VMSS
+VMSS är något annorlunda men följer samma arbetsflöde.  Först stoppa virtuella datorer:
+
+```azurepowershell
+Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+Uppdatera egenskapen snabbare nätverk under nätverksgränssnittet när de virtuella datorerna har stoppats:
+
+```azurepowershell
+$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet"
+
+$vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+Kontrollera har anteckningen, en VMSS VM-uppgraderingar som tillämpa uppdateringar med hjälp av tre olika inställningar automatiskt, rullande och manuellt.  I de här anvisningarna är policyn inställd på automatisk så att VMSS ska hämta upp ändringarna direkt efter omstart.  Ange det till automatiskt så att ändringarna är omedelbart tas upp: 
+
+```azurecli
+$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+Slutligen ska du starta om VMSS:
+
+```azurecli
+Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+När du starta om, vänta tills uppgraderingar till slut, men när de har slutförts, visas VF inuti den virtuella datorn.  (Kontrollera att du använder en stöds OS och VM-storlek)
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Ändra storlek på befintliga virtuella datorer med snabbare nätverk
+
+Virtuella datorer med snabbare nätverk aktiverat kan endast ändras till virtuella datorer som har stöd för snabbare nätverk.  
+
+En virtuell dator med snabbare nätverk aktiverad kan inte ändras till en VM-instans som inte har stöd för snabbare nätverk med hjälp av åtgärden Ändra storlek.  I stället att ändra storlek på en av dessa virtuella datorer: 
+
+* Stoppa/Deallocate den virtuella datorn eller om i tillgänglighet set/VMSS, stoppa/Frigör alla virtuella datorer i uppsättningen/VMSS.
+* Snabbare nätverksfunktioner måste inaktiveras på nätverkskort för virtuell dator eller om i en tillgänglighet set/VMSS, alla virtuella datorer i uppsättningen/VMSS.
+* När snabbare nätverk är inaktiverat flyttas VM/tillgänglighet set/VMSS till en ny storlek som inte har stöd för snabbare nätverk och startas om.  
+
+
+

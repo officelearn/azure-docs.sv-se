@@ -3,7 +3,7 @@ title: Funktionen val i Team av vetenskapliga data | Microsoft Docs
 description: Förklarar ändamålet med val av funktioner och ger exempel på deras roll i förbättring av data för maskininlärning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 878541f5-1df8-4368-889a-ced6852aba47
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
-ms.openlocfilehash: 44159516a1785f5d65357935000eccc42a7458aa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 01aec4f9002a5c8209c5e10c0ec74cf28fb4862a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
 Den här artikeln beskriver för val av funktioner och innehåller exempel på sin roll i förbättring av data för machine learning. Dessa exempel hämtas från Azure Machine Learning Studio. 

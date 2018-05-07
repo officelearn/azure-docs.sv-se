@@ -4,7 +4,7 @@ description: Lägga till anpassade komponenter till Linux-baserade HDInsight-klu
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
@@ -12,24 +12,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: ff8b8ffc66ea4c90ca2f11edc36aac670f24eac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
-HDInsight tillhandahåller ett konfigurationsalternativ som kallas **skriptåtgärd** som anropar anpassade skript för att anpassa klustret. Dessa skript används för att installera ytterligare komponenter och ändra konfigurationsinställningarna. Skriptåtgärder kan användas under eller efter att klustret har skapats.
+HDInsight tillhandahåller en metod för principkonfiguration kallas **skript åtgärder** som anropar anpassade skript för att anpassa klustret. Dessa skript används för att installera ytterligare komponenter och ändra konfigurationsinställningarna. Skriptåtgärder kan användas under eller efter att klustret har skapats.
 
 > [!IMPORTANT]
 > Möjligheten att använda skriptåtgärder på ett kluster som redan körs är endast tillgängligt för Linux-baserat HDInsight-kluster.
 >
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Skriptåtgärder kan också publiceras på Azure Marketplace som ett HDInsight-program. Vissa av exemplen i det här dokumentet visar hur du kan installera ett HDInsight-program med hjälp av åtgärden skriptkommandon från PowerShell och .NET SDK. Mer information om HDInsight-program finns [publicera HDInsight-program på Azure Marketplace](hdinsight-apps-publish-applications.md).
+Skriptåtgärder kan också publiceras på Azure Marketplace som ett HDInsight-program. Mer information om HDInsight-program finns [publicera HDInsight-program på Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## <a name="permissions"></a>Behörigheter
 

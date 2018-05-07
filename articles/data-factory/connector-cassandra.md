@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Följande egenskaper stöds för Cassandra länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra dataset.
 
-Ange typegenskapen för dataset för att kopiera data från Cassandra, **RelationalTable**. Följande egenskaper stöds:
+Ange typegenskapen för dataset för att kopiera data från Cassandra, **CassandraTable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -173,11 +173,11 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 |:--- |:--- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
-| BLOB |Byte[] |
+| BLOB |byte] |
 | BOOLESKT VÄRDE |Boolesk |
 | DECIMAL |Decimal |
 | DUBBEL |Dubbel |
-| FLYTTAL |Ogift |
+| FLYTTAL |Enkel |
 | INET |Sträng |
 | INT |Int32 |
 | TEXT |Sträng |
@@ -238,15 +238,15 @@ Följande tabeller visar virtuella register som renormalize data från listan oc
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Table "ExampleTable_vt_Map":**
+**Tabell ”ExampleTable_vt_Map”:**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |t |
+| 3 |S1 |T |
 
-**Table "ExampleTable_vt_StringSet":**
+**Tabell ”ExampleTable_vt_StringSet”:**
 
 | pk_int | StringSet_value |
 | --- | --- |

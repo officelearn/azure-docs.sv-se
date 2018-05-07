@@ -1,8 +1,8 @@
 ---
-title: "Förutsägande Underhåll investerar med Azure - Cortana Intelligence lösningsmall | Microsoft Docs"
-description: "En Lösningsmall med Microsoft Cortana Intelligence för förebyggande underhåll i aerospace, verktyg och transport."
+title: Azure AI Playbook för förutsägande Underhåll lösningar | Microsoft Docs
+description: En fullständig beskrivning av datavetenskap som används av förutsägande Underhåll lösningar i flera branscher.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence lösning mallen Playbook för förebyggande underhåll i aerospace och andra företag
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Azure AI Playbook för förutsägande Underhåll lösningar 
 ## <a name="executive-summary"></a>Sammanfattning
 Förutsägande Underhåll är en av de mest efterfrågade program i förutsägelseanalyser unarguable fördelar, inklusive enorm mängden besparingar. Den här playbook syftar till att tillhandahålla en referens för förutsägande Underhåll lösningar med betoning på viktiga användningsområden.
 De är beredda att ge läsaren en förståelse av de vanligaste affärsscenarier av förutsägande Underhåll utmaningar över kvalificerande affärsproblem dessa lösningar kan data som krävs för att lösa dessa problem i verksamheten, tekniker för förutsägelsemodellering till skapa lösningar med exempel lösningsarkitekturer sådana data och bästa praxis.

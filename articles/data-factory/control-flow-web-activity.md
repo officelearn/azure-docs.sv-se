@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webbaktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten. 
@@ -78,6 +78,16 @@ linkedServices | Lista över länkade tjänster skickas till slutpunkten. | Matr
 
 > [!NOTE]
 > REST-slutpunkter som aktiviteten web anropar måste returnera ett svar av typen JSON. Aktiviteten kommer timeout på 1 minut med ett fel om det inte får något svar från slutpunkten.
+
+I följande tabell visas kraven för innehållet i JSON:
+
+| Värdetyp | Begärandetext | Svarstexten |
+|---|---|---|
+|JSON-objekt | Stöds | Stöds |
+|JSON-matris | Stöds <br/>(För närvarande JSON-matriser fungerar inte på grund av ett programfel. En korrigering pågår.) | Stöds inte |
+| JSON-värde | Stöds | Stöds inte |
+| Icke-JSON-typ | Stöds inte | Stöds inte |
+||||
 
 ## <a name="authentication"></a>Autentisering
 

@@ -1,9 +1,9 @@
 ---
-title: "Hantera DNS-poster i Azure DNS med hjälp av Azure PowerShell | Microsoft Docs"
-description: "Hantera DNS-postuppsättningar och på Azure DNS-poster när värd för din domän på Azure DNS. Alla PowerShell-kommandon för åtgärder på uppsättningar av poster och poster."
+title: Hantera DNS-poster i Azure DNS med hjälp av Azure PowerShell | Microsoft Docs
+description: Hantera DNS-postuppsättningar och på Azure DNS-poster när värd för din domän på Azure DNS. Alla PowerShell-kommandon för åtgärder på uppsättningar av poster och poster.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: gwallace
-ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: 511af342727dc46369ae70d60a7e9a3171bf986d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med hjälp av Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -379,15 +379,15 @@ Postuppsättning-objekt kan även skickas i stället för att skickas som en par
 Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzureRmDnsRecordSet
 ```
 
-## <a name="confirmation-prompts"></a>Konfigurera meddelanden
+## <a name="confirmation-prompts"></a>Bekräftelsemeddelanden
 
-Den `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet`, och `Remove-AzureRmDnsRecordSet` cmdlets alla stöder konfigurera meddelanden.
+Cmdletarna `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet` och `Remove-AzureRmDnsRecordSet` stöder alla bekräftelsemeddelanden.
 
 Varje cmdlet uppmanas att bekräfta om den `$ConfirmPreference` PowerShell inställningsvariabeln har värdet `Medium` eller lägre. Eftersom standardvärdet för `$ConfirmPreference` är `High`, dessa frågor inte anges när du använder standardinställningarna för PowerShell.
 
-Du kan åsidosätta aktuellt `$ConfirmPreference` inställningen med hjälp av den `-Confirm` parameter. Om du anger `-Confirm` eller `-Confirm:$True` , så uppmanas du att bekräfta innan den körs. Om du anger `-Confirm:$False` , cmdleten visas inte efter bekräftelse. 
+Du kan åsidosätta den aktuella `$ConfirmPreference`-inställningen med hjälp av parametern `-Confirm`. Om du anger `-Confirm` eller `-Confirm:$True`, så uppmanar cmdleten dig att bekräfta detta innan den körs. Om du anger `-Confirm:$False`, som ber cmdleten dig inte om bekräftelse. 
 
-Mer information om `-Confirm` och `$ConfirmPreference`, se [om variabler för](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+Mer information om `-Confirm` och `$ConfirmPreference` finns i [Om inställningsvariabler](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
 ## <a name="next-steps"></a>Nästa steg
 

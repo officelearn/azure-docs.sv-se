@@ -1,31 +1,31 @@
 ---
-title: "Skapa en Programgateway med en brandvägg för webbaserade program - Azure CLI | Microsoft Docs"
-description: "Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure CLI."
+title: Skapa en Programgateway med en brandvägg för webbaserade program - Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 87125b68c81af07d0ecd9693fdf7e2dc00a93324
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Skapa en Programgateway med en brandvägg för webbaserade program med Azure CLI
 
 Du kan använda Azure CLI för att skapa en [Programgateway](application-gateway-introduction.md) med en [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md) (Brandvägg) som använder en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Brandvägg använder [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regler för att skydda ditt program. Dessa regler innehåller skydd mot attacker, till exempel SQL injection, webbplatser scripting attacker och sessionen hijacks. 
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en Programgateway med Brandvägg aktiverat
-> * Skapa en skaluppsättning för virtuell dator
+> * Skapa en VM-skalningsuppsättning
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
 ![Exempel på brandväggen ett webbprogram](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -100,7 +100,7 @@ Det kan ta flera minuter för Programgateway ska skapas. När programgatewayen h
 - *appGatewayFrontendIP* -tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
 - *regel 1* - standard routning regel som är associerad med *appGatewayHttpListener*.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
 I det här exemplet skapar du en skaluppsättning för virtuell dator som ger två servrar för serverdelspoolen i programgatewayen. De virtuella datorerna i skaluppsättning som är associerade med den *myBackendSubnet* undernät. Att skapa skala, kan du använda [az vmss skapa](/cli/azure/vmss#az_vmss_create).
 
@@ -129,7 +129,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
@@ -163,7 +163,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Offentliga IP-adressen för programgatewayen får använda [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+Offentliga IP-adressen för programgatewayen får använda [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,7 +182,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en Programgateway med Brandvägg aktiverat
-> * Skapa en skaluppsättning för virtuell dator
+> * Skapa en VM-skalningsuppsättning
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
 Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

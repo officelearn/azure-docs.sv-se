@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Anpassa Azure AD B2C-användargränssnittet (UI)
 
@@ -332,7 +332,17 @@ Användare kan verifiera sina telefonnummer (med text eller röst) under registr
 
 ## <a name="localizing-your-html-content"></a>Lokalisera HTML-innehåll
 
-Du kan lokalisera HTML-innehåll genom att aktivera ['Språk anpassning'](active-directory-b2c-reference-language-customization.md).  Den här funktionen aktiveras kan Azure AD B2C att vidarebefordra parametern öppna ID Connect `ui-locales`, till slutpunkten.  Innehållsservern kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som är specifika för språket.
+Det finns två sätt att lokalisera HTML-innehåll. Ett sätt är att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md). Den här funktionen aktiveras kan Azure AD B2C att vidarebefordra parametern öppna ID Connect `ui-locales`, till slutpunkten.  Innehållsservern kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som språkspecifika.
+
+Alternativt kan du hämtar innehåll från olika platser som är baserade på det språk som används. Du kan ställa in en mappstruktur som värd för innehåll för specifika språk i din CORS-aktiverad slutpunkt. Du måste anropa rätt om du använder jokertecknet `{Culture:RFC5646}`.  Anta exempelvis att det här är en anpassad sida URI:
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+Du kan läsa in sidan i `fr`. När sidan hämtar HTML- och CSS innehåll, det dra från:
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Kom ihåg följande när du skapar ditt eget innehåll
 

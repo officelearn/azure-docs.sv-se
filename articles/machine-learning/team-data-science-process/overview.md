@@ -3,7 +3,7 @@ title: Vad är TDSP (Team Data Science Process)? | Microsoft Docs
 description: Ger en datavetenskap metod för att leverera förutsägelseanalyslösningar och intelligent program.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev
-ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 4a73b988863a27f872c695cf209d2c46c6bb5f89
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
@@ -54,7 +54,7 @@ Livscykeln beskrivs viktiga steg som projekt vanligtvis köra, ofta upprepade g�
 
 Här är en bild av den **Team datavetenskap Process livscykel**. 
 
-![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![TDSP Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
 Mål, uppgifter och dokumentation artefakter för varje steg i livscykeln i TDSP beskrivs i den [Team datavetenskap Process livscykel](lifecycle.md) avsnittet. Dessa uppgifter och artefakter är kopplade till Projektroller:
 
@@ -96,7 +96,7 @@ Infrastruktur för analys och lagring kan vara i molnet eller lokalt. Detta lagr
 
 Här är ett exempel på ett team arbetar på flera projekt och dela olika moln analytics-infrastrukturkomponenter.
 
-![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)
+![TDSP-infrastruktur](./media/overview/tdsp-analytics-infra.png)
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och hjälpmedel för projektet körning

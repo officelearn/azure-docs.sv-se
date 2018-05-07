@@ -1,9 +1,9 @@
 ---
-title: "Skapa och distribuera en maskininlärningsmodell som använder SQL Server på en virtuell dator i Azure | Microsoft Docs"
-description: "Processen för avancerade analyser och teknik i åtgärd"
+title: Skapa och distribuera en maskininlärningsmodell som använder SQL Server på en virtuell dator i Azure | Microsoft Docs
+description: Processen för avancerade analyser och teknik i åtgärd
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team vetenskap av data i praktiken: använder SQL Server
 I den här kursen går igenom processen att skapa och distribuera en maskininlärningsmodell med hjälp av SQL Server och ett offentligt tillgängliga dataset – [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset. Förfarandet som följer en standard datavetenskap arbetsflödet: infognings- och utforska data, tekniker funktioner för att underlätta learning, och sedan skapa och distribuera en modell.
@@ -75,8 +75,8 @@ Att ställa in Azure datavetenskap miljön:
    > [!NOTE]
    > Exempel på skript och IPython bärbara datorer kommer att hämtas till den virtuella datorn datavetenskap under installationen. När skriptet VM efter installationen är klar blir exemplen i den Virtuella datorns dokumentbibliotek:  
    > 
-   > * Exempel skript:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Exempel IPython bärbara datorer:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Exempel skript: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Exempel IPython bärbara datorer: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   där `<user_name>` är den Virtuella datorns Windows-inloggningsnamn. Vi kommer att referera till exempel mappar som **exempelskript** och **exempel IPython anteckningsböcker**.
    > 
    > 
@@ -578,7 +578,7 @@ I den här övningen har vi redan utforskade och utformad data i SQL Server och 
    
     ![Azure Machine Learning importera Data][17]
 2. Välj **Azure SQL Database** som den **datakällan** i den **egenskaper** panelen.
-3. Ange DNS-namnet för databasen i den **Databasservernamnet** fältet. Format:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Ange DNS-namnet för databasen i den **Databasservernamnet** fältet. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange den **databasnamnet** i motsvarande fält.
 5. Ange den **användarnamn för SQL** i den ** aqccount användarnamnet och lösenordet i den **serverlösenord**.
 7. I den **databasfrågan** redigera texten, klistrar in frågan som extraherar nödvändiga databasfält (inklusive eventuella beräknade fält, till exempel etiketter) och ned exempel data till den önskade provtagning.

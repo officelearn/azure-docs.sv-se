@@ -3,7 +3,7 @@
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 Utför följande steg för att hämta programuppdateringen från Microsoft Update Catalog.
 
-1. Starta Internet Explorer och gå till [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
     ![Installera katalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 3. I sökrutan i Microsoft Update-katalogen ange Knowledge Base (KB) antalet den snabbkorrigering som du vill hämta, till exempel **3186843**, och klicka sedan på **Sök**.

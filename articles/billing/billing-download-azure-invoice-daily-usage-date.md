@@ -1,27 +1,27 @@
 ---
-title: "Hämta Azure billing faktura och dagligen användningsdata | Microsoft Docs"
-description: "Beskriver hur du laddar ned eller visa din Azure faktura och daglig användning faktureringsinformation."
-keywords: "fakturering faktura, ladda ned faktura, azure faktura, azure användning"
-services: 
-documentationcenter: 
+title: Hämta Azure billing faktura och dagligen användningsdata | Microsoft Docs
+description: Beskriver hur du laddar ned eller visa din Azure faktura och daglig användning faktureringsinformation.
+keywords: fakturering faktura, ladda ned faktura, azure faktura, azure användning
+services: ''
+documentationcenter: ''
 author: genlin
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 6fa9f9ae4ef2bd39f3c6d3ec7c6d757aa50b2fd1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Hämta eller visa din Azure fakturering faktura och dagliga användningsdata
 Du kan hämta fakturan från den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) eller låta skickas via e-post. För att hämta det dagliga arbetet, gå till den [Azure Kontocenter](https://account.azure.com/Subscriptions). Endast vissa roller som har behörighet att hämta faktureringsinformation faktura och information om användning, som kontoadministratör. Läs mer om att få tillgång till faktureringsinformationen i [hantera åtkomst till Azure fakturering med roller](billing-manage-access.md).
@@ -90,7 +90,7 @@ Enbart administratörskontot kan komma åt Azure Kontocenter. Andra fakturering 
 
 Mer information om det dagliga arbetet finns [förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Hjälp med att hantera kostnader finns [förhindrar oväntade kostnader med Azure fakturerings- och kostnaden management](billing-getting-started.md).
 
-## <a name="noinvoice"></a>Varför ser jag en faktura för den senaste faktureringsperioden
+## <a name="noinvoice"></a> Varför ser jag en faktura för den senaste faktureringsperioden
 
 Det kan finnas flera skäl till att du inte ser en faktura:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till felsökning i Azure Nätverksbevakaren resurs
 
@@ -146,7 +146,7 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Befordras wfpdiag.txt
 
 Den **Scrubbed wfpdiag.txt** loggfilen innehåller wfp-loggen. Den här loggfilen innehåller loggning av paketet släpp och IKE/AuthIP fel.
 
@@ -179,7 +179,7 @@ I följande exempel visar innehållet i filen Scrubbed wfpdiag.txt. I det här e
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.SUM
 
 Den **wfpdiag.txt.sum** filen är en logg som innehåller buffertar och händelser som har bearbetats.
 
@@ -211,7 +211,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att diagnostisera VPN-gatewayer och anslutningar via portalen genom att besöka [Gateway felsökning – Azure-portalen](network-watcher-troubleshoot-manage-portal.md).
+Information om felsökning av problem med en gateway eller gateway-anslutningen finns [diagnostisera kommunikationsproblem mellan nätverk](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

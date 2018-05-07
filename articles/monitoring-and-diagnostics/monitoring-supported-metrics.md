@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 34d115f36e64a34b4382ce4e11e93a0c06215c5d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Stöds mått med Azure-Monitor
 Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla just nu med Azure-Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast tillgängliga med konsoliderade Azure-Monitor mått pipeline mått. Fråga efter och komma åt de här måtten ska du använda den [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -425,6 +425,16 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |---|---|---|---|---|---|
 |CpuUsage|CPU-användning|Antal|Medel|CPU-användning på alla kärnor i millicores.|ContainerName|
 |MemoryUsage|Minnesanvändning|Byte|Medel|Användning av totalt minne i byte.|ContainerName|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Totalt antal tillgängliga cpu-kärnor i ett hanterat kluster|Antal|Totalt|Totalt antal tillgängliga cpu-kärnor i ett hanterat kluster|Inga dimensioner|
+|kube_node_status_allocatable_memory_bytes|Totala mängden tillgängligt minne i ett hanterat kluster|Byte|Totalt|Totala mängden tillgängligt minne i ett hanterat kluster|Inga dimensioner|
+|kube_pod_status_ready|Antal skida i tillståndet Ready|Antal|Totalt|Antal skida i tillståndet Ready|namnområdet, baljor|
+|kube_node_status_condition|Status för olika villkor för nod|Antal|Totalt|Status för olika villkor för nod|villkor, status, nod|
+|kube_pod_status_phase|Antal skida av fas|Antal|Totalt|Antal skida av fas|fas, namnområde, baljor|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -1012,6 +1022,20 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |CPUXNS|Processoranvändning per namnområde|Procent|Maximal|CPU-användningsmått för Service Bus Premium-namnområde|Inga dimensioner|
 |WSXNS|Minnesstorleksanvändning per namnområde|Procent|Maximal|Minnesanvändningsmått för Service Bus Premium-namnområde|Inga dimensioner|
 
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|ConnectionCount|Antal anslutningar|Antal|Maximal|Mängden användaranslutning.|Inga dimensioner|
+|ConnectionCountPerSecond|Antal anslutningar Per sekund|CountPerSecond|Medel|Antal genomsnittlig anslutningar per sekund.|Inga dimensioner|
+|MessageCount|Antal meddelanden|Antal|Maximal|Den totala mängden meddelandet i månaden|Inga dimensioner|
+|MessageCountPerSecond|Antalet meddelanden Per sekund|CountPerSecond|Medel|Genomsnittligt antal meddelande|Inga dimensioner|
+|MessageUsed|Använda|Procent|Maximal|Procentandelen av meddelanden som har använts i månaden|Inga dimensioner|
+|ConnectionUsed|Anslutningen som används|Procent|Maximal|Procentandelen anslutningar har använts|Inga dimensioner|
+|UserErrors|Fel|Procent|Maximal|Procentandelen fel|Inga dimensioner|
+|SystemErrors|Systemfel|Procent|Maximal|Procentandelen fel i filsystemet|Inga dimensioner|
+|SystemLoad|Systembelastning|Procent|Maximal|Procentandelen systembelastning|Inga dimensioner|
+
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -1147,6 +1171,30 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |DeserializationError|Fel vid deserialisering av indata|Antal|Totalt|Fel vid deserialisering av indata|Inga dimensioner|
 |EarlyInputEvents|Händelser vars tillämpningstid ligger tidigare än deras ankomsttid.|Antal|Totalt|Händelser vars tillämpningstid ligger tidigare än deras ankomsttid.|Inga dimensioner|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Ingång mottagna meddelanden|Antal|Totalt|Antalet meddelanden som har lästs från alla händelsehubb eller IoT-hubb händelsekällor|Inga dimensioner|
+|IngressReceivedInvalidMessages|Ingång emot ogiltiga meddelanden|Antal|Totalt|Antalet ogiltiga meddelanden som har lästs från alla händelsehubb eller IoT-hubb händelsekällor|Inga dimensioner|
+|IngressReceivedBytes|Ingång mottagna byte|Byte|Totalt|Antal byte som läses från alla händelsekällor|Inga dimensioner|
+|IngressStoredBytes|Ingång lagras byte|Byte|Totalt|Total storlek bearbetade händelser och tillgängliga för frågor|Inga dimensioner|
+|IngressStoredEvents|Ingång lagras händelser|Antal|Totalt|Antal sammanslagna händelser har bearbetat och tillgängliga för frågor|Inga dimensioner|
+|IngressReceivedMessagesTimeLag|Tidsförskjutningen för ingång mottagna meddelanden|Sekunder|Maximal|Skillnaden mellan att meddelandet i kö i händelsekällan och den tid som den bearbetas i ingång|Inga dimensioner|
+|IngressReceivedMessagesCountLag|Ingång mottagna meddelanden antal fördröjning|Antal|Medel|Skillnaden mellan sekvensnumret för den sista köas meddelandet i datakällan partition och sekvens antal meddelanden som bearbetas i ingång|Inga dimensioner|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Ingång mottagna meddelanden|Antal|Totalt|Antalet meddelanden läsa från källdatabasen för händelse|Inga dimensioner|
+|IngressReceivedInvalidMessages|Ingång emot ogiltiga meddelanden|Antal|Totalt|Antalet ogiltiga meddelanden läsa från källdatabasen för händelse|Inga dimensioner|
+|IngressReceivedBytes|Ingång mottagna byte|Byte|Totalt|Antal byte som läses från händelsekällan|Inga dimensioner|
+|IngressStoredBytes|Ingång lagras byte|Byte|Totalt|Total storlek bearbetade händelser och tillgängliga för frågor|Inga dimensioner|
+|IngressStoredEvents|Ingång lagras händelser|Antal|Totalt|Antal sammanslagna händelser har bearbetat och tillgängliga för frågor|Inga dimensioner|
+|IngressReceivedMessagesTimeLag|Tidsförskjutningen för ingång mottagna meddelanden|Sekunder|Maximal|Skillnaden mellan att meddelandet i kö i händelsekällan och den tid som den bearbetas i ingång|Inga dimensioner|
+|IngressReceivedMessagesCountLag|Ingång mottagna meddelanden antal fördröjning|Antal|Medel|Skillnaden mellan sekvensnumret för den sista köas meddelandet i datakällan partition och sekvens antal meddelanden som bearbetas i ingång|Inga dimensioner|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -1181,6 +1229,19 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Handtag|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
+|IoReadBytesPerSecond|I/o-lästa byte Per sekund|BytesPerSecond|Totalt|I/o-lästa byte Per sekund|Instans|
+|IoWriteBytesPerSecond|I/o skriva byte Per sekund|BytesPerSecond|Totalt|I/o skriva byte Per sekund|Instans|
+|IoOtherBytesPerSecond|I/o andra byte Per sekund|BytesPerSecond|Totalt|I/o andra byte Per sekund|Instans|
+|IoReadOperationsPerSecond|I/o-läsåtgärder Per sekund|BytesPerSecond|Totalt|I/o-läsåtgärder Per sekund|Instans|
+|IoWriteOperationsPerSecond|I/o-skrivåtgärder Per sekund|BytesPerSecond|Totalt|I/o-skrivåtgärder Per sekund|Instans|
+|IoOtherOperationsPerSecond|I/o andra åtgärder Per sekund|BytesPerSecond|Totalt|I/o andra åtgärder Per sekund|Instans|
+|RequestsInApplicationQueue|Begäranden i kö för programmet|Antal|Medel|Begäranden i kö för programmet|Instans|
+|CurrentAssemblies|Aktuellt antal sammansättningar|Antal|Medel|Aktuellt antal sammansättningar|Instans|
+|TotalAppDomains|Totalt antal programdomäner|Antal|Medel|Totalt antal programdomäner|Instans|
+|TotalAppDomainsUnloaded|Totalt antal programdomäner minnet|Antal|Medel|Totalt antal programdomäner minnet|Instans|
+|Gen0Collections|Skräpinsamling generation 0-insamlingar|Antal|Totalt|Skräpinsamling generation 0-insamlingar|Instans|
+|Gen1Collections|Generation 1 skräp samlingar|Antal|Totalt|Generation 1 skräp samlingar|Instans|
+|Gen2Collections|Generation 2 skräp samlingar|Antal|Totalt|Generation 2 skräp samlingar|Instans|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funktioner)
 
@@ -1193,6 +1254,19 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
 |FunctionExecutionUnits|Funktionskörningsenheter|Antal|Totalt|Funktionskörningsenheter|Instans|
 |FunctionExecutionCount|Funktionen Antal körningar|Antal|Totalt|Funktionen Antal körningar|Instans|
+|IoReadBytesPerSecond|I/o-lästa byte Per sekund|BytesPerSecond|Totalt|I/o-lästa byte Per sekund|Instans|
+|IoWriteBytesPerSecond|I/o skriva byte Per sekund|BytesPerSecond|Totalt|I/o skriva byte Per sekund|Instans|
+|IoOtherBytesPerSecond|I/o andra byte Per sekund|BytesPerSecond|Totalt|I/o andra byte Per sekund|Instans|
+|IoReadOperationsPerSecond|I/o-läsåtgärder Per sekund|BytesPerSecond|Totalt|I/o-läsåtgärder Per sekund|Instans|
+|IoWriteOperationsPerSecond|I/o-skrivåtgärder Per sekund|BytesPerSecond|Totalt|I/o-skrivåtgärder Per sekund|Instans|
+|IoOtherOperationsPerSecond|I/o andra åtgärder Per sekund|BytesPerSecond|Totalt|I/o andra åtgärder Per sekund|Instans|
+|RequestsInApplicationQueue|Begäranden i kö för programmet|Antal|Medel|Begäranden i kö för programmet|Instans|
+|CurrentAssemblies|Aktuellt antal sammansättningar|Antal|Medel|Aktuellt antal sammansättningar|Instans|
+|TotalAppDomains|Totalt antal programdomäner|Antal|Medel|Totalt antal programdomäner|Instans|
+|TotalAppDomainsUnloaded|Totalt antal programdomäner minnet|Antal|Medel|Totalt antal programdomäner minnet|Instans|
+|Gen0Collections|Skräpinsamling generation 0-insamlingar|Antal|Totalt|Skräpinsamling generation 0-insamlingar|Instans|
+|Gen1Collections|Generation 1 skräp samlingar|Antal|Totalt|Generation 1 skräp samlingar|Instans|
+|Gen2Collections|Generation 2 skräp samlingar|Antal|Totalt|Generation 2 skräp samlingar|Instans|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1219,6 +1293,19 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Handtag|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
+|IoReadBytesPerSecond|I/o-lästa byte Per sekund|BytesPerSecond|Totalt|I/o-lästa byte Per sekund|Instans|
+|IoWriteBytesPerSecond|I/o skriva byte Per sekund|BytesPerSecond|Totalt|I/o skriva byte Per sekund|Instans|
+|IoOtherBytesPerSecond|I/o andra byte Per sekund|BytesPerSecond|Totalt|I/o andra byte Per sekund|Instans|
+|IoReadOperationsPerSecond|I/o-läsåtgärder Per sekund|BytesPerSecond|Totalt|I/o-läsåtgärder Per sekund|Instans|
+|IoWriteOperationsPerSecond|I/o-skrivåtgärder Per sekund|BytesPerSecond|Totalt|I/o-skrivåtgärder Per sekund|Instans|
+|IoOtherOperationsPerSecond|I/o andra åtgärder Per sekund|BytesPerSecond|Totalt|I/o andra åtgärder Per sekund|Instans|
+|RequestsInApplicationQueue|Begäranden i kö för programmet|Antal|Medel|Begäranden i kö för programmet|Instans|
+|CurrentAssemblies|Aktuellt antal sammansättningar|Antal|Medel|Aktuellt antal sammansättningar|Instans|
+|TotalAppDomains|Totalt antal programdomäner|Antal|Medel|Totalt antal programdomäner|Instans|
+|TotalAppDomainsUnloaded|Totalt antal programdomäner minnet|Antal|Medel|Totalt antal programdomäner minnet|Instans|
+|Gen0Collections|Skräpinsamling generation 0-insamlingar|Antal|Totalt|Skräpinsamling generation 0-insamlingar|Instans|
+|Gen1Collections|Generation 1 skräp samlingar|Antal|Totalt|Generation 1 skräp samlingar|Instans|
+|Gen2Collections|Generation 2 skräp samlingar|Antal|Totalt|Generation 2 skräp samlingar|Instans|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

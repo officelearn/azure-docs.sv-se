@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e68f8d4405ae82cfaae59b1e4d9dcea8b361baff
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (gemensamma Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -210,7 +210,7 @@ Om du vill kopiera data från Dynamics anger källa i kopieringsaktiviteten till
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till **DynamicsSource**. | Ja |
-| DocumentDB | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Läs mer i [bygga frågor med FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Nej (om ”entityName” i datamängden har angetts) |
+| DocumentDB | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Läs mer i [bygga frågor med FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om ”entityName” i datamängden har angetts) |
 
 **Exempel:**
 
@@ -276,7 +276,11 @@ Om du vill kopiera data till Dynamics anger sink i kopieringsaktiviteten till **
 | ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: ändra data i målobjektet inte när du gör en upsert/update-åtgärd. Infoga ett definierat standardvärde när du gör en infogning.<br/>- **FALSKT**: uppdatera data i målobjektet till NULL när du gör en upsert/update-åtgärd. Infoga värdet NULL när du gör en infogning. | Nej (standard är FALSKT) |
 
 >[!NOTE]
->Standardvärdet för sink-writeBatchSize och kopieringsaktiviteten [parallelCopies](copy-activity-performance.md#parallel-copy) för Dynamics sink är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
+>Standardvärdet för sink ”**writeBatchSize**” och kopieringsaktiviteten ”**[parallelCopies](copy-activity-performance.md#parallel-copy)**” för Dynamics sink är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
+
+Dynamics 365 online, det finns en gräns på [2 samtidiga batch anrop per organisation](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Om denna gräns har överskridits genereras ”servern är upptagen” fel innan den första begäranden körs någonsin. Att hålla ”writeBatchSize” mindre än eller lika med 10 skulle undvika sådan begränsning av samtidiga anrop.
+
+Optimal kombination av ”**writeBatchSize**” och ”**parallelCopies**” är beroende av schemat för entiteten t.ex. antalet kolumner, Radstorleken, antal aktiviteter i ett arbetsflöde-plugin-program/arbetsflöden ansluten för dessa anrop osv. Standardinställningen för 10 writeBatchSize * 10 parallelCopies är rekommendationen enligt Dynamics-tjänsten, som fungerar för de flesta Dynamics entiteter inte kan dock vara bästa prestanda. Du kan finjustera prestanda genom att justera kombination i inställningarna för aktiviteten kopiera.
 
 **Exempel:**
 
@@ -322,12 +326,13 @@ Konfigurera motsvarande Data Factory-datatypen i en dataset-struktur baserat på
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolesk | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Dubbel | ✓ | ✓ |
 | AttributeType.EntityName | Sträng | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | |
+| AttributeType.Lookup | GUID | ✓ | ✓ |
 | AttributeType.ManagedProperty | Boolesk | ✓ | |
 | AttributeType.Memo | Sträng | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

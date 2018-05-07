@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
-1. Logga in på den klassiska Azure-portalen med dina Microsoft-kontouppgifter på den här URL:en: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Med hjälp av din Microsoft-kontouppgifter, logga in på den klassiska Azure-portalen på denna URL: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
 2. I den klassiska Azure-portalen klickar du på **Ny** > **Data Services** > **StorSimple Manager** > **Snabbregistrering**.
 3. I formuläret som visas gör du följande:
    

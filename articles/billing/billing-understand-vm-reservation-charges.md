@@ -1,23 +1,23 @@
 ---
-title: "Förstå Azure reserverade virtuella instanser rabatt program | Microsoft Docs"
-description: "Lär dig hur Azure reserverade VM-instans rabatt tillämpas på virtuella datorer som körs."
+title: Förstå Azure reserverade virtuella instanser rabatt program | Microsoft Docs
+description: Lär dig hur Azure reserverade VM-instans rabatt tillämpas på virtuella datorer som körs.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Förstå hur reserverade virtuella datorinstans rabatt används
 När du köper reserverade VM-instans tillämpas reservation rabatten automatiskt på virtuella datorer som matchar de attribut och kvantitet för reservation. En reservation omfattar infrastrukturkostnader för de virtuella datorerna. I följande tabell visas kostnaderna för den virtuella datorn när du har köpt en reservation. I samtliga fall måste du debiteras för lagring och nätverk i de normala takt.
@@ -43,7 +43,7 @@ När du köper reserverade VM-instans tillämpas reservation rabatten automatisk
 För att förstå och visa tillämpningen av dina reservationer i fakturering användningsrapporter, se [förstå reserverade VM-instans användning](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Användning av reservation rabatt på virtuella Windows-datorer
-När du kör Windows VM-instanser används reservationen så att den täcker kostnader med infrastruktur. Användning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-program på grundval av per vCPU. Se [Windows programvarukostnader med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows-licensieringskostnaderna med [Azure Hybrid-förmån för Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+När du kör Windows VM-instanser används reservationen så att den täcker kostnader med infrastruktur. Användning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-program på grundval av per vCPU. Se [Windows programvarukostnader med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows licensieringskostnader med [Azure Hybrid-förmån för Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.

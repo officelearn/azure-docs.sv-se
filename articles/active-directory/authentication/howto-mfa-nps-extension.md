@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 05/01/2018
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 
@@ -117,9 +117,9 @@ När du distribuerar NPS-tillägget kan du använda dessa faktorer för att utv�
 
 Du kan [inaktivera stöds inte autentiseringsmetoder](howto-mfa-mfasettings.md#selectable-verification-methods) i Azure.
 
-### <a name="enable-users-for-mfa"></a>Aktivera användare för MFA
+### <a name="register-users-for-mfa"></a>Registrera användare för MFA
 
-Innan du distribuerar fullständig NPS-tillägget som du behöver aktivera MFA för användare som du vill utföra tvåstegsverifiering. Mer direkt om du vill testa tillägget när du distribuerar det, behöver du minst ett testkonto som är fullständigt registrerad för Multifaktorautentisering.
+Innan du distribuerar och använder NPS-tillägget, måste användare som kommer att behöva utföra tvåstegsverifiering registreras för MFA. Mer direkt om du vill testa tillägget när du distribuerar det, behöver du minst ett testkonto som är fullständigt registrerad för Multifaktorautentisering.
 
 Följ dessa steg för att hämta ett testkonto igång:
 1. Logga in på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) med ett testkonto. 

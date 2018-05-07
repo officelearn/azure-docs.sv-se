@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6eef8be28ed7e1a7c4be2316dbf670bde76a637
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -36,10 +36,10 @@ Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Inte alla AP
 
 Regioner                                        | Tillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alla allmänt tillgänglig Global Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01, 2017-12-01
+[Alla allmänt tillgänglig Global Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02,2017-08-01
-[Azure China](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02,2017-08-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02,2017-08-01
+[Azure Kina](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02,2017-08-01
+[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02,2017-08-01
 
 Den här tabellen uppdateras när det finns uppdateringar av tjänsten och eller när nya versioner som stöds är tillgänglig
 
@@ -75,8 +75,8 @@ I följande tabell är en referens för andra dataformat stöder API: er.
 
 API | Standardformatet för Data | Andra format
 --------|---------------------|--------------
-/Instance | json | Text
-/scheduledevents | json | ingen
+/Instance | JSON | Text
+/scheduledevents | JSON | ingen
 
 Ange det begärda formatet som en querystring-parameter i begäran för att komma åt en icke-förvalt svarsformat. Exempel:
 
@@ -98,7 +98,7 @@ HTTP-statuskod | Orsak
 404 Hittades inte | Det begärda elementet finns inte 
 405 Metoden tillåts inte | Endast `GET` och `POST` stöds
 429 för många begäranden | API: et stöder för närvarande högst 5 frågor per sekund
-500 Service Error     | Försök igen efter en stund
+500 tjänstfel     | Försök igen efter en stund
 
 ### <a name="examples"></a>Exempel
 
@@ -286,8 +286,8 @@ Data | Beskrivning | Version introduceras
 location | Azure-regionen för den virtuella datorn körs i | 2017-04-02 
 namn | Namnet på den virtuella datorn | 2017-04-02
 erbjudande | Tillhandahåller information för VM-avbildning. Det här värdet finns bara för avbildningar som distribueras från Azure-avbildning gallery. | 2017-04-02
-publisher | Utgivaren av VM-avbildning | 2017-04-02
-sku | Specifika SKU för VM-avbildning | 2017-04-02
+Publisher | Utgivaren av VM-avbildning | 2017-04-02
+SKU | Specifika SKU för VM-avbildning | 2017-04-02
 version | Version av VM-avbildning | 2017-04-02
 osType | Linux- eller Windows | 2017-04-02
 platformUpdateDomain |  [Uppdateringsdomän](manage-availability.md) den virtuella datorn körs | 2017-04-02
@@ -301,12 +301,13 @@ placementGroupId | [Placering av grupp](../../virtual-machine-scale-sets/virtual
 vmScaleSetName | [Virtuella ScaleSet Name] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för din virtuella skala ange | 2017-12-01
 zon | [Tillgänglighet zonen](../../availability-zones/az-overview.md) i den virtuella datorn | 2017-12-01 
 ipv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
-ipv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
-subnet/address | Undernätsadress av den virtuella datorn | 2017-04-02 
-subnet/prefix | Undernätets prefix, exempel 24 | 2017-04-02 
-ipv6/ipAddress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
-macAddress | VM mac-adress | 2017-04-02 
+IPv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
+undernätet och/eller adress | Undernätsadress av den virtuella datorn | 2017-04-02 
+undernätsprefixet / | Undernätets prefix, exempel 24 | 2017-04-02 
+IPv6/IP-adress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
+MAC-adress | VM mac-adress | 2017-04-02 
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
+identity | (Förhandsversion) Hanterade tjänstidentiteten. Se [skaffa en åtkomst-token](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exempelscenarier för användning  
 

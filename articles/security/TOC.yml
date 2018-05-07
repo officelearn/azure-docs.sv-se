@@ -162,44 +162,13 @@
         - name: Skydda personliga data med hjälp av Azure-rapporteringsverktyg
           href: protection-personal-data-azure-reporting-tools.md
     - name: FEDRAMP
-      href: ./blueprints/fedramp.md
       items:
-        - name: Översikt över säkerhetskontroller
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: Åtkomstkontroll
-          href: ./blueprints/fedramp-access-controls.md
-        - name: Granskning och ansvar
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: Medvetenhet och utbildning
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: Konfigurationshantering
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: Planering för oförutsedda händelser
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: Identifiering och autentisering
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: Incidenthantering
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: Underhåll
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: Medieskydd
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: Personalsäkerhet
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: Fysiskt och miljömässigt skydd
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: Planering
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: Riskbedömning
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: Utvärdering och autentisering av säkerhet
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: System- och kommunikationsskydd
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: System och informationsintegritet
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: System- och tjänstförvärv
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: Datanalys
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Informationslager
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:

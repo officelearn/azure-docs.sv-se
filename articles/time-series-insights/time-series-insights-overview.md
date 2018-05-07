@@ -21,7 +21,7 @@ ms.lasthandoff: 04/20/2018
 
 Tid serien insikter är utformat för att lagra, visualisera och fråga stora mängder tid serie data, till exempel som genererats av IoT-enheter.  Om du vill lagra, hantera, fråga och visualisera tid series-data i molnet, sannolikt tid serien insikter rätt för dig.  
 
-! [Tid serien insikter flödesschema] (media/overview/time-series-insights-flowchart.png)
+![Tid serien insikter flödesschema] (media/overview/time-series-insights-flowchart.png)
 
 Tid serien insikter har fyra viktiga jobb:
 

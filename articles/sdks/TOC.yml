@@ -1,0 +1,17 @@
+- name: 'Azure-SDK:er'
+  href: index.yml
+  items:
+    - name: .NET SDK
+      href: /dotnet/azure/?view=azure-dotnet
+    - name: Java SDK
+      href: /java/azure/
+    - name: SDK för Node
+      href: /javascript/azure/
+    - name: Python SDK
+      href: /python/azure/
+    - name: SDK för Ruby
+      href: 'https://rubygems.org/gems/azure'
+    - name: SDK för PHP
+      href: /azure/app-service-web/app-service-web-get-started-php
+    - name: Xamarin
+      href: 'https://azure.microsoft.com/features/xamarin'

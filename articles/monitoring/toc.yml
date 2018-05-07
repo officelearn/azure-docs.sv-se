@@ -46,12 +46,14 @@
           href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Behållare
       items:
-        - name: Behållarlösning
+        - name: Översikt över behållarövervakning
+          href: monitoring-container-overview.md
+        - name: Prestanda för AKS-behållare
+          href: monitoring-container-health.md
+        - name: Övervakning av Docker- och Windows-behållare
           href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Övervaka Docker-program
           href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Profilprogram
-          href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Databaser
       items:
         - name: Azure SQL

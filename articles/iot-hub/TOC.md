@@ -71,6 +71,7 @@
 #### [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
 #### [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
 #### [Förstå enhetstvillingar](iot-hub-devguide-device-twins.md)
+#### [Förstå modultvillingar](iot-hub-devguide-module-twins.md)
 #### [Anropa direktmetoder på en enhet](iot-hub-devguide-direct-methods.md)
 #### [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
 #### [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
@@ -106,6 +107,9 @@
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-getstarted.md)
 #### [Python-serverdel/Python-enhet](iot-hub-python-twin-getstarted.md)
+### Kom igång med modultvillingar
+#### [Serverdel/.NET-enhet för portal](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Använda direkta metoder
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-direct-methods.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-direct-methods.md)

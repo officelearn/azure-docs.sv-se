@@ -145,6 +145,12 @@
           items:
             - name: Felsöka replikering från Azure till Azure
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Felsöka Azure Site Recovery-tillägg
+              href: site-recovery-extension-troubleshoot.md
+        - name: Hantera
+          items:
+            - name: Automatisk uppdatering av mobilitetstjänstetillägg
+              href: azure-to-azure-autoupdate.md
     - name: VMware/fysisk till Azure
       items:
         - name: Nätverk

@@ -141,8 +141,14 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: Använda rapporterings-API
           href: active-directory-b2c-reference-usage-reporting-api.md
+        - name: Åtkomst till granskningsloggar
+          href: active-directory-b2c-reference-audit-logs.md
         - name: Migrera användare
           href: active-directory-b2c-user-migration.md
+        - name: Med hjälp av b2clogin.com
+          href: b2clogin.md
+        - name: Med hjälp av åldershantering
+          href: basic-age-gating.md
     - name: Identity Experience Framework
       items:
         - name: Anpassade principer
@@ -153,8 +159,10 @@
               href: active-directory-b2c-get-started-custom.md
             - name: Konfigurera OIDC/OAUTH2-providrar
               items:
-                - name: Azure AD
+                - name: Azure AD (en enda klient)
                   href: active-directory-b2c-setup-aad-custom.md
+                - name: Azure AD (flera klienter)
+                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Microsoft-konto
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google +
@@ -163,8 +171,6 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
-                - name: Flera innehavare
-                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Konfigurera SAML-providrar
               items:
                 - name: ADFS

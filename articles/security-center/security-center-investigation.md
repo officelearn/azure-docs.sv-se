@@ -1,11 +1,11 @@
 ---
-title: "Undersöka incidenter och aviseringar i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar."
+title: Undersöka incidenter och aviseringar i Azure Security Center | Microsoft Docs
+description: Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 818c257d1959936f0dc326486e372677aacb065a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Undersöka incidenter och aviseringar i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
@@ -56,11 +56,11 @@ På fliken **Entiteter** visas alla relaterade entiteter grupperade efter typ. D
 
 ![Entiteter](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Söka
+### <a name="search"></a>Search
 
 På fliken **Sök** visas alla loggtyper som är tillgängliga för entiteten. För varje loggtyp kan du se hur många poster som är tillgängliga. När du klickar på varje loggtyp kommer du till sökskärmen. På sökskärmen kan du förfina sökningen och använda olika sökfunktioner, som att ange aviseringar. I den aktuella versionen är sökfliken bara tillgänglig för användar- och datorentiteter.
 
-![Söka](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Utforskning
 
@@ -96,7 +96,7 @@ Du kan starta en undersökningen utifrån en säkerhetsincident eller från en a
 2.  Klicka på **Säkerhetsaviseringar** och väljer incidenten som du vill undersöka.
 3.  På incidentens sida klickar du på knappen **Starta undersökning**, så visas instrumentpanelen **Undersökning**.
 
-    ![Avisering](./media/security-center-investigation/security-center-investigation-fig8.png)
+    ![Varning](./media/security-center-investigation/security-center-investigation-fig8.png)
 
 4. På den här instrumentpanelen kan du välja entiteten på kartan, så visas den relevanta informationen om den här entiteten till höger på skärmen.
 

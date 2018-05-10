@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 76021642073c7463254f51e84efd9af459af2244
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera automatiskt diagnostikinställningar när resursen skapas med hjälp av en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) Konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du starta strömning dina diagnostikloggar och mått i Händelsehubbar arkivering dem i ett Lagringskonto eller skicka dem till logganalys när en resurs skapas automatiskt.
@@ -259,7 +259,7 @@ Om du vill aktivera diagnostik för en beräkning resurs, till exempel en virtue
 3. Lägg till innehållet i filen WADCfg XML i egenskapen XMLCfg undantagstecken alla XML-tecknen korrekt.
 
 > [!WARNING]
-> Det sista steget kan vara svårt att få rätt. [Finns den här artikeln](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) ett exempel som delar upp Konfigurationsschemat diagnostik i variabler som är undantagna och formaterats korrekt.
+> Det sista steget kan vara svårt att få rätt. [Finns den här artikeln](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) ett exempel som delar upp Konfigurationsschemat diagnostik i variabler som är undantagna och formaterats korrekt.
 > 
 > 
 

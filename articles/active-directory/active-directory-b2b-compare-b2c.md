@@ -2,25 +2,19 @@
 title: Jämför B2B-samarbete och B2C i Azure Active Directory | Microsoft Docs
 description: Vad är skillnaden mellan Azure Active Directory B2B-samarbete och Azure AD B2C?
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e8781fcf2710b00ba352bff29a370cbb73e0648
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Jämför B2B-samarbete och B2C i Azure Active Directory
 
@@ -41,16 +35,6 @@ Mer information: [blogginlägget](https://blogs.technet.microsoft.com/enterprise
 
 ### <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
 
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
-* [Lägger till en B2B-samarbete användare till en roll](active-directory-b2b-add-guest-to-role.md)
-* [Delegera B2B-samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
-* [Dynamiska grupper och B2B-samarbete](active-directory-b2b-dynamic-groups.md)
-* [Konfigurera SaaS-appar för B2B-samarbete](active-directory-b2b-configure-saas-apps.md)
-* [Användartoken för B2B-samarbete](active-directory-b2b-user-token.md)
-* [B2B-samarbete användaranspråk mappning](active-directory-b2b-claims-mapping.md)
-* [Extern delning av Office 365](active-directory-b2b-o365-external-user.md)
-* [Aktuella begränsningar för B2B-samarbete](active-directory-b2b-current-limitations.md)
-* [Få support för B2B-samarbete](active-directory-b2b-support.md)

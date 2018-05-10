@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
 
@@ -87,7 +88,7 @@ När hanterade tjänstidentiteten är aktiverat på en virtuell dator, visas fö
 
 Hanterad Service identitet VM-tillägget stöder för närvarande inte möjligheten att exportera dess schema till en resurs Gruppmall. Genererade mallen visas därför inte konfigurationsparametrar för att aktivera hanterade tjänstidentiteten på resursen. Dessa avsnitt kan läggas till manuellt genom att följa exemplen i [konfigurera en virtuell dator hanteras tjänstidentitet med hjälp av en mall](qs-configure-template-windows-vm.md).
 
-När schemat exportfunktionen blir tillgänglig för MSI VM-tillägg, visas det i [exportera resursgrupper som innehåller VM-tillägg](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+När schemat exportfunktionen blir tillgänglig för MSI VM-tillägg, visas det i [exportera resursgrupper som innehåller VM-tillägg](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Konfiguration av bladet visas inte i Azure-portalen
 
@@ -119,15 +120,15 @@ När den virtuella datorn har startats kan taggen tas bort med hjälp av följan
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-preview"></a>Kända problem med användaren tilldelas MSI *(förhandsgranskning)*
+## <a name="known-issues-with-user-assigned-identities"></a>Kända problem med tilldelade användaridentiteter
 
-- Det enda sättet att ta bort alla användare som tilldelats MSI: er tilldelas genom att aktivera systemet MSI. 
+- Användaren tilldelas identitet tilldelningar är endast avaialble för virtuell dator och VMSS. Viktigt: Tilldelade användaridentitet tilldelningar ändras under de kommande månaderna.
+- Dubbla tilldelade användaridentiteter på samma VM/VMSS kommer VM/VMSS misslyckas. Detta inkluderar identiteter som har lagts till med annat skiftläge. t.ex. MyUserAssignedIdentity och myuserassignedidentity. 
 - Etablering av VM-tillägget till en virtuell dator kan misslyckas på grund av fel i DNS-sökning. Starta om den virtuella datorn och försök igen. 
-- Om du lägger till en 'obefintlig' MSI kommer den virtuella datorn misslyckas. *Obs: Korrigering misslyckas tilldela identitet om MSI inte finns, används platta ut*
-- Azure Storage-kursen är endast tillgängligt i centrala oss EUAP för tillfället. 
-- Skapar en användare som tilldelats MSI med specialtecken (dvs understreck) i namn stöds inte.
-- Om att lägga till en annan användare har tilldelats identitet, kanske clientID inte tillgänglig för begäranden token för den. Starta om MSI-VM-tillägget med följande två bash-kommandon som en lösning:
+- Om du lägger till en 'obefintlig' tilldelade användaridentitet kommer den virtuella datorn misslyckas. 
+- Skapar en användare som tilldelats identitet med specialtecken (dvs understreck) i namn stöds inte.
+- Användaren som har tilldelats identitetsnamn är begränsade till 24 tecken för slutpunkt till slutpunkt-scenario. Tilldelad användaridentiteter med namn som är längre än 24 tecken kan inte tilldelas.  
+- Om att lägga till en annan användare har tilldelats identitet, kanske clientID inte tillgänglig för begäranden token för VM-tillägget. Starta om MSI-VM-tillägget med följande två bash-kommandon som en lösning:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- VMAgent på Windows stöder för närvarande inte användaren tilldelas MSI. 
-- När en virtuell dator har en användare som tilldelats MSI men inget system tilldelade MSI portalen Användargränssnittet visar MSI som aktiverad. Använda en Azure Resource Manager-mall, ett Azure CLI eller en SDK om du vill aktivera tilldelats MSI.
+- När en virtuell dator har en användare som tilldelats identitet men inget system som tilldelats identitet, portalen Användargränssnittet visar MSI som inaktiverade. Använda en Azure Resource Manager-mall, ett Azure CLI eller en SDK om du vill aktivera tilldelats identitet.

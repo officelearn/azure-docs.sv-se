@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84581de2819ec062a537d4a302f242085a4b3c2c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents schema med händelsen rutnätet
 
@@ -23,6 +23,8 @@ CloudEvents förenklar samverkan genom att tillhandahålla ett gemensamt Händel
 CloudEvents används build av flera [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [moln interna Compute Foundation](https://www.cncf.io/). Det är tillgängligt som version 0.1.
 
 Den här artikeln beskriver hur du använder CloudEvents schemat med händelsen rutnätet.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>CloudEvent schema
 
@@ -73,12 +75,6 @@ Mer information finns i [CloudEvents spec](https://github.com/cloudevents/spec/b
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurera händelse rutnät för CloudEvents
 
 För närvarande Azure händelse rutnätet har preview stöder för CloudEvents JSON-formatet indata och utdata i **Väst centrala oss**, **centrala USA**, och **Nordeuropa**.
-
-Om du vill använda CloudEvent måste du aktivera ett tillägg för Azure CLI:
-
-```azurecli
-az extension add –-name eventgrid
-```
 
 Du kan använda händelsen rutnät för både inkommande och utgående händelser i CloudEvents schema. Du kan använda CloudEvents för systemhändelser som Blob Storage-händelser och händelser för IoT-hubb och anpassade händelser. Det kan också transformera dessa händelser på kabeln fram och tillbaka.
 

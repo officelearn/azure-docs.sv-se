@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: Validera PKI-certifikat
               href: azure-stack-validate-pki-certs.md
-        - name: Identitetsintegrering
-          href: azure-stack-integrate-identity.md
+            - name: Åtgärda PKI-certifikat
+              href: azure-stack-remediate-certs.md
+            - name: Distributionsresurser
+              items:
+                - name: Start-AzsReadiness cmdlet-referens
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: Visa beredskapsrapporten
+                  href: azure-stack-validation-report.md
+            - name: Identitetsintegrering
+              items:
+                - name: Välj en identitetsleverantör
+                  href: azure-stack-integrate-identity.md
+                - name: Verifiera Azure identitet
+                  href: azure-stack-validate-identity.md
+        - name: Verifiera Azure registrering
+          href: azure-stack-validate-registration.md
         - name: Externa övervakning
           href: azure-stack-integrate-monitor.md
         - name: Integrering av säkerhet
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: Hantera lagringskapacitet
               href: azure-stack-manage-storage-shares.md
-            - name: Hantera fysiska lagringskapacitet för Azure-stacken
+            - name: Hantera fysiskt minneskapacitet
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Ersätta maskinvara
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: Erbjudande virtuella Linux-datorer
               href: azure-stack-linux.md
+            - name: Lägg till en virtuell dator för Red Hat
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: Erbjuder ett Kubernetes kluster
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Användning och fakturering
           items:
             - name: Översikt

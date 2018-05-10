@@ -2,25 +2,19 @@
 title: Felsökning av Azure Active Directory B2B-samarbete | Microsoft Docs
 description: Kompensation för vanliga problem med Azure Active Directory B2B-samarbete
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3ced3319087091242d1250a98cb5baddb7bb1832
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsökning av Azure Active Directory B2B-samarbete
 
@@ -84,16 +78,4 @@ Om det här scenariot är viktigt att du kan du ignorera e-postinbjudan våra AP
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
-
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Hur lägger Azure Active Directory-administratörer till B2B-samarbete användare?](active-directory-b2b-admin-add-users.md)
-* [Hur lägger informationsarbetare till B2B-samarbete användare?](active-directory-b2b-iw-add-users.md)
-* [Elementen i e-postinbjudan B2B-samarbete](active-directory-b2b-invitation-email.md)
-* [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B-samarbete och licensiering](active-directory-b2b-licensing.md)
-* [Vanliga och frågor svar om Azure Active Directory B2B-samarbete](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B-samarbete API och anpassning](active-directory-b2b-api.md)
-* [Multi-Factor Authentication för användare av B2B-samarbete](active-directory-b2b-mfa-instructions.md)
-* [Lägg till B2B-samarbete användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
-* [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
+- [Få support för B2B-samarbete](active-directory-b2b-support.md)

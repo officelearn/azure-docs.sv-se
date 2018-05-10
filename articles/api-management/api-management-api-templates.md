@@ -1,11 +1,11 @@
 ---
 title: API-mallar i Azure API Management | Microsoft Docs
-description: "Lär dig hur du anpassar innehållet i API-sidor i developer-portalen i Azure API Management."
+description: Lär dig hur du anpassar innehållet i API-sidor i developer-portalen i Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 9abbdda2300fd8d51bec372624f0349455cf2b01
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  
@@ -40,7 +40,7 @@ Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer
 > [!NOTE]
 >  Standard exempelmallarna ingår i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa live standardmallarna i developer-portalen genom att navigera till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="APIList"></a>API-lista  
+##  <a name="APIList"></a> API-lista  
  Den **API listan** mall kan du anpassa brödtexten i sidan API: N i developer-portalen.  
   
  ![Developer Portal API listan](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal API mallistan")  
@@ -84,7 +84,7 @@ Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |API: er|Samling av [API-översikten](api-management-template-data-model-reference.md#APISummary) entiteter.|API: erna synliga för den aktuella användaren.|  
   
@@ -108,7 +108,7 @@ Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer
 }  
 ```  
   
-##  <a name="Product"></a>Åtgärden  
+##  <a name="Product"></a> åtgärden  
  Den **åtgärden** mall kan du anpassa brödtexten i sidan åtgärden i developer-portalen.  
   
  ![Developer Portal åtgärden sidan](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer-portalen mallar åtgärden sida")  
@@ -339,17 +339,17 @@ Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|ApiId|Sträng|Id för den aktuella API.|  
-|apiName|Sträng|Namnet på API: et.|  
-|apiDescription|Sträng|En beskrivning av API: et.|  
+|apiId|sträng|Id för den aktuella API.|  
+|apiName|sträng|Namnet på API: et.|  
+|apiDescription|sträng|En beskrivning av API: et.|  
 |api|[API-översikten](api-management-template-data-model-reference.md#APISummary) entitet.|Den aktuella API.|  
-|åtgärden|[Åtgärd](api-management-template-data-model-reference.md#Operation)|För närvarande visas igen.|  
-|sampleUrl|Sträng|URL till den aktuella åtgärden.|  
+|åtgärd|[Åtgärd](api-management-template-data-model-reference.md#Operation)|För närvarande visas igen.|  
+|sampleUrl|sträng|URL till den aktuella åtgärden.|  
 |operationMenu|[Åtgärd-menyn](api-management-template-data-model-reference.md#Menu)|En meny med åtgärder för detta API.|  
 |consoleUrl|URI|URI för den **prova** knappen.|  
-|Exempel|Samling av [kodexemplet](api-management-template-data-model-reference.md#Sample) entiteter.|Kodexempel för den aktuella åtgärden...|  
+|exempel|Samling av [kodexemplet](api-management-template-data-model-reference.md#Sample) entiteter.|Kodexempel för den aktuella åtgärden...|  
   
 ### <a name="sample-template-data"></a>Mallen exempeldata  
   
@@ -638,7 +638,7 @@ Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer
 }  
 ```  
   
-##  <a name="CodeSamples"></a>Kodexempel  
+##  <a name="CodeSamples"></a> Kodexempel  
  Följande mallar kan du anpassa brödtext enskilda kodexempel på sidan igen.  
   
  ![Developer Portal mallar kodexempel](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal mallar kodexempel")  
@@ -659,7 +659,7 @@ Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a>CURL  
+###  <a name="Curl"></a> CURL  
  Den **DocumentationSamplesCurl** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -712,7 +712,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a>C#  
+###  <a name="CSharp"></a> C#  
  Den **DocumentationSamplesCsharp** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -891,7 +891,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a>Java  
+###  <a name="Stub"></a> Java  
  Den **DocumentationSamplesJava** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -987,7 +987,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a>JavaScript  
+###  <a name="JavaScript"></a> JavaScript  
  Den **DocumentationSamplesJs** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1076,7 +1076,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a>Objective C  
+###  <a name="ObjectiveC"></a> Objective C  
  Den **DocumentationSamplesObjc** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1188,7 +1188,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a>PHP  
+###  <a name="PHP"></a> PHP  
  Den **DocumentationSamplesPhp** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1278,7 +1278,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a>Python  
+###  <a name="Python"></a> Python  
  Den **DocumentationSamplesPython** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1396,7 +1396,7 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a>Ruby  
+###  <a name="Ruby"></a> Ruby  
  Den **DocumentationSamplesRuby** mall kan du anpassa detta kodexempel i avsnittet kod prov på sidan igen.  
   
 #### <a name="default-template"></a>Standardmall  

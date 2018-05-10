@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
 Det rekommenderas att du använder en enhet för att säkra Azure-stacken. Även om brandväggar kan hjälpa dig med t.ex distribuerad denial of service (DDOS) attacker, intrångsidentifiering och innehållsgranskning, blir de också en genomströmning flaskhals för Azure storage-tjänster som blobbar, tabeller och köer.
@@ -44,7 +44,7 @@ Några av downsides för att använda NAT för offentliga VIP är:
 För närvarande rekommenderas att inaktivera SSL-dekryptering på alla Azure Stack-trafik. Om det stöds i framtida uppdateringar levereras vägledning om hur du aktiverar SSL-dekryptering för Azure-stacken.
 
 ## <a name="edge-firewall-scenario"></a>Edge brandväggen scenario
-I en kant-distribution distribueras Azure Stack direkt bakom gränsroutern eller brandväggen. I följande scenarier stöds för brandväggen för att vara över kantlinjen eller fungerar som kantlinje enheten om den stöder lika kostnaden Multi Path ECMP () med BGP eller statisk routning.
+I en kant-distribution distribueras Azure Stack direkt bakom gränsroutern eller brandväggen. I följande scenarier stöds för brandväggen ska ovan kantlinje (Scenario 1) där den stöder både aktiv-aktiv och aktivt-passivt brandväggskonfigurationer eller fungerar som RAM-enhet (Scenario 2) där det endast har stöd för aktiv-aktiv brandvägg konfiguration för att förlita sig på lika kostnaden Multi Path ECMP () med BGP eller statisk routning för redundans.
 
 Normalt har offentligt dirigerbara IP-adresser angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I en kant-scenariot rekommenderas det inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare har fullständig själva kontrollerade molnet upplevelse som i ett offentligt moln som Azure.  
 

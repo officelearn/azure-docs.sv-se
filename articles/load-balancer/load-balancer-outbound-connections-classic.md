@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassisk)
 
@@ -37,11 +37,11 @@ Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenar
 
 Azure tillhandahåller tre olika metoder för att uppnå utgående anslutning klassiska distributioner.  Inte alla klassiska distributioner har alla tre scenarier som är tillgängliga för dem:
 
-| Scenario | Metod | Beskrivning | Worker-Webbroll | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. Virtuell dator med en offentlig IP på instansnivå adress](#ilpip) | SNAT, utger sig för porten inte används |Azure använder offentlig IP-adress som tilldelats virtuella datorn. Instansen har alla tillfälliga portar som är tillgängliga. | Nej | Ja |
-| [2. offentlig slutpunkt för Utjämning av nätverksbelastning](#publiclbendpoint) | SNAT med port låtsas (PAT) till offentlig slutpunkt |Azure delar den offentliga IP-adress offentlig slutpunkten med flera privata slutpunkter. Azure använder tillfälliga portar för offentlig slutpunkt för PATRIK. | Ja | Ja |
-| [3. Fristående VM ](#defaultsnat) | SNAT med port låtsas (PAT) | Azure automatiskt utser en offentlig IP-adress för SNAT delar den här offentliga IP-adressen med hela distributionen och använder tillfälliga portar för offentlig slutpunkt IP-adressen för PATRIK. Det här är en återställningsplats scenario för föregående scenarier. Vi rekommenderar inte den om du behöver synlighet och kontroll. | Ja | Ja|
+| Scenario | Metod | IP-protokoll | Beskrivning | Worker-Webbroll | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. Virtuell dator med en offentlig IP på instansnivå adress](#ilpip) | SNAT, utger sig för porten inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats virtuella datorn. Instansen har alla tillfälliga portar som är tillgängliga. | Nej | Ja |
+| [2. offentlig slutpunkt för Utjämning av nätverksbelastning](#publiclbendpoint) | SNAT med port låtsas (PAT) till offentlig slutpunkt | TCP OCH UDP | Azure delar den offentliga IP-adress offentlig slutpunkten med flera privata slutpunkter. Azure använder tillfälliga portar för offentlig slutpunkt för PATRIK. | Ja | Ja |
+| [3. Fristående VM ](#defaultsnat) | SNAT med port låtsas (PAT) | TCP OCH UDP | Azure automatiskt utser en offentlig IP-adress för SNAT delar den här offentliga IP-adressen med hela distributionen och använder tillfälliga portar för offentlig slutpunkt IP-adressen för PATRIK. Det här är en återställningsplats scenario för föregående scenarier. Vi rekommenderar inte den om du behöver synlighet och kontroll. | Ja | Ja |
 
 Det här är en deluppsättning av utgående anslutning funktioner som är tillgängligt för Resource Manager distributioner i Azure.  
 

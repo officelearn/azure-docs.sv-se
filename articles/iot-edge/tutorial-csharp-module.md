@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 09e20d9a80b881075d9bb6be7d4daafc739340a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1caa887a13453ce2b2b07e83b74f0ed57535b026
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -118,7 +118,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
     try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
     } catch(ArgumentOutOfRangeException e) {
-        Console.WriteLine("Proerty TemperatureThreshold not exist");
+        Console.WriteLine("Property TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates

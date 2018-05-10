@@ -12,37 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 72372a37c4ddcc6135fc7477807e4ff94ae90c77
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Förutsättningar för att få åtkomst till Azure Active Directory reporting API
 
 Den [Azure Active Directory (AD Azure) reporting API: er](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) ger dig programmatisk åtkomst till data via en uppsättning REST-baserad API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg.
 
-Reporting API: N används [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) att bevilja åtkomst till webb-API: er. 
+Reporting API: N används [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) att bevilja åtkomst till webb-API: er.
+
+För att förbereda din åtkomst till reporting API, måste du:
+
+1. Tilldela roller
+2. Registrera ett program
+3. Bevilja behörigheter
+4. Samla in konfigurationsinställningar
+
+
+
+## <a name="assign-roles"></a>Tilldela roller
 
 Om du vill få åtkomst till rapporteringsdata via API: et, måste du ha något av följande roller:
 
 - Säkerhetsläsare
+
 - Säkerhetsadministratör
+
 - Global administratör
 
 
-För att förbereda din åtkomst till reporting API, måste du:
 
-1. Registrera ett program 
-2. Bevilja behörigheter 
-3. Samla in konfigurationsinställningar 
 
-För frågor, frågor eller kommentarer, [filen ett supportärende](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## <a name="register-an-azure-active-directory-application"></a>Registrera ett Azure Active Directory-program
+## <a name="register-an-application"></a>Registrera ett program
 
 Du måste registrera en app, även om du försöker komma åt reporting API: et med ett skript. Detta ger dig en **program-ID**, vilket krävs för ett anrop för auktorisering och det möjliggör koden för att ta emot token.
 
@@ -86,7 +93,7 @@ Beroende på API som du vill komma åt, måste du bevilja följande behörighete
 
 | API | Behörighet |
 | --- | --- |
-| Windows Azure Active Directory | Läs katalogdata |
+| Windows Azure Active Directory | Läsa katalogdata |
 | Microsoft Graph | Läsa alla granska loggdata |
 
 
@@ -145,11 +152,12 @@ Följande avsnitt innehåller stegen för både API: er. Om du inte vill komma �
 
 
 ## <a name="gather-configuration-settings"></a>Samla in konfigurationsinställningar 
+
 Det här avsnittet visar hur du får följande inställningar från din katalog:
 
-* Domännamn
-* Klient-ID
-* Klienthemlighet
+- Domännamn
+- Klient-ID
+- Klienthemlighet
 
 Du måste dessa värden när du konfigurerar anrop reporting-API: et. 
 
@@ -219,6 +227,10 @@ För att få ditt program klienthemlighet, måste du skapa en ny nyckel och spar
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Vill du komma åt data från Azure AD reporting API på ett programmässiga sätt? Checka ut [komma igång med Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
-* Om du vill veta mer om Azure Active Directory reporting finns i [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+
+- [Hämta data med Azure Active Directory reporting API med certifikat](active-directory-reporting-api-with-certificates.md).
+
+- [Hämta en första intryck reporting API](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Skapa din egen lösning](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

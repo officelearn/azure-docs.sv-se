@@ -1,11 +1,9 @@
 ---
-title: "Lägga till inloggning till en iOS-App med Azure AD v2.0-slutpunkten | Microsoft Docs"
-description: "Hur du skapar en iOS-app som loggar in användare med både personliga Microsoft-konto och arbets-eller skolkonton med hjälp av tredjeparts-bibliotek."
+title: Lägga till inloggning till en iOS-App med Azure AD v2.0-slutpunkten | Microsoft Docs
+description: Hur du skapar en iOS-app som loggar in användare med både personliga Microsoft-konto och arbets-eller skolkonton med hjälp av tredjeparts-bibliotek.
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: xerners
 manager: mtillman
-editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +13,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5323f9a514c3c1c6134656e41af68e479fd8fdc5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Lägga till inloggning till en iOS-app med hjälp av en tredjeparts-bibliotek med Graph API: et med v2.0-slutpunkten
 Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Utvecklare kan använda alla bibliotek som de vill integrera med våra tjänster. Vi har skrivit några genomgång som detta att demonstrera hur du konfigurerar tredjeparts-bibliotek för att ansluta till Microsoft identity-plattformen för att hjälpa utvecklare att använda vår plattform med andra bibliotek. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft identity-plattformen.
@@ -564,7 +562,7 @@ Slutligen kan du nu ska vi titta på hur du returnerar data till MasterViewContr
 ```
 
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 Om du har använt stommen eller följt tillsammans med den här genomgången ska nu ditt program att köras. Starta simulatorn och på **inloggning** att använda programmet.
 
 ## <a name="get-security-updates-for-our-product"></a>Hämta säkerhetsuppdateringar för vår produkt

@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv
 **Microsoft Azure**: flytta snabbare, spara pengar, integrera lokala appar och data
@@ -101,7 +101,7 @@ Distribuera ExpressRoute anslutningar innebär att arbeta med en ExpressRoute-le
 
 ## <a name="virtual-data-center-overview"></a>Översikt över virtuella Datacenter
 
-### <a name="topology"></a>topologi
+### <a name="topology"></a>Topologi
 NAV och ekrar modellen utökade virtuella datacenter inom en enda Azure region
 
 [![1]][1]
@@ -192,7 +192,7 @@ Infrastruktur innehåller följande funktioner:
 -   [**UDR**][UDR]. Som standard utifrån system routningstabellen omdirigeras trafik i ett virtuellt nätverk. En användardefinierad väg är en anpassad routningstabell som nätverksadministratörer kan koppla till en eller flera undernät kan du skriva över beteendet i routningstabellen system och definiera en sökväg för kommunikation inom ett virtuellt nätverk. Förekomsten av udr: er garanterar att utgående trafik från eker-överföring via specifika egna virtuella datorer och/eller nätverket virtuella installationer och belastningsutjämnare finns i hubben och ekrarna.
 -   [**NSG**][NSG]. En Nätverkssäkerhetsgrupp är en lista över säkerhetsregler som fungerar som trafik filtrering på IP-källor, IP-målet, protokoll, IP-källportar och IP-målet portar. NSG: N kan tillämpas på ett undernät, en virtuell NIC-kort som är associerade med en Azure VM, eller båda. De NSG: er är nödvändiga för att implementera rätt flödeskontroll i hubben och ekrarna. Säkerhetsnivån som tillhandahålls av NSG: N är en funktion av vilka portar som du öppnar och för vilket syfte. Kunder bör installera ytterligare per virtuell filter med värdbaserade brandväggar, till exempel IPtables eller Windows-brandväggen.
 -   [**DNS**][DNS]. Namnmatchning för resurser i Vnet av en vDC tillhandahålls via DNS. Azure tillhandahåller DNS-tjänster för både [offentliga][DNS] och [privata] [ PrivateDNS] namnmatchning. Privata zoner ange namnmatchning både inom ett virtuellt nätverk och mellan virtuella nätverk. Du kan ha privata zoner som inte bara span över virtuella nätverk i samma region, utan även över regioner och prenumerationer. För matchning av offentliga Azure DNS ger värdtjänsten för DNS-domäner att tillhandahålla namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
--   [** Prenumeration] [ SubMgmt] och [resursgruppen Management][RGMgmt]**. En prenumeration definierar en naturlig gräns för att skapa flera grupper av resurser i Azure. Resurser i en prenumeration är sammanfogas i logiska behållare med namnet resursgrupper. Resursgruppen representerar en logisk grupp att ordna resurser av en vDC.
+-   [**Prenumerationen** ] [ SubMgmt] och [ **resursgruppen Management**][RGMgmt]. En prenumeration definierar en naturlig gräns för att skapa flera grupper av resurser i Azure. Resurser i en prenumeration är sammanfogas i logiska behållare med namnet resursgrupper. Resursgruppen representerar en logisk grupp att ordna resurser av en vDC.
 -   [**RBAC**][RBAC]. Via RBAC är det möjligt att mappa organisationsroller tillsammans med behörighet att komma åt specifika Azure-resurser, så att du kan begränsa användare till endast en viss delmängd av åtgärder. Med RBAC, kan du bevilja åtkomst genom att tilldela användare, grupper och program inom relevanta omfånget rätt roll. Omfånget för en rolltilldelning kan vara en Azure-prenumeration, resursgrupp eller en enskild resurs. RBAC kan arv av behörigheter. En roll som tilldelats en överordnad omfattning även ger åtkomst till underordnade som finns i den. Med RBAC kan du särskilja uppgifter och ge bara mängden åtkomst till användare som de behöver för att utföra sitt arbete. Till exempel använda RBAC så att en medarbetare som hanterar virtuella datorer i en prenumeration medan en annan kan hantera SQL DBs inom samma prenumeration.
 -   [**VNet-Peering**][VNetPeering]. Grundläggande funktion som används för att skapa en vDC-infrastruktur är VNet-Peering, en funktion som ansluter två virtuella nätverk (Vnet) i samma region via Azure datacenternätverket eller med hjälp av Azure globalt basen mellan regioner.
 

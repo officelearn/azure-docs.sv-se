@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d71f9fc2b69e1a99b518c2317cccde712ab40fec
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Översikt över Liveströmning med Azure Media Services
 
@@ -54,7 +54,7 @@ En **kanal** representerar en pipeline för bearbetning av liveuppspelningsinneh
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* En lokal livekodare skickar en dataström med enkel bithastighet till den kanal som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). RTP (MPEG-TS) stöds också, förutsatt att du har en dedicerad anslutning till Azure-datacenter. Följande livekodare med RTMP-utdata är känt att arbeta med kanaler av den här typen: Telestream Wirecast, FMLE. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
+* En lokal livekodare skickar en dataström med enkel bithastighet till den kanal som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Följande livekodare med RTMP-utdata är känt att arbeta med kanaler av den här typen: Telestream Wirecast, FMLE. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 Från och med Media Services 2.10-versionen när du skapar en kanal kan ange du i hur du vill använda för din kanal tar emot Indataströmmen och om huruvida du vill använda att utföra live encoding av strömmen kanalen. Du kan välja mellan två alternativ:
 
@@ -68,7 +68,7 @@ Följande tabell innehåller en guide för att jämföra två kanaltyper som st�
 | --- | --- | --- |
 | Enkel bithastighet indata kodas till flera olika bithastigheter i molnet |Nej |Ja |
 | Maximal upplösning, antalet lager |1080p, 8 lager 60 + fps |720p, 6 lager 30 fps |
-| Inkommande protokoll |RTMP, Smooth Streaming |RTMP, Smooth Streaming och RTP |
+| Inkommande protokoll |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Pris |Finns det [sida med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live Video” |Finns det [sida med priser](https://azure.microsoft.com/pricing/details/media-services/) |
 | Maximal körtid |Dygnet runt |8 timmar |
 | Stöd för att infoga pekdatorer |Nej |Ja |

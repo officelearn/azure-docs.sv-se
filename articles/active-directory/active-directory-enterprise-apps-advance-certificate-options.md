@@ -1,13 +1,14 @@
 ---
-title: "Avancerade alternativ i SAML-token för förintegrerade appar i Azure Active Directory för Certifikatsignering | Microsoft Docs"
-description: "Lär dig hur du använder avancerade alternativ i SAML-token för förintegrerade appar i Azure Active Directory om Certifikatsignering"
+title: Avancerade alternativ i SAML-token för förintegrerade appar i Azure Active Directory för Certifikatsignering | Microsoft Docs
+description: Lär dig hur du använder avancerade alternativ i SAML-token för förintegrerade appar i Azure Active Directory om Certifikatsignering
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c035dcb55af451d0dae71d7a0f5548a6ba3c0ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 05eb175e3d8306308998780ac230d4f44e611294
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ i SAML-token för galleriet appar i Azure Active Directory om Certifikatsignering
 Azure Active Directory (AD Azure) stöder idag tusentals förintegrerade program i Appgalleriet för Azure Active Directory. Antalet inkluderar mer än 500 program som stöder enkel inloggning med hjälp av SAML 2.0-protokollet. När en användare autentiseras till ett program via Azure AD med hjälp av SAML skickar en token i Azure AD till programmet (via en HTTP POST). Programmet validerar och använder token för att logga in användaren i stället för att fråga efter användarnamn och lösenord. Dessa SAML-token har signerats med det unika certifikat som genereras i Azure AD och särskilda algoritmer som standard.
@@ -28,7 +29,7 @@ Azure AD använder vissa av standardinställningarna för galleriet program. Sta
 
 Azure AD stöder avancerade inställningar för certifikatsignering. Om du vill välja alternativen först välja den **visa avancerade inställningar för signering av certifikat** kryssrutan:
 
-![Visa avancerade inställningar för Certifikatsignering][1]
+![Visa avancerade inställningar för certifikatsignering][1]
 
 När du har valt den här kryssrutan om kan du konfigurera alternativ för certifikatsignering och certifikatsignering.
 

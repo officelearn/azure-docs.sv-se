@@ -1,11 +1,9 @@
 ---
-title: "Aktivera enkel inloggning mellan appar på iOS använder ADAL | Microsoft Docs"
-description: "Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i ditt program. "
+title: Aktivera enkel inloggning mellan appar på iOS använder ADAL | Microsoft Docs
+description: 'Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i ditt program. '
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: xerners
 manager: mtillman
-editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +13,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c477e7e6fb9ef9a93ceab53c1427b974bab99b37
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Aktivera enkel inloggning mellan appar på iOS använder ADAL
 Tillhandahåller enkel inloggning (SSO) så att användarna behöver bara ange sina autentiseringsuppgifter en gång och dessa autentiseringsuppgifter automatiskt fungerar över förväntade program nu av kunder. Svårt att ange sina användarnamn och lösenord på en liten skärm, ofta gånger kombineras med ytterligare en faktor (2FA) som ett telefonsamtal eller en textläge kod leder till att snabbt klagomål om en användare har att göra det mer än en gång till produkten.
@@ -160,11 +158,11 @@ För Microsoft Identity-plattformen vet att den har tillåtelse för att dela to
 
 Du kanske undrar hur du identifierar olika appar till tjänsten Microsoft Identity om den använder den samma program-ID. Svaret är med i **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din suite har en annan omdirigerings-URI. Ett exempel på hur detta ser ut understiger:
 
-App1 omdirigerings-URI:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+App1 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-App2 omdirigerings-URI:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+App2 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-App3 omdirigerings-URI:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+App3 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Skapa en ny simulerad enhet
 
@@ -258,7 +258,11 @@ Det enklaste sättet att skapa en ny typ av enhet i simuleringen tjänst är att
 
 1. I den **miljövariabler** avsnitt, redigera värdet för den **datorer\_IOTHUB\_CONNSTRING** variabeln ska vara IoT-hubb anslutningssträngen som du antecknade tidigare. Spara dina ändringar.
 
-1. I Solution Explorer högerklickar du på den **enheten simuleringen** lösning och välj **ange Startprojekt**. Välj **enda Startprojekt** och välj **SimulationAgent**. Klicka sedan på **OK**.
+1. I Solution Explorer högerklickar du på den **WebService** projekt, Välj **egenskaper**, och välj sedan **felsöka**.
+
+1. I den **miljövariabler** avsnitt, redigera värdet för den **datorer\_IOTHUB\_CONNSTRING** variabeln ska vara IoT-hubb anslutningssträngen som du antecknade tidigare. Spara dina ändringar.
+
+1. I Solution Explorer högerklickar du på den **enheten simuleringen** lösning och välj **ange Startprojekt**. Välj **enda Startprojekt** och välj **WebService**. Klicka sedan på **OK**.
 
 1. Varje typ av enhet har en modell JSON-fil och associerade skript i den **Services/data/devicemodels** mapp. I Solution Explorer, kopiera den **kylaggregat** filer för att skapa den **av glödlampa** filer som visas i följande tabell:
 
@@ -294,10 +298,12 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ Konfigurera tjänsten om du vill köra en enda kylaggregat och en enda av glödl
 
 Du är nu redo att testa din nya simulerade av glödlampa typ genom att köra enheten simuleringen projektet lokalt.
 
-1. I Solution Explorer högerklickar du på **SimulationAgent**, Välj **felsöka** och välj sedan **Starta ny instans**.
+1. I Solution Explorer högerklickar du på **WebService**, Välj **felsöka** och välj sedan **Starta ny instans**.
 
 1. Öppna Azure-portalen för att kontrollera att de två simulerade enheterna är anslutna till din IoT-hubb i webbläsaren.
 

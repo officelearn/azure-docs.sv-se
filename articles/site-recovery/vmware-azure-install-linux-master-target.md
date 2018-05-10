@@ -1,19 +1,19 @@
 ---
-title: "Installera en Linux-huvudmålserver för redundans från Azure till lokala | Microsoft Docs"
-description: "Innan du skydda en Linux-dator, måste en Linux-huvudmålserver. Lär dig hur du installerar en."
+title: Installera en Linux-huvudmålserver för redundans från Azure till lokala | Microsoft Docs
+description: Innan du skydda en Linux-dator, måste en Linux-huvudmålserver. Lär dig hur du installerar en.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installera en Linux-huvudmålsserver
 När du växlar över dina virtuella datorer till Azure kan du växla tillbaka de virtuella datorerna till den lokala platsen. För att växla tillbaka måste att skydda den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du en lokal huvudmålservern för att ta emot trafiken. 
@@ -50,9 +50,9 @@ Följande stöds Ubuntu kärnor stöds.
 
 |Kernel-serien  |Stöd för upp till  |
 |---------|---------|
-|4.4      |4.4.0-81-generic         |
-|4.8      |4.8.0-56-generic         |
-|4.10     |4.10.0-24-generic        |
+|4.4      |4.4.0-81-Generic         |
+|4.8      |4.8.0-56-Generic         |
+|4.10     |4.10.0-24-Generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Distribuera huvudmålservern
@@ -240,18 +240,13 @@ Använd följande steg för att skapa en kvarhållningsdisken:
 
 1. Koppla en ny disk 1 TB till Linux huvudmålservern virtuell dator och sedan starta datorn.
 
-2. Använd den **multipath -lla** kommandot Läs multipath ID för kvarhållningsdisken.
-    
-     `multipath -ll`
+2. Använd den **multipath -lla** kommandot Läs multipath ID kvarhållningsdisken: **multipath -lla**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![MPIO-ID](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Formatera hårddisken och sedan skapa ett filsystem i den nya enheten.
-
+3. Formatera hårddisken och sedan skapa ett filsystem i den nya enheten: **mkfs.ext4 /dev/mapper/< multipath kvarhållning disk-id >**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Skapa ett filsystem på enheten](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Filsystem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. När du har skapat filsystemet montera kvarhållningsdisken.
 
@@ -266,7 +261,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     
     Välj **infoga** att börja redigera filen. Skapa en ny rad och Lägg till följande text. Redigera disk multipath-ID baserat på den markerade multipath ID från det föregående kommandot.
 
-     **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
+    **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
 
     Välj **Esc**, och skriv sedan **: wq** (skriva och avsluta) att stänga fönstret redigeraren.
 
@@ -355,7 +350,7 @@ Du ser den **Version** fältet visar versionsnumret på Huvudmålet.
 * Huvudmålservern ska inte ha några ögonblicksbilder på den virtuella datorn. Om det finns ögonblicksbilder, misslyckas återställning efter fel.
 
 * På grund av vissa anpassade konfigurationer för NIC, nätverksgränssnittet inaktiveras under start och huvudmålservern-agenten gick inte att initiera. Kontrollera att följande egenskaper är korrekt inställda. Kontrollera de här egenskaperna i Ethernet-kort filens /etc/sysconfig/network-scripts/ifcfg-eth *.
-    * BOOTPROTO=dhcp
+    * BOOTPROTO = dhcp
     * ONBOOT = Ja
 
 

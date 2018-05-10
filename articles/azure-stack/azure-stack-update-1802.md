@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -84,6 +84,8 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 - **Rollbaserad åtkomstkontroll (RBAC) förbättringar** – nu kan du använda RBAC för att delegera behörigheter till Universal användargrupper när Azure Stack distribueras med AD FS. Läs mer om RBAC i [hantera RBAC](azure-stack-manage-permissions.md).
 
 - **Stöd har lagts till för flera feldomäner**.  Mer information finns i [hög tillgänglighet för Azure-stacken](azure-stack-key-features.md#high-availability-for-azure-stack).
+
+- **Stöd för fysiskt minnesuppgraderingar** – nu kan du utöka minneskapacitet Azure Stack integrerat system efter den inledande distributionen. Mer information finns i [hantera fysiskt minneskapacitet för Azure-stacken](azure-stack-manage-storage-physical-memory-capacity.md).
 
 - **Olika korrigeringar** för operativsystemet som används av Azure-stacken, säkerhet, stabilitet och prestanda.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Hur du använder startdiagnostikinställningar för att felsöka Linux virtuella datorer i Azure
 
@@ -44,15 +44,20 @@ De här båda funktionerna finns för Azure Virtual Machines i alla regioner. T�
 - [FSTAB fel](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Aktivera diagnostik på en ny virtuell dator
-1. När du skapar en ny virtuell dator från förhandsversionsportalen, väljer du **Azure Resource Manager** från listrutan med distributionsmodeller:
+1. När du skapar en ny virtuell dator från Azure portal väljer den **Azure Resource Manager** distribution modellen listrutan:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Konfigurera övervakningsalternativet och välj det lagringskonto där du vill placera de här diagnostikfilerna.
+2. I **inställningar**, aktivera den **starta diagnostik**, och välj sedan ett lagringskonto som du vill att dessa diagnostiska filerna.
  
-    ![Skapa en virtuell dator](./media/boot-diagnostics/screenshot4.jpg)
+    ![Skapa en virtuell dator](./media/boot-diagnostics/create-storage-account.png)
 
-3. Om du distribuerar från en Azure Resource Manager-mall går du till den virtuella datorresursen och lägger till diagnostikprofilavsnittet. Kom ihåg att använda API-versionsrubriken 2015-06-15.
+    > [!NOTE]
+    > Start-diagnostik har inte stöd för premium-lagringskontot. Om du använder premium storage-konto för startdiagnostikinställningar kan du får felmeddelandet StorageAccountTypeNotSupported när du startar den virtuella datorn. 
+    >
+    > 
+
+3. Om du distribuerar en Azure Resource Manager-mall, navigera till din virtuella datorresurser och Lägg till avsnittet diagnostics profil. Kom ihåg att använda API-versionsrubriken 2015-06-15.
 
     ```json
     {
@@ -74,11 +79,19 @@ De här båda funktionerna finns för Azure Virtual Machines i alla regioner. T�
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Uppdatera en befintlig virtuell dator
+Kolla våra lagringsplatsen här om du vill distribuera en virtuell dator i exemplet med startdiagnostikinställningar aktiverad.
 
-Du kan uppdatera en befintlig virtuell dator via portalen om du vill aktivera startdiagnostikinställningar via portalen. Välj alternativet Startdiagnostik och Spara. Starta om den virtuella datorn så att ändringarna börjar gälla.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Aktivera startdiagnostikinställningar på befintlig virtuell dator 
 
-![Uppdatera befintlig virtuell dator](./media/boot-diagnostics/screenshot5.png)
+Följ dessa steg om du vill aktivera startdiagnostikinställningar på en befintlig virtuell dator:
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och välj sedan den virtuella datorn.
+2. I **stöd + felsökning**väljer **starta diagnostik** > **inställningar**, ändra status till **på**, och sedan Välj ett lagringskonto. 
+4. Kontrollera att alternativet Start diagnostik är markerad och spara ändringen.
+
+    ![Uppdatera befintlig virtuell dator](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Starta om den virtuella datorn så att ändringarna börjar gälla.
 
 ## <a name="next-steps"></a>Nästa steg
 

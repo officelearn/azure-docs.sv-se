@@ -1,25 +1,20 @@
 ---
 title: Azure Active Directory B2B-samarbete koden och PowerShell-exempel | Microsoft Docs
-description: "Koden och PowerShell-exempel för Azure Active Directory B2B-samarbete"
+description: Koden och PowerShell-exempel för Azure Active Directory B2B-samarbete
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6006dde5ea34db9881a02550e7aff33e48c6498e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 53fba48725e0f4f496beee6eee96ff45847b633e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samarbete koden och PowerShell-exempel
 
@@ -233,15 +228,5 @@ namespace SampleInviteApp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
-* [Lägger till en B2B-samarbete användare till en roll](active-directory-b2b-add-guest-to-role.md)
-* [Delegera B2B-samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
-* [Dynamiska grupper och B2B-samarbete](active-directory-b2b-dynamic-groups.md)
-* [Konfigurera SaaS-appar för B2B-samarbete](active-directory-b2b-configure-saas-apps.md)
-* [Användartoken för B2B-samarbete](active-directory-b2b-user-token.md)
-* [B2B-samarbete användaranspråk mappning](active-directory-b2b-claims-mapping.md)
-* [Extern delning av Office 365](active-directory-b2b-o365-external-user.md)
-* [Aktuella begränsningar för B2B-samarbete](active-directory-b2b-current-limitations.md)

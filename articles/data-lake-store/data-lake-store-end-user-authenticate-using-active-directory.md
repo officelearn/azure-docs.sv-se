@@ -1,8 +1,8 @@
 ---
-title: "Slutanvändarens autentisering: Data Lake Store med Azure Active Directory | Microsoft Docs"
-description: "Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory"
+title: 'Slutanvändarens autentisering: Data Lake Store med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 39ee32ec8b1d005aac12cb88262d7e2f37898721
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Slutanvändarens autentisering med Data Lake Store med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Kontrollera att du väljer när du följer anvisningarna i länken **interna** f
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Steg 2: Hämta program-ID och omdirigerings-URI
 
-Se [hämta program-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) att hämta program-ID (även kallat klient-ID i den klassiska Azure-portalen) för den ursprungliga Azure AD-programmet.
+Se [hämta program-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) att hämta program-ID.
 
 Utför följande steg för att hämta omdirigerings-URI.
 
@@ -102,15 +102,15 @@ Utför följande steg för att hämta omdirigerings-URI.
 
 2. Från den **inställningar** bladet för programmet, klickar du på **nödvändiga behörigheter**, och klicka sedan på **Lägg till**.
 
-    ![Klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. I den **lägga till API-åtkomst** bladet, klickar du på **väljer en API**, klickar du på **Azure Data Lake**, och klicka sedan på **Välj**.
 
-    ![Klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
  
 4.  I den **lägga till API-åtkomst** bladet, klickar du på **Välj behörigheter**, markera kryssrutan för att ge **fullständig åtkomst till Data Lake Store**, och klicka sedan på **Välj**.
 
-    ![Klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
     Klicka på **Klar**.
 

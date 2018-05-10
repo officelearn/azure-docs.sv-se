@@ -1,29 +1,29 @@
 ---
-title: "Anpassade domäner i Azure AD Application Proxy | Microsoft Docs"
-description: "Hantera anpassade domäner i Azure AD Application Proxy så att URL: en för appen är detsamma oavsett där användarna komma åt den."
+title: Anpassade domäner i Azure AD Application Proxy | Microsoft Docs
+description: 'Hantera anpassade domäner i Azure AD Application Proxy så att URL: en för appen är detsamma oavsett där användarna komma åt den.'
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b198c6aba4227e33eae4af49c019bc4012086a51
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 91cb67bb7a8ebcf0b06561a4c647098c577a473a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
-När du publicerar ett program via Azure Active Directory Application Proxy kan skapa du en extern Webbadress för dina användare att gå till när de arbetar via fjärranslutning. Denna URL hämtar standarddomänen *yourtenant.msappproxy.net*. Till exempel om du har publicerat en app med namnet kostnader och din klient namnet Contoso, den externa URL: en skulle vara https://expenses-contoso.msappproxy.net. Om du vill använda ditt eget domännamn kan du konfigurera en anpassad domän för ditt program. 
+När du publicerar ett program via Azure Active Directory Application Proxy kan skapa du en extern Webbadress för dina användare att gå till när de arbetar via fjärranslutning. Denna URL hämtar standarddomänen *yourtenant.msappproxy.net*. Till exempel om du har publicerat en app med namnet kostnader och din klient namnet Contoso och den externa URL: en skulle vara https://expenses-contoso.msappproxy.net. Om du vill använda ditt eget domännamn kan du konfigurera en anpassad domän för ditt program. 
 
 Vi rekommenderar att du konfigurerar anpassade domäner för dina program när det är möjligt. Några av fördelarna med anpassade domäner är:
 
@@ -32,7 +32,7 @@ Vi rekommenderar att du konfigurerar anpassade domäner för dina program när d
 - Du styr din företagsanpassning och URL: er som du vill skapa. 
 
 
-## <a name="configure-a-custom-domain"></a>Konfigurera en anpassad domän
+## <a name="configure-a-custom-domain"></a>Konfigurera ett anpassat domännamn
 
 ### <a name="prerequisites"></a>Förutsättningar
 

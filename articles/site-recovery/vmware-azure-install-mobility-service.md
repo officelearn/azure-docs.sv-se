@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 445a5f10eac0959dab57e10680659c0792ad6fba
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-mobility-service"></a>Installera mobilitetstjänsten 
 
@@ -27,7 +27,7 @@ Azure Site Recovery-Mobilitetstjänsten har installerats på virtuella VMware-da
 
 
 >[!IMPORTANT]
-> Från och med version 9.7.0.0, på virtuella Windows-datorer, Mobilitetstjänsten installerar installationsprogrammet också den senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/windows/extensions-features.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn installationen av nödvändiga för att använda alla VM-tillägg.
+> Från och med version 9.7.0.0, på virtuella Windows-datorer, Mobilitetstjänsten installerar installationsprogrammet också den senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn installationen av nödvändiga för att använda alla VM-tillägg.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuellt på servern:
@@ -51,8 +51,8 @@ Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuel
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (endast 64-bitars)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (endast 64-bitars)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (endast 64-bitars)|
+|Microsoft ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (endast 64-bitars)|
+|Microsoft ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (endast 64-bitars)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (endast 64-bitars)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (endast 64-bitars)|
 

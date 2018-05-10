@@ -1,26 +1,20 @@
 ---
-title: "Få support för Azure Active Directory B2B-samarbete | Microsoft Docs"
-description: "Vad är supporten för Azure Active Directory B2B-samarbete?"
+title: Få support för Azure Active Directory B2B-samarbete | Microsoft Docs
+description: Vad är supporten för Azure Active Directory B2B-samarbete?
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/26/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 2fcb35668b1966544f2acbb56b4117073be3249d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ebdbfea7c4872aff0f548ba119560393716d7472
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Få support för B2B-samarbete
 
@@ -29,7 +23,7 @@ Du har läst igenom dokumentationen, du har gjort rätt saker, men fortfarande i
 1. I [Azure-portalen](https://portal.azure.com), navigera till bladet hjälp och Support och välj ny supportförfrågan:
   - Utfärda typ: tekniska
   - Prenumerationen: Välj påverkas prenumeration
-    - Service: Active Directory
+    - Tjänsten: Active Directory
     - Supportavtal: Välja relevanta supportavtal
 
   ![ny supportbegäran](media/active-directory-b2b-support/new-support-request.png)

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>Översikt
 I Azure Media Services (AMS), en **kanal** representerar en pipeline för bearbetning av liveströmmat innehåll. En **kanal** tar emot live indata i ett av två sätt:
 
-* En lokal livekodare skickar en ström med en enda bithastighet till den kanal som är aktiverad för att utföra Live Encoding med Media Services i något av följande format: RTP (MPEG-TS) RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
+* En lokal livekodare skickar en dataström med enkel bithastighet till den kanal som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 * En lokal livekodare skickar flera bithastigheter **RTMP** eller **Smooth Streaming** (fragmenterad MP4) till den kanal som inte är aktiverad för att utföra live encoding med AMS. Infogade strömmarna passerar genom **kanal**s utan vidare bearbetning. Den här metoden anropas **direkt**. Du kan använda de följande livekodare som skickar Smooth Streaming i flera bithastigheter: MediaExcel, Ateme, anta kommunikation, Envivio, Cisco och Elemental. Följande livekodare skickar RTMP: Adobe Flash Media Live-kodare (FMLE), Telestream Wirecast, Haivision, Teradek och Tricaster kodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
   
   > [!NOTE]
@@ -79,7 +79,7 @@ Från och med 25 januari 2016 Media Services distribuerat en uppdatering som aut
 Tröskelvärdet för en oanvända tid är praktiskt taget 12 timmar, men kan ändras.
 
 ## <a name="live-encoding-workflow"></a>Live Encoding-arbetsflöde
-Följande diagram representerar en live-streaming arbetsflöde där en kanal som tar emot en dataström med enkel bithastighet i något av följande protokoll: RTMP, Smooth Streaming eller RTP (MPEG-TS); sedan kodar den dataström som en dataström med multibithastighet. 
+Följande diagram representerar en live-streaming arbetsflöde där en kanal som tar emot en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming; sedan kodar den dataström som en dataström med multibithastighet. 
 
 ![Live-arbetsflöde][live-overview]
 
@@ -91,7 +91,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 > 
 > 
 
-1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en **enda** bithastighet i något av följande protokoll: RTMP, Smooth Streaming eller RTP (MPEG-TS). 
+1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en **enda** bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. 
    
     Det här steget kan också utföras när du har skapat din kanal.
 2. Skapa och starta en kanal. 
@@ -125,48 +125,8 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 ### <a id="Ingest_Protocols"></a>Strömmande infogningsprotokollet
 Om den **kodare typen** är inställd på **Standard**, giltiga alternativ är:
 
-* **RTP** (MPEG-TS): MPEG-2-transportström över RTP.  
 * Enkel bithastighet **RTMP**
 * Enkel bithastighet **fragmenterad MP4** (Smooth Streaming)
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) - MPEG-2-transportström över RTP.
-Vanligt användningsfall: 
-
-Professional sändningsföretag normalt fungerar med avancerade lokal livekodare från leverantörer som grundämne tekniker, Ericsson, Ateme, Imagine eller Envivio för att skicka en dataström. Ofta används tillsammans med en IT-avdelning och i privata nätverk.
-
-Att tänka på:
-
-* Användning av ett enda program transportström (SPTS) Ange rekommenderas starkt. 
-* Du kan ange upp till 8 ljudströmmar med MPEG-2 TS över RTP. 
-* Video-ström ska ha en genomsnittlig bithastighet under 15 Mbit/s
-* Sammanställd genomsnittlig bithastighet för ljud strömmar ska vara under 1 Mbit/s
-* Följande är koder som stöds:
-  
-  * MPEG-2 / H.262 Video 
-    
-    * Centrala profil (4:2:0)
-    * Hög profil (4:2:0, 4:2:2)
-    * 422 profil (4:2:0, 4:2:2)
-  * MPEG-4 AVC / H.264 Video  
-    
-    * Baslinje, Main, hög profil (8-bitars 4:2:0)
-    * Hög 10 profil (10 bitar 4:2:0)
-    * Hög 422 profil (10 bitar 4:2:2)
-  * MPEG-2 AAC-LC ljud 
-    
-    * Mono, Stereo Surround (5.1, 7.1)
-    * MPEG-2-style ADTS paketering
-  * Dolby Digital (AC-3) ljud 
-    
-    * Mono, Stereo Surround (5.1, 7.1)
-  * MPEG Audio (Layer II och III) 
-    
-    * Mono, Stereo
-* Rekommenderade broadcast kodare inkluderar:
-  
-  * Anta att kommunikation Selenio ENC 1
-  * Anta att kommunikation Selenio ENC 2
-  * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>RTMP med enkel bithastighet
 Att tänka på:
@@ -232,36 +192,21 @@ Du kan ange IP-adresser som tillåts att ansluta till förhandsgranskningsslutpu
 Det här avsnittet beskrivs hur inställningarna för livekodaren i kanalen kan justeras, när den **kodning typen** för en kanal är inställd på **Standard**.
 
 > [!NOTE]
-> När mata in flera språkspår och utföra live encoding med Azure, endast RTP stöds för flera språk indata. Du kan ange upp till 8 ljudströmmar med MPEG-2 TS över RTP. Vill föra in flera ljud spår med RTMP eller Smooth streaming stöds inte för närvarande. När du gör live encoding med [lokalt live kodar](media-services-live-streaming-with-onprem-encoders.md), det finns ingen sådan begränsning eftersom det skickas till AMS passerar genom en kanal utan vidare bearbetning.
+> Ditt bidrag feed kan endast innehålla en enda ljud spåra – vill föra in flera ljud spår stöds inte för närvarande. När du gör live encoding med [lokalt live kodar](media-services-live-streaming-with-onprem-encoders.md), kan du skicka ett bidrag feed i Smooth Streaming-protokollet som innehåller flera ljud spår.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Markör AD-källa
 Du kan ange källan för annonsmarkörssignaler. Standardvärdet är **Api**, vilket betyder att livekodaren i kanalen bör lyssna på en asynkron **Annonsmarkörs-API**.
 
-Det giltiga alternativet är **Scte35** (tillåts endast om det strömmande infognings-protokollet har värdet RTP (MPEG-TS). Om du har angett Scte35 livekodaren kommer att parsa SCTE 35 signaler från Indataströmmen RTP (MPEG-TS).
-
 ### <a name="cea-708-closed-captions"></a>CEA 708 textning
 En valfri flagga som anger att livekodaren till ignorerar CEA 708 bildtexter data som är inbäddad i inkommande videon. När flaggan anges till FALSKT (standard), kodaren identifierar och sätt tillbaka CEA 708 data i video utdataströmmar.
-
-### <a name="video-stream"></a>Video-ström
-Valfri. Beskriver video Indataströmmen. Om det här fältet inte anges används standardvärdet. Den här inställningen är bara tillåtet om indata strömning protokollet är inställd på RTP (MPEG-TS).
-
-#### <a name="index"></a>Index
-Ett Nollbaserat index som anger vilka video Indataströmmen ska bearbetas av livekodaren i kanalen. Den här inställningen gäller endast om infognings-strömning protokollet är RTP (MPEG-TS).
-
-Standardvärdet är noll. Det rekommenderas att skicka i ett enda program transportström (SPTS). Om Indataströmmen innehåller flera program kan livekodaren Parsar programmet kartan tabellen (betalning) i indata, identifierar indata som har ett stream-typnamn för MPEG-2-Video eller H.264 och ordnar dem i den ordning som anges i bet Det nollbaserade indexet används sedan för att hämta n: e-post i den ordningen.
-
-### <a name="audio-stream"></a>Ljudström
-Valfri. Beskriver inkommande ljudströmmar. Om det här fältet inte har angetts gäller standardvärdena. Den här inställningen är bara tillåtet om indata strömning protokollet är inställd på RTP (MPEG-TS).
 
 #### <a name="index"></a>Index
 Det rekommenderas att skicka i ett enda program transportström (SPTS). Om Indataströmmen innehåller flera program, livekodaren i kanalen Parsar programmet kartan tabellen (betalning) i indata, identifierar indata som har en dataström typnamn MPEG-2 AAC ADTS eller AC-3 System-A AC-3 System-B eller MPEG-2 privata PES MPEG-1 ljud eller ljud MPEG-2 och ordnar dem i den ordning som anges i bet Det nollbaserade indexet används sedan för att hämta n: e-post i den ordningen.
 
 #### <a name="language"></a>Språk
 Språk-ID för ljudström, som överensstämmer med ISO 639-2, till exempel ENG. Om den inte finns är standard och (Odefinierad).
-
-Det kan vara upp till 8 ljudström mängder anges om indata till kanalen är MPEG-2 TS över RTP. Det kan dock inga två poster med samma värde för indexet.
 
 ### <a id="preset"></a>System förinställda
 Anger förinställningen som ska användas av livekodaren i den här kanalen. Det enda tillåtna värdet är för närvarande **Default720p** (standard).
@@ -387,13 +332,11 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 * Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i [detta](media-services-manage-live-encoder-enabled-channels.md#states) avsnitt.
 * Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Se till att ha den strömningsslutpunkt från vilken du vill strömma innehåll i den **kör** tillstånd.
-* När mata in flera språkspår och utföra live encoding med Azure, endast RTP stöds för flera språk indata. Du kan ange upp till 8 ljudströmmar med MPEG-2 TS över RTP. Vill föra in flera ljud spår med RTMP eller Smooth streaming stöds inte för närvarande. När du gör live encoding med [lokalt live kodar](media-services-live-streaming-with-onprem-encoders.md), det finns ingen sådan begränsning eftersom det skickas till AMS passerar genom en kanal utan vidare bearbetning.
 * Kodning förinställningen använder begreppet ”max bildfrekvens” på 30 fps. Om indata är 60fps 59.97i, inkommande ramarna är bort/de-interlaced till 30/29,97 fps. Om indata är 50fps/50i, är inkommande ramarna bort/de-interlaced till 25 bildrutor per sekund. Om indata är 25 bildrutor förblir utdata 25 bildrutor per sekund.
 * Glöm inte att stoppa din kanaler när du är klar. Om du inte gör fortsätter fakturering.
 
 ## <a name="known-issues"></a>Kända problem
 * Kanal tid att starta förbättrats genomsnitt 2 minuter, men ibland med ökad efterfrågan kan fortfarande ta upp till 20 + minuter.
-* Stöd för RTP är behov tillgodoses ordentligt mot professional sändningsföretag. Granska information om RTP i [detta](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogg.
 * En bilder bör följa begränsningar som beskrivs [här](media-services-manage-live-encoder-enabled-channels.md#default_slate). Om du försöker skapa en kanal med en standard-blad som är större än 1 920 x 1 080, begäran kommer så småningom fel ut.
 * Återigen... Glöm inte att stoppa din kanaler när du är klar strömning. Om du inte gör fortsätter fakturering.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -392,7 +392,7 @@ Konfigurera den här funktionen genom att definiera båda av följande alternati
 Alternativ|Beskrivning
 --|--
 Ursprungliga sökväg| Definiera den relativa sökvägen till typerna av begäranden vars cachenyckel skrivs om. En relativ sökväg kan definieras genom att välja en grundläggande ursprungssökväg och sedan definiera ett mönster för reguljärt uttryck.
-Ny sökväg|Definiera den relativa sökvägen för den nya cache-nyckeln. En relativ sökväg kan definieras genom att välja en grundläggande ursprungssökväg och sedan definiera ett mönster för reguljärt uttryck. Den här relativa sökvägen kan konstrueras dynamiskt genom att använda HTTP-variabler
+Ny sökväg|Definiera den relativa sökvägen för den nya cache-nyckeln. En relativ sökväg kan definieras genom att välja en grundläggande ursprungssökväg och sedan definiera ett mönster för reguljärt uttryck. Den här relativa sökvägen kan konstrueras dynamiskt med [HTTP variabler](cdn-http-variables.md).
 **Standardbeteende:** en begäran cachenyckel bestäms av URI-begäran.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ En av följande åtgärder kan utföras på ett huvud:
 
 Alternativ|Beskrivning|Exempel
 -|-|-
-Lägg till|Det angivna värdet läggs till i slutet av det befintliga begäran huvudvärdet.|**Begära huvudvärde (klient):** Value1 <br/> **Begära huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny begäran huvudvärde:** Value1Value2
-Skriv över|Begäran huvudvärde sätts till det angivna värdet.|**Begära huvudvärde (klient):** Value1 <br/>**Begära huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny begäran huvudvärde:** Value2 <br/>
-Ta bort|Tar bort det angivna begärandehuvudet.|**Begära huvudvärde (klient):** Value1 <br/> **Ändra konfigurationen för klienten begärandehuvudet:** ta bort begärandehuvudet i fråga. <br/>**Resultat:** det angivna begärandehuvudet inte vidarebefordras till den ursprungliga servern.
+Lägg till|Det angivna värdet läggs till i slutet av det befintliga begäran huvudvärdet.|**Begär huvudvärde (klient):**<br/>Value1<br/>**Begär huvudvärde (regelmotor):**<br/>Value2 <br/>**Nya huvudvärde för begäran:** <br/>Value1Value2
+Skriv över|Begäran huvudvärde sätts till det angivna värdet.|**Begär huvudvärde (klient):**<br/>Value1<br/>**Begär huvudvärde (regelmotor):**<br/>Value2<br/>**Nya huvudvärde för begäran:**<br/> Value2 <br/>
+Ta bort|Tar bort det angivna begärandehuvudet.|**Begär huvudvärde (klient):**<br/>Value1<br/>**Ändra klientkonfigurationen begäran huvud:**<br/>Ta bort begärandehuvudet i fråga.<br/>**Resultat:**<br/>Det angivna begärandehuvudet vidarebefordras inte till den ursprungliga servern.
 
 Viktig information:
 
@@ -922,9 +922,9 @@ En av följande åtgärder kan utföras på en svarshuvud:
 
 Alternativ|Beskrivning|Exempel
 -|-|-
-Lägg till|Det angivna värdet läggs till i slutet av det befintliga värdet för huvudet svar.|**Svaret huvudvärde (klient):** Value1 <br/> **Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value1Value2
-Skriv över|Svaret huvudvärde sätts till det angivna värdet.|**Svaret huvudvärde (klient):** Value1 <br/>**Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value2 <br/>
-Ta bort|Tar bort det angivna svarshuvudet.|**Svaret huvudvärde (klient):** Value1 <br/> **Ändra konfigurationen för klienten svarshuvud:** ta bort rubriken i fråga. <br/>**Resultat:** det angivna svarshuvudet inte vidarebefordras till beställaren.
+Lägg till|Det angivna värdet läggs till i slutet av det befintliga värdet för huvudet svar.|**Svaret huvudvärde (klient):**<br />Value1<br/>**Svaret huvudvärde (regelmotor):**<br/>Value2<br/>**Rubrikvärdet nya svar:**<br/>Value1Value2
+Skriv över|Svaret huvudvärde sätts till det angivna värdet.|**Svaret huvudvärde (klient):**<br/>Value1<br/>**Svaret huvudvärde (regelmotor):**<br/>Value2 <br/>**Rubrikvärdet nya svar:**<br/>Value2 <br/>
+Ta bort|Tar bort det angivna svarshuvudet.|**Svaret huvudvärde (klient):**<br/>Value1<br/>**Ändra klientkonfigurationen svar huvud:**<br/>Ta bort rubriken i fråga.<br/>**Resultat:**<br/>Det angivna svarshuvudet vidarebefordras inte till beställaren.
 
 Viktig information:
 
@@ -998,7 +998,7 @@ Viktig information:
 - Förhindra att ett CDN-specifikt huvud vidarebefordras genom att ta bort den från blankstegsavgränsad lista i listan huvudfält.
 
 Följande HTTP-huvuden ingår i listan som standard:
-- via
+- Via
 - X vidarebefordras för
 - X vidarebefordras Proto
 - X-värden
@@ -1234,8 +1234,8 @@ Konfigurationen för den här funktionen kräver att ange följande alternativ:
 Alternativ|Beskrivning
 -|-
 Kod|Välj svarskoden returneras till beställaren.
-Källan & mönster| Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden kan omdirigeras. Omdirigeras endast begäranden vars URL uppfyller båda av följande kriterier: <br/> <br/> **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/> **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> -Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med några matchar villkoren för den här funktionen. <br/> -Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar.
-Mål| Definiera den URL som ovan begäranden ska omdirigeras. <br/> Konstruera dynamiskt med den här URL: <br/> -Ett mönster för reguljärt uttryck <br/>-HTTP variabler <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. <br/> 
+Källan & mönster| Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden kan omdirigeras. Omdirigeras endast begäranden vars URL uppfyller båda av följande kriterier: <br/> <br/> **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/><br/> **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> -Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med några matchar villkoren för den här funktionen. <br/> -Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar.
+Mål| Definiera den URL som ovan begäranden ska omdirigeras. <br/><br/> Konstruera dynamiskt med den här URL: <br/> -Ett mönster för reguljärt uttryck <br/>- [HTTP-variabler](cdn-http-variables.md) <br/><br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. <br/> 
 Vi rekommenderar starkt att använda en absolut URL. Användning av en relativ URL kan omdirigera CDN URL: er till en ogiltig sökväg.
 
 **Exempelscenario**
@@ -1276,8 +1276,8 @@ Viktig information:
 
 Alternativ|Beskrivning
 -|-
- Källan & mönster | Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden som kan skrivas. Kommer att skrivas om endast begäranden vars URL uppfyller båda av följande kriterier: <br/>     - **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/> - **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med något av matchar villkoren som har definierats för den här funktionen. Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar. 
- Mål  |Definiera relativ URL som ovan begäranden ska skrivas med: <br/>    1. Att välja en innehålls åtkomstpunkt som identifierar en ursprungsservern. <br/>    2. Definiera en relativ sökväg med hjälp av: <br/>        -Ett mönster för reguljärt uttryck <br/>        -HTTP variabler <br/> <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. 
+ Källan & mönster | Dessa inställningar definierar ett mönster för begäran URI som identifierar typ av begäranden som kan skrivas. Kommer att skrivas om endast begäranden vars URL uppfyller båda av följande kriterier: <br/><br/>  - **Källa (eller innehålls åtkomstpunkt):** Välj en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/><br/> - **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Det här mönstret för reguljära uttryck måste ange en sökväg som startar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> Kontrollera att begäran URI villkoren (det vill säga källa & mönster) tidigare inte krockar med något av matchar villkoren som har definierats för den här funktionen. Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar. 
+ Mål  |Definiera relativ URL som ovan begäranden ska skrivas med: <br/>    1. Att välja en innehålls åtkomstpunkt som identifierar en ursprungsservern. <br/>    2. Definiera en relativ sökväg med hjälp av: <br/>        -Ett mönster för reguljärt uttryck <br/>        - [HTTP-variabler](cdn-http-variables.md) <br/> <br/> Ersätta de värden som hämtats i mönstret för källan till målet mönstret med $_n_ där _n_ identifierar ett värde i den ordning som den hämtades. Till exempel representerar 1 USD det första värdet som avbildas i käll-mönster, medan $2 representerar det andra värdet. 
  Den här funktionen gör POP att skriva om URL: en utan att utföra en traditionell omdirigering. Det vill säga beställaren tar emot samma svarskoden som om omskrivet URL: en hade begärts.
 
 **Exempelscenario 1**

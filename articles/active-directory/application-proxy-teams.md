@@ -1,25 +1,25 @@
 ---
-title: "Åtkomst till Azure AD App Proxy appar i team | Microsoft Docs"
-description: "Använda Azure AD Application Proxy åtkomst till lokala program via Microsoft-Teams."
+title: Åtkomst till Azure AD App Proxy appar i team | Microsoft Docs
+description: Använda Azure AD Application Proxy åtkomst till lokala program via Microsoft-Teams.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 66fdc03d2945b84615ee39dcbcc9bc71ddb06711
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Åtkomst till lokala program via Microsoft-Teams
 
@@ -38,7 +38,7 @@ Om du redan har dina appar som publiceras men inte kommer ihåg sina externa URL
 
 När du publicerar appen via Application Proxy kan du låta dina användare veta att de kan lägga till den som en flik direkt i deras team kanaler och sedan appen är tillgänglig för alla i gruppen kan använda. Ha dem följande tre steg:
 
-1. Navigera till team kanalen där du vill lägga till den här appen och markera  **+**  att lägga till en flik.
+1. Navigera till team kanalen där du vill lägga till den här appen och markera **+** att lägga till en flik.
 
    ![Välj Lägg till en flik](./media/application-proxy-teams/add-tab.png)
 

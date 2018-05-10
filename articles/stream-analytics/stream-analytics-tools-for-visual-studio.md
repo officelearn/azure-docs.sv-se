@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Använda Azure Stream Analytics-verktyg för Visual Studio
 Azure Stream Analytics-verktyg för Visual Studio är nu allmänt tillgänglig. Dessa verktyg aktivera en rikare upplevelse för Stream Analytics användare att felsöka samt skriva komplexa frågor och skriva även frågor lokalt. Du kan också exportera ett Stream Analytics-jobb i Visual Studio-projekt.
@@ -28,6 +28,20 @@ När du har slutfört den här självstudiekursen kommer du att kunna:
 * TESTJOBBET lokalt med lokala exempeldata.
 * Använd övervakning för att felsöka problem.
 * Exportera befintliga jobb till projekt.
+
+>[!IMPORTANT]
+>
+>I förberedelse för den nya allmänna Data Protection förordning (BNPR) försättas effekt på 25 maj 2018, rekommenderar vi att användare av Azure Stream Analytics Tools för Visual Studio uppgradera till version 2.3.3000.5 eller senare. Den här versionen innehåller ändras baserat på de senaste kraven på dataskydd. Observera att tidigare versioner inte är tillgängliga för hämtning och är föråldrade. 
+>
+>**Vad behöver jag göra?**
+>
+>1. Kontrollera om du använder en tidigare version än 2.3.3000.5 Azure Stream Analytics verktyg för Visual Studio. 
+>   
+>   ![Version av verktyget](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. Om din version är en tidigare version av 2.3.3000.5 uppdaterar du din Azure Data Lake-verktyg för Visual Studio genom att besöka download center: 
+>    - [För Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [För Visual Studio 2013 och 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande förutsättningar för att kunna slutföra den här kursen behöver du:
@@ -113,7 +127,7 @@ Nu har alla indata definierats.
 
    ![Inställningar för utdata](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
-## <a name="stream-analytics-query"></a>Stream Analytics query
+## <a name="stream-analytics-query"></a>Stream Analytics-fråga
 Den här självstudiekursen försöker besvara frågor från flera företag som är relaterade till avgiftsbelagt data. Vi skapa frågor som kan användas i Stream Analytics för att ge relevanta svar. Innan du börjar din första Stream Analytics-jobbet utforska vi ett enkelt scenario och frågesyntaxen.
 
 ### <a name="introduction-to-stream-analytics-query-language"></a>Introduktion till Stream Analytics-frågespråket
@@ -135,8 +149,8 @@ Nu när du har skrivit din första Stream Analytics-fråga, testa den med hjälp
 
 Den här mappen innehåller följande filer:
 
-* Entry.json
-* Exit.json
+* Entry.JSON
+* Exit.JSON
 * Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Fråga: Antal fordon att ange en avgift monter
@@ -192,7 +206,7 @@ Du kan se förloppet på den **utdata** fönster.
  
 2. Välj **skapa en ny Azure Stream Analytics-jobbet**. För **jobbnamn**, ange **TollApp**. Välj rätt **prenumeration** i den nedrullningsbara listan. Välj **skicka**.
 
-   ![Submit Job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
+   ![Skicka jobbet](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
 ### <a name="start-the-job"></a>Starta jobbet

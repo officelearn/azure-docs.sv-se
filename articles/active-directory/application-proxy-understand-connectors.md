@@ -3,23 +3,23 @@ title: Förstå Azure AD Application Proxy kopplingar | Microsoft Docs
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
-ms.author: billmath
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e2b82b5c32e1b36bf730b7b834c9b8ad124629
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-kopplingar
 
@@ -72,7 +72,7 @@ Mer information om koppling grupper finns [publicera program på separata nätve
 
 Kopplingar kommer automatiskt att belastningsutjämna i en grupp för anslutningen, men det är också viktigt att se till att du har planerat tillräckligt med kapacitet mellan kopplingar ska hantera den förväntade trafikvolymen är. I allmänhet fler användare som du har större en dator som du behöver. Nedan finns en tabell med en beskrivning av volymen olika datorer kan hantera. Observera den är baserad på förväntad transaktioner Per andra (Transaktionsprogram) i stället av användaren sedan användning mönster varierar och kan inte användas för att förutsäga belastningen.  Observera också att det blir vissa skillnader baserat på storleken på svar och svarstiden för backend-programmet - större svar storlekar och längre svarstider leder till en lägre Max TPS.
 
-|Kärnor|RAM|Förväntat svarstid (MS)-P99|Max TPS|
+|Kärnor|RAM|Förväntat svarstid (MS)-P99|Max Transaktionsprogram|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
@@ -157,7 +157,7 @@ Loggarna, gå till Loggboken, öppna den **visa** -menyn och aktivera **visa ana
 
 Du kan undersöka statusen för tjänsten i fönstret tjänster. Kopplingen består av två Windows-tjänster: den faktiska anslutningen och uppdateringsfilen. Båda måste köras hela tiden.
 
- ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
+ ![AzureAD tjänster lokalt](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

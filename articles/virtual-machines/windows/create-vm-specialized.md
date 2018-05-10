@@ -1,11 +1,11 @@
 ---
-title: "Skapa en virtuell Windows-dator från en särskild virtuell Hårddisk i Azure | Microsoft Docs"
-description: "Skapa en ny Windows virtuell dator genom att koppla en särskild hanterade diskar som OS-disk i Resource Manager-distributionsmodellen."
+title: Skapa en virtuell Windows-dator från en särskild virtuell Hårddisk i Azure | Microsoft Docs
+description: Skapa en ny Windows virtuell dator genom att koppla en särskild hanterade diskar som OS-disk i Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7b1a145040297debe2c348d61f204fc82d2e7d4d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med hjälp av PowerShell
 
@@ -40,7 +40,7 @@ Det här avsnittet visar hur du använder hanterade diskar. Om du har en äldre 
 Om du använder PowerShell kan du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Mer information finns i [Azure PowerShell versionshantering](/powershell/azure/overview).
 
@@ -137,7 +137,7 @@ Det här kommandot kan ta en stund att slutföra beroende på nätverksanslutnin
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Skapa en hanterade diskar från den virtuella Hårddisken
 
-Skapa en hanterad disk från särskilda VHD: N i din storage-konto med [ny AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Det här exemplet används **myOSDisk1** för disk-namn, placerar disken i *StandardLRS* lagring och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för källan VHD.
+Skapa en hanterad disk från särskilda VHD: N i din storage-konto med [ny AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Det här exemplet används **myOSDisk1** för disk-namn, placerar disken i *Standard_LRS* lagring och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för källan VHD.
 
 Skapa en ny resursgrupp för den nya virtuella datorn.
 
@@ -153,7 +153,7 @@ Skapa den nya OS-disken från den överförda virtuella Hårddisken.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +337,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Lägg till OS-disk i en konfiguration med hjälp av [Set AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Det här exemplet anger storleken på disken för att *128 GB* och bifogar hanterade disken som en *Windows* OS-disken.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 

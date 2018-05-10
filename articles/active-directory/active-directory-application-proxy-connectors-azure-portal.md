@@ -1,25 +1,25 @@
 ---
-title: "Publicera program på separata nätverk och platser med hjälp av kopplingen grupper i Azure AD App Proxy | Microsoft Docs"
+title: Publicera program på separata nätverk och platser med hjälp av kopplingen grupper i Azure AD App Proxy | Microsoft Docs
 description: Beskriver hur du skapar och hanterar grupper av kopplingar i Azure AD Application Proxy.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av connector-grupper
 
@@ -74,7 +74,7 @@ För program som installerats på IaaS för molnåtkomst betjäna connector grup
 
 Ta ett exempel som en organisation som har flera virtuella datorer som är anslutna till sina egna IaaS värdbaserade virtuella nätverk. Om du vill låta de anställda använder dessa program, är dessa privata nätverk anslutna till företagsnätverket med hjälp av plats-till-plats-VPN. Detta ger en bra upplevelse för medarbetare som är belägna i företagets lokaler. Men det kanske inte är optimal för fjärranslutna anställda, eftersom den kräver ytterligare lokala infrastruktur för att dirigera åtkomst, som du ser i diagrammet nedan:
 
-![AzureAD Iaas Network](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
+![AzureAD Iaas-nätverk](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
 Du kan aktivera en gemensam tjänst få säker åtkomst till alla program utan att skapa ytterligare beroende på företagets nätverk med Azure AD Application Proxy connector grupper:
 

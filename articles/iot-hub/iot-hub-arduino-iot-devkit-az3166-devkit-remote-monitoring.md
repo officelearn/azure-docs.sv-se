@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d59a739e2222aca27993f6ae944a1d3bda567041
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT-Fjärrövervaknings solution accelerator
 
@@ -124,4 +124,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT-Fjärrövervaknings lösningsaccelerator och visualisera sensordata, är här de föreslagna nästa steg:
 
 * [Azure IoT-lösningen acceleratorer översikt](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Anslut en MXChip IoT DevKit enhet till din Azure IoT centralt program](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -3,23 +3,24 @@ title: Dölj ett program från användarens upplevelse i Azure Active Directory 
 description: Så här dölja ett program från användarupplevelse i Azure Active Directory access paneler eller Office 365 startprogram.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 7da8c60feed7cbb630e5b48653c657cc8fed9e99
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 564b724ab3971e0566fb2b1dc3a75c2eeac3d391
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Dölj ett program från användarens upplevelse i Azure Active Directory
 
@@ -40,13 +41,13 @@ Använd följande steg för att dölja ett program från en användares åtkomst
 1.  Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 2.  Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
 3.  På den **Azure Active Directory - *directoryname***  skärmen (det vill säga Azure AD skärmen för den katalog som du hanterar), Välj **företagsprogram**.
-![Företagsappar](media/active-directory-coreapps-hide-third-party-app/app1.png)
+![Företagets appar](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  På den **företagsprogram** väljer **alla program**. Du kan se en lista över appar som du kan hantera.
 5.  På den **företagsprogram - alla program** väljer du en app.</br>
-![Företagsappar](media/active-directory-coreapps-hide-third-party-app/app2.png)
+![Företagets appar](media/active-directory-coreapps-hide-third-party-app/app2.png)
 6.  På den ***appname*** skärmen (det vill säga skärmen med namnet på den valda appen i namnet), välj Egenskaper.
 7.  På den  ***appname* -egenskaper** väljer **Ja** för **synlig för användarna?**.
-![Företagsappar](media/active-directory-coreapps-hide-third-party-app/app3.png)
+![Företagets appar](media/active-directory-coreapps-hide-third-party-app/app3.png)
 8.  Välj den **spara** kommando.
 
 ### <a name="how-do-i-hide-office-365-applications-from-users-access-panel"></a>Hur döljer Office 365-program från användarens åtkomstpanelen?

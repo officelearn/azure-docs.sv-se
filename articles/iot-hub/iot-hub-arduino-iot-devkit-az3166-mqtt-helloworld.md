@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 073ac7cf2d8d8d5dac6a5a4f9b9d4e3d1af6f095
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 62fdd3dae9513973d0284eda5250d9eb29bfde91
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-server
 
@@ -94,4 +94,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Nu när du har lärt dig hur du konfigurerar din MXChip Iot DevKit som en MQTT klient och använda MQTT klientbiblioteket för att skicka meddelanden till en MQTT broker är här de föreslagna nästa steg:
 
 * [Azure IoT fjärråtkomst övervakning solution accelerator-översikt](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Anslut en MXChip IoT DevKit enhet till din Azure IoT centralt program](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

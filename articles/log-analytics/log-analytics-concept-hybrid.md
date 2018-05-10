@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med logganalys
 
@@ -40,7 +40,7 @@ Agent för Linux och Windows kommunicerar utgående med Log Analytics-tjänsten 
 
 Om du övervakar datorn med System Center 2016 - Operations Manager eller Operations Manager 2012 R2 kan det vara multi-homed Log Analytics-tjänsten för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av [Operations Manager ](log-analytics-om-agents.md). Linux-datorer som övervakas av en Operations Manager-hanteringsgrupp som är integrerad med logganalys får inte någon konfiguration för datakällor och vidarebefordra insamlade data till hanteringsgruppen. Windows-agent kan rapportera upp till fyra arbetsytor, medan den Linux-agenten stöder endast rapporterar till en enda arbetsyta.  
 
-Agent för Linux och Windows är inte bara för att ansluta till logganalys, det stöder också Azure Automation till värd Hybrid Runbook worker-rollen och lösningar för hantering, till exempel ändringsspårning och hantering av uppdateringar.  Läs mer om Hybrid Runbook Worker-rollen [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+Agent för Linux och Windows är inte bara för att ansluta till logganalys, det stöder också Azure Automation till värd Hybrid Runbook worker-rollen och lösningar för hantering, till exempel ändringsspårning och hantering av uppdateringar.  Läs mer om Hybrid Runbook Worker-rollen [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Granska följande information för att verifiera att du uppfyller systemkraven innan du börjar.
@@ -94,10 +94,10 @@ Konfigurationsvärdet proxy har följande syntax:
 > [!NOTE]
 > Om proxyservern inte kräver autentisera, kräver Linux-agenten fortfarande ett pseudokolumner/lösenord. Detta kan vara alla användarnamn eller lösenord.
 
-|Egenskap| Beskrivning |
+|Egenskap | Beskrivning |
 |--------|-------------|
 |Protokoll | https |
-|användare | Valfritt användarnamn för proxyautentisering |
+|Användare | Valfritt användarnamn för proxyautentisering |
 |lösenord | Lösenord för proxyautentisering |
 |proxyhost | Adress eller FQDN för proxy server/OMS Gateway |
 |port | Valfria portnumret för proxyservern server/OMS Gateway |

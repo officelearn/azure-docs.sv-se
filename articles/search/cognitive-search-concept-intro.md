@@ -8,15 +8,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: 853e8fbc0c7044dc97a29254bfd4130e7f81bbbd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="what-is-cognitive-search"></a>Vad är kognitiva sökningen?
 
-Kognitiva search är en förhandsversion av funktionen för Azure Search tillgängliga på alla nivåer i södra centrala USA och Västeuropa som lägger till AI indexering arbetsbelastningar. Extrahering av data, bearbetning av naturligt språk och avbildningen bearbetning under indexeringen hittar Latenta informationen i Ostrukturerade eller icke-sökbart innehåll och gör det sökbara i Azure Search.
+Kognitiva search är en förhandsvisningsfunktion av [Azure Search](search-what-is-azure-search.md), tillgänglig på alla nivåer i södra centrala USA och Västeuropa som lägger till AI indexering arbetsbelastningar. Extrahering av data, bearbetning av naturligt språk och avbildningen bearbetning under indexeringen hittar Latenta informationen i Ostrukturerade eller icke-sökbart innehåll och gör det sökbara i Azure Search.
 
 AI-integrering är via *kognitiva kunskaper* som utöka källdokument via sekventiella processer i vägen till ett sökindex. 
 

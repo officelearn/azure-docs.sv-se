@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än standard kvarhållningsperioden? Eller bearbeta några särskilda sätt? Löpande Export är idealisk för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta data och skriva oavsett kod som du behöver för att bearbeta den.  
 
-Med hjälp av löpande Export kan innebära en extra kostnad. Kontrollera din [Prismodell](http://azure.microsoft.com/pricing/details/application-insights/).
+Med hjälp av löpande Export kan innebära en extra kostnad. Kontrollera din [Prismodell](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Innan du konfigurerar löpande export finns det några alternativ som du kanske vill överväga:
 

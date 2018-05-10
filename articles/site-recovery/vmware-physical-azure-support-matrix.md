@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -22,7 +22,7 @@ Den här artikeln sammanfattar stöds komponenter och inställningar för katast
 
 **Scenario** | **Detaljer**
 --- | ---
-VMwares virtuella datorer | Replikeringen av lokala virtuella VMware-datorer till Azure. Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.
+VMwares virtuella datorer | Replikeringen av lokala virtuella VMware-datorer till Azure. Du kan distribuera det här scenariot i Azure-portalen eller genom att använda [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Fysiska servrar | Replikeringen av lokala Windows-/ Linux fysiska serversto Azure. Du kan distribuera det här scenariot i Azure-portalen.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringsservrar
@@ -101,7 +101,6 @@ Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64 till 3.16.0-5-amd64 4.9.0-0.bpo.4-amd64 t
 --- | ---
 Filsystem | ext3, ext4, XFS.
 Volymhanterare | LVM2.
-Programvara för flera sökvägar | Mappning för enheten.
 Paravirtualized lagringsenheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Flera kön blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenheten HP CCISS | Stöds ej.
@@ -162,7 +161,7 @@ Gästen/server-volym med stripe disk > 4 TB <br><br/>Logisk volym management (LV
 Gästen/server - lagringsutrymmen | Nej
 Gästen/server varm Lägg till/ta bort disken | Nej
 Gästen/server - utelämna disk | Ja
-Gästen/server multipath (MPIO) | Gäller inte
+Gästen/server multipath (MPIO) | Nej
 
 > [!NOTE]
 > UEFI Start VMware-datorer som kör Windows Server 2012 eller senare kan migreras till Azure. Följande begränsningar gäller:

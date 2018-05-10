@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e1a7c3cec7925c6fb01aafba152dde2383cee442
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet
 
@@ -34,7 +34,7 @@ I Azure Media Services en *kanal* representerar en pipeline för bearbetning av 
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveströmning.
 
 
-* En lokal livekodare skickar en dataström med enkel bithastighet till den kanal som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTP (MPEG-TS) RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan live encoding av den inkommande dataströmmen i enkel bithastighet till en flera bithastigheter (anpassningsbar) video-ström. Media Services ger strömmen till kunder som begär den.
+* En lokal livekodare skickar en dataström med enkel bithastighet till den kanal som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan live encoding av den inkommande dataströmmen i enkel bithastighet till en flera bithastigheter (anpassningsbar) video-ström. Media Services ger strömmen till kunder som begär den.
 
 Från och med Media Services 2.10-versionen när du skapar en kanal kan ange du hur du vill att din kanal tar emot Indataströmmen. Du kan också ange om du vill att utföra live encoding av strömmen kanalen. Du kan välja mellan två alternativ:
 

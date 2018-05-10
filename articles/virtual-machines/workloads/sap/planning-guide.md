@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2c3443f014f6c42ba9e8b68b21c2b9d0fdb1549
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f6b01c2a0bfacb4e7e121cdb06ad8be4ab17d53a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer planering och implementering för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -260,8 +260,8 @@ ms.lasthandoff: 04/23/2018
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
-[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
@@ -372,7 +372,7 @@ Följande ytterligare guider är tillgängliga för avsnittet SAP-distribution p
 
 Följande information för SAP är relaterade till avsnittet SAP i Azure:
 
-| Nummer | Namn |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -1630,8 +1630,8 @@ I tabellen nedan vanliga SAP visas kommunikationsportar. Det är i princip räck
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` finns * |3201 |3200 - 3299 |SAP Dispatcher, används av Java och SAP GUI för Windows |
 | Meddelande-server |sapms`<sid`> finns ** |3600 |ledigt sapms`<anySID`> |SID = SAP-System-ID |
-| Gateway |sapgw`<nn`> finns * |3301 |Ledigt |SAP-gateway som används för CPIC och RFC kommunikation |
-| SAP-router |sapdp99 |3299 |Ledigt |Endast CI (central instans) Tjänstnamn kan omtilldelas i /etc/services till ett godtyckligt värde efter installationen. |
+| Gateway |sapgw`<nn`> finns * |3301 |kostnadsfri |SAP-gateway som används för CPIC och RFC kommunikation |
+| SAP-router |sapdp99 |3299 |kostnadsfri |Endast CI (central instans) Tjänstnamn kan omtilldelas i /etc/services till ett godtyckligt värde efter installationen. |
 
 *) nn = SAP-instansnummer
 

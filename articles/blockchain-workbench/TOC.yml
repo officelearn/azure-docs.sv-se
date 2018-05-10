@@ -1,0 +1,46 @@
+- name: Azure Blockchain Workbench (offentlig förhadsversion)
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure Blockchain Workbench
+      href: blockchain-workbench-overview.md
+- name: Begrepp
+  items:
+    - name: Arkitektur
+      href: blockchain-workbench-architecture.md
+    - name: Integreringsmönster
+      href: blockchain-workbench-integration-patterns.md
+- name: Instruktionsguider
+  items:
+    - name: Distribuera Workbench
+      href: blockchain-workbench-deploy.md
+    - name: Hantera Workbench-användare
+      href: blockchain-workbench-manage-users.md
+    - name: Skapa en blockkedjeapp
+      href: blockchain-workbench-create-app.md
+    - name: Använda en blockkedjeapp
+      href: blockchain-workbench-use.md
+    - name: Använda Workbench-API
+      href: blockchain-workbench-use-API.md
+    - name: Felsöka appar
+      href: blockchain-workbench-troubleshooting.md
+    - name: Hämta information om Workbench DB
+      href: blockchain-workbench-getdb-details.md
+    - name: Konfigurera brandvägg för Workbench SQL DB
+      href: blockchain-workbench-database-firewall.md
+    - name: Använda Workbench-data i Excel
+      href: blockchain-workbench-data-excel.md
+    - name: Använda Workbench-data i Power BI
+      href: blockchain-workbench-data-powerbi.md
+    - name: Använda Workbench-data i SQL Management Studio
+      href: blockchain-workbench-data-sql-management-studio.md
+- name: Referens
+  items:
+    - name: Konfiguration
+      href: blockchain-workbench-configuration-overview.md
+    - name: Databasvyer
+      href: blockchain-workbench-database-views.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: Meddelande-API
+      href: blockchain-workbench-messages-overview.md

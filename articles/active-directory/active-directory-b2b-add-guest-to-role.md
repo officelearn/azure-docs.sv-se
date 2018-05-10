@@ -1,27 +1,20 @@
 ---
-title: "Lägg till en Azure Active Directory B2B-samarbete användare till en roll | Microsoft Docs"
-description: "Lägg till en gästanvändare till en roll i Azure Active Directory"
+title: Lägg till en Azure Active Directory B2B-samarbete användare till en roll | Microsoft Docs
+description: Lägg till en gästanvändare till en roll i Azure Active Directory
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/08/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/15/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d9889a15bd4e09863640e8c8e7ea03220d23bb23
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Bevilja behörigheter till användare från partnerorganisationer i Azure Active Directory-klient
 
@@ -41,15 +34,5 @@ Azure Active Directory (AD Azure) B2B-samarbete användare läggs till som gäst
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
-
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
-* [Delegera B2bB samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
-* [Dynamiska grupper och B2B-samarbete](active-directory-b2b-dynamic-groups.md)
-* [B2B-samarbete kod och PowerShell-exempel](active-directory-b2b-code-samples.md)
-* [Konfigurera SaaS-appar för B2B-samarbete](active-directory-b2b-configure-saas-apps.md)
-* [Användartoken för B2B-samarbete](active-directory-b2b-user-token.md)
-* [B2B-samarbete användaranspråk mappning](active-directory-b2b-claims-mapping.md)
-* [Extern delning av Office 365](active-directory-b2b-o365-external-user.md)
-* [Aktuella begränsningar för B2B-samarbete](active-directory-b2b-current-limitations.md)
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)

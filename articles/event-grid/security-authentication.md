@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: d539475d376e2c3e38c2cbd38de0a10645fcabe4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
 
@@ -27,6 +27,8 @@ Azure händelse rutnätet har tre typer av autentisering:
 Webhooks är en av många olika sätt att ta emot händelser från Azure Event rutnät. När en ny händelse är klar, skickar händelse rutnätet Webhooken en HTTP-begäran till konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
 
 När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifieringskoden att bevisa ägarskapet för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet leverera inte händelser till WebHook-slutpunkter som inte har gått verifieringen. Om du använder en tredjeparts-API-tjänsten (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt echo verifieringskoden. Du kan manuellt verifiera prenumerationen med hjälp av en verifiering URL som skickas i händelsen prenumeration verifiering för dessa tjänster. Kopiera Webbadressen och skickar en GET-begäran via ett REST-klient eller webbläsaren.
+
+Det är manuell verifiering i förhandsgranskningen. Om du vill använda den, måste du installera den [händelse rutnätet tillägget](/cli/azure/azure-cli-extensions-list) för [AZ CLI 2.0](/cli/azure/install-azure-cli). Du kan installera den med `az extension add --name eventgrid`. Om du använder REST-API, se till att du använder `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Valideringsinformation
 

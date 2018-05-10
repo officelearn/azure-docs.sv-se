@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 56af1915326429b37f87dbaa397e1c9b832c675a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a2a818b6a36fd4dbaf3a18c1ef98d2a13596240
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -220,4 +220,5 @@ Kontakta oss via den [Azure Active Directory Feedbackforum](https://feedback.azu
 * [Omfångsfilter för Användaretablering](active-directory-saas-scoping-filters.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md)
 * [Översikt av Azure AD-synkronisering API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Stegvisa distributionsplan för utgående användaretablering för ett program](https://aka.ms/userprovisioningdeploymentplan)
 

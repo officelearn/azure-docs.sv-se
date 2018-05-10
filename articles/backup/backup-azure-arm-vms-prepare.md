@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -172,7 +172,7 @@ När du har aktiverat säkerhetskopieringen, körs din princip för säkerhetsko
 Om du har problem med att registrera den virtuella datorn finns i följande information på VM-agenten installeras och nätverksanslutningen. Förmodligen behöver inte du följande information om du skyddar virtuella datorer som skapats i Azure. Men om du har migrerat virtuella datorer till Azure, se till att du installerade VM-agenten och att den virtuella datorn kan kommunicera med det virtuella nätverket.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installera VM-agenten på den virtuella datorn
-För säkerhetskopiering tillägg fungerar, Azure [VM-agenten](../virtual-machines/windows/agent-user-guide.md) måste vara installerad på den virtuella Azure-datorn. Om den virtuella datorn har skapats från Azure Marketplace, är VM-agenten redan finns på den virtuella datorn. 
+För säkerhetskopiering tillägg fungerar, Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara installerad på den virtuella Azure-datorn. Om den virtuella datorn har skapats från Azure Marketplace, är VM-agenten redan finns på den virtuella datorn. 
 
 Den här informationen för situationer där du har *inte* använda en virtuell dator som skapats från Azure Marketplace. Till exempel migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.
 
@@ -180,9 +180,9 @@ Om du har problem med säkerhetskopiering av virtuella Azure-datorn använder du
 
 | **Åtgärd** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installera den Virtuella datoragenten |Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |Installera senaste [Linux-agenten](../virtual-machines/linux/agent-user-guide.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från databasen för din distribution. Vi *rekommenderar inte* Linux VM-agenten installeras direkt från GitHub.  |
-| Uppdatera den Virtuella datoragenten |Uppdatera den Virtuella datoragenten är så enkelt som att installera om den [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ instruktionerna för [uppdatering Linux VM-agenten](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från databasen för din distribution. Vi *rekommenderar inte* uppdaterar Linux VM-agenten direkt från GitHub.<br><br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
-| Verifiera installationen av VM |1. Bläddra till mappen C:\WindowsAzure\Packages i Azure-VM. <br><br>2. Hitta WaAppAgent.exe-filen. <br><br>3. Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Den **produktversionen** fältet måste innehålla 2.6.1198.718 eller högre. |Gäller inte |
+| Installera VM-agenten |Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |<li> Installera senaste [Linux-agenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från databasen för din distribution. Vi **rekommenderar inte** Linux VM-agent som installeras direkt från github.  |
+| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från databasen för din distribution. Vi **rekommenderar inte** uppdatering Linux VM-agenten direkt från github.<br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
+| Bekräfta installationen av VM-agenten |<li>Gå till mappen *C:\WindowsAzure\Packages* på den virtuella datorn i Azure. <li>Du bör hitta filen WaAppAgent.exe.<li> Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Fältet Produktversion ska vara 2.6.1198.718 eller högre. |Gäller inte |
 
 ### <a name="backup-extension"></a>Säkerhetskopieringstillägg
 När den Virtuella datoragenten är installerad på den virtuella datorn installerar tjänsten Azure Backup tillägget säkerhetskopiering av VM-agenten. Backup-tjänsten sömlöst uppgraderar och korrigeringsfiler sekundär anknytning.

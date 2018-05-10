@@ -3,22 +3,22 @@ title: Vad är programåtkomst och enkel inloggning med Azure Active Directory? 
 description: Använd Azure Active Directory för att aktivera enkel inloggning till alla SaaS och webb-program som du behöver för företag.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: users-groups-roles
+ms.workload: identity
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 29aaf28e1565a5972671df4fc48ca5618e43ea83
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 19eb9bb593b349d88d8235dc2f1eca448e7646f5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (Skriv till exempel ett lösenord) en andra gång.

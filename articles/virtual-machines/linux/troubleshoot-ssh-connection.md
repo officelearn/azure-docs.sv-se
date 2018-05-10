@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsökning av SSH-anslutningar till en Azure Linux-dator som misslyckas, fel, eller nekas
 Det finns olika orsaker till att det uppstår fel på SSH (Secure Shell), SSH anslutningsfel eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och åtgärda problemen. Du kan använda Azure-portalen, Azure CLI eller tillägg för virtuell dator åtkomst för Linux för att felsöka och lösa anslutningsproblem med.
@@ -80,7 +80,7 @@ Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
 Om du inte redan gjort installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
-Om du har skapat och överföra en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 eller senare är installerat. För virtuella datorer skapas med galleriavbildningar kan det här tillägget för åtkomst redan installeras och konfigureras för dig.
+Om du har skapat och överföra en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux-agenten](../extensions/agent-windows.md) version 2.0.5 eller senare är installerat. För virtuella datorer skapas med galleriavbildningar kan det här tillägget för åtkomst redan installeras och konfigureras för dig.
 
 ### <a name="reset-ssh-configuration"></a>Återställ SSH-konfiguration
 Du kan först försök att återställa SSH-konfigurationen till standardvärden och SSH-servern på den virtuella datorn startas om. Observera att detta inte ändrar användarkontonamn, lösenord eller SSH-nycklar.
@@ -155,7 +155,7 @@ Om du inte redan har gjort [installera Azure CLI 1.0 och ansluta till din Azure-
 azure config mode arm
 ```
 
-Om du har skapat och överföra en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 eller senare är installerat. För virtuella datorer skapas med galleriavbildningar kan det här tillägget för åtkomst redan installeras och konfigureras för dig.
+Om du har skapat och överföra en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux-agenten](../extensions/agent-windows.md) version 2.0.5 eller senare är installerat. För virtuella datorer skapas med galleriavbildningar kan det här tillägget för åtkomst redan installeras och konfigureras för dig.
 
 ### <a name="reset-ssh-configuration"></a>Återställ SSH-konfiguration
 Hur SSHD kan vara felkonfigurerad eller ett fel uppstod i tjänsten. Du kan återställa SSHD att kontrollera att den SSH-konfigurationen är giltig. Återställer SSHD bör vara den första åtgärden som du vidta.

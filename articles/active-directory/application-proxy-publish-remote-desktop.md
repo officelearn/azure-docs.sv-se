@@ -1,25 +1,25 @@
 ---
-title: "Publicera Fjärrskrivbord med Azure AD App Proxy | Microsoft Docs"
+title: Publicera Fjärrskrivbord med Azure AD App Proxy | Microsoft Docs
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -75,14 +75,14 @@ Anslut till RDS-distribution som administratör och byta namn på RD Gateway-ser
 1. Ansluta till RDS-server som kör rollen Anslutningsutjämning för fjärrskrivbord.
 2. Starta **Serverhanteraren**.
 3. Välj **Fjärrskrivbordstjänster** från fönstret till vänster.
-4. Välj **översikt**.
+4. Välj **Översikt**.
 5. I avsnittet distributionsöversikt Välj på menyn och välj **redigera distributionsegenskaperna**.
 6. Fliken RD Gateway, ändra den **servernamn** till en extern URL som du anger för slutpunkten för RD-värden i Application Proxy.
 7. Ändra den **logga metoden** till **lösenordsautentisering**.
 
   ![Skärmen för distribution av egenskaper på Fjärrskrivbordstjänster](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Kör kommandot för varje samling. Ersätt  *\<yourcollectionname\>*  och  *\<proxyfrontendurl\>*  med din egen information. Detta kommando aktiverar enkel inloggning mellan webbåtkomst och fjärrskrivbordsgateway och optimerar prestanda:
+8. Kör kommandot för varje samling. Ersätt *\<yourcollectionname\>* och *\<proxyfrontendurl\>* med din egen information. Detta kommando aktiverar enkel inloggning mellan webbåtkomst och fjärrskrivbordsgateway och optimerar prestanda:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

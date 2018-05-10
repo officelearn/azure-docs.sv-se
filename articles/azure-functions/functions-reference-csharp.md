@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# skript (.csx) för utvecklare
 
@@ -335,7 +335,7 @@ Följande sammansättningar kan refereras till av enkelt namn (till exempel `#r 
 ## <a name="referencing-custom-assemblies"></a>Referera till anpassade sammansättningar
 
 Om du vill referera en anpassad sammansättning kan du använda antingen en *delade* sammansättningen eller en *privata* sammansättning:
-- Delade sammansättningar är gemensamma för alla funktioner i en funktionsapp. Om du vill referera till en anpassad sammansättning, att överföra sammansättningen i appen funktion som i en `bin` mapp i roten för funktionen app. 
+- Delade sammansättningar är gemensamma för alla funktioner i en funktionsapp. Om du vill referera en anpassad sammansättning överför sammansättningen till en mapp med namnet `bin` i din [funktionen app-rotmappen](functions-reference.md#folder-structure) (wwwroot). 
 - Privata sammansättningar ingår i kontexten för en viss funktion och stöd för separat inläsning av olika versioner. Privata sammansättningar som ska överföras i en `bin` mapp i katalogen funktion. Referera till sammansättningar med filnamnet, till exempel `#r "MyAssembly.dll"`. 
 
 Information om hur du överför filer i mappen funktionen finns i avsnittet på [paketet management](#using-nuget-packages).
@@ -479,7 +479,7 @@ I följande tabell visas .NET-attribut för varje bindning och paket som de har 
 | Bindning | Attribut | Lägg till referens |
 |------|------|------|
 | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-| Händelsehubbar | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 | Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |

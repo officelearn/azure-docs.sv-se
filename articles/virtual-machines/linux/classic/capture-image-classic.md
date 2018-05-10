@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29a1d5bc839fcf533973271638bf283d6e48e93b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6071e025352199c5ec559598a580a918c2e9c666
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Så här skapar du en klassisk virtuell Linux-dator som en avbildning
+# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Spara en klassisk virtuell Linux-dator som en avbildning
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -107,7 +107,7 @@ Bilden är redo att användas för att skapa virtuella datorer. Du kan använda 
 
 Du kan också använda den [Azure-portalen](http://portal.azure.com) att skapa en egen virtuell dator med hjälp av den **bild** metoden och välja den bild som du skapade. Mer information finns i [hur du skapar en anpassad VM][How to Create a Custom Virtual Machine].
 
-**Se även:** [användarhandboken för Azure Linux-Agent](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**Se även:** [användarhandboken för Azure Linux-Agent](../../extensions/agent-linux.md)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom-classic.md

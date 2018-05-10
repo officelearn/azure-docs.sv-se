@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dce0114c19f6153d2cba789cdc00920d42834b2d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i din IoT-hubb
 
@@ -186,14 +186,14 @@ Body: Det här avsnittet är i JSON-format och representerar dubbla skapade modu
 
 Enheten identiteter representeras som JSON-dokument med följande egenskaper:
 
-| Egenskap | Alternativ | Beskrivning |
+| Egenskap  | Alternativ | Beskrivning |
 | --- | --- | --- |
 | deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsliga sträng upp till 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
 | ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet enligt [RFC7232][lnk-rfc7232]. |
 | auth |valfri |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
 | auth.symkey |valfri |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
-| status |Krävs |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
+| status |obligatorisk |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
 | statusReason |valfri |En 128 tecken lång sträng som lagrar Statusanledning för enhetens identitet. Alla UTF-8-tecken tillåts. |
 | statusUpdateTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för uppdateringen. |
 | connectionState |Skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT-hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör användas endast för utveckling/felsökning. Om anslutningens status uppdateras bara för enheter med hjälp av MQTT eller AMQP. Dessutom baseras på protokollnivå pingar (MQTT pingar eller AMQP ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex enheter rapporteras som är ansluten men som inte är ansluten. |
@@ -205,9 +205,9 @@ Enheten identiteter representeras som JSON-dokument med följande egenskaper:
 
 ## <a name="module-identity-properties"></a>Modulen identitetsegenskaper
 
-Enheten identiteter representeras som JSON-dokument med följande egenskaper:
+Modulen identiteter representeras som JSON-dokument med följande egenskaper:
 
-| Egenskap | Alternativ | Beskrivning |
+| Egenskap  | Alternativ | Beskrivning |
 | --- | --- | --- |
 | deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | moduleId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
@@ -215,7 +215,7 @@ Enheten identiteter representeras som JSON-dokument med följande egenskaper:
 | ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet enligt [RFC7232][lnk-rfc7232]. |
 | auth |valfri |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
 | auth.symkey |valfri |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
-| status |Krävs |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
+| status |obligatorisk |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
 | statusReason |valfri |En 128 tecken lång sträng som lagrar Statusanledning för enhetens identitet. Alla UTF-8-tecken tillåts. |
 | statusUpdateTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för uppdateringen. |
 | connectionState |Skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT-hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör användas endast för utveckling/felsökning. Om anslutningens status uppdateras bara för enheter med hjälp av MQTT eller AMQP. Dessutom baseras på protokollnivå pingar (MQTT pingar eller AMQP ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex enheter rapporteras som är ansluten men som inte är ansluten. |

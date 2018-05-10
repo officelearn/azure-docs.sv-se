@@ -1,9 +1,9 @@
 ---
-title: "Strömma Azure övervakningsdata i Händelsehubbar | Microsoft Docs"
-description: "Lär dig mer om att strömma alla Azure övervakningsdata till en händelsehubb för att hämta data till en partner SIEM eller analytics-verktyget."
+title: Strömma Azure övervakningsdata i Händelsehubbar | Microsoft Docs
+description: Lär dig mer om att strömma alla Azure övervakningsdata till en händelsehubb för att hämta data till en partner SIEM eller analytics-verktyget.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Dataströmmen Azure övervakningsdata till en händelsehubb för användning av ett externt verktyg
 
@@ -79,7 +79,7 @@ Du måste installera en agent för att skicka gäst OS övervakningsdata i en h�
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Dataströmmen Linux data till en händelsehubb
 
-Den [Linux Azure diagnostikagenten](../virtual-machines/linux/diagnostic-extension.md) kan användas för att skicka övervakningsdata från en Linux-dator till en händelsehubb. Gör detta genom att lägga till händelsehubben som en mottagare i din LAD konfigurationsinställningar filen skyddas JSON. [Finns den här artikeln om du vill veta mer om att lägga till hubben händelsemottagaren till din Linux Azure diagnostikagenten](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+Den [Linux Azure diagnostikagenten](../virtual-machines/extensions/diagnostics-linux.md) kan användas för att skicka övervakningsdata från en Linux-dator till en händelsehubb. Gör detta genom att lägga till händelsehubben som en mottagare i din LAD konfigurationsinställningar filen skyddas JSON. [Finns den här artikeln om du vill veta mer om att lägga till hubben händelsemottagaren till din Linux Azure diagnostikagenten](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Du kan inte konfigurera strömning av gäst OS övervakningsdata till en händelsehubb i portalen. I stället måste du manuellt redigera konfigurationsfilen.

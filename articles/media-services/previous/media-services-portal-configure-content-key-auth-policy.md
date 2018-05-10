@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 33b958b97a5883d585bbfda167db35107c0c5997
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: db0117b0b4ddee002fc69d71e78eca2b9008e4f6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurera en princip för auktorisering av innehållsnyckel
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -58,7 +58,7 @@ Välj den tokenbegränsade principen genom att markera den **TOKEN** knappen.
 
 Den tokenbegränsade principen måste åtföljas av en token som utfärdas av en säkerhetstokentjänst (STS). Media Services stöder token i simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON-Webbtoken (JWT)-format. Mer information finns i [JWT autentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Media Services ger inte STS. Du kan skapa en anpassad STS eller använda Azure Access Control Service problemet tokens. STS måste konfigureras för att skapa en token som signerats med angiven nyckel och utfärda anspråk som du angav i tokenbegränsningar-konfigurationen. Om token är giltig och anspråk i token som matchar de som konfigurerats för att innehållsnyckeln, returnerar Media Services viktiga tjänsten krypteringsnyckeln till klienten. Mer information finns i [Använd Azure åtkomstkontrolltjänsten problemet tokens](http://mingfeiy.com/acs-with-key-services).
+Media Services ger inte STS. Du kan skapa en anpassad STS för att utfärda token. STS måste konfigureras för att skapa en token som signerats med angiven nyckel och utfärda anspråk som du angav i tokenbegränsningar-konfigurationen. Om token är giltig och anspråk i token som matchar de som konfigurerats för att innehållsnyckeln, returnerar Media Services viktiga tjänsten krypteringsnyckeln till klienten.
 
 Du måste ange primär Verifieringsnyckeln, utfärdare och målgrupp parametrar när du konfigurerar begränsad token-principen. Primär Verifieringsnyckeln innehåller den nyckel som token som signerats med. Utfärdaren är STS som utfärdar token. Målgruppen (kallas ibland för scope) beskrivs syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services viktiga tjänsten verifierar att dessa värden i token matchar värdena i mallen.
 

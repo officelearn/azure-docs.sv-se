@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: Databas utan server
         href: serverless-computing-database.md
+      - name: Översikt över BulkExecutor
+        href: bulk-executor-overview.md
       - name: Säkerhet
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: Skydda åtkomst till data
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Användningsfall
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: Instruktionsguider
             items:
+              - name: BulkExecutor – .NET
+                href: bulk-executor-dot-net.md
+              - name: BulkExecutor – Java
+                href: bulk-executor-java.md
               - name: Fråga
                 items:
                   - name: Utför SQL-frågor
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: BulkExecutor – .NET
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: BulkExecutor – Java
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: REST-resursprovider
@@ -257,8 +265,6 @@ items:
             items:
               - name: Visual Studio Code-tillägg
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: Blad om schemaoberoende indexering
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL-spelplan
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: MongoDB API-dokument
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: Brandväggssupport
         href: firewall-support.md
+      - name: Konfigurera slutpunkt för virtuell nätverkstjänst
+        href: vnet-service-endpoint.md
       - name: Mått
         href: use-metrics.md
       - name: Övervaka serviceavtal
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: Förklaring av datakonsekvens med hjälp av baseboll
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Faktablad
+        href: whitepapers.md

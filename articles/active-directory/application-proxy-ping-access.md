@@ -1,25 +1,25 @@
 ---
-title: "Rubrik-baserad autentisering med PingAccess för Azure AD Application Proxy | Microsoft Docs"
-description: "Publicera program med PingAccess och App-Proxy som stöder huvud-baserad autentisering."
+title: Rubrik-baserad autentisering med PingAccess för Azure AD Application Proxy | Microsoft Docs
+description: Publicera program med PingAccess och App-Proxy som stöder huvud-baserad autentisering.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bb341c5700f573e61cdbbe992aa0b0eb99389b2f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrik-baserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -95,7 +95,7 @@ Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av st
    ![Välj huvud-baserade inloggning](./media/application-proxy-ping-access/sso-header.PNG)
 
 11. Stäng bladet för Enterprise-program eller rulla längst till vänster om du vill gå tillbaka till Azure Active Directory-menyn.
-12. Välj **App registreringar**.
+12. Välj **Appregistreringar**.
 
    ![Välj App-registreringar](./media/application-proxy-ping-access/app-registrations.png)
 
@@ -110,7 +110,7 @@ Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av st
 
 16. Välj **Lägg till**. API: et, Välj **Windows Azure Active Directory**, sedan **Välj**. Behörigheter, Välj **läsa och skriva alla program** och **logga in och Läs användarprofil**, sedan **Välj** och **klar**.  
 
-  ![Välj behörigheter](./media/application-proxy-ping-access/select-permissions.png)
+  ![Valda behörigheter](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Bevilja behörigheter innan du stänger fönstret behörigheter. 
 ![Bevilja behörighet](media/application-proxy-ping-access/grantperms.png)

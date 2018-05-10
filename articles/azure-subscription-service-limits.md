@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -27,7 +27,7 @@ Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser
 Besök [översikt över priser för Azure](https://azure.microsoft.com/pricing/) för mer information om priser för Azure. Det, kan du uppskatta dina kostnader med hjälp av den [Priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) eller genom att besöka sidan prisnivå information för en tjänst (till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Tips för att hantera dina kostnader finns [förhindrar oväntade kostnader med Azure fakturerings- och kostnaden management](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Om du vill höja gränsen eller kvoten ovan den **standard gränsen**, [öppna en supportbegäran för online customer utan kostnad](azure-supportability/resource-manager-core-quotas-request.md). Ramen kan inte ökas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumn, och sedan resursen saknar justerbara gränser.
+> Om du vill höja gränsen eller kvoten ovan den **standard gränsen**, [öppna en supportbegäran för online customer utan kostnad](azure-resource-manager/resource-manager-quota-errors.md). Ramen kan inte ökas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumn, och sedan resursen saknar justerbara gränser.
 >
 > [Kostnadsfri utvärderingsversion prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigad till gränsen eller kvot ökar. Om du har en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md) och [kostnadsfri utvärderingsversion på vanliga frågor om](https://azure.microsoft.com/free/free-account-faq).
 >

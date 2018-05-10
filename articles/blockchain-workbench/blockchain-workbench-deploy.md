@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 01f396b4a2b8851ce1433a297981d30328c113b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain arbetsstationen
 
@@ -79,27 +79,6 @@ Därefter måste du ändra programmanifestet att använda programmet roller i Az
 
 4.  Klicka på **spara** spara application manifest ändringarna.
 
-### <a name="add-graph-api-key-to-application"></a>Lägga till Graph API-nyckel i programmet
-
-Blockchain arbetsstationen använder Azure AD som hanteringssystemet huvudsakliga identiteten för användare som interagerar med blockchain program. Du måste lägga till en snabbtangent för Blockchain arbetsstationen för att få åtkomst till Azure AD och hämta användarinformation, till exempel namn och e-postmeddelanden. Blockchain arbetsstationen använder nyckeln för att autentisera med Azure AD.
-
-1. Programmet som du har registrerat, Välj **inställningar** i informationsfönstret registrerade programmet.
-2. Välj **Nycklar**.
-3. Lägg till en ny nyckel genom att ange en nyckel **beskrivning** och välja **upphör att gälla** duration-värde. 
-
-    ![Skapa en nyckel](media/blockchain-workbench-deploy/app-key-create.png)
-
-    |Inställning  | Värde  |
-    |---------|---------|
-    | Beskrivning | `Service` |
-    | Förfaller | Välj en giltighetstiden |
-
-4. Välj **Spara**. 
-5. Kopiera värdet för nyckeln och spara den för senare. Du behöver den för distribution.
-
-    > [!IMPORTANT]
-    >  Om du inte sparar nyckeln för distributionen av behöver du skapa en ny nyckel. Du kan inte hämta värdet för nyckeln från portalen senare.
-
 ### <a name="add-graph-api-required-permissions"></a>Lägg till behörigheter för Graph API krävs
 
 API-programmet måste begära behörighet för användaren att få åtkomst till katalogen. Ange följande behörighet för API-program:
@@ -121,6 +100,27 @@ API-programmet måste begära behörighet för användaren att få åtkomst till
    ![Bevilja behörigheter](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
 
    Bevilja behörighet tillåter Blockchain arbetsstationen för att få åtkomst till användare i katalogen. Skrivskyddad behörighet krävs för att söka efter och lägga till medlemmar i Blockchain arbetsstationen.
+
+### <a name="add-graph-api-key-to-application"></a>Lägga till Graph API-nyckel i programmet
+
+Blockchain arbetsstationen använder Azure AD som hanteringssystemet huvudsakliga identiteten för användare som interagerar med blockchain program. Du måste lägga till en snabbtangent för Blockchain arbetsstationen för att få åtkomst till Azure AD och hämta användarinformation, till exempel namn och e-postmeddelanden. Blockchain arbetsstationen använder nyckeln för att autentisera med Azure AD.
+
+1. Programmet som du har registrerat, Välj **inställningar** i informationsfönstret registrerade programmet.
+2. Välj **Nycklar**.
+3. Lägg till en ny nyckel genom att ange en nyckel **beskrivning** och välja **upphör att gälla** duration-värde. 
+
+    ![Skapa en nyckel](media/blockchain-workbench-deploy/app-key-create.png)
+
+    |Inställning  | Värde  |
+    |---------|---------|
+    | Beskrivning | `Service` |
+    | Förfaller | Välj en giltighetstiden |
+
+4. Välj **Spara**. 
+5. Kopiera värdet för nyckeln och spara den för senare. Du behöver den för distribution.
+
+    > [!IMPORTANT]
+    >  Om du inte sparar nyckeln för distributionen av behöver du skapa en ny nyckel. Du kan inte hämta värdet för nyckeln från portalen senare.
 
 ### <a name="get-application-id"></a>Hämta program-ID
 
@@ -170,6 +170,7 @@ När de nödvändiga steg har utförts, är du redo att distribuera Blockchain a
     | Lösenord | Lösenordet som används för att ansluta till virtuella datorer. |
     | SSH | Använd en offentlig RSA-nyckel i den format för en rad som början med **ssh-rsa** eller använda PEM-format med flera rader. Du kan skapa SSH-nycklar med hjälp av `ssh-keygen` på Linux och OS X eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns [hur du använder SSH-nycklar med Windows på Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Lösenord för databas / Bekräfta lösenord | Ange lösenordet som ska användas för åtkomst till databasen som skapats som en del av distributionen. |
+    | Region för distribution | Ange var du vill distribuera Blockchain arbetsstationen resurser. För bästa initieras ska matcha den **plats** inställningen. |
     | Prenumeration | Ange Azure-prenumeration som du vill använda för din distribution. |
     | Resursgrupper | Skapa en ny resursgrupp genom att välja **Skapa nytt** och ange en unik resursgruppens namn. |
     | Plats | Ange den region som du vill distribuera ramen. |
@@ -199,7 +200,7 @@ När de nödvändiga steg har utförts, är du redo att distribuera Blockchain a
     | Lagringsprestanda | Välj den önskade Virtuella lagringsprestanda för nätverket blockchain. |
     | Virtuell datorstorlek | Välj den önskade VM-storleken för nätverket blockchain. |
 
-10. Klicka på **OK** Slutför avsnittet network storlek och prestanda.
+10. Välj **OK** Slutför avsnittet network storlek och prestanda.
 
 11. Slutför den **Azure-Monitor** inställningar.
 
@@ -207,9 +208,8 @@ När de nödvändiga steg har utförts, är du redo att distribuera Blockchain a
 
     | Inställning | Beskrivning  |
     |---------|--------------|
-    | Övervakning | Välj om du vill att Azure-Monitor som används för att övervaka nätverket blockchain |
-    | Ansluta till befintliga OMS-instans | Välj om du vill använda en befintlig Operations Management Suite-instans eller skapa en ny |
-    | Plats för OMS-arbetsytan | Välj en region för OMS-arbetsytan. Region för platsen Blockchain Workbench ska matcha |
+    | Övervakning | Välj om du vill aktivera Azure-Monitor att övervaka nätverket blockchain |
+    | Ansluta till befintliga logganalys-instans | Välj om du vill använda en befintlig logganalys-instans eller skapa en ny. Om du använder en befintlig instans, ange ditt arbetsyte-ID och primärnyckel. |
 
 12. Klicka på **OK** Slutför Azure-Monitor-avsnittet.
 

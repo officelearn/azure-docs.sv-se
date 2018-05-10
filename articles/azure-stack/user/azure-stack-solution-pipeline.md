@@ -1,215 +1,443 @@
 ---
 title: Distribuera din app till Azure och Azure Stack | Microsoft Docs
-description: "Lär dig mer om att distribuera appar till Azure och Azure-stacken med en hybrid CI/CD-pipeline."
+description: Lär dig mer om att distribuera appar till Azure och Azure-stacken med en hybrid CI/CD-pipeline.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
-ms.author: jeffgilb
-ms.reviewer: unknown
-ms.custom: mvc
-ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 05/07/2018
+ms.author: mabrigg
+ms.reviewer: Anjay.Ajodha
+ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="deploy-apps-to-azure-and-azure-stack"></a>Distribuera appar till Azure och Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
+
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-En hybrid [kontinuerlig integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[kontinuerlig leverans](https://www.visualstudio.com/learn/what-is-continuous-delivery/)pipeline (CI/CD) gör det möjligt att bygga, testa och distribuera din app till flera moln.  I den här självstudiekursen skapar du en exempel-miljön om du vill veta hur en hybrid CI/CD-pipeline kan hjälpa dig:
+En hybrid-kontinuerlig integration/kontinuerlig leverans (CI/CD)-pipeline kan du skapa, testa och distribuera din app till flera moln.  I den här självstudiekursen skapar du en exempel-miljö till:
  
 > [!div class="checklist"]
 > * Initiera en ny version utifrån kod incheckningar till lagringsplatsen för Visual Studio Team Services VSTS ().
-> * Distribuera automatiskt nyligen inbyggd koden till Azure för användargodkännande.
-> * När koden har gått testning, automatiskt distribuera till Azure-stacken. 
+> * Distribuera automatiskt nyligen inbyggd koden till globala Azure för användargodkännande.
+> * När koden har gått testning, automatiskt distribuera till Azure-stacken.
+
+### <a name="about-the-hybrid-delivery-build-pipe"></a>Skapa pipe om hybrid delivery
+
+Kontinuitet för distribution av program, säkerhet och tillförlitlighet är viktiga för din organisation och kritiska till Utvecklingsteamet. Med en hybrid CI/CD-pipeline kan du konsolidera din pipelines mellan din lokala miljö och det offentliga molnet. Du kan ändra plats utan att växla ditt program.
+
+Den här metoden kan du bibehålla en konsekvent uppsättning utvecklingsverktyg. Konsekvent verktyg i det offentliga Azure-molnet och lokala Azure Stack-miljö innebär att det är mycket enklare att implementera CI/CD dev praxis. Appar och tjänster som distribueras i Azure eller Azure-stacken är utbytbara och samma kod kan köras i båda fallen genom att dra nytta av lokala och offentliga molnfunktioner och möjligheter.
+
+Läs mer om:
+ - [Vad är kontinuerlig Integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
+ - [Vad är kontinuerlig leverans?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Några komponenter krävs för att skapa en hybrid CI/CD-pipeline och kan ta lite tid att förbereda.  Om du redan har vissa av dessa komponenter, kontrollera att de uppfyller krav innan du börjar.
+
+Du behöver ha några komponenter för att skapa en hybrid CI/CD-pipeline. De kan ta lite tid att förbereda.
+ 
+ - En Azure OEM/maskinvara partner kan distribuera ett Azure-Stack för produktion och alla användare kan distribuera ett Azure Stack Development Kit (ASDK). 
+ - Operatör Azure stacken måste också distribuera App Service, skapa planer och erbjudanden, skapa en klientprenumeration och lägga till Windows Server 2016-avbildningen.
+
+Om du redan har vissa av dessa komponenter, kontrollera att de uppfyller krav innan du börjar.
 
 Det här avsnittet förutsätter också att du har viss erfarenhet av Azure och Azure-stacken. Om du vill veta mer innan du fortsätter bör du börja med dessa avsnitt:
 
-- [Introduktion till Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-- [Azure-stacken viktiga begrepp](../azure-stack-key-features.md)
+
+Den här kursen förutsätter också att du har viss erfarenhet av Azure och Azure-stacken. 
+
+Om du vill veta mer innan du fortsätter kan du börja med dessa avsnitt:
+ - [Introduktion till Azure](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Azure-stacken viktiga begrepp](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
 ### <a name="azure"></a>Azure
+
  - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
- - Skapa en [Webbapp](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md), och konfigurerar den för [FTP-publicering](../../app-service/app-service-deploy-ftp.md).  Anteckna den nya Web App-URL, eftersom den används senare.
 
+ - Skapa en [Webbapp](https://docs.microsoft.com/azure/app-service/app-service-web-overview) i Azure. Anteckna den nya Web App-URL, eftersom den används senare.
 
-### <a name="azure-stack"></a>Azure Stack
- - [Distribuera Azure Stack](../azure-stack-run-powershell-script.md).  Installationen tar vanligtvis några timmar att slutföra, så planera på lämpligt sätt.
- - Distribuera [Apptjänst](../azure-stack-app-service-deploy.md) PaaS-tjänster till Azure-stacken.
- - Skapa en Webbapp och konfigurerar den för [FTP-publicering](../azure-stack-app-service-enable-ftp.md).  Anteckna den nya Web App-URL, eftersom den används senare.  
+Azure Stack
+ - Använda en Azure-stacken integrerat system eller distribuera Azure Stack Development Kit (ASDK) länkade nedan:
+    - Du kan hitta detaljerade anvisningar om hur du distribuerar ASDK på ”[genomgång: distribuera ASDK med hjälp av installationsprogrammet](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)”
+    - Du kan automatisera många av dina ASDK efter distributionen steg med följande PowerShell-skript [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
+
+    > [!note]  
+    > ASDK installationen tar en sju timmar att slutföra, så planera på lämpligt sätt.
+
+ - Distribuera [Apptjänst](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-tjänster till Azure-stacken. 
+ - Skapa [Plan/erbjudanden](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) i Azure Stack-miljön. 
+ - Skapa [klient prenumeration](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) i Azure Stack-miljön. 
+ - Skapa en Webbapp i klient-prenumerationen. Anteckna nya Webbappens URL för att använda senare.
+ - Distribuera VSTS virtuella datorn fortfarande inom klientprenumeration.
+ - Windows Server 2016 VM med .NET 3.5 krävs. Den här virtuella datorn kommer att skapas på Azure-stacken som privat build-agenten. 
 
 ### <a name="developer-tools"></a>Utvecklarverktyg
- - Skapa en [VSTS arbetsytan](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Registreringsprocessen skapar ett projekt med namnet ”MyFirstProject”.  
- - [Installera Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) och [logga in på VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
+
+ - Skapa en [VSTS arbetsytan](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). Registreringsprocessen skapar ett projekt med namnet **MyFirstProject**.
+ - [Installera Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) och [logga in på VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Ansluta till projektet och [klona lokalt](https://www.visualstudio.com/docs/git/gitquickstart).
- - Skapa en [agent poolen](https://www.visualstudio.com/docs/build/concepts/agents/pools-queues#creating-agent-pools-and-queues) i VSTS.
- - Installera Visual Studio och distribuera en [VSTS skapa agenten](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) till en virtuell dator på Azure-stacken. 
  
+ > [!note]  
+ > Du behöver Azure stacken med rätt bilder automatiska ska köras (Windows Server och SQL) och har distribuerats Apptjänst.
+ 
+## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Förbereda privata version och versionen agent för Visual Studio Team Services integration
 
-## <a name="create-app--push-to-vsts"></a>& Skapa app push till VSTS
+### <a name="prerequisites"></a>Förutsättningar
 
-### <a name="create-application"></a>Skapa program
-I det här avsnittet kan du skapa ett enkelt ASP.NET-program och push-installera den VSTS.  De här stegen representerar normala developer arbetsflödet och kan anpassas för utvecklingsverktyg och språk. 
+Visual Studio Team Services VSTS () autentiseras mot Azure Resource Manager med ett huvudnamn för tjänsten. Den kräver statusen deltagare för VSTS för att kunna etablera resurser i en prenumeration på Azure-stacken.
 
-1.  Öppna Visual Studio.
-2.  Från området Team Explorer och **lösningar...**  området klickar du på **ny**.
-3.  Välj **Visual C#** > **Web** > **ASP.NET-webbprogram (.NET Framework)**.
-4.  Ange ett namn för programmet och klickar på **OK**.
-5.  På nästa skärm Behåll standardvärdena (Web forms) och klicka på **OK**.
+Följande är de övergripande stegen som behöver konfigureras så att sådana autentisering:
 
-### <a name="commit-and-push-changes-to-vsts"></a>Spara och skicka ändringar till VSTS
-1.  Använder teamet Explorer i Visual Studio, Välj i listrutan och klicka på **ändringar**.
-2.  Ange ett meddelande för genomförande och välj **genomför alla**. Du kan uppmanas att spara filen i lösningen, klicka på Ja om du vill spara alla.
-3.  När allokerat, erbjuder Visual Studio att synkronisera ändringar i projektet. Välj **Synkronisera**.
+1. Tjänstens huvudnamn ska skapas eller en befintlig kan användas.
+2. Autentiseringsnycklar måste skapas för tjänstens huvudnamn.
+3. Azure Stack-prenumeration behöver verifieras via rollbaserad åtkomstkontroll för att tillåta SPN vara en del av den deltagarrollen.
+4. En ny Service Definition i VSTS måste skapas med hjälp av Azure-stacken slutpunkter samt information om SPN.
 
-    ![bild som visar skärmen för genomförande när genomförande har slutförts](./media/azure-stack-solution-pipeline/image1.png)
+### <a name="service-principal-creation"></a>Skapa en tjänst huvudnamn
 
-4.  På fliken synkronisering under *utgående*, du kan se din nya genomförande.  Välj **Push** att synkronisera VSTS ändringen.
+Referera till den [tjänstens huvudnamn skapa](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruktioner för att skapa ett huvudnamn för tjänsten, och välj Web App/API för programmet.
 
-    ![bild som visar sync steg](./media/azure-stack-solution-pipeline/image2.png)
+### <a name="access-key-creation"></a>Åtkomst nycklarna skapas
 
-### <a name="review-code-in-vsts"></a>Granska koden i VSTS
-När du har allokerat en ändring och pushas till VSTS, kontrollera din kod från VSTS-portalen.  Välj **kod**, och sedan **filer** från listrutan.  Du kan se den lösning som du skapade.
+Ett huvudnamn för tjänsten kräver en nyckel för autentisering, följer du stegen i det här avsnittet för att generera en nyckel.
 
-## <a name="create-build-definition"></a>Skapa build-definition
-Skapar definierar hur programmet har skapats och packade för distribution på varje genomförande av kodändringar. I vårt exempel använder vi den inkluderade mallen för att konfigurera build-process för en ASP.NET-app, även om den här konfigurationen kan anpassas beroende på ditt program.
 
-1.  Logga in på arbetsytans VSTS från en webbläsare.
-2.  Popup-meddelandet, Välj **Skapa & släpper** och sedan **bygger**.
-3.  Klicka på **+ ny definition**.
-4.  Välj i listan över mallar **ASP.NET (förhandsgranskning)** och välj **tillämpa**.
-5.  Ändra den *MSBuild-argument* i *skapa lösning* steg att:
+1. Välj ditt program i **Appregistreringar** i Azure Active Directory.
 
-    `/p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeployDefaultTarget=WebPublish /p:publishUrl="$(build.artifactstagingdirectory)\\"`
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-6.  Välj den **alternativ** och välj agent kön för build-agenten som du har distribuerat till en virtuell dator på Azure-stacken. 
-7.  Välj den **utlösare** och aktivera **kontinuerlig Integration**.
-7.  Klicka på **Spara & kö** och välj sedan **spara** i listrutan. 
+2.  Anteckna värdet för **program-ID**. Värdet används när du konfigurerar tjänstslutpunkten i VSTS.
 
-## <a name="create-release-definition"></a>Skapa en definition för versionen
-Processen för versionen definierar hur versioner från föregående steg har distribuerats till en miljö.  I den här självstudiekursen publicera vi vår ASP.NET-app med FTP till en Webbapp i Azure. Använd följande steg för att konfigurera en Versionspost till Azure:
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
-1.  Välj VSTS-banderoll **Skapa & släpper** och sedan **versioner**.
-2.  Klicka på gröna **+ ny definition**.
-3.  Välj **tom** och på **nästa**.
-4.  Markera kryssrutan för *kontinuerlig distribution*, och klicka sedan på **skapa**.
+3. Välj **Inställningar** om du vill generera en autentiseringsnyckel.
 
-Nu när du har skapat en tom versionen definition och knutna till bygga, vi lägga till stegen för Azure-miljön:
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_03.png)
 
-1.  Klicka på gröna  **+**  att lägga till aktiviteter.
-2.  Välj **alla**, och i listan Lägg till **FTP överför** och välj **Stäng**.
-3.  Välj den **FTP överför** uppgift du just har lagt till och konfigurera följande parametrar:
+4. Välj **Nycklar** om du vill generera en autentiseringsnyckel.
+ 
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+
+5. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
+ 
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+
+    När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet eftersom det inte går att hämta nyckeln senare. Du anger den **nyckelvärdet** med program-ID för att logga in som programmet. Lagra nyckelvärdet där programmet kan hämta det.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+
+### <a name="get-tenant-id"></a>Hämta klientorganisations-ID
+
+Som en del av tjänsten slutpunktskonfigurationen, VSTS kräver den **klient-ID** som motsvarar den AAD-katalog som Azure Stack stämpeln har distribuerats till. Följ stegen i det här avsnittet för att samla in klient-Id.
+
+1. Välj **Azure Active Directory**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+
+2. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+ 
+3. Kopiera **katalog-ID:t**. Det här värdet är ditt klientorganisations-ID.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+
+### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Ge service principal behörighet att distribuera resurser i Azure Stack-prenumeration 
+
+Om du vill komma åt resurser i din prenumeration måste du tilldela program till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Mer information om tillgängliga roller, se [RBAC: inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+
+Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. Till exempel innebär lägga till ett program rollen Läsare för en resursgrupp att den kan läsa resursgruppen och alla resurser som den innehåller.
+
+1. Navigera till den nivå av omfång som du vill tilldela program till. Välj till exempel om du vill tilldela en roll på prenumerationsomfattningen **prenumerationer**. Du kan i stället välja en resursgrupp eller resurs.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+
+2. Välj den **prenumeration** (resursgrupp eller resurs) för att tilldela program till.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+
+3. Välj **åtkomstkontroll (IAM)**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+
+4. Välj **Lägg till**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+
+5. Markera den roll som du vill tilldela till programmet. Följande bild visar den **ägare** roll.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+
+6. Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. Om du vill hitta ditt program måste du **ange namnet** i sökfältet. Markera den.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+
+7. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
+
+### <a name="role-based-access-control"></a>Rollbaserad Access Control
+
+Azure rollbaserad åtkomstkontroll (RBAC) Aktivera detaljerad åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Mer information om rollbaserad åtkomstkontroll finns [hantera åtkomst till resurser i Azure-prenumeration](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
+
+### <a name="vsts-agent-pools"></a>VSTS Agent pooler
+
+I stället för att hantera varje agent individuellt ordna agenter i agenten pooler. En agent poolen definierar delning gränsen för alla agenter i den poolen. I VSTS, är agent pooler begränsade till kontot VSTS; så kan du dela en agent pool över grupprojekt. Mer information och en genomgång om hur du skapar VSTS agent pooler finns [skapa agenten pooler och köer](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+
+### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Lägga till en personlig åtkomsttoken (PATRIK) för Azure-stacken
+
+1. Logga in på ditt konto i VSTS och välj namnet på profilen ditt konto.
+2. Välj **Hantera säkerhet** till sidan för åtkomst-token skapas.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+
+3. Kopiera token.
     
-    | Parameter | Värde |
-    | ----- | ----- |
-    |Autentiseringsmetod| Ange autentiseringsuppgifter|
-    |Server-URL | FTP-URL för Web App hämtas från Azure-portalen |
-    |Användarnamn | Användarnamnet som du konfigurerade när du skapar FTP-autentiseringsuppgifter för webbprogram |
-    |Lösenord | Lösenordet du skapade när FTP-autentiseringsuppgifter för webbprogram|
-    |Källkatalog | $(System.DefaultWorkingDirectory)\**\ |
-    |Fjärrkatalog | /site/wwwroot/ |
-    |Bevara sökvägar | Aktiverat (markerad)|
-
-4.  Klicka på **spara**
-
-Slutligen kan du konfigurera definitionen versionen om du vill använda agent poolen innehåller agenten distribueras med följande steg:
-1.  Markera versionen definitionen och på **redigera**.
-2.  Välj **körs på agent** från den mellersta kolumnen.  Välj agent kön som innehåller build-agenten som körs på Azure-stacken i den högra kolumnen.  
-    ![bild som visar konfigurationen av versionen definitionen för att använda en särskild kö](./media/azure-stack-solution-pipeline/image3.png)
-
-
-## <a name="deploy-your-app-to-azure"></a>Distribuera din app till Azure
-Det här steget använder din nyligen inbyggd CI/CD-pipeline för att distribuera ASP.NET-appen till en Webbapp i Azure. 
-
-1.  Välj banderoll i VSTS **Skapa & släpper**, och välj sedan **bygger**.
-2.  Klicka på **...**  på build-definition tidigare skapade och välj **kö ny version**.
-3.  Acceptera standardinställningarna och klickar på **Ok**.  Bygga börjar och visar förloppet.
-4.  När versionen har slutförts kan du spåra statusen genom att välja **Skapa & släpper** och välja **versioner**.
-5.  När bygga är klar kan du gå till webbplatsen med den URL som anges när du skapar Webbappen.    
-
-
-## <a name="add-azure-stack-to-pipeline"></a>Lägg till Azure-stacken pipeline
-Nu när du har testat din CI/CD-pipeline genom att distribuera till Azure, är det dags att lägga till Azure-stacken i pipelinen.  I följande steg ska du skapa en ny miljö och Lägg till en FTP-överför aktivitet för att distribuera din app till Azure-stacken.  Du också lägga till en godkännare för versionen som fungerar som ett sätt att simulera ”signering” på en code-versionen till Azure-stacken.  
-
-1.  I version-definition väljer **+ Lägg till miljön** och **skapa nya miljön**.
-2.  Välj **tom**, klickar du på **nästa**.
-3.  Välj **specifika användare** och ange ditt konto.  Välj **Skapa**.
-4.  Byt namn på miljön genom att markera det befintliga namnet och skriva *Azure Stack*.
-5.  Nu markeringen Azure Stack-miljön, välj sedan **lägga till aktiviteter**.
-6.  Välj den **FTP överför** uppgift och välj **Lägg till**och välj **Stäng**.
-
-
-### <a name="configure-ftp-task"></a>Konfigurera FTP-aktivitet
-Nu när du har skapat en Versionspost, konfigurerar du de steg som krävs för publicering till webb-App på Azure-stacken.  Precis som du har konfigurerat överför FTP-aktivitet för Azure kan du konfigurera aktiviteten för Azure-Stack:
-
-1.  Välj den **FTP överför** uppgift du just har lagt till och konfigurera följande parametrar:
+    > [!note]  
+    > Hämta token information. Det kommer inte att visas igen när du lämnar den här skärmen. 
     
-    | Parameter | Värde |
-    | -----     | ----- |
-    |Autentiseringsmetod| Ange autentiseringsuppgifter|
-    |Server-URL | FTP-URL för Web App hämtas från stacken Azure portal |
-    |Användarnamn | Användarnamnet som du konfigurerade när du skapar FTP-autentiseringsuppgifter för webbprogram |
-    |Lösenord | Lösenordet du skapade när FTP-autentiseringsuppgifter för webbprogram|
-    |Källkatalog | $(System.DefaultWorkingDirectory)\**\ |
-    |Fjärrkatalog | /site/wwwroot/|
-    |Bevara sökvägar | Aktiverat (markerad)|
-
-2.  Klicka på **spara**
-
-Konfigurera slutligen definitionen versionen om du vill använda agent poolen innehåller agenten distribueras med följande steg:
-1.  Markera versionen definitionen och på **redigera**
-2.  Välj **körs på agent** från den mellersta kolumnen. Välj agent kön som innehåller build-agenten som körs på Azure-stacken i den högra kolumnen.  
-    ![bild som visar konfigurationen av versionen definitionen för att använda en särskild kö](./media/azure-stack-solution-pipeline/image3.png)
-
-## <a name="deploy-new-code"></a>Distribuera nya kod
-Nu kan du testa hybrid CI/CD-pipelinen, med det sista steget publicering till Azure-stacken.  I det här avsnittet att ändra platsens sidfoten och starta distribution via pipeline.  När installationen är klar visas ändringarna distribueras till Azure för granskning och när du godkänner versionen de publiceras till Azure-stacken.
-
-1. Öppna i Visual Studio den *site.master* filen och ändra den här raden:
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_19.png)
     
-    `
-        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-    `
 
-    till denna:
+### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installera VSTS skapa agenten i Azure-stacken värdbaserade skapa servern
 
-    `
-        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application delivered by VSTS, Azure, and Azure Stack</p>
-    `
-3.  Spara ändringarna och synkronisera VSTS.  
-4.  Från arbetsytan VSTS statuskontroll build genom att välja **Skapa & släpper** > **skapa**
-5.  Du ser en build pågår.  Dubbelklicka på status och du kan se förloppet build.  När du ser ”klar build” i konsolen, går du vidare till Kontrollera versionen från **Skapa & släpper** > **släpper**.  Dubbelklicka på versionen.
-6.  Får du ett meddelande att granska kräver att en version. Kontrollera Webbappens URL och de nya ändringarna finns.  Godkänn version i VSTS.
-    ![bild som visar konfigurationen av versionen definitionen för att använda en särskild kö](./media/azure-stack-solution-pipeline/image4.png)
+1.  Ansluta till servern skapa som du har distribuerat på Azure Stack-värden.
+
+2.  Hämta och distribuera build-agenten som en tjänst med ditt personliga åtkomsttoken (PATRIK) och kör som-konto för VM-administratör.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+
+3. Gå till extraherade build-agentmappen. Kör den **run.cmd** filen från en upphöjd kommandotolk. 
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+
+4.  När run.cmd klar mapp med det extraherade innehållet bör se ut som följande:
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+
+    Du kan nu se agenten i VSTS mapp.
+
+## <a name="endpoint-creation-permissions"></a>Behörighet att skapa slutpunkten
+
+Användare kan skapa slutpunkter så VSTO versioner kan distribuera appar i Azure-tjänsten till stacken. VSTS ansluter till build-agent, som sedan ansluter med Azure-stacken. 
+
+![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+
+1. På den **inställningar** väljer du **säkerhet**.
+2. I den **VSTS grupper** listan till vänster, Välj **Endpoint skapare**. 
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+
+3. På den **medlemmar** väljer **+ Lägg till**. 
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+
+4. Ange ett användarnamn och väljer användaren från listan.
+5. Klicka på **spara ändringar**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+
+6. I den **VSTS grupper** listan till vänster, Välj **Endpoint administratörer**.
+7. På den **medlemmar** väljer **+ Lägg till**.
+8. Ange ett användarnamn och väljer användaren från listan.
+9. Klicka på **spara ändringar**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+    Build-agenten i Azure-stacken får instruktioner från VSTS som meddelar slutpunktsinformation för kommunikation med Azure-stacken. 
     
-7.  Kontrollera publicering till Azure-stacken är klar genom att besöka webbplatsen med den URL som anges när du skapar Webbappen.
-    ![bild som visar ASP. NEt app med sidfot ändras](./media/azure-stack-solution-pipeline/image5.png)
+    VSTS till Azure-stacken anslutning är nu klar.
 
+## <a name="develop-your-application"></a>Utveckla ditt program
 
-Du kan nu använda din nya hybrid CI/CD-pipeline som ett byggblock för andra hybrid cloud-mönster.
+Ställ in hybrid CI/CD för att distribuera Webbappen till Azure och Azure-stacken och automatisk push ändras till både moln.
+
+> [!note]  
+> Du behöver Azure stacken med rätt bilder automatiska ska köras (Windows Server och SQL) och har distribuerats Apptjänst. Läs dokumentationen Apptjänst avsnittet ”förutsättningar” Azure Stack operatorn krav.
+
+### <a name="add-code-to-vsts-project"></a>Lägg till kod i VSTS projekt
+
+1. Logga in på Visual Studio med ett konto som har behörighet för projektet skapa Azure-stacken.
+
+    Hybrid CI/CD gäller både programkoden och infrastrukturkod. Använd [Azure Resource Manager-mallar som web ](https://azure.microsoft.com/resources/templates/) app koden från VSTS till både moln.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+
+2. **Klona lagringsplatsen** genom att skapa och öppna standard-webbprogrammet.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+
+### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Skapa fristående web app-distribution för Apptjänster i både moln
+
+1. Redigera den **WebApplication.csproj** fil: Välj **Runtimeidentifier** och Lägg till `win10-x64.` mer information finns [fristående distribution](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentation .
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+
+2. Kontrollera koden i VSTS Team Utforskaren.
+
+3. Bekräfta att programkoden har kontrollerats i Visual Studio Team Services. 
+
+### <a name="create-the-build-definition"></a>Skapa build-definition
+
+1. Logga in på VSTS bekräfta möjlighet att skapa build-definitioner.
+
+2. Lägg till **- r win10-x64** kod. Detta är nödvändigt för att utlösa en fristående distribution med .net Core. 
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+
+3. Kör versionen. Den [självständiga distributionen bygga](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processen ska publicera artefakter som kan köras på Azure och Azure-stacken.
+
+### <a name="using-an-azure-hosted-agent"></a>Med hjälp av en Azure värdbaserade Agent
+
+Använda en värdbaserad agent i VSTS är ett enkelt alternativ för att skapa och distribuera webbprogram. Underhåll och uppgraderingar utförs automatiskt av Microsoft Azure, aktivera kontinuerliga, oavbruten utveckling, testning och distribution.
+
+### <a name="manage-and-configure-the-continuous-deployment-cd-process"></a>Hantera och konfigurera kontinuerlig distribution (CD)-processen
+
+Visual Studio Team Services VSTS () och Team Foundation Server (TFS) ger en mycket konfigurerbar och hanterbar pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, QA och produktionsmiljöer; inklusive som kräver godkännanden i specifika led.
+
+### <a name="create-release-definition"></a>Skapa en definition för versionen
+
+![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+
+1. Välj den  **\[ +]** att lägga till en ny version under den **versioner fliken** på sidan version och utgåva av VSO.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\102.png)
+
+2. Tillämpa den **Azure App Service-distributionen** mall.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\103.png)
+
+3. Lägg till artefakt nedrullningsbara menyn **lägga till artefakten** för Azure-molnet bygga appen.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\104.png)
+
+4. Pipeline-fliken, Välj den **fasen**, **aktivitet** länka miljön och ange Azure-molnet miljövärden.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\105.png)
+
+5. Ange den **miljönamn** och välj Azure **prenumeration** för slutpunkten för Azure-molnet.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\106.png)
+
+6. Ange de nödvändiga under miljönamn **Azure apptjänst namn**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\107.png)
+
+7. Ange **finns VS2017** under Agent kö för Azure värdbaserad molnmiljö.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\108.png)
+
+8. Distribuera Azure App Service-menyn, Välj det giltiga **paket eller mappen** för miljön. Välj **OK** till **mappen**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\109.png)
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\110.png)
+
+9. Spara alla ändringar och gå tillbaka till **versionen pipeline**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\111.png)
+
+10. Lägg till en **ny artefakt** välja build för Azure Stack-app.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\112.png)
+
+11. Lägg till en mer miljö tillämpa den **Azure App Service-distributionen**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\113.png)
+
+12. Namnge den nya miljön **Azure Stack**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\114.png)
+
+13. Hitta Azure-stacken miljön under **aktivitet** fliken.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\115.png)
+
+14. Välj den **prenumeration** för Azure Stack-slutpunkten.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\116.png)
+
+15. Ange Azure-stacken webbprogrammets namn som den **Apptjänst namn**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\117.png)
+
+16. Välj den **Azure Stack agent**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\118.png)
+
+17. Under distribuera Azure App Service avsnittet väljer du det giltiga **paket eller mappen** för miljön. Välj OK om du vill **mappen**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\119.png)
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\120.png)
+
+18. Variabeln fliken lägger du till en variabel med namnet **VSTS_ARM_REST_IGNORE_SSL_ERRORS**, ange värdet som **SANT**, och begränsa till **Azure Stack**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\121.png)
+
+19. Välj den **kontinuerlig** distribution utlösa ikonen i båda artefakter och aktivera fortsätter distributionen utlösaren.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\122.png)
+
+20. Välj den **före distributionen** villkor ikonen i azure stacken miljön och ange utlösaren till **efter utgivningen**.
+
+21. Spara alla ändringar.
+
+> [!note]  
+> Vissa inställningar för uppgifter kan ha automatiskt definierats som [miljövariabler](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) när du skapade en definition av utgåva från en mall. De här inställningarna kan inte ändras i aktivitetsinställningar; Du måste i stället välja överordnade miljöobjekt du vill redigera inställningarna.
+
+## <a name="create-a-release"></a>Skapa en version
+
+Nu när du har slutfört ändringarna versionen definition, är det dags att starta distributionen. Om du vill göra detta måste skapa du en version från versionen definition. En version som kan skapas automatiskt. till exempel anges kontinuerlig distribution utlösaren i definitionen för versionen. Det innebär att ändringar i källkoden startar en ny version och från som en ny version. Dock viktiga manuellt i det här avsnittet skapar du en ny.
+
+1. Öppna den **släpper** nedrullningsbara listan och välj **skapa version**.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\200.png)
+ 
+2. Ange en beskrivning för versionen, kontrollera att rätt artefakterna är markerade och välj sedan **skapa**. Efter en liten stund visas en banderoll som anger att den nya versionen har skapats. Välj länken (namnet på versionen).
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\201.png)
+ 
+3. Sammanfattningssida för versionen öppnas som visar information om versionen. I den **miljöer** avsnittet visas Distributionsstatus för miljön ”QA” ändra från ”Pågående” till ”SUCCEEDED”, och då en banderoll visas som anger att versionen nu väntar på godkännande. Informationsikon som visas när en distribution i en miljö som är i vänteläge eller har misslyckats, blå (i). Peka på det här alternativet om du vill se ett popup-fönster som innehåller orsaken.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\202.png)
+
+Andra vyer, till exempel listan över versioner, visas en ikon som indikerar godkännande är också väntande. Ikonen visas ett popup-fönster som innehåller namnet på miljön och mer information när du pekar på den. Detta gör det enkelt för en administratör att se vilka versioner väntar på godkännande, samt det övergripande förloppet för alla versioner.
+
+### <a name="monitor-and-track-deployments"></a>Övervaka och spåra distributioner
+
+I det här avsnittet visas hur du kan övervaka och spåra distributioner – i det här exemplet att två webbplatser i Azure App Service - från den version som du skapade i föregående avsnitt.
+
+1. I version sammanfattnings-sidan väljer du den **loggar** länk. Medan distributionen sker visas den här sidan live loggen från agenten och, i den vänstra rutan, uppgift om statusen för varje åtgärd i distributionsprocessen för varje miljö.
+
+    Välj ikonen i den **åtgärd** för ett godkännande av före eller efter distributionen visas detaljerad information om vem som godkänna (eller avvisa) distributionen och meddelandet som anges av användaren.
+
+2. När installationen är klar, visas hela loggfilen i den högra rutan. Välj någon av de **steg i processen** i den vänstra rutan att visa bara loggen innehållet för steget. Detta gör det enklare att spåra och felsöka enskilda delar av den övergripande distributionen. Du kan också hämta individuella loggfiler eller en zip alla loggfiler från ikoner och länkar på sidan.
+
+    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\203.png)
+ 
+3. Öppna den **sammanfattning** fliken för att se övergripande information om versionen. Den visar information om att bygga och miljöer som det distribuerades till – tillsammans med distributionens status och annan information om versionen.
+
+4. Markera den **miljö länkar** att se mer information om befintliga och väntande distributioner till den specifika miljön. Du kan använda dessa sidor för att verifiera att samma version har distribuerats till båda miljöerna.
+
+5. Öppna den **distribueras produktionsprogrammet** i din Bläddra. Till exempel för en webbplats för Azure App Service, från URL: en `http://[your-app-name].azurewebsites.net`.
 
 ## <a name="next-steps"></a>Nästa steg
-I kursen får du lärt dig hur du skapar en hybrid CI/CD-pipeline som:
 
-> [!div class="checklist"]
-> * Initierar en ny version utifrån kod genomför till lagringsplatsen för Visual Studio Team Services VSTS ().
-> * Distribuerar automatiskt nyligen inbyggd koden till Azure för användargodkännande.
-> * När koden har gått testning, distribuerar automatiskt till Azure-stacken. 
-
-Nu när du har en hybrid CI/CD-pipeline kan fortsätta genom att lära dig hur du utvecklar program för Azure-stacken.
-
-> [!div class="nextstepaction"]
-> [Utveckla för Azure Stack](azure-stack-developer.md)
-
-
+- Läs mer om Azure Cloud mönster i [designmönster](https://docs.microsoft.com/azure/architecture/patterns).

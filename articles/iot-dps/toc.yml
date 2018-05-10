@@ -133,10 +133,10 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning-tjänst
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: Platsbaserade tjänster
-          href: /azure/location-based-services
+        - name: Kartor
+          href: /azure/azure-maps
         - name: 'Tjänst-SDK:er'
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights

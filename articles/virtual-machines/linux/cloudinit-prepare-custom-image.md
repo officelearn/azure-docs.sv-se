@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbereda en befintlig Linux Azure VM-avbildning för användning med molnet initiering
 Den här artikeln visar hur du tar en befintlig Azure virtuell dator och förbereda den omdistribuerade och klar att använda molnet initiering. Bilden kan användas för att distribuera en ny virtuell dator eller skalningsuppsättningar i virtuella - som kan sedan anpassas ytterligare genom molnet init vid tidpunkten för distribution.  Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)
@@ -136,7 +136,7 @@ Alla avbildningar i Azure-plattformen har Azure Linux-agenten installerad, oavse
 sudo waagent -deprovision+user -force
 ```
 
-Mer information om Azure Linux-agenten avetablering kommandon finns på [Azure Linux-agenten](agent-user-guide.md) för mer information.
+Mer information om Azure Linux-agenten avetablering kommandon finns på [Azure Linux-agenten](../extensions/agent-linux.md) för mer information.
 
 Avsluta SSH-session från din bash shell och kör sedan följande kommandon för AzureCLI att frigöra, generalisera och skapa en ny virtuell dator i Azure-avbildning.  Ersätt `myResourceGroup` och `sourceVmName` med lämplig information reflektion din sourceVM.
 

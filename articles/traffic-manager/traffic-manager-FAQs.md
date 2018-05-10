@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager vanliga frågor (FAQ)
 
@@ -29,6 +29,10 @@ ms.lasthandoff: 04/16/2018
 Enligt beskrivningen i [så Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fungerar på DNS-nivå. Skickar den DNS-svar för att dirigera klienterna till lämplig tjänstslutpunkten. Klienter ansluter sedan till tjänstslutpunkten direkt, inte via Trafikhanterarprofilen.
 
 Traffic Manager ger därför inte en slutpunkt eller IP-adress för klienter att ansluta till. Om du vill statiska IP-adressen för din tjänst som måste konfigureras på tjänsten, inte i Trafikhanterarprofilen.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Vilka typer av trafik kan vara routning med Traffic Manager?
+Enligt beskrivningen i [så Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), en Traffic Manager-slutpunkt kan vara en internetuppkopplad tjänst som finns i eller utanför Azure. Traffic Manager kan därför kan dirigera trafik från det offentliga internet till en uppsättning slutpunkter som är också internet facing. Om du har slutpunkter som är i ett privat nätverk (till exempel en intern version av [Azure belastningsutjämnare](../load-balancer/load-balancer-overview.md#internalloadbalancer)) eller användare som DNS-förfrågningar från sådana interna nätverk Traffic Manager inte kan användas för dessa trafik.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Stöder Traffic Manager-Fäst' sessioner?
 
@@ -121,7 +125,7 @@ En region kan tilldelas till endast en slutpunkt i en profil för om dess med ge
 
 Ja, endast API-versionen 2017-03-01 och senare stöder geografiska routning skriver. Alla äldre API-versioner kan inte användas för att skapade profiler för geografisk routning eller tilldela slutpunkter geografiska områden. Om ett äldre API-versionen används för att hämta profiler från en Azure-prenumeration, returneras inte någon profil geografiska routning. Dessutom när du använder äldre API-versioner, returnerade en profil som har slutpunkter med en geografisk region tilldelning, har inte dess tilldelning för geografiska region som visas.
 
-## <a name="real-user-measurements"></a>Real User Measurements
+## <a name="real-user-measurements"></a>Faktisk slutanvändarmätning
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Vilka är fördelarna med att använda den verkliga användaren mått?
 När du använder routningsmetoden för prestanda, Traffic Manager hämtar den bästa Azure-regionen för användaren att ansluta till genom att kontrollera käll-IP och EDNS klientnät (om det skickade) och kontrollera mot nätverket latens intelligence tjänsten upprätthåller. Verklig användare mätningar förbättrar detta för grundläggande användaren genom att låta sina erfarenheter bidra till den här tabellen förutom att säkerställa svarstid som tabellen omfattar rätt slutanvändare nätverk från där användarna ansluter till Azure. Detta leder till en bättre noggrannhet i routning för dina slutanvändare.
@@ -182,7 +186,7 @@ Nej, behöver du inte värd för några server-sida-komponent på Azure för den
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Ökar min Azure bandbreddsanvändning när jag använder verkliga användaren mått?
 Som nämnts tidigare svar komponenter för serversidan verkliga användaren mätningar ägs och hanteras av Azure. Det innebär att du inte kommer att öka bandbreddsanvändningen Azure eftersom du använder verkliga användaren mått. Observera att detta inte innehåller några bandbreddsanvändning utanför vilka Azure avgifter. Vi minimera bandbredden som används av hämtar endast bildpunkt bilden till mått fördröjning till en Azure-region. 
 
-## <a name="traffic-view"></a>Traffic View
+## <a name="traffic-view"></a>Trafikvy
 
 ### <a name="what-does-traffic-view-do"></a>Vad är trafik vyn?
 Visa trafik är en funktion i Traffic Manager som hjälper dig att förstå mer om din användare och hur de är. Den använder frågor som tagits emot av Traffic Manager och nätverket latens intelligence tabeller som underhåller för att ge dig följande:

@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2018
+ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 1a2bb6def032d1790a67e458afb162402c1443a7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en virtuell Linux-dator i Azure med Azure Active Directory-autentisering (förhandsgranskning)
 
@@ -43,14 +43,16 @@ Följande Linux-distributioner stöds för närvarande under förhandsgranskning
 
 | Distribution | Version |
 | --- | --- |
-| Ubuntu Server | Ubuntu 16.04 LTS och Ubuntu Server 17.10 |
+| CentOS | CentOS 6,9 och CentOS 7.4 |
+| RedHat Enterprise Linux | RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 och Ubuntu Server 17.10 |
 
 Följande Azure-regioner stöds för närvarande under förhandsgranskning av den här funktionen:
 
-- Södra centrala USA
+- Alla offentliga Azure-regioner
 
 >[!IMPORTANT]
-> Om du vill använda den här förhandsgranskningsfunktionen bara distribuera en stöds Linux distro och i en Azure-regionen stöds.
+> Om du vill använda den här förhandsgranskningsfunktionen bara distribuera en stöds Linux distro och i en Azure-regionen stöds. Funktionen stöds inte i Azure Government eller suveräna moln.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +81,7 @@ Installera Azure Active Directory-loggen i VM-tillägget för att logga in till 
 
 ```azurecli-interactive
 az vm extension set \
-    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH.Edp \
+    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH \
     --name AADLoginForLinux \
     --resource-group myResourceGroup \
     --vm-name myVM

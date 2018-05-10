@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b65d0d88fd57dea59c79d2f72bab60967856e015
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack certifikat signering begäran generation
 
@@ -33,6 +33,8 @@ Verktyget Azure Stack beredskap Checker (AzsReadinessChecker) utför följande c
     Anger om Certifikatsigneringsförfrågan ska vara en enskild begäran eller flera begäranden.
  - **Plattform som en tjänst**  
     Du kan också begära plattform som en tjänst (PaaS) namn på certifikat som anges i [Azure Stack infrastruktur för offentliga nycklar certifikatkrav - valfria PaaS certifikat](azure-stack-pki-certs.md#optional-paas-certificates).
+
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 

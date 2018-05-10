@@ -1,30 +1,34 @@
 ---
 title: Azure Active Directory audit API-referens | Microsoft Docs
-description: "Hur du kommer igång med Azure Active Directory granska API"
+description: Hur du kommer igång med Azure Active Directory granska API
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 1bf86a9190039cdf0fe8dc435bdee4308b28cf29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory audit API-referens
-Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  
-Azure AD-rapportering ger dig en API som gör att du kan komma åt granskningsdata via kod eller relaterade verktyg.
-Omfånget för det här avsnittet är att ge dig referensinformation om den **granska API**.
+
+> [!TIP] 
+> Kolla in nya Microsoft Graph API för [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), vilket till slut ersätter detta API. 
+
+
+Den här artikeln är en del av en samling artiklar om Azure Active Directory (AD Azure) reporting API. Azure AD-rapportering ger dig en API som gör att du kan komma åt granskningsdata via kod eller relaterade verktyg.
+Omfånget för den här artikeln är att ge dig referensinformation om den **granska API**.
 
 Se:
 
@@ -35,15 +39,15 @@ Se:
 
 För:
 
-- Vanliga frågor och svar, Läs vår [vanliga frågor och svar](active-directory-reporting-faq.md) 
+- Vanliga frågor och svar, läsa den [vanliga frågor och svar](active-directory-reporting-faq.md) 
 
-- Kontrollera utfärdar [filen ett supportärende](active-directory-troubleshooting-support-howto.md) 
+- Problem, [filen ett supportärende](active-directory-troubleshooting-support-howto.md) 
 
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollen säkerhetsadministratör eller säkerhetsläsare
 * Globala administratörer
-* Alla appar som har behörighet att komma åt API: et (auktorisering i apptjänst kan vara installationen endast baserat på Global administratör behörighet)
+* Alla appar som har behörighet att komma åt API: et (auktorisering i apptjänst kan ställas in endast baserat på Global administratör behörighet)
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du måste ha för att komma åt den här rapporten via Reporting-API:
@@ -52,20 +56,19 @@ Du måste ha för att komma åt den här rapporten via Reporting-API:
 * Slutfört den [krav för att få åtkomst till Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Åtkomst till API: et
-Du kan antingen komma åt den här API via den [diagram Explorer](https://graphexplorer2.cloudapp.net) eller programmässigt med, till exempel PowerShell. För PowerShell för att tolka OData-filtersyntaxen som används i AAD diagram REST-anrop, måste du använda backtick (även kallat: allvarligt accent) tecken för att ”avbryta” $-tecken. Tecknet backtick fungerar som [PowerShells escape-tecknet](https://technet.microsoft.com/library/hh847755.aspx), vilket gör att PowerShell för att göra en literal tolkning av $-tecken, och undvika förvirrande som ett PowerShell-variabelnamn (ie: $filter).
+Du kan antingen komma åt den här API via den [diagram Explorer](https://graphexplorer2.cloudapp.net) eller programmässigt med, till exempel PowerShell. Använd backtick (även kallat: allvarligt accent) tecken för att ”avbryta” $-tecken för att säkerställa att PowerShell kan tolka OData-filtersyntaxen som används i AAD diagram REST-anrop. Tecknet backtick fungerar som [PowerShells escape-tecknet](https://technet.microsoft.com/library/hh847755.aspx), vilket gör att PowerShell för att göra en literal tolkning av $-tecken, och undvika förvirrande som ett PowerShell-variabelnamn (till exempel $filter).
 
-Det här avsnittet fokuserar på diagrammet Explorer. Ett PowerShell-exempel finns [PowerShell-skriptet](active-directory-reporting-api-audit-samples.md#powershell-script).
+Den här artikeln fokuserar på diagrammet Explorer. Ett PowerShell-exempel finns [PowerShell-skriptet](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>API-slutpunkt
+
 Du kan komma åt den här API: et med följande URI: N:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-Det finns ingen gräns för antalet poster som returneras av Azure AD-granska-API (med OData sidbrytning).
-Kvarhållning begränsningar rapportdata, kolla [Reporting bevarandeprinciper](active-directory-reporting-retention.md).
+Det finns ingen gräns för antalet poster som returneras av API: et för Azure AD audit (med OData sidbrytning). Kvarhållning gränserna för rapporteringsdata, se [Reporting bevarandeprinciper](active-directory-reporting-retention.md).
 
-Det här anropet returnerar data i batchar. Varje grupp som har högst 1000 poster.  
-Använd nästa länken för att få poster nästa batch. Hämta skiptoken information från den första uppsättningen returnerade poster. Skip-token anges i slutet av resultatet.  
+Anropet returnerar data i batchar. Varje grupp som har högst 1000 poster. För att få nästa batch poster kan använda den **nästa** länk. Hämta skip-token information från den första uppsättningen returnerade poster. Skip-token anges i slutet av resultatet.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,14 +76,15 @@ Använd nästa länken för att få poster nästa batch. Hämta skiptoken inform
 
 
 ## <a name="supported-filters"></a>Filter som stöds
-Du kan begränsa antalet poster som returneras av en API-anrop i form av ett filter.  
-Relaterade data, för inloggning API följande filter som stöds:
 
-* **$top =\<antal poster som ska returneras\>**  - om du vill begränsa antalet returnerade poster. Det här är en kostsam åtgärd. Du bör inte använda det här filtret om du vill returnera tusentals objekt.     
+Du kan begränsa antalet poster som returneras av API-anrop med ett filter.  
+Logga in API-relaterad data stöder följande filter:
+
+* **$top =\<antal poster som ska returneras\>**  - om du vill begränsa antalet returnerade poster. Det här är en kostsam åtgärd. Använd inte det här filtret om du vill returnera tusentals objekt.     
 * **$filter =\<filter-instruktionen\>**  - om du vill ange vilken typ av poster som intresserar dig på grundval av filter som stöds fält
 
 ## <a name="supported-filter-fields-and-operators"></a>Filter som stöds fält och operatorer
-Du kan skapa ett filter-uttryck som kan innehålla ett eller flera av följande filterfält om du vill ange vilken typ av poster som du är intresserad:
+Du kan skapa ett filter-uttryck med en eller en kombination av följande filterfält om du vill ange vilken typ av poster som intresserar dig:
 
 * [activityDate](#activitydate) -definierar ett datum eller datumintervall
 * [kategori](#category) -definierar den kategori som du vill filtrera på.
@@ -203,7 +207,7 @@ Icke skiftlägeskänslig
 Icke skiftlägeskänslig
 
 - - -
-### <a name="targetupn"></a>target/upn
+### <a name="targetupn"></a>mål/upn
 **Stöd för operatörer**: eq, startsWith
 
 **Exempel**:
@@ -213,7 +217,7 @@ Icke skiftlägeskänslig
 **Anteckningar**:
 
 * Icke skiftlägeskänslig
-* Du måste lägga till det fullständiga namnområdet när du frågar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
+* Lägg till fullständig namnområde när du frågar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
 ### <a name="targetobjectid"></a>mål/objectId
@@ -234,10 +238,12 @@ Icke skiftlägeskänslig
 **Anteckningar**:
 
 * Icke skiftlägeskänslig 
-* Du måste lägga till det fullständiga namnområdet när du frågar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
+* Lägg till fullständig namnområde när du frågar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -
 ## <a name="next-steps"></a>Nästa steg
-* Vill du se exempel för filtrerade systemaktiviteter? Kolla in den [Azure Active Directory audit API-exempel](active-directory-reporting-api-audit-samples.md).
-* Vill du veta mer om Azure AD reporting API? Se [komma igång med Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
+
+- Vill du se exempel för filtrerade systemaktiviteter? Kolla in den [Azure Active Directory audit API-exempel](active-directory-reporting-api-audit-samples.md).
+
+- Vill du veta mer om Azure AD reporting API? Se [komma igång med Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
 

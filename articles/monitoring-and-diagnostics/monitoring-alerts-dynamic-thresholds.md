@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: antonfr;mbullwin
-ms.openlocfilehash: c847052134b1d83cd606e0e2b51b63b580f7917c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Aviseringar med dynamiska tröskelvärden i Azure-Monitor (begränsad förhandsversion)
 
@@ -85,7 +85,7 @@ Aviseringar med dynamiska tröskelvärden kan konfigureras via aviseringar i Azu
 
    Om du vill minska avisering bruset som genererats av tillfälliga toppar, bör du använda inställningarna för ”antal överträdelser ska utlösa aviseringen”. Den här funktionen kan du få en avisering om tröskelvärdet har överskridits X gånger i följd eller Y tider utanför den sista Z punkter. Exempel:
 
-    För att utlösa en avisering när problemet kontinuerlig för 15 minuter, 3 gånger i följd under en viss period på 5 minuter, använder du följande inställningar:
+    För att utlösa en avisering när problemet är kontinuerlig för 15 minuter, 3 gånger i följd under en viss period på 5 minuter, använder du följande inställningar:
 
    ![Utvärderas baserat på](./media/monitoring-alerts-dynamic-thresholds/0008.png)
 

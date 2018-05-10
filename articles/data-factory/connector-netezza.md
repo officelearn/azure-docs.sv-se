@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Kopiera data från Netezza med hjälp av Azure Data Factory (Beta)
 
@@ -45,11 +45,18 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Netezza länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Netezza** | Ja |
 | connectionString | En ODBC-anslutningssträng att ansluta till Netezza. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+
+En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Fler egenskaper som du kan ange per ditt fall:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | Vilken säkerhetsnivå (SSL/TLS) som drivrutinen använder för anslutning till datalagret. T.ex. `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>– Endast oskyddad (**onlyUnSecured**): drivrutinen inte använda SSL.<br/>- **Önskad Unsecured (preferredUnSecured) (standard)**: om servern innehåller ett val, drivrutinen inte använda SSL. <br/>- **Önskad skyddat (preferredSecured)**: om servern innehåller ett val, drivrutinen använder SSL. <br/>- **Endast skyddat (onlySecured)**: drivrutinen ansluter inte såvida inte en SSL-anslutning är tillgänglig | Nej |
+| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. T.ex. `UseSystemTrustStore=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel:**
 
@@ -101,7 +108,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Netezza, anger du källa i kopieringsaktiviteten till **NetezzaSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **NetezzaSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om Azure-stacken nätverk infrastruktur som hjälper dig att bestämma hur du ska integrera Azure Stack bäst i din befintliga nätverksmiljö. 
@@ -70,7 +70,7 @@ Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att
 Detta/27 nätverket är liten mellan Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registrering till Azure och infrastruktur säkerhetskopieringar. ERCS VM ska vara dirigerbara till nätverket för felsökning.
 
 ### <a name="public-vip-network"></a>Offentligt VIP-nätverk
-Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Infrastrukturen i Azure-stacken använder 8 adresser från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
+Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Azure Stack-infrastruktur reserverar de första 31 adresserna från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
 
 ### <a name="switch-infrastructure-network"></a>Växeln infrastrukturnätverk
 Detta/26 nätverk är det undernät som innehåller dirigerbara point-to-point IP /30 (2 värd-IP) undernät och loopbacks vilket är dedikerade/32 undernät för in-band-växla hanterings- och BGP-router-ID. Detta intervall med IP-adresser måste vara dirigerbara externt av Azure Stack-lösningen för att ditt datacenter, kan de vara privat eller offentlig IP-adresser.

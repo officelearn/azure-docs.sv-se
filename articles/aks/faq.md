@@ -3,23 +3,23 @@ title: Vanliga frågor om Azure Kubernetes Service
 description: Innehåller svar på några vanliga frågor om Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d03f906f0cf4d22772388a589424877d8bb2f8ce
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure-Kubernetes (AKS)
 
 Den här artikeln adresser vanliga frågor om Azure-Kubernetes (AKS).
 
 > [!IMPORTANT]
-> Azure Kubernetes Service (AKS) är för närvarande i **preview**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Azure Kubernetes Service (AKS) finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Vilka regioner som Azure tillhandahåller Azure Kubernetes Service (AKS) idag?
@@ -28,9 +28,7 @@ Den här artikeln adresser vanliga frågor om Azure-Kubernetes (AKS).
 - Östra Kanada
 - Centrala USA
 - Östra USA
-- Sydostasien
 - Västra Europa
-- Västra USA 2
 
 ## <a name="when-will-additional-regions-be-added"></a>När läggs ytterligare regioner?
 

@@ -1,26 +1,20 @@
 ---
-title: "Lägg till B2B-samarbete användare som en informationsanställd - Azure Active Directory | Microsoft Docs"
-description: "B2B-samarbete kan IT-anställda lägga till användare i Azure AD för åtkomst från organisationen | Microsoft Docs"
+title: Lägg till B2B-samarbete användare som en informationsanställd - Azure Active Directory | Microsoft Docs
+description: B2B-samarbete kan IT-anställda lägga till användare i Azure AD för åtkomst från organisationen | Microsoft Docs
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: curtand
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 37660311d74bd6230dd6c229e4160e4d68d467a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a758fe4d9cb00af56f7b8ba6b894f0e87ee8c0d3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Hur lägger informationsarbetare till B2B-samarbete användare till Azure Active Directory?
 
@@ -40,16 +34,9 @@ Informationsanställda kan lägga till B2B-samarbete användare till en grupp so
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
+Se följande artiklar om Azure AD B2B-samarbete:
 
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Hur lägger Azure Active Directory-administratörer till B2B-samarbete användare?](active-directory-b2b-admin-add-users.md)
-* [Elementen i e-postinbjudan B2B-samarbete](active-directory-b2b-invitation-email.md)
-* [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B-samarbete och licensiering](active-directory-b2b-licensing.md)
-* [Felsökning av Azure Active Directory B2B-samarbete](active-directory-b2b-troubleshooting.md)
-* [Vanliga och frågor svar om Azure Active Directory B2B-samarbete](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B-samarbete API och anpassning](active-directory-b2b-api.md)
-* [Multi-Factor Authentication för användare av B2B-samarbete](active-directory-b2b-mfa-instructions.md)
-* [Lägg till B2B-samarbete användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
-* [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Hur lägger Azure Active Directory-administratörer till B2B-samarbete användare?](active-directory-b2b-admin-add-users.md)
+- [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md)
+- [Azure AD B2B-samarbete och licensiering](active-directory-b2b-licensing.md)

@@ -177,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Haveriberedskap
           items:
-            - name: Haveriberedskap för virtuella VMware-datorer med stöd för flera klienter och CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: Replikera virtuella VMware-datorer till Azure med PowerShell
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Haveriberedskap för fysiska servrar till Azure
@@ -199,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Aktivera replikering av virtuell VMware-dator
               href: vmware-azure-enable-replication.md
+            - name: Flera klienter med CSP för virtuella VMWare-datorer
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Distribuera mobilitetstjänsten
           items:
+            - name: Mobilitetstjänstöversikt
+              href: vmware-azure-install-mobility-service.md
             - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Distribuera mobilitetstjänsten med Azure Automation DSC
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Redundans och återställning efter fel
           items:
             - name: Köra ett programåterställningstest till Azure

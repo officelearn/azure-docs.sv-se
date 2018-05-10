@@ -1,0 +1,177 @@
+- name: Dokumentation om Lab Services
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Lab Services
+      href: lab-services-overview.md
+    - name: Jämför labbtyper
+      href: compare-lab-types.md
+- name: Självstudier
+  items:
+    - name: DevTest Labs
+      items:
+        - name: 1. Konfigurera ett anpassat labb
+          href: tutorial-create-custom-lab.md
+        - name: 2. Åtkomst till ett anpassat labb
+          href: tutorial-use-custom-lab.md
+    - name: Klassrumslabb
+      items:
+        - name: 1. Konfigurera ett labbkonto
+          href: tutorial-setup-lab-account.md
+        - name: 2. Konfigurera ett klassrumslabb
+          href: tutorial-setup-classroom-lab.md
+        - name: 3. Åtkomst till ett klassrumslabb
+          href: tutorial-connect-virtual-machine-classroom-lab.md
+- name: Exempel
+  items:
+    - name: DevTest Labs
+      items:
+        - name: Mallar för Resurshanteraren
+          href: 'https://github.com/Azure/azure-devtestlab/tree/master/Samples'
+        - name: Azure PowerShell
+          href: samples-powershell.md
+        - name: Azure CLI
+          href: samples-cli.md
+- name: Begrepp
+  items:
+    - name: DevTest Labs
+      href: devtest-lab-concepts.md
+      items:
+        - name: Använda labb för utvecklare
+          href: devtest-lab-developer-lab.md
+        - name: Använda labb för testmiljöer
+          href: devtest-lab-test-env.md
+        - name: Använda labb för utbildning
+          href: devtest-lab-training-lab.md
+        - name: DevTest Labs
+          href: devtest-lab-overview.md
+- name: Instruktionsguider
+  items:
+    - name: Klassrumslabb
+      items:
+        - name: Hantera labbkonton
+          href: how-to-manage-lab-accounts.md
+        - name: Hantera klassrumslabb
+          href: how-to-manage-classroom-labs.md
+        - name: Åtkomst till klassrumslabb
+          href: how-to-use-classroom-lab.md
+    - name: DevTest-labb
+      items:
+        - name: Skapa ett anpassat labb
+          href: devtest-lab-create-lab.md
+        - name: Skapa en virtuell dator i det anpassade labbet
+          href: devtest-lab-create-first-vm.md
+        - name: Ange principer för det anpassade labbet
+          href: devtest-lab-get-started-with-lab-policies.md
+        - name: Använda virtuella datorer i ett anpassat labb
+          items:
+            - name: 'Skapa VM:ar'
+              href: devtest-lab-add-vm.md
+            - name: Skapa och hantera tillgängliga virtuella datorer
+              href: devtest-lab-add-claimable-vm.md
+            - name: Skapa och hantera virtuella datorer med Azure CLI
+              href: devtest-lab-vmcli.md
+            - name: Skapa en virtuell dator från en resurshanteringsmall
+              href: devtest-lab-use-resource-manager-template.md
+            - name: Starta om en virtuell dator
+              href: devtest-lab-restart-vm.md
+        - name: Använd miljöer i ett anpassat labb
+          items:
+            - name: Skapa en miljö
+              href: devtest-lab-create-environment-from-arm.md
+        - name: Säker åtkomst till labb
+          items:
+            - name: Lägg till labbägare och användare
+              href: devtest-lab-add-devtest-user.md
+            - name: Anpassa behörigheter med anpassade roller
+              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+        - name: Konfigurera ett anpassat labb
+          items:
+            - name: Ange principer och scheman
+              href: devtest-lab-set-lab-policy.md
+            - name: Konfigurera kostnadshantering
+              href: devtest-lab-configure-cost-management.md
+            - name: Konfigurera Azure Marketplace-avbildningar
+              href: devtest-lab-configure-marketplace-images.md
+            - name: Aktivera en licensierad avbildning
+              href: devtest-lab-enable-licensed-images.md
+            - name: Lägga till taggar i ett anpassat labb
+              href: devtest-lab-add-tag.md
+            - name: Publicera ett meddelande i ett anpassat labb
+              href: devtest-lab-announcements.md
+            - name: Lägga till supportinformation till ett anpassat labb
+              href: devtest-lab-internal-support-message.md
+        - name: Välj anpassad avbildning eller formel
+          href: devtest-lab-comparing-vm-base-image-types.md
+        - name: Hantera anpassade avbildningar
+          items:
+            - name: Skapa en anpassad avbildning från en virtuell dator
+              href: devtest-lab-create-custom-image-from-vm-using-portal.md
+            - name: Skapa en anpassad avbildning från en virtuell hårddisk med Azure Portal
+              href: devtest-lab-create-template.md
+            - name: Skapa en anpassad avbildning från en virtuell hårddisk med PowerShell
+              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+            - name: Överför VHD-filen med AzCopy
+              href: devtest-lab-upload-vhd-using-azcopy.md
+            - name: Överför VHD-filen med PowerShell
+              href: devtest-lab-upload-vhd-using-powershell.md
+            - name: Överför VHD-filen med Lagringsutforskaren
+              href: devtest-lab-upload-vhd-using-storage-explorer.md
+        - name: Hantera återanvändbara mallar
+          items:
+            - name: Lägg till en Git-lagringsplats för artefakter och mallar
+              href: devtest-lab-add-artifact-repo.md
+            - name: Hantera formler
+              href: devtest-lab-manage-formulas.md
+        - name: Hantera artefakter
+          items:
+            - name: Skapa anpassade artefakter
+              href: devtest-lab-artifact-author.md
+            - name: Diagnostisera fel i artefakter
+              href: devtest-lab-troubleshoot-artifact-failure.md
+        - name: Hantera virtuella nätverk
+          items:
+            - name: Konfigurera virtuella nätverk
+              href: devtest-lab-configure-vnet.md
+            - name: Välj IP-konfigurationsalternativ
+              href: devtest-lab-shared-ip.md
+        - name: Hantera datadiskar
+          items:
+            - name: Ansluta och koppla från datadiskar
+              href: devtest-lab-attach-detach-data-disk.md
+        - name: Skala ditt labb
+          href: devtest-lab-scale-lab.md
+        - name: Integrera med CI/CD
+          items:
+            - name: Integrera labb i din VSTS CI/CD-pipeline
+              href: devtest-lab-integrate-ci-cd-vsts.md
+        - name: Skapa eller ändra labb med Resource Manager-mall
+          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+- name: Referens
+  items:
+    - name: CLI 2.0
+      href: /cli/azure/lab
+    - name: PowerShell
+      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/dtl/'
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: DevTest Labs – vanliga frågor
+      href: devtest-lab-faq.md
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
+    - name: Teamblogg
+      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'

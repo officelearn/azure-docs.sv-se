@@ -199,6 +199,8 @@
           href: use-remote-desktop.md
         - name: Ansluta virtuell dator till Azure Active Directory
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+        - name: Logga in med autentiseringsuppgifter för Azure Active Directory
+          href: login-using-aad.md
         - name: Uppdateringar och korrigeringar
           items:
             - name: Red Hat Update Infrastructure
@@ -206,7 +208,7 @@
         - name: Virtuell Azure-datoragent
           items:
             - name: Översikt
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: Agentuppdatering
               href: update-agent.md
         - name: Planerat underhåll
@@ -432,7 +434,7 @@
         - name: VMAccess-tillägg
           href: using-vmaccess-extension.md
         - name: Begränsa installation av tillägg
-          href: extensions-rmpolicy-howto-cli.md
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: Migrera virtuella datorer
       items:
         - name: Migrera AWS och lokala virtuella datorer

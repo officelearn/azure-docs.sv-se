@@ -14,11 +14,11 @@ ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: fc7a67c644894606b09ed3ad594ff9f87b29f307
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -41,7 +41,7 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > Användaren måste också vara Global administratör om du vill distribuera principen för villkorlig åtkomst i Exchange ActiveSync i Azure.
   
-* **CRM-tjänstadministratör**: användare med den här rollen har globala behörigheter i Microsoft CRM Online när tjänsten finns, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Dynamics 365 tjänstadministratör**: användare med den här rollen har globala behörigheter i Microsoft CRM Online när tjänsten finns, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Enhetsadministratörer**: användare med den här rollen blir för lokala datoradministratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheter objekt i Azure Active Directory.
 
@@ -126,25 +126,25 @@ Följande administratörsroller är tillgängliga:
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare och andra supportavdelningen administratörer</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
 
-### <a name="information-protection-administrator"></a>Administratören för information Protection
-i | Kan göra
+### <a name="information-protection-administrator"></a>Information Protection-administratör
+I | Kan göra
 -------- | ---------
 Azure Information Protection | <li>Konfigurera inställningar och etiketter i globala och begränsade principer<li>Konfigurera och hantera mallar för skydd<li>Aktivera eller inaktivera skydd--
  
-### <a name="reports-reader"></a>Rapporter läsare 
+### <a name="reports-reader"></a>Rapportläsare 
 Kan göra | Det går inte att göra
 ------ | ----------
 Visa Azure AD-inloggning rapporter och granskningsloggar<br>Visa information om företagets och användare<br>Instrumentpanelen för användning av Office 365 | Skapa och hantera användarvyer<br>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser<br>Delegera administrativa roller till andra<br>Hantera information om företaget
 
 ### <a name="security-reader"></a>Säkerhetsläsare
-| i | Kan göra |
+| I | Kan göra |
 | --- | --- |
 | Identity Protection Center  |Läsa alla säkerhetsrapporter och inställningsinformation om för säkerhet<ul><li>Skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Skadlig kod<li>Avancerat skydd<li>Mot nätfiske<li>Mailflow regler |
 | Privileged Identity Management |<p>Har skrivskyddad åtkomst till all information som angetts i Azure AD PIM: principer och rapporter för Azure AD-rolltilldelningar säkerhet granskar och i framtiden skrivskyddad åtkomst till principdata och rapporter för scenarier utöver Azure AD-rolltilldelning.<p>**Det går inte att** registrera dig för Azure AD PIM eller göra några ändringar. PIMS portalen eller via PowerShell kan någon i den här rollen aktivera ytterligare roller (till exempel Global administratör eller Privilegierade rollen Administratör), om användaren är en kandidat för dem. |
 | <p>Tjänstens hälsa för Övervakare för Office 365</p><p>Office 365-säkerhet och efterlevnad Center</p> |<ul><li>Läsa och hantera aviseringar<li>Läs säkerhetsprinciper<li>Läsa hotinformation, Cloud App Discovery och karantän i Sök- och undersök<li>Läsa alla rapporter |
 
 ### <a name="security-administrator"></a>Säkerhetsadministratör
-| i | Kan göra |
+| I | Kan göra |
 | --- | --- |
 | Identity Protection Center  |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>Dessutom kan utföra alla åtgärder för IPC förutom återställa lösenord. |
 | Privileged Identity Management |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>**Det går inte att** Hantera medlemskap i Azure AD-roller eller inställningar. |

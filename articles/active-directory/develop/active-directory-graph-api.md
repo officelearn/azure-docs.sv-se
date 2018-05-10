@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: c817964ebab358f8e31e7435b7067fc60e9516fa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ Azure AD Graph API innehåller följande funktioner:
 * **Autentisering med Azure AD**: alla begäranden till Azure AD Graph API måste autentiseras genom att lägga till en JSON-Webbtoken (JWT) i Authorization-huvud i begäran. Denna token förvärvas genom att göra en begäran till Azure AD-token för slutpunkt och anger giltiga autentiseringsuppgifter. Du kan använda OAuth 2.0-klientautentiseringsuppgifter eller det flöde beviljat med auktoriseringskod att hämta en token för att anropa diagrammet. Mer information [OAuth 2.0 i Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * **Rollbaserad auktorisering (RBAC)**: säkerhetsgrupper används för att utföra RBAC i Azure AD Graph API. Om du vill fastställa om en användare har åtkomst till en specifik resurs, programmet kan anropa exempelvis den [Kontrollera gruppmedlemskap (transitiva)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) åtgärd som returnerar true eller false.
 * **Differentiella frågan**: differentiell frågan kan du spåra ändringar i en katalog mellan två tidsperioder utan att behöva göra ofta frågor i Azure AD Graph API. Den här typen av begäran returnerar bara de ändringar som gjorts mellan tidigare differentiell fråga och den aktuella begäranden. Mer information finns i [Azure AD Graph API differentiell frågan](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Katalogtillägg**: ou kan att lägga till anpassade egenskaper till katalogobjekt utan ett externt dataarkiv. Om ditt program kräver en Skype-ID-egenskap för varje användare, kan du registrera den nya egenskapen i katalogen och den blir tillgänglig för användning på alla användarobjekt. Mer information finns i [Azure AD Graph API Directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **Katalogtillägg**: du kan lägga till anpassade egenskaper katalogobjekt utan ett externt dataarkiv. Om ditt program kräver en Skype-ID-egenskap för varje användare, kan du registrera den nya egenskapen i katalogen och den blir tillgänglig för användning på alla användarobjekt. Mer information finns i [Azure AD Graph API Directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **Skyddas av behörighetsomfattningen**: Azure AD Graph API exponerar behörighetsomfattningen som ger säker åtkomst till Azure AD-data med hjälp av OAuth 2.0. Den stöder en mängd olika apptyper som klienten, inklusive:
   
   * användargränssnitt som ges delegerad åtkomst till data via tillstånd från (delegerad) inloggade användaren

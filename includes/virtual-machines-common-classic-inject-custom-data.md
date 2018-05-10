@@ -1,19 +1,19 @@
 
 
 
-Det här avsnittet beskrivs hur du:
+Den här artikeln beskriver hur du:
 
 * Mata in data i en Azure virtuell dator (VM) när den har etablerats.
 * Hämta den för både Windows och Linux.
 * Använd särskilda verktyg som finns på vissa datorer att identifiera och hantera anpassade data automatiskt.
 
 > [!NOTE]
-> Den här artikeln beskriver hur anpassade data kan matas in med hjälp av en virtuell dator som skapats med Azure Service Management API. Information om hur du använder Azure Resource Management API finns [exempel mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> Den här artikeln beskriver hur anpassade data kan matas in med hjälp av en virtuell dator som skapats med den klassiska distributionsmodellen. Information om hur du använder Azure Resource Management API finns [exempel mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 > 
 > 
 
 ## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Placera anpassade data i ditt virtuella Azure-datorn
-Den här funktionen stöds för närvarande bara i den [Azure-kommandoradsgränssnittet](https://github.com/Azure/azure-xplat-cli). Här kan vi skapa en `custom-data.txt` -fil som innehåller våra data sedan mata in det i till den virtuella datorn under etableringen. Även om du kan använda något av alternativen för den `azure vm create` kommandot följande visar ett grundläggande tillvägagångssätt:
+Den här funktionen stöds för närvarande bara i den [Azure-kommandoradsgränssnittet](https://github.com/Azure/azure-xplat-cli). Här kan vi skapa en `custom-data.txt` -fil som innehåller våra data sedan mata in det i till den virtuella datorn under etableringen. Även om du kan använda något av alternativen för den `azure vm create` kommandot i följande exempel visar en enkel metod:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -29,17 +29,17 @@ Den här funktionen stöds för närvarande bara i den [Azure-kommandoradsgräns
   > Om filen finns över den. Säkerheten för katalogen är inställd på **System: fullständig kontroll** och **administratörer: fullständig kontroll**.
   > 
   > 
-* Om Azure VM är en Linux-baserade Virtuella, kommer filen anpassade data finnas i något av följande platser beroende på din distro. Data kan vara base64-kodade, så du kan behöva avkryptering av data först:
+* Om din Azure VM är en Linux-baserade Virtuella, finns anpassade data-filen på någon av följande platser beroende på din distro. Data kan vara base64-kodade, så du kan behöva avkryptering av data först:
   
   * `/var/lib/waagent/ovf-env.xml`
   * `/var/lib/waagent/CustomData`
   * `/var/lib/cloud/instance/user-data.txt` 
 
 ## <a name="cloud-init-on-azure"></a>Molnet initiering på Azure
-Om din Azure VM är från en Ubuntu eller virtuell CoreOS-avbildning, kan du använda CustomData för att skicka en moln-config till molnet initiering. Eller om anpassade datafilen är ett skript, sedan molnet init kan bara köra den.
+Om din Azure VM är från en Ubuntu eller virtuell CoreOS-avbildning, kan du använda CustomData för att skicka en moln-config till molnet initiering. Eller om anpassade datafilen är ett skript, molnet init kan köra.
 
 ### <a name="ubuntu-cloud-images"></a>Ubuntu molnet bilder
-I de flesta Azure Linux-avbildningar, skulle du redigera ”/ etc/waagent.conf” att konfigurera tillfällig disken och byta ut filen. Se [Azure Linux-agenten användarhandboken](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information.
+I de flesta Azure Linux-avbildningar, skulle du redigera ”/ etc/waagent.conf” att konfigurera tillfällig disken och byta ut filen. Se [Azure Linux-agenten användarhandboken](../articles/virtual-machines/extensions/agent-linux.md) för mer information.
 
 Dock på Ubuntu molnet bilder, måste du använda molnet init för att konfigurera resurs-disken (det vill säga ”tillfälliga” disk) och växla partition. Se följande sida i wiki Ubuntu mer information: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 

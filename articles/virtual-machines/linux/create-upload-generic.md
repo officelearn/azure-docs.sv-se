@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 171265d996c9fe4eb10ac354347f5725dadd0203
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 17b4df83b141d5365a8d6244c4ab73b0eba5ed73
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +29,9 @@ Azure-plattformen SLA gäller för virtuella datorer som kör Linux OS bara när
 * [Linux på Azure - godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
-Alla distributioner som körs på Azure måste uppfylla vissa krav för att prova att fungera på plattformen.  Den här artikeln är inte menat omfattande som varje distribution är olika. och det är fullt möjligt att även om du uppfyller alla följande villkor du fortfarande behöver justera avsevärt Linux-system för att säkerställa att den körs korrekt på plattformen.
+Alla distributioner som körs på Azure måste uppfylla vissa krav för att prova att fungera på plattformen.  Den här artikeln är inte menat omfattande som varje distribution är olika. och du kan även om du uppfyller alla följande villkor måste du justera avsevärt Linux-system för att säkerställa att den körs korrekt på plattformen.
 
-Det är därför som vi rekommenderar att du börjar med en av våra [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) när det är möjligt. I följande artiklar hjälper dig att förbereda de olika påtecknade Linux-distributioner som stöds i Azure:
+Det är därför som vi rekommenderar att du börjar med en [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) när det är möjligt. I följande artikel hjälper dig att förbereda de olika påtecknade Linux-distributioner som stöds i Azure:
 
 * **[CentOS-baserade distributioner](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -53,9 +53,9 @@ Resten av den här artikeln fokuserar på allmänna riktlinjer för att köra Li
 * Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB innan konverteringen. Mer information finns i stegen nedan.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installera kernel moduler utan Hyper-V
-Azure körs på Hyper-V-hypervisor så Linux kräver att vissa kernel-moduler är installerade för att kunna köras i Azure. Om du har en virtuell dator som har skapats utanför Hyper-V, Linux-installationsprogram kanske inte med drivrutiner för Hyper-V inledande ramdisk (initrd eller initramfs) såvida inte den upptäcker att den körs en Hyper-V-miljö. När du använder ett system med olika virtualisering (d.v.s. Virtualbox, KVM osv.) för att förbereda avbildningen Linux, du kan behöva återskapa initrd för att säkerställa att åtminstone `hv_vmbus` och `hv_storvsc` kernel-moduler är tillgängliga på den första ramdisk.  Detta är ett känt problem minst på system baserat på den överordnade Red Hat-distributionen.
+Azure körs på Hyper-V-hypervisor så Linux kräver att vissa kernel-moduler är installerade för att kunna köras i Azure. Om du har en virtuell dator som har skapats utanför Hyper-V, kanske Linux-installationsprogram inte med drivrutiner för Hyper-V inledande ramdisk (initrd eller initramfs) såvida inte den upptäcker att den körs på en Hyper-V-miljö. När du använder en annan virtualisering system (det vill säga Virtualbox, KVM osv.) för att förbereda avbildningen Linux kan du behöva återskapa initrd för att säkerställa att åtminstone `hv_vmbus` och `hv_storvsc` kernel-moduler är tillgängliga på den första ramdisk.  Detta är ett känt problem minst på system baserat på den överordnade Red Hat-distributionen.
 
-Mekanism för att återskapa initrd eller initramfs avbildningen kan variera beroende på distributionsplatsen. Dokumentationen för din distribution eller stöd för på rätt sätt.  Här är ett exempel på hur du återskapa den initrd med hjälp av den `mkinitrd` verktyget:
+Mekanism för att återskapa initrd eller initramfs avbildningen kan variera beroende på distributionsplatsen. Kontakta din distribution dokumentation eller stöd för på rätt sätt.  Här är ett exempel på hur du återskapa den initrd med hjälp av den `mkinitrd` verktyget:
 
 Först säkerhetskopiera den befintliga initrd avbildningen:
 
@@ -68,11 +68,11 @@ Därefter återskapa initrd med den `hv_vmbus` och `hv_storvsc` kernel moduler:
 
 
 ### <a name="resizing-vhds"></a>Ändra storlek på virtuella hårddiskar
-VHD-avbildningar i Azure måste ha en virtuell storlek justeras till 1MB.  Normalt ska redan virtuella hårddiskar som skapats med hjälp av Hyper-V justeras korrekt.  Om den virtuella Hårddisken inte är korrekt justerat så att du får ett felmeddelande liknande följande när du försöker skapa en *bild* från den virtuella Hårddisken:
+VHD-avbildningar i Azure måste ha en virtuell storlek justeras till 1 MB.  Normalt ska redan virtuella hårddiskar som skapats med hjälp av Hyper-V justeras korrekt.  Om den virtuella Hårddisken inte är korrekt justerat du får ett felmeddelande liknande följande när du försöker skapa en *bild* från den virtuella Hårddisken:
 
     "The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-För att åtgärda detta kan du ändra storlek på den virtuella datorn med Hyper-V Manager-konsolen eller [storleksändring VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell-cmdlet.  Om du inte körs i en Windows-miljö bör det att använda qemu img konvertera (om det behövs) och ändra storlek på den virtuella Hårddisken.
+Du kan åtgärda problemet genom att ändra storlek på den virtuella datorn med Hyper-V Manager-konsolen eller [storleksändring VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell-cmdlet.  Om du inte körs i en windowsmiljö, rekommenderas att du använder qemu img konvertera (om det behövs) och ändra storlek på den virtuella Hårddisken.
 
 > [!NOTE]
 > Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera till 2.6 eller senare. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
@@ -83,7 +83,7 @@ För att åtgärda detta kan du ändra storlek på den virtuella datorn med Hype
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
-2. Beräkna den nödvändiga storleken för diskavbildning så att den virtuella storleken justeras till 1MB.  Du följande kommandoskript bash kan hjälpa till med den här.  Skriptet använder ”`qemu-img info`” att identifiera virtuella storleken på disk image och beräknar sedan storleken till nästa 1 MB:
+2. Beräkna den nödvändiga storleken för diskavbildning så att den virtuella storleken justeras till 1 MB.  Du följande kommandoskript bash kan hjälpa till med den här.  Skriptet använder ”`qemu-img info`” att identifiera virtuella storleken på disk image och beräknar sedan storleken till nästa 1 MB:
    
        rawdisk="MyLinuxVM.raw"
        vhddisk="MyLinuxVM.vhd"
@@ -108,11 +108,11 @@ För att åtgärda detta kan du ändra storlek på den virtuella datorn med Hype
        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Linux-Kernel-krav
-Linux Integration Services (LIS)-drivrutiner för Hyper-V och Azure bidragit direkt till den överordnade Linux-kerneln. Många distributioner som innehåller de senaste Linux kernel-version (d.v.s. 3.x) redan har dessa drivrutiner eller annat sätt tillhandahålla anpassats versioner av drivrutinerna med deras kärnor.  De här drivrutinerna som uppdateras kontinuerligt i överordnad kernel med nya korrigeringar och funktioner, så när det är möjligt bör köra en [godkända distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som innehåller dessa korrigeringar och uppdateringar.
+Linux Integration Services (LIS)-drivrutiner för Hyper-V och Azure bidragit direkt till den överordnade Linux-kerneln. Många distributioner som innehåller de senaste Linux kernel-version (d.v.s. 3.x) har redan dessa drivrutiner eller annars ange anpassats versioner av drivrutinerna med deras kärnor.  De här drivrutinerna som uppdateras kontinuerligt i överordnad kernel med nya korrigeringar och funktioner, så när det är möjligt bör köra en [godkända distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som innehåller dessa korrigeringar och uppdateringar.
 
 Om du använder en variant av Red Hat Enterprise Linux versioner **6.0 6.3**, måste du installera de senaste drivrutinerna för LIS för Hyper-V. Drivrutinerna kan hittas [på den här platsen](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Från och med RHEL **6.4 +** (och derivat) drivrutinerna LIS ingår redan i kernel och därför inga ytterligare Installationspaketen behövs för att köra dessa system på Azure.
 
-Om en anpassad kernel krävs, rekommenderas att använda en nyare version av kernel (d.v.s. **3.8 +**). För dessa distributioner eller leverantörer som hanterar sina egna kernel möda kommer att behöva regelbundet backport LIS drivrutiner från överordnad kerneln till din anpassade kernel.  Även om du redan kör en relativt nya kernel-version, rekommenderas att hålla koll på eventuella överordnade korrigeringar i LIS drivrutiner och backport dem efter behov. LIS drivrutinens källfiler finns tillgängliga i den [sköter underhåll SJÄLVA](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) filen i trädet Linux kernel källa:
+Om en anpassad kernel krävs, rekommenderas att använda en nyare version av kernel (d.v.s. **3.8 +**). För dessa distributioner eller leverantörer som hanterar sina egna kernel möda krävs för att regelbundet backport LIS drivrutiner från den överordnade kerneln till din anpassade kernel.  Även om du redan kör en relativt nya kernel-version, rekommenderas att hålla koll på eventuella överordnade korrigeringar i LIS drivrutiner och backport dem efter behov. LIS drivrutinens källfiler finns tillgängliga i den [sköter underhåll SJÄLVA](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) filen i trädet Linux kernel källa:
 
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -126,7 +126,7 @@ Om en anpassad kernel krävs, rekommenderas att använda en nyare version av ker
     F:    include/linux/hyperv.h
     F:    tools/hv/
 
-Vid en mycket minsta avsaknaden av följande korrigeringsfiler har rapporterats orsaka problem på Azure och så de måste inkluderas i kernel. Den här listan är inte menat fullständig eller fullständig för alla distributioner:
+Avsaknad av följande korrigeringsfiler har rapporterats att orsaka problem på Azure och så dessa måste ingå i kernel minst. Den här listan är inte menat fullständig eller fullständig för alla distributioner:
 
 * [ata_piix: skjuta upp diskar i Hyper-V-drivrutiner som standard](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 * [storvsc: kontot för transit paket i sökvägen för återställning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
@@ -137,9 +137,9 @@ Vid en mycket minsta avsaknaden av följande korrigeringsfiler har rapporterats 
 * [scsi_sysfs: skydda dig mot dubbla körning av __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Azure Linux-agenten
-Den [Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent) krävs för att korrekt etablera en virtuell Linux-dator i Azure. Du kan hämta den senaste versionen, filen problem eller skicka pull-förfrågningar på den [Linux-agenten GitHub-repo-](https://github.com/Azure/WALinuxAgent).
+Den [Azure Linux-agenten](../extensions/agent-linux.md) (waagent) krävs för att korrekt etablera en virtuell Linux-dator i Azure. Du kan hämta den senaste versionen, filen problem eller skicka pull-förfrågningar på den [Linux-agenten GitHub-repo-](https://github.com/Azure/WALinuxAgent).
 
-* Linux-agenten släpps under Apache 2.0-licens. Många distributioner ange redan RPM eller deb paket för agenten och så i vissa fall detta kan du installera och uppdatera visningsläge.
+* Linux-agenten släpps under Apache 2.0-licens. Många distributioner ange redan RPM eller deb paket för agenten och så i vissa fall kan detta kan du installera och uppdatera visningsläge.
 * Azure Linux-agenten kräver Python v2.6 +.
 * Agenten kräver också pyasn1 python-modulen. De flesta distributioner ger detta som ett separat paket som kan installeras.
 * Azure Linux-agenten kanske inte kompatibelt med NetworkManager i vissa fall. Många av de RPM/Deb-paket som tillhandahålls av distributioner konfigurera NetworkManager som en konflikt i waagent-paketet och därmed kommer att avinstallera NetworkManager när du installerar Linux-agenten.
@@ -151,21 +151,23 @@ Den [Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
   
+    Detta säkerställer också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem.
+  
     Förutom de som nämns ovan, rekommenderas att *ta bort* om de finns följande parametrar:
   
         rhgb quiet crashkernel=auto
   
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Den `crashkernel` alternativet kan vara left konfigureras om så önskas, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, som kan vara problematiskt på de virtuella datorn är mindre.
+    Grafisk och tyst start är inte användbar i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Den `crashkernel` alternativet kan vara left konfigureras om så önskas, men Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer, som kan vara problematiskt på de virtuella datorn är mindre.
 
 * Installera Azure Linux-Agent
   
-    Azure Linux-agenten krävs för att etablera en Linux-avbildning på Azure.  Många distributioner ger agenten som ett RPM eller Deb-paket (paketet kallas vanligtvis 'WALinuxAgent' eller 'walinuxagent').  Agenten kan också installeras manuellt genom att följa stegen i den [Linux-agenten Guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    Azure Linux-agenten krävs för att etablera en Linux-avbildning på Azure.  Många distributioner ger agenten som ett RPM eller Deb-paket (paketet kallas vanligtvis 'WALinuxAgent' eller 'walinuxagent').  Agenten kan också installeras manuellt genom att följa stegen i den [Linux-agenten Guide](../extensions/agent-linux.md).
 
 * Se till att SSH-server har installerats och konfigurerats för att starta när datorn startas.  Detta är vanligtvis standardvärdet.
 
 * Skapa inte växlingsutrymme på OS-disk
   
-    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med den lokala resurs disken som är kopplad till den virtuella datorn när du har etablerat på Azure. Observera att den lokala resurs disken är en *tillfälliga* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg), ändra följande parametrar i /etc/waagent.conf på rätt sätt:
+    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med den lokala resurs disken som är kopplad till den virtuella datorn när du har etablerat på Azure. Den lokala resurs disken är en *tillfälliga* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg), ändra följande parametrar i /etc/waagent.conf på rätt sätt:
   
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -184,5 +186,5 @@ Den [Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-
   > 
   > 
 
-* Du måste sedan att stänga av den virtuella datorn och överför den virtuella Hårddisken till Azure.
+* Stäng av den virtuella datorn och överför den virtuella Hårddisken till Azure.
 

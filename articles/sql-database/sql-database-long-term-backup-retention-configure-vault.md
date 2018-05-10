@@ -7,18 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f26f9b6f1b0ddef348c39df5aa4badc5df93b725
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Konfigurera och återställa från Azure SQL Database långsiktig lagring av säkerhetskopior med hjälp av Azure Recovery Services-valv
 
 Du kan konfigurera Azure Recovery Services-valvet för att lagra säkerhetskopiorna av Azure SQL-databasen och sedan återställa en databas med hjälp av säkerhetskopior som lagras i valvet med Azure-portalen eller PowerShell.
+
+> [!NOTE]
+> Som en del av den första versionen av förhandsversionen för långsiktig lagring av säkerhetskopior i oktober 2016 lagras säkerhetskopior i Azure Recovery Services-tjänsten-valvet. Den här uppdateringen tar bort den här beroende, men för bakåtkompatibilitet ursprungliga API stöds förrän den 31 maj 2018. Om du behöver interagera med säkerhetskopieringar i Azure Services Recovery-valvet finns [långsiktig lagring av säkerhetskopior med hjälp av Azure Recovery Services-tjänsten valvet](sql-database-long-term-backup-retention-configure-vault.md). 
+
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -30,7 +34,7 @@ Du konfigurerar Azure Recovery Services-valv som [behålla automatiska säkerhet
 
 1. Öppna den **SQL Server** för servern.
 
-   ![sql server page](./media/sql-database-get-started-portal/sql-server-blade.png)
+   ![SQL server-sida](./media/sql-database-get-started-portal/sql-server-blade.png)
 
 2. Klicka på **Long-term backup retention** (Långsiktig kvarhållning av säkerhetskopior).
 

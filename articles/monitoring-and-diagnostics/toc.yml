@@ -65,8 +65,12 @@
           href: insights-alerts-command-line-interface.md
         - name: Konfigurera klassiska aviseringar med Azure PowerShell
           href: insights-alerts-powershell.md
+        - name: Få en klassisk måttavisering att anropa en webhook
+          href: insights-webhooks-alerts.md
         - name: Webhook-åtgärder för loggaviseringar
           href: monitor-alerts-unified-log-webhook.md
+        - name: Skapa en loggavisering med en Resource Manager-mall
+          href: monitor-alerts-unified-log-template.md
         - name: Skapa en nyare måttavisering med en Resource Manager-mall
           href: monitoring-create-metric-alerts-with-templates.md
         - name: Skapa en klassisk måttavisering med en Resource Manager-mall
@@ -85,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: Skapa åtgärdsgrupper med Resource Manager
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Implementera en Logikapp-åtgärd
+          href: monitoring-action-groups-logic-app.md
     - name: Använda diagnostikloggar
       items:
         - name: Arkiv
@@ -125,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: Använd Azure Diagnostics-tillägg
       items:
+        - name: Skicka till Azure Storage
+          href: azure-diagnostics-storage.md
         - name: Skicka till Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Skicka till Event Hubs
@@ -175,6 +183,13 @@
       href: monitoring-activity-log-schema.md
     - name: Schema för Azure Diagnostics-tillägg
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 och senare
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Resurser
   items:
     - name: Azure-översikt

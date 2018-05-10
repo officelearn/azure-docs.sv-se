@@ -1,30 +1,33 @@
 ---
 title: Azure Active Directory inloggningsaktivitet rapporten API-referens | Microsoft Docs
-description: "Referens för Azure Active Directory inloggningsaktivitet rapporten API"
+description: Referens för Azure Active Directory inloggningsaktivitet rapporten API
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dbb95b5910def55437f05837986e850824fbe741
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory inloggningsaktivitet rapporten API-referens
-Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  
-Azure AD-rapportering ger dig en API som gör att du kan komma åt inloggningsaktivitet rapportdata via kod eller relaterade verktyg.
-Omfånget för det här avsnittet är att ge dig referensinformation om den **aktivitet rapporten API inloggning**.
+
+> [!TIP] 
+> Kolla in nya Microsoft Graph API för [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), vilket till slut ersätter detta API. 
+
+Den här artikeln är en del av en samling artiklar om Azure Active Directory (AD Azure) reporting API. Azure AD-rapportering ger dig en API som gör att du kan komma åt granskningsdata via kod eller relaterade verktyg.
+Omfånget för den här artikeln är att ge dig referensinformation om den **granska API**.
 
 Se:
 
@@ -35,9 +38,9 @@ Se:
 ## <a name="who-can-access-the-api-data"></a>Vem som har åtkomst till API-data?
 * Användare och tjänstens huvudnamn i rollen Administratör säkerhet eller säkerhet läsare
 * Globala administratörer
-* Alla appar som har behörighet att komma åt API: et (auktorisering i apptjänst kan vara installationen endast baserat på Global administratör behörighet)
+* Alla appar som har behörighet att komma åt API: et (auktorisering i apptjänst kan ställas in endast baserat på Global administratör behörighet)
 
-Använd följande PowerShell att lägga till program tjänstens huvudnamn i rollen Läsare av säkerhet för att konfigurera åtkomst för ett program för att komma åt säkerheten API: er, till exempel logga händelser
+Använd följande PowerShell att lägga till program tjänstens huvudnamn i rollen Läsare av säkerhet för att konfigurera åtkomst för ett program för att komma åt säkerheten API: er, till exempel inloggning händelser
 
 ```PowerShell
 Connect-MsolService
@@ -53,7 +56,7 @@ Du måste ha för att komma åt den här rapporten via reporting API:
 * Slutfört den [krav för att få åtkomst till Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Åtkomst till API: et
-Du kan antingen komma åt den här API via den [diagram Explorer](https://graphexplorer2.cloudapp.net) eller programmässigt med, till exempel PowerShell. För PowerShell för att tolka OData-filtersyntaxen som används i AAD diagram REST-anrop, måste du använda backtick (även kallat: allvarligt accent) tecken för att ”avbryta” $-tecken. Tecknet backtick fungerar som [PowerShells escape-tecknet](https://technet.microsoft.com/library/hh847755.aspx), vilket gör att PowerShell för att göra en literal tolkning av $-tecken, och undvika förvirrande som ett PowerShell-variabelnamn (ie: $filter).
+Du kan antingen komma åt den här API via den [diagram Explorer](https://graphexplorer2.cloudapp.net) eller programmässigt med, till exempel PowerShell. Använd backtick (även kallat: allvarligt accent) tecken för att ”avbryta” $-tecken för att säkerställa att PowerShell kan tolka OData-filtersyntaxen som används i AAD diagram REST-anrop. Tecknet backtick fungerar som [PowerShells escape-tecknet](https://technet.microsoft.com/library/hh847755.aspx), vilket gör att PowerShell för att göra en literal tolkning av $-tecken, och undvika förvirrande som ett PowerShell-variabelnamn (till exempel $filter).
 
 Det här avsnittet fokuserar på diagrammet Explorer. Ett PowerShell-exempel finns [PowerShell-skriptet](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -64,19 +67,18 @@ Du kan komma åt den här API: et med följande bas-URI:
 
 
 
-Detta API är begränsad till en miljon returnerade poster på grund av mängden data. 
+På grund av mängden data har en gräns på 1 000 000 returnerade poster i detta API. 
 
-Det här anropet returnerar data i batchar. Varje grupp som har högst 1000 poster.  
-Använd nästa länken för att få poster nästa batch. Hämta den [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) information från den första uppsättningen returnerade poster. Skip-token anges i slutet av resultatet.  
+Det här anropet returnerar data i batchar. Varje grupp som har högst 1000 poster. Använd nästa länken för att få poster nästa batch. Hämta den [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) information från den första uppsättningen returnerade poster. Skip-token anges i slutet av resultatet.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Filter som stöds
 Du kan begränsa antalet poster som returneras av en API-anrop i form av ett filter.  
-Relaterade data, för inloggning API följande filter som stöds:
+Logga in API-relaterad data stöder följande filter:
 
-* **$top =\<antal poster som ska returneras\>**  - om du vill begränsa antalet returnerade poster. Det här är en kostsam åtgärd. Du bör inte använda det här filtret om du vill returnera tusentals objekt.  
+* **$top =\<antal poster som ska returneras\>**  - om du vill begränsa antalet returnerade poster. Det här är en kostsam åtgärd. Använd inte det här filtret om du vill returnera tusentals objekt.  
 * **$filter =\<filter-instruktionen\>**  - om du vill ange vilken typ av poster som intresserar dig på grundval av filter som stöds fält
 
 ## <a name="supported-filter-fields-and-operators"></a>Filter som stöds fält och operatorer
@@ -94,7 +96,7 @@ Du kan skapa ett filter-uttryck som kan innehålla ett eller flera av följande 
 > 
 > 
 
-Du kan skapa kombinationer av fälten stöds filter och filtrera om du vill begränsa omfånget för returnerade data. Till exempel returnerar följande sats de översta 10 posterna mellan 1 juli 2016 och juli 6 2016:
+Du kan skapa kombinationer av fälten stöds filter och filtrera om du vill begränsa omfånget för returnerade data. Till exempel returnerar följande sats de översta 10 posterna mellan juli 1 2016 och juli 6 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 

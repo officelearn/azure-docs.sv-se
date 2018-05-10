@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 7e2fe84c51f93bdeb6cd99e23624d1796aff6c1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Felsökningsguide för liveuppspelning
-Det här avsnittet innehåller förslag på hur du felsöker direktsänd strömning problem.
+Den här artikeln ger förslag på hur du felsöker direktsänd strömning problem.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Problem med lokala kodare
 Det här avsnittet innehåller förslag på hur du felsöker problem med lokala kodare som har konfigurerats för att skicka en dataström med enkel bithastighet till AMS-kanaler som är aktiverade för live encoding.
@@ -44,23 +44,10 @@ Det här avsnittet innehåller förslag på hur du felsöker problem med lokala 
     **Felsökningssteg**: Kontrollera kodaren inte längre push-installation till AMS, stoppa och återställa kanalen. Kör en gång igen och försök att ansluta din kodare med de nya inställningarna. Om du fortfarande inte kan lösa problemet, försök att skapa en ny kanal helt, ibland kanaler kan bli skadad efter flera misslyckade försök.  
 * **Potentiella problem**: det GOP storlek eller nyckelbilden inställningar inte är optimala. 
   
-    **Felsökningssteg**: rekommenderas GOP storlek eller keyframe är 2 sekunder. Vissa kodare beräkna den här inställningen i antal bildrutor, medan andra använder sekunder. Exempel: när mata ut 30fps GOP storleken är 60 ramar, vilket motsvarar 2 sekunder.  
+    **Felsökningssteg**: rekommenderas GOP storlek eller keyframe är två sekunderna. Vissa kodare beräkna den här inställningen i antal bildrutor, medan andra använder sekunder. Exempel: när mata ut 30 fps GOP storleken är 60 ramar, vilket motsvarar 2 sekunder.  
 * **Potentiella problem**: stängda portar blockerar dataströmmen. 
   
-    **Felsökningssteg**: när strömning via RTMP Kontrollera inställningarna för brandväggen och/eller proxy för att bekräfta att utgående portar 1935 och 1936 är öppna. När du använder RTP strömning, bekräfta att utgående port 2010 är öppen. 
-
-### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>Problem: När du konfigurerar kodaren till en dataström med protokollet RTP, det finns ingen plats för att ange ett värdnamn.
-* **Potentiella problem**: Tillåt inte många RTP kodare för värdnamn och en IP-adress måste förvärvas.  
-  
-    **Felsökningssteg**: Om du vill hitta IP-adress, öppna en kommandotolk på varje dator. Öppna kör programstart (WIN + R) för att göra detta i Windows, och Skriv ”cmd” att öppna.  
-  
-    När Kommandotolken är öppen skriver du ”Ping [AMS värdnamn]”. 
-  
-    Värdnamn kan härledas genom att utelämna portnumret från Azure infognings-URL, som i följande exempel: 
-  
-    RTP://Test2-amstest009.RTP.Channel.mediaservices.Windows.NET:2010 / 
-  
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    **Felsökningssteg**: när strömning via RTMP Kontrollera inställningarna för brandväggen och/eller proxy för att bekräfta att utgående portar 1935 och 1936 är öppna. 
 
 > [!NOTE]
 > Skicka ett supportärende i Azure Portal om du efter följande felsökningssteg du fortfarande inte kan kunna strömma.

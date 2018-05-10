@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-koncepten
 Det här avsnittet ger en översikt av de viktigaste Media Services-begrepp.
@@ -108,7 +108,7 @@ Information om stöds kodare finns [kodare](media-services-encode-asset.md).
 I Azure Media Services representerar en kanal en pipeline för bearbetning av liveströmmat innehåll. En kanal som tar emot live indata i ett av två sätt:
 
 * En lokal livekodare skickar flera bithastigheter RTMP eller Smooth Streaming (fragmenterad MP4) till kanalen. Du kan använda de följande livekodare som skickar Smooth Streaming i flera bithastigheter: MediaExcel, Ateme, anta kommunikation, Envivio, Cisco och Elemental. Följande livekodare skickar RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision och Tricaster kodare. De infogade strömmarna passerar genom kanalerna utan ytterligare omkodning och kodning. På begäran levererar Media Services strömmen till kunder.
-* En dataström med enkel bithastighet (i något av följande format: RTP (MPEG-TS)), RTMP eller Smooth Streaming (fragmenterad MP4)) som skickas till den kanal som är aktiverad för att utföra live encoding med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
+* En dataström med enkel bithastighet (i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4)) som skickas till den kanal som är aktiverad för att utföra live encoding med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 ### <a name="channel"></a>Kanal
 I Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarar för bearbetning av liveströmmat innehåll. En kanal som tillhandahåller en slutpunkt för indata (infognings-URL) som du sedan vidarebefordra till en levande transcoder. Kanalen tar emot live indata från live transcoder och gör den tillgänglig för strömning via en eller flera Strömningsslutpunkter. Kanaler ger också förhandsgranskningsslutpunkten (förhandsgranskning URL) som används för att förhandsgranska och verifiera strömmen innan ytterligare bearbetning och leverans.

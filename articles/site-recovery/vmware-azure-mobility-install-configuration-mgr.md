@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisera installation av Mobilitetstjänsten med System Center Configuration Manager
 
@@ -49,7 +49,7 @@ Alternativt kan du automatisera installation av Mobilitetstjänsten med [Azure A
 4. Kopiera den **MobSvc.passphrase** filen till den **MobSvcWindows** mapp på nätverksresursen.
 5. Bläddra till installationsprogrammet för databasen på konfigurationsservern genom att köra följande kommando:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopiera den **Microsoft ASR\_UA\_*version*\_Windows\_GA\_*datum*\_Release.exe**  till den **MobSvcWindows** mapp på nätverksresursen.
 7. Kopiera följande kod och spara den som **install.bat** till den **MobSvcWindows** mapp.
@@ -174,7 +174,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
   | **Parameternamn** | **Värde** |
   |--|--|
   | Namn | Installera Microsoft Azure-Mobilitetstjänsten (Windows) |
-  | Kommandorad | install.bat |
+  | Kommandorad | Install.bat |
   | Programmet kan köras | Om en användare är inloggad |
 
   ![Skärmbild av skapa paket och Program Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -230,7 +230,7 @@ Du kan övervaka förloppet för distributionen med hjälp av Configuration Mana
 4. Kopiera den **MobSvc.passphrase** filen till den **MobSvcLinux** mapp på nätverksresursen.
 5. Bläddra till installationsprogrammet för databasen på konfigurationsservern genom att köra kommandot:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopiera följande filer till den **MobSvcLinux** mapp på nätverksresursen:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
@@ -238,7 +238,7 @@ Du kan övervaka förloppet för distributionen med hjälp av Configuration Mana
    * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
    * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+   * Microsoft ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
 
 
 7. Kopiera följande kod och spara den som **install_linux.sh** till den **MobSvcLinux** mapp.
@@ -399,7 +399,7 @@ cd /tmp
     | **Parameternamn** | **Värde** |
   |--|--|
   | Namn | Installera Microsoft Azure-Mobilitetstjänsten (Linux) |
-  | Kommandorad | ./install_linux.sh |
+  | Kommandorad | ./install_linux.SH |
   | Programmet kan köras | Om en användare är inloggad |
 
   ![Skärmbild av skapa paket och Program Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)

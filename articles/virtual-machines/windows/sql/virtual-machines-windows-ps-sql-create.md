@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2f0d9c42e32f2dd1181eac8d74c324b5ff2b0c53
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Hur du etablerar SQL Server-datorer med Azure PowerShell
 
@@ -31,7 +31,7 @@ Den här artikeln kräver Azure PowerShell Modulversion 3,6 eller senare. Kör `
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra den **Connect-AzureRmAccount** kommando.
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzureRmAccount**.
 
    ```PowerShell
    Connect-AzureRmAccount
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Ange egenskaperna för operativsystemet för den virtuella datorn
-Nu vi är redo att ange egenskaper för den virtuella datorns operativsystem med [Set AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) för att ange vilken typ av operativsystem som Windows, kräver den [virtuella datorns agent](../agent-user-guide.md) Ange att cmdlet aktiverar automatisk uppdatering är installerad, och ange namnet på virtuella datorn, datornamnet och autentiseringsuppgifter med hjälp av de variabler som du tidigare har initierat.
+Nu vi är redo att ange egenskaper för den virtuella datorns operativsystem med [Set AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) för att ange vilken typ av operativsystem som Windows, kräver den [virtuella datorns agent](../../extensions/agent-windows.md) Ange att cmdlet aktiverar automatisk uppdatering är installerad, och ange namnet på virtuella datorn, datornamnet och autentiseringsuppgifter med hjälp av de variabler som du tidigare har initierat.
 
 Kör följande cmdlet för att ange egenskaperna för operativsystemet för den virtuella datorn.
 

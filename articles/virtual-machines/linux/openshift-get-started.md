@@ -1,25 +1,25 @@
 ---
-title: "OpenShift i översikt över Azure | Microsoft Docs"
-description: "En översikt över OpenShift i Azure."
+title: OpenShift i översikt över Azure | Microsoft Docs
+description: En översikt över OpenShift i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="openshift-in-azure"></a>OpenShift i Azure
 
@@ -31,14 +31,14 @@ OpenShift innehåller Kubernetes för behållaren orchestration och hantering. D
 - Enkel distribution och skalning.
 - Livscykel på lång sikt för grupper och program.
 
-Det finns flera versioner av OpenShift, som två är tillgänglig för körning i Azure:
+Det finns flera versioner av OpenShift:
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift dedikerad
 
-Av de fyra versionerna som beskrivs i den här artikeln, två är tillgängliga för kunder att distribuera i Azure på egen hand: OpenShift ursprung och OpenShift behållare plattform.
+Av de fyra versionerna som beskrivs i den här artikeln endast två är tillgängliga för kunder att distribuera i Azure: OpenShift ursprung och OpenShift behållare plattform.
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 

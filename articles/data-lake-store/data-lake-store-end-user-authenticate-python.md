@@ -1,8 +1,8 @@
 ---
-title: "Slutanvändarens autentisering: Python med Data Lake Store med Azure Active Directory | Microsoft Docs"
-description: "Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med Python"
+title: 'Slutanvändarens autentisering: Python med Data Lake Store med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med Python
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fa8df760ac22ae915765895b498f21d628eea76
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7f582683245505fe1ff161e4461dd34690a1ab0a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Slutanvändarens autentisering med Data Lake Store använder Python
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Båda dessa alternativ beskrivs i den här artikeln. Tjänst-till-tjänst-autent
 Du måste installera tre moduler för att kunna arbeta med Data Lake Store med hjälp av Python.
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
-* `azure-mgmt-datalake-store`-modulen, som innehåller Azure Data Lake Store-kontohanteringsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Management-modulen](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* `azure-mgmt-datalake-store`-modulen, som innehåller Azure Data Lake Store-kontohanteringsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Management-modulen](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
 * `azure-datalake-store`-modulen, som innehåller Azure Data Lake Store-filsystemsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.

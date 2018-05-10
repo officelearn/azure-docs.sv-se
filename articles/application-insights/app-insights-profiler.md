@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilen live Azure-webbappar med Application Insights
 
-*Funktionen Azure Application Insights är allmänt tillgänglig för funktionen Web Apps i Azure App Service och är i förhandsvisning för Azure-beräkningsresurser.*
+*Funktionen Azure Application Insights är allmänt tillgänglig för funktionen Web Apps i Azure App Service och är i förhandsvisning för Azure-beräkningsresurser. Information om [lokal användning av profileraren](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 Den här artikeln beskrivs hur lång tid som ägnats åt varje metod live webbprogrammets när du använder [Programinsikter](app-insights-overview.md). Application Insights Profiler visas detaljerad profiler för live-frågor som har hanteras av din app. Profileraren visar den *varm sökvägen* som används mest tid. Begäranden med olika svarstider listan på ett urval. Genom att använda olika metoder kan minimera du kostnader som är kopplad till programmet.
 

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
-Du kan använda sökning aktiviteten för att läsa eller söka efter en post, namn eller värde från en extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
 
-Sökning aktivitet är användbart när du vill hämta en lista över filer, poster eller tabeller dynamiskt från en fil eller en datakälla. Utdata från aktiviteten kan användas mer av andra aktiviteter för att utföra specifika bearbetning på endast dessa objekt.
+Sökning aktiviteten kan användas för att hämta en datamängd från någon av ADF-stöd för datakällan.  Det kan användas i följande scenario:
+- Dynamiskt bestämma vilka objekt (filer, tabeller osv) att använda i en efterföljande aktivitet i stället för att hårdkoda objektnamnet
+
+Sökning aktivitet kan läsa och returnera innehållet i en konfigurationsfil, konfigurationstabell eller resultatet av att utföra en fråga eller en lagrad procedur.  Utdata från aktiviteten för sökning kan användas i en efterföljande kopia eller omvandling aktivitet om det är en singleton-värde eller användas i en ForEach-aktivitet om det är en matris med attribut.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
@@ -33,7 +35,7 @@ Följande datakällor stöds för närvarande för sökning:
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
-Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, och upp till **10MB** i storlek.
+Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, och upp till **2MB** i storlek.
 
 ## <a name="syntax"></a>Syntax
 

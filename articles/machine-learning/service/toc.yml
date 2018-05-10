@@ -4,17 +4,17 @@
   expanded: true
   items:
     - name: Om Azure Machine Learning
-      href: ../desktop-workbench/overview-what-is-azure-ml.md
+      href: overview-what-is-azure-ml.md
     - name: Översikt över Machine Learning-modellhantering
       href: ../desktop-workbench/model-management-overview.md
     - name: Andra Machine Learning-produkter
-      href: ../desktop-workbench/overview-more-machine-learning.md
+      href: overview-more-machine-learning.md
     - name: Nyheter
       href: ../desktop-workbench/azure-machine-learning-release-notes.md
 - name: Snabbstarter
   items:
     - name: Installera och starta
-      href: ../desktop-workbench/quickstart-installation.md
+      href: quickstart-installation.md
 - name: Självstudier
   items:
     - name: '1: Förbereda data'
@@ -29,6 +29,8 @@
   items:
     - name: Viktiga begrepp
       href: ../desktop-workbench/overview-general-concepts.md
+    - name: FPGA-acceleration
+      href: concept-accelerate-with-fpgas.md
 - name: Instruktionsguider
   items:
     - name: Främsta CLI-åtgärder
@@ -92,8 +94,10 @@
           href: ../desktop-workbench/how-to-read-write-files.md
         - name: Använd MMLSpark-bibliotek
           href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: Operationalisera modeller
+    - name: Distribuera och använd modeller
       items:
+        - name: 'Distribuera modeller till FPGA:er'
+          href: how-to-deploy-fpga-web-service.md
         - name: Konfigurera Machine Learning-modellhantering
           href: ../desktop-workbench/deployment-setup-configuration.md
         - name: Skala kluster och tjänster
@@ -142,6 +146,31 @@
           href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Referens
   items:
+    - name: Python-paket
+      href: reference-python-package-overview.md
+      items:
+        - name: Datorvision
+          items:
+            - name: Översikt över paketet och installation
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
+            - name: Skapa och distribuera bildklassificeringsmodeller
+              href: how-to-build-deploy-image-classification-models.md
+            - name: Modellnoggrannhet
+              href: how-to-improve-accuracy-for-computer-vision-models.md
+        - name: Prognosticering
+          items:
+            - name: Översikt och installation
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview'
+            - name: Skapa och distribuera prognosmodeller
+              href: how-to-build-deploy-forecast-models.md
+        - name: FPGA-acceleration
+          href: reference-fpga-package-overview.md
+        - name: Textanalys
+          items:
+            - name: Översikt och installation
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics'
+            - name: Skapa och distribuera textklassificeringsmodeller
+              href: how-to-build-deploy-text-classification-models.md
     - name: Förberedelse av data
       items:
         - name: Python-tillägg för förberedelse av data
@@ -191,13 +220,13 @@
     - name: Vanliga frågor och svar
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problem och felsökning
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+      href: known-issues-and-troubleshooting-guide.md
     - name: Support och utbildning
-      href: ../desktop-workbench/support-for-aml-services.md
+      href: support-for-aml-services.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prissättning
-      href: ../desktop-workbench/aml-pricing.md
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
     - name: TDSP (Team Data Science Process)

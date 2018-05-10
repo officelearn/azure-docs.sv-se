@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS databasen innehavare mönster
 
@@ -88,7 +88,7 @@ Azure SQL-databasen innehåller verktyg som krävs för att konfigurera, överva
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Operations skala för databasen per klient
 
-Azure SQL Database-plattform har många funktioner för hantering av stort antal databaser i skala, till exempel väl över 100 000 databaser.  Dessa funktioner gör databasen per klient mönstret rimligt.
+Azure SQL Database-plattform har många hanteringsfunktioner som utformats för att hantera ett stort antal databaser i skala, till exempel väl över 100 000 databaser.  Dessa funktioner gör databasen per klient mönstret rimligt.
 
 Anta exempelvis att ett system har en databas som 1000-klient som bara en databas.  Databasen kan ha 20 index.  Om systemet konverterar till med 1000 stöd för en innehavare databaser, stiger antalet index till 20 000.  I SQL-databas som en del av [automatisk justering][docu-sql-db-automatic-tuning-771a], funktionerna för automatisk indexering är aktiverade som standard.  Automatisk indexering hanterar du alla 20 000 index och deras pågående optimeringar skapa och släpp.  Dessa automatiserade åtgärder som sker inom en individuell databas och de inte samordnas eller begränsade av liknande åtgärder i andra databaser.  Automatisk indexering behandlar index annorlunda än upptagen databaser i en ledig databas.  Den här typen av index management anpassning är opraktiska i databasen per klient skala om den här aktiviteten för hantering av stora var du tvungen att manuellt.
 
@@ -169,7 +169,7 @@ Stöd för en innehavare databaser för prenumeranten klienter kan placeras i re
 
 I följande tabell sammanfattas skillnaderna mellan de huvudsakliga innehavare modellerna.
 
-| Mätning | Fristående app | Database-per-tenant | Delat flera innehavare |
+| Mätning | Fristående app | Databasen per klient | Delat flera innehavare |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Skala | Medel<br />1-100-tal | Mycket hög<br />100 1-000-tal | Obegränsat<br />1 1,000,000s |
 | Klientisolering | Mycket hög | Hög | Låg; Förutom alla singleton-klient (det är enbart i en Huvudmålservern db). |

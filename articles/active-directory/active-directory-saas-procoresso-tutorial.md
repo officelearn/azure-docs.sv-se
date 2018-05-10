@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Procore SSO | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Procore enkel inloggning."
+title: 'Självstudier: Azure Active Directory-integrering med Procore SSO | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Procore enkel inloggning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: c6bae8e24f252a535571308467b428832b542e48
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4cba8aa046b84fe63b17a662990824b1823c1572
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Självstudier: Azure Active Directory-integrering med Procore enkel inloggning
 
@@ -31,15 +31,7 @@ Integrera Procore enkel inloggning med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Procore SSO, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Procore SSO.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Procore enkel inloggning, behöver du följande:
 
@@ -212,7 +204,7 @@ Följ de nedanstående steg för att skapa en Procore testanvändare på sidan.
 
     b. I den **efternamn** textruta typen användarens efternamn som **Simon**.
 
-    c. I den **e-postadress** textruta typen användarens e-postadress som  **BrittaSimon@contoso.com** .
+    c. I den **e-postadress** textruta typen användarens e-postadress som **BrittaSimon@contoso.com**.
 
     d. Välj **behörighet mallen** som **tillämpa behörighet mall senare**.
 

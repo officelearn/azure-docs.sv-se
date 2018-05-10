@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1a7a711c9b255aabdae76d28908d81f349aebe4a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsgranskning) i Azure Automation
 
@@ -26,7 +26,7 @@ Den här lösningen innehåller en decentraliserad automation-alternativ för an
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Runbooks använder ett [Azure Kör som-konto](automation-offering-get-started.md#authentication-methods). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösenord som kan gälla eller som ändras ofta.
+* Runbooks använder ett [Azure Kör som-konto](automation-create-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösenord som kan gälla eller som ändras ofta.
 * Denna lösning hanterar endast virtuella datorer som finns i samma prenumeration som Azure Automation-konto.
 * Den här lösningen är bara distribueras till följande Azure-regioner: Australien sydost, Kanada Central, centrala Indien, östra USA, östra, Sydostasien, Storbritannien, Syd och västra Europa.
 
@@ -80,8 +80,8 @@ Utför följande steg för att lägga till de virtuella datorerna Starta/Stoppa 
    * Välj en **schema**. Detta är ett återkommande datum och tid för att starta och stoppa virtuella datorer i target-resursgrupper. Som standard konfigureras schemat till UTC-tidszonen. Det går inte att välja en annan region. Om du vill konfigurera schemat för en viss tidszon när du har konfigurerat lösningen, se [Ändra schema för start och stopp](#modify-the-startup-and-shutdown-schedule).
    * Ta emot **e-postmeddelanden** SendGrid, acceptera standardvärdet för **Ja** och ange en giltig e-postadress. Om du väljer **nr** men besluta vid ett senare tillfälle att du vill ta emot e-postmeddelanden, kan du uppdatera den **External_EmailToAddress** variabel med giltiga e-postadresser avgränsade med semikolon, och sedan ändra variabeln **External_IsSendEmail** med värdet **Ja**.
 
-> [!IMPORTANT]
-> Standardvärdet för **ResourceGroup målnamn** är en **&ast;**. Detta påverkar alla virtuella datorer i en prenumeration. Det här värdet måste uppdateras till en lista över resursgruppnamn innan du aktiverar scheman om du inte vill att lösningen ska gälla alla virtuella datorer i din prenumeration.
+    > [!IMPORTANT]
+    > Standardvärdet för **ResourceGroup målnamn** är en **&ast;**. Detta påverkar alla virtuella datorer i en prenumeration. Det här värdet måste uppdateras till en lista över resursgruppnamn innan du aktiverar scheman om du inte vill att lösningen ska gälla alla virtuella datorer i din prenumeration.
 
 1. När du har konfigurerat de ursprungliga inställningarna som krävs för lösningen, klickar du på **OK** att stänga den **parametrar** och välja **skapa**. När alla inställningar validerats, distribuera lösningen till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan följa förloppet under **meddelanden** på menyn.
 
@@ -181,9 +181,9 @@ Alla överordnade runbooks innehåller den *WhatIf* parameter. Om värdet är **
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna runbook skapar aviseringar på grundval av per resurs för AutoStop scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True eller False  | Skapar eller uppdaterar Azure Varningsregler på virtuella datorer i målgrupperna för prenumerationen eller resursen. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel *vm1 vm2, vm3*.<br> *WhatIf* validerar runbook-logik utan att köra.|
-|AutoStop_Disable | ingen | Inaktiverar AutoStop aviseringar och standardschemat.|
+|AutoStop_Disable | inga | Inaktiverar AutoStop aviseringar och standardschemat.|
 |AutoStop_StopVM_Child | WebHookData | Anropas från den överordnade runbooken. Varningsregler anropa denna runbook för att stoppa den virtuella datorn.|
-|Bootstrap_Main | ingen | Används en gång för att ställa in bootstrap konfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|
+|Bootstrap_Main | inga | Används en gång för att ställa in bootstrap konfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|
 |ScheduledStartStop_Child | VMName <br> Åtgärd: Starta eller stoppa <br> resourceGroupName | Anropas från den överordnade runbooken. Utför en åtgärd för att stoppa schemalagda att starta eller stoppa.|
 |ScheduledStartStop_Parent | Åtgärd: Starta eller stoppa <br>VMList <br> WhatIf: True eller False | Detta påverkar alla virtuella datorer i prenumerationen. Redigera den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** ska köras endast på dessa mål resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera den **External_ExcludeVMNames** variabeln.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel *vm1 vm2, vm3*.<br> *WhatIf* validerar runbook-logik utan att köra.|
 |SequencedStartStop_Parent | Åtgärd: Starta eller stoppa <br> WhatIf: True eller False<br>VMList| Skapa taggar med namnet **SequenceStart** och **SequenceStop** på varje virtuell dator som du vill starta/stoppa sekvensaktivitet. Värdet för taggen ska vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel *vm1 vm2, vm3*. <br> *WhatIf* validerar runbook-logik utan att köra. <br> **Obs**: virtuella datorer måste vara inom resursgrupper som har definierats som External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames och External_ExcludeVMNames i Azure Automation-variabler. De måste ha lämpliga taggar för åtgärder ska börja gälla.|
@@ -218,7 +218,7 @@ I alla scenarier är den **External_Start_ResourceGroupNames**, **External_Stop_
 
 ### <a name="schedules"></a>Scheman
 
-I följande tabell visas varje standardscheman som skapats i ditt Automation-konto.  Du kan ändra dem eller skapa egna anpassade scheman. Var och en av dessa är inaktiverat som standard utom för **Scheduled_StartVM** och **Scheduled_StopVM**.
+I följande tabell visas varje standardscheman som skapats i ditt Automation-konto. Du kan ändra dem eller skapa egna anpassade scheman. Var och en av dessa är inaktiverat som standard utom för **Scheduled_StartVM** och **Scheduled_StopVM**.
 
 Du bör inte aktivera alla scheman eftersom kan det skapa överlappande Schemaläggningsåtgärder. Det är bäst att avgöra vilka optimeringar som du vill utföra och ändra därefter. Visa exempelscenarier i översiktsavsnittet ytterligare förklaring.
 
@@ -226,7 +226,7 @@ Du bör inte aktivera alla scheman eftersom kan det skapa överlappande Schemal�
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var åttonde timme | Kör AutoStop_CreateAlert_Parent runbook var åttonde timme, vilket i sin tur avbryter VM-baserad värdena i External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames och External_ExcludeVMNames i Azure Automation-variabler. Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av parametern VMList.|
 |Scheduled_StopVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av *stoppa* varje dag vid den angivna tiden. Stoppar automatiskt alla virtuella datorer som uppfyller de regler som definierats av tillgångsinformation variabler. Du bör aktivera relaterade schemat **schemalagda StartVM**.|
-|Scheduled_StartVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av *starta* varje dag vid den angivna tiden.  Startar automatiskt alla virtuella datorer som uppfyller de regler som definierats av lämplig variabler. Du bör aktivera relaterade schemat **schemalagda StopVM**.|
+|Scheduled_StartVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av *starta* varje dag vid den angivna tiden. Startar automatiskt alla virtuella datorer som uppfyller de regler som definierats av lämplig variabler. Du bör aktivera relaterade schemat **schemalagda StopVM**.|
 |Sekvenserade StopVM | 1:00:00 (UTC) varje fredag | Kör Sequenced_Parent runbook med en parameter av *stoppa* varje fredag vid den angivna tidpunkten. Sekventiellt (stigande) stoppas alla virtuella datorer med en tagg av **SequenceStop** definieras av lämplig variabler. Se avsnittet Runbooks för mer information om värden och variabler för tillgången. Du bör aktivera relaterade schemat **Sequenced StartVM**.|
 |Sekvenserade StartVM | 1:00 PM (UTC) varje måndag | Kör Sequenced_Parent runbook med en parameter av *starta* varje måndag vid den angivna tidpunkten. Sekventiellt (fallande) börjar alla virtuella datorer med en tagg av **SequenceStart** definieras av lämplig variabler. Se avsnittet Runbooks för mer information om värden och variabler för tillgången. Du bör aktivera relaterade schemat **Sequenced StopVM**.|
 
@@ -236,7 +236,7 @@ Automation skapar två typer av poster i logganalys-arbetsytan: jobbet loggar oc
 
 ### <a name="job-logs"></a>Jobbloggar
 
-Egenskap | Beskrivning|
+Egenskap  | Beskrivning|
 ----------|----------|
 Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 Kategori | Klassificering av typ av data. För Automation är värdet JobLogs.|
@@ -257,7 +257,7 @@ Tid | Datum och tid då runbook-jobbet körs.|
 
 ### <a name="job-streams"></a>Arbetsflöden
 
-Egenskap | Beskrivning|
+Egenskap  | Beskrivning|
 ----------|----------|
 Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 Kategori | Klassificering av typ av data. För Automation är värdet JobStreams.|

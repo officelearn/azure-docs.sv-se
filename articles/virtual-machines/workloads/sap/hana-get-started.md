@@ -1,13 +1,13 @@
 ---
-title: "Snabbstart: Manuell installation av single instance SAP HANA på Azure Virtual Machines | Microsoft Docs"
-description: "Snabbstartsguide för manuell installation av single instance SAP HANA på Azure Virtual Machines"
+title: 'Snabbstart: Manuell installation av single instance SAP HANA på Azure Virtual Machines | Microsoft Docs'
+description: Snabbstartsguide för manuell installation av single instance SAP HANA på Azure Virtual Machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snabbstart: Manuell installation av single instance SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -29,7 +29,7 @@ Den här guiden hjälper dig att konfigurera en enskild instans SAP HANA på vir
 >[!Note]
 >Den här guiden beskriver distributioner av SAP HANA i virtuella Azure-datorer. Information om hur du distribuerar SAP HANA till HANA stora instanser finns [med SAP på virtuella Azure-datorer (VM)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här handboken förutsätts att du är bekant med denna infrastruktur som en tjänst (IaaS) grunderna som:
  * Hur du distribuerar virtuella datorer eller virtuella nätverk via Azure-portalen eller PowerShell.
  * Azure plattformsoberoende kommandoradsgränssnittet (CLI), inklusive möjligheten att använda mallar för JavaScript Object Notation (JSON).
@@ -251,7 +251,7 @@ En beskrivning av standard filsystemet layouten för SAP HANA finns i [uppdateri
 
 När du installerar SAP NetWeaver på en standard SLES/SLES för SAP program 12 Azure-galleriet avbildningen visas ett meddelande om att det inte finns några växlingsutrymme som visas i följande skärmbild. För att stänga det här meddelandet, du kan manuellt lägga till en växlingsfil med hjälp av **dd**, **mkswap**, och **swapon**. Att lära dig hur, söka efter ”lägga till en växlingsfil manuellt” i den [med YaST Partitioneraren](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) i SUSE-dokumentationen.
 
-Ett annat alternativ är att konfigurera växlingsutrymme med hjälp av Linux VM-agenten. Mer information finns i [användarhandboken för Azure Linux-agenten](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ett annat alternativ är att konfigurera växlingsutrymme med hjälp av Linux VM-agenten. Mer information finns i [användarhandboken för Azure Linux-agenten](../../extensions/agent-linux.md).
 
 ![Popup-meddelande som talar om att det finns inte tillräckligt växlingsutrymme](./media/hana-get-started/image010.jpg)
 

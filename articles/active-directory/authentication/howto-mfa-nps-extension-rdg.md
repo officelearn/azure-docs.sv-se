@@ -10,13 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 839b248fb6410fd36a1741beb1ae3598fe93b0a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för Remote Desktop Gateway med tillägget Server (NPS) och Azure AD
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för Remote Desktop Gateway med tillägget Server (NPS) och Azure AD
 
 Den här artikeln innehåller information för att integrera din infrastruktur för Remote Desktop Gateway med Azure Multi-Factor Authentication (MFA) med hjälp av Server (NPS)-tillägget för Microsoft Azure. 
 
@@ -144,8 +144,8 @@ Om du vill använda dina egna certifikat måste du koppla den offentliga nyckeln
 Om du vill använda skriptet, ger du tillägget med dina administratörsautentiseringsuppgifter för Azure AD och Azure AD-klient-ID som du kopierade tidigare. Kör skriptet på varje NPS-server där du har installerat tillägget NPS. Gör något av följande:
 
 1. Öppna en administrativ Windows PowerShell-Kommandotolken.
-2. I PowerShell-Kommandotolken skriver **cd ”c:\Program Files\Microsoft\AzureMfa\Config'**, och tryck på **RETUR**.
-3. Typen _.\AzureMfsNpsExtnConfigSetup.ps1_, och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om inte har installerats, installeras modulen av skriptet.
+2. I PowerShell-Kommandotolken skriver `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, och tryck på **RETUR**.
+3. Typen `.\AzureMfsNpsExtnConfigSetup.ps1`, och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om inte har installerats, installeras modulen av skriptet.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

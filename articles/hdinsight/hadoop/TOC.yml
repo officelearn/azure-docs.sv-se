@@ -1,8 +1,8 @@
 - name: Dokumentation om Azure HDInsight
   href: /azure/hdinsight
-- name: Hadoop på HDInsight
+- name: Översikt
   items:
-    - name: Översikt
+    - name: Lär dig om Hadoop på HDInsight
       href: apache-hadoop-introduction.md
     - name: Hadoop-arkitektur i HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -10,20 +10,32 @@
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Kom igång
+- name: Snabbstart
   items:
-    - name: Börja med Hadoop
+    - name: Skapa Hadoop-kluster – Portal
+      href: apache-hadoop-linux-create-cluster-get-started-portal.md
+    - name: Skapa Hadoop-kluster – Resource Manager
       href: apache-hadoop-linux-tutorial-get-started.md
-    - name: Begränsat Hadoop-läge
-      href: apache-hadoop-emulator-get-started.md
-    - name: Installera HDInsight-appar
-      href: ../hdinsight-apps-install-applications.md
+- name: Självstudier
+  items:
+    - name: Utföra ETL-åtgärder
+      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: Skapa kluster på begäran
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+- name: Begrepp
+  items:
     - name: Kapacitetsplanering för kluster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Tillgänglighet och tillförlitlighet
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
 - name: Gör så här för att
   items:
+    - name: Använda begränsat Hadoop-läge
+      href: apache-hadoop-emulator-get-started.md
     - name: Använda klusterlagring
       items:
         - name: Använda Azure Storage
@@ -144,9 +156,6 @@
         - name: Analysera lagrade tweets
           href: ../hdinsight-analyze-twitter-data-linux.md
           maintainContext: true
-        - name: Analysera flygförseningsdata
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
-          maintainContext: true
         - name: Skapa rekommendationer med Mahout
           href: apache-hadoop-mahout-linux-mac.md
         - name: Analysera webbplatsloggar med Hive
@@ -164,6 +173,9 @@
           maintainContext: true
     - name: Utöka kluster
       items:
+        - name: Installera HDInsight-appar
+          href: ../hdinsight-apps-install-applications.md
+          maintainContext: true
         - name: Anpassa kluster med Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
@@ -260,9 +272,6 @@
             - name: Använda Azure Resource Manager-mallar
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: Skapa kluster på begäran
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: Hantera Hadoop-kluster
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
@@ -329,9 +338,6 @@
           maintainContext: true
         - name: Migrera till Resource Managers utvecklingsverktyg
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: Tillgänglighet och tillförlitlighet
-          href: ../hdinsight-high-availability-linux.md
           maintainContext: true
         - name: Uppgradera HDInsight-kluster till nyare version
           href: ../hdinsight-upgrade-cluster.md

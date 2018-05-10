@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarkisk Azure Cosmos DB-resursmodell och huvudkoncept
 
@@ -50,7 +50,7 @@ Som i följande diagram illustreras Azure Cosmos DB hierarkiska **resursmodell**
 ![Azure DB Cosmos hierarkiska resursmodell][1]  
 **Hierarkiska resursmodell**   
 
-När du börjar arbeta med resurser, måste du [skapa ett databaskonto](create-sql-api-dotnet.md) med din Azure-prenumeration. Ett databaskonto kan bestå av en uppsättning **databaser**, var och en innehåller flera **samlingar**, varje av som i sin tur innehåller ** lagrade procedurer, utlösare, UDF: er, dokument och relaterade  **bifogade filer**. En databas har också associerade **användare**, var och en med en uppsättning **behörigheter** åtkomst till samlingar, lagrade procedurer, utlösare, UDF: er, dokument eller bilagor. Databaser, användare, behörigheter och samlingar är systemdefinierade resurser med välkända scheman, innehåller dokument och bilagor godtyckligt, användardefinierade JSON-innehåll.  
+När du börjar arbeta med resurser, måste du [skapa ett databaskonto](create-sql-api-dotnet.md) med din Azure-prenumeration. Ett databaskonto kan bestå av en uppsättning **databaser**, var och en innehåller flera **samlingar**, varje av som i sin tur innehåller **lagrade procedurer, utlösare, UDF: er, dokument och relaterade bifogade filer**. En databas har också associerade **användare**, var och en med en uppsättning **behörigheter** åtkomst till samlingar, lagrade procedurer, utlösare, UDF: er, dokument eller bilagor. Databaser, användare, behörigheter och samlingar är systemdefinierade resurser med välkända scheman, innehåller dokument och bilagor godtyckligt, användardefinierade JSON-innehåll.  
 
 | Resurs | Beskrivning |
 | --- | --- |

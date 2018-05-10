@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4d88004f37b40fa92e617545e1a94656744a7db0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -48,6 +48,8 @@ Klicka på länken ”Visa filer” i din Azure-funktion (de flesta höger i Azu
 ## <a name="endpoint-validation"></a>Validering av slutpunkten
 
 Det första som du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse händelse rutnätet skickar en verifiering-händelse till slutpunkten med en `validationCode` i datanyttolasten. Slutpunkten som krävs för att echo tillbaka detta i svarstexten till [bevisa slutpunkten är giltig och ägs av du](security-authentication.md#webhook-event-delivery). Om du använder en [rutnätet händelseutlösare](../azure-functions/functions-bindings-event-grid.md) snarare än en WebHook utlöses funktion, hanteras verifieringen av slutpunkten för dig. Om du använder en tredjeparts-API-tjänsten (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt echo verifieringskoden. Du kan manuellt verifiera prenumerationen med hjälp av en verifiering URL som skickas i händelsen prenumeration verifiering för dessa tjänster. Kopiera den URL i den `validationUrl` egenskapen och skickar en GET-begäran via ett REST-klient eller webbläsaren.
+
+Det är manuell verifiering i förhandsgranskningen. Om du vill använda den, måste du installera den [händelse rutnätet tillägget](/cli/azure/azure-cli-extensions-list) för [AZ CLI 2.0](/cli/azure/install-azure-cli). Du kan installera den med `az extension add --name eventgrid`. Om du använder REST-API, se till att du använder `api-version=2018-05-01-preview`.
 
 För att programmatiskt echo verifieringskoden, använder du följande kod:
 

@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 006d04efb0a6bebc424cb005bf63af2b3cd7a42e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f38054eaf2829149a496f840366b6f2f9e03e12b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Hur du skapar ett Azure Search index
 
@@ -35,8 +35,8 @@ Planera för ofta, fullständig återskapas under active utvecklingen när index
 | Ändring | Återskapa status|
 |--------------|---------------|
 | Ändra ett fältnamn datatyp, eller dess [index-attribut](https://docs.microsoft.com/rest/api/searchservice/create-index) | Ändra en fältdefinition av vanligtvis ådrar sig en återskapning kan försämras, med undantag för dessa [index attribut](https://docs.microsoft.com/rest/api/searchservice/create-index): strängfält, SearchAnalyzer, SynonymMaps. Du kan lägga till attributen Retrievable, SearchAnalyzer och SynonymMaps till ett befintligt fält utan att behöva återskapa indexet.|
-| Lägga till ett fält | Inga strikt krav på Återskapa. Befintliga indexerade dokument ges ett null-värde för det nya fältet. I en framtida omindexera läggs värden källdata till dokument. |
-| Ta bort ett fält | Inga strikt krav på Återskapa. Ett borttaget fält används inte, men fysiskt fältdefinitionen och innehållet kvar i indexet förrän nästa återskapandet. |
+| Lägga till ett fält | Inga strikt krav på Återskapa. Befintliga indexerade dokument ges ett null-värde för det nya fältet. I en framtida omindexera ersätter värden källdata null-värden som lagts till av Azure Search. |
+| Ta bort ett fält | Du kan inte ta bort ett fält direkt från ett Azure Search-index. I stället bör du ha programmet Ignorera ”borttaget” fält om du vill undvika att använda den. Fysiskt, förblir fältdefinitionen och innehållet i indexet förrän nästa gång du återskapa index med hjälp av ett schema som utesluter det aktuella området.|
 
 > [!Note]
 > Återskapning av en krävs också om du växlar nivåer. Om det finns ingen uppgradering på plats vid något tillfälle som du bestämmer dig för mer kapacitet. En ny tjänst måste skapas på den nya kapacitet punkten och index måste skapas från början på den nya tjänsten. 

@@ -1,22 +1,22 @@
 # [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
-# [Dokumentation om IoT Suite](index.md)
+# [Dokumentation för IoT-lösningsacceleratorer](index.md)
 
 # Översikt
 ## [Koncept för IoT-arkitektur](iot-suite-what-is-azure-iot.md)
 ## [Jämför Azure IoT-alternativ](iot-suite-options.md)
-## [Översikt över förkonfigurerade lösningar](iot-suite-what-are-preconfigured-solutions.md)
+## [Översikt över lösningsacceleratorer](iot-suite-what-are-solution-accelerators.md)
 
 # Kom igång
 ## Fjärrövervakning
-### [Distribuera den förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md)
-### [Hantera den förkonfigurerade lösningen](iot-suite-remote-monitoring-explore.md)
+### [Distribuera lösningsacceleratorn](iot-suite-remote-monitoring-deploy.md)
+### [Hantera lösningsacceleratorn](iot-suite-remote-monitoring-explore.md)
 
 ## Fjärrövervakning (tidigare version)
-### [Vilka är de förkonfigurerade lösningarna?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Vad är lösningsacceleratorer?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [Vanliga frågor och svar](iot-suite-v1-faq.md)
 
 ### Kom igång
-#### [Kom igång med förkonfigurerade lösningar](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Kom igång med lösningsacceleratorer](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [Behörigheter på azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Genomgång av lösning för fjärrövervakning](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Anslut Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
@@ -36,17 +36,15 @@
 ##### [C i Linux](iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](iot-suite-v1-connecting-devices-node.md)
 #### [Anslut en logikapp till fjärrövervakningslösningen](iot-suite-v1-logic-apps-tutorial.md)
-#### [Anpassa en förkonfigurerad lösning](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Anpassa en lösningsaccelerator](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-v1-dynamic-telemetry.md)
 #### [Skapa en anpassad regel i fjärrövervakningslösningen](iot-suite-v1-custom-rule.md)
 #### [Enhetsinformation i fjärrövervakningslösningen](iot-suite-v1-remote-monitoring-device-info.md)
 
 
-
-
-## Förebyggande underhåll
-### [Översikt över förebyggande underhållslösning](iot-suite-predictive-overview.md)
-### [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)
+## Förutsägande underhåll
+### [Översikt över lösningsaccelerator för förutsägande underhåll](iot-suite-predictive-overview.md)
+### [Genomgång av lösningsacceleratorn förutsägande underhåll](iot-suite-predictive-walkthrough.md)
 
 ## Ansluten fabrik
 ### [Vad är en ansluten fabrik?](iot-suite-connected-factory-features.md)
@@ -61,14 +59,19 @@
 ## Fjärrövervakning
 ### [Utföra avancerad övervakning](iot-suite-remote-monitoring-monitor.md)
 ### [Använda regler för att identifiera problem](iot-suite-remote-monitoring-automate.md)
+### [Integrera SIM-data](iot-suite-remote-monitoring-telefonica-sim.md)
 ### [Hantera dina enheter](iot-suite-remote-monitoring-manage.md)
 ### [Felsöka enhetsproblem](iot-suite-remote-monitoring-maintain.md)
 ### [Förstå schemat för enhetsmodellen](iot-suite-remote-monitoring-device-schema.md)
 ### [Förstå beteendet för enhetsmodellen](iot-suite-remote-monitoring-device-behavior.md)
 ### [Skapa en ny simulerad enhet](iot-suite-remote-monitoring-test.md)
-### [Anpassa lösningen](iot-suite-remote-monitoring-customize.md)
+### [Visualisera med Power BI](iot-suite-integrate-data-powerbi.md)
+### [Anpassa lösningens användargränssnitt](iot-suite-remote-monitoring-customize.md)
+### [Anpassa och distribuera om en mikrotjänst](iot-suite-microservices-example.md)
 ### [Distribuera användningen av CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Distribuera lokalt](iot-suite-remote-monitoring-deploy-local.md)
+### [Visualisera data med Time Series Insights](iot-suite-time-series-insights.md)
+### [Integrera med Data Lake](iot-suite-integrate-data-lake.md)
 ### Ansluta en fysisk enhet
 #### [C i Windows](iot-suite-connecting-devices.md)
 #### [C i Linux](iot-suite-connecting-devices-linux.md)
@@ -77,11 +80,12 @@
 #### [C på Raspberry Pi](iot-suite-connecting-pi-c.md)
 
 ### Begrepp
-#### [Arkitektur för fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Information om implementering av fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Arkitekturval för fjärrövervakning](iot-suite-remote-monitoring-architectural-choices.md)
 
 ## Ansluten fabrik
 ### [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
-### [Anpassa ansluten fabrik ](iot-suite-connected-factory-customize.md)
+### [Anpassa ansluten fabrik](iot-suite-connected-factory-customize.md)
 ### [Använda OPC-utgivaren för ansluten fabrik](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Konfigurera ansluten fabrik](iot-suite-connected-factory-configure.md)
 ## [Behörigheter på azureiotsuite.com](iot-suite-permissions.md)
@@ -100,9 +104,9 @@
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Plattformstjänster 
 ### [IoT Hub](/azure/iot-hub) 
-### [IoT Hub Device Provisioning-tjänst](/azure/iot-dps)
-### [IoT-tjänst-SDK:er](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
-### [Platsbaserade tjänster](/azure/location-based-services) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
+### [SDK:er för IoT-tjänster](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Maps](/azure/azure-maps) 
 ### [Time Series Insights](/azure/time-series-insights) 
 ## Edge 
 ### [IoT Edge](/azure/iot-edge) 
@@ -117,4 +121,4 @@
 ## [Vanliga frågor och svar om fjärrövervakning](iot-suite-faq-rm-v2.md)
 ## [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
-## [Utbildningsväg för IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Utbildningsväg för IoT-lösningsacceleratorer](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

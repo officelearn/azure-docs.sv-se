@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda logganalys med en multitenant SQL-databasen SaaS-app
 
@@ -65,7 +65,7 @@ Wingtip biljetter SaaS multitenant databasskript och programmets källkod är ti
 
 Log Analytics är en separat tjänst som måste konfigureras. Logganalys samlar in loggdata, telemetri och mått i logganalys-arbetsytan. Precis som andra resurser i Azure måste logganalys-arbetsytan skapas. Arbetsytan behöver inte skapas i samma resursgrupp som de program som övervakas. Gör så ofta blir bäst om. Använda en enskild resursgrupp för att säkerställa att arbetsytan har tagits bort med programmet för Wingtip biljetter-app.
 
-1. I PowerShell ISE öppnar *... \\WingtipTicketsSaaS MultiTenantDb master\\Learning moduler\\prestandaövervakning och hantering av\\logga Analytics\\** Demo-LogAnalytics.ps1***.
+1. I PowerShell ISE öppnar *... \\WingtipTicketsSaaS MultiTenantDb master\\Learning moduler\\prestandaövervakning och hantering av\\logga Analytics\\Demo-LogAnalytics.ps1*.
 2. Tryck på F5 för att köra skriptet.
 
 Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suite-portalen. Det tar några minuter att samla in telemetri i logganalys-arbetsytan och göra den synlig. Ju längre låta du systemet samla in diagnostikdata, desto mer intressant av är. 
@@ -90,7 +90,7 @@ Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suit
 
 4. Välj den **Azure SQL Analytics** rutan för att öppna den.
 
-    ![Översikt över panelen](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Översiktsikon](media/saas-dbpertenant-log-analytics/overview.png)
 
 5. Vyerna i lösningen rulla åt sidan, med sina egna inre rullningslisten längst ned. Uppdatera sidan om det behövs.
 

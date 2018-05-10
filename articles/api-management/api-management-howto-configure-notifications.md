@@ -1,11 +1,11 @@
 ---
 title: Konfigurera aviseringar och e-mallar i Azure API Management | Microsoft Docs
-description: "Lär dig mer om att konfigurera aviseringar och e-mallar i Azure API Management."
+description: Lär dig mer om att konfigurera aviseringar och e-mallar i Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 60788f76dac58ead10e43e892d587a86bdd3fcad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Konfigurera meddelanden och e-postmallar i Azure API Management
 API Management gör möjligheten att konfigurera aviseringar för specifika händelser och konfigurera e-postmallar som används för kommunikation med administratörer och utvecklare av en API Management-instans. Den här artikeln visar hur du konfigurerar aviseringar för händelserna som är tillgängliga och ger en översikt över hur du konfigurerar e postmallar som används för dessa händelser.
@@ -26,7 +26,7 @@ API Management gör möjligheten att konfigurera aviseringar för specifika hän
 
 Om du inte har en instans för API Management-tjänsten utför du följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
-## <a name="publisher-notifications"></a>Konfigurera meddelanden
+## <a name="publisher-notifications"> </a>Konfigurera meddelanden
 
 1. Välj din **API MANAGEMENT** instans.
 2. Klicka på **meddelanden** att visa tillgängliga meddelanden.
@@ -50,7 +50,7 @@ Om du inte har en instans för API Management-tjänsten utför du följande Snab
     ![Meddelandemottagare][api-management-email-addresses]
 4. Tryck på **Lägg till**.
 
-## <a name="email-templates"></a>Konfigurera aviseringsmallar
+## <a name="email-templates"> </a>Konfigurera aviseringsmallar
 API Management ger aviseringsmallar för e-postmeddelanden som skickas under administration och med hjälp av tjänsten. Följande e-mallar finns.
 
 * Application gallery skicka godkända

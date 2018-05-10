@@ -3,21 +3,35 @@ title: SSH till noder i Azure Kubernetes Service (AKS)
 description: Skapa en SSH-anslutning med ett kluster i Azure Kubernetes Service (AKS) noder
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH till noder i Azure Kubernetes Service (AKS)
 
 Ibland kan behöva du åtkomst till en Azure Kubernetes Service (AKS)-nod för underhåll, Logginsamling eller andra åtgärder för felsökning. Azure Kubernetes Service (AKS) noder exponeras inte till internet. Använd stegen som beskrivs i det här dokumentet för att skapa en SSH-anslutning med en AKS-nod.
+
+## <a name="reset-ssh-keys"></a>Återställ SSH-nycklar
+
+Om du har distribuerat en AKS utan SSH-nycklar eller inte har tillgång till rätt SSH-nycklar, kan dessa återställas med hjälp av Azure portal.
+
+Bläddra till AKS klustret, väljer en AKS nod (virtuell dator) och väljer **Återställ lösenord** att återställa den offentliga SSH-nyckeln.
+
+![AKS VM med knappen för återställning av lösenord](media/aks-ssh/reset-password.png)
+
+Välj **återställa SSH offentlig nyckel**, ange AKS klustret användarnamn är **azueruser** som standard och kopiera i en offentlig SSH-nyckel. Välj **uppdatering** när du är klar.
+
+![AKS portal VM med knappen för återställning av lösenord](media/aks-ssh/reset-password-2.png)
+
+Du kan skapa en SSH ansluta med hjälp av motsvarande privata nyckel när SSH-nyckeln har återställts.
 
 ## <a name="get-aks-node-address"></a>Hämta AKS nodadress
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Kopiera SSH-nyckel till baljor ersätter baljor namnet med rätt värde.
+Kopiera den privata SSH-nyckeln till baljor ersätter baljor namnet med rätt värde.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

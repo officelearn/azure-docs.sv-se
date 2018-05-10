@@ -2,11 +2,13 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Azure Search
+    - name: Vad är Azure Search?
       href: search-what-is-azure-search.md
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Kognitiv sökning
+      href: cognitive-search-quickstart-blob.md
     - name: Skapa en tjänst
       href: search-create-service-portal.md
     - name: Portalen
@@ -37,13 +39,15 @@
           href: search-fiddler.md
 - name: Självstudier
   items:
-    - name: 1 – Indexera Azure SQL Database
+    - name: Index med kognitiv sökning
+      href: cognitive-search-tutorial-blob.md
+    - name: Indexera Azure SQL Database
       href: search-indexer-tutorial.md
-    - name: 2 – Indexera Azure-blobar
+    - name: Indexera Azure-blobbar
       href: search-semi-structured-data.md
-    - name: 3 – Lägga till synonymer i .NET
+    - name: Lägga till synonymer i .NET
       href: search-synonyms-tutorial-sdk.md
-    - name: 4 – Genomgång av portalen
+    - name: Genomgång för portal
       href: search-get-started-portal.md
 - name: Exempel
   items:
@@ -53,14 +57,18 @@
       href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Begrepp
   items:
+    - name: Kognitiv sökning (förhandsversion)
+      href: cognitive-search-concept-intro.md
     - name: Fulltextsökning
       href: search-lucene-query-architecture.md
+    - name: Språklig analys
+      href: search-analyzers.md
     - name: Indexering
       href: search-what-is-data-import.md
     - name: Indexdefinition
       href: search-what-is-an-index.md
-    - name: Språklig analys
-      href: search-analyzers.md
+    - name: Indexerare
+      href: search-indexer-overview.md
 - name: Instruktionsguider
   items:
     - name: Planera och designa
@@ -123,8 +131,6 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
     - name: Indexeringsdata
       items:
-        - name: Översikt över indexerare
-          href: search-indexer-overview.md
         - name: Azure Blob Storage-indexeraren
           href: search-howto-indexing-azure-blob-storage.md
         - name: Azure Table Storage-indexeraren
@@ -141,7 +147,25 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Fältmappningar i indexerare
           href: search-indexer-field-mappings.md
-    - name: Search
+        - name: Bygga om ett index
+          href: search-howto-reindex.md
+    - name: Kognitiv sökning (förhandsversion)
+      items:
+        - name: Definiera en kunskapsuppsättning
+          href: cognitive-search-defining-skillset.md
+        - name: Referera till en anteckning
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Mappa till indexfält
+          href: cognitive-search-output-field-mapping.md
+        - name: Bearbeta och extrahera information från bilder
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Integrera anpassade kunskaper
+          href: cognitive-search-custom-skill-interface.md
+        - name: Exempel – anpassade kunskaper
+          href: cognitive-search-create-custom-skill-example.md
+        - name: Felsökningstips
+          href: cognitive-search-concept-troubleshooting.md
+    - name: Fulltextsökning
       items:
         - name: Grundläggande frågekonstruktion
           href: search-query-overview.md
@@ -157,7 +181,7 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
         - name: Förslag
           href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
-        - name: Synonymer (under förhandsgranskning)
+        - name: Synonymer (förhandsversion)
           href: search-synonyms.md
     - name: Filter
       items:
@@ -165,7 +189,7 @@
           href: search-filters.md
         - name: Facet-filter
           href: search-filters-facets.md
-        - name: OData-uttryckssyntax
+        - name: Filtrera uttryckssyntax
           href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
     - name: Administration och analys
       items:
@@ -187,10 +211,41 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
     - name: REST
       href: /rest/api/searchservice
+      items:
+        - name: 2016-09-01 – förhandsversion
+          href: search-api-2016-09-01-preview.md
     - name: REST (hantering)
       href: /rest/api/searchmanagement
-    - name: Tjänst-REST (förhandsversion)
-      href: search-api-2016-09-01-preview.md
+    - name: Kognitiv sökning (förhandsversion)
+      items:
+        - name: 2017-11-11 – förhandsversion (REST)
+          href: search-api-2017-11-11-preview.md
+          items:
+            - name: Skapa kunskapsuppsättning (förhandsversion)
+              href: ref-create-skillset.md
+            - name: Skapa indexerare (förhandsversion)
+              href: ref-create-indexer.md
+        - name: Fördefinierade kunskaper
+          href: cognitive-search-predefined-skills.md
+          items:
+            - name: Extrahering av nyckelfraser
+              href: cognitive-search-skill-keyphrases.md
+            - name: Språkidentifiering
+              href: cognitive-search-skill-language-detection.md
+            - name: Igenkänning av namngiven enhet
+              href: cognitive-search-skill-named-entity-recognition.md
+            - name: Textsammanslagning
+              href: cognitive-search-skill-textmerger.md
+            - name: Textuppdelning
+              href: cognitive-search-skill-textsplit.md
+            - name: Sentiment
+              href: cognitive-search-skill-sentiment.md
+            - name: Bildanalys
+              href: cognitive-search-skill-image-analysis.md
+            - name: OCR
+              href: cognitive-search-skill-ocr.md
+            - name: Formaren
+              href: cognitive-search-skill-shaper.md
 - name: Resurser
   items:
     - name: FAQ – vanliga frågor och svar
@@ -199,6 +254,8 @@
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Dokumentation om kognitiv sökning
+      href: cognitive-search-resources-documentation.md
     - name: Kursprogramvara och självstudier
       items:
         - name: Videor och självstudier

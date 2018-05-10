@@ -1,11 +1,11 @@
 ---
-title: "Princip för hantering av Azure API exempel – auktorisera åtkomst baserat på JWT anspråk | Microsoft Docs"
-description: "Azure API management princip exemplet - visas hur att bevilja åtkomst till specifika HTTP-metoder på en API som baseras på JWT-anspråk."
+title: Princip för hantering av Azure API exempel – auktorisera åtkomst baserat på JWT anspråk | Microsoft Docs
+description: Azure API management princip exemplet - visas hur att bevilja åtkomst till specifika HTTP-metoder på en API som baseras på JWT-anspråk.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 15bd99eeda35161b15e110c3bde0b0bb08fe6d64
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 08cb15ada07485f39ad24b782cfda29a431c46da
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>Auktorisera åtkomst baserat på JWT anspråk
 

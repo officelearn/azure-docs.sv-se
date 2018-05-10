@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Växa med AppSource
 Både Azure Marketplace och AppSource är startar punkter för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, marketplace-erbjudande mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande. Microsofts kunder Besök vår molnet marknadsplatser varje dag för att hitta rätt appar och tjänster för att öka verksamheten. Vårt mål är att ansluta organisationer med lösningar och tjänster från Microsoft och våra partner-ekosystemet. 
@@ -88,7 +88,7 @@ Följande tabeller innehåller information om varje steg i att fylla i erbjudand
 **Storefront information - marknadsföring artefakter**
 | Storefront inställningar       | Bästa praxis          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Erbjudande logotyp (PNG-format, 58 x 48)**    | Din logotyp ska utformad och optimeras för ett digitalt medium.<br>Överföra logotyp i PNG-format för det erbjudande söksidan. |
+| **Erbjudande logotyp (PNG-format, 48 x 48)**    | Din logotyp ska utformad och optimeras för ett digitalt medium.<br>Överföra logotyp i PNG-format för det erbjudande söksidan. |
 | **Erbjudande logotyp (.png. 216 x 216)**     | Din logotyp ska utformad och optimeras för ett digitalt medium. <br>Överföra logotyp i PNG-format för det erbjudande appinformation sidan. |
 | **Läs mer**   | Innehåller stöd för försäljning och marknadsföring tillgångar under ”Lär dig mer”, exempelvis faktablad, broschyrer, checklistor, PowerPoint-bilder och så vidare. Alla filer måste vara i PDF-format. Inte sälja, utbilda potentiella. <br>Lägga till länken till din app Landningssida för alla dokument och Lägg till URL-parametrar för att hjälpa dig att spåra besökare och försök. |
 | **Videoklipp**       | Ladda upp en video, upp till fyra videor tillåts. Videon kommunicera värdet för ditt erbjudande. Se till att potentiella hjälte i artikeln inte ditt företag. Videon bör tala med huvudansvarig utmaningar och målen för din grundläggande beslut maker persona. <br>Rekommenderat längd: 60-90 sekunder. Inkludera du nyckel ord i namnet videor.<br>Överväg att lägga till fler videor som en anvisningar video. en komma igång-video eller en kund åsikt video. |
@@ -98,7 +98,7 @@ Följande tabeller innehåller information om varje steg i att fylla i erbjudand
 
 När erbjudandet finns på AppSource kan har du fått behörighet att visa ”tillgänglig på AppSource” skylt på din webbplats. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource skylt](./media/marketplace-appsource/appsourcebadge.png)
     
 Lägga till den här Aktivitetsikon på webbplatsen befordrar erbjudandet på AppSource, och du kan länka potentiella kunder direkt till sidan lista. AppSource Aktivitetsikon finns i tre storlekar. Du kan hämta Aktivitetsikon tillsammans med anvisningar om hur du använder den på [befordra tillgänglighet för din app på Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här kursen visar hur du se till att du har konfigurerat den för att optimera prestandan på Microsoft Azure-plattformen. Det här avsnittet använder en virtuell Ubuntu Server-dator, men du kan också skapa Linux virtuella datorer med hjälp av [egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -132,6 +132,6 @@ Kom ihåg att du behöver utföra tester före och efter varje ändring av åtg�
 Vissa länkar till ytterligare resurser: 
 
 * [Premium Storage: Lagring med höga prestanda för Azure Virtual Machines-arbetsbelastningar](premium-storage.md)
-* [Användarhandboken för Azure Linux-Agent](agent-user-guide.md)
+* [Användarhandboken för Azure Linux-Agent](../extensions/agent-linux.md)
 * [Optimera MySQL prestanda på virtuella Azure Linux-datorer](classic/optimize-mysql.md)
 * [Konfigurera programvarubaserad RAID på Linux](configure-raid.md)

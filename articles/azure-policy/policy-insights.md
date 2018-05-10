@@ -1,45 +1,43 @@
 ---
-title: Skapa principer och visa kompatibilitetsdata med Azure princip programmässigt | Microsoft Docs
+title: Skapa principer och visa kompatibilitetsdata med Azure princip programmässigt
 description: Den här artikeln vägleder dig genom programmässigt skapa och hantera principer för Azure-principen.
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Skapa principer och visa kompatibilitetsdata programmässigt
 
-Den här artikeln vägleder dig genom att skapa och hantera principer programmässigt. Den visar hur du visar kompatibilitetstillstånd för resursen och principer. Principdefinitioner tillämpa olika regler och åtgärder via dina resurser. Tvingande säkerställer att resurser vara kompatibla med företagets standarder och servicenivåavtal.
+Den här artikeln vägleder dig genom att skapa och hantera principer programmässigt. Den visar hur du visar kompatibilitetstillstånd för resursen och principer. Principdefinitioner tillämpa olika regler och effekter över dina resurser. Tvingande säkerställer att resurser vara kompatibla med företagets standarder och servicenivåavtal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att följande krav är uppfyllda:
 
 1. Installera om du inte redan gjort det [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett verktyg som skickar HTTP-förfrågningar till Azure Resource Manager-baserade API: er.
-2. Uppdatera din AzureRM PowerShell-modul till den senaste versionen. Mer information om den senaste versionen finns i Azure PowerShell https://github.com/Azure/azure-powershell/releases.
+2. Uppdatera din AzureRM PowerShell-modul till den senaste versionen. Mer information om den senaste versionen finns [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 3. Registrera principen insikter resursprovidern med Azure PowerShell för att säkerställa att din prenumeration fungerar med resursprovidern. När du ska registrera en resursleverantör måste du ha behörighet att utföra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   Läs mer om registrering och visa resursproviders [Resursproviders och typer](../azure-resource-manager/resource-manager-supported-services.md).
-4. Om du inte redan gjort installera Azure CLI. Du kan hämta den senaste versionen på [installera Azure CLI 2.0 på Windows](/azure/install-azure-cli-windows?view=azure-cli-latest).
+4. Om du inte redan gjort installera Azure CLI. Du kan hämta den senaste versionen på [installera Azure CLI 2.0 på Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Skapa och tilldela en principdefinition
 
 Första steget mot bättre synlighet för dina resurser är att skapa och tilldela principer över dina resurser. Nästa steg är att lära dig hur du skapar och tilldelar du en princip programmässigt. Exempel principen granskningar storage-konton är tillgängliga för alla offentliga nätverk med PowerShell, Azure CLI och HTTP-begäranden.
-
-Följande kommandon skapar principdefinitioner för standardnivån. Standardnivån hjälper dig att uppnå med skalning hantering, kompatibilitetsutvärdering och reparation. Läs mer om prisnivåer [priser för Azure princip](https://azure.microsoft.com/pricing/details/azure-policy).
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Skapa och tilldela en principdefinition med PowerShell
 
@@ -68,7 +66,7 @@ Följande kommandon skapar principdefinitioner för standardnivån. Standardniv�
 2. Kör följande kommando för att skapa en principdefinition med hjälp av filen AuditStorageAccounts.json.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   Kommandot skapar en principdefinition med namnet _Audit Storage-konton öppna till offentliga nätverk_. Mer information om andra parametrar som du kan använda finns [ny AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
@@ -76,10 +74,8 @@ Följande kommandon skapar principdefinitioner för standardnivån. Standardniv�
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
@@ -124,7 +120,7 @@ Använd följande procedur för att skapa en principdefinition.
   armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Ersätt preceding_ &lt;subscriptionId&gt; med ID för prenumerationen avsedda.
+  Ersätt den föregående &lt;subscriptionId&gt; med ID för prenumerationen avsedda.
 
 Mer information om strukturen i frågan finns [Principdefinitioner – skapa eller uppdatera](/rest/api/resources/policydefinitions/createorupdate).
 
@@ -140,10 +136,6 @@ Använd följande procedur för att skapa en principtilldelning och tilldela pri
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +184,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. Använd följande kommando för att skapa en principtilldelning. Ersätt exempelinformationen i &lt; &gt; symboler med egna värden.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 Du kan få principen Definitions-ID med hjälp av PowerShell med följande kommando:
@@ -211,38 +203,37 @@ Mer information om hur du kan hantera resursprinciper med Azure CLI finns [Azure
 
 ## <a name="identify-non-compliant-resources"></a>Identifiera icke-kompatibla resurser
 
-En resurs är icke-kompatibla om du inte följer principen eller initiativ regler för en tilldelning. Följande tabell visar hur olika principåtgärder fungerar med villkoret utvärderingsversionen för resulterande kompatibilitetsstatus:
+En resurs är icke-kompatibla om du inte följer principen eller initiativ regler för en tilldelning. Följande tabell visar hur olika principer effekter som fungerar med villkoret utvärderingsversionen för resulterande kompatibilitetsstatus:
 
-| **Resurstillstånd** | **Åtgärd** | **Principutvärdering** | **Kompatibilitetstillstånd** |
+| Resource tillstånd | Verkan | Utvärderingen | Kompatibilitetsstatus |
 | --- | --- | --- | --- |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
 | Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
 | Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
 
-\* Åtgärderna Append, DeployIfNotExist och AuditIfNotExist kräver att IF-instruktionen är TRUE. Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
+\* Lägg till, DeployIfNotExist och AuditIfNotExist effekterna kräver instruktionen om ska TRUE. Effekterna kräver även villkoret förekomsten ska vara FALSE för icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
 
 För att bättre förstå hur resurser har flaggats som icke-kompatibla, ska vi använda princip tilldelningen exemplet skapade ovan.
 
 Anta att du har en resursgrupp – ContsoRG, med vissa storage-konton (markerat i rött) som exponeras för offentliga nätverk.
 
-![Storage-konton som exponeras för offentliga nätverk](./media/policy-insights/resource-group01.png)
+![Storage-konton som exponeras för offentliga nätverk](media/policy-insights/resource-group01.png)
 
 I det här exemplet behöver du vara försiktig med säkerhetsrisker. Nu när du har skapat en principtilldelning, utvärderas den för alla lagringskonton i resursgruppen ContosoRG. Den granskningar tre icke-kompatibla lagringskonton, därför ändra deras tillstånd att **icke-kompatibla.**
 
-![Granskas icke-kompatibla storage-konton](./media/policy-insights/resource-group03.png)
+![Granskas icke-kompatibla storage-konton](media/policy-insights/resource-group03.png)
 
 Använd följande procedur för att identifiera resurser i en resursgrupp som inte är kompatibla med principtilldelningen. I det här exemplet är resurserna storage-konton i resursgruppen ContosoRG.
 
 1. Hämta princip tilldelnings-ID genom att köra följande kommandon:
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  Mer information om hur du får en principtilldelning ID finns [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  Mer information om hur du får en principtilldelning ID finns [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Kör följande kommando för att ha resurs-ID: N av icke-kompatibla resurser kopieras till en JSON-fil:
 
@@ -302,16 +293,6 @@ Ditt resultat liknar följande exempel:
 ```
 
 Du kan bara visa Principhändelser med HTTP-begäranden som principen tillstånd. Mer information om frågor Principhändelser finns i [Principhändelser](/rest/api/policy-insights/policyevents) referensartikeln.
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>Ändra en principtilldelning prisnivån
-
-Du kan använda den *Set AzureRmPolicyAssignment* PowerShell-cmdlet för att uppdatera prissättning tjänstnivån till Standard- eller lediga för en befintlig tilldelning av principer. Exempel:
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-Mer information om cmdleten finns [Set AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Nästa steg
 

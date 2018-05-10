@@ -2,24 +2,24 @@
 title: Enkel inloggning med Application Proxy | Microsoft Docs
 description: Beskriver hur du ger enkel inloggning med Azure AD Application Proxy.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d6f6894d495170221ad8334bc32ef141fb4e62b4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aee1c1ad44cada857ca0fc8fc42565448b5bfa46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -98,7 +98,7 @@ Den här funktionen kan många organisationer som har olika lokalt och molnident
 * Har flera domäner internt (joe@us.contoso.com, joe@eu.contoso.com) och en enda domän i molnet (joe@contoso.com).
 * Ha icke-dirigerbara domännamn internt (joe@contoso.usa) och ett giltigt lösenord i molnet.
 * Använd inte domännamn internt (Johan)
-* Använd olika alias på lokalt och i molnet. Till exempel joe-johns@contoso.com vs.joej@contoso.com  
+* Använd olika alias på lokalt och i molnet. Till exempel joe-johns@contoso.com vs. joej@contoso.com  
 
 Du kan välja vilken identitet du ska använda för att hämta Kerberos-biljetten med Application Proxy. Den här inställningen är per program. Vissa av dessa alternativ är lämpliga för system som inte accepterar e-postadressformat, andra har utformats för alternativa inloggningen.
 

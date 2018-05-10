@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-rutiner i Azure Data Factory
 
@@ -37,7 +37,7 @@ Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), 
 
 Om du vill läsa från en textfil eller skriva till en textfil, ange den `type` egenskap i den `format` avsnitt i datamängden som **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga för att använda ett ovanligt icke utskrivbara tecken som inte kan finnas i dina data. Till exempel ange ”\u0001” som representerar Start av rubriken (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda Unicode-tecken, referera till [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) att hämta motsvarande kod för den. |Nej |
 | rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
@@ -90,7 +90,7 @@ Att **importera och exportera en JSON-fil som-är i/från Azure Cosmos DB**, fin
 
 Om du vill att parsa JSON-filer eller skriva data i JSON-format, ange den `type` egenskap i den `format` avsnittet till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
 | jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data från JSON-filer. | Nej |
@@ -457,8 +457,8 @@ Observera följande punkter:
 | UInt32 | Lång |
 | Int64 | Lång |
 | UInt64 | Sträng |
-| Ogift | flyttal |
-| Dubbel | Dubbel |
+| Enkel | Flyttal |
+| dubbla | dubbla |
 | Decimal | Decimal |
 | Sträng | Sträng |
 | DateTime | Tidsstämpel |
@@ -486,7 +486,7 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 Observera följande punkter:
 
 * Komplexa datatyper stöds inte (MAP, LIST)
-* Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+* Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory har stöd för läsning av data från parkettgolv fil på någon av dessa komprimerat format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Datatypen mappning för parkettgolv filer
 
@@ -501,8 +501,8 @@ Observera följande punkter:
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binär | UInt64 | Decimal |
-| Ogift | flyttal | Gäller inte | Gäller inte |
-| Dubbel | Dubbel | Gäller inte | Gäller inte |
+| Enkel | Flyttal | Gäller inte | Gäller inte |
+| dubbla | dubbla | Gäller inte | Gäller inte |
 | Decimal | Binär | Decimal | Decimal |
 | Sträng | Binär | Utf8 | Utf8 |
 | DateTime | Int96 | Gäller inte | Gäller inte |

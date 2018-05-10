@@ -10,13 +10,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 05/08/2018
 ms.author: mbullwin; pharring
-ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 0721fa42a8d770b82a4b18865b513569bcc8807f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsöka ögonblicksbilder på undantag i .NET-appar
 
@@ -193,11 +193,12 @@ Följande miljöer stöds:
 
 Om du vill ge behörighet, tilldela den `Application Insights Snapshot Debugger` rollen för användare som ska granska ögonblicksbilder. Den här rollen kan tilldelas enskilda användare eller grupper av prenumeration ägare för målet Application Insights-resurs eller dess resursgrupp eller prenumeration.
 
-1. Öppna bladet Access Control (IAM).
-1. Klicka på + Lägg till.
-1. Välj Application Insights ögonblicksbild felsökare från listrutan roller.
+1. Gå till Application Insights-resurs i Azure-portalen.
+1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på den **+ Lägg till** knappen.
+1. Välj **Application Insights ögonblicksbild felsökare** från den **roller** listrutan.
 1. Sök efter och ange ett namn för användaren att lägga till.
-1. Klicka på Spara för att lägga till användaren i rollen.
+1. Klicka på den **spara** för att lägga till användaren i rollen.
 
 
 > [!IMPORTANT]
@@ -267,22 +268,22 @@ I Azure App Services kan dock ögonblicksbild insamlaren deoptimize utlösande m
 
 Dessa tips hjälpa dig att felsöka problem med ögonblicksbild felsökningsprogrammet.
 
-## <a name="use-the-snapshot-health-check"></a>Använd hälsokontroll ögonblicksbild
-Om du inte ser ögonblicksbild som är tillgängliga för en viss undantag, det kan bero på flera anledningar outdate ögonblicksbild insamlaren versioner, dagligen tröskelvärdet träffar, ögonblicksbilden tar bara tid att överföras och så vidare. För att hjälpa dig att diagnostisera problem, byggt vi en ögonblicksbild Health Check-tjänst för smart sätt analysera varför det är ingen ögonblicksbild.
+### <a name="use-the-snapshot-health-check"></a>Använd hälsokontroll ögonblicksbild
+Några vanliga problem resultera i öppna Debug ögonblicksbilden inte visas. Med hjälp av en gammal ögonblicksbild insamlare, till exempel; nå daglig uppladdningsgräns; eller kanske ögonblicksbilden tar bara lång tid att överföra. Använd ögonblicksbild Health Check för att felsöka vanliga problem.
 
-Om du inte ser ögonblicksbilder som är associerade med ett undantag finnas det en länk i bladet slutpunkt till slutpunkt trace viewer för att ange ögonblicksbild hälsokontroll.
+Det finns en länk i fönstret undantag för slutpunkt till slutpunkt trace vyn som tar dig till ögonblicksbild Health Check.
 
 ![Ange ögonblicksbild hälsokontroll](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
 
-Sedan visas en interaktiv chatt bot som session kör hälsokontroll på olika aspekter av din tjänst och erbjuder advices.
+Gränssnittet interaktiv, chatt-liknande söker efter vanliga problem och hjälper dig att åtgärda dem.
 
 ![Hälsokontroll](./media/app-insights-snapshot-debugger/healthcheck.png)
 
-Det finns också några manuella steg som du kan göra för att ta reda på hälsotillståndet för snapshot-tjänsten. Finns i avsnitten nedan:
+Om det inte löser problemet, referera till följande manuella åtgärder för felsökning.
 
 ### <a name="verify-the-instrumentation-key"></a>Verifiera instrumentation nyckeln
 
-Kontrollera att du använder rätt instrumentation nyckeln i ditt publicerade program. Application Insights läser vanligtvis instrumentation nyckeln från filen applicationinsights.config. Kontrollera att värdet är samma som den instrumentation nyckeln för Application Insights-resurs som visas i portalen.
+Kontrollera att du använder rätt instrumentation nyckeln i ditt publicerade program. Vanligtvis läsa nyckeln instrumentation från filen applicationinsights.config. Kontrollera att värdet är samma som den instrumentation nyckeln för Application Insights-resurs som visas i portalen.
 
 ### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
 
@@ -293,7 +294,7 @@ Använd Pakethanteraren NuGet för Visual Studio för att kontrollera att du anv
 När du har skapat en ögonblicksbild skapas en minidumpfil (.dmp) på disken. En separat överförare process skapar minidump filen och överförs, tillsammans med alla associerade PDB-filer, till Application Insights ögonblicksbild felsökare lagring. När minidump har laddats bort den från disken. Loggfiler för överföring processen sparas på disk. I en Apptjänst-miljö kan du hitta dessa loggar i `D:\Home\LogFiles`. Använd Kudu hanteringswebbplats för Apptjänst för att hitta dessa loggfiler.
 
 1. Öppna din Apptjänst-program i Azure-portalen.
-2. Välj den **avancerade verktyg** bladet eller söka efter **Kudu**.
+2. Klicka på **avancerade verktyg**, eller Sök efter **Kudu**.
 3. Klicka på **Gå**.
 4. I den **Felsökningskonsolen** listrutan markerar **CMD**.
 5. Klicka på **loggfiler**.
@@ -401,7 +402,7 @@ Följ dessa steg om du vill konfigurera din roll i Molntjänsten med en dedikera
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights Sök efter undantag med ögonblicksbilder
 
-När en ögonblicksbild skapas är utlösande undantaget märkta med en ögonblicksbild-ID. Detta ID ögonblicksbild ingår som en anpassad egenskap när undantagstelemetri har rapporterats till Application Insights. Med hjälp av bladet Sök i Application Insights, du kan hitta all telemetri med den `ai.snapshot.id` anpassad egenskap.
+När en ögonblicksbild skapas är utlösande undantaget märkta med en ögonblicksbild-ID. Detta ID ögonblicksbild ingår som en anpassad egenskap när undantagstelemetri har rapporterats till Application Insights. Med hjälp av **Sök** i Application Insights, kan du hitta all telemetri med den `ai.snapshot.id` anpassad egenskap.
 
 1. Bläddra till Application Insights-resurs i Azure-portalen.
 2. Klicka på **Sök**.

@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Flera master i global skala med Azure Cosmos DB 
  
@@ -22,6 +22,25 @@ Utveckla globalt distribuerade program som svarar med lokala fördröjning när 
 ![Multimaster-arkitektur](./media/multi-region-writers/multi-master-architecture.png)
 
 Du kan utföra skrivningar med stöd för Azure Cosmos DB multimaster på behållare för data (till exempel samlingar, diagram, tabeller) distribueras var som helst i världen. Du kan uppdatera data i en region som är kopplad till ditt konto. Uppdateringarna data kan spridas asynkront. Förutom att tillhandahålla snabb åtkomst och skrivfördröjningen till dina data är med flera master också en praktisk lösning för redundans och belastningsutjämning problem. Sammanfattningsvis med Azure Cosmos DB får du skrivfördröjningen för < 10 ms vid 99th percentilen var som helst i världen, 99,999% skrivning och Läs tillgänglighet var som helst i världen, och möjligheten att skala både skriva och läsa genomströmning var som helst i världen.   
+
+> [!IMPORTANT]
+> Multimaster stöd är i privat förhandsvisning att använda förhandsversionen, [registrering](#sign-up-for-multi-master-support) nu.
+
+## <a name="sign-up-for-multi-master-support"></a>Registrera dig för multimaster-stöd
+
+Om du redan har en Azure-prenumeration kan registrera du dig att ansluta till multimaster förhandsgranskningsprogrammet i Azure-portalen. Om du har använt Azure registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free) där du får 12 månader gratis tillgång till Azure Cosmos DB. Utför följande steg om du vill begära åtkomst till multimaster förhandsgranskningsprogrammet.
+
+1. I den [Azure-portalen](https://portal.azure.com), klickar du på **skapar du en resurs** > **databaser** > **Azure Cosmos DB**.  
+
+2. Ange ett namn för ditt konto i Azure Cosmos DB på sidan nytt konto, Välj API, prenumeration, resursgrupp och plats.  
+
+3. Sedan väljer du **registrera dig för förhandsgranskning i dag** under fältet Multi Mater förhandsgranskning.  
+
+   ![Registrera dig för multimaster förhandsversionen](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. I den **registrera dig för förhandsgranskning i dag** rutan klickar du på **OK**. När du skickar din begäran status ändras till **godkännande** i bladet konto skapas.  
+
+När du skickar din begäran får du ett e-postmeddelande att din begäran har godkänts. På grund av stora mängder begäranden, bör du få meddelande inom en vecka. Du behöver inte skapa ett supportärende för att slutföra begäran. Begäranden granskas i den ordning de mottogs.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Publicering av ett enkelt multimaster exempel – innehåll  
 

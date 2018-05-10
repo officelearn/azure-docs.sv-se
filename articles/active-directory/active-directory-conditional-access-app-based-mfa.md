@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eba67e6fe7d836d7b36d2bcd576eeaf4c70df970
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac43817fb3f253c35cd69a8ecd8931afca50892b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-configure-per-cloud-app-mfa-with-azure-active-directory-conditional-access"></a>Snabbstart: Konfigurera respektive molnapp MFA med Azure Active Directory för villkorlig åtkomst 
 
@@ -64,7 +64,7 @@ I din princip anger du:
 |---     | --- |
 |Användare och grupper | Britta Simon |
 |Molnappar | Hantering av Microsoft Azure |
-|Bevilja | Kräver multifaktorautentisering |
+|Bevilja | Kräv multifaktorautentisering |
  
 
 ![Skapa princip](./media/active-directory-conditional-access-app-based-mfa/12.png)
@@ -160,7 +160,7 @@ När du konfigurerar verktyget med **Britta Simon** som användare och **Microso
 
 1. På den [villkorlig åtkomst - principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) i menyn överst, klickar du på **vad händer om**.  
  
-    ![What-if](./media/active-directory-conditional-access-app-based-mfa/14.png)
+    ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
 2. Klicka på **användare**väljer **Britta Simon**, och klicka sedan på **Välj**.
 

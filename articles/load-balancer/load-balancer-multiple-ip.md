@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av Azure portal
 
@@ -120,7 +120,7 @@ Konfigurera din belastningsutjämnare frontend IP-adresspool för varje webbplat
 
 4. Välj belastningsutjämnaren (**mylb**) som du vill lägga till frontend IP-pool.
 
-5. Under **inställningar**väljer **klientdel pooler**. Välj i rutan nästa längst upp, **Lägg till**.
+5. Under **inställningar**väljer **Frontend-IP-konfiguration**. Välj i rutan nästa längst upp, **Lägg till**.
 
 6. Skriv ett namn för din frontend IP-adress (till exempel **contosofe** eller **fabrikamfe**).
 
@@ -128,7 +128,7 @@ Konfigurera din belastningsutjämnare frontend IP-adresspool för varje webbplat
 
 8. Skapa andra frontend IP-adressen genom att upprepa <a href="#step3-3">steg 3</a> via <a href="#step3-7">steg 7</a> i det här avsnittet.
 
-När den frontend har konfigurerats, IP-adresser visas under din belastningsutjämnare **Klientdelens IP-Pool** inställningar. 
+När den frontend har konfigurerats, IP-adresser visas under din belastningsutjämnare **Frontend-IP-konfiguration** inställningar. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Steg 4: Konfigurera backend-adresspool
 
@@ -180,7 +180,7 @@ Konfigurera regler för belastningsutjämning för varje webbplats (contoso.com 
 
 4. För **Port** och **serverdelsport**, Behåll standardvärdet **80**.
 
-5. För **flytande IP (direkt serverreturnering)**väljer **aktiverad**.
+5. För **flytande IP (direkt serverreturnering)** väljer **aktiverad**.
 
 6. <a name="step6-6"></a>Välj **OK**.
 

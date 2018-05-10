@@ -1,13 +1,13 @@
 ---
-title: "Automatisera distributionen resurs för en funktionsapp i Azure Functions | Microsoft Docs"
-description: "Lär dig hur du skapar en Azure Resource Manager-mall som distribuerar appen funktion."
+title: Automatisera distributionen resurs för en funktionsapp i Azure Functions | Microsoft Docs
+description: Lär dig hur du skapar en Azure Resource Manager-mall som distribuerar appen funktion.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
+editor: ''
+tags: ''
+keywords: Azure functions, funktioner, serverlösa arkitektur, infrastruktur som kod, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distribution för din funktionsapp i Azure Functions
 
@@ -56,7 +56,9 @@ Ett Azure storage-konto krävs för en funktionsapp. Du behöver en generella-ko
 }
 ```
 
-Dessutom egenskaperna `AzureWebJobsStorage` och `AzureWebJobsDashboard` måste anges som app-inställningar i konfigurationen. Azure Functions-runtime använder den `AzureWebJobsStorage` anslutningssträngen för att skapa interna köer. Anslutningssträngen `AzureWebJobsDashboard` används för att logga på Azure Table storage och kraften i **övervakaren** i portalen.
+Dessutom egenskapen `AzureWebJobsStorage` måste anges som en appinställningen i konfigurationen. Om funktionsapp inte använda Application Insights för övervakning, den måste även ange `AzureWebJobsDashboard` som en appinställning.
+
+Azure Functions-runtime använder den `AzureWebJobsStorage` anslutningssträngen för att skapa interna köer.  När Application Insights inte är aktiverad körtidsbiblioteket använder den `AzureWebJobsDashboard` anslutningssträng att logga in till Azure Table storage och power den **övervakaren** i portalen.
 
 Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` objekt:
 
@@ -260,7 +262,7 @@ Du kan använda något av följande sätt att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Distribuera till Azure-knappen

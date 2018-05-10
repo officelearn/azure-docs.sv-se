@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -513,7 +513,7 @@ Följande princip måste anges till **alla**: **användarna kan registrera sina 
 
 ### <a name="configure-on-premises-federation-service"></a>Konfigurera lokala federationstjänsten 
 
-Federationstjänsten lokalt måste ha stöd för utfärdande av **authenticationmehod** och **wiaormultiauthn** anspråk när du tar emot en autentiseringsbegäran till den förlitande parten för Azure AD hålla en resouce_params parameter med ett kodat värde som visas nedan:
+Federationstjänsten lokalt måste ha stöd för utfärdande av **authenticationmethod** och **wiaormultiauthn** anspråk när du tar emot en autentiseringsbegäran till den förlitande parten för Azure AD innehåller en resouce_params parameter med ett kodat värde som visas nedan:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 

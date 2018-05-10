@@ -1,11 +1,11 @@
 ---
-title: "Få hjälp med att få åtkomst till och med hjälp av portalen för Mina appar i Azure Active Directory | Microsoft Docs"
-description: "Få hjälp med att logga in till och utföra vanliga uppgifter på åtkomstpanelen."
+title: Få hjälp med att få åtkomst till och med hjälp av portalen för Mina appar i Azure Active Directory | Microsoft Docs
+description: Få hjälp med att logga in till och utföra vanliga uppgifter på åtkomstpanelen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Felsökning av problem med hjälp av portalen Mina appar och åtkomst till
 
@@ -29,7 +29,7 @@ Om du har problem med att logga in på eller med hjälp av portalen Mina appar, 
 
 Följande allmänna tips i åtanke:
 
-- Första, kontrollera för att se om du använder rätt URL [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- Första, kontrollera för att se om du använder rätt URL [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 - Försök att lägga till URL: en i webbläsarens betrodda platser.
 - Kontrollera att lösenordet är korrekt och inte har gått ut. Mer information finns i [återställa ditt lösenord för arbetet eller skolan](active-directory-passwords-update-your-own-password.md).
 - Kontrollera att din kontaktinformation för autentisering är uppdaterade och inte blockerar åtkomsten. Mer information finns i [vad Azure Multi-Factor Authentication innebär för mig?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
@@ -55,7 +55,7 @@ Kontrollera att du uppfyller följande webbläsarkrav:
 - **Edge**: på Windows 10 årsdagar Edition eller senare.
 - **Chrome**: på Windows 7 eller senare, och på Mac OS X eller senare.
 - **Firefox 26.0 eller senare**: Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
-- **Internet Explorer 8, 9, 10, 11**: i Windows 7 eller senare (begränsat stöd).
+- **Internet Explorer 11**: i Windows 7 eller senare (begränsat stöd).
 
 Du kan också hämta tillägget för Chrome och kanten direkt från följande platser:
 

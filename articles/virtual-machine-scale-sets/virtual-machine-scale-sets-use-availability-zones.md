@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cc91366bda4dd443392c78cd61e5cc0ddb261fe2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skaluppsättning för virtuell dator som använder tillgänglighet zoner
 
@@ -194,7 +194,7 @@ I följande exempel skapas en Linux enskild zon skaluppsättningen namngivna *my
 }
 ```
 
-För en komplett exempel på en enda zon skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
+För en komplett exempel på en enda zon skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Zonredundant skaluppsättning
 
@@ -216,7 +216,7 @@ Om du vill skapa en zonredundant skaluppsättning ange flera värden i den `zone
 
 Om du skapar en offentlig IP-adress eller en belastningsutjämnare, ange den *”sku”: {”name”: ”Standard”} ”* egenskap för att skapa zonredundant nätverksresurser. Du måste skapa en säkerhetsgrupp för nätverk och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md).
 
-En komplett exempel på en zonredundant skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
+En komplett exempel på en zonredundant skala och nätverksresurser finns i avsnittet [exempel Resource Manager-mallen](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
 ## <a name="next-steps"></a>Nästa steg
 

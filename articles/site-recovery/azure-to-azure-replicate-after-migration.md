@@ -1,17 +1,17 @@
 ---
-title: "Konfigurera katastrofåterställning för virtuella Azure-datorer efter migrering till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du förbereda datorer för att ställa in katastrofåterställning mellan Azure-regioner efter migrering till Azure med Azure Site Recovery."
+title: Konfigurera katastrofåterställning för virtuella Azure-datorer efter migrering till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du förbereda datorer för att ställa in katastrofåterställning mellan Azure-regioner efter migrering till Azure med Azure Site Recovery.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera katastrofåterställning för virtuella Azure-datorer efter migrering till Azure 
 
@@ -30,11 +30,11 @@ Kontrollera att migreringen har slutförts korrekt innan du konfigurerar katastr
 
 ## <a name="install-the-azure-vm-agent"></a>Installera Azure VM-agenten
 
-Azure [VM-agenten](../virtual-machines/windows/agent-user-guide.md) måste vara installerat på den virtuella datorn så att Site Recovery kan replikera den.
+Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara installerat på den virtuella datorn så att Site Recovery kan replikera den.
 
 
 1. Om du vill installera den Virtuella datoragenten på virtuella datorer som kör Windows, hämta och köra den [installationsprogrammet för agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du behöver administratörsrättigheter på den virtuella datorn för att slutföra installationen.
-2. Om du vill installera den Virtuella datoragenten på virtuella datorer som kör Linux, installera senast [Linux-agenten](../virtual-machines/linux/agent-user-guide.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar från databasen för din distribution. Vi rekommenderar inte installation av Linux VM-agenten direkt från GitHub. 
+2. Om du vill installera den Virtuella datoragenten på virtuella datorer som kör Linux, installera senast [Linux-agenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar från databasen för din distribution. Vi rekommenderar inte installation av Linux VM-agenten direkt från GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Verifiera installationen på virtuella Windows-datorer

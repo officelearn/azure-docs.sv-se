@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certifikatkrav
 
@@ -35,7 +35,7 @@ Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av extern
 ## <a name="certificate-requirements"></a>Certifikatkrav
 I följande lista beskrivs kraven på certifikaten som behövs för att distribuera Azure Stack: 
 - Vara måste utfärdat certifikat från en intern certifikatutfärdare eller en offentlig certifikatutfärdare. Om du använder en offentlig certifikatutfärdare, måste det ingå i den grundläggande operativsystemavbildningen som en del av Microsoft Trusted Root myndigheten Program. Du hittar en fullständig lista: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Infrastrukturen för Azure-stacken måste ha åtkomst till den certifikatutfärdare som används för att signera certifikat
+- Infrastrukturen för Azure-stacken måste ha nätverksåtkomst till certifikatutfärdarens certifikat listan över Återkallade plats publiceras i certifikatet. Den här listan över återkallade certifikat måste vara en http-slutpunkt
 - När du roterar certifikat, måste certifikat vara antingen utfärdats från samma interna certifikatutfärdare används för att signera certifikat som anges i distribution eller en offentlig certifikatutfärdare från ovan
 - Användning av självsignerade certifikat stöds inte
 - Certifikatet kan vara ett enda jokertecken certifikat som omfattar alla namnutrymmen i fältet alternativt namn på CERTIFIKATMOTTAGARE. Du kan också använda certifikat med jokertecken för slutpunkter, till exempel **acs** och Nyckelvalv där de är obligatoriska. 
@@ -45,6 +45,7 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - Certifikat pfx-filer måste ha värdena ”serverautentisering (1.3.6.1.5.5.7.3.1)” och ”klientautentisering (1.3.6.1.5.5.7.3.2)” i fältet ”förbättrad nyckelanvändning”.
 - Certifikatets ”utfärdat till”: fältet får inte vara samma som dess ”utfärdat av”: fältet.
 - Lösenorden för alla certifikat pfx-filer måste vara samma vid tidpunkten för distribution
+- Lösenord för att den certifikat PFX-filen måste vara ett komplext lösenord.
 - Se till att ämnesnamn och Alternativt ämnesnamn över alla certifikat matchar de specifikationer som beskrivs i den här artikeln för att undvika inte kunde distribueras.
 
 > [!NOTE]
@@ -83,7 +84,7 @@ För din distribution [region] och [externalfqdn] värdena måste matcha region 
 |Admin Portal|adminportal.  *&lt;region >.&lt; FQDN >*|Portaler|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager offentliga|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager-administratör|adminmanagement.  *&lt;region >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|En multi-underdomänen jokerteckencertifikat med certifikatämnets alternativa namn för:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Lagring|blob.*&lt;region>.&lt;fqdn>*<br>tabell.  *&lt;region >.&lt; FQDN >*<br>queue.*&lt;region>.&lt;fqdn>*|
+|ACS<sup>1</sup>|En multi-underdomänen jokerteckencertifikat med certifikatämnets alternativa namn för:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>tabell.  *&lt;region >.&lt; FQDN >*<br>queue.*&lt;region>.&lt;fqdn>*|
 |KeyVault|&#42;.Vault.  *&lt;region >.&lt; FQDN >*<br>(Jokertecken SSL-certifikat)|Key Vault|valvet.  *&lt;region >.&lt; FQDN >*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Jokertecken SSL-certifikat)|Internt Keyvault|adminvault.  *&lt;region >.&lt; FQDN >*|
 |
@@ -114,7 +115,7 @@ I följande tabell beskrivs slutpunkter och certifikat som krävs för SQL och M
 |App Service|Web trafik standard SSL-certifikat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi-domän med jokertecken SSL-certifikat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|ENKEL INLOGGNING|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Enkel inloggning|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> kräver ett certifikat med flera jokertecken Alternativt ämnesnamn. Flera jokertecken SAN på ett enda certifikat kan stöds inte av alla offentlig certifikatutfärdare 
 

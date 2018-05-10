@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser
 manager: mtillman
 editor: ''
-ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto-etablering för företagsappar i Azure-portalen
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användar konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till i kategorin ”aktuell” för den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -45,12 +45,12 @@ Den **etablering** rutan börjar med en **läge** menyn som visar vilka etableri
 Att välja den **automatisk** visas en skärm som är indelat i fyra avsnitt:
 
 ### <a name="admin-credentials"></a>Autentiseringsuppgifter för administratör
-Det är där autentiseringsuppgifterna som krävs för Azure AD för att ansluta till programmets Användarhantering API har angetts. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [configuration självstudierna för det specifika programmet](active-directory-saas-app-provisioning.md).
+Det här avsnittet är där autentiseringsuppgifterna som krävs för Azure AD för att ansluta till programmets Användarhantering API har angetts. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [configuration självstudierna för det specifika programmet](active-directory-saas-app-provisioning.md).
 
 Att välja den **Testa anslutning** knappen kan du testa autentiseringsuppgifter genom att låta Azure AD-försök att ansluta till appen etablering app med de angivna autentiseringsuppgifterna.
 
 ### <a name="mappings"></a>Mappningar
-Det är där administratörer kan visa och redigera vad användaren attribut flödet mellan Azure AD och målprogrammet när användarkonton etablerades eller uppdaterades.
+Det här avsnittet är där administratörer kan visa och redigera vad användaren attribut flödet mellan Azure AD och målprogrammet när användarkonton etablerades eller uppdaterades.
 
 Det finns en förkonfigurerad uppsättning mappningar mellan användarobjekt i Azure AD och användarobjekt för varje SaaS-app. Vissa appar hantera andra typer av objekt, till exempel grupper eller kontakter. Att välja ett av dessa mappningar i tabellen visar redigeraren mappning till höger, där de kan visas och anpassat.
 
@@ -59,13 +59,13 @@ Det finns en förkonfigurerad uppsättning mappningar mellan användarobjekt i A
 Anpassningar som stöds är:
 
 * Aktivera och inaktivera mappningar för specifika objekt, till exempel Azure AD-användarobjekt som appen SaaS användarobjektet.
-* Ändra vilka attribut som flödar från Azure AD-användarobjektet till appens användarobjektet. Mer information om attributmappning finns [förstå mappning attributtyper](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Filtrera de etablering åtgärder som Azure AD utförs på det aktuella programmet. Du kan begränsa de åtgärder som utförs i stället för att Azure AD fullt-Synkronisera objekt. Till exempel genom att bara välja **uppdatering**, Azure AD endast uppdateringar befintliga konton i ett program och inte skapa nya. Genom att bara välja **skapa**, Azure endast skapar nya användarkonton men inte uppdatera befintliga. Den här funktionen kan administratörer skapa olika mappningar för kontoskapande av och uppdatera arbetsflöden.
+* Redigera de attribut som flödar från Azure AD-användarobjektet till appens användarobjektet. Mer information om attributmappning finns [förstå mappning attributtyper](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Filtrera de etablering åtgärder som Azure AD utförs på det aktuella programmet. Du kan begränsa de åtgärder som utförs i stället för att Azure AD fullt Synkronisera objekt. Till exempel genom att bara välja **uppdatering**, Azure AD endast uppdateringar befintliga konton i ett program och inte skapa nya. Genom att bara välja **skapa**, Azure endast skapar nya användarkonton men inte uppdatera befintliga. Den här funktionen kan administratörer skapa olika mappningar för kontoskapande av och uppdatera arbetsflöden.
 
 ### <a name="settings"></a>Inställningar
 Det här avsnittet tillåter administratörer att starta och stoppa Azure AD etableras för det valda programmet som du kan också etablering har rensat och starta om tjänsten.
 
-Om etablering har aktiverats för första gången för ett program, aktivera tjänsten genom att ändra den **Status för etablering** till **på**. Detta gör att Azure AD etableras att utföra en inledande synkronisering där det står att användare som är tilldelade i den **användare och grupper** avsnittet frågar målprogrammet för dem och sedan utför etablering åtgärder som definierats i Azure AD **mappningar** avsnitt. Under den här processen lagrar tjänsten etablering cachelagrade data om vilka användarkonton som hanteras så att icke-hanterade konton i målprogram som fanns inte i omfånget för tilldelning inte påverkas av avetablering åtgärder. När den första synkroniseringen synkroniseras etablering tjänsten automatiskt användar- och gruppobjekt på tio minuter.
+Om etablering har aktiverats för första gången för ett program, aktivera tjänsten genom att ändra den **Status för etablering** till **på**. Den här ändringen gör att Azure AD etableras att utföra en inledande synkronisering där det står att användare som är tilldelade i den **användare och grupper** avsnittet frågar målprogrammet för dem och sedan utför åtgärder för etablering definieras i Azure AD **mappningar** avsnitt. Under den här processen lagrar tjänsten etablering cachelagrade data om vilka användarkonton som hanteras så att icke-hanterade konton i målprogram som fanns inte i omfånget för tilldelning inte påverkas av avetablering åtgärder. När den första synkroniseringen synkroniseras etablering tjänsten automatiskt användar- och gruppobjekt tio minuters intervall.
 
 Ändra den **Status för etablering** till **av** bara pausar tjänsten etablering. I det här tillståndet Azure inte skapa, uppdatera eller ta bort användare eller gruppobjekt i appen. Ändra tillståndet till på gör att tjänsten ska ta vid där den avbröts.
 
@@ -74,11 +74,11 @@ Att välja den **Rensa aktuell status och starta om synkroniseringen** kryssruta
 ### <a name="synchronization-details"></a>Synkroniseringsinformation
 Det här avsnittet innehåller ytterligare information om driften av tjänsten etablering, inklusive de första och sista etablering tjänsten har körts för programmet och hur många användare och gruppobjekt som hanteras.
 
-Länkar som den **etablering aktivitetsrapport**, som innehåller en logg över alla användare och grupper som skapas, uppdateras och tas bort mellan Azure AD och målprogrammet, och den **etablering felrapporten** som ger mer detaljerade felmeddelanden för användare och gruppobjekt som inte kunde läsas, skapas, uppdateras eller tas bort. 
+Länkar som den **etablering aktivitetsrapport** som ger en logg över alla användare och grupper som skapas, uppdateras och tas bort mellan Azure AD och målprogrammet, och den **etablering felrapporten** som ger mer detaljerade felmeddelanden för användare och grupp objekt som misslyckades med att läsa, skapa, uppdateras eller tas bort. 
 
 ## <a name="feedback"></a>Feedback
 
-Vi hoppas att du som din Azure AD-upplevelse. Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Vi få är taggade om hur du skapar nya nya produkter varje dag, och använda din vägledning för att formen och definiera vad vi bygga härnäst.
+Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Teknikteamet taggade om hur du skapar nya nya produkter varje dag och de använder din information i form och definierar vad du ska bygga härnäst.
 
 
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG

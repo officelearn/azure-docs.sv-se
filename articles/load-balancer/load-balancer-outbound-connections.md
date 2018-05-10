@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -119,7 +119,7 @@ När du använder [Standard belastningsutjämnare med tillgänglighet zoner](loa
 
 ### <a name="pat"></a>Port imiterade SNAT (PATRIK)
 
-När en offentlig belastningsutjämnare resurs associeras med VM-instanser, om varje utgående anslutningskälla. Källan om från det virtuella privata IP-adressutrymmet till klientdel offentliga IP-adressen för belastningsutjämnaren. 5-tuppel i flöde (källans IP-adress, källport, IP-transportprotokoll, mål-IP-adress, målport) måste vara unikt i det offentliga IP-adressutrymmet.  
+När en offentlig belastningsutjämnare resurs associeras med VM-instanser, om varje utgående anslutningskälla. Källan om från det virtuella privata IP-adressutrymmet till klientdel offentliga IP-adressen för belastningsutjämnaren. 5-tuppel i flöde (källans IP-adress, källport, IP-transportprotokoll, mål-IP-adress, målport) måste vara unikt i det offentliga IP-adressutrymmet.  Port imiterade SNAT kan användas med TCP eller UDP IP-protokoll.
 
 Tillfälliga portar SNAT används för att uppnå detta efter att skriva om privata källans IP-adress, eftersom flera flöden kommer från en offentlig IP-adress. 
 

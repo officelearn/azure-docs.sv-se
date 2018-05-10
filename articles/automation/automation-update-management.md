@@ -8,17 +8,17 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3bd3c4f6501000f2490bc26cf7c6ff0345d3e7cc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5c76114484d10873eeb2d7a4516d4196b1d8aaf6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
 Lösning för hantering av uppdateringar i Azure automation kan du hantera uppdateringar av operativsystemet för Windows och Linux-datorer distribueras i Azure, lokala miljöer eller andra molntjänstleverantörer av. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
-Du kan aktivera uppdateringshantering för virtuella datorer direkt via ditt [Azure Automation](automation-offering-get-started.md)-konto.
+Du kan aktivera uppdateringshantering för virtuella datorer direkt från Azure Automation-konto.
 Information om hur du aktiverar uppdateringshantering för virtuella datorer via ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera uppdateringshantering för en enskild virtuell dator från sidan virtuell dator i Azure-portalen. Det här scenariot är tillgängliga för båda [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuella datorer.
 
 ## <a name="solution-overview"></a>Lösningsöversikt
@@ -37,6 +37,9 @@ Följande diagram visar en översikt över beteendet och dataflöde med hur lös
 När en dator som utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten information gruppvis till logganalys. På en Window-dator utförs en kompatibilitetssökning var 12:e timme som standard. Förutom schema för genomsökning initieras genomsökningen efter uppdateringsefterlevnad inom 15 minuter om Microsoft Monitoring Agent (MMA) startas innan uppdateringsinstallationen och efter installationen av uppdateringen. Kompatibilitetsgenomsökningen utförs var 3:e timme som standard med en Linux-dator och en kompatibilitetsgenomsökning initieras inom 15 minuter efter att MMA-agenten startas om.
 
 Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS kan resultatet variera beroende på vad Microsoft Updates visar, beroende på när WSUS senast synkroniserades med Microsoft Update. Det här är samma för Linux-datorer som är konfigurerad för att rapportera till en lokal lagringsplatsen jämfört med en offentlig lagringsplatsen.
+
+> [!NOTE]
+> Uppdateringshantering kräver vissa URL: er och portar måste vara aktiverat för att korrekt rapportera tjänsten, se [nätverk planera för hybrider](automation-hybrid-runbook-worker.md#network-planning) lära dig mer om dessa krav.
 
 Du kan distribuera och installera programuppdateringar på datorer som kräver uppdateringarna genom att skapa en schemalagd distribution. Uppdateringar som klassificeras som *valfria* ingår inte i distributionsomfattningen för Windows-datorer, utan endast nödvändiga uppdateringar. Schemalagd distribution definierar vilka datorer ta emot uppdateringar, antingen genom att explicit ange datorer eller välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggen söker i en viss uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en tidsperiod när uppdateringar ska kunna installeras. Uppdateringar installeras av runbooks i Azure Automation. Du kan inte kan se dessa runbook-flöden och de kräver inte någon konfigurering. När en uppdateringsdistribution skapas så skapar den ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för de datorer som ingår. Denna master-runbook startar en underordnad runbook på varje agent som utför installationen av de nödvändiga uppdateringarna.
 
@@ -186,17 +189,17 @@ Klicka på den **uppdateringsdistributioner** att visa listan över befintliga d
 
 Skapa en ny uppdatera distribution genom att klicka på den **schema uppdateringsdistribution** längst upp på skärmen för att öppna den **nya uppdatera distributionen** sidan. Du måste ange värden för egenskaperna i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux- eller Windows|
 | Datorer för att uppdatera |Välj en sparad sökning eller Välj dator från listrutan och Välj enskilda datorer |
-|Klassificering av uppdatering|Välj de uppdateringsklassificeringar som du behöver|
-|Uppdateringar som ska undantas|Ange alla KBs för att utesluta utan prefixet 'KB'|
-|Inställningar för schemaläggning|Välj tid för start och välj antingen en gång eller återkommande för återkommande|
+|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
+|Uppdateringar som ska uteslutas|Ange alla KBs för att utesluta utan prefixet 'KB'|
+|Schemainställningar|Välj tid för start och välj antingen en gång eller återkommande för återkommande|
 | Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet kan inte vara mindre än 30 minuter och mer än 6 timmar |
 
-## <a name="update-classifications"></a>Klassificering av uppdatering
+## <a name="update-classifications"></a>Uppdatera klassificeringar
 
 Följande tabeller innehåller en lista över uppdateringsklassificeringar i uppdateringshantering tillsammans med en definition för varje klassificering.
 
@@ -219,6 +222,17 @@ Följande tabeller innehåller en lista över uppdateringsklassificeringar i upp
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett specifikt problem eller en produktspecifik, säkerhetsrelaterad fråga.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är nödvändiga i karaktär eller säkerhet för uppdateringar.        |
+
+## <a name="ports"></a>Portar
+
+Följande adresser krävs för hantering av uppdateringar. Kommunikation till dessa adresser görs via port 443.
+
+* *.ods.opinsights.azure.com
+* *.oms.opinsights.azure.com
+* ods.systemcenteradvisor.com
+* *.blob.core.windows.net
+
+Mer information om portar som krävs för Hybrid Runbook Worker, [Hybrid Worker-rollen portar](automation-hybrid-runbook-worker.md#hybrid-worker-role)
 
 ## <a name="search-logs"></a>Sökloggar
 
@@ -273,9 +287,9 @@ Om det uppstår problem när du försöker integrera lösningen eller en virtuel
 | Meddelande | Orsak | Lösning |
 |----------|----------|----------|
 | Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>System.InvalidOperationException: {"Meddelande":"Datorn har redan</br>registrerats för ett annat konto. "} | Datorn har redan integrerats på en annan arbetsyta för uppdateringshantering. | Rensa gamla artefakter genom att [ta bort hybridrunbookgruppen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Det gick inte att registrera datorn för uppdateringshantering, registrering misslyckades med undantaget</br>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---></br>System.Net.WebException: Den underliggande anslutningen</br>stängdes: Ett oväntat fel</br>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:</br>Klienten och servern kan inte kommunicera</br>eftersom de inte har en gemensam algoritm. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
-| Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
-| Certifikatet som presenterades av tjänsten \<wsid\>. oms.opinsights.azure.com</br>utfärdades inte av en certifikatutfärdare</br>som används för Microsoft-tjänster. Kontakt</br>nätverksadministratören för att se om de kör en proxy som hindrar</br>TLS/SSL-kommunikation. |Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-offering-get-started.md#network-planning)|
+| Det gick inte att registrera datorn för uppdateringshantering, registrering misslyckades med undantaget</br>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---></br>System.Net.WebException: Den underliggande anslutningen</br>stängdes: Ett oväntat fel</br>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:</br>Klienten och servern kan inte kommunicera</br>eftersom de inte har en gemensam algoritm. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-hybrid-runbook-worker.md#network-planning)|
+| Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-hybrid-runbook-worker.md#network-planning)|
+| Certifikatet som presenterades av tjänsten \<wsid\>. oms.opinsights.azure.com</br>utfärdades inte av en certifikatutfärdare</br>som används för Microsoft-tjänster. Kontakt</br>nätverksadministratören för att se om de kör en proxy som hindrar</br>TLS/SSL-kommunikation. |Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](automation-hybrid-runbook-worker.md#network-planning)|
 | Det gick inte att registrera datorn för uppdateringshantering.</br>Registreringen misslyckades med undantaget</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Det gick inte att skapa ett självsignerat certifikat. ---></br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har</br>läsbehörighet till mappen:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA **|
 
 ## <a name="next-steps"></a>Nästa steg

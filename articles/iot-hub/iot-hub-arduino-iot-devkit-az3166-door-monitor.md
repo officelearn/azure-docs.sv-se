@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="door-monitor"></a>Dörren Övervakare          
 
@@ -213,4 +213,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT-Fjärrövervaknings lösningsaccelerator och använda SendGrid-tjänsten för att skicka ett e-postmeddelande. Här är de föreslagna nästa steg:
 
 * [Azure IoT fjärråtkomst övervakning solution accelerator-översikt](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Anslut en MXChip IoT DevKit enhet till din Azure IoT centralt program](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 91ef3f9f15797c8c0c599e8c01070369e1af0b58
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata för aktiviteten i Azure Data Factory
 GetMetadata-aktiviteten kan användas för att hämta **metadata** alla data i Azure Data Factory. Den här aktiviteten stöds endast för datafabriker för version 2. Den kan användas i följande scenarier:
@@ -74,7 +74,10 @@ Följande typer av metadata kan anges i fältlistan GetMetadata aktiviteten att 
 | contentMD5 | MD5 för filen. Gäller endast filen. |
 | struktur | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och kolumntypen. |
 | Antal kolumner | Antalet kolumner i filen eller relationella tabell. |
-| Det finns| Om filen/mappen/det finns en tabell eller inte. Observera så länge ”finns” anges i fältlistan GetaMetadata aktiviteten inte misslyckas även när objektet (tabell-filen/mappen) inte finns. i stället returneras `exists: false` i utdata. |
+| Det finns| Om filen/mappen/det finns en tabell eller inte. Observera om ”finns” anges i fältlistan GetaMetadata aktiviteten inte inte även om objektet (tabell-filen/mappen) inte finns. i stället returneras `exists: false` i utdata. |
+
+>[!TIP]
+>När du vill kontrollera om det finns en fil/mapp/tabell eller inte kan ange `exists` i fältlistan GetMetadata aktivitet kan du kontrollera den `exists: true/false` fås aktivitetsutdata. Om `exists` har inte konfigurerats i fältlistan GetMetadata aktiviteten misslyckas när objektet inte finns.
 
 ## <a name="syntax"></a>Syntax
 
@@ -107,10 +110,9 @@ Följande typer av metadata kan anges i fältlistan GetMetadata aktiviteten att 
         },
         "typeProperties": {
             "folderPath":"container/folder",
-            "Filename": "file.json",
+            "filename": "file.json",
             "format":{
                 "type":"JsonFormat"
-                "nestedSeperator": ","
             }
         }
     }
@@ -121,14 +123,14 @@ Följande typer av metadata kan anges i fältlistan GetMetadata aktiviteten att 
 
 GetMetadata aktivitet kan för närvarande hämta följande typer av metadata-information.
 
-Egenskap | Beskrivning | Krävs
+Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
-Fältlista | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnitt på stöds metadata. | Nej 
+Fältlista | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnitt på stöds metadata. | Ja 
 DataSet | Referensdatauppsättningen vars metadata aktivitet är att hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till koppling avsnittet dataset syntax detaljer. | Ja
 
 ## <a name="sample-output"></a>Exempel på utdata
 
-GetMetadata-resultatet visas i aktivitetsutdata. Nedan visas två exempel med fullständig metadata-alternativ som valts i fältlistan som referens:
+GetMetadata-resultatet visas i aktivitetsutdata. Nedan visas två exempel med fullständig metadata-alternativ som valts i fältlistan som referens. Om du vill använda resultatet i efterföljande aktiviteten använder mönstret för `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### <a name="get-a-files-metadata"></a>Hämta metadata för en fil
 

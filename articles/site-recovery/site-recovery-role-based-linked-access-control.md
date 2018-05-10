@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d02ecc3293d0607dd3e19ade3c1d9087b544703b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4618d449410656f742cff40cf3cc190a0ce9c5e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Använda rollbaserad åtkomstkontroll för att hantera distributioner av Azure Site Recovery
 
@@ -27,7 +27,7 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 Azure Site Recovery tillhandahåller 3 inbyggda roller för att styra Site Recovery-hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
 * [Site Recovery-bidragsgivare](../role-based-access-control/built-in-roles.md#site-recovery-contributor) – Den här rollen har alla behörigheter som krävs för att hantera Azure Site Recovery-åtgärder i ett Recovery Services-valv. En användare med denna roll kan dock inte skapa eller ta bort ett Recovery Services-valv eller tilldela behörighet till andra användare. Den här rollen passar bäst för disaster recovery-administratörer som kan aktivera och hantera katastrofåterställning för program eller hela organisationer som eventuellt.
-* [Site Recovery-operatör](../role-based-access-control/built-in-roles.md#site-recovery-operator) – Den här rollen har behörighet att utföra och hantera operationer för redundansväxling och återställning av fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela behörigheter till andra användare. Den här rollen är bäst för en disaster recovery-operatör som kan redundans virtuella datorer eller program när du uppmanas av applikationsägare och IT-administratörer i en situation faktiska eller simulerade katastrofåterställning, till exempel en DR detaljgranska. Bokför upplösning över DR-operatorn kan skydda igen och återställning av virtuella datorer.
+* [Site Recovery-operatorn](../role-based-access-control/built-in-roles.md#site-recovery-operator) -rollen har behörighet att köra och hantera redundans och återställning av åtgärder. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela behörigheter till andra användare. Den här rollen är bäst för en disaster recovery-operatör som kan redundans virtuella datorer eller program när du uppmanas av applikationsägare och IT-administratörer i en situation faktiska eller simulerade katastrofåterställning, till exempel en DR detaljgranska. Bokför upplösning över DR-operatorn kan skydda igen och återställning av virtuella datorer.
 * [Site Recovery-läsare](../role-based-access-control/built-in-roles.md#site-recovery-reader) – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen passar bäst för en övervakning IT-chef som kan övervaka det aktuella tillståndet för skydd och höja supportärenden om det behövs.
 
 Om du behöver för att definiera egna roller för ännu mer kontroll, se hur du [skapa anpassade roller](../role-based-access-control/custom-roles.md) i Azure.
@@ -66,7 +66,7 @@ En användare behöver följande behörigheter till fullständig replikering av 
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Klassisk | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Lagring | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Klassisk | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |

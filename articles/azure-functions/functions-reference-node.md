@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarhandbok för Azure Functions JavaScript
 
@@ -205,7 +205,7 @@ HTTP- och webhook-utlösare och HTTP-utdataformat bindningar använder förfråg
 
 Den `request` objektet har följande egenskaper:
 
-| Egenskap      | Beskrivning                                                    |
+| Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _Brödtext_        | Ett objekt som innehåller brödtexten i begäran.               |
 | _Rubriker_     | Ett objekt som innehåller huvuden för begäran.                   |
@@ -220,7 +220,7 @@ Den `request` objektet har följande egenskaper:
 
 Den `response` objektet har följande egenskaper:
 
-| Egenskap  | Beskrivning                                               |
+| Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
 | _Brödtext_    | Ett objekt som innehåller brödtexten i svaret.         |
 | _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
@@ -302,7 +302,7 @@ module.exports = function(context) {
 Du ska definiera en `package.json` filen i roten på en funktionsapp i. Definiera filen kan alla funktioner i appen som delar samma cachelagrade paket, vilket ger bästa prestanda. Om det uppstår en versionskonflikt måste du lösa det genom att lägga till en `package.json` fil i mappen på en specifik funktion.  
 
 ## <a name="environment-variables"></a>Miljövariabler
-För att få en miljövariabel eller en app som inställningsvärde kan använda `process.env`som visas i följande kodexempel:
+För att få en miljövariabel eller en app som inställningsvärde använda `process.env`, som visas här i den `GetEnvironmentVariable` funktionen:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -328,8 +328,8 @@ När du arbetar med JavaScript-funktioner måste du vara medveten om övervägan
 
 När du skapar en funktionsapp som använder App Service-plan, rekommenderar vi att du väljer en enskild vCPU plan i stället för en plan med flera vCPUs. Idag funktioner körs effektivare JavaScript-funktioner på enskild vCPU virtuella datorer och med större virtuella datorer inte ger förväntade prestandaförbättringarna. Vid behov, du kan skala ut genom att lägga till flera enskild vCPU VM-instanser manuellt eller kan du aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
-### <a name="typescript-and-coffeescript-support"></a>Stöd för TypeScript och CoffeeScript
-Eftersom direktstöd ännu inte finns för automatisk kompilering av TypeScript eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution. 
+### <a name="typescript-and-coffeescript-support"></a>Stöd för maskin- och CoffeeScript
+Eftersom direktstöd ännu inte finns för kompilering av automatisk maskin- eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution. 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:

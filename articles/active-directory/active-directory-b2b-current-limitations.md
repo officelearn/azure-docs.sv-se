@@ -1,26 +1,20 @@
 ---
-title: "Begränsningar i Azure Active Directory B2B-samarbete | Microsoft Docs"
-description: "Aktuella begränsningar för Azure Active Directory B2B-samarbete"
+title: Begränsningar i Azure Active Directory B2B-samarbete | Microsoft Docs
+description: Aktuella begränsningar för Azure Active Directory B2B-samarbete
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7d455b587c013e7a03fe640406e751910456665d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d4efa6ad1d2768a41a670fae4c490942b5a814ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Begränsningar i Azure AD B2B-samarbete
 Azure Active Directory (AD Azure) B2B-samarbete är för närvarande de begränsningar som beskrivs i den här artikeln.
@@ -28,20 +22,13 @@ Azure Active Directory (AD Azure) B2B-samarbete är för närvarande de begräns
 ## <a name="possible-double-multi-factor-authentication"></a>Möjliga dubbla multifaktorautentisering
 Du kan använda multifaktorautentisering i resursorganisationen (bjuda in organisation) med Azure AD B2B. Orsaker till den här metoden beskrivs i [villkorlig åtkomst för användare för B2B-samarbete](active-directory-b2b-mfa-instructions.md). Om en partner har redan multifaktorautentisering ställa in och tillämpas, kanske användarna att autentisera en gång i organisationen hem och sedan igen i din egen.
 
-## <a name="instant-on"></a>Instant-on
+## <a name="instant-on"></a>Startar omedelbart
 I B2B-samarbete flöden, vi lägga till användare i katalogen och uppdatera dynamiskt under inbjudan inlösning, tilldelning av appen och så vidare. Uppdateringar och skrivningar normalt sker i en kataloginstans och måste replikeras över alla instanser. Replikeringen är klar när alla instanser uppdateras. Ibland när objektet skrivs eller uppdateras i en instans och anrop till hämta det här objektet till en annan instans, kan replikeringsfördröjningar uppstå. I så fall, uppdatera eller försök att. Om du skriver en app med vårt API är en bra och defensiva idé att lösa problemet med återförsök med vissa inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
+Se följande artiklar om Azure AD B2B-samarbete:
 
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Egenskaper för användare av B2B-samarbete](active-directory-b2b-user-properties.md)
-* [Lägger till en B2B-samarbete användare till en roll](active-directory-b2b-add-guest-to-role.md)
-* [Delegera B2bB samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
-* [Dynamiska grupper och B2B-samarbete](active-directory-b2b-dynamic-groups.md)
-* [B2B-samarbete kod och PowerShell-exempel](active-directory-b2b-code-samples.md)
-* [Konfigurera SaaS-appar för B2B-samarbete](active-directory-b2b-configure-saas-apps.md)
-* [Användartoken för B2B-samarbete](active-directory-b2b-user-token.md)
-* [B2B-samarbete användaranspråk mappning](active-directory-b2b-claims-mapping.md)
-* [Extern delning av Office 365](active-directory-b2b-o365-external-user.md)
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Delegera B2bB samarbete inbjudningar](active-directory-b2b-delegate-invitations.md)
+

@@ -1,25 +1,25 @@
 ---
-title: "Felsöka Application Proxy | Microsoft Docs"
-description: "Beskriver hur du felsöker fel i Azure AD Application Proxy."
+title: Felsöka Application Proxy | Microsoft Docs
+description: Beskriver hur du felsöker fel i Azure AD Application Proxy.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54e0ebe60981ef429fdfc97cee1b460b03261a9f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsökning av problem med Application Proxy och felmeddelanden
 Om fel uppstår i att komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD Application Proxy fungerar:
@@ -34,7 +34,7 @@ Mer information om verktyget Azure AD-felsökning finns [felsökningsverktyget f
 ## <a name="the-page-is-not-rendered-correctly"></a>Sidan renderas inte korrekt
 Du kan ha problem med programmet återgivning eller felaktigt fungerar utan att få felmeddelanden. Detta kan inträffa om du har publicerat artikel sökväg, men programmet kräver innehåll som finns utanför sökvägen.
 
-Till exempel om du publicerar sökvägen https://yourapp/app men programmet anropar bilder i https://yourapp/media, återges de inte. Kontrollera att du publicerar program med den högsta nivån sökvägen måste du inkludera alla relevant innehåll. Det skulle vara http://yourapp/ i det här exemplet.
+Om du publicerar sökvägen till exempel https://yourapp/app men programmet anropar bilder https://yourapp/media, inte återges. Kontrollera att du publicerar program med den högsta nivån sökvägen måste du inkludera alla relevant innehåll. Det vore i det här exemplet http://yourapp/.
 
 Om du ändrar sökvägen för att inkludera refererat innehåll, men fortfarande behöver användare att hamna på en djupare länk i sökvägen finns i bloggposten [inställningen rätt länk för Application Proxy-program i Azure AD åtkomst till Kontrollpanelen och Office 365 app starta](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 
@@ -78,9 +78,9 @@ Den här listan innehåller fel som slutanvändarna kan uppstå när de försök
 | ----- | ----------------- |
 | Webbplatsen kan inte visa sidan. | Användaren får felet när du försöker komma åt appen som du har publicerat om programmet är en IWA. Definierade SPN för det här programmet kan vara felaktigt. Kontrollera att tjänstens Huvudnamn som konfigurerats för tillämpningsprogrammet är korrekt för IWA appar. |
 | Webbplatsen kan inte visa sidan. | Användaren får felet när du försöker komma åt appen som du har publicerat om programmet är ett program för OWA. Detta kan orsakas av något av följande:<br><li>Definierade SPN för det här programmet är felaktigt. Kontrollera att tjänstens Huvudnamn som konfigurerats för tillämpningsprogrammet är korrekt.</li><li>Användaren som försökte komma åt programmet använder ett Microsoft-konto i stället för företagskontot som rätt för att logga in eller användaren är en gästanvändare. Kontrollera att användaren loggar in med sitt företagskonto som matchar domänen för det publicerade programmet. Account användare och gäst kan inte komma åt IWA program.</li><li>Användaren som försökte komma åt programmet har inte definierats korrekt för det här programmet på den lokala sidan. Kontrollera att den här användaren har rätt behörigheter som har definierats för det här backend-programmet på den lokala datorn. |
-| Den här företagets appen kan inte nås. Du har inte behörighet att komma åt programmet. Det gick inte att auktorisera. Se till att tilldela användare med åtkomst till det här programmet. | Användarna kan få det här felet när du försöker komma åt appen som du har publicerat om de använder Microsoft-konton i stället för sitt företagskonto för att logga in. Gästanvändare kan också få det här felet. Account användare och gäster kan inte komma åt IWA program. Kontrollera att användaren loggar in med sitt företagskonto som matchar domänen för det publicerade programmet.<br><br>Du har inte tilldelat användaren för det här programmet. Gå till den **programmet** fliken och under **användare och grupper**, tilldela den här användaren eller användargruppen till det här programmet. |
+| Den här företagets appen kan inte nås. Du har inte behörighet att komma åt programmet. Auktoriseringen misslyckades. Se till att tilldela användare med åtkomst till det här programmet. | Användarna kan få det här felet när du försöker komma åt appen som du har publicerat om de använder Microsoft-konton i stället för sitt företagskonto för att logga in. Gästanvändare kan också få det här felet. Account användare och gäster kan inte komma åt IWA program. Kontrollera att användaren loggar in med sitt företagskonto som matchar domänen för det publicerade programmet.<br><br>Du har inte tilldelat användaren för det här programmet. Gå till den **programmet** fliken och under **användare och grupper**, tilldela den här användaren eller användargruppen till det här programmet. |
 | Den här företagets appen är inte tillgänglig just nu. Försök igen senare... Kopplingen tidsgränsen. | Användarna kan få det här felet när du försöker komma åt appen som du har publicerat om de inte definierats för det här programmet på den lokala sidan korrekt. Se till att användarna har rätt behörigheter som har definierats för det här backend-programmet på den lokala datorn. |
-| Den här företagets appen kan inte nås. Du har inte behörighet att komma åt programmet. Det gick inte att auktorisera. Kontrollera att användaren har en licens för Azure Active Directory Premium eller Basic. | Användarna kan få det här felet när du försöker komma åt appen som du har publicerat om de inte uttryckligen tilldelade med en licens för Premium/enkel av prenumerantens administratör. Gå till Active Directory för prenumerantens **licenser** fliken och se till att den här användaren eller användargruppen är tilldelad en Premium eller Basic-licens. |
+| Den här företagets appen kan inte nås. Du har inte behörighet att komma åt programmet. Auktoriseringen misslyckades. Kontrollera att användaren har en licens för Azure Active Directory Premium eller Basic. | Användarna kan få det här felet när du försöker komma åt appen som du har publicerat om de inte uttryckligen tilldelade med en licens för Premium/enkel av prenumerantens administratör. Gå till Active Directory för prenumerantens **licenser** fliken och se till att den här användaren eller användargruppen är tilldelad en Premium eller Basic-licens. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mina fel listas inte här
 

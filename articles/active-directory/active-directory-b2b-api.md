@@ -1,26 +1,20 @@
 ---
 title: Azure Active Directory B2B-samarbete API och anpassning | Microsoft Docs
-description: "Azure Active Directory B2B-samarbete ger stöd för dina företagsomfattande relationer genom att tilldela affärspartner selektiv åtkomst till dina affärsprogram"
+description: Azure Active Directory B2B-samarbete ger stöd för dina företagsomfattande relationer genom att tilldela affärspartner selektiv åtkomst till dina affärsprogram
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b40dc42c1dfc8910f9be9242fee3beeade92d193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f1bd93ac2ef6aa75e07eeec3e3cb2222b6febc1c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samarbete API och anpassning
 
@@ -80,7 +74,7 @@ I detta läge gäller den som använder API: N måste ha behörighet att skapa B
 ### <a name="app-only-mode"></a>Appen läge
 Appen måste User.Invite.All omfång för inbjudan ska lyckas i appen endast sammanhang.
 
-Mer information finns på: https://graph.microsoft.io/docs/authorization/permission_scopes
+För mer information, se: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
@@ -101,16 +95,8 @@ Du kan också kontrollera ut inbjudan API-referens i [https://developer.microsof
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs andra artiklar om Azure AD B2B-samarbete:
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Elementen i e-postinbjudan B2B-samarbete](active-directory-b2b-invitation-email.md)
+- [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md)
+- [Lägg till B2B-samarbete användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
 
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Hur lägger Azure Active Directory-administratörer till B2B-samarbete användare?](active-directory-b2b-admin-add-users.md)
-* [Hur lägger informationsarbetare till B2B-samarbete användare?](active-directory-b2b-iw-add-users.md)
-* [Elementen i e-postinbjudan B2B-samarbete](active-directory-b2b-invitation-email.md)
-* [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B-samarbete och licensiering](active-directory-b2b-licensing.md)
-* [Felsökning av Azure Active Directory B2B-samarbete](active-directory-b2b-troubleshooting.md)
-* [Vanliga och frågor svar om Azure Active Directory B2B-samarbete](active-directory-b2b-faq.md)
-* [Multi-Factor Authentication för användare av B2B-samarbete](active-directory-b2b-mfa-instructions.md)
-* [Lägg till B2B-samarbete användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
-* [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)

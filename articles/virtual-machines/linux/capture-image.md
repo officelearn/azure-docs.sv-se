@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 9fa87f8dc0c94ec93e049e35be727c031b4b06ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -45,7 +45,7 @@ En förenklad version av det här avsnittet för att testa, utvärderar eller L�
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Steg 1: Ta bort etableringen av den virtuella datorn
-Du ta bort etableringen av den virtuella datorn med Virtuella Azure-agenten att ta bort specifika filer och data. Använd den `waagent` kommandot med de *-deprovision + användare* parameter på käll-Linux VM. Mer information finns i [Användarguide för Azure Linux Agent](../windows/agent-user-guide.md).
+Du ta bort etableringen av den virtuella datorn med Virtuella Azure-agenten att ta bort specifika filer och data. Använd den `waagent` kommandot med de *-deprovision + användare* parameter på käll-Linux VM. Mer information finns i [Användarguide för Azure Linux Agent](../extensions/agent-linux.md).
 
 1. Ansluta till din Linux VM som använder en SSH-klient.
 2. I fönstret SSH skriver du följande kommando:

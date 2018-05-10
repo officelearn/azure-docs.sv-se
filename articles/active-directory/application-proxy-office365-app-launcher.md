@@ -1,25 +1,25 @@
 ---
-title: "Ange en anpassad hemsida för publicerade appar med hjälp av Azure AD Application Proxy | Microsoft Docs"
+title: Ange en anpassad hemsida för publicerade appar med hjälp av Azure AD Application Proxy | Microsoft Docs
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d31100015a11bc57d488f1d6af93db8526e38968
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1627f3590bd92f2460368cffab48d43c5a82d3c4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad hemsida för publicerade appar med hjälp av Azure AD Application Proxy
 

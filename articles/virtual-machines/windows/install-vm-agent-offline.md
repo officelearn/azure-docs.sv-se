@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: genli
-ms.openlocfilehash: 8b9d1ea3e4b5bf959484a737453d7f6f1f63d1e6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure Virtual Machine-agenten i offline-läge 
 
@@ -74,9 +74,9 @@ Använd följande steg för att installera den Virtuella Datoragenten i offline-
 8.  Använda de befintliga filerna på felsökaren VM som databas för VM-Agent-installation. Utför följande steg:
 
     1. Exportera följande nycklar i registret format (.reg) från felsökaren för VM: 
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
         ![Exportera registernycklarna](./media/install-vm-agent-offline/backup-reg.png)
 
@@ -130,5 +130,5 @@ Kör sedan den `Get-AzureVM` kommando. Observera att den **GuestAgentStatus** eg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure virtuella datorns Agent](agent-user-guide.md)
+- [Översikt över Azure virtuella datorns Agent](../extensions/agent-windows.md)
 - [Tillägg för virtuell dator och funktioner i Windows](extensions-features.md)

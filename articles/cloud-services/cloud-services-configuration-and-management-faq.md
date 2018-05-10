@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/08/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd817750d6c6d43ae6973eb38b866b76921f33b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -34,6 +34,7 @@ Den här artikeln innehåller vanliga frågor och svar om konfiguration och hant
 - [Hur kan jag skapa en begäran om certifikatsignering (CSR) utan ”RDP-ing” i till instansen?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Min Cloud Service Management certifikatet upphör att gälla. Hur du förnyar det?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Hur att automatisera installationen av huvudsakliga SSL certifikat (.pfx) och mellanliggande certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Vad är syftet med ”Microsoft Azure Service Management för MachineKey”-certifikat?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Övervakning och loggning**
 
@@ -103,6 +104,10 @@ Den **Get-AzurePublishSettingsFile** skapar ett nytt certifikat i **prenumeratio
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur att automatisera installationen av huvudsakliga SSL certifikat (.pfx) och mellanliggande certificate(.p7b)?
 
 Du kan automatisera den här uppgiften med hjälp av ett startskript (PowerShell-batch/cmd) och registrera det startskriptet i tjänstdefinitionsfilen. Lägga till både startskript och certifikat (.p7b-fil) i projektmappen i samma katalog för startskriptet.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Vad är syftet med ”Microsoft Azure Service Management för MachineKey”-certifikat?
+
+Det här certifikatet används för att kryptera datornycklar på Azure Web-roller. Kolla in den här rekommendationen mer [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Mer information finns i följande artiklar:
 - [Konfigurera och köra startade uppgifter för en tjänst i molnet](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

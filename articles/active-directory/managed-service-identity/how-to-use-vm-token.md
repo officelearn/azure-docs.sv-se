@@ -7,22 +7,26 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9300c3a45f57da7e55eed1dbdf8fd6e94b094c31
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Hur du använder en Azure VM hanterade tjänsten identitet (MSI) för token 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Den här artikeln innehåller olika exempel på kod och skript för token förvärv, samt information om viktiga ämnen, till exempel hantering token upphör att gälla och HTTP-fel. Vi rekommenderar att du använder hanterade tjänstidentiteten med IMDS-slutpunkt som slutpunkt för VM-tillägg att bli inaktuell.
+
+Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan autentiseringsuppgifter i koden. 
+
+Den här artikeln innehåller olika exempel på kod och skript för token förvärv, samt information om viktiga ämnen, till exempel hantering token upphör att gälla och HTTP-fel. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,14 +36,14 @@ Om du planerar att använda Azure PowerShell-exemplen i den här artikeln bör d
 
 
 > [!IMPORTANT]
-> - Alla exempel kod eller skript i den här artikeln förutsätter klienten körs på en MSI-aktiverad virtuell dator. Använd funktionen ”ansluta” VM i Azure-portalen för att fjärransluta till den virtuella datorn. Mer information om hur du aktiverar MSI på en virtuell dator finns [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](qs-configure-portal-windows-vm.md), eller en variant artiklar (med PowerShell, CLI, en mall eller en Azure SDK). 
+> - Alla exempel kod eller skript i den här artikeln förutsätter klienten körs på en virtuell dator med en hanterad tjänstidentitet. Använd funktionen ”ansluta” VM i Azure-portalen för att fjärransluta till den virtuella datorn. Mer information om hur du aktiverar MSI på en virtuell dator finns [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](qs-configure-portal-windows-vm.md), eller en variant artiklar (med PowerShell, CLI, en mall eller en Azure SDK). 
 
 > [!IMPORTANT]
-> - Säkerhetsgräns för en hanterad identitet är resursen. Alla kod/skript som körs på en MSI-aktiverad virtuell dator kan begära och hämta token. 
+> - Säkerhetsgräns för en hanterad tjänstidentitet, är den resurs som används på. Alla kod/skript som körs på en virtuell dator kan begära och hämta token för alla hanterade tjänstidentiteten finns på den. 
 
 ## <a name="overview"></a>Översikt
 
-Ett klientprogram kan begära en MSI [endast app-åtkomst-token](../develop/active-directory-dev-glossary.md#access-token) för att komma åt en viss resurs. Token är [baserat på MSI tjänstens huvudnamn](overview.md#how-does-it-work). Därför behövs det ingen för klienten att registrera sig att hämta en åtkomst-token under ett eget huvudnamn för tjänsten. Token är lämpliga för användning som en ägartoken i [tjänst-till-tjänst anropar kräver klientens autentiseringsuppgifter](../develop/active-directory-protocols-oauth-service-to-service.md).
+Ett klientprogram kan begära en hanterade tjänstidentiteten [endast app-åtkomst-token](../develop/active-directory-dev-glossary.md#access-token) för att komma åt en viss resurs. Token är [baserat på MSI tjänstens huvudnamn](overview.md#how-does-it-work). Därför behövs det ingen för klienten att registrera sig att hämta en åtkomst-token under ett eget huvudnamn för tjänsten. Token är lämpliga för användning som en ägartoken i [tjänst-till-tjänst anropar kräver klientens autentiseringsuppgifter](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -48,7 +52,7 @@ Ett klientprogram kan begära en MSI [endast app-åtkomst-token](../develop/acti
 | [Hämta en token med gå](#get-a-token-using-go) | Exempel på användning av MSI REST-slutpunkt från en Gå-klient |
 | [Hämta en token med hjälp av Azure PowerShell](#get-a-token-using-azure-powershell) | Exempel på användning av MSI REST-slutpunkt från en PowerShell-klient |
 | [Hämta en token med CURL](#get-a-token-using-curl) | Exempel på användning av MSI REST-slutpunkt från en Bash/CURL-klient |
-| [Hantera token upphör att gälla](#handling-token-expiration) | Riktlinjer för att hantera åtkomsttoken har upphört att gälla |
+| [Hantera token cachelagring](#handling-token-caching) | Riktlinjer för att hantera åtkomsttoken har upphört att gälla |
 | [Felhantering](#error-handling) | Riktlinjer för hantering av HTTP-fel som returneras från slutpunkten för MSI-token |
 | [Resurs-ID för Azure-tjänster](#resource-ids-for-azure-services) | Var du kan hämta resurs-ID för stöds Azure-tjänster |
 
@@ -56,10 +60,10 @@ Ett klientprogram kan begära en MSI [endast app-åtkomst-token](../develop/acti
 
 Det grundläggande gränssnittet för att erhålla en åtkomst-token baseras på REST, vilket gör den tillgänglig för alla klientprogram som körs på den virtuella datorn som kan göra HTTP-REST-anrop. Detta liknar Azure AD-programmodellen, men klienten använder en slutpunkt på den virtuella datorn (jämfört med en Azure AD-slutpunkten).
 
-Exempel på begäran med hjälp av slutpunkten MSI instans Metadata Service (IMDS) *(rekommenderas)*:
+Exempel på begäran med hjälp av Azure instans Metadata Service (IMDS) slutpunkten *(rekommenderas)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Element | Beskrivning |
@@ -70,7 +74,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i den `aud` (målgrupp) anspråk för Utfärdad token. Det här exemplet begär en token för åtkomst till Azure Resource Manager, som har en App-ID-URI för https://management.azure.com/. |
 | `Metadata` | En HTTP-begäran huvudfältet, krävs av MSI som en lösning mot angrepp Server Side begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, alla med gemener.
 
-Exempel på begäran med hjälp av MSI VM-tillägget slutpunkten *(för att bli inaktuell)*:
+Exempel på begäran med hjälp av hanterade tjänsten identitet (MSI) VM-tillägget slutpunkten *(för att bli inaktuell)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -264,23 +268,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>Token upphör att gälla 
+## <a name="token-caching"></a>Tokencachelagring
 
-Om du cachelagrar token i koden, bör du vara beredd på att hantera scenarier där resursen anges att token har upphört att gälla. 
+Medan undersystemet hanterade tjänsten identitet (MSI) som används (IMDS/MSI VM-tillägget) cachelagra token, rekommenderar vi också för att implementera tokencachelagring i koden. Därför bör du förbereda för scenarier där resursen anger att token har upphört att gälla. 
 
-Obs: Eftersom IMDS MSI-undersystemet cachelagra token, under överföring anrop till Azure AD-resultat endast när:
-- en cache-miss inträffar på grund av att inga token i cacheminnet
-- token har upphört att gälla
+Under överföring anrop till Azure AD leda till att endast när:
+- cache-miss inträffar på grund av att inga token i cacheminnet för MSI-undersystemet
+- cachelagrad token har upphört att gälla
 
 ## <a name="error-handling"></a>Felhantering
 
-MSI-slutpunkten signalerar fel via fältet status kod i meddelandehuvudet för HTTP-svar som 4xx eller 5xx-fel:
+Den hanterade tjänstidentiteten slutpunkten signalerar fel via fältet status kod i meddelandehuvudet för HTTP-svar som 4xx eller 5xx-fel:
 
 | Statuskod | Fel orsak | Hur du hanterar |
 | ----------- | ------------ | ------------- |
 | 429 för många begäranden. |  Begränsa IMDS har nåtts. | Försök igen med exponentiell Backoff. Se anvisningar nedan. |
 | 4xx fel i begäran. | En eller flera parametrar för begäran var felaktig. | Försök inte.  Granska felinformationen för mer information.  4xx fel uppstår fel i designläge.|
 | 5xx tillfälligt fel från tjänsten. | MSI-undersystem eller Azure Active Directory returnerade ett tillfälligt fel. | Det är säkert att försöka igen efter att ha väntat i minst 1 sekund.  Om du gör för snabbt eller för ofta kan IMDS och/eller Azure AD returnera ett gränsen hastighet (429).|
+| Det gick inte att hitta 404. | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se anvisningar nedan. |
+| timeout | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se anvisningar nedan. |
 
 Om ett fel inträffar innehåller motsvarande HTTP svarstexten JSON med felinformation:
 
@@ -303,11 +309,11 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 |           | Om ACCESS_DENIED | Resursägare eller auktorisering servern nekade begäran. |  |
 |           | unsupported_response_type | Auktorisering servern stöder inte att erhålla en åtkomst-token med den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltigt, okänt eller felaktigt format. |  |
-| 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att MSI har aktiverats på den virtuella datorn. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET URI-begäran har formaterats korrekt, särskilt resursen URI som angetts i frågesträngen. Finns i ”exempelbegäran” i den [föregående REST avsnittet](#rest) exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](overview.md#azure-services-that-support-azure-ad-authentication) en lista över tjänster och deras respektive resurs-ID.
+| 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att MSI har aktiverats på den virtuella datorn. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET URI-begäran har formaterats korrekt, särskilt resursen URI som angetts i frågesträngen. Finns i ”exempelbegäran” i den [föregående REST avsnittet](#rest) exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) en lista över tjänster och deras respektive resurs-ID.
 
-## <a name="throttling-guidance"></a>Begränsning vägledning 
+## <a name="retry-guidance"></a>Försök vägledning 
 
-Bandbreddsbegränsning begränsningar gäller för antalet anrop till MSI IMDS slutpunkten. När bandbreddsbegränsning tröskelvärdet överskrids begränsar MSI IMDS slutpunkten eventuella ytterligare begäranden när begränsningen tillämpas. Under denna tid MSI IMDS slutpunkten returneras HTTP-statuskoden 429 (”för många begäranden”), och begäranden att misslyckas. 
+Bandbreddsbegränsning begränsningar gäller för antalet anrop till IMDS-slutpunkten. När bandbreddsbegränsning tröskelvärdet överskrids begränsar IMDS endpoint eventuella ytterligare begäranden när begränsningen tillämpas. Under denna tid IMDS slutpunkten returneras HTTP-statuskoden 429 (”för många begäranden”), och begäranden att misslyckas. 
 
 Vi rekommenderar följande strategin för nytt försök: 
 
@@ -317,7 +323,7 @@ Vi rekommenderar följande strategin för nytt försök:
 
 ## <a name="resource-ids-for-azure-services"></a>Resurs-ID för Azure-tjänster
 
-Se [Azure-tjänster som stöder Azure AD-autentisering](overview.md#azure-services-that-support-azure-ad-authentication) en lista över resurser som stöder Azure AD och har testats med MSI och deras respektive resurs-ID.
+Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) en lista över resurser som stöder Azure AD och har testats med MSI och deras respektive resurs-ID.
 
 
 ## <a name="related-content"></a>Relaterat innehåll

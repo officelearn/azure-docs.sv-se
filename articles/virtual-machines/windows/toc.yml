@@ -206,7 +206,7 @@
         - name: Ladda ned mall
           href: download-template.md
         - name: Virtuell Azure-datoragent
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Planerat underhåll
           href: maintenance-notifications.md
         - name: Minimera spekulativ körning
@@ -235,7 +235,7 @@
           href: download-vhd.md
     - name: Tillgänglighet och skalning
       items:
-        - name: Skalningsuppsättningar för Virtual Machines
+        - name: Virtual Machine Scale Sets
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Hög tillgänglighet
           href: manage-availability.md
@@ -369,7 +369,7 @@
         - name: Network Watcher-agent
           href: extensions-nwa.md
         - name: Begränsa installation av tillägg
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Migrera virtuella datorer
       items:
         - name: Migrera AWS och lokala virtuella datorer

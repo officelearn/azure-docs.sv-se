@@ -174,10 +174,6 @@
 #### [Skapa ögonblicksrapporter](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Använda en parser för loggar](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Agentbaserad identifiering
-##### [Vad är Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
@@ -328,7 +324,7 @@
 #### [Vanliga frågor och svar](active-directory-identity-protection-faqs.md)
 #### [Ordlista](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Integrera andra tjänster med Azure AD]()
 ### [Aktivera LinkedIn-integrering](linkedin-integration.md)

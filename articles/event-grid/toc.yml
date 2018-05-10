@@ -9,24 +9,36 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Dirigera Blob Storage-händelser – Azure CLI
+    - name: Blob Storage-händelser – Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Dirigera Blob Storage-händelser – Azure PowerShell
+    - name: Blob Storage-händelser – PowerShell
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Skapa anpassad händelse – Azure CLI
+    - name: Anpassade händelser – Azure CLI
       href: custom-event-quickstart.md
-    - name: Skapa anpassad händelse – Azure PowerShell
+    - name: Anpassade händelser – PowerShell
       href: custom-event-quickstart-powershell.md
-    - name: Skapa anpassad händelse – Azure Portal
+    - name: Anpassade händelser – Portal
       href: custom-event-quickstart-portal.md
+    - name: Skicka händelser till Queue Storage
+      href: custom-event-to-queue-storage.md
 - name: Självstudier
   items:
-    - name: Övervaka ändringar i virtuella datorer med logiska appar
+    - name: E-postmeddelande när en virtuell dator ändras
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Ändra storlek på överförda bilder
       href: resize-images-on-storage-blob-upload-event.md
     - name: Utlösa Automation-runbook
       href: ensure-tags-exists-on-new-virtual-machines.md
+    - name: E-postmeddelande när IoT Hub-enheter läggs till
+      href: publish-iot-hub-events-to-logic-apps.md
+    - name: Svara på Service Bus-händelser
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Strömma data med Event Hubs
+      href: event-grid-event-hubs-integration.md
+    - name: Routning för Media Services-händelser
+      href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Routning till hybridanslutning
+      href: custom-event-to-hybrid-connection.md
 - name: Exempel
   items:
     - name: Azure CLI
@@ -43,22 +55,22 @@
       href: security-authentication.md
     - name: Leverans och nytt försök
       href: delivery-and-retry.md
+    - name: Händelsekällor
+      href: event-sources.md
+    - name: Händelsehanterare
+      href: event-handlers.md
 - name: Instruktionsguider
   items:
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md
-    - name: Ta emot händelser till en HTTP-slutpunkt
+    - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
-    - name: Strömma data från Event Hubs till informationslager
-      href: event-grid-event-hubs-integration.md
-    - name: Skicka meddelanden om IoT Hub-händelser
-      href: publish-iot-hub-events-to-logic-apps.md
-    - name: Lyssna på Service Bus-händelser med Functions och Logic Apps
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Övervaka händelseleverans
       href: monitor-event-delivery.md
     - name: Prenumerationer på frågehändelser
       href: query-event-subscriptions.md
+    - name: Mappa eget fält till schema
+      href: input-mappings.md
     - name: Använd CloudEvents-schema
       href: cloudevents-schema.md
 - name: Referens
@@ -80,12 +92,16 @@
           href: event-schema-subscriptions.md
         - name: Blob Storage
           href: event-schema-blob-storage.md
-        - name: Händelsehubbar
+        - name: Event Hubs
           href: event-schema-event-hubs.md
         - name: IoT Hub
           href: event-schema-iot-hub.md
+        - name: Media Services
+          href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Resursgrupper
           href: event-schema-resource-groups.md
+        - name: Service Bus
+          href: event-schema-service-bus.md
 - name: Resurser
   items:
     - name: Azure-översikt

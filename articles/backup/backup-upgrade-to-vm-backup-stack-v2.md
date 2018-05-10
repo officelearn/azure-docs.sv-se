@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 224cd365e6b3ca4fd963b530dbaa289b763d53ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Uppgradera till Azure Resource Manager-distributionsmodellen för Virtuella Azure-säkerhetskopiering stack
 Resource Manager distributionsmodell för uppgradering till virtuell dator (VM) säkerhetskopiering stack ger följande funktionsförbättringar:
@@ -45,8 +45,6 @@ Som standard behålls ögonblicksbilder i sju dagar. Den här funktionen gör å
 
 ## <a name="considerations-before-upgrade"></a>Överväganden inför uppgradering
 * Uppgraderingen av säkerhetskopiering stacken VM är en riktad. Det innebär att alla säkerhetskopieringar försättas i detta flöde. Eftersom den är aktiverad på prenumerationsnivån går alla virtuella datorer i det här flödet. Alla nya funktionen tillägg är baserade på samma stacken. Möjlighet att kontrollera detta på principnivå kommer i framtida versioner.
-
-* För virtuella datorer med premiumdiskar, under och tills först säkerhetskopieringen har slutförts, kontrollera att det finns tillräckligt med lagringsutrymme på lagringskontot. Det bör vara lika med storleken på den virtuella datorn.
 
 * Ögonblicksbilder lagras lokalt att höja återställningspunkt och snabbare återställning. Därför kan se du lagringskostnader som motsvarar ögonblicksbilder under sju dagar.
 

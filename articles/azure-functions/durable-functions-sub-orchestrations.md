@@ -1,12 +1,12 @@
 ---
-title: "Underordnade orkestreringarna för beständig funktioner – Azure"
-description: "Hur du anropar orkestreringarna från orkestreringarna i tillägget varaktiga funktioner för Azure Functions."
+title: Underordnade orkestreringarna för beständig funktioner – Azure
+description: Hur du anropar orkestreringarna från orkestreringarna i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Underordnade orkestreringarna i varaktiga funktioner (Azure-funktioner)
 
@@ -27,6 +27,9 @@ Orchestrator-funktioner kan anropa andra orchestrator-funktioner utöver anropar
 En orchestrator-funktion kan anropa en annan funktion i orchestrator genom att anropa den [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) eller [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) metod. Den [felhantering & kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) artikeln innehåller mer information om automatiska försök igen.
 
 Underordnade orchestrator-funktioner fungerar precis som aktiviteten funktioner från anroparens perspektiv. De kan returnera ett värde, utlöser ett undantag och kan inväntas av funktionen överordnade orchestrator.
+
+> [!NOTE]
+> Den `CallSubOrchestratorAsync` och `CallSubOrchestratorWithRetryAsync` metoder är ännu inte tillgängliga i JavaScript.
 
 ## <a name="example"></a>Exempel
 

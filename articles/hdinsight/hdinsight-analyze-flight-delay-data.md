@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive i HDInsight
 Hive ger dig möjlighet att köra Hadoop MapReduce jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan användas mot sammanfattning, fråga och analys av stora mängder data.
@@ -259,7 +259,8 @@ Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver 
     <tr><td>Filtrera Period</td><td>Januari</td></tr>
     <tr><td>Fält</td><td>*År*, *FlightDate*, *UniqueCarrier*, *operatör*, *FlightNum*, *OriginAirportID*, *Ursprung*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (rensa alla andra fält)</td></tr>
     </table>
-3. Klicka på **hämta**.
+
+3. Klicka på **Hämta**.
 4. Packa upp filen till den **C:\Tutorials\FlightDelay\2013Data** mapp. Varje fil är en CSV-fil och är ungefär 60GB i storlek.
 5. Byt namn på filen till namnet på den månad som den innehåller data för. Till exempel den fil som innehåller data januari namnet *January.csv*.
 6. Upprepa steg 2 och 5 för att hämta en fil för varje månad i 2013. Du behöver minst en fil för att köra guiden.
@@ -273,6 +274,7 @@ Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver 
     <tr><td>$storageAccountName</td><td>Azure Storage-konto där du vill överföra data till.</td></tr>
     <tr><td>$blobContainerName</td><td>Blob-behållaren där du vill överföra data till.</td></tr>
     </table>
+    
 2. Öppna Azure PowerShell ISE.
 3. Klistra in följande skript i skriptfönstret:
 

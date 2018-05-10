@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
@@ -60,7 +60,7 @@ Kärnövervakning ger grundläggande, obligatoriska övervakning över Azure-res
 
 Mått är tillgängliga som ger prestandastatistik för olika resurser och även operativsystemet på en virtuell dator. Du kan visa dessa data med en av de olika utforskarfönster i Azure-portalen och skapa varningar baserat på de här måtten. Azure övervakning ger snabbast mått pipeline (5 minut till 1 minut), så du bör använda för tid kritiska aviseringar och meddelanden.
 
-Du kan också skicka dessa mätvärden och loggar Azure Log Analytics för trender och detaljerad analys eller skapa ytterligare Varningsregler proaktivt meddelar om kritiska problem på grund av att analys.  
+Du kan också skicka dessa mätvärden och loggar till Azure Log Analytics för trender och detaljerad analys eller skapa ytterligare Varningsregler proaktivt meddelar om kritiska problem på grund av att analys.  
 
 > [!NOTE]
 > Skicka flerdimensionell mått till logganalys via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.

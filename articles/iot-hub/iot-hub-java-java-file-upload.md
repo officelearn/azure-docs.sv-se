@@ -1,11 +1,11 @@
 ---
-title: "Överföra filer från enheter till Azure IoT-hubb med Java | Microsoft Docs"
-description: "Hur du överför filer från en enhet till molnet med Azure IoT-enhet SDK för Java. Överförda filer lagras i ett Azure storage blob-behållaren."
+title: Överföra filer från enheter till Azure IoT-hubb med Java | Microsoft Docs
+description: Hur du överför filer från en enhet till molnet med Azure IoT-enhet SDK för Java. Överförda filer lagras i ett Azure storage blob-behållaren.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: b6e1ef5a5b3f9298134a7c312ac7d1927cf41a7f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 794ebd3b2d25f6b7d5dcb86b0834380fce9b9a27
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från enheten till molnet med IoT-hubb
 
@@ -36,7 +36,7 @@ Den [Kom igång med IoT-hubb](iot-hub-java-java-getstarted.md) och [meddelanden 
 * Vibration data samplas vid hög frekvens
 * Någon form av förbearbetade data.
 
-Dessa filer finns vanligtvis i molnet med hjälp av verktyg som bearbetas i batch [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.md) stacken. När du behöver upland filer från en enhet kan du fortfarande använda säkerheten och pålitligheten för IoT-hubb.
+Dessa filer finns vanligtvis i molnet med hjälp av verktyg som bearbetas i batch [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.yml) stacken. När du behöver upland filer från en enhet kan du fortfarande använda säkerheten och pålitligheten för IoT-hubb.
 
 I slutet av den här kursen kan du köra två appar som Java-konsolen:
 

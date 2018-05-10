@@ -3,7 +3,7 @@ title: Programavbildningen i Azure Application Insights | Microsoft Docs
 description: Övervaka komplexa program topologier med program-karta
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mbullwin
-ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programavbildningen: Prioritering distribuerade program
 Programavbildningen hjälper dig att upptäcka flaskhalsar eller fel surfpunkter för alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en programkomponent eller dess beroenden; har hälsa KPI och aviseringar status. Du kan klicka på via från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster, kan du också klicka via Azure Diagnostics, till exempel SQL Database Advisor-rekommendationer.

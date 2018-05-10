@@ -7,12 +7,12 @@ ms.author: brjohnst
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/12/2017
-ms.openlocfilehash: d51726ee1387b8e1cae05084d9c60eb93a28c112
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Skicka frågor mot ditt Azure Search-index med hjälp av REST-API:et
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Du kan använda en av din frågenycklar för att skicka frågor till ett index. 
 ## <a name="formulate-your-query"></a>Formulera frågan
 Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
 
-För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-versionen* (den aktuella API-versionen är `2016-09-01` vid tidpunkten för publiceringen av det här dokumentet) i URL:en för begäran. För GET anger du frågeparametrarna i *frågesträngen* i slutet av URL:en. Se URL-formatet nedan:
+För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-versionen* (den aktuella API-versionen är `2017-11-11` vid tidpunkten för publiceringen av det här dokumentet) i URL:en för begäran. För GET anger du frågeparametrarna i *frågesträngen* i slutet av URL:en. Se URL-formatet nedan:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
 
 Formatet för POST är samma, men med endast ”api-version” i frågesträngsparametrarna.
 
@@ -57,9 +57,9 @@ Här är några exempelfrågor för ett index med namnet ”hotels”. Frågorna
 Sök igenom hela indexet efter termen ”budget” och returnera bara `hotelName`-fältet:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "budget",
     "select": "hotelName"
@@ -69,9 +69,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Använd ett filter för indexet för att hitta hotell som är billigare än 150 USD per natt och returnera `hotelId` och `description`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -82,9 +82,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Sök igenom hela indexet, ordna efter ett visst fält (`lastRenovationDate`) i fallande ordning och visa endast `hotelName` och `lastRenovationDate`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -106,7 +106,7 @@ Du måste definiera två begärandehuvuden för GET, eller tre för POST:
 Nedan illustreras en HTTP GET-begäran för en sökning i ”hotels”-indexet med hjälp av REST-API:et för Azure Search, med en enkel fråga som söker efter termen ”motel”:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2017-11-11
 Accept: application/json
 api-key: [query key]
 ```
@@ -114,7 +114,7 @@ api-key: [query key]
 Här är samma exempelfråga men med HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]

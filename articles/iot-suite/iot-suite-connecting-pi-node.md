@@ -1,6 +1,6 @@
 ---
 title: Etablera Raspberry Pi till Fjärrövervaknings i Node.js - Azure | Microsoft Docs
-description: Beskriver hur du ansluter en hallon Pi-enhet till Azure IoT Suite förkonfigurerade fjärråtkomst övervakning lösningen med hjälp av ett program som skrivits i Node.js.
+description: Beskriver hur du ansluter en hallon Pi-enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i Node.js.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 7f489a6b26edb9a58b21d318785d3804197b33cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a47cc34e6791ae03f4da968e3d44660b47e1214d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning förkonfigurerade lösningen (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till den fjärranslutna förkonfigurerade övervakningslösning. I den här kursen använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resurs begränsningar.
+Den här kursen visar hur du ansluter en fysisk enhet till fjärråtkomst övervakning solution accelerator. I den här kursen använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resurs begränsningar.
 
 ### <a name="required-hardware"></a>Nödvändig maskinvara
 

@@ -3,7 +3,7 @@ title: Azure betalning bearbetning modell - krav
 description: PCI DSS krav 7
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: ac3afee9-0471-465d-a115-67488a1635a6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 5a3c9eac552fb96309cfa791a2e72a7102662e60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: fb16a7973022421525e13313f53f615120caa38a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="access-requirements-for-pci-dss-compliant-environments"></a>Krav för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-7"></a>PCI DSS krav 7
@@ -40,8 +40,8 @@ För att säkerställa att viktiga data kan bara användas av auktoriserad perso
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure tillämpar befintliga ISMS principer angående Azure personal åtkomst till Azure systemkomponenter, verifiering av access control effektivitet, som ger Just-In-Time administrativ åtkomst, återkalla åtkomst när du inte längre behövs och att se till att personal åtkomst till Azure-plattformen miljön har ett företag behöver. Azure åtkomst till kundmiljöer är mycket begränsad och tillåts endast med kundens godkännande.<br /><br />Procedurer har fastställts för att begränsa fysisk åtkomst till datacenter att behöriga anställda, leverantörer, konsulter och besökare. Säkerhetskontroll och checka in krävs för personal som kräver tillfällig åtkomst till funktionen inre data center. Tillgångsloggar granskas av Azure team varje kvartal. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att begränsa åtkomst till komponenter och kreditkortsinformation till endast de personer vars arbetsuppgifter kräver sådan åtkomst. Detta inkluderar att begränsa och begränsa åtkomsten till Azure-hanteringsportalen samt ange konton eller roller med behörighet att skapa, ändra eller ta bort PaaS-tjänster.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure tillämpar befintliga ISMS principer angående Azure personal åtkomst till Azure systemkomponenter, verifiering av access control effektivitet, som ger Just-In-Time administrativ åtkomst, återkalla åtkomst när du inte längre behövs och att se till att personal åtkomst till Azure-plattformen miljön har ett företag behöver. Azure åtkomst till kundmiljöer är mycket begränsad och tillåts endast med kundens godkännande.<br /><br />Procedurer har fastställts för att begränsa fysisk åtkomst till datacenter att behöriga anställda, leverantörer, konsulter och besökare. Säkerhetskontroll och checka in krävs för personal som kräver tillfällig åtkomst till funktionen inre data center. Tillgångsloggar granskas av Azure team varje kvartal. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att begränsa åtkomst till komponenter och kreditkortsinformation till endast de personer vars arbetsuppgifter kräver sådan åtkomst. Detta inkluderar att begränsa och begränsa åtkomsten till Azure-hanteringsportalen samt ange konton eller roller med behörighet att skapa, ändra eller ta bort PaaS-tjänster.|
 
 
 
@@ -55,8 +55,8 @@ För att säkerställa att viktiga data kan bara användas av auktoriserad perso
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att definiera och dokumentera godkännandeprocessen för användar-ID, definiera åtminstone behörighet, att begränsa åtkomsten till kreditkortsinformation, med unika ID: N, tillhandahåller uppdelning av uppgifter och återkalla åtkomst när det inte längre behövs.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att definiera och dokumentera godkännandeprocessen för användar-ID, definiera åtminstone behörighet, att begränsa åtkomsten till kreditkortsinformation, med unika ID: N, tillhandahåller uppdelning av uppgifter och återkalla åtkomst när det inte längre behövs.|
 
 
 
@@ -68,8 +68,8 @@ För att säkerställa att viktiga data kan bara användas av auktoriserad perso
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har antagit tillämpliga företagets och organisationens säkerhetsprinciper, inklusive en säkerhetsprincip för Information. Principerna har godkänts, publiceras och meddelas till Windows Azure. Säkerhetsprincip för Microsoft Azure Information kräver att åtkomst till Microsoft Azure tillgångar beviljas vara baserat på affärsjustering med tillgångens ägare auktorisering och baserat på ”till behovsnivå” och ”lägsta behörighet” principer. Principen åtgärdas även kraven för access management livscykel, inklusive åtkomst etablering åtkomstauktorisering, autentisering borttagning av åtkomstbehörigheter, och granskar periodiska åtkomst. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Användarroller är begränsade till uppgifter baserat på scenariot dokumenterade demo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har antagit tillämpliga företagets och organisationens säkerhetsprinciper, inklusive en säkerhetsprincip för Information. Principerna har godkänts, publiceras och meddelas till Windows Azure. Säkerhetsprincip för Microsoft Azure Information kräver att åtkomst till Microsoft Azure tillgångar beviljas vara baserat på affärsjustering med tillgångens ägare auktorisering och baserat på ”till behovsnivå” och ”lägsta behörighet” principer. Principen åtgärdas även kraven för access management livscykel, inklusive åtkomst etablering åtkomstauktorisering, autentisering borttagning av åtkomstbehörigheter, och granskar periodiska åtkomst. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Användarroller är begränsade till uppgifter baserat på scenariot dokumenterade demo.|
 
 
 
@@ -81,8 +81,8 @@ För att säkerställa att viktiga data kan bara användas av auktoriserad perso
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Användarroller är begränsade till uppgifter baserat på scenariot dokumenterade demo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Användarroller är begränsade till uppgifter baserat på scenariot dokumenterade demo.|
 
 
 
@@ -94,8 +94,8 @@ För att säkerställa att viktiga data kan bara användas av auktoriserad perso
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att begränsa åtkomst till komponenter och kreditkortsinformation till endast de personer vars arbetsuppgifter kräver sådan åtkomst. Detta inkluderar att begränsa och begränsa åtkomsten till Azure-hanteringsportalen samt ange konton eller roller med behörighet att skapa, ändra eller ta bort PaaS-tjänster.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att begränsa åtkomst till komponenter och kreditkortsinformation till endast de personer vars arbetsuppgifter kräver sådan åtkomst. Detta inkluderar att begränsa och begränsa åtkomsten till Azure-hanteringsportalen samt ange konton eller roller med behörighet att skapa, ändra eller ta bort PaaS-tjänster.|
 
 
 
@@ -111,8 +111,8 @@ Access control systemet måste innefatta följande:
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för att begränsa åtkomsten till vissa användare. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för att begränsa åtkomsten till vissa användare. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -124,8 +124,8 @@ Access control systemet måste innefatta följande:
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore dokumentationen innehåller ett användningsfall och en beskrivning som använder CHD och hur CHD används.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore dokumentationen innehåller ett användningsfall och en beskrivning som använder CHD och hur CHD används.|
 
 
 

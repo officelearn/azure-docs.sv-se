@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 05/07/2018
 ms.author: danis
-ms.openlocfilehash: f04a9b812a86f999d5c0ec52be85f77158094c27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f5d3754d97e44d9944cd09f1ec082e9c04ad206
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
 
@@ -47,6 +47,7 @@ Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och O
 
 | Version för OMS Linux VM-tillägg | OMS-Agent paket version | 
 |--------------------------------|--------------------------|
+| 1.6.42.0 | [1.6.42.0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2 125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
@@ -199,6 +200,7 @@ Tillägget utförande-utdatan loggas till följande fil:
 | 10 | VM är redan ansluten till logganalys-arbetsytan | Ange stopOnMultipleConnections till false i inställningar för offentliga för att ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägg, eller ta bort den här egenskapen. Den här virtuella datorn hämtar debiteras när för varje arbetsyta som den är ansluten till. |
 | 11 | Ogiltig konfiguration för tillägget | Följ föregående exempel om du vill ange värden för alla krävs för distributionen. |
 | 12 | Dpkg package manager är låst | Kontrollera att alla dpkg uppdateringsåtgärder på datorn är klar och försök igen. |
+| 19 | OMI-installationsfel | 
 | 20 | SCX paketet installationsfel |
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
 | 55 | Det går inte att ansluta till tjänsten Microsoft Operations Management Suite | Kontrollera att systemet antingen har Internetåtkomst eller att en giltig HTTP-proxy har tillhandahållits. Dessutom kan kontrollera är korrekt arbetsyte-ID. |

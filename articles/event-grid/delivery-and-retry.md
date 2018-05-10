@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Händelsen rutnätet meddelandeleverans och försök igen 
 
@@ -35,7 +35,7 @@ Följande koder för HTTP-svaret anger att en händelse har har levererats till 
 
 ### <a name="failure-codes"></a>Felkoder
 
-Följande HTTP-svarskoder indikera att en händelse leverans försök misslyckades. Händelsen rutnätet försöker igen för att skicka händelsen. 
+Följande HTTP-svarskoder indikera att en händelse leverans försök misslyckades. 
 
 - 400 Felaktig förfrågan
 - 401 obehörig
@@ -46,9 +46,9 @@ Följande HTTP-svarskoder indikera att en händelse leverans försök misslyckad
 - 503 Tjänsten är inte tillgänglig
 - 504 Gateway-timeout
 
-Andra svarskod eller brist på ett svar anger du ett fel. Händelsen rutnätet återförsök leverans. 
+Om händelsen rutnät får ett felmeddelande som anger att den är inte tillgänglig, försöker den igen skicka händelsen. 
 
-## <a name="retry-intervals"></a>Återförsöksintervall
+## <a name="retry-intervals-and-duration"></a>Återförsöksintervall och varaktighet
 
 Händelsen rutnätet använder en exponentiell backoff i principen för leverans av händelsen. Om din webhook svarar inte eller returnerar en felkod, försöker händelse rutnätet leverans enligt följande schema:
 
@@ -62,9 +62,7 @@ Händelsen rutnätet använder en exponentiell backoff i principen för leverans
 
 Händelsen rutnätet lägger till en liten slumpmässig alla återförsöksintervall. Efter en timme försöks händelse leverans en gång i timmen.
 
-## <a name="retry-duration"></a>Försök varaktighet
-
-Azure händelse rutnätet upphör att gälla alla händelser som inte levereras inom 24 timmar.
+Som standard upphör händelse rutnätet alla händelser som inte levereras inom 24 timmar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som är bra för relationsdatabas servrar, medelstora till stora cacheminnen och analyser i minnet. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -26,9 +26,9 @@ Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som �
 
 * Ev3-serien funktioner E5-2673 v4 2,3 GHz (Broadwell) processor i en hyper-threaded konfiguration för att ge en bättre lösning där värdet för den mest allmänna ändamål arbetsbelastningar och ta Ev3 justeras mot generella virtuella datorer med de flesta andra moln.  Minne har expanderats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk- och gränser har justerats på grundval av per core ska justeras med övergången till hypertrådar.  Ev3 är Följ upp till höga minnesområdet VM-storlekar D/Dv2 familjer.
 
-## <a name="esv3-series-sup1sup"></a>Esv3-serien <sup>1</sup>
+## <a name="esv3-series"></a>Esv3-serien 
 
-ACU: 160–190
+ACU: 160-190 <sup>1</sup>
 
 Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn (Broadwell) och kan komma upp i 3,5 GHz med Intel Turbo Boost Technology 2.0 och använder premiumlagring. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
@@ -51,9 +51,9 @@ Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn
 <sup>3</sup> instans är isolerad till maskinvara som är dedikerad till en kund.
 
 
-## <a name="ev3-series-sup1sup"></a>Ev3-serien <sup>1</sup>
+## <a name="ev3-series"></a>Ev3-serien 
 
-ACU: 160–190 
+ACU: 160-190 <sup>1</sup>
 
 Instanserna i Ev3-serien baseras på 2,3 GHz Intel XEON ® E5-2673 v4-processorn (Broadwell) och kan komma upp i 3,5GHz med Intel Turbo Boost Technology 2.0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
@@ -75,9 +75,9 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 <sup>2</sup> begränsad core storlekar som finns tillgängliga. 
 
 
-## <a name="m-series-sup1sup"></a>M-serien <sup>1</sup>
+## <a name="m-series"></a>M-serien 
 
-ACU: 160–180
+ACU: 160-180 <sup>1</sup>
 
 | Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +95,9 @@ ACU: 160–180
 <sup>4</sup> instans är isolerad till maskinvara som är dedikerad till en kund.
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS-serien <sup>1</sup>
+## <a name="gs-series"></a>GS-serien 
 
-ACU: 180–240
+ACU: 180-240 <sup>1</sup>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +131,9 @@ ACU: 180–240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2-serien <sup>1</sup>
+## <a name="dsv2-series"></a>DSv2-serien 
 
-ACU: 210–250
+ACU: 210-250 <sup>1</sup>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +174,9 @@ ACU: 210–250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS-serien <sup>1</sup>
+## <a name="ds-series"></a>DS-serien 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

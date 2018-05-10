@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -767,7 +767,6 @@ Här följer några exempelprogram för molntjänster som visar fler verklighets
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Liknande koncept som i Contoso Ads men här finns fler funktioner och fler verklighetsbaserade kodningsexempel.
 * [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobbar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
-* [Cloud Service Fundamentals in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Ett omfattande exempel som visar ett stort urval med bästa arbetsmetoder som har tagits fram av Microsoft Patterns and Practices-gruppen.
 
 Allmän information om hur du utvecklar för molnet finns i [Skapa verkliga molnappar med Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +776,5 @@ Mer information finns i följande resurser:
 
 * [Azure Cloud Services, del 1: Inledning](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](/documentation/services/storage/)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

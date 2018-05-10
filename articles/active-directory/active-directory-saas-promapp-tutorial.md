@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Promapp | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Promapp."
+title: 'Självstudier: Azure Active Directory-integrering med Promapp | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Promapp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a0630bf015361833ed3a6949ea7b29450d53701
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b8a15143d38b7d835f85b8d196af5f33f5de18b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Självstudier: Azure Active Directory-integrering med Promapp
 
@@ -31,7 +31,7 @@ Integrera Promapp med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Promapp, behöver du följande:
 
@@ -113,23 +113,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **identifierare** textruta Skriv en URL med följande mönster:
     | |
     |--|
-    | `https://demo.promapp.com/TENANTNAME`|
-    | `https://go.promapp.com/TENANTNAME`|
-    | `https://demoau.promapp.com/TENANTNAME`|
-    | `https://au.promapp.com/TENANTNAME`|
-    | `https://demous.promapp.com/TENANTNAME`|
-    | `https://us.promapp.com/TENANTNAME`|
-    | `https://dev.promapp.com/TENANTNAME`|
-    | `https://test.promapp.com/TENANTNAME`|
-    | `https://staging.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME/`|
+    | `https://au.promapp.com/TENANTNAME/`|
+    | `https://us.promapp.com/TENANTNAME/`|
+    | `https://eu.promapp.com/TENANTNAME/`|
+    | `https://ca.promapp.com/TENANTNAME/`|
     
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
+    > [!NOTE] 
+    > Azure AD-integrering med Promapp har för närvarande endast konfigurerats för initierade autentiseringen av tjänsten t.ex. Gå till en URL för Promapp initierar autentiseringen. Men Reply-URL är ett obligatoriskt fält.
+    
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [Promapp klienten supportteamet](https://www.promapp.com/about-us/contact-us/) att hämta dessa värden.
@@ -240,11 +239,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-Syftet med det här avsnittet är att testa Azure AD SSO-konfigurationen med hjälp av panelen åtkomst.
-
-Att testa ditt program i **IDP** initierade-läge när du klickar på panelen Promapp på panelen åtkomst du ska hämta automatiskt loggat in på ditt Promapp program.
-
-Att testa ditt program i **SP** initierade läge, måste du starta autentisering från webbplatsen Promapp. Detta kan göras genom att lämna lösenordsfältet tomt när du loggar in samtidigt **valfritt** läge är aktiverat.
+Att testa ditt program i **SP** initierade läge, måste du starta autentisering från webbplatsen Promapp. Detta kan göras genom att klicka på Logga in med enkel inloggning på sidan logga in medan **valfritt** läge är aktiverat.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

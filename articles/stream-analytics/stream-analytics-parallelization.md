@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågan parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du dra nytta av parallellisering i Azure Stream Analytics. Du lär dig att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -35,7 +35,15 @@ Alla Azure Stream Analytics-indata kan dra nytta av partitionering:
 
 ### <a name="outputs"></a>Utdata
 
-När du arbetar med Stream Analytics kan du dra nytta av partitionering för de flesta utdata sänkor. Mer information om partitionering utdata är tillgängligt på den [partitionering på utdata-sidan](stream-analytics-define-outputs.md#partitioning).
+När du arbetar med Stream Analytics kan du dra nytta av partitionering i utdata:
+-   Lagring av Azure Data Lake
+-   Azure Functions
+-   Azure-tabell
+-   BLOB-lagring (kan ange Partitionsnyckeln uttryckligen)
+-   CosmosDB (måste uttryckligen ange Partitionsnyckeln)
+-   EventHub (måste uttryckligen ange Partitionsnyckeln)
+-   IoT-hubb (måste uttryckligen ange Partitionsnyckeln)
+-   Service Bus
 
 PowerBI och SQL-informationslager utdata stöd inte för partitionering. Men du kan fortfarande partitionera indata som beskrivs i [i det här avsnittet](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ En *embarrassingly parallella* jobbet är den mest skalbara scenario som vi har 
 
 3. De flesta av våra utdata kan dra nytta av partitionering, men om du använder en output-typ som inte stöder partitionering jobbet kommer inte att fullständigt parallellt. Referera till den [utdata avsnittet](#outputs) för mer information.
 
-4. Antalet inkommande partitioner måste vara lika med antalet partitioner för utdata. BLOB storage-utdata stöds inte för närvarande partitioner. Men det är OK, eftersom ärver det överordnade frågans partitioneringsschema. Här följer exempel på partitionen värden som tillåter ett fullständigt parallella jobb:  
+4. Antalet inkommande partitioner måste vara lika med antalet partitioner för utdata. BLOB storage utdata kan hantera partitioner och ärver partitioneringsschema av överordnad frågan. När en partitionsnyckel för Blob storage anges data är partitionerad per inkommande partition därför är resultatet fortfarande helt parallellt. Här följer exempel på partitionen värden som tillåter ett fullständigt parallella jobb:
 
    * 8 event hub inkommande partitioner och 8 händelsehubb utdata partitioner
-   * 8 event hub inkommande partitioner och blob storage-utdata  
-   * 8 Iot-hubb inkommande partitioner och 8 händelsehubb utdata partitioner
-   * 8 blob storage inkommande partitioner och blob storage-utdata  
-   * 8 blob storage inkommande partitioner och 8 event hub utdata partitioner  
+   * 8 event hub inkommande partitioner och blob storage-utdata
+   * 8 händelsehubb indata partitioner och blob storage utdata partitionerats med ett anpassat fält med godtycklig kardinalitet
+   * 8 blob storage inkommande partitioner och blob storage-utdata
+   * 8 blob storage inkommande partitioner och 8 event hub utdata partitioner
 
 I följande avsnitt beskrivs några exempelscenarier som embarrassingly parallella.
 

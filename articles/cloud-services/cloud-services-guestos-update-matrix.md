@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: b4206d90ddd65f58bcdb92661f64d005a5e40563
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+###### <a name="may-4-2018"></a>**4 maj 2018**
+Gästoperativsystem April har publicerat.
+
 ###### <a name="april-6-2018"></a>**6 april 2018**
 Gästoperativsystem mars har publicerat.
 
@@ -69,14 +72,6 @@ September Gästoperativsystem har publicerat. Netfx3 är aktiverad som standard 
 ###### <a name="september-14-2017"></a>**14 september 2017**
 September gäst-OS-distributionen startar 14 September och har en planerade versionen av den 9 oktober.
 
-###### <a name="august-24-2017"></a>**24 augusti 2017**
-Augusti Gästoperativsystem har publicerat.
-
-###### <a name="august-3-2017"></a>**3 augusti 2017**
-Juli Gästoperativsystem har publicerat.
-
-###### <a name="july-19-2017"></a>**19 juli 2017**
-Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 augusti.
 
 
 ## <a name="releases"></a>Versioner
@@ -93,8 +88,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.18_201804-01 |4 maj 2018 |Bokför 5.20 |TBD |
 | WA-GUEST-OS-5.17_201803-01 |6 april 2018 |Post 5.19 |TBD |
-| WA-GUEST-OS-5.16_201802-01 |12 mars 2018 |Bokför 5.18 |TBD |
+|~~WA-GUEST-OS-5.16_201802-01~~ |12 mars 2018 |4 maj 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|TBD |
@@ -105,8 +101,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
-|~~WA-GUEST-OS-5.5_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |10 januari 2017 |5 juni 2017|TBD |
+
 
 ## <a name="family-4-releases"></a>Familj 4 versioner
 **Windows Server 2012 R2**
@@ -120,8 +115,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.53_201804-01 |4 maj 2018 |Bokför 4.55 |TBD |
 | WA-GUEST-OS-4.52_201803-01 |6 april 2018 |Bokför 4.54.b |TBD |
-| WA-GUEST-OS-4.51_201802-01 |12 mars 2018 |Post 4,53 |TBD |
+|~~WA-GUEST-OS-4.51_201802-01~~ |12 mars 2018 |4 maj 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |TBD |
@@ -132,8 +128,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
-|~~WA-GUEST-OS-4.40_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |10 januari 2017 |5 juni 2017 |TBD |
+
 
 ## <a name="family-3-releases"></a>Familj 3-versioner
 **Windows Server 2012**
@@ -147,8 +142,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.60_201804-01 |4 maj 2018 |Bokför 3.62 |TBD |
 | WA-GUEST-OS-3.59_201803-01 |6 april 2018 |Bokför 3,61 |TBD |
-| WA-GUEST-OS-3.58_201802-01 |19 mars 2018 |Post 3,60 |TBD |
+|~~WA-GUEST-OS-3.58_201802-01~~ |19 mars 2018 |4 maj 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |Den 29 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 januari 2018 |19 mars 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
@@ -159,8 +155,7 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
-|~~WA-GUEST-OS-3.47_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |10 januari 2017 |5 juni 2017 |TBD |
+
 
 ## <a name="family-2-releases"></a>Familj 2 versioner
 **Windows Server 2008 R2 SP1**
@@ -174,8 +169,9 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.73_201804-01 |4 maj 2018 |Post 2,75 |TBD |
 | WA-GUEST-OS-2.72_201803-01 |6 april 2018 |Post 2.74 |TBD |
-| WA-GUEST-OS-2.71_201802-01 |12 mars 2018 |Bokför 2,73 |TBD |
+|~~WA-GUEST-OS-2.71_201802-01~~ |12 mars 2018 |4 maj 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |Den 29 januari 2018 |6 april 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 januari 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
@@ -187,8 +183,6 @@ Juli gäst-OS-distributionen startar juli 19 och har en planerade version av 8 a
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |10 januari 2017 |5 juni 2017 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |10 januari 2017 |9 kan 2017|TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC patch-uppdateringar

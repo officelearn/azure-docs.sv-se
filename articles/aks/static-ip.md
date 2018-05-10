@@ -1,6 +1,6 @@
 ---
-title: Använda en statisk IP-adress med belastningsutjämnaren Azure Container Service (AKS)
-description: Använda en statisk IP-adress med Azure Container Service (AKS) belastningsutjämnare.
+title: Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS)
+description: Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.openlocfilehash: da1fc4cd31a4b4f13da5b527e2a62e147799bfef
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Använda en statisk IP-adress med belastningsutjämnaren Azure Container Service (AKS)
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS)
 
-I vissa fall, som när Azure Container Service (AKS) läser in belastningsutjämnaren återskapas eller Kubernetes tjänster med en typ av LoadBalancer återskapas kan tjänsten Kubernetes offentliga IP-adress ändras. Det här dokumentet beskriver hur du konfigurerar en statisk IP-adress för Kubernetes-tjänster.
+I vissa fall, som när Azure Kubernetes Service (AKS) läser in belastningsutjämnaren återskapas eller Kubernetes tjänster med en typ av LoadBalancer återskapas kan tjänsten Kubernetes offentliga IP-adress ändras. Det här dokumentet beskriver hur du konfigurerar en statisk IP-adress för Kubernetes-tjänster.
 
 ## <a name="create-static-ip-address"></a>Skapa statisk IP-adress
 
@@ -116,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

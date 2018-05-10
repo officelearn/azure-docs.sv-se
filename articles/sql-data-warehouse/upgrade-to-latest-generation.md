@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ca8156d98932e0e7313375cadc1ace2a3088881
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationens Azure maskin- och storage-arkitektur.
@@ -68,7 +68,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
    
    Det andra steget i uppgraderingsprocessen är datamigrering (”uppgradera - Online”). Migrering av data är bakgrunden online takt som långsamt flyttas kolumner data från den gamla lagringsarkitekturen till den nya lagringsarkitekturen i genom att använda en lokal SSD-cache. Under den här tiden kommer ditt data warehouse vara online för frågor och lästes in. Alla dina data blir tillgängliga att fråga oavsett om den har migrerats eller inte. Migrering av data sker i olika takt beroende på datastorleken på din, prestandanivå och antalet columnstore-segment. 
 
-5. **Valfria rekommendation:** för att påskynda bakgrund migrerar data, rekommenderas att tvinga dataflyttning omedelbart genom att köra [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) för alla columnstore-tabeller i en större SLO och resurs klass. Den här åtgärden är offline jämfört med bakgrunden takt; migrering av data kommer dock att mycket snabbare där du sedan kan dra nytta av den nya arkitekturen för Förbättrad lagring när slutfördes med hög kvalitet rowgroups. 
+5. **Hitta datalagret Gen2** med hjälp av SQL-databas Bläddra-bladet. 
+
+> [!NOTE]
+> Det finns ett problem där Gen2 data datalager inte visas i SQL data warehouse Bläddra bladet. Använd Bläddra-bladet SQL-databas för att hitta ditt uppgraderade Gen2 data warehouse. Vi arbetar aktivt på den här snabbkorrigeringen.
+> 
+
+6. **Valfria rekommendation:** för att påskynda bakgrund migrerar data, rekommenderas att tvinga dataflyttning omedelbart genom att köra [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) för alla columnstore-tabeller i en större SLO och resurs klass. Den här åtgärden är offline jämfört med bakgrunden takt; migrering av data kommer dock att mycket snabbare där du sedan kan dra nytta av den nya arkitekturen för Förbättrad lagring när slutfördes med hög kvalitet rowgroups. 
 
 Följande frågan genererar krävs Alter Index Rebuild kommandona för att påskynda migrerar data:
 

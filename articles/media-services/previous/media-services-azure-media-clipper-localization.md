@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure Media Clipper lokalisering | Microsoft Docs
-description: "Lär dig mer om Azure Media Clipper stöds språk och lokalisering support"
+description: Lär dig mer om Azure Media Clipper stöds språk och lokalisering support
 services: media-services
 keywords: Clip; underklipp; kodning; media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>Konfigurera lokalisering
 Azure Media Clipper är tillgänglig i 18 språk. Om du vill ange widget språk måste du definiera den `language` parametern under initieringen. Skicka in önskat språk kodsträngen i listan nedan:

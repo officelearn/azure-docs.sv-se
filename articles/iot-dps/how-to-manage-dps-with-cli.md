@@ -12,15 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e8bbf5808c11709a49f1cb6ebeba410837e5810
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Hur du använder Azure CLI 2.0 och IoT-tillägget för att hantera enhetsetableringstjänster
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med öppen källkod för flera plattformar, för hantering av Azure-resurser som IoT Edge. Azure CLI 2.0 finns för Windows, Linux och MacOS. Azure CLI 2.0 kan du hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering samt länkade hubbar direkt.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med öppen källkod för flera plattformar, för hantering av Azure-resurser som IoT Edge. Azure CLI 2.0 finns för Windows, Linux och MacOS. Azure CLI 2.0 kan du hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering samt länkade hubbar direkt.
 
 Med IoT-tillägget får Azure CLI 2.0 funktioner som enhetshantering och full IoT Edge-funktion.
 
@@ -34,7 +34,7 @@ I den här självstudiekursen slutför du först konfigurationen av Azure CLI 2.
 
 ### <a name="step-2---install-azure-cli-20"></a>Steg 2 – Installera Azure CLI 2.0
 
-Följ [installationsinstruktionen](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) och konfigurera Azure CLI 2.0 i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. Ett enkelt sätt att installera i Windows är att hämta och installera [MSI](https://aka.ms/InstallAzureCliWindows).
+Följ [installationsinstruktionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och konfigurera Azure CLI 2.0 i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. Ett enkelt sätt att installera i Windows är att hämta och installera [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="step-3---install-iot-extension"></a>Steg 3 – Installera IoT-tillägget
 

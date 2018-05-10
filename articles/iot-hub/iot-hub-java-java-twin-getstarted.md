@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure IoT Hub-enhet twins (Java) | Microsoft Docs"
-description: "Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-enhet SDK för Java används för att implementera appen enheten och tjänsten Azure IoT SDK för Java att implementera en service-app som lägger till taggar och IoT-hubb-frågan körs."
+title: Kom igång med Azure IoT Hub-enhet twins (Java) | Microsoft Docs
+description: Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-enhet SDK för Java används för att implementera appen enheten och tjänsten Azure IoT SDK för Java att implementera en service-app som lägger till taggar och IoT-hubb-frågan körs.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 6d306d4742a53789d8e69c80d7fbdfc4e1ade4bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enheten twins (Java)
 
@@ -40,8 +40,6 @@ För att slutföra den här kursen behöver du:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
-Om du vill skapa enhetens identitet programmässigt läsa motsvarande avsnitt i den [ansluta enheten till din IoT-hubb som använder Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artikel.
 
 ## <a name="create-the-service-app"></a>Skapa service-appen
 

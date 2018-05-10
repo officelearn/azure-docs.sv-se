@@ -1,9 +1,9 @@
 ---
-title: "Viktig information för Visual Studio-tillägg för utvecklare Analytics"
-description: "De senaste uppdateringarna för Visual Studio tools för utvecklare Analytics."
+title: Viktig information för Visual Studio-tillägg för utvecklare Analytics
+description: De senaste uppdateringarna för Visual Studio tools för utvecklare Analytics.
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Viktig information för Developer Analytics Tools
 
@@ -210,7 +210,7 @@ Om du har ett ASP.NET-program med Application Insights SDK, gör du följande st
 3. Om du inte har registrerat dig med Application Insights öppnas fönstret Sök i felsökningsläge session telemetri.
 4. Klicka på den **Sök** att se din lokala telemetri.
 
-![Överför klar](./media/app-insights-release-notes-vsix/LocalSearch.png)
+![Uppladdningen är klar](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
 ## <a name="version-42"></a>Version 4.2
 Vi lagt till funktioner som gör att söka efter data enklare i samband med händelser, möjlighet att hoppa till kod från mer Datahändelser och en problemfri slutanvändarupplevelse att skicka loggningsdata till Application Insights i den här versionen. Det här tillägget uppdateras varje månad. Om du har feedback eller funktionen begäranden kan skicka det till aidevtools@microsoft.com.
@@ -289,8 +289,3 @@ Du behöver inte längre logga in på Azure och Lägg till Application Insights-
 
 ![Dialogrutan Nytt projekt](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Stöd för enheter
-Vid *Connect();* 2015, vi [meddelats](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) att våra mobila developer upplevelse av enheter är HockeyApp. HockeyApp hjälper dig att distribuera beta versioner till din Testare, samla in och analysera alla krascher från din app och samla in feedback direkt från dina kunder.
-HockeyApp stöder din app på vilken plattform som du väljer att skapa den, om den finnas iOS, Android eller Windows eller en lösning för flera plattformar som Xamarin, Cordova eller Unity.
-
-I framtida versioner av Application Insights-tillägget Lär mer integrerad upplevelse mellan HockeyApp och Visual Studio. Nu kan du börja med HockeyApp genom att lägga till NuGet-referens. Finns det [dokumentationen](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) för mer information.

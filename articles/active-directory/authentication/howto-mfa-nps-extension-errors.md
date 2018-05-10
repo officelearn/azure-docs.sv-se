@@ -1,25 +1,20 @@
 ---
 title: Felsök felkoder för Azure MFA NPS-tillägg | Microsoft Docs
-description: Få hjälp med att lösa problem med NPS-tillägget för Azure Multi-Factor Authentication med specifika lösningar på vanliga felmeddelanden
+description: Få hjälp med att lösa problem med NPS-tillägget för Azure Multi-Factor Authentication
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lösa felmeddelanden från NPS-tillägg för Azure Multi-Factor Authentication
 
@@ -27,7 +22,7 @@ Om det uppstår problem med NPS-tillägget för Azure Multi-Factor Authenticatio
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Felsökning av vanliga fel
 
-| Felkod | Felsökningssteg |
+| Felkod | Felsökningsanvisningar |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Kontakta supporten](#contact-microsoft-support), och nämnt lista över steg för att samla in loggar. Ange så mycket information som du kan om vad som hänt innan felet, inklusive klient-id och användarens huvudnamn (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Det kan finnas ett problem med hur klientcertifikatet installerades eller som är associerade med din klient. Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) att undersöka problem med klient-certifikat. |
@@ -44,7 +39,7 @@ Om det uppstår problem med NPS-tillägget för Azure Multi-Factor Authenticatio
 
 ### <a name="alternate-login-id-errors"></a>Alternativt inloggnings-ID-fel
 
-| Felkod | Felmeddelande | Felsökningssteg |
+| Felkod | Felmeddelande | Felsökningsanvisningar |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: userObjectSid sökning misslyckades | Kontrollera att användaren finns i din lokala Active Directory-instans. Om du använder förtroenden mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: Det gick inte att alternativa LoginId sökning | Kontrollera att LDAP_ALTERNATE_LOGINID_ATTRIBUTE är en [giltigt active directory-attributet](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Om LDAP_FORCE_GLOBAL_CATALOG har angetts till True, eller LDAP_LOOKUP_FORESTS har konfigurerats med ett tomt värde, kontrollera att du har konfigurerat en Global katalog och att attributet AlternateLoginId har lagts till den. <br><br> Om LDAP_LOOKUP_FORESTS är konfigurerad med ett tomt värde, kan du kontrollera att värdet är korrekt. Om det finns fler än en skogsnamnet, måste namnen vara avgränsade med semikolon, inte blanksteg. <br><br> Om stegen inte löser problemet, [supporten](#contact-microsoft-support) mer hjälp. |
@@ -53,7 +48,7 @@ Om det uppstår problem med NPS-tillägget för Azure Multi-Factor Authenticatio
 
 ## <a name="errors-your-users-may-encounter"></a>Fel kan uppstå när dina användare
 
-| Felkod | Felmeddelande | Felsökningssteg |
+| Felkod | Felmeddelande | Felsökningsanvisningar |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Anroparen klienten har inte behörighet att utföra autentiseringen för användaren | Kontrollera om klientdomänen och domänen för användarens huvudnamn (UPN) är samma. Till exempel se till att user@contoso.com försöker autentisera till Contoso-klienten. UPN representerar en giltig användare för klienten i Azure. |
 | **AuthenticationMethodNotConfigured** | Angiven autentiseringsmetod har inte konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
@@ -85,8 +80,8 @@ Om det uppstår något av dessa fel, rekommenderar vi att du [supporten](#contac
 | Felkod | Felmeddelande |
 | ---------- | ------------- |
 | **InvalidParameter** | Begäran får inte vara null |
-| **InvalidParameter** | ObjectId får inte vara null eller tomt för ReplicationScope: {0} |
-| **InvalidParameter** | Längden på CompanyName \{0} \ är längre än den maximalt tillåtna längden {1} |
+| **InvalidParameter** | ObjectId får inte vara null eller tomt för ReplicationScope:{0} |
+| **InvalidParameter** | Längden på CompanyName \{0} \ är längre än den tillåtna maxlängden {1} |
 | **InvalidParameter** | UserPrincipalName får inte vara null eller tomt |
 | **InvalidParameter** | Den angivna TenantId har inte rätt format |
 | **InvalidParameter** | Sessions-ID får inte vara null eller tomt |

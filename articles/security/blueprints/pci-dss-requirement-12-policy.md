@@ -3,7 +3,7 @@ title: Azure betalning bearbetning modell - krav
 description: PCI DSS krav 12
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Krav för PCI DSS-kompatibel miljöer  
 ## <a name="pci-dss-requirement-12"></a>PCI DSS krav 12
@@ -38,8 +38,8 @@ En stark säkerhetsprincip anger tonen säkerhet för hela entiteten och informe
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att etablera och hantera en säkerhetsprincip för information.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att etablera och hantera en säkerhetsprincip för information.|
 
 
 
@@ -51,8 +51,8 @@ En stark säkerhetsprincip anger tonen säkerhet för hela entiteten och informe
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att uppdatera deras information säkerhetsprincip minst årligen eller ändringar i deras Kortinnehavarens datamiljö (CDE).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att uppdatera deras information säkerhetsprincip minst årligen eller ändringar i deras Kortinnehavarens datamiljö (CDE).|
 
 
 
@@ -68,8 +68,8 @@ En stark säkerhetsprincip anger tonen säkerhet för hela entiteten och informe
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att implementera en risk assessment process som tar alla hot som anges i kravet 12,2.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att implementera en risk assessment process som tar alla hot som anges i kravet 12,2.|
 
 
 
@@ -85,8 +85,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -98,8 +98,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -111,8 +111,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -124,8 +124,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -137,8 +137,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -150,8 +150,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -163,8 +163,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att fastställa godkända nätverksplatser för molnbaserade virtuella datorer, lagring och stödande tjänster.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att fastställa godkända nätverksplatser för molnbaserade virtuella datorer, lagring och stödande tjänster.|
 
 
 
@@ -176,8 +176,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att fastställa godkända nätverksplatser för molnbaserade virtuella datorer, lagring och stödande tjänster.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att fastställa godkända nätverksplatser för molnbaserade virtuella datorer, lagring och stödande tjänster.|
 
 
 
@@ -189,8 +189,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder Microsoft företagets AD session Lås funktioner, vilket tillämpar session lås-timeout efter en tids inaktivitet. Nätverksanslutningar avslutas efter 30 minuter av inaktivitet. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure använder Microsoft företagets AD session Lås funktioner, vilket tillämpar session lås-timeout efter en tids inaktivitet. Nätverksanslutningar avslutas efter 30 minuter av inaktivitet. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -202,8 +202,8 @@ Se till att dessa användningsprinciper kräver följande.
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -216,8 +216,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att säkerställa att personal som har åtkomst till kreditkortsinformation via fjärråtkomst teknik är förbjudna att kopiera, flytta och lagra kreditkortsinformation på lokala hårddiskar och flyttbara medier som elektroniska, såvida inte explicit behörighet för en definierad affärsbehov.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att säkerställa att personal som har åtkomst till kreditkortsinformation via fjärråtkomst teknik är förbjudna att kopiera, flytta och lagra kreditkortsinformation på lokala hårddiskar och flyttbara medier som elektroniska, såvida inte explicit behörighet för en definierad affärsbehov.|
 
 
 
@@ -229,8 +229,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -247,8 +247,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för att dokumentera deras kompatibilitet PCI-programmet.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för att dokumentera deras kompatibilitet PCI-programmet.|
 
 
 
@@ -260,8 +260,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att definiera och tilldela information ansvarsområden till sina anställda.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att definiera och tilldela information ansvarsområden till sina anställda.|
 
 
 
@@ -273,8 +273,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att definiera och tilldela information ansvarsområden till sina anställda.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att definiera och tilldela information ansvarsområden till sina anställda.|
 
 
 
@@ -286,8 +286,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att definiera och tilldela information ansvarsområden till sina anställda.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att definiera och tilldela information ansvarsområden till sina anställda.|
 
 
 
@@ -299,8 +299,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -312,8 +312,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -325,8 +325,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer dikterar rätt användning, implementering och autentisering för viktiga tekniker i deras CDE.|
 
 
 
@@ -338,8 +338,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer omgivande medvetenheten för personal med åtkomst till CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa och hantera principer omgivande medvetenheten för personal med åtkomst till CDE.|
 
 
 
@@ -354,8 +354,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för personal ta emot och bekräfta informationssäkerhet och PCI-DSS medvetenhet utbildning minst en gång om året.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för personal ta emot och bekräfta informationssäkerhet och PCI-DSS medvetenhet utbildning minst en gång om året.|
 
 
 
@@ -367,8 +367,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för personal ta emot och bekräfta informationssäkerhet och PCI-DSS medvetenhet utbildning minst en gång om året.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för personal ta emot och bekräfta informationssäkerhet och PCI-DSS medvetenhet utbildning minst en gång om året.|
 
 
 
@@ -383,8 +383,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för personal med åtkomst till CDE kontrolleras grundlig bakgrund.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för personal med åtkomst till CDE kontrolleras grundlig bakgrund.|
 
 
 
@@ -396,8 +396,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att övervaka efterlevnaden av PCI för tjänstleverantörer som kreditkortsinformation delas eller kan påverka säkerheten för CDE. Kunderna måste upprätthålla en lista över alla ger används i sina CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att övervaka efterlevnaden av PCI för tjänstleverantörer som kreditkortsinformation delas eller kan påverka säkerheten för CDE. Kunderna måste upprätthålla en lista över alla ger används i sina CDE.|
 
 
 
@@ -410,8 +410,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att övervaka efterlevnaden av PCI för tjänstleverantörer som kreditkortsinformation delas eller kan påverka säkerheten för CDE. Kunderna måste upprätthålla en lista över alla ger används i sina CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att övervaka efterlevnaden av PCI för tjänstleverantörer som kreditkortsinformation delas eller kan påverka säkerheten för CDE. Kunderna måste upprätthålla en lista över alla ger används i sina CDE.|
 
 
 
@@ -426,8 +426,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att underhålla skriftligt avtal med leverantörer bekräftades ansvar för att upprätthålla säkerheten för kreditkortsinformation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att underhålla skriftligt avtal med leverantörer bekräftades ansvar för att upprätthålla säkerheten för kreditkortsinformation.|
 
 
 
@@ -439,8 +439,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att säkerställa att det finns en upprättad process för att tjänsteleverantörer, inklusive korrekt på grund av fordringar före engagement.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att säkerställa att det finns en upprättad process för att tjänsteleverantörer, inklusive korrekt på grund av fordringar före engagement.|
 
 
 
@@ -452,8 +452,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att underhålla ett program för att övervaka-leverantörer PCI DSS kompatibilitetsstatus minst en gång om året.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att underhålla ett program för att övervaka-leverantörer PCI DSS kompatibilitetsstatus minst en gång om året.|
 
 
 
@@ -465,8 +465,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att behålla en kopia av den [ansvar sammanfattning matrisen](https://aka.ms/pciblueprintcrm32), vilket beskrivs PCI DSS kraven som är ansvar för kunden och de som har ansvar för Microsoft Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att behålla en kopia av den [ansvar sammanfattning matrisen](https://aka.ms/pciblueprintcrm32), vilket beskrivs PCI DSS kraven som är ansvar för kunden och de som har ansvar för Microsoft Azure.|
 
 
 
@@ -481,8 +481,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för bekräftades deras ansvarsområden för underhåll av PCI-kompatibilitet. |
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för bekräftades deras ansvarsområden för underhåll av PCI-kompatibilitet. |
 
 
 
@@ -494,8 +494,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -514,8 +514,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -528,8 +528,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -541,8 +541,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -554,8 +554,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -567,8 +567,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -580,8 +580,8 @@ Om det finns en auktoriserad företagets behov, kräver användningsprinciper da
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att utveckla IR planer och tester som tar hänsyn till kunden kontroller som är relaterade till delade touch punkter och kundprogram utnyttja Azures infrastruktur. Det är kundens ansvar att ge exakta kontaktinformation till Azure om en incident måste rapporteras till dem som kan påverka deras program eller data.|
 
 
 
@@ -603,8 +603,8 @@ Granskningar måste omfatta följande processer:
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för att dokumentera granskningarna processer för att bekräfta PCI efterlevnad styr prestanda.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för att dokumentera granskningarna processer för att bekräfta PCI efterlevnad styr prestanda.|
 
 
 
@@ -622,8 +622,8 @@ Granskningar måste omfatta följande processer:
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för att dokumentera granskningarna processer för att bekräfta PCI efterlevnad styr prestanda.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder som är leverantörer ansvarar för att dokumentera granskningarna processer för att bekräfta PCI efterlevnad styr prestanda.|
 
 
 

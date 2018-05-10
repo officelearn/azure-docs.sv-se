@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
@@ -35,9 +35,13 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 * `E1_HelloSequence`: En orchestrator-funktion som anropar `E1_SayHello` flera gånger i en sekvens. Den lagrar utdata från den `E1_SayHello` anropar och registrerar resultaten.
 * `E1_SayHello`: En aktivitet funktion som läggs en sträng med ”Hello”.
 
-I följande avsnitt beskrivs konfiguration och kod som används för C# skript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
- 
-## <a name="functionjson-file"></a>Function.JSON fil
+I följande avsnitt beskrivs konfiguration och kod som används för C# skript och JavaScript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
+
+> [!NOTE]
+> Beständiga funktioner finns i JavaScript i v2 funktioner körningsmiljön endast.
+
+## <a name="e1hellosequence"></a>E1_HelloSequence
+### <a name="functionjson-file"></a>Function.JSON fil
 
 Om du använder Visual Studio-koden eller Azure-portalen för utveckling, här är innehållet i den *function.json* filen för orchestrator-funktionen. De flesta orchestrator *function.json* filer ut nästan precis så här.
 
@@ -48,7 +52,7 @@ Viktigt är den `orchestrationTrigger` bindningstyp. Alla orchestrator-funktione
 > [!WARNING]
 > Om du vill följa av regeln ”ingen i/o” orchestrator-funktioner inte använda några indata eller utdata bindningar när du använder den `orchestrationTrigger` utlösa bindning.  Om andra indata eller utdata bindningar krävs, de bör i stället användas i kontexten för `activityTrigger` funktioner som anropas av orchestrator.
 
-## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C#-skript (Visual Studio Code och Azure portal exempelkod) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C#-skript (Visual Studio Code och Azure portal exempelkod) 
 
 Här är källkoden:
 
@@ -57,6 +61,23 @@ Här är källkoden:
 Alla C# orchestration-funktioner måste ha en parameter av typen `DurableOrchestrationContext`, som finns i den `Microsoft.Azure.WebJobs.Extensions.DurableTask` sammansättning. Om du använder C# skript för sammansättningen kan refereras med den `#r` notation. Context-objektet kan du anropa andra *aktiviteten* funktioner och pass indataparametrar med dess [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) metod.
 
 Koden anropar `E1_SayHello` tre gånger i följd med olika parametervärden. Returvärdet för varje anrop har lagts till i den `outputs` listan som returneras i slutet av funktionen.
+
+### <a name="javascript"></a>Javascript
+
+Här är källkoden:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+Alla JavaScript orchestration-funktioner måste innehålla den `durable-functions` modul. Det här är ett JavaScript-bibliotek som omvandlar funktionen orchestration-åtgärder till Varaktigas körning av protokollet för utanför processen språk. Det finns tre betydande skillnader mellan en orchestration-funktionen och andra JavaScript-funktioner:
+
+1. Funktionen är en [generator-funktionen.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+2. Funktionen kapslas in i ett anrop till den `durable-functions` modul (här `df`).
+3. Funktionen avslutas genom att anropa `return`, inte `context.done`.
+
+Den `context` objektet innehåller en `df` objekt kan du anropa andra *aktiviteten* funktioner och pass indataparametrar med dess `callActivityAsync` metod. Koden anropar `E1_SayHello` tre gånger i följd med olika parametervärden som använder `yield` att ange körningen ska vänta på de asynkrona aktiviteten funktionsanrop som ska returneras. Returvärdet för varje anrop har lagts till i den `outputs` listan som returneras i slutet av funktionen.
+
+## <a name="e1sayhello"></a>E1_SayHello
+### <a name="functionjson-file"></a>Function.JSON fil
 
 Den *function.json* fil för aktiviteten funktionen `E1_SayHello` är samma som `E1_HelloSequence` förutom att den använder en `activityTrigger` bindningstyp i stället för en `orchestrationTrigger` bindningstyp.
 
@@ -67,9 +88,17 @@ Den *function.json* fil för aktiviteten funktionen `E1_SayHello` är samma som 
 
 Implementeringen av `E1_SayHello` är en relativt trivial sträng formatering igen.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 Den här funktionen har en parameter av typen [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), som används för att hämta indata som skickades till den av funktionen orchestrator anrop till [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### <a name="javascript"></a>JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+Till skillnad från ett JavaScript orchestration-funktionen måste en aktivitet JavaScript-funktion inga särskilda inställningar. Inmatningen som skickades till den av orchestrator-funktionen finns på den `context.bindings` objekt under namnet på den `activitytrigger` bindning – i det här fallet `context.bindings.name`. Bindningsnamnet kan anges som en parameter för funktionen exporterade och direkt åtkomst som exempelkoden har.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 

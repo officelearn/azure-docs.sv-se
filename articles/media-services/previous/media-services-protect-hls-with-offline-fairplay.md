@@ -1,12 +1,12 @@
 ---
-title: "Skydda innehåll med offline Apple FairPlay - Azure HLS | Microsoft Docs"
-description: "Det här avsnittet ger en översikt och visar hur du använder Azure Media Services du krypterar dynamiskt med Apple FairPlay HTTP Live Streaming (HLS) innehållet i offline-läge."
+title: Skydda innehåll med offline Apple FairPlay - Azure HLS | Microsoft Docs
+description: Det här avsnittet ger en översikt och visar hur du använder Azure Media Services du krypterar dynamiskt med Apple FairPlay HTTP Live Streaming (HLS) innehållet i offline-läge.
 services: media-services
 keywords: HLS DRM, FairPlay Streaming (FPS), Offline, iOS 10
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay strömning för iOS 
  Azure Media Services innehåller en uppsättning väl utformad [innehåll skyddstjänsterna](https://azure.microsoft.com/services/media-services/content-protection/) som omfattar:
 
 - Microsoft PlayReady
-- Google Widevine
+- Google Widevines
 - Apple FairPlay
 - AES-128-kryptering
 

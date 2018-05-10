@@ -6,23 +6,17 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
-Företag som vill lokala förekomst eller en varm säkerhetskopiering, välja att köra tjänster från Azure-regioner. Som bästa praxis kan placera en behållare registret i varje region där avbildningar kör nätverket Stäng åtgärder, aktivera snabb och tillförlitlig bild layer överföringar.
-
-GEO-replikering kan en Azure-behållaren registret för att fungera som ett enda register betjäna flera regioner med multimaster regionala register.
-
-> [!IMPORTANT]
-> Funktionen för geo-replikering för Azure Container Registry är finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
->
+Företag som vill lokala förekomst eller en varm säkerhetskopiering, välja att köra tjänster från Azure-regioner. Som bästa praxis kan placera en behållare registret i varje region där avbildningar kör nätverket Stäng åtgärder, aktivera snabb och tillförlitlig bild layer överföringar. GEO-replikering kan en Azure-behållaren registret för att fungera som ett enda register betjäna flera regioner med multimaster regionala register.
 
 Ett geo-replikerade register ger följande fördelar:
 

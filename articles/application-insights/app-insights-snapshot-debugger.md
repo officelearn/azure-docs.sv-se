@@ -3,7 +3,7 @@ title: Azure Application Insights ögonblicksbild felsökare för .NET-appar | M
 description: Felsöka ögonblicksbilder automatiskt samlas in när undantag utlöstes i produktion .NET appar
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.author: mbullwin; pharring
+ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsöka ögonblicksbilder på undantag i .NET-appar
 
@@ -55,7 +55,7 @@ Följande miljöer stöds:
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -146,8 +146,8 @@ Följande miljöer stöds:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
@@ -213,7 +213,7 @@ I vyn Debug ögonblicksbild ser du en anropsstacken och en variabler rutan. När
 
 ![Visa Debug ögonblicksbild i portalen](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Ögonblicksbilder kan innehålla känslig information, och som standard är de inte kan visas. Om du vill visa ögonblicksbilder, måste du ha den `Application Insights Snapshot Debugger` roll som tilldelats dig.
+Ögonblicksbilder kan innehålla känslig information och som standard de inte kan visas. Om du vill visa ögonblicksbilder, måste du ha den `Application Insights Snapshot Debugger` roll som tilldelats dig.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Felsöka ögonblicksbilder med Visual Studio 2017 Enterprise
 1. Klicka på den **hämta ögonblicksbild** för att hämta en `.diagsession` fil som kan öppnas i Visual Studio 2017 Enterprise.
@@ -228,7 +228,22 @@ Hämtade ögonblicksbilden innehåller symbolfiler som hittades på webbservern 
 
 ## <a name="how-snapshots-work"></a>Så här fungerar ögonblicksbilder
 
-När programmet startas skapas en separat ögonblicksbild överföring process som övervakar ditt program för snapshot-begäranden. När en ögonblicksbild har begärts görs en skuggkopia av processen som körs i cirka 10 till 20 millisekunder. Processen shadow analyseras och skapa en ögonblicksbild av medan huvudsakliga processen fortsätter att köra och hantera trafik till användare. Ögonblicksbilden överförs sedan till Application Insights tillsammans med alla relevanta (.pdb)-symbolfiler som behövs för att visa ögonblicksbilden.
+Ögonblicksbild insamlaren implementeras som en [Application Insights telemetri Processor](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). När programmet körs, har ögonblicksbild insamlaren telemetri Processor lagts till programmets telemetri pipeline.
+Varje gång programmet-anrop [TrackException](app-insights-asp-net-exceptions.md#exceptions), ögonblicksbild insamlaren beräknar Problem-ID från typ av undantag som genereras och utlösande-metoden.
+När programmet anropar TrackException, ökas en räknare för lämplig Problem-ID. När räknaren når den `ThresholdForSnapshotting` värde, Problem-ID har lagts till i en Plan för datainsamling.
+
+Ögonblicksbild insamlaren också övervakar undantag när de utlöses genom att prenumerera på den [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) händelse. När händelsen utlöses beräknas Problem-ID för undantaget och jämförs med Problem-ID: N i Plan för datainsamling.
+Om det finns en matchning, skapas en ögonblicksbild av processen som körs. Ögonblicksbilden tilldelas en unik identifierare och undantaget är stämplad med en identifierare. När FirstChanceException hanteraren returnerar bearbetas undantaget utlöses som vanligt. Undantaget når så småningom igen metoden TrackException där, tillsammans med identifieraren ögonblicksbild har rapporterats till Application Insights.
+
+Den huvudsakliga processen fortsätter att köra och hantera trafik för användare med lite avbrott. Under tiden är ögonblicksbilden levererat till ögonblicksbild överförare-processen. Snapshot-överföring skapas en minidump och överförs till Application Insights tillsammans med alla relevanta symbolfiler (.pdb).
+
+> [!TIP]
+> - En ögonblicksbild av en process är en pausade kloning av processen som körs.
+> - Skapa ögonblicksbilden tar cirka 10 till 20 millisekunder.
+> - Standardvärdet för `ThresholdForSnapshotting` är 1. Detta är det minsta värdet. Appen måste därför att utlösa samma undantag **två gånger** innan en ögonblicksbild skapas.
+> - Ange `IsEnabledInDeveloperMode` till true om du vill generera ögonblicksbilder vid felsökning i Visual Studio.
+> - Takt för skapande av ögonblicksbilder är begränsat av det `SnapshotsPerTenMinutesLimit` inställningen. Som standard är gränsen en ögonblicksbild av varje tio minuter.
+> - Mer än 50 ögonblicksbilder per dag kan överföras.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
@@ -242,22 +257,42 @@ Snapshot-felsökaren kräver symbolfiler på produktionsservern att avkoda varia
 Se till att symbolfiler finns i samma mapp för programmets DLL-filen för Azure Compute och andra typer (vanligtvis `wwwroot/bin`) eller som är tillgängliga på den aktuella sökvägen.
 
 ### <a name="optimized-builds"></a>Optimerad versioner
-I vissa fall, kan lokala variabler inte visas i versionen versioner på grund av optimeringar som ska användas när du skapar.
+I vissa fall, kan lokala variabler inte visas i versionen versioner på grund av optimeringar av JIT-kompilatorn.
+I Azure App Services kan dock ögonblicksbild insamlaren deoptimize utlösande metoder som är en del av dess Plan för datainsamling.
+
+> [!TIP]
+> Installera Application Insights plats Extension i din App Service som du kan få support för deoptimization.
 
 ## <a name="troubleshooting"></a>Felsökning
 
 Dessa tips hjälpa dig att felsöka problem med ögonblicksbild felsökningsprogrammet.
 
+## <a name="use-the-snapshot-health-check"></a>Använd hälsokontroll ögonblicksbild
+Om du inte ser ögonblicksbild som är tillgängliga för en viss undantag, det kan bero på flera anledningar outdate ögonblicksbild insamlaren versioner, dagligen tröskelvärdet träffar, ögonblicksbilden tar bara tid att överföras och så vidare. För att hjälpa dig att diagnostisera problem, byggt vi en ögonblicksbild Health Check-tjänst för smart sätt analysera varför det är ingen ögonblicksbild.
+
+Om du inte ser ögonblicksbilder som är associerade med ett undantag finnas det en länk i bladet slutpunkt till slutpunkt trace viewer för att ange ögonblicksbild hälsokontroll.
+
+![Ange ögonblicksbild hälsokontroll](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+Sedan visas en interaktiv chatt bot som session kör hälsokontroll på olika aspekter av din tjänst och erbjuder advices.
+
+![Hälsokontroll](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+Det finns också några manuella steg som du kan göra för att ta reda på hälsotillståndet för snapshot-tjänsten. Finns i avsnitten nedan:
+
 ### <a name="verify-the-instrumentation-key"></a>Verifiera instrumentation nyckeln
 
 Kontrollera att du använder rätt instrumentation nyckeln i ditt publicerade program. Application Insights läser vanligtvis instrumentation nyckeln från filen applicationinsights.config. Kontrollera att värdet är samma som den instrumentation nyckeln för Application Insights-resurs som visas i portalen.
 
+### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
+
+Använd Pakethanteraren NuGet för Visual Studio för att kontrollera att du använder den senaste versionen av Microsoft.ApplicationInsights.SnapshotCollector. Viktig information finns på https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+
 ### <a name="check-the-uploader-logs"></a>Kontrollera loggarna för överföring
 
-När du har skapat en ögonblicksbild skapas en minidumpfil (.dmp) på disken. En separat överförare-process tar minidump filen och överförs, tillsammans med alla associerade PDB-filer, till Application Insights ögonblicksbild felsökare lagring. När minidump har laddats bort den från disken. Loggfiler för överföring processen är kvar på disken. I en Apptjänst-miljö kan du hitta dessa loggar i `D:\Home\LogFiles`. Använd Kudu hanteringswebbplats för Apptjänst för att hitta dessa loggfiler.
+När du har skapat en ögonblicksbild skapas en minidumpfil (.dmp) på disken. En separat överförare process skapar minidump filen och överförs, tillsammans med alla associerade PDB-filer, till Application Insights ögonblicksbild felsökare lagring. När minidump har laddats bort den från disken. Loggfiler för överföring processen sparas på disk. I en Apptjänst-miljö kan du hitta dessa loggar i `D:\Home\LogFiles`. Använd Kudu hanteringswebbplats för Apptjänst för att hitta dessa loggfiler.
 
 1. Öppna din Apptjänst-program i Azure-portalen.
-
 2. Välj den **avancerade verktyg** bladet eller söka efter **Kudu**.
 3. Klicka på **Gå**.
 4. I den **Felsökningskonsolen** listrutan markerar **CMD**.
@@ -292,7 +327,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> Exemplet ovan är från version 1.2.0 av Microsoft.ApplicationInsights.SnapshotCollector Nuget-paketet. I tidigare versioner överförare kallas `MinidumpUploader.exe` och loggen mindre detaljerad.
+> Exemplet ovan är från version 1.2.0 av Microsoft.ApplicationInsights.SnapshotCollector NuGet-paketet. I tidigare versioner överförare kallas `MinidumpUploader.exe` och loggen mindre detaljerad.
 
 I det förra exemplet instrumentation nyckeln är `c12a605e73c44346a984e00000000000`. Det här värdet ska matcha instrumentation nyckeln för ditt program.
 Minidump är associerad med en ögonblicksbild med ID `139e411a23934dc0b9ea08a626db16c5`. Du kan använda detta ID senare för att hitta den associerade undantagstelemetri i Application Insights Analytics.
@@ -316,7 +351,7 @@ För program som är _inte_ finns i App Service, överföring loggarna finns i s
 För roller i molntjänster kanske tillfälliga standardmappen för liten för minidumpfiler, vilket leder till förlorade ögonblicksbilder.
 Utrymmet som krävs beror på totalt arbetsminnet för ditt program och antalet samtidiga ögonblicksbilder.
 Arbetsminnet för en 32-bitars ASP.NET-webbroll är vanligtvis mellan 200 MB och 500 MB.
-Du ska tillåta för minst två samtidiga ögonblicksbilder.
+Tillåt för minst två samtidiga ögonblicksbilder.
 Till exempel om 1 GB totala arbetsminnet används i ditt program bör du kontrollera att det finns minst 2 GB diskutrymme för lagring av ögonblicksbilder.
 Följ dessa steg om du vill konfigurera din roll i Molntjänsten med en dedikerad lokal resurs för ögonblicksbilder.
 
@@ -366,7 +401,7 @@ Följ dessa steg om du vill konfigurera din roll i Molntjänsten med en dedikera
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights Sök efter undantag med ögonblicksbilder
 
-När en ögonblicksbild skapas är utlösande undantaget märkta med en ögonblicksbild-ID. När undantagstelemetri rapporterats till Application Insights ögonblicksbilds-ID ingår som en anpassad egenskap. Med hjälp av bladet Sök i Application Insights, du kan hitta all telemetri med den `ai.snapshot.id` anpassad egenskap.
+När en ögonblicksbild skapas är utlösande undantaget märkta med en ögonblicksbild-ID. Detta ID ögonblicksbild ingår som en anpassad egenskap när undantagstelemetri har rapporterats till Application Insights. Med hjälp av bladet Sök i Application Insights, du kan hitta all telemetri med den `ai.snapshot.id` anpassad egenskap.
 
 1. Bläddra till Application Insights-resurs i Azure-portalen.
 2. Klicka på **Sök**.
@@ -383,6 +418,10 @@ Om du vill söka efter en specifik ögonblicksbilds-ID från överförare loggar
 2. Med tidsstämpeln från överföring loggen kan justera filtret tidsintervall för sökningen att täcka det tidsintervallet.
 
 Om du fortfarande inte ser ett undantag med detta ID för ögonblicksbild rapporterats undantagstelemetri inte till Application Insights. Detta kan inträffa om programmet kraschade när det tog ögonblicksbilden men innan den rapporterades undantagstelemetri. I det här fallet finns i loggarna Apptjänst under `Diagnose and solve problems` att se om det fanns oväntade omstarter eller ohanterade undantag.
+
+### <a name="edit-network-proxy-or-firewall-rules"></a>Redigera Nätverksregler för proxyservern eller brandväggen
+
+Om programmet ansluter till Internet via en proxyserver eller brandvägg kan behöva du redigera regler för att tillåta programmet att kommunicera med tjänsten ögonblicksbild felsökare. Här är [en lista över IP-adresser och portar som används av ögonblicksbild felsökningsprogrammet](app-insights-ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Nästa steg
 

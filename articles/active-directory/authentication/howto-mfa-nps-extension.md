@@ -1,25 +1,20 @@
 ---
 title: Använda befintliga NPS-servrar för att ge funktioner för Azure MFA | Microsoft Docs
-description: NPS-tillägget för Azure Multi-Factor Authentication är en enkel lösning för att lägga till molnbaserade tvåstegsverifiering vericiation funktioner i din befintliga infrastruktur för autentisering.
+description: Lägga till molnbaserade tvåstegsverifiering vericiation funktioner i din befintliga infrastruktur för autentisering
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Skapa mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ När du distribuerar ditt webbprogram, webbprogram på Linux, mobila serverdel o
 * Först distribuera en app till en plats och växla till produktion säkerställer att alla instanser av facket varmkörts innan som ska växlas över till produktion. Detta eliminerar avbrott när du distribuerar din app. Trafik för omdirigering är sömlös och inga begäranden tas bort på grund av byte åtgärder. Hela arbetsflödet kan automatiseras genom att konfigurera [automatiskt växla](#Auto-Swap) när före växlingen verifiering inte behövs.
 * Efter en växling har på plats med tidigare mellanlagrade appen nu tidigare produktionsprogrammet. Om ändringarna växlas över till produktionsplatsen är inte som du förväntade dig, kan du utföra samma växlingen direkt för att få igång ”senaste kända fungerande webbplatsen” tillbaka.
 
-Varje nivå för App Service-plan stöder olika antal distributionsplatser. Ta reda på antalet platser har stöd för din app-nivå, se [App Tjänstbegränsningarna](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
-
-* När appen har flera platser, kan du inte ändra nivån.
-* Skalning är inte tillgänglig för icke-produktoionsplats.
-* Länkade resurshantering stöds inte för icke-produktoionsplats. I den [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) , du kan undvika den här potentiella effekten på en produktionsplatsen genom att tillfälligt flytta icke-produktionsplatsen till ett annat skikt i App Service-plan. Observera att icke-produktionsplatsen måste återigen delar samma nivå med produktionsplatsen innan du kan byta ut de två platserna.
+Varje nivå för App Service-plan stöder olika antal distributionsplatser. Ta reda på antalet platser har stöd för din app-nivå, se [App Tjänstbegränsningarna](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Om du vill skala ditt program till ett annat skikt mål-nivå måste ha stöd för antal fack som redan använder din app. Till exempel om din app har mer än 5 kortplatser, du kan skala den ned till **Standard** nivån, eftersom **Standard** nivån stöder endast 5 distributionsplatser.
 
 <a name="Add"></a>
 

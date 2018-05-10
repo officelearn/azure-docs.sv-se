@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric-säkerhetsmetoder | Microsoft Docs"
-description: "Den här artikeln innehåller en uppsättning av bästa praxis för Azure Service Fabric-säkerhet."
+title: Azure Service Fabric-säkerhetsmetoder | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning av bästa praxis för Azure Service Fabric-säkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric-säkerhetsmetoder
 Distribuera ett program på Azure är snabb, enkel och kostnadseffektiv. Innan du distribuerar ditt moln program i produktion bör granska vår lista över viktiga och rekommenderade säkerhetsmetoder för att implementera skyddade kluster i ditt program.
@@ -126,7 +126,7 @@ Konfigurationer för replikatorn konfigurera replikatorn som ansvarar för att g
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Konfigurera SSL för Azure Service Fabric
 Server-autentiseringen [autentiserar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) att klustret management slutpunkter management-klienten. Management-klienten identifierar sedan att det pratar till verkliga klustret. Det här certifikatet ger också en [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) för HTTPS-hanterings-API och för Service Fabric Explorer via HTTPS.
-Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
+Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
 
 Om du vill konfigurera SSL för ett program måste du först skaffa ett SSL-certifikat som har signerats av en Certifikatutfärdare. Certifikatutfärdaren är betrodd tredje part som utfärdar certifikat för SSL-säkerhetsskäl. Om du inte redan har ett SSL-certifikat, måste du skaffa ett från ett företag som säljer SSL-certifikat.
 

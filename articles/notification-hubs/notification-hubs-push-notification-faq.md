@@ -1,25 +1,25 @@
 ---
-title: "Azure Notification Hubs: Vanliga frågor (FAQ) | Microsoft Docs"
-description: "Vanliga frågor och svar om att designa/implementera lösningar på Notification Hubs"
+title: 'Azure Notification Hubs: Vanliga frågor (FAQ) | Microsoft Docs'
+description: Vanliga frågor och svar om att designa/implementera lösningar på Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
-keywords: "push-meddelande, push-meddelanden, push-meddelanden för iOS, android push-meddelanden, push ios, android push"
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
+keywords: push-meddelande, push-meddelanden, push-meddelanden för iOS, android push-meddelanden, push ios, android push
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
-ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 ## <a name="general"></a>Allmänt

@@ -1,6 +1,6 @@
 ---
-title: Skapa en intern belastningsutjämnare i Azure Container Service (AKS)
-description: Använda en intern belastningsutjämnare med Azure Container Service (AKS).
+title: Skapa en intern belastningsutjämnare i Azure Kubernetes Service (AKS)
+description: Använda en intern belastningsutjämnare med Azure-Kubernetes (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: MT
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>Använda en intern belastningsutjämnare med Azure Container Service (AKS)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure-Kubernetes (AKS)
 
-Intern belastningsutjämning gör en Kubernetes tjänst tillgänglig för program som körs i samma virtuella nätverk som Kubernetes-kluster. Det här dokumentet beskriver och skapa en intern belastningsutjämnare med Azure Container Service (AKS).
+Intern belastningsutjämning gör en Kubernetes tjänst tillgänglig för program som körs i samma virtuella nätverk som Kubernetes-kluster. Det här dokumentet beskriver och skapa en intern belastningsutjämnare med Azure-Kubernetes (AKS).
 
 ## <a name="create-internal-load-balancer"></a>Skapa en intern belastningsutjämnare
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-När har distribuerats, skapas en Azure belastningsutjämnare och blir tillgängligt på samma virtuella nätverk som AKS-kluster. 
+När har distribuerats, skapas en Azure belastningsutjämnare och blir tillgängligt på samma virtuella nätverk som AKS-kluster.
 
 ![Bild av AKS interna belastningsutjämnare](media/internal-lb/internal-lb.png)
 
-När tjänsten hämtar information, IP-adressen i det `EXTERNAL-IP` kolumnen är IP-adressen för den interna belastningsutjämnaren. 
+När tjänsten hämtar information, IP-adressen i det `EXTERNAL-IP` kolumnen är IP-adressen för den interna belastningsutjämnaren.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-När du hämtar information om tjänsten, IP-adressen på den `EXTERNAL-IP` bör avspegla den angivna IP-adressen. 
+När du hämtar information om tjänsten, IP-adressen på den `EXTERNAL-IP` bör avspegla den angivna IP-adressen.
 
 ```console
 $ kubectl get service azure-vote-front

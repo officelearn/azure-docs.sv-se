@@ -1,6 +1,6 @@
 ---
-title: Använda OpenFaaS med Azure Container Service (AKS)
-description: Distribuera och använda OpenFaaS med Azure Container Service (AKS)
+title: Använda OpenFaaS med Azure Kubernetes-tjänsten (AKS)
+description: Distribuera och använda OpenFaaS med Azure-Kubernetes (AKS)
 services: container-service
 author: justindavies
 manager: timlt
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 778fa5ddcdf8006d28c092746e4ac17a497baa5f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Med hjälp av OpenFaaS på AKS
 
-[OpenFaaS] [ open-faas] är ett ramverk för att skapa serverlösa funktioner utöver behållare. Den har fått storskaliga införande i gemenskapen som ett projekt med öppen källkod. Det här dokumentet beskriver installera och använda OpenFaas på ett kluster med Azure Container Service (AKS).
+[OpenFaaS] [ open-faas] är ett ramverk för att skapa serverlösa funktioner utöver behållare. Den har fått storskaliga införande i gemenskapen som ett projekt med öppen källkod. Det här dokumentet beskriver hur du installerar och använder OpenFaas på ett kluster i Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna slutföra stegen i den här artikeln.
 
 * Grundläggande förståelse för Kubernetes.
-* Ett Azure Container Service (AKS)-kluster och AKS autentiseringsuppgifter som konfigurerats i utvecklingssystemet.
+* Ett kluster med Azure Kubernetes Service (AKS) och AKS autentiseringsuppgifter som konfigurerats i utvecklingssystemet.
 * Azure CLI är installerad i utvecklingssystemet.
 * Git kommandoradsverktyg installeras på datorn.
 
@@ -39,7 +39,7 @@ git clone https://github.com/openfaas/faas-netes
 Ändra till katalogen för den klonade lagringsplatsen.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## <a name="deploy-openfaas"></a>Distribuera OpenFaaS
@@ -54,7 +54,7 @@ kubectl create namespace openfaas
 
 Skapa ett andra namnområde för OpenFaaS funktioner.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -64,7 +64,7 @@ Ett diagram Helm OpenFaaS ingår i klonade databasen. Använd det här diagramme
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 Resultat:
@@ -95,7 +95,7 @@ En offentlig IP-adress har skapats för att komma åt OpenFaaS gateway. Använd 
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Utdata. 
+Utdata.
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -130,8 +130,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 Resultat:
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -140,7 +140,7 @@ Resultat:
 
 ## <a name="create-second-function"></a>Skapa andra funktion
 
-Nu ska du skapa en annan funktion. Det här exemplet kommer att distribueras med hjälp av CLI OpenFaaS och innehåller en avbildning för anpassade container och hämta data från en Cosmos-DB. Flera objekt måste konfigureras innan du skapar funktionen. 
+Nu ska du skapa en annan funktion. Det här exemplet kommer att distribueras med hjälp av CLI OpenFaaS och innehåller en avbildning för anpassade container och hämta data från en Cosmos-DB. Flera objekt måste konfigureras innan du skapar funktionen.
 
 Först skapa en ny resursgrupp för Cosmos-DB.
 
@@ -148,13 +148,13 @@ Först skapa en ny resursgrupp för Cosmos-DB.
 az group create --name serverless-backing --location eastus
 ```
 
-Distribuera en CosmosDB instans av typen `MongoDB`. Instansen behöver ett unikt namn, uppdatera `openfaas-cosmos` till något som är unik för din miljö. 
+Distribuera en CosmosDB instans av typen `MongoDB`. Instansen behöver ett unikt namn, uppdatera `openfaas-cosmos` till något som är unik för din miljö.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Hämta Cosmos-anslutningssträngen för databasen och lagra den i en variabel. 
+Hämta Cosmos-anslutningssträngen för databasen och lagra den i en variabel.
 
 Uppdatera värdet för den `--resource-group` argument för namnet på din resursgrupp och `--name` argumentet Cosmos-DB-namn.
 
@@ -180,7 +180,7 @@ Nu fylla Cosmos-DB med testdata. Skapa en fil med namnet `plans.json` och kopier
 }
 ```
 
-Använd den *mongoimport* verktyg för att läsa in CosmosDB-instans med data. 
+Använd den *mongoimport* verktyg för att läsa in CosmosDB-instans med data.
 
 Om det behövs installerar du Verktyg för MongoDB. I följande exempel installeras med hjälp av brew, finns det [MongoDB-dokumentation] [ install-mongo] för andra alternativ.
 
@@ -232,7 +232,7 @@ Du kan också testa funktionen inom OpenFaaS UI.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Standarddistribution av OpenFaas måste vara låst för både OpenFaaS Gateway och funktioner. [Alex Ellis blogginlägget](https://blog.alexellis.io/lock-down-openfaas/) innehåller mer information om säker konfigurationsalternativ. 
+Standarddistribution av OpenFaas måste vara låst för både OpenFaaS Gateway och funktioner. [Alex Ellis blogginlägget](https://blog.alexellis.io/lock-down-openfaas/) innehåller mer information om säker konfigurationsalternativ.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

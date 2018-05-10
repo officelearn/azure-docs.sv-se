@@ -3,8 +3,8 @@ title: Azure diagnostikloggar | Microsoft Docs
 description: Kunden kan aktivera logganalys för Azure CDN.
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -28,7 +28,7 @@ Du kan använda Azure diagnostikloggar för att visa core analytics och spara de
  - Azure Event Hubs
  - [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Den här funktionen är tillgänglig för alla CDN-slutpunkter som hör till Verizon (Standard och Premium) och Akamai (Standard) CDN profiler. 
+Den här funktionen är tillgänglig på CDN-slutpunkter för alla prisnivåer. 
 
 Azure diagnostics loggar kan du exportera grundläggande användningsstatistik från CDN-slutpunkten till en mängd olika datakällor så att du kan använda dem i ett anpassat sätt. Du kan till exempel göra följande typer av export av data:
 
@@ -156,10 +156,10 @@ Innan du kan komma åt core analysdata från Azure Storage-konto, måste du för
 
 **Beskrivning av fält:**
 
-|värde|description|
+|Värde|Beskrivning|
 |-------|---------|
 |Prenumerations-ID:t    |ID för Azure-prenumeration i Guid-format.|
-|Resurs |Gruppnamn namnet på resursgruppen som CDN resurser tillhör.|
+|Resursgruppens namn |Namnet på resursgruppen som CDN resurser tillhör.|
 |Profilnamn |Namnet på CDN-profilen|
 |Namnet på slutpunkten |Namnet på CDN-slutpunkten|
 |År|  4-siffrig representation år, till exempel 2017|
@@ -276,47 +276,49 @@ Du kan dra typer av diagram och Fyll i de information som du vill analysera.
     
 ## <a name="log-data-delays"></a>Logga data fördröjningar
 
-Verizon logga data fördröjningar | Akamai logga data fördröjningar
---- | ---
-Loggdata för Verizon försenas 1 timme och ta upp till 2 timmar att starta visas efter att endpoint-spridningen har slutförts. | Loggdata för Akamai är skjutas upp med 24 timmar. Om det skapades mer än 24 timmar sedan tar det upp till två timmar att starta visas. Det kan ta upp till 25 timmar för loggfilerna för att starta visas om den nyligen har skapats.
+I följande tabell visas logga data fördröjningar för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, och **Azure CDN Standard/Premium från Verizon**.
+
+Microsoft logga data fördröjningar | Verizon logga data fördröjningar | Akamai logga data fördröjningar
+--- | --- | ---
+Fördröjd 1 timme. | Skjutas upp med 1 timme och kan ta upp till två timmar att starta visas efter att endpoint-spridningen har slutförts. | Skjutas upp med 24 timmar. Om det skapades mer än 24 timmar sedan tar det upp till två timmar att starta visas. Det kan ta upp till 25 timmar för loggfilerna för att starta visas om den nyligen har skapats.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Typer av diagnostiska loggen för CDN core analytics
 
 Vi har för närvarande endast core analytics loggarna, vilket innehåller mått som visar statistik för HTTP-svar och utgående trafik som visas för CDN POP/kanter.
 
 ### <a name="core-analytics-metrics-details"></a>Core analytics mätvärden information
-Följande tabell visar en lista över tillgängliga i core analytics loggarna mått. Inte alla mått är tillgängliga från alla leverantörer, även om dessa skillnader är minimal. I följande tabell visas även om ett visst mått är tillgänglig från en leverantör. Observera att mätvärdena som är tillgängliga för bara de CDN-slutpunkter som har trafik på dem.
+I följande tabell visas en lista över tillgängliga i grundläggande mått analytics loggar för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, och **Azure CDN Standard/Premium från Verizon**. Inte alla mått är tillgängliga från alla leverantörer, även om dessa skillnader är minimal. Tabellen visar även om ett visst mått är tillgängliga från en leverantör. Observera att mätvärdena som är tillgängliga för bara de CDN-slutpunkter som har trafik på dem.
 
 
-|Mått                     | Beskrivning   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Totalt antal träffar för begäran under denna period| Ja  |Ja   |
-| RequestCountHttpStatus2xx |Antal alla begäranden som resulterade i en 2xx http-kod (till exempel 200, 202)              | Ja  |Ja   |
-| RequestCountHttpStatus3xx | Antal alla begäranden som resulterade i en 3xx http-kod (till exempel 300, 302)              | Ja  |Ja   |
-| RequestCountHttpStatus4xx |Antal alla begäranden som resulterade i en 4xx http-kod (till exempel 400, 404)               | Ja   |Ja   |
-| RequestCountHttpStatus5xx | Antal alla begäranden som resulterade i en 5xx http-kod (till exempel 500, 504)              | Ja  |Ja   |
-| RequestCountHttpStatusOthers |  Uppräkning av alla andra HTTP-koder (utanför 2xx 5xx) | Ja  |Ja   |
-| RequestCountHttpStatus200 | Antal alla begäranden som resulterade i en 200 HTTP-svar för kod              |Nej   |Ja   |
-| RequestCountHttpStatus206 | Antal alla begäranden som resulterade i ett 206 HTTP-svar för kod              |Nej   |Ja   |
-| RequestCountHttpStatus302 | Antal alla begäranden som resulterade i en 302 HTTP-svar för kod              |Nej   |Ja   |
-| RequestCountHttpStatus304 |  Antal alla begäranden som resulterade i ett 304 HTTP-svar för kod             |Nej   |Ja   |
-| RequestCountHttpStatus404 | Antal alla begäranden som resulterade i ett 404 HTTP-svar för kod              |Nej   |Ja   |
-| RequestCountCacheHit |Antal alla begäranden som resulterade i ett antal träffar. Tillgången behandlades direkt från POP till klienten.               | Ja  |Nej   |
-| RequestCountCacheMiss | Antal alla begäranden som resulterade i en Cache-Miss. Detta innebär tillgången hittades inte på POP närmast klienten och därför har hämtats från ursprunget.              |Ja   | Nej  |
-| RequestCountCacheNoCache | Antal alla begäranden till en tillgång som hindras från att cachelagras på grund av en Användarkonfiguration kant.              |Ja   | Nej  |
-| RequestCountCacheUncacheable | Antal alla förfrågningar till tillgångar som hindras från att cachelagras av tillgångens Cache-Control och Expires-huvuden som indikerar att det inte ska cachelagras på en POP eller genom att HTTP-klienten                |Ja   |Nej   |
-| RequestCountCacheOthers | Antal begäranden med cachen inte omfattas av ovan.              |Ja   | Nej  |
-| EgressTotal | Utgående dataöverföring i GB              |Ja   |Ja   |
-| EgressHttpStatus2xx | Utgående data transfer * för svar med 2xx HTTP-statuskoder i GB            |Ja   |Nej   |
-| EgressHttpStatus3xx | Utgående dataöverföring för svar med 3xx HTTP-statuskoder i GB              |Ja   |Nej   |
-| EgressHttpStatus4xx | Utgående dataöverföring för svar med 4xx HTTP-statuskoder i GB               |Ja   | Nej  |
-| EgressHttpStatus5xx | Utgående dataöverföring för svar med 5xx HTTP-statuskoder i GB               |Ja   |  Nej |
-| EgressHttpStatusOthers | Utgående dataöverföring för svar med andra HTTP-statuskoder i GB                |Ja   |Nej   |
-| EgressCacheHit |  Utgående dataöverföring för svar som har levererats direkt från CDN-cachen på CDN POP/kanter  |Ja   |  Nej |
-| EgressCacheMiss | Utgående dataöverföring för svar som inte hittades på den närmaste POP-servern, och hämtas från den ursprungliga servern              |Ja   |  Nej |
-| EgressCacheNoCache | Utgående dataöverföring för tillgångar som hindras från att cachelagras på grund av en Användarkonfiguration kant.                |Ja   |Nej   |
-| EgressCacheUncacheable | Utgående dataöverföring för tillgångar som hindras från att cachelagras av tillgångens Cache-Control eller Expires-huvuden. Anger att det inte ska cachelagras på en POP eller genom att HTTP-klienten.                   |Ja   | Nej  |
-| EgressCacheOthers |  Utgående dataöverföringar för andra cache-scenarier.             |Ja   | Nej  |
+|Mått                     | Beskrivning | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Totalt antal träffar i begäran under denna tid. | Ja | Ja |Ja |
+| RequestCountHttpStatus2xx | Antal alla begäranden som resulterade i en 2xx http-kod (till exempel 200, 202). | Ja | Ja |Ja |
+| RequestCountHttpStatus3xx | Antal alla begäranden som resulterade i en 3xx http-kod (till exempel 300, 302). | Ja | Ja |Ja |
+| RequestCountHttpStatus4xx | Antal alla begäranden som resulterade i en 4xx http-kod (till exempel 400, 404). | Ja | Ja |Ja |
+| RequestCountHttpStatus5xx | Antal alla begäranden som resulterade i en 5xx http-kod (till exempel 500, 504). | Ja | Ja |Ja |
+| RequestCountHttpStatusOthers | Antal alla andra HTTP-koder (utanför 2xx 5xx). | Ja | Ja |Ja |
+| RequestCountHttpStatus200 | Antal alla begäranden som resulterade i en 200 HTTP-svar som kod. | Ja | Nej  |Ja |
+| RequestCountHttpStatus206 | Antal alla begäranden som resulterade i ett 206 kod HTTP-svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus302 | Antal alla begäranden som resulterade i en 302 kod HTTP-svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus304 | Antal alla begäranden som resulterade i ett 304 kod HTTP-svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus404 | Antal alla begäranden som resulterade i ett 404 HTTP-svar för koden. | Ja | Nej  |Ja |
+| RequestCountCacheHit | Antal alla begäranden som resulterade i ett antal träffar. Tillgången behandlades direkt från POP till klienten. | Ja | Ja | Nej  |
+| RequestCountCacheMiss | Antal alla begäranden som resulterade i en Cache-Miss. Detta innebär tillgången hittades inte på POP närmast klienten och därför har hämtats från ursprunget. | Ja | Ja | Nej |
+| RequestCountCacheNoCache | Antal alla begäranden till en tillgång som hindras från att cachelagras på grund av en Användarkonfiguration kant. | Ja | Ja | Nej |
+| RequestCountCacheUncacheable | Antal alla förfrågningar till tillgångar som hindras från att cachelagras av tillgångens Cache-Control och Expires-huvuden som indikerar att det inte ska cachelagras på en POP eller genom att HTTP-klienten. | Ja | Ja | Nej |
+| RequestCountCacheOthers | Antal begäranden med cachen inte omfattas av ovan. | Nej | Ja | Nej  |
+| EgressTotal | Utgående dataöverföring i GB | Ja |Ja |Ja |
+| EgressHttpStatus2xx | Utgående data transfer * för svar med 2xx HTTP-statuskoder i GB. | Ja | Ja | Nej  |
+| EgressHttpStatus3xx | Utgående dataöverföring för svar med 3xx HTTP-statuskoder i GB. | Ja | Ja | Nej  |
+| EgressHttpStatus4xx | Utgående dataöverföring för svar med 4xx HTTP-statuskoder i GB. | Ja | Ja | Nej  |
+| EgressHttpStatus5xx | Utgående dataöverföring för svar med 5xx HTTP-statuskoder i GB. | Ja | Ja | Nej |
+| EgressHttpStatusOthers | Utgående dataöverföring för svar med andra HTTP-statuskoder i GB. | Ja | Ja | Nej  |
+| EgressCacheHit | Utgående dataöverföring för svar som har levererats direkt från CDN-cachen på CDN POP/kanter. | Ja | Ja | Nej |
+| EgressCacheMiss. | Utgående dataöverföring för svar som inte hittades på den närmaste POP-servern, och hämtas från den ursprungliga servern. | Ja | Ja | Nej |
+| EgressCacheNoCache | Utgående dataöverföring för tillgångar som hindras från att cachelagras på grund av en Användarkonfiguration kant. | Ja | Ja | Nej |
+| EgressCacheUncacheable | Utgående dataöverföring för tillgångar som hindras från att cachelagras av tillgångens Cache-Control eller Expires-huvuden. Anger att det inte ska cachelagras på en POP eller genom att HTTP-klienten. | Ja | Ja | Nej |
+| EgressCacheOthers | Utgående dataöverföringar för andra cache-scenarier. | Nej | Ja | Nej |
 
 * Utgående dataöverföring refererar till trafik från CDN POP-servrar som levereras till klienten.
 
@@ -368,7 +370,7 @@ Alla loggar lagras i JSON-format och varje post innehåller strängfält enligt 
 }
 ```
 
-Där är tid starttiden gränsens timme som statistik rapporteras. Ett mått inte stöds av en CDN-providern, i stället för ett värde för double eller heltal har ett null-värde. Null-värde anger avsaknaden av ett mått och skiljer sig från värdet 0. Det finns en uppsättning av de här måtten per domän konfigurerad på slutpunkten.
+Där *tid* representerar starttiden gränsens timme som statistik rapporteras. Ett mått inte stöds av en CDN-providern, i stället för ett värde för double eller heltal har ett null-värde. Null-värde anger avsaknaden av ett mått och skiljer sig från värdet 0. Det finns en uppsättning av de här måtten per domän konfigurerad på slutpunkten.
 
 Exempel egenskaper:
 

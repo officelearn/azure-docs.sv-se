@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e21a8251cc4a85232b92faa05d01d0f73410e496
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager Mallfunktioner
 Den här artikeln beskrivs de funktioner som du kan använda i en Azure Resource Manager-mall.
@@ -28,6 +28,8 @@ Du lägger till funktioner i dina mallar genom att skriva dem inom hakparenteser
 Ett malluttryck får inte överskrida 24,576 tecken.
 
 Mallfunktioner och deras parametrar är skiftlägeskänsliga. Till exempel Resource Manager matchar **variables('var1')** och **VARIABLES('VAR1')** samma. När utvärderas om funktionen ändrar uttryckligen skiftläge (till exempel toUpper eller toLower), funktionen bevarar skiftläge. Vissa typer av resurser kan ha case krav oavsett hur funktioner utvärderas.
+
+Om du vill skapa egna funktioner finns [användardefinierade funktioner](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />

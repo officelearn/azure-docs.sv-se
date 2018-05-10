@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrera enheten till en IoT-hubb med tjänsteklienten Azure IoT Hub Provisioning (.NET)
 
@@ -49,7 +49,7 @@ I det här steget ska du lägga till enhetens unika säkerhetsartefakter till en
 
 - För X.509-baserade enheter:
     - [X.509-certifikatet som utfärdats till enheten](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), antingen som en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda *lövcertifikatet* för ditt X.509-system, och för registreringsgrupper måste du använda *rotcertifikatet* eller ett motsvarande *signeringscertifikat*.
-    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. Registrerings-ID härleds från certifikatets eget namn (CN) för X.509-baserade enheter. Mer information om kraven finns under [Enhetskoncept](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. Registrerings-ID härleds från certifikatets eget namn (CN) för X.509-baserade enheter. Mer information om kraven finns under [Enhetskoncept](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 

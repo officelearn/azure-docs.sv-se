@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Skicka meddelanden moln till enhet med IoT-hubb (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -47,7 +47,7 @@ För att kunna genomföra den här kursen behöver du följande:
 - Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 - En aktiv IoT-hubb i Azure. 
 - Kodexempel från [Azure-exempel](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) .
-- Den senaste versionen av [XCode](https://developer.apple.com/xcode/), kör den senaste versionen av iOS SDK. Denna Snabbstart har testats med XCode 9.3 och iOS 11,3.
+- Den senaste versionen av [XCode](https://developer.apple.com/xcode/) med den senaste versionen av iOS SDK. Denna snabbstart har testats med XCode 9.3 och iOS 11.3.
 - Den senaste versionen av [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 
 
@@ -58,21 +58,21 @@ Det här är exempel exempel enhet som du skapar i artikeln [skicka telemetri fr
 
 ### <a name="install-cocoapods"></a>Installera CocoaPods
 
-CocoaPods hantera beroenden för iOS-projekt med tredjeparts-bibliotek.
+CocoaPods hanterar beroenden för iOS-projekt där du använder bibliotek från tredje part.
 
-Navigera till den Azure-IoT-exempel-iOS-mappen som du hämtade i förutsättningarna i ett terminalfönster. Gå till exempelprojektet:
+Öppna ett terminalfönster och navigera till mappen Azure-IoT-Samples-iOS som du laddade ned i förberedelserna. Navigera sedan till exempelprojektet:
 
 ```sh
 cd quickstart/sample-device
 ```
 
-Kontrollera att XCode är stängt, och kör sedan följande kommando för att installera CocoaPods som deklareras i den **podfile** fil:
+Kontrollera att XCode är stängt och kör följande kommando för att installera CocoaPods som deklareras i filen **podfile**:
 
 ```sh
 pod install
 ```
 
-Tillsammans med installerar skida som krävs för ditt projekt, skapas också en arbetsyta XCode-fil som redan är konfigurerad för att använda skida för beroenden i installationskommandot. 
+Förutom att installera de poddar som krävs för projektet så skapar även installationskommandot en XCode-arbetsytefil som redan är konfigurerad att använda poddarna för beroenden. 
 
 ### <a name="run-the-sample-device-application"></a>Kör exempelprogrammet enhet 
 
@@ -82,7 +82,7 @@ Tillsammans med installerar skida som krävs för ditt projekt, skapas också en
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
     ```
 
-1. Öppna arbetsytan exemplet i XCode.
+1. Öppna exempelarbetsytan i XCode.
 
    ```sh
    open "MQTT Client Sample.xcworkspace"
@@ -92,7 +92,7 @@ Tillsammans med installerar skida som krävs för ditt projekt, skapas också en
 3. Öppna **ViewController.swift** för redigering i XCode. 
 4. Sök efter den **connectionString** variabeln och uppdatera värdet med enhetsanslutningen sträng som du kopierade i det första steget.
 5. Spara ändringarna. 
-6. Köra projektet i emulatorn med den **skapa och köra** knappen eller viktiga kombinationsrutan **kommando + r**. 
+6. Kör projektet i enhetsemulatorn med knappen **Build and run** (Skapa och kör) eller tangentkombinationen **command + r**. 
 
    ![Kör projektet](media/quickstart-send-telemetry-ios/run-sample.png)
 
@@ -103,7 +103,7 @@ I det här avsnittet kan du simulera en annan iOS-enhet med en snabb app som ski
 
 ### <a name="install-cocoapods"></a>Installera CocoaPods
 
-CocoaPods hantera beroenden för iOS-projekt med tredjeparts-bibliotek.
+CocoaPods hanterar beroenden för iOS-projekt där du använder bibliotek från tredje part.
 
 Navigera till mappen Azure IoT iOS-exempel som du hämtade i kraven. Gå till tjänsten exempelprojektet:
 
@@ -111,13 +111,13 @@ Navigera till mappen Azure IoT iOS-exempel som du hämtade i kraven. Gå till tj
 cd quickstart/sample-service
 ```
 
-Kontrollera att XCode är stängt, och kör sedan följande kommando för att installera CocoaPods som deklareras i den **podfile** fil:
+Kontrollera att XCode är stängt och kör följande kommando för att installera CocoaPods som deklareras i filen **podfile**:
 
 ```sh
 pod install
 ```
 
-Tillsammans med installerar skida som krävs för ditt projekt, skapas också en arbetsyta XCode-fil som redan är konfigurerad för att använda skida för beroenden i installationskommandot.
+Förutom att installera de poddar som krävs för projektet så skapar även installationskommandot en XCode-arbetsytefil som redan är konfigurerad att använda poddarna för beroenden.
 
 ### <a name="run-the-sample-service-application"></a>Kör exempelprogrammet service
 
@@ -127,7 +127,7 @@ Tillsammans med installerar skida som krävs för ditt projekt, skapas också en
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
     ```
 
-2. Öppna arbetsytan exemplet i XCode.
+2. Öppna exempelarbetsytan i XCode.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
@@ -166,7 +166,7 @@ Dina utdata bör se ut som i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen beskrivs hur du skickar och tar emot meddelanden moln till enhet. 
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT Suite].
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT-Fjärrövervaknings lösningsaccelerator].
 
 Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Utvecklarhandbok].
 
@@ -185,4 +185,4 @@ Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Ut
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Azure IoT-Fjärrövervaknings lösningsaccelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

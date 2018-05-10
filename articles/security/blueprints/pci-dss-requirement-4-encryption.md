@@ -1,9 +1,9 @@
 ---
-title: "Azure betalning bearbetning modell - kraven för datakryptering"
+title: Azure betalning bearbetning modell - kraven för datakryptering
 description: PCI DSS krav 4
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Kraven för datakryptering för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-4"></a>PCI DSS krav 4
@@ -52,8 +52,8 @@ Känslig information måste vara krypterade under överföring via nätverk som 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore är en PaaS-lösning som implementerar stark kryptografi för distributionen på följande sätt:<br /><br />Till krypterade data i vila krav [Azure Storage](https://azure.microsoft.com/services/storage/) använder du följande:<br /><br /><ul><li>[Azure Storage Service-kryptering (SSE) av Data i vila](/azure/storage/storage-service-encryption)</li><li>SQL Database: En PaaS SQL-databasinstans används för att presentera säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Använda Azure Key Vault justerar med Azure Government och PCI DSS HIPAA krav.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore är en PaaS-lösning som implementerar stark kryptografi för distributionen på följande sätt:<br /><br />Till krypterade data i vila krav [Azure Storage](https://azure.microsoft.com/services/storage/) använder du följande:<br /><br /><ul><li>[Azure Storage Service-kryptering (SSE) av Data i vila](/azure/storage/storage-service-encryption)</li><li>SQL Database: En PaaS SQL-databasinstans används för att presentera säkerhetsåtgärder för databasen. Mer information finns i [PCI - vägledning för Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Använda Azure Key Vault justerar med Azure Government och PCI DSS HIPAA krav.|
 
 
 
@@ -65,8 +65,8 @@ Känslig information måste vara krypterade under överföring via nätverk som 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Trådlösa och SNMP har inte implementerats i lösningen.|
 
 
 
@@ -78,8 +78,8 @@ Känslig information måste vara krypterade under överföring via nätverk som 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har inte någon meddelandelösningar implementerats som kan skicka oskyddade primära konto numret (PANORERA) data.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har inte någon meddelandelösningar implementerats som kan skicka oskyddade primära konto numret (PANORERA) data.|
 
 
 
@@ -91,8 +91,8 @@ Känslig information måste vara krypterade under överföring via nätverk som 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att dokumentera och kryptera överföringar som innehåller kreditkortsinformation.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att dokumentera och kryptera överföringar som innehåller kreditkortsinformation.|
 
 
 

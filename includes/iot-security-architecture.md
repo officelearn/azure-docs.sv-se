@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-architecture"></a>Sakernas Internet-säkerhetsarkitekturen
 
 När ett system utformas, är det viktigt att förstå potentiella hot på systemet och lägga till lämpliga försvar därför eftersom systemet är utformad och konstruerad. Det är viktigt att utforma produkten från början med säkerhet i åtanke eftersom förstå hur en angripare kan vara att en dator gör att lämpliga åtgärder finns på plats från början.
@@ -220,7 +236,7 @@ Här följer några exempel på hot i den här kategorin:
 
 **Avslöjande av information:** en angripare kan eavesdrop på en sändning och få information utan tillstånd **Denial of Service:** en angripare kan sylt broadcast signalen och neka information distribution
 
-#### <a name="storage"></a>Lagring
+#### <a name="storage"></a>Storage
 
 Varje enhet och fältet gateway har någon form av lagring (tillfälliga för queuing data, operativsystem (OS) bildlagring).
 

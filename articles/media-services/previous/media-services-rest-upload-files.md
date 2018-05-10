@@ -1,11 +1,11 @@
 ---
-title: "Överföra filer till ett Azure Media Services-konto med hjälp av REST | Microsoft Docs"
-description: "Lär dig mer om att få medieinnehåll i Media Services genom att skapa och ladda upp tillgångar."
+title: Överföra filer till ett Azure Media Services-konto med hjälp av REST | Microsoft Docs
+description: Lär dig mer om att få medieinnehåll i Media Services genom att skapa och ladda upp tillgångar.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med hjälp av REST
 > [!div class="op_single_selector"]
@@ -53,9 +53,9 @@ Följande gäller när du använder Media Services REST API:
 * Vid åtkomst till enheter med hjälp av Media Services REST API, måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md). <br/>Samlingen Postman används i den här kursen hand tar om ange alla nödvändiga huvuden.
 * Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömning innehållet (till exempel http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför tillåts procent-encoding inte. Värdet för den **namn** egenskapen får inte ha något av följande [procent-encoding-reserverade tecken](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det kan bara finnas ett '.' för filnamnstillägget.
 * Längden på namnet får inte vara större än 260 tecken.
-* Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Se [detta](media-services-quotas-and-limitations.md) artikeln för information om den maximala filstorlek.
+* Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Information om filstorleksbegränsningen finns i [den här](media-services-quotas-and-limitations.md) artikeln.
 
-## <a name="set-up-postman"></a>Ställ in Postman
+## <a name="set-up-postman"></a>Konfigurera Postman
 
 Stegvisa instruktioner för hur du ställer in Postman för den här kursen finns [konfigurera Postman](media-rest-apis-with-postman.md).
 
@@ -184,7 +184,7 @@ T.ex använder vi Postman för att överföra en liten MP4-fil. Det kan finnas e
 Överför-begäran är inte en del av den **AzureMedia** samling. 
 
 Skapa och konfigurera en ny begäran:
-1. Tryck på  **+** , för att skapa en ny flik i begäran.
+1. Tryck på **+**, för att skapa en ny flik i begäran.
 2. Välj **PLACERA** igen och klistra in **{{UploadURL}}** i URL-Adressen.
 2. Lämna **auktorisering** fliken eftersom (Ange inte till den **ägar-Token**).
 3. I den **huvuden** anger: **nyckeln**: ”x-ms-blob-datatyp” och **värdet**: ”BlockBlob”.

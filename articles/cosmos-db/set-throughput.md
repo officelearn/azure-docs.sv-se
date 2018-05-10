@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 05/07/2018
 ms.author: sngun
-ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Ange och få genomströmning för Azure DB som Cosmos-behållare
 
-Du kan ange dataflöde för din Azure DB som Cosmos-behållare i Azure-portalen eller genom att använda klient-SDK: er. 
+Du kan ange dataflöde för Azure DB som Cosmos-behållare eller en uppsättning av behållare i Azure-portalen eller genom att använda klient-SDK: er. 
 
 I följande tabell visas genomströmning för behållare:
 
@@ -31,15 +31,18 @@ I följande tabell visas genomströmning för behållare:
             <td valign="top"><p></p></td>
             <td valign="top"><p><strong>Enskild Partition behållare</strong></p></td>
             <td valign="top"><p><strong>Partitionerade behållare</strong></p></td>
+            <td valign="top"><p><strong>Uppsättning behållare</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Minsta dataflöde</p></td>
             <td valign="top"><p>400 frågeenheter per sekund</p></td>
-            <td valign="top"><p>1000 frågeenheter per sekund</p></td>
+            <td valign="top"><p>1 000 frågeenheter per sekund</p></td>
+            <td valign="top"><p>50 000 frågeenheter per sekund</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maximalt dataflöde</p></td>
             <td valign="top"><p>10 000 frågeenheter per sekund</p></td>
+            <td valign="top"><p>Obegränsat</p></td>
             <td valign="top"><p>Obegränsat</p></td>
         </tr>
     </tbody>
@@ -62,6 +65,7 @@ Följande kodavsnitt hämtar det aktuella genomflödet och ändrar till 500 RU/s
 
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
+// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -82,6 +86,7 @@ Följande kodavsnitt hämtar det aktuella genomflödet och ändrar till 500 RU/s
 
 ```Java
 // find offer associated with this collection
+// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
 Iterator < Offer > it = client.queryOffers(
     String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
 assertThat(it.hasNext(), equalTo(true));
@@ -131,7 +136,7 @@ Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter f
 ![Portalen MongoDB API-mått][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
-Program som överskrider det tillhandahållna dataflödet för en behållare kommer att vara begränsad hastighet förrän åtgången sjunker under dataflöde hastighet. När en hastighet-begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en `16500` felkoden - `Too Many Requests`. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du tar emot många `Too Many Requests` felkoder du bör du överväga att lägga till en logik i ditt program felhantering rutiner eller [öka etablerat dataflöde för behållaren](set-throughput.md).
+Program som överskrider det tillhandahållna dataflödet för en behållare eller en uppsättning behållare kommer att vara begränsad hastighet förrän åtgången sjunker under dataflöde hastighet. När en hastighet-begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en `16500` felkoden - `Too Many Requests`. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du tar emot många `Too Many Requests` felkoder du bör du överväga att lägga till en logik i ditt program felhantering rutiner eller [öka etablerat dataflöde för behållaren](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Genomströmning vanliga frågor och svar
 
@@ -139,7 +144,7 @@ Program som överskrider det tillhandahållna dataflödet för en behållare kom
 
 400 RU/s är minsta dataflöde på Cosmos DB enskild partition behållare (1000 RU/s är minst för partitionerade behållare). Begära enheter anges i intervall om 100 RU/s men dataflöde kan inte anges till 100 RU/s eller ett värde som är mindre än 400 RU/s. Om du letar efter ett kostnadseffektivt sätt att utveckla och testa Cosmos DB, kan du använda den kostnadsfria [Azure Cosmos DB emulatorn](local-emulator.md), som du kan distribuera lokalt utan kostnad. 
 
-**Hur ställer jag througput med MongoDB-API**
+**Hur ställer jag dataflöde med MongoDB-API**
 
 Det finns inget MongoDB-API-tillägg för att ange genomflöde. Rekommendationen är att använda SQL-API som visas i [ange genomflödet med hjälp av SQL-API för .NET](#set-throughput-sdk).
 

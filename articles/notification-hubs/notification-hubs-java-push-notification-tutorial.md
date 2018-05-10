@@ -1,29 +1,29 @@
 ---
-title: "Hur du använder Notification Hubs med Java"
-description: "Lär dig hur du använder Azure Notification Hubs från Java backend."
+title: Hur du använder Notification Hubs med Java
+description: Lär dig hur du använder Azure Notification Hubs från Java backend.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Hur du använder Notification Hubs från Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Det här avsnittet beskrivs viktiga funktioner i den nya stöds fullt ut officiella Azure Notification Hub Java SDK. Det här är ett projekt med öppen källkod och du kan visa hela SDK-koden i [Java SDK]. 
+Det här avsnittet beskrivs viktiga funktioner i den nya stöds fullt ut officiella Azure Notification Hub Java SDK. Det här projektet är ett projekt med öppen källkod och du kan visa hela SDK-koden i [Java SDK]. 
 
 I allmänhet kan du har åtkomst till alla funktioner i Notification Hubs från en Java/PHP/Python/Ruby serverdel med Notification Hub REST-gränssnitt som beskrivs i avsnittet MSDN [Notification Hub REST API: er](http://msdn.microsoft.com/library/dn223264.aspx). Den här Java SDK ger en tunn omslutning över dessa REST-gränssnitt i Java. 
 
@@ -102,9 +102,9 @@ På liknande sätt kan du skapa registreringar för Android (GCM), Windows Phone
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
 
-**Skapa registreringar med skapa registrationid + upsert mönster**
+**Skapa registreringar med skapa registrerings-ID + upsert mönster**
 
-Tar bort dubbletter på grund av eventuella förlorade svar om ID: n som lagras på enheten:
+Tar bort dubbletter på grund av eventuella förlorade svar om registrering ID: N som lagras på enheten:
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -122,23 +122,27 @@ Tar bort dubbletter på grund av eventuella förlorade svar om ID: n som lagras 
 
 * **Hämta enkel registrering:**
   
-    hub.getRegistration(regid);
+        hub.getRegistration(regid);
+
 * **Visa alla registreringar hubb:**
   
-    hub.getRegistrations();
+        hub.getRegistrations();
+
 * **Hämta registreringar med tagg:**
   
-    hub.getRegistrationsByTag("myTag");
+        hub.getRegistrationsByTag("myTag");
+
 * **Hämta registreringar per kanal:**
   
-    hub.getRegistrationsByChannel("devicetoken");
+        hub.getRegistrationsByChannel("devicetoken");
+
 
 Alla samlingsfrågor stöder $top och fortsättning token.
 
 ### <a name="installation-api-usage"></a>Installation av API-användning
-API-installationen är en alternativ metod för hantering av registreringen. I stället för att underhålla flera registreringar som inte är trivial och enkelt kan göras felaktigt eller ineffektiv går nu att använda en enda Installation-objekt. Installationen innehåller allt du behöver: push-kanal (enhetstoken), taggar, mallar, sekundära paneler (för WNS och APN). Behöver du inte att anropa tjänsten för att hämta Id längre – bara generera GUID eller andra identifierare, hålla på enheten och skicka till din serverdel tillsammans med push-kanal (enhetstoken). På serverdelen ska du bara göra en enda anrop: CreateOrUpdateInstallation, är det fullständigt idempotent, så passa på att försöka igen om det behövs.
+API-installationen är en alternativ metod för hantering av registreringen. I stället för att underhålla flera registreringar som inte är trivial och enkelt kan göras felaktigt eller ineffektiv går nu att använda en enda Installation-objekt. Installationen innehåller allt du behöver: push-kanal (enhetstoken), taggar, mallar, sekundära paneler (för WNS och APN). Behöver du inte att anropa tjänsten för att hämta ID längre – bara generera GUID eller andra identifierare, hålla på enheten och skicka till din serverdel tillsammans med push-kanal (enhetstoken). På serverdelen, bör du bara göra en enda anrop: CreateOrUpdateInstallation, är det fullständigt idempotent, så passa på att försöka igen om det behövs.
 
-Exempel för Amazon Kindle brand ser ut så här:
+Som exempel Amazon Kindle brand:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -150,7 +154,7 @@ Om du vill uppdatera den:
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-För avancerade scenarier har vi deluppdatering funktion som gör för att ändra endast särskilda egenskaper i objektet installation. I princip är deluppdatering delmängd av JSON-korrigering åtgärder du kan köra mot objektet för Installation.
+Använd deluppdatering funktion, vilket gör för att ändra endast särskilda egenskaper i objektet installation för avancerade scenarier. Deluppdatering är en delmängd av JSON-korrigering åtgärder du kan köra mot objektet för Installation.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +165,9 @@ Ta bort installationen:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, korrigeringsfil och ta bort är överensstämmelse med Get. Den begärda åtgärden kan bara flyttas till kön systemet under anropet och körs i bakgrunden. Observera att hämta inte är avsedd för huvudsakliga runtime scenariot men bara för felsökning och felsökning, begränsas nära av tjänsten.
+CreateOrUpdate, korrigeringsfil och ta bort är överensstämmelse med Get. Den begärda åtgärden kan bara flyttas till kön systemet under anropet och körs i bakgrunden. Get är inte avsedd för huvudsakliga runtime scenariot men bara för felsökning och felsökning kan den nära begränsas av tjänsten.
 
-Skicka flödet för installationer är desamma som för registreringar. Vi har precis introducerat möjlighet till mål meddelande till viss installationen - bara använda taggen ”InstallationId: {desired-id}”. För ovanstående fall det skulle se ut så här:
+Skicka flödet för installationer är desamma som för registreringar. Att rikta meddelande till viss installationen - bara använda taggen ”InstallationId: {desired-id}”. För det här fallet är koden:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -186,7 +190,7 @@ Samma som regelbundet skicka men med en ytterligare parameter - scheduledTime so
     hub.scheduleNotification(n, c.getTime());
 
 ### <a name="importexport-available-for-standard-tier"></a>Importera och exportera (tillgängligt för standardnivån)
-Ibland är det krävs för att utföra massredigering mot registreringar. Vanligtvis är den för integrering med en annan dator eller en omfattande lösning att säga uppdatera taggarna. Det rekommenderas starkt inte att använda Get/uppdatera flödet om vi pratar om tusentals registreringar. Import/Export-funktionen är avsedd att täcka scenariot. I praktiken ger en åtkomst till vissa blob-behållare under ditt lagringskonto som en källa för inkommande data och plats för utdata.
+Ibland är det krävs för att utföra massredigering mot registreringar. Vanligtvis är den för integrering med en annan dator eller en omfattande lösning att säga uppdatera taggarna. Det rekommenderas inte att använda Get/uppdatera flödet om tusentals registreringar ingår. Import/Export-funktionen är avsedd att täcka scenariot. I praktiken ger en åtkomst till vissa blob-behållare under ditt lagringskonto som en källa för inkommande data och plats för utdata.
 
 **Skicka exportjobb:**
 
@@ -217,7 +221,7 @@ Ibland är det krävs för att utföra massredigering mot registreringar. Vanlig
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI: N med SAS-signatur:** detta är Webbadressen till vissa blob-fil eller blob-behållaren plus uppsättning parametrar som behörigheter och förfallotid plus signaturen för dessa saker som skapats med hjälp av kontots SAS-nyckel. Azure Storage Java SDK: N har omfattande funktioner inklusive skapandet av denna typ av URI: er. Du kan ta en titt på ImportExportE2E TestKlass (från platsen som github) som har en mycket enkel och compact implementering av Signeringsalgoritm som enkelt alternativ.
+**URI: N med SAS-signatur:** Webbadressen är Webbadressen till vissa blob-fil eller blob-behållaren plus uppsättning parametrar som behörigheter och förfallotid plus signaturen för dessa saker som skapats med hjälp av kontots SAS-nyckel. Azure Storage Java SDK: N har omfattande funktioner inklusive skapandet av denna typ av URI: er. Du kan ta en titt på ImportExportE2E TestKlass (från platsen som github) som har en grundläggande och compact implementering av Signeringsalgoritm som enkelt alternativ.
 
 ### <a name="send-notifications"></a>Skicka meddelanden
 Meddelande-objekt är helt enkelt en brödtext med rubriker, vissa metoder att skapa objekt för intern och mallen för meddelanden.
@@ -272,7 +276,7 @@ Meddelande-objekt är helt enkelt en brödtext med rubriker, vissa metoder att s
 Kör Java-kod ska nu skapa ett meddelande som visas på målenheten.
 
 ## <a name="next-steps"></a>Nästa steg
-Vi visar hur du skapar en enkel RESTEN av Java-klient för Meddelandehubbar i det här avsnittet. Härifrån kan du:
+Det här avsnittet visar dig hur du skapar en enkel RESTEN av Java-klient för Meddelandehubbar. Härifrån kan du:
 
 * Hämta fullständigt [Java SDK], som innehåller hela SDK-koden. 
 * Spela upp med exemplen:

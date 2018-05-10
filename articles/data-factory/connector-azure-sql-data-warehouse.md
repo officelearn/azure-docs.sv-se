@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
     - Nyckeln för programmet
     - Klient-ID:t
 
-2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören kan vara en AAD-användare eller grupp för AAD. Om du ger gruppen MSI en administratörsroll kan du hoppa över steg 3 och 4 nedan som administratören skulle ha fullständig åtkomst till databasen.
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören kan vara en AAD-användare eller grupp för AAD. Om du ger gruppen MSI en administratörsroll kan du hoppa över steg 3 och 4 nedan som administratören skulle ha fullständig åtkomst till databasen.
 
 3. **Skapa en innesluten databasanvändare för tjänstens huvudnamn**, genom att ansluta till data warehouse från/till som du vill kopiera data med hjälp av verktyg som SSMS med en AAD identitet med minst ALTER de ANVÄNDARBEHÖRIGHETER som krävs och kör följande T-SQL . Läs mer på innesluten databasanvändare från [här](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -114,7 +114,7 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
 4. **Bevilja behörigheter som krävs för tjänstens huvudnamn** som vanligt för SQL-användare, t.ex. genom att köra nedan:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. I ADF, konfigurerar du en länkad Azure SQL Data Warehouse-tjänst.
@@ -151,6 +151,9 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
 
 En datafabrik kan associeras med en [hanterade tjänstidentiteten (MSI)](data-factory-service-identity.md), som motsvarar denna specifika data factory. Du kan använda den här tjänstidentiteten för Azure SQL Data Warehouse-autentisering, vilket gör den här avsedda fabriken åtkomst och kopiera data från/till ditt data warehouse.
 
+> [!IMPORTANT]
+> Observera PolyBase inte stöds för närvarande för MSI authentcation.
+
 Om du vill använda MSI baserad autentisering för AAD-token, gör du följande:
 
 1. **Skapa en grupp i Azure AD och göra fabriken MSI medlem i gruppen**.
@@ -163,7 +166,7 @@ Om du vill använda MSI baserad autentisering för AAD-token, gör du följande:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det.
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det.
 
 3. **Skapa en innesluten databasanvändare för gruppen AAD**, genom att ansluta till data warehouse från/till som du vill kopiera data med hjälp av verktyg som SSMS med en AAD identitet med minst ALTER de ANVÄNDARBEHÖRIGHETER som krävs och kör följande T-SQL. Läs mer på innesluten databasanvändare från [här](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -174,7 +177,7 @@ Om du vill använda MSI baserad autentisering för AAD-token, gör du följande:
 4. **Ge gruppen AAD nödvändiga behörigheter** som vanligt för SQL-användare, t.ex. genom att köra nedan:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. I ADF, konfigurerar du en länkad Azure SQL Data Warehouse-tjänst.
@@ -381,7 +384,7 @@ Med hjälp av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/p
 * Om din käll-datalagret och format inte stöds ursprungligen av PolyBase, kan du använda den **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)** funktion i stället. Det ger dig bättre genomströmning genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob storage. Data hämtas sedan till SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Observera PolyBase stöder bara Azure SQL Data Warehouse SQL authentcation men inte Azure Active Directory-autentisering.
+> Observera PolyBase inte stöds för hanterade tjänsten identitet (MSI)-baserad token authentcation för AAD-program.
 
 ### <a name="direct-copy-using-polybase"></a>Direkt kopia med PolyBase
 

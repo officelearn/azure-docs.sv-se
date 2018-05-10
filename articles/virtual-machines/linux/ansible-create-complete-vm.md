@@ -1,13 +1,13 @@
 ---
-title: "Använd Ansible för att skapa en fullständig Linux VM i Azure | Microsoft Docs"
-description: "Lär dig hur du använder Ansible för att skapa och hantera en fullständig miljö med Linux virtuella datorer i Azure"
+title: Använd Ansible för att skapa en fullständig Linux VM i Azure | Microsoft Docs
+description: Lär dig hur du använder Ansible för att skapa och hantera en fullständig miljö med Linux virtuella datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Skapa en miljö med fullständiga Linux virtuella datorer i Azure med Ansible
 Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma som någon annan resurs. Den här artikeln visar hur du skapar en komplett Linux-miljö och ge support för resurser med Ansible. Du kan också lära dig hur du [skapa en grundläggande virtuell dator med Ansible](ansible-create-vm.md).
@@ -29,7 +29,7 @@ Ansible kan du automatisera distributionen och konfigurationen av resurser i din
 Om du vill hantera Azure-resurser med Ansible, behöver du följande:
 
 - Ansible och Azure SDK för Python-moduler som har installerats på värdsystemet.
-    - Installera Ansible på [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), och [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
+    - Installera Ansible på [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), och [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Konfigurera om du använder dessa autentiseringsuppgifter för Azure och Ansible.
     - [Skapa autentiseringsuppgifter för Azure och konfigurera Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. 

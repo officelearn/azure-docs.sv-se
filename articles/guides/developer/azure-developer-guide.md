@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 0cc08ee595bda478adbb0e39dbebca8019ebbad4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -240,7 +240,7 @@ Förutom REST API: er kan många Azure-tjänster du hantera programmässigt resu
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 -   [Go](https://docs.microsoft.com/go/azure)
 
-Tjänster som [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) och [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) Ange klientens SDK: er så att du kan komma åt tjänster från webb- och mobile-klientprogram.
+Tjänster som [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) och [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) Ange klientens SDK: er så att du kan komma åt tjänster från webb- och mobile-klientprogram.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     

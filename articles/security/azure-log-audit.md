@@ -4,7 +4,7 @@ description: Läs mer om hur du kan använda loggning av data och få djupa insi
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0ca120da27daa7a498f73b9c62530e3af26e539
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure-loggning och granskning
 ## <a name="introduction"></a>Introduktion
@@ -121,7 +121,7 @@ Azure Diagnostics loggar erbjuder flera konfigurationsalternativ som är, Azure-
 
 | Tjänst | Schemat & Docs | Resurstyp | Kategori |
 | ------- | ------------- | ------------- | -------- |
-|Belastningsutjämnare| [Logganalys för Azure-belastningsutjämnaren (förhandsgranskning)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
+|Load Balancer| [Logganalys för Azure-belastningsutjämnaren (förhandsgranskning)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Nätverkssäkerhetsgrupper|[Log Analytics för nätverkssäkerhetsgrupper (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
@@ -139,7 +139,7 @@ Azure Diagnostics loggar erbjuder flera konfigurationsalternativ som är, Azure-
 |Azure Batch|[Azure Batch-diagnostikloggning](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Azure Automation|[Logganalys för Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Händelsehubbar|[Azure Event Hubs diagnostiska loggar](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Event Hubs|[Azure Event Hubs diagnostiska loggar](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
 |Stream Analytics|[Jobbet diagnostikloggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Körnings-|
 |||Microsoft.StreamAnalytics/streamingjobs|Redigering|
@@ -358,7 +358,7 @@ Det finns fyra olika sätt att [att samla in loggar och mått för Azure-tjänst
 |Application Insights||     Anslutning|  Anslutning|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [anslutningsprogrammet (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation-konton|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostik||       [Mer information](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch-konton|    Microsoft.Batch/<br>batchAccounts|  Diagnostik|    Diagnostik||
-|Klassiska molntjänster||       Lagring||       [Mer information](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|Klassiska molntjänster||       Storage||       [Mer information](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>konton|       Diagnostik|||
 |Data Lake analytics|   Microsoft.DataLakeAnalytics/<br>konton|   Diagnostik|||
 |Data Lake store|   Microsoft.DataLakeStore/<br>konton|   Diagnostik|||
@@ -372,10 +372,10 @@ Det finns fyra olika sätt att [att samla in loggar och mått för Azure-tjänst
 |Recovery-valv|   Microsoft.RecoveryServices/<br>Valv|||[Azure Recovery Services Analytics (förhandsgranskning)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Söktjänster|   Microsoft.Search/<br>searchServices|    Diagnostik|    Diagnostik||
 |Service Bus-namnområde| Microsoft.ServiceBus/<br>namnområden|    Diagnostik|Diagnostik|    [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Lagring||    [Service Fabric Analytics (förhandsgranskning)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       Storage||    [Service Fabric Analytics (förhandsgranskning)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servrar /<br>databaser||       Diagnostik||
 ||Microsoft.Sql/<br>servrar /<br>elasticPools||||
-|Lagring|||         Skript| [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Storage|||         Skript| [Azure Storage Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Virtuella datorer|  Microsoft.Compute/<br>virtuella datorer|  Anknytning|  Anknytning||
 ||||Diagnostik||
 |Skalningsuppsättningar i virtuella datorer|   Microsoft.Compute/<br>virtuella datorer    ||Diagnostik||

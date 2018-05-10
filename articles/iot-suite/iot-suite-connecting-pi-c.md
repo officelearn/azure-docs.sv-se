@@ -1,12 +1,12 @@
 ---
-title: "Etablera hallon Pi till fjärråtkomst övervakning med hjälp av C - Azure | Microsoft Docs"
-description: "Beskriver hur du ansluter en hallon Pi-enhet till Azure IoT Suite förkonfigurerade fjärråtkomst övervakning lösningen med hjälp av ett program som skrivits i C."
+title: Etablera hallon Pi till fjärråtkomst övervakning med hjälp av C - Azure | Microsoft Docs
+description: Beskriver hur du ansluter en hallon Pi-enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i C.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 79a97dda31308cdd0ffeb1196a8a11e0f431803e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning förkonfigurerade lösningen (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till den fjärranslutna förkonfigurerade övervakningslösning. Precis som med de flesta embedded-program som körs på begränsad enheter, är klientkod för programmets hallon Pi enhet skriven i C. I den här självstudiekursen skapar du programmet på en hallon Pi Raspbian operativsystem.
+Den här kursen visar hur du ansluter en fysisk enhet till fjärråtkomst övervakning solution accelerator. Precis som med de flesta embedded-program som körs på begränsad enheter, är klientkod för programmets hallon Pi enhet skriven i C. I den här självstudiekursen skapar du programmet på en hallon Pi Raspbian operativsystem.
 
 ### <a name="required-hardware"></a>Nödvändig maskinvara
 
@@ -49,7 +49,7 @@ Du måste SSH-klienten på den stationära datorn så att du kan fjärransluta t
 
 Den här artikeln förutsätter att du har installerat den senaste versionen av den [Raspbian OS på din hallon Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-program som ansluter till den förkonfigurerade lösningen:
+Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-program som ansluter till solution accelerator:
 
 1. Anslut till din hallon Pi med **ssh**. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [hallon Pi webbplats](https://www.raspberrypi.org/).
 

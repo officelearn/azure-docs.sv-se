@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: e871fa8cd2228067b3a1511b74ff7a425d1dc9fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 86260e1929e8bd5c31682ef7f59cacae19a66020
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Skapa ett Azure Search-index med hjälp av REST-API:et
 > [!div class="op_single_selector"]
@@ -83,12 +83,12 @@ Observera att exakt ett fält i indexet av typen `Edm.String` måste definieras 
 Indexdefinitionen ovan använder ett språkanalysverktyg för `description_fr`-fältet eftersom det ska lagra fransk text. Mer information om språkanalysverktyg finns i [avsnittet om språkstöd](https://docs.microsoft.com/rest/api/searchservice/Language-support) och i motsvarande [blogginlägg](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
 ## <a name="issue-the-http-request"></a>Skicka HTTP-begäran
-1. Använd indexdefinitionen som begärandetext och skicka en HTTP POST-begäran till URL:en för Azure Search-tjänstens slutpunkt. I URL:en använder du tjänstnamnet som värdnamn och placerar rätt `api-version` som en frågesträngsparameter (den aktuella API-versionen är `2016-09-01` vid tidpunkten för publiceringen av det här dokumentet).
+1. Använd indexdefinitionen som begärandetext och skicka en HTTP POST-begäran till URL:en för Azure Search-tjänstens slutpunkt. I URL:en använder du tjänstnamnet som värdnamn och placerar rätt `api-version` som en frågesträngsparameter (den aktuella API-versionen är `2017-11-11` vid tidpunkten för publiceringen av det här dokumentet).
 2. I huvudena för begäran anger du `Content-Type` som `application/json`. Du måste också ange tjänstens administratörsnyckel som du identifierade i steg I i `api-key`-huvudet.
 
 Du måste ange ditt eget tjänstnamn och din egen API-nyckel för att skicka begäran nedan:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [api-key]
 
@@ -97,7 +97,7 @@ Statuskoden 201 (har skapats) bör returneras om begäran lyckades. Mer informat
 
 När du är klar med ett index och vill ta bort det skickar du bara en HTTP DELETE-begäran. Så här skulle vi till exempel göra om vi ville ta bort indexet ”hotels”:
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
     api-key: [api-key]
 
 

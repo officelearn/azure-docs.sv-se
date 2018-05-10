@@ -1,6 +1,6 @@
 ---
-title: "Med Visual Studio på en virtuell Azure-dator | Microsoft Docs"
-description: "Med Visual Studio på en virtuell Azure-dator."
+title: Med Visual Studio på en virtuell Azure-dator | Microsoft Docs
+description: Med Visual Studio på en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: PhilLee-MSFT
@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: e5b289b2be982653461c4f5b933e1ec444fa9716
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Med Visual Studio på en förkonfigurerad Azure virtuell dator (VM) är ett snabbt, enkelt sätt att gå från grunden till en upp och körs utvecklingsmiljö. -Avbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -29,12 +29,13 @@ Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microso
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
 Avbildningar för de senaste större versionerna, Visual Studio 2017 och Visual Studio 2015, finns i Azure Marketplace. För varje huvudversion visas den ursprungligen (RTW) versionen och de senaste uppdaterade versionerna. Var och en av dessa versioner erbjuder Visual Studio Enterprise- och Visual Studio Community-utgåvor. Dessa avbildningar uppdateras minst varje månad för att inkludera de senaste uppdateringarna för Visual Studio och Windows. När namnen på avbildningarna förblir detsamma, innehåller varje avbildningsbeskrivningen installerade produktversionen och bildens ”för” datum.
 
-| Versionen              | Versioner            | Produktversion     |
-|:-----------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Senaste (Version 15,5) |    Enterprise, Community     |      Version 15.6.0     |
-|         Visual Studio 2017: RTW           |    Enterprise, Community     |      Version 15.0.10    |
-|   Visual Studio 2015: Senaste (uppdatering 3)   |    Enterprise, Community     |  Version 14.0.25431.01  |
-|         Visual Studio 2015: RTW           |              Ingen            | (Upphört att gälla för underhåll) |
+| Versionen                                              | Versioner                     |     Produktversion     |
+|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017: Senaste (Version 15.7)                    |    Enterprise, Community     |      Version 15.7.0     |
+| Visual Studio 2017: Senaste Preview (Version 15.8 Preview 1) |    Enterprise, Community     |      Version 15.8.1     |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.13    |
+|   Visual Studio 2015: Senaste (uppdatering 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
+|         Visual Studio 2015: RTW                              |             Ingen             | (Upphört att gälla för underhåll) |
 
 > [!NOTE]
 > I enlighet med Microsoft behandling av princip, den ursprungligen (RTW) versionen av Visual Studio 2015 har upphört att gälla för behandling. Visual Studio 2015 Update 3 är den enda återstående versionen som erbjuds för produktserie Visual Studio 2015.
@@ -46,7 +47,7 @@ Varje avbildning innehåller rekommenderade funktionerna i den Visual Studio-ver
 
 * Alla tillgängliga arbetsbelastningar, inklusive varje arbetsbelastning rekommenderas valfria komponenter
 * .NET 4.6.2 och .NET 4.7 SDK: er, målobjekt Pack och utvecklingsverktygen
-* Visual F#
+* Visual F #
 * GitHub-tillägget för Visual Studio
 * LINQ to SQL-verktyg
 

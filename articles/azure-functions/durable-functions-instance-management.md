@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure-funktioner)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-För icke-.NET-språk funktionen utdatabindning kan användas för att starta samt nya instanser. I det här fallet kan JSON-serialiserbara objekt som har ovanstående tre parametrar som fält användas. Tänk dig följande Node.js-funktion:
+För icke-.NET-språk funktionen utdatabindning kan användas för att starta samt nya instanser. I det här fallet kan JSON-serialiserbara objekt som har ovanstående tre parametrar som fält användas. Tänk dig följande JavaScript-funktion:
 
 ```js
 module.exports = function (context, input) {
@@ -100,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Instans-frågan är för närvarande stöds endast för C# orchestrator-funktioner.
-
 ## <a name="terminating-instances"></a>Avslutande instanser
 
 En instans som körs orchestration kan avslutas med hjälp av den [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. De två parametrarna är en `instanceId` och en `reason` sträng som skrivs till loggarna och instansens status. En avslutade instans stoppas när den når nästa `await` plats, eller så avslutas omedelbart om det redan finns på en `await`. 
@@ -117,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Instansen avslutning är för närvarande stöds endast för C# orchestrator-funktioner.
 
 > [!NOTE]
 > Instansen avslutning sprida inte för närvarande. Aktiviteten funktioner och underordnade orkestreringarna körs klart oavsett om orchestration-instans som kallas dem har avslutats.
@@ -146,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Höja händelser stöds för närvarande endast för C# orchestrator-funktioner.
 
 > [!WARNING]
 > Om det finns ingen orchestration-instans med det angivna *instans-ID* eller om instansen inte väntar på den angivna *händelsenamnet*, händelsemeddelandet ignoreras. Mer information om det här problemet finns på [GitHub problemet](https://github.com/Azure/azure-functions-durable-extension/issues/29).

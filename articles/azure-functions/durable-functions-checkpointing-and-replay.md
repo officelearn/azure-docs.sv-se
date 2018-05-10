@@ -1,12 +1,12 @@
 ---
-title: "Kontrollpunkter och replay i varaktiga funktioner – Azure"
-description: "Lär dig hur kontrollpunkter och svar fungerar i tillägget varaktiga funktioner för Azure Functions."
+title: Kontrollpunkter och replay i varaktiga funktioner – Azure
+description: Lär dig hur kontrollpunkter och svar fungerar i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrollpunkter och replay i varaktiga funktioner (Azure-funktioner)
 
@@ -28,7 +28,9 @@ Trots detta garanterar varaktiga funktioner tillförlitlig körning av orkestrer
 
 ## <a name="orchestration-history"></a>Orchestration-historik
 
-Anta att du har följande orchestrator-funktion.
+Anta att du har följande orchestrator-funktion:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-På varje `await` instruktionen, beständiga aktiviteten Framework kontrollpunkter körningstillstånd för funktionen i tabellagring. Det här tillståndet är vad kallas den *orchestration historik*.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+På varje `await` (C#) eller `yield` (JavaScript)-instruktionen, beständiga aktiviteten Framework kontrollpunkter körningstillstånd för funktionen i tabellagring. Det här tillståndet är vad kallas den *orchestration historik*.
 
 ## <a name="history-table"></a>Historiktabellen
 
@@ -66,7 +83,7 @@ När åtgärden har slutförts ser något som liknar följande i Azure Table Sto
 | PartitionKey (InstanceId)                     | Händelsetyp             | Tidsstämpel               | Indata | Namn             | Resultat                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -79,7 +96,7 @@ När åtgärden har slutförts ser något som liknar följande i Azure Table Sto
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | ”” ”Hello London”! ””                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | ”[” ”Hello Tokyo”! ”,” ”Hello Seattle”! ”,” ”Hello London”! ”]” | Slutfört           | 
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | ”[” ”Hello Tokyo”! ”,” ”Hello Seattle”! ”,” ”Hello London”! ”]” | Slutförd           | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 Några anmärkningar på kolumnvärdena:

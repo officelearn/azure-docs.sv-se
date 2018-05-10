@@ -13,12 +13,14 @@
 
 ## Hantera Data Lake Analytics
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Kommandorad
+#### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDK:er
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Principer](data-lake-analytics-policies.md)
 ### [Få åtkomst till diagnostikloggar](data-lake-analytics-diagnostic-logs.md)
 ### [Justera kvotgränser](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [Programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Installera](data-lake-analytics-data-lake-tools-install.md)
 #### [Bläddra och visa jobb](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Felsöka anpassad C#-kod](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Felsöka återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

@@ -1,12 +1,12 @@
 ---
-title: "Etablera Linux enheter till Fjärrövervaknings i C - Azure | Microsoft Docs"
-description: "Beskriver hur du ansluter en enhet till Azure IoT Suite förkonfigurerade fjärråtkomst övervakning lösningen med hjälp av ett program som skrivits i C som körs på Linux."
-services: 
+title: Etablera Linux enheter till Fjärrövervaknings i C - Azure | Microsoft Docs
+description: Beskriver hur du ansluter en enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i C som körs på Linux.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 2c6b245e938b44891314c3e752c064ff152f2c9a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ccf2b185c5aa67b41aab650989ad0326aba0215
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Ansluta enheten till den fjärranslutna förkonfigurerade övervakningslösning (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ansluta enheten till fjärråtkomst övervakning solution accelerator (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till den fjärranslutna förkonfigurerade övervakningslösning.
+Den här kursen visar hur du ansluter en fysisk enhet till fjärråtkomst övervakning solution accelerator.
 
 ## <a name="create-a-c-client-project-on-linux"></a>Skapa ett projekt för C-klienten på Linux
 

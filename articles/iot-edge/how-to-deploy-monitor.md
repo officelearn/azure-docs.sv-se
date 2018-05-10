@@ -1,25 +1,25 @@
 ---
-title: "Distribuera, övervaka moduler för Azure IoT kant | Microsoft Docs"
-description: "Hantera de moduler som körs på enheter"
+title: Distribuera, övervaka moduler för Azure IoT kant | Microsoft Docs
+description: Hantera de moduler som körs på enheter
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuera och övervaka IoT kant moduler i skala - förhandsgranskning
 
 Azure IoT-gräns kan du flytta analytics kant och tillhandahåller ett gränssnitt för molnet så att du kan hantera och övervaka dina kant för IoT-enheter utan att behöva fysiskt kommer åt den. Möjlighet att hantera enheter blir allt viktigare som Internet of Things lösningar växer större och mer komplexa. Azure IoT-gräns är utformad för att stödja affärsmålen, oavsett hur många enheter som du lägger till.
 
-Du kan hantera enskilda enheter och distribuera moduler till dem i taget. Men om du vill göra ändringar i enheter på en stor skala kan du skapa en **IoT kant distribution**. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter samtidigt, spåra statusen och hälsan på moduler och göra ändringar när det behövs. 
+Du kan hantera enskilda enheter och distribuera moduler till dem i taget. Men om du vill göra ändringar i enheter på en stor skala kan du skapa en **IoT kant automatisk distribution**, vilket är en del av automatisk hantering av enheter i IoT-hubb. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter samtidigt, spåra statusen och hälsan på moduler och göra ändringar när det behövs. 
 
 ## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
 
@@ -67,7 +67,7 @@ Följ dessa steg om du vill lägga till en modul från Azure Stream Analytics:
 1. Välj **spara** modulen ska läggas till i distributionen. 
 
 Lägga till egen kod som en modul, eller att manuellt lägga till en Azure-tjänst-modul, gör du följande:
-1. Välj **lägga till kant för IoT-modulen**.
+1. Välj **Lägg till IoT Edge-modul**.
 1. Ge din modulen en **namn**.
 1. För den **avbildningen URI** anger Docker behållare bilden för. 
 1. Ange vilken **behållare skapa alternativ** som ska skickas till behållaren. Mer information finns i [docker skapa][lnk-docker-create].

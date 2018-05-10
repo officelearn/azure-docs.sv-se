@@ -1,6 +1,6 @@
 ---
-title: "Lär dig mer om kodare som rekommenderas av Azure Media Services | Microsoft Docs"
-description: "Lär dig mer om kodare som rekommenderas av media services"
+title: Lär dig mer om kodare som rekommenderas av Azure Media Services | Microsoft Docs
+description: Lär dig mer om kodare som rekommenderas av media services
 services: media-services
 keywords: kodning; kodare; media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: d0c5536d2339470eac058250cc14e1f250b86d90
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
 När direktsänd strömning med Azure Media Services kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du väljer att använda en lokal kodare med en live encoding kanal din kodare ska push-installera en dataström med enkel bithastighet av hög kvalitet som utdata. Om du väljer att använda en lokal kodare med en sändning via kanalen din kodare ska push-installera en dataström med multibithastighet som utdata med alla önskade utgående egenskaper. Mer information finns i [direktsänd strömning med lokala kodare](media-services-live-streaming-with-onprem-encoders.md).

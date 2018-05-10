@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 942ec7253bb011855a07c5ddbed0eebb9596644a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c9492d47461e95c7baa28f82b8a95fd7e370ac16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
 
@@ -42,7 +42,7 @@ För exemplet i den här snabbstarten behöver du anslutningssträngen för etab
 
 ## <a name="create-the-individual-enrollment-sample"></a>Skapa ett exempel på enskild registrering 
 
-Stegen i det här avsnittet visar hur du skapar en .NET Core-konsolapp som lägger till en enskild registrering för en TPM-tjänst till din etableringstjänst. Med vissa ändringar kan du även följa de här stegen för att skapa en [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot)-konsolapp för att lägga till den enskilda registreringen. Mer information om hur du utvecklar med IoT Core i finns i [Windows IoT Core-dokumentationen för utvecklare](https://docs.microsoft.com/en-us/windows/iot-core/).
+Stegen i det här avsnittet visar hur du skapar en .NET Core-konsolapp som lägger till en enskild registrering för en TPM-tjänst till din etableringstjänst. Med vissa ändringar kan du även följa de här stegen för att skapa en [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot)-konsolapp för att lägga till den enskilda registreringen. Mer information om hur du utvecklar med IoT Core i finns i [Windows IoT Core-dokumentationen för utvecklare](https://docs.microsoft.com/windows/iot-core/).
 1. I Visual Studio lägger du till ett Visual C# .NET Core-konsolprogramprojekt i den nya lösningen med hjälp av projektmallen **Konsolapp (.NET Core)**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **CreateTpmEnrollment**.
 
     ![Nytt Visual C# Windows Classic Desktop-projekt](media//quick-enroll-device-tpm-csharp/create-app.png)

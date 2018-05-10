@@ -1,12 +1,12 @@
 ---
-title: "Säkra din Sakernas Internet-distribution | Microsoft Docs"
-description: "Den här artikeln beskrivs hur du skyddar din IoT-distribution"
-services: 
+title: Säkra din Sakernas Internet-distribution | Microsoft Docs
+description: Den här artikeln beskrivs hur du skyddar din IoT-distribution
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 95c23341-16b0-4954-b3f2-d2e82ab7b367
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 3c2c5c045ad4786ed656fbaf99373644de244570
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## <a name="iot-suite-cipher-suites"></a>IoT Suite krypteringssviter
+## <a name="iot-solution-accelerator-cipher-suites"></a>IoT-lösningen accelerator krypteringssviter
 
-Azure IoT Suite stöder följande krypteringssviter i den här ordningen.
+IoT solution Accelerator stöder följande krypteringssviter i den här ordningen.
 
 | Chiffersvit | Längd |
 | --- | --- |
@@ -39,13 +39,13 @@ Azure IoT Suite stöder följande krypteringssviter i den här ordningen.
 | TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
 | TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
 | TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
+| TLS\_RSA\_WITH\_3DES\_Nederländerna\_CBC\_SHA (0xa) |112 |
 
 ## <a name="see-also"></a>Se också
-Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
+Du kan även utforska några av de andra funktionerna och funktioner i IoT solution Accelerator:
 
-* [Förutsägande Underhåll förkonfigurerade lösning: översikt][lnk-predictive-overview]
-* [Vanliga frågor och svar om IoT Suite][lnk-faq]
+* [Förutsägande Underhåll solution accelerator: översikt][lnk-predictive-overview]
+* [Vanliga frågor om IoT solution Accelerator][lnk-faq]
 
 Du kan läsa om IoT-hubb säkerhet i [styra åtkomsten till IoT-hubb] [ lnk-devguide-security] i utvecklarhandboken för IoT-hubb.
 

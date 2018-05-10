@@ -1,25 +1,25 @@
 ---
-title: Konfigurera ingång med Azure Container Service (AKS)-kluster
-description: Installera och konfigurera en domänkontrollant för en NGINX-ingång i ett kluster med Azure Container Service (AKS).
+title: Konfigurera ingång med Azure Kubernetes Service (AKS)-kluster
+description: Installera och konfigurera en domänkontrollant för en NGINX-ingång i ett kluster med Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: a6c9036a85e1c979d649896a9361e401f6f7cc0a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-ingång på Azure Container Service (AKS)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-ingång i Azure Kubernetes-tjänster (AKS)
 
 En domänkontrollant för en ingång är en typ av programvara som tillhandahåller omvänd proxy, konfigurera trafikroutning och TLS upphörande för Kubernetes tjänster. Kubernetes ingång resurser används för att konfigurera regler för inkommande trafik och vägar för enskilda Kubernetes-tjänster. Med hjälp av en domänkontrollant för en inkommande trafik och regler för inkommande trafik, kan en extern adress användas att dirigera trafik till flera tjänster i ett Kubernetes kluster.
 
-Det här dokumentet vägleder genom en exempeldistribution av den [NGINX ingång controller] [ nginx-ingress] i ett kluster med Azure Container Service (AKS). Dessutom kan den [KUBE LEGO] [ kube-lego] för att automatiskt generera och konfigurera [vi kryptera] [ lets-encrypt] certifikat. Slutligen körs flera program i klustret AKS, som är tillgänglig via en adress.
+Det här dokumentet vägleder genom en exempeldistribution av den [NGINX ingång controller] [ nginx-ingress] i ett kluster med Azure Kubernetes Service (AKS). Dessutom kan den [KUBE LEGO] [ kube-lego] för att automatiskt generera och konfigurera [vi kryptera] [ lets-encrypt] certifikat. Slutligen körs flera program i klustret AKS, som är tillgänglig via en adress.
 
 ## <a name="prerequisite"></a>Krav
 
@@ -46,9 +46,9 @@ Under installationen skapas en Azure offentliga IP-adress för meddelande om ing
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Eftersom inga meddelanden om ingångs-regler har skapats om du bläddrar till den offentliga IP-adressen, dirigeras till NGINX ingång domänkontrollanter standard 404-sidan.
@@ -63,7 +63,7 @@ Eftersom du använder HTTPS-certifikat, måste du konfigurera ett FQDN-namn för
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"

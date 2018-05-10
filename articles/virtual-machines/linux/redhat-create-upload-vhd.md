@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e0e0fdbb3702ec16e9d5a33659c1ddbee589b989
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
 I den här artikeln får du lära dig hur du förbereder en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. De versioner av RHEL som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om behörighetskraven för deltagande i programmet för Red Hat Molnåtkomst [Red Hat Molnåtkomst webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -159,7 +159,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
 5. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 6. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
 
@@ -411,7 +411,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
 6. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
 
-        # chkconfig network on
+        # sudo systemctl enable network
 
 7. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
 
@@ -665,7 +665,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
 
 3. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 4. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
 

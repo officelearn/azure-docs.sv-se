@@ -6,27 +6,27 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
 
 Azure händelse rutnätet har tre typer av autentisering:
 
 * Prenumerationer på händelser
-* Händelse-publicering
+* Publicering av händelser
 * WebHook händelse leverans
 
 ## <a name="webhook-event-delivery"></a>WebHook-händelse leverans
 
 Webhooks är en av många olika sätt att ta emot händelser från Azure Event rutnät. När en ny händelse är klar, skickar händelse rutnätet Webhooken en HTTP-begäran till konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
 
-När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifieringskoden att bevisa ägarskapet för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet leverera inte händelser till WebHook-slutpunkter som inte har gått verifieringen.
+När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifieringskoden att bevisa ägarskapet för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet leverera inte händelser till WebHook-slutpunkter som inte har gått verifieringen. Om du använder en tredjeparts-API-tjänsten (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt echo verifieringskoden. Du kan manuellt verifiera prenumerationen med hjälp av en verifiering URL som skickas i händelsen prenumeration verifiering för dessa tjänster. Kopiera Webbadressen och skickar en GET-begäran via ett REST-klient eller webbläsaren.
 
 ### <a name="validation-details"></a>Valideringsinformation
 
@@ -34,6 +34,7 @@ När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en PO
 * Innehåller ett huvudvärde ”Aeg Händelsetyp: SubscriptionValidation”.
 * Händelsemeddelandet innehåller samma schema som andra händelser med händelse rutnätet.
 * Händelsedata som innehåller egenskapen ”validationCode” med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
+* Händelsedata som inkluderar en ”validationUrl”-egenskap med en URL för manuellt verifiera prenumerationen.
 * Matrisen innehåller validering händelsen. Andra händelser skickas i en separat begäran när du tillbaka echo verifieringskoden.
 
 Ett exempel SubscriptionValidationEvent visas i följande exempel:
@@ -44,7 +45,8 @@ Ett exempel SubscriptionValidationEvent visas i följande exempel:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -60,6 +62,9 @@ För att bevisa endpoint ägarskap echo tillbaka i egenskapen validationResponse
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Eller så kan du manuellt verifiera prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelseprenumerationen förblir väntar tills verifieras.
+
 ### <a name="event-delivery-security"></a>Säkerhet med händelser leverans
 
 Du kan skydda webhook-slutpunkten genom att lägga till frågeparametrar Webhooksadressen när du skapar en händelse-prenumeration. Ange en av parametrarna fråga ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) som webhooken kan använda för att identifiera händelsen kommer från händelsen rutnät med giltig behörighet. Händelsen rutnätet tas dessa Frågeparametrar i varje händelse leverans till webhooken.

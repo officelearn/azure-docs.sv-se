@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
 Följande är några viktiga definitioner du behöver veta innan du läser guiden. I [SAP HANA (stora instanser) översikt och arkitektur för Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vi har fört två olika klasser av HANA stora instans enheter med:
 
 - S72, S72m, S144, S144m, S192 och S192m som vi kallar ”typen I klassen' av SKU: er.
-- S384, S384m, S384xm, S576, S768 och S960 som vi kallar ”typ II class-av SKU: er.
+- S384, S384m, S384xm, S576m, S768m och S960m som vi kallar ”typ II class-av SKU: er.
 
 Klass-specificerare kommer att användas i hela dokumentationen HANA stora instans att så småningom referera till olika funktioner och krav utifrån HANA stora instans SKU: er.
 
@@ -51,11 +51,11 @@ Kontrollera igen, särskilt när du planerar att installera HANA 2.0 [SAP stöd 
 
 Kontrollera följande parametrar i specifika, och slutligen justeras till:
 
-- net.core.rmem_max = 16777216
-- net.core.wmem_max = 16777216
-- net.core.rmem_default = 16777216
-- net.core.wmem_default = 16777216
-- net.core.optmem_max = 16777216
+- NET.Core.rmem_max = 16777216
+- NET.Core.wmem_max = 16777216
+- NET.Core.rmem_default = 16777216
+- NET.Core.wmem_default = 16777216
+- NET.Core.optmem_max = 16777216
 - net.ipv4.tcp_rmem = 65536 16777216 16777216
 - net.ipv4.tcp_wmem = 65536 16777216 16777216
 
@@ -92,7 +92,7 @@ En bladet konfiguration med två IP-adresser som tilldelats är inte lämplig f�
 
 
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Lagringslayout för SAP HANA i Azure (stora instanser) konfigureras av SAP HANA på Azure Service Management via SAP rekommenderade riktlinjer enligt beskrivningen i [lagringskraven för SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) vitboken. Ungefärlig storlek på olika volymer med de olika HANA stora instanser SKU: er fick dokumenterade i [SAP HANA (stora instans) översikt och arkitektur för Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -101,10 +101,10 @@ Namnkonventionerna för lagringsvolymer finns i följande tabell:
 | Lagringsanvändning | Monteringspunkt | Volymnamn | 
 | --- | --- | ---|
 | HANA data | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA logg | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
-| HANA loggsäkerhetskopiering | /Hana/log/Backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA delade | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
-| usr/sap | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA logg | /Hana/log/SID/mnt0000<m> | Lagring IP: / hana_log_SID_mnt00001_tenant_vol |
+| HANA loggsäkerhetskopiering | /Hana/log/Backups | Lagring IP: / hana_log_backups_SID_mnt00001_tenant_vol |
+| HANA delade | /Hana/Shared/SID | Lagring IP: / hana_shared_SID_mnt00001_tenant_vol/delade |
+| usr/sap | /usr/SAP/SID | Lagring IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Där SID = HANA instans System-ID 
 
@@ -139,9 +139,9 @@ Lagringsstyrenhet och noderna i stora instans stämplar synkroniseras till NTP-s
 För att optimera SAP HANA till lagring som används under, bör du också ange följande parametrar för SAP HANA-konfiguration:
 
 - max_parallel_io_requests 128
-- async_read_submit on
+- async_read_submit på
 - async_write_submit_active på
-- async_write_submit_blocks all
+- alla async_write_submit_blocks
  
 För SAP HANA 1.0 versioner upp till SPS12, dessa parametrar kan anges under installationen av SAP HANA-databas, enligt beskrivningen i [SAP Obs #2267798 - konfigurationen för SAP HANA-databas](https://launchpad.support.sap.com/#/notes/2267798)
 

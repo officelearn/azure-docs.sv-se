@@ -1,22 +1,22 @@
 ---
-title: "Hantering av enheter i fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "Den här kursen visar hur du hanterar enheter som är anslutna till den fjärranslutna övervakningslösning."
-services: 
+title: Hantering av enheter i fjärranslutna övervakningslösning - Azure | Microsoft Docs
+description: Den här kursen visar hur du hanterar enheter som är anslutna till den fjärranslutna övervakningslösning.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Hantera och konfigurera dina enheter
 
@@ -24,9 +24,9 @@ Den här kursen visar enheten funktioner för hantering av fjärråtkomst överv
 
 Contoso har beslutat nya maskiner att expandera en av sina resurser för att öka utdata. Medan du väntar nya maskiner som ska levereras som du vill köra en simulering om du vill kontrollera hur din lösning. Som en operator som du vill hantera och konfigurera enheterna i den fjärranslutna övervakningslösning.
 
-För att tillhandahålla en utökningsbar sätt att hantera och konfigurera enheter remote övervakningslösning använder IoT-hubb funktioner som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direkt metoder](../iot-hub/iot-hub-devguide-direct-methods.md). Information om hur enheten utvecklare implementerar metoderna på en fysisk enhet finns [anpassa fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-customize.md).
+För att tillhandahålla en utökningsbar sätt att hantera och konfigurera enheter remote övervakningslösning använder IoT-hubb funktioner som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direkt metoder](../iot-hub/iot-hub-devguide-direct-methods.md). Information om hur enheten utvecklare implementerar metoderna på en fysisk enhet finns [anpassa fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-customize.md).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
 > * Etablera en simulerad enhet.
@@ -38,7 +38,7 @@ I den här guiden får du lära dig hur man:
 
 Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
 
 ## <a name="add-a-simulated-device"></a>Lägg till en simulerad enhet
 
@@ -50,7 +50,7 @@ Lämna antalet enheter för att etablera inställd på **1**. Välj den **felakt
 
 ![Etablera en simulerad motorn-enhet](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-Mer information om hur du etablerar en *fysiska* enhet, finns [ansluta enheten till den fjärranslutna förkonfigurerade övervakningslösning](iot-suite-connecting-devices-node.md).
+Mer information om hur du etablerar en *fysiska* enhet, finns [ansluta enheten till fjärråtkomst övervakning solution accelerator](iot-suite-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Testa den simulerade enheten
 
@@ -68,11 +68,11 @@ Om du vill visa detaljerad diagnostik rulla visa **diagnostik**.
 
 ## <a name="act-on-a-device"></a>Fungerar på en enhet
 
-För att fungera på en eller flera enheter, markerar du dem i listan över enheter och välj sedan **schema**. Den **motorn** enhetsmodell anger fyra metoder måste ha stöd för en enhet:
+För att fungera på en eller flera enheter, markerar du dem i listan över enheter och välj sedan **jobb**. Den **motorn** enhetsmodell anger tre metoder måste ha stöd för en enhet:
 
 ![Motorn metoder](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Välj **starta om**, ange Jobbnamnet på **RestartEngine**, och välj sedan **Verkställ**:
+Välj **FillTank**, ange Jobbnamnet på **FillEngineTank**, och välj sedan **Verkställ**:
 
 ![Schemalägga restart-metoden](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -84,11 +84,11 @@ Spåra status för jobbet på den **Underhåll** väljer **jobb**:
 
 När du utforska de olika enhetstyper simulerade ser du att andra typer av enheter stöder olika metoder. I en distribution med fysiska enheter anger enhetsmodellen metoderna ska ha stöd för enheten. Normalt ansvarar enhet utvecklaren för att utveckla koden som gör att enheten fungerar som svar på ett metodanrop.
 
-Om du vill schemalägga en metod för att köras på flera enheter, kan du välja flera enheter i listan på den **enheter** sidan. Den **schema** panelen visas typerna av metoden som är gemensamma för alla valda enheter.
+Om du vill schemalägga en metod för att köras på flera enheter, kan du välja flera enheter i listan på den **enheter** sidan. Den **jobb** panelen visas typerna av metoden som är gemensamma för alla valda enheter.
 
 ## <a name="reconfigure-a-device"></a>Konfigurera om en enhet
 
-Om du vill ändra konfigurationen av en enhet väljer du den i listan över enheter på den **enheter** och väljer sedan **omkonfigurera**. Konfigurera om panelen visas egenskapsvärdena för den valda enheten som du kan ändra:
+Om du vill ändra konfigurationen av en enhet väljer du den i listan över enheter på den **enheter** sidan och väljer sedan **jobb**, och välj sedan **omkonfigurera**. Panelen jobb visar egenskapsvärdena för den valda enheten som du kan ändra:
 
 ![Konfigurera om en enhet](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
@@ -113,6 +113,6 @@ Nu när du har lärt dig hur du hanterar dina enheter, föreslagna nästa steg �
 
 * [Felsök och åtgärda enhetsproblem](iot-suite-remote-monitoring-maintain.md).
 * [Testa din lösning med simulerade enheter](iot-suite-remote-monitoring-test.md).
-* [Ansluta enheten till den fjärranslutna förkonfigurerade övervakningslösning](iot-suite-connecting-devices-node.md).
+* [Ansluta enheten till fjärråtkomst övervakning solution accelerator](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

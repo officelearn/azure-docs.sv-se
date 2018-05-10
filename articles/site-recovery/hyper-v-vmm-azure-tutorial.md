@@ -1,51 +1,51 @@
 ---
-title: "Ställ in haveriberedskap för lokala Hyper-V virtuella datorer i VMM-moln till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du ställer in haveriberedskap för lokala Hyper-V virtuella datorer i System Center VMM-moln till Azure med Azure Site Recovery-tjänsten."
+title: Ställ in haveriberedskap för lokala Hyper-V virtuella datorer i VMM-moln till Azure med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du ställer in haveriberedskap för lokala Hyper-V virtuella datorer i System Center VMM-moln till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 99477757c89fe2df7ae24b7ffe95c8fb7f470c93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a8bbbe0a5aca20222ff7385be9d0ecf0a4224d5c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Ställ in haveriberedskap för lokala Hyper-V virtuella datorer i VMM-moln till Azure
 
-Den [Azure Site Recovery](site-recovery-overview.md) tjänsten bidrar till din strategi för katastrofåterställning genom att hantera och samordna replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här kursen visar hur du ställer in haveriberedskap för lokala Hyper-V virtuella datorer till Azure. Kursen gäller för Hyper-V virtuella datorer som hanteras av System Center Virtual Machine Manager (VMM). I den här guiden får du lära dig hur man:
+Den här självstudiekursen visar hur du konfigurerar haveriberedskap för lokala virtuella Hyper-V-datorer till Azure. Kursen gäller för Hyper-V virtuella datorer som hanteras av System Center Virtual Machine Manager (VMM). I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Välj källa för replikering och målet.
-> * Konfigurera källmiljön för replikering, inklusive lokal Site Recovery-komponenter och replikering målmiljön.
+> * Väljer replikeringskälla och mål.
+> * Konfigurerar källmiljön för replikering, inklusive lokala Site Recovery-komponenter och målmiljön för replikeringen.
 > * Konfigurera nätverksmappning, för att mappa mellan VMM VM-nätverk och virtuella Azure-nätverk.
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en virtuell dator
 
-Detta är den tredje vägledningen i en serie. Den här kursen förutsätter att du redan har slutfört uppgifterna i de föregående självstudiekurser:
+Detta är den tredje självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna:
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
 2. [Förbereda lokala Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
 
-Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azure-architecture.md) för den här katastrofåterställning.
+Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azure-architecture.md) för detta haveriberedskapsscenario.
 
 
 
-## <a name="select-a-replication-goal"></a>Välj ett mål för replikering
+## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
 
 1. I **alla tjänster** > **Recovery Services-valv**, klicka på valvnamnet vi använder i de här kurserna **ContosoVMVault**.
-2. I **komma igång**, klickar du på **Site Recovery**. Klicka på **Förbered infrastrukturen**
-3. I **skyddsmål** > **där är dina datorer finns**väljer **lokalt**.
-4. I **där du vill replikera dina datorer**väljer **till Azure**.
+2. I **Komma igång** klickar du på **Site Recovery**. Klicka sedan på **Förbered infrastrukturen**.
+3. I **Skyddsmål** > **Var finns dina datorer?** väljer du **Lokalt**.
+4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
 5. I **är dina datorer virtualiserade**väljer **Ja, med Hyper-V**.
 6. I **använder du System Center VMM**väljer **Ja**. Klicka sedan på **OK**.
 
-    ![Målet för replikering](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
+    ![Replikeringsmål](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
 
 
@@ -53,21 +53,21 @@ Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azur
 
 När du ställer in källmiljön kan du installera Azure Site Recovery-providern och Azure Recovery Services-agenten och registrera lokala servrar i valvet. 
 
-1. I **Förbered infrastrukturen**, klickar du på **källa**.
+1. Klicka på **Källa** i **Förbereda infrastrukturen**.
 2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server. I **Lägg till Server**, kontrollera att **System Center VMM-servern** visas i **servertyp**.
 3. Hämta installationsprogrammet för Microsoft Azure Site Recovery-providern.
-4. Ladda ned valvregistreringsnyckeln. Du behöver detta när du kör installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
+4. Ladda ned valvregistreringsnyckeln. Du behöver den när du kör installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
 5. Hämta Recovery Services-agenten.
 
     ![Ladda ned](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Installera providern på VMM-servern
 
-1. I guiden installationsprogram för Azure Site Recovery > **Microsoft Update**, välja för att använda Microsoft Update för att söka efter uppdateringar för providern.
+1. I installationsguiden för Azure Site Recovery-providern > **Microsoft Update** väljer du att använda Microsoft Update för att söka efter uppdateringar för providern.
 2. I **Installation**accepterar standardinstallationsplatsen för providern och klickar på **installera**. 
 3. Efter installationen i Registreringsguiden för Microsoft Azure Site Recovery > **Valvinställningar**, klickar du på **Bläddra**, och i **nyckelfilen**väljer valvnyckeln fil som du laddas ned.
 4. Ange Azure Site Recovery-prenumerationen och valvnamnet (**ContosoVMVault**). Ange ett eget namn för VMM-servern att identifiera den i valvet.
-5. I **proxyinställningar**väljer **Anslut direkt till Azure Site Recovery utan en proxy**.
+5. I **Proxyinställningar** väljer du **Anslut direkt till Azure Site Recovery utan proxyserver**.
 6. Acceptera standardplatsen för det certifikat som används för att kryptera data. Krypterade data dekrypteras när du redundansväxlar.
 7. I **synkronisera molnmetadata**väljer **synka molnmetadata till Site Recovery-portalen**. Den här åtgärden behöver bara göras en gång på varje server. Klicka på **registrera**.
 8. När servern är registrerad i valvet, klickar du på **Slutför**.
@@ -87,9 +87,9 @@ Installera agenten på varje Hyper-V-värden som innehåller virtuella datorer d
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
-1. Klicka på **Förbered infrastruktur** > **mål**.
+1. Klicka på **Förbered infrastrukturen** > **Mål**.
 2. Välj prenumerationen och resursgruppen (**ContosoRG**) i som virtuella Azure-datorer skapas efter växling vid fel.
-3. Välj den **Resource Manager ”** distributionsmodell.
+3. Välj **Resource Manager**-distributionsmodellen.
 
 Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
@@ -104,27 +104,27 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 
     ![Nätverksmappning](./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png)
 
-## <a name="set-up-a-replication-policy"></a>Konfigurera en princip för lösenordsreplikering
+## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-1. Klicka på **Förbered infrastruktur** > **replikeringsinställningarna** > **+ skapa och koppla**.
-2. I **skapa och koppla princip**, ange ett principnamn **ContosoReplicationPolicy**.
-3. Lämna standardinställningarna och klickar på **OK**.
-    - **Kopieringsfrekvens** anger att delta data (efter den inledande replikeringen) replikeras var femte minut.
-    - **Kvarhållningstid för återställningspunkten** innebär det att kvarhållning windows för varje återställningspunkt två två timmar.
-    - **Frekvens av programkonsekventa ögonblicksbilder** anger att återställningspunkter som innehåller programkonsekventa ögonblicksbilder ska skapas varje timme.
-    - **Starttid för inledande replikering**, anger den första replikeringen startar omedelbart.
+1. Klicka på **Förbered infrastruktur** > **Replikeringsinställningar** > **+Skapa och koppla**.
+2. I **Princip för att skapa och koppla** anger du principnamnet **ContosoReplicationPolicy**.
+3. Låt standardvärdet stå kvar och klicka på **OK**.
+    - **Kopieringsfrekvens** anger att deltadata (efter den inledande replikeringen) replikeras var femte minut.
+    - **Kvarhållning av återställningspunkt** anger att kvarhållningsfönstret för varje återställningspunkt är två timmar.
+    - **Frekvens för appkonsekvent ögonblicksbild** anger att återställningspunkterna som innehåller appkonsekventa ögonblicksbilder skapas varje timme.
+    - **Starttid för inledande replikering** anger att den inledande replikeringen ska börja direkt.
     - **Kryptera data lagrade på Azure** -standard **av** innebär att vilande data i Azure inte är krypterad.
-4. När principen skapas, klickar du på **OK**. När du skapar en ny princip associeras den automatiskt med VMM-molnet.
+4. Klicka på **OK** när principen har skapats. När du skapar en ny princip associeras den automatiskt med VMM-molnet.
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-1. I **replikera program**, klickar du på **källa**. 
+1. Klicka på **Källa** i **Replikera program**. 
 2. I **källa**, Välj VMM-moln. Klicka sedan på **OK**.
 3. I **mål**kontrollerar Azure som mål, valvet-prenumerationen och välj den **Resource Manager** modell.
 4. Välj den **contosovmsacct1910171607** storage-konto och **ContosoASRnet** Azure-nätverk.
-5. I **virtuella datorer** > **Välj**, Välj den virtuella datorn som du vill replikera. Klicka sedan på **OK**.
+5. I **Virtuella datorer** > **Välj** väljer du den virtuella dator som du vill replikera. Klicka sedan på **OK**.
 
- Du kan följa förloppet för den **Aktivera skydd** åtgärden i **jobb** > **Site Recovery-jobb**. Efter den **Slutför skydd** jobbet är slutfört den inledande replikeringen är klar och den virtuella datorn är redo för redundans.
+ Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. Efter den **Slutför skydd** jobbet är slutfört den inledande replikeringen är klar och den virtuella datorn är redo för redundans.
 
 
 ## <a name="next-steps"></a>Nästa steg

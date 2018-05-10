@@ -1,24 +1,24 @@
 ---
-title: "Hur du använder Notification Hubs med PHP"
-description: "Lär dig hur du använder Azure Notification Hubs från PHP backend."
+title: Hur du använder Notification Hubs med PHP
+description: Lär dig hur du använder Azure Notification Hubs från PHP backend.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 06/07/2016
-ms.author: yuaxu
-ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Hur du använder Notification Hubs från PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -31,7 +31,7 @@ I det här avsnittet visar vi hur du:
 * Följ den [Get igång-kursen](notification-hubs-ios-apple-push-notification-apns-get-started.md) för din mobila plattform väljer implementera backend-delen i PHP.
 
 ## <a name="client-interface"></a>Klientgränssnitt
-Det huvudsakliga klientgränssnittet kan ge samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), detta kan du direkt översätta alla självstudier och exempel som är tillgängliga på den här platsen och tillhandahålls av gemenskapen på internet.
+Det huvudsakliga klientgränssnittet kan ge samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), som kan du direkt översätta alla självstudier och exempel som är tillgängliga på den här platsen och tillhandahålls av den Community på internet.
 
 Du hittar kod som är tillgängliga i den [PHP REST wrapper exempel].
 
@@ -45,7 +45,7 @@ Att skicka en iOS interna avisering:
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementering
-Om du inte redan gjort det, Följ våra [Get igång-kursen] upp till den senaste avsnitt där du måste implementera serverdel.
+Om du inte redan gjort det, följer du de [Get igång-kursen] upp till den senaste avsnitt där du måste implementera serverdel.
 Om du vill att du kan också använda koden från den [PHP REST wrapper exempel] och gå direkt till den [slutföra kursen](#complete-tutorial) avsnitt.
 
 All information du implementerar en fullständig REST-omslutning finns på [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskriver vi PHP-implementeringen av huvudsakliga steg för att komma åt Notification Hub REST-slutpunkter:
@@ -132,9 +132,9 @@ Låt oss först definiera en klass som representerar ett meddelande.
         }
     }
 
-Den här klassen är en behållare för en intern notification text eller en uppsättning egenskaperna i fall av ett meddelande om mallen och en uppsättning huvuden som innehåller plattformsspecifika egenskaper (till exempel Apple giltighetstid egenskap och WNS och format (intern plattform eller mall) rubriker).
+Den här klassen är en behållare för en intern notification text eller en uppsättning egenskaper i fallet med ett meddelande om mallen och en uppsättning sidhuvud, som innehåller plattformsspecifika egenskaper (till exempel Apple giltighetstid egenskap och WNS och format (intern plattform eller mall) rubriker).
 
-Mer information finns i [Notification Hub REST API: er dokumentationen](http://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelanden plattformar format för alla tillgängliga alternativ.
+Referera till den [Notification Hub REST API: er dokumentationen](http://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelanden plattformar format för alla tillgängliga alternativ.
 
 Tillsammans med den här klassen, vi kan nu skriva skicka Meddelandemetoder inuti den **NotificationHub** klass.
 

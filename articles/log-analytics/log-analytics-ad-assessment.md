@@ -1,11 +1,11 @@
 ---
-title: "Optimera din Active Directory-miljö med Azure Log Analytics | Microsoft Docs"
-description: "Du kan använda Active Directory Health Check-lösning för att bedöma risken och hälsotillståndet för dina miljöer regelbundna intervall."
+title: Optimera din Active Directory-miljö med Azure Log Analytics | Microsoft Docs
+description: Du kan använda Active Directory Health Check-lösning för att bedöma risken och hälsotillståndet för dina miljöer regelbundna intervall.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 016b5bafdf6543ad43e36a875e6aa68572b35f97
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med Active Directory Health Check-lösningen i logganalys
 
@@ -54,7 +54,7 @@ Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i do
 
 1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) om domänkontrollanten inte redan övervakas av System Center 2016 - Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 - Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen inte är integrerad med Log Analytics-tjänsten, domänkontrollanten kan vara multi-homed med logganalys samla in data och vidarebefordra till den tjänsten och fortfarande övervakas av Operations Manager.  
-3. Annars om hanteringsgruppen för Operations Manager är integrerat med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten följande under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-oms) när du har aktiverat lösning på arbetsytan.  
+3. Annars om hanteringsgruppen för Operations Manager är integrerat med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten följande under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösning på arbetsytan.  
 
 Agenten på en domänkontrollant att en Operations Manager-hanteringsgrupp samlar in data, vidarebefordrar till dess tilldelade hanteringsserver och skickas sedan direkt från en hanteringsserver till Log Analytics-tjänsten.  Data skrivs inte till Operations Manager-databaserna.  
 
@@ -64,7 +64,7 @@ Active Directory Health Check samlar in data från följande källor med agenten
 
 - Register
 - LDAP
-- .NET Framework
+- .NET framework
 - Händelseloggen
 - Active Directory Service interfaces (ADSI)
 - Windows PowerShell

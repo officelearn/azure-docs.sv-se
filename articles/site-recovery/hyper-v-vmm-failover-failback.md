@@ -1,24 +1,24 @@
 ---
-title: "Växla över och misslyckas tillbaka Hyper-V-datorer som replikeras till ett sekundärt datacenter med Site Recovery | Microsoft Docs"
-description: "Lär dig hur du växla över Hyper-V virtuella datorer till en sekundär lokal plats och växla tillbaka till primär plats med Azure Site Recovery"
+title: Växla över och misslyckas tillbaka Hyper-V-datorer som replikeras till ett sekundärt datacenter med Site Recovery | Microsoft Docs
+description: Lär dig hur du växla över Hyper-V virtuella datorer till en sekundär lokal plats och växla tillbaka till primär plats med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 3740ec9917499f6a1e87905befe86598a18f68e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f4207b8def3a5cd240b7a3ecdffde34a27f2a833
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Växla över och misslyckas tillbaka Hyper-V virtuella datorer som replikeras till en sekundär lokal plats
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten hanterar och samordnar replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
 
-Den här artikeln beskriver hur du redundansväxlar en Hyper-V virtuell dator som hanteras i ett moln med System Center Virtual Machine Manager (VMM), till en sekundär plats för VMM. När du har redundansväxlats växlar du tillbaka till den lokala platsen när den är tillgänglig. I den här artikeln får du lära dig hur du:
+Den här artikeln beskriver hur du redundansväxlar en Hyper-V virtuell dator som hanteras i ett moln med System Center Virtual Machine Manager (VMM), till en sekundär plats för VMM. När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Växla över en Hyper-V virtuell dator från en primär VMM-moln till en sekundär VMM-moln
@@ -51,18 +51,18 @@ Du kan köra en vanlig eller planerad redundans för Hyper-V virtuella datorer.
 Den här proceduren beskriver hur du kör en vanlig redundans.
 
 
-1. I **inställningar** > **replikerade objekt** klickar du på den virtuella datorn > **redundans**.
-2. I **redundans** väljer en **återställningspunkt** att växla över till. Du kan använda något av följande alternativ:
-    - **Senaste** (standard): det här alternativet först bearbetar alla data som skickas till Site Recovery. De ger den lägsta RPO (mål för återställningspunkt) eftersom replikerade virtuella datorn skapas efter växling vid fel har alla data som har replikerats till Site Recovery när redundans utlöstes.
-    - **Senaste bearbetas**: det här alternativet växlar den virtuella datorn till den senaste återställningspunkten som bearbetas av Site Recovery. Det här alternativet ger en låga RTO (mål), eftersom ingen tid läggs obearbetade data bearbetas.
-    - **Senaste programkonsekventa**: det här alternativet växlar den virtuella datorn till den senaste programkonsekventa återställningspunkten bearbetas av Site Recovery. 
+1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **+Redundans**.
+2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
+    - **Senaste** (standard): Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger den lägsta RPO (mål för återställningspunkt) eftersom replikerade virtuella datorn skapas efter växling vid fel har alla data som har replikerats till Site Recovery när redundans utlöstes.
+    - **Senaste bearbetade**: Alternativet redundansväxlar den virtuella datorn till den senaste återställningspunkt som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
+    - **Senaste appkonsekventa**: Det här alternativet redundansväxlar den virtuella datorn till den senaste appkonsekventa återställningspunkten som bearbetats av Site Recovery. 
 3. Krypteringsnyckeln är inte relevant i det här scenariot.
-4. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery att göra en avstängning av virtuella källdatorer innan växling vid fel. Site Recovery försöker synkronisera lokala data som ännu inte har skickats till den sekundära platsen innan växling vid fel. Observera att redundansväxlingen fortsätter även om avstängning misslyckas. Du kan följa förloppet för växling vid fel på den **jobb** sidan.
+4. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery att göra en avstängning av virtuella källdatorer innan växling vid fel. Site Recovery försöker synkronisera lokala data som ännu inte har skickats till den sekundära platsen innan växling vid fel. Observera att redundansväxlingen fortsätter även om avstängning misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 5. Nu bör du kunna se den virtuella datorn i sekundära VMM-molnet.
 6. När du har kontrollerat VM, **genomför** växling vid fel. Detta tar bort alla tillgängliga återställningspunkter.
 
 > [!WARNING]
-> **Inte avbryta en växling pågår**: innan redundans startas VM replikeringen har stoppats. Om du avbryter en växling pågår, stoppar för växling vid fel, men den virtuella datorn inte kommer att replikeras igen.  
+> **Avbryt inte en pågående redundansväxling**: Innan redundansen startas stoppas replikeringen av den virtuella datorn. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.  
 
 
 ## <a name="reprotect-and-fail-back"></a>Skydda igen och återställas

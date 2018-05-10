@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure IoT Hub-enhet twins (.NET/.NET) | Microsoft Docs"
-description: "Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Du kan använda Azure IoT-enhet SDK för .NET för att implementera appen simulerade enheten och tjänsten Azure IoT SDK för .NET att implementera en service-app som lägger till taggar och IoT-hubb-frågan körs."
+title: Kom igång med Azure IoT Hub-enhet twins (.NET/.NET) | Microsoft Docs
+description: Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Du kan använda Azure IoT-enhet SDK för .NET för att implementera appen simulerade enheten och tjänsten Azure IoT SDK för .NET att implementera en service-app som lägger till taggar och IoT-hubb-frågan körs.
 services: iot-hub
 documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: 6073d594117e69676b753a1e3af25fffa3583a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b337e463ac4aefd7e4644af4c2cdcad4f3c5300a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Kom igång med enheten twins (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -42,8 +42,6 @@ Den här kursen behöver du följande:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
-Om du vill skapa enhetens identitet programmässigt i stället läsa motsvarande avsnitt i den [ansluta din simulerade enhet till din IoT-hubb med hjälp av .NET] [ lnk-device-identity-csharp] artikel.
 
 ## <a name="create-the-service-app"></a>Skapa service-appen
 I det här avsnittet skapar du en .NET-konsolapp (med C#) som lägger till platsen metadata i enheten-dubbla som är associerade med **myDeviceId**. Frågar sedan enheten-twins lagras i IoT-hubb som att markera de enheter som finns i USA och de som rapporterats av en mobil anslutning.

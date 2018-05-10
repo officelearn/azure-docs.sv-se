@@ -21,12 +21,12 @@
         - name: Hanterad tjänstidentitet
           tocHref: /azure/active-directory/managed-service-identity/
           topicHref: /azure/active-directory/managed-service-identity/
-    - name: Active Directory B2C
-      tocHref: /azure/active-directory-b2c/
-      topicHref: /azure/active-directory-b2c/
-    - name: Active Directory Domain Services
-      tocHref: /azure/active-directory-domain-services/
-      topicHref: /azure/active-directory-domain-services/
+        - name: B2C
+          tocHref: /azure/active-directory-b2c/
+          topicHref: /azure/active-directory-b2c/
+        - name: Domain Services
+          tocHref: /azure/active-directory-domain-services/
+          topicHref: /azure/active-directory-domain-services/
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
@@ -77,7 +77,7 @@
     - name: Cost Management
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: Funktioner
+    - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
     - name: Azure Government
@@ -119,6 +119,9 @@
     - name: Biztalk Services
       tocHref: /azure/biztalk-services/
       topicHref: /azure/biztalk-services/
+    - name: Blockchain Workbench
+      tocHref: /azure/blockchain-workbench/
+      topicHref: /azure/blockchain-workbench/
     - name: Cache
       tocHref: /azure/cache/
       topicHref: /azure/cache/
@@ -138,7 +141,7 @@
         - name: Automatiska förslag i Bing
           tocHref: /azure/cognitive-services/Bing-Autosuggest/
           topicHref: /azure/cognitive-services/Bing-Autosuggest/
-        - name: Anpassad Bing-sökning
+        - name: Anpassad sökning i Bing
           tocHref: /azure/cognitive-services/bing-custom-search/
           topicHref: /azure/cognitive-services/bing-custom-search/
         - name: Entitetssökning i Bing
@@ -156,6 +159,9 @@
         - name: Videosökning i Bing
           tocHref: /azure/cognitive-services/Bing-Video-Search/
           topicHref: /azure/cognitive-services/Bing-Video-Search/
+        - name: Visuell sökning i Bing
+          tocHref: /azure/cognitive-services/bing-visual-search/
+          topicHref: /azure/cognitive-services/bing-visual-search/
         - name: Webbsökning i Bing
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
@@ -168,7 +174,7 @@
         - name: Tjänst för anpassat beslut
           tocHref: /azure/cognitive-services/custom-decision-service/
           topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-        - name: Tjänst för anpassat tal
+        - name: Custom Speech Service
           tocHref: /azure/cognitive-services/custom-speech-service/
           topicHref: /azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home
         - name: Talarigenkänning
@@ -180,16 +186,28 @@
         - name: Känsla
           tocHref: /azure/cognitive-services/emotion/
           topicHref: /azure/cognitive-services/emotion/home
-        - name: Länkning av entiteter
+        - name: Entity Linking
           tocHref: /azure/cognitive-services/entitylinking/
           topicHref: /azure/cognitive-services/entitylinking/home
+        - name: Avvikelsesökare
+          tocHref: /azure/cognitive-services/labs/anomaly-finder/
+          topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
+        - name: Konversationsdeltagare
+          tocHref: /azure/cognitive-services/labs/conversation-learner/
+          topicHref: /azure/cognitive-services/labs/conversation-learner/overview
+        - name: URL-förhandsgranskning
+          tocHref: /azure/cognitive-services/labs/url-preview/
+          topicHref: /azure/cognitive-services/labs/url-preview/overview
+        - name: Svarssökning
+          tocHref: /azure/cognitive-services/labs/answer-search/
+          topicHref: /azure/cognitive-services/labs/answer-search/overview
         - name: Ansikte
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
         - name: Utforska Knowledge
           tocHref: /azure/cognitive-services/kes/
           topicHref: /azure/cognitive-services/kes/overview
-        - name: Språkförståelse (LUIS)
+        - name: Language Understanding (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Språklig analys
@@ -198,22 +216,25 @@
         - name: QnA Maker
           tocHref: /azure/cognitive-services/qnamaker/
           topicHref: /azure/cognitive-services/qnamaker/home
-        - name: Tal
+        - name: Speech API
           tocHref: /azure/cognitive-services/Speech/
           topicHref: /azure/cognitive-services/Speech/home
+        - name: Taltjänst (förhandsversion)
+          tocHref: /azure/cognitive-services/Speech-Service/
+          topicHref: /azure/cognitive-services/Speech-Service/
         - name: Textanalys
           tocHref: /azure/cognitive-services/text-analytics/
           topicHref: /azure/cognitive-services/text-analytics/
         - name: Translator Text
           tocHref: /azure/cognitive-services/translator/
           topicHref: /azure/cognitive-services/translator/
-        - name: Talöversättning
+        - name: Translator Speech
           tocHref: /azure/cognitive-services/translator-speech/
           topicHref: /azure/cognitive-services/translator-speech/
-        - name: Videoindexering
+        - name: Video Indexer
           tocHref: /azure/cognitive-services/video-indexer/
           topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
-        - name: Webbspråksmodell
+        - name: Web Language Model
           tocHref: /azure/cognitive-services/web-language-model/
           topicHref: /azure/cognitive-services/web-language-model/home
     - name: Anslutningar
@@ -259,7 +280,7 @@
     - name: Event Grid
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: Händelsehubbar
+    - name: Event Hubs
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: ExpressRoute
@@ -309,15 +330,15 @@
         - name: IoT Hub
           tocHref: /azure/iot-hub/
           topicHref: /azure/iot-hub/
-        - name: IoT Hub Device Provisioning-tjänst
+        - name: IoT Hub Device Provisioning Service
           tocHref: /azure/iot-dps/
           topicHref: /azure/iot-dps/
-        - name: IoT Suite
+        - name: IoT-lösningsacceleratorer
           tocHref: /azure/iot-suite/
           topicHref: /azure/iot-suite/
-        - name: Platsbaserade tjänster
-          tocHref: /azure/location-based-services/
-          topicHref: /azure/location-based-services/
+        - name: Maps
+          tocHref: /azure/azure-maps/
+          topicHref: /azure/azure-maps/
         - name: Time Series Insights
           tocHref: /azure/time-series-insights/
           topicHref: /azure/time-series-insights/
@@ -327,7 +348,7 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Belastningsutjämnare
+    - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
@@ -341,8 +362,8 @@
       topicHref: /azure/machine-learning/
       items:
         - name: Tjänster (förhandsversion)
-          tocHref: /azure/machine-learning/preview
-          topicHref: /azure/machine-learning/preview/
+          tocHref: /azure/machine-learning/service
+          topicHref: /azure/machine-learning/service/
         - name: Studio
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
@@ -361,6 +382,13 @@
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
+      items:
+        - name: v3
+          tocHref: /azure/media-services/latest/
+          topicHref: /azure/media-services/latest/
+        - name: v2
+          tocHref: /azure/media-services/previous/
+          topicHref: /azure/media-services/previous/
     - name: Mobile Engagement
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/
@@ -474,7 +502,7 @@
     - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
-    - name: Lagring
+    - name: Storage
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
@@ -496,7 +524,7 @@
     - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
-    - name: Skalningsuppsättningar för Virtual Machines
+    - name: Virtual Machine Scale Sets
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
     - name: Virtuella datorer

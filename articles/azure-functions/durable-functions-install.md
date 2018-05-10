@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installera tillägget beständiga funktioner och exempel (Azure-funktioner)
 
 Den [varaktiga funktioner](durable-functions-overview.md) tillägget för Azure Functions finns i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Den här artikeln visar hur du installerar paketet och en uppsättning exempel för följande utvecklingsmiljöer:
 
-* Visual Studio 2017 (rekommenderas) 
-* Visual Studio-koden
+* Visual Studio 2017 (rekommenderas för C#) 
+* Visual Studio Code (rekommenderas för JavaScript)
 * Azure Portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -36,7 +36,7 @@ Visual Studio har för närvarande den bästa upplevelsen för att utveckla appa
 
 * Installera den [senaste versionen av Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 eller högre). Inkludera den **Azure-utveckling** arbetsbelastningen i din installationsalternativ.
 
-### <a name="start-with-sample-functions"></a>Börja med exempel funktioner
+### <a name="start-with-sample-functions"></a>Börja med exempel funktioner 
 
 1. Hämta den [Exempelapp ZIP-filen för Visual Studio](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). Du behöver inte lägga till NuGet-referens eftersom exempelprojektet har redan.
 2. Installera och köra [Azure Storage-emulatorn](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 eller senare. Alternativt kan du uppdatera den *local.appsettings.json* fil med verkliga Azure Storage-anslutningssträngar.
@@ -48,11 +48,11 @@ Visual Studio har för närvarande den bästa upplevelsen för att utveckla appa
 Följ samma anvisningar som börjar med exemplet, men gör du följande i stället för att hämta den *.zip* fil:
 
 1. Skapa en Funktionsapp-projekt.
-2. Sök efter de följande NuGet referens med *hantera Nuget-paket* och lägga till den i projektet: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (kontrollera *inkludera förhandsversion* Sök efter det här paketet)
+2. Sök efter de följande NuGet referens med *hantera NuGet-paket* och lägga till den i projektet: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (kontrollera *inkludera förhandsversion* till Sök efter det här paketet)
    
 ## <a name="visual-studio-code"></a>Visual Studio-koden
 
-Visual Studio Code tillhandahåller en lokal utveckling som omfattar alla större plattformar - Windows-, macOS- och Linux.  Dina funktioner kan köras lokalt och kan även publiceras till Azure. Du kan starta med ett tomt projekt eller en uppsättning exempel funktioner.
+Visual Studio Code tillhandahåller en lokal utveckling som omfattar alla större plattformar - Windows-, macOS- och Linux.  Dina funktioner kan köras lokalt och även att publicera till Azure. Du kan starta med ett tomt projekt eller en uppsättning exempel funktioner.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
@@ -63,24 +63,51 @@ Visual Studio Code tillhandahåller en lokal utveckling som omfattar alla störr
     >[!IMPORTANT]
     > Om du redan har Azure funktioner Cross Platform verktyg kan du uppdatera dem till den senaste tillgängliga versionen.
 
-*  Installera och köra [Azure Storage-emulatorn](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 eller senare. Alternativt kan du uppdatera den *local.appsettings.json* filen med verkliga Azure Storage-anslutning. 
+    >[!IMPORTANT]
+    >Beständiga funktioner i JavaScript kräver version 2.x Azure Functions Core verktyg.
+
+*  Om du är på en Windows-dator, installera och köra [Azure Storage-emulatorn](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 eller senare. Alternativt kan du uppdatera den *local.appsettings.json* filen med verkliga Azure Storage-anslutning. 
 
 
 ### <a name="start-with-sample-functions"></a>Börja med exempel funktioner
+
+#### <a name="c"></a>C#
 
 1. Klona den [varaktiga funktioner databasen](https://github.com/Azure/azure-functions-durable-extension.git).
 2. Navigera på din dator till den [exempelmapp för C#-skriptet](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
 3. Installera Azure Functions varaktiga tillägg genom att köra följande i ett kommando fråga / terminal fönstret:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 4. Installera Azure Functions Twilio tillägg genom att köra följande i ett kommando fråga / terminal fönstret:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
     ```
 5. Kör Azure Storage-emulatorn eller uppdatera den *local.appsettings.json* filen verkliga Azure Storage-anslutningssträng.
+6. Öppna projektet i Visual Studio-koden. 
+7. Börja med instruktioner om hur du kör exemplet [fungerar länkning – Hello sekvens exempel](durable-functions-sequence.md). Exemplet kan köra lokalt eller publiceras på Azure.
+8. Starta projektet genom att köra kommandot fråga / terminal följande kommando:
+    ```bash
+    func host start
+    ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+1. Klona den [varaktiga funktioner databasen](https://github.com/Azure/azure-functions-durable-extension.git).
+2. Navigera på din dator till den [JavaScript exempelmapp](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
+3. Installera Azure Functions varaktiga tillägg genom att köra följande i ett kommando fråga / terminal fönstret:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    ```
+4. Återställ npm-paket genom att köra följande i ett kommando fråga / terminal fönstret:
+    
+    ```bash
+    npm install
+    ``` 
+5. Uppdatering av *local.appsettings.json* filen med den verkliga Azure Storage-anslutningssträngen.
 6. Öppna projektet i Visual Studio-koden. 
 7. Börja med instruktioner om hur du kör exemplet [fungerar länkning – Hello sekvens exempel](durable-functions-sequence.md). Exemplet kan köra lokalt eller publiceras på Azure.
 8. Starta projektet genom att köra kommandot fråga / terminal följande kommando:
@@ -94,7 +121,7 @@ Visual Studio Code tillhandahåller en lokal utveckling som omfattar alla störr
 2. Installera tillägget Azure Functions varaktigt genom att köra följande i ett kommando fråga / terminal fönstret:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 3. Skapa en Funktionsapp projekt genom att köra följande kommando:
 
@@ -119,6 +146,9 @@ Visual Studio Code tillhandahåller en lokal utveckling som omfattar alla störr
 ## <a name="azure-portal"></a>Azure Portal
 
 Om du vill kan använda du Azure portal för utveckling av beständiga funktioner.
+
+   > [!NOTE]
+   > Beständiga funktioner i JavaScript är ännu inte tillgängliga i portalen.
 
 ### <a name="create-an-orchestrator-function"></a>Skapa en orchestrator-funktion
 

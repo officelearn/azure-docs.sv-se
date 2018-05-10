@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: asgang
-ms.openlocfilehash: 44f2016dacf1433cfe3a61058a167c42700e37d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9bfe181b2271f4e8af6f43e1728167712dade8ee
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Felsöka Azure Site Recovery-tillägg-fel: problem med agenten eller tillägg
 
@@ -31,6 +31,13 @@ Felkod: ”151076”
 **Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Orsak 3: [Site Recovery-tillägg som inte går att uppdatera eller läsa in](#the-site-recovery-extension-fails-to-update-or-load)**  
 
+Felmeddelande: ”föregående site recovery tillägget åtgärden tar längre tid än förväntat”.<br>
+Felkod: ”150066”<br>
+
+**Orsak 1: [agenten är installerad på den virtuella datorn, men det är inte svarar (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Orsak 3: [Site Recovery tillståndets status är felaktig](#the-site-recovery-extension-fails-to-update-or-load)**  
+
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>Skyddet fungerar inte eftersom VM-agenten inte svarar
 
 Felmeddelande: ”uppgiftskörningen nåddes när tillägget åtgärd ska startas”.<br>
@@ -43,7 +50,11 @@ Du kan kontrollera status för Azure gästagenten i [Azure-portalen](https://por
 **Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
+Felmeddelande: ”uppgiftskörningen nåddes när tillägget åtgärd ska startas”.<br>
+Felkod: ”151095”<br>
 
+Detta kan inträffa när agentversionen på Linux-dator är gammal. Slutför följande steg i felsökningen.<br>
+  **Orsak 1: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agenten är installerad på den virtuella datorn, men det är inte svarar (för virtuella Windows-datorer)

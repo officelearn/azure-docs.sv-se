@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Suite fjärråtkomst övervakning och svar | Microsoft Docs
-description: Vanliga frågor om IoT Suite remote förkonfigurerade övervakningslösning
+title: Fjärråtkomst övervakning solution accelerator vanliga frågor och svar | Microsoft Docs
+description: Vanliga frågor om Fjärrövervaknings solution accelerator
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1cc260710d025428a1ca77c41c104dc172447e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>Vanliga frågor om IoT Suite remote förkonfigurerade övervakningslösning
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Vanliga frågor om Fjärrövervaknings solution accelerator
 
 Se även allmänna [vanliga frågor och svar](iot-suite-faq.md).
 
 ### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hur mycket kostar det för att etablera nya remote övervakningslösning?
 
-Den nya förkonfigurerade lösningen erbjuder två distributionsalternativ:
+Nya solution accelerator erbjuder två distributionsalternativ:
 
 * En *grundläggande* alternativ som har utformats för utvecklare som söker efter lägre kostnader för utveckling eller kunder som planerar för att skapa ett demo eller konceptbevis.
 * En *standard* alternativ som har utformats för företag som vill distribuera en infrastruktur för klar för produktion.
@@ -44,15 +44,11 @@ Varje distributionsalternativ svarar på olika behov. Den grundläggande distrib
 
 Mer information finns i [uppgradera kartan för att se enheter på en dynamisk karta](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hur många kostnadsfria Bing Maps-API:er kan jag etablera i en prenumeration?
-
-Två. Du kan skapa två interna transaktioner nivå 1 Bing Maps för Enterprise planer i en Azure-prenumeration. Fjärråtkomst övervakningslösning etableras som standard med interna transaktioner nivå 1-plan. Detta betyder att du bara kan etablera upp till två fjärrövervakningslösningar i en prenumeration utan några ändringar.
-
 ### <a name="next-steps"></a>Nästa steg
 
-Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
+Du kan även utforska några av de andra funktionerna och funktioner i IoT solution Accelerator:
 
-* [Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-explore.md)
-* [Förutsägande Underhåll förkonfigurerade lösning: översikt](iot-suite-predictive-overview.md)
-* [Anslutna factory förkonfigurerade lösning: översikt](iot-suite-connected-factory-overview.md)
+* [Utforska funktionerna i fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-explore.md)
+* [Förutsägande Underhåll solution accelerator: översikt](iot-suite-predictive-overview.md)
+* [Anslutna Factory solution accelerator översikt](iot-suite-connected-factory-overview.md)
 * [IoT-säkerhet från grunden](securing-iot-ground-up.md)

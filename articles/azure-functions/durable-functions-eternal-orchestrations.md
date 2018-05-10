@@ -1,12 +1,12 @@
 ---
-title: "Eternal orkestreringarna i varaktiga funktioner – Azure"
-description: "Lär dig hur du implementerar eternal orkestreringarna med filnamnstillägget varaktiga funktioner för Azure Functions."
+title: Eternal orkestreringarna i varaktiga funktioner – Azure
+description: Lär dig hur du implementerar eternal orkestreringarna med filnamnstillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal orkestreringarna i varaktiga funktioner (Azure-funktioner)
 
@@ -36,6 +36,9 @@ När `ContinueAsNew` anropas, instans enqueues ett meddelande till sig själv in
 
 > [!NOTE]
 > Beständiga aktiviteten Framework behålls samma instans-ID men internt skapar en ny *körnings-ID* för orchestrator-funktionen som hämtar återställs av `ContinueAsNew`. Körnings-ID är vanligtvis inte exponerad externt, men det kan vara bra att känna till när du felsöker orchestration-körning.
+
+> [!NOTE]
+> Den `ContinueAsNew` metoden är ännu inte tillgänglig i JavaScript.
 
 ## <a name="periodic-work-example"></a>Periodiska arbetsuppgifter exempel
 

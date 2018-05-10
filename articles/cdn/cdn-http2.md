@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>HTTP-2-stöd i Azure CDN
 
@@ -29,7 +29,7 @@ Fördelarna med HTTP/2 inkluderar:
 
 *   **Multiplexering och samtidighet**
 
-    Med HTTP 1.1 flera gör flera förfrågningar för resursen kräver flera TCP-anslutningar och varje anslutning har prestanda försämras som är kopplade till den. HTTP-2 kan flera resurser som krävs för en TCP-anslutning.
+    Gör flera förfrågningar för resursen kräver flera TCP-anslutningar HTTP 1.1 och varje anslutning har prestanda försämras som är kopplade till den. HTTP-2 kan flera resurser som krävs för en TCP-anslutning.
 
 *   **Komprimering av huvud**
 
@@ -37,12 +37,12 @@ Fördelarna med HTTP/2 inkluderar:
 
 *   **Stream-beroenden**
 
-    Dataströmmen beroenden kan klienten för att ange att servern där resurser har prioritet.
+    Dataströmmen beroenden kan klienten för att ange att servern vilka resurser som har prioritet.
 
 
 ## <a name="http2-browser-support"></a>Stöd för HTTP-2-webbläsare
 
-Alla större webbläsare har implementerat HTTP/2-stöd i aktuell version. Webbläsare som inte stöds kommer den automatiskt reserv vid HTTP/1.1.
+Alla större webbläsare har implementerat HTTP/2-stöd i aktuell version. Icke-webbläsare som stöds i automatiskt reserv vid HTTP/1.1.
 
 |Webbläsare|Lägsta Version|
 |-------------|------------|
@@ -54,7 +54,7 @@ Alla större webbläsare har implementerat HTTP/2-stöd i aktuell version. Webbl
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Aktivera HTTP-2-stöd i Azure CDN
 
-För närvarande stöd för HTTP-2 är aktiv för **Azure CDN från Akamai** och **Azure CDN från Verizon** profiler. Ingen ytterligare åtgärd krävs från kunder.
+Stöd för HTTP-2 är för närvarande aktiva för alla Azure CDN-profiler. Ingen ytterligare åtgärd krävs från kunder.
 
 ## <a name="next-steps"></a>Nästa steg
 

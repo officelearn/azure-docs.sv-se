@@ -1,19 +1,34 @@
 - name: Dokumentation om Azure HDInsight
   href: /azure/hdinsight
-- name: Kafka på HDInsight
+- name: Översikt
   items:
-    - name: Översikt
+    - name: Om Kafka på HDInsight
       href: apache-kafka-introduction.md
     - name: Versionshantering för komponenter
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Kom igång
+- name: Snabbstarter
   items:
-    - name: Skapa ett Kafka-kluster
+    - name: Skapa ett Kafka-kluster – Portal
       href: apache-kafka-get-started.md
-    - name: Installera HDInsight-appar
-      href: ../hdinsight-apps-install-applications.md
+    - name: Skapa ett Kafka-kluster – PowerShell
+      href: apache-kafka-quickstart-powershell.md
+    - name: Skapa ett Kafka-kluster – Mall
+      href: apache-kafka-quickstart-resource-manager-template.md
+- name: Självstudier
+  items:
+    - name: Kafka och Spark
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
+    - name: Kafka och Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
+      maintainContext: true
+    - name: Kafka-producent och konsument-API
+      href: apache-kafka-producer-consumer-api.md
+    - name: Kafka Streams-API
+      href: apache-kafka-streams-api.md
+- name: Begrepp
+  items:
     - name: Kapacitetsplanering
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -23,6 +38,11 @@
       href: apache-kafka-high-availability.md
 - name: Gör så här för att
   items:
+    - name: Aktivera funktionen för att skapa ämnen automatiskt
+      href: apache-kafka-auto-create-topics.md
+    - name: Installera HDInsight-appar
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Använda Kafka i ett virtuellt nätverk
       href: apache-kafka-connect-vpn-gateway.md
     - name: Replikera Kafka-data
@@ -31,17 +51,11 @@
       href: apache-kafka-log-analytics-operations-management.md
     - name: Skapa strömningspipelines
       items:
-        - name: Kafka och Spark (Structured Streaming)
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-          maintainContext: true
-        - name: Strukturerad direktuppspelning från Kafka till Azure Cosmos DB
+        - name: 'Spark, Kafka och Azure Cosmos DB'
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka och Spark (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
-        - name: Kafka och Storm
-          href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
         - name: Använda Kafka med Azure Container Service
           href: apache-kafka-azure-container-services.md
@@ -49,10 +63,6 @@
           href: apache-kafka-azure-functions.md
     - name: Utveckla
       items:
-        - name: Använda Kafka-producent och konsument-API
-          href: apache-kafka-producer-consumer-api.md
-        - name: Använda Kafka Streams-API
-          href: apache-kafka-streams-api.md
         - name: Använda tomma kantnoder
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

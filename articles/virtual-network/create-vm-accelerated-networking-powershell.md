@@ -3,8 +3,8 @@ title: Skapa en virtuell Azure-dator med snabbare nätverk | Microsoft Docs
 description: Lär dig hur du skapar en virtuell Linux-dator med snabbare nätverk.
 services: virtual-network
 documentationcenter: ''
-author: jdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
-ms.author: jimdial
-ms.openlocfilehash: 6d7e41b2b631fcecefd835a10e9b91fd9bb3f17d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: gsilva
+ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med snabbare nätverk
 
@@ -270,7 +270,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Kontrollera har anteckningen, en VMSS VM-uppgraderingar som tillämpa uppdateringar med hjälp av tre olika inställningar automatiskt, rullande och manuellt.  I de här anvisningarna är policyn inställd på automatisk så att VMSS ska hämta upp ändringarna direkt efter omstart.  Ange det till automatiskt så att ändringarna är omedelbart tas upp: 
 
-```azurecli
+```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
 
 Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
@@ -280,7 +280,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Slutligen ska du starta om VMSS:
 
-```azurecli
+```azurepowershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```

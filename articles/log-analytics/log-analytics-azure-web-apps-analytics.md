@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla webbprogram i Azure-resurser
 
@@ -57,7 +57,7 @@ Till skillnad från de flesta andra logganalys-lösningar är inte samlas in fö
 Utför följande steg för att konfigurera Azure Web Apps Analytics lösningen för dina arbetsytor.
 
 1. Aktivera Azure Web Apps Analytics-lösning från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
-2. [Aktivera loggning för Azure-resurs mått till OMS med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Aktivera loggning för Azure-resurs mått till Log Analytics med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 Azure Web Apps Analytics lösningen samlar in två olika mått från Azure:
 
@@ -77,10 +77,6 @@ Azure Web Apps Analytics lösningen samlar in två olika mått från Azure:
   - Minnesprocent
 
 App Service-Plan mått samlas endast in om du använder en särskild service-plan. Detta gäller inte för kostnadsfri eller delad App Service-planer.
-
-Om du lägger till lösningen med OMS-portalen, visas följande sida vid sida. Du behöver [aktivera loggning för Azure-resurs mått till OMS med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Utför Assessment meddelande](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 När du har konfigurerat lösningen ska data börjar flöda till din arbetsyta inom 15 minuter.
 

@@ -1,45 +1,45 @@
 ---
 title: Azure Notification Hub bort meddelande diagnos
-description: "Lär dig att felsöka vanliga problem med borttagna meddelanden i Azure Notification Hubs."
+description: Lär dig att felsöka vanliga problem med borttagna meddelanden i Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnostisera utelämnade aviseringar i Notification Hubs
 
 En av de vanligaste frågorna från Azure Notification Hubs kunder är hur du felsöker när meddelanden som skickas från ett program inte visas på klientenheter. De vill veta när och varför meddelanden har tagits bort och hur du löser problemet. Den här artikeln identifierar varför meddelanden kan hämta bort eller inte kan tas emot av enheter. Lär dig hur du analyserar och avgöra den bakomliggande orsaken. 
 
-Det är viktigt att först förstå hur Meddelandehubbar skickar meddelanden till en enhet.
+Det är viktigt att först förstå hur tjänsten Meddelandehubbar skickar meddelanden till en enhet.
 
 ![Notification Hubs-arkitektur][0]
 
 I en typisk skicka meddelande flöde meddelandet har skickats från den *programmet serverdel* till Notification Hubs. Notification Hubs stöder vissa bearbetning på alla registreringar. Bearbetningen tar hänsyn till de konfigurerade taggar och Tagguttryck att fastställa ”mål”. Mål är alla registreringar som behöver ta emot push-meddelande. Dessa registreringar kan sträcka sig över några eller alla våra plattformar som stöds: iOS, Google, Windows, Windows Phone, Kindle och Baidu för Kina Android.
 
-Med de mål som upprättats Meddelandehubbar skickar meddelanden till den *push notification service* för enhetsplattformen. Exempel inkluderar Apple Push Notification service (APNs) för Apple och Firebase Cloud Messaging (FCM) för Google. Notification Hubs push-meddelanden dela upp på flera batchar av registreringar. Notification Hubs autentiserar med respektive push notification-tjänsten baserat på de autentiseringsuppgifter som du anger i Azure-portalen under **konfigurera Meddelandehubben**. Push-meddelande tjänsten sedan vidarebefordrar aviseringar till respektive *klientenheter*. 
+Med de mål som upprättats Meddelandehubbar tjänsten skickar meddelanden till den *push notification service* för enhetsplattformen. Exempel inkluderar Apple Push Notification service (APNs) för Apple och Firebase Cloud Messaging (FCM) för Google. Notification Hubs push-meddelanden dela upp på flera batchar av registreringar. Notification Hubs autentiserar med respektive push notification-tjänsten baserat på de autentiseringsuppgifter som du anger i Azure-portalen under **konfigurera Meddelandehubben**. Push-meddelande tjänsten sedan vidarebefordrar aviseringar till respektive *klientenheter*. 
 
-Observera att den sista delen av Meddelandeleveransen sker mellan plattform push notification service och enheten. Fyra viktiga komponenter i push notification-processen (klient, serverdelen för programmet, Meddelandehubbar och plattform push notification service) kan medföra att meddelanden tas bort. Mer information om Notification Hubs-arkitekturen finns [översikt över Notification Hubs].
+Den sista delen av Meddelandeleveransen äger rum mellan plattform push notification service och enheten. Fyra viktiga komponenter i push notification-processen (klient, serverdelen för programmet, Meddelandehubbar och plattform push notification service) kan medföra att meddelanden tas bort. Mer information om Notification Hubs-arkitekturen finns [översikt över Notification Hubs].
 
 Det gick inte att leverera meddelanden kan uppstå under första/testning fasen. Utelämnade aviseringar i det här skedet kan tyda på ett konfigurationsproblem. Om det uppstår fel att leverera meddelanden i produktion, kan vissa eller alla meddelanden släppas. I det här fallet anges en djupare program eller messaging mönster problemet. 
 
 I nästa avsnitt tittar på scenarier där meddelanden kan tas bort, allt från vanliga till mer ovanliga.
 
 ## <a name="notification-hubs-misconfiguration"></a>Notification Hubs felaktig konfiguration
-Om du vill skicka meddelanden till respektive push notification-tjänsten kan måste Meddelandehubbar autentisera sig själv i samband med utvecklarens program. För det här inträffar skapar utvecklare ett utvecklarkonto med respektive plattforms (Google, Apple, Windows och så vidare). Sedan registrerar utvecklaren sina program med plattformens där de kan hämta autentiseringsuppgifter. 
+Om du vill skicka meddelanden till respektive push notification-tjänsten kan måste tjänsten Meddelandehubbar autentisera sig själv i samband med utvecklarens program. För det här inträffar skapar utvecklare ett utvecklarkonto med respektive plattforms (Google, Apple, Windows och så vidare). Sedan registrerar utvecklaren sina program med plattformens där de kan hämta autentiseringsuppgifter. 
 
 Du måste lägga till plattformen autentiseringsuppgifter till Azure-portalen. Om inga meddelanden ansluter till enheten, vara det första steget att säkerställa att rätt autentiseringsuppgifter har konfigurerats på Notification Hubs. Autentiseringsuppgifterna måste överensstämma med det program som har skapats under en plattformsspecifik utvecklarkonto. 
 
@@ -88,7 +88,7 @@ Här följer några vanliga felinställningar att söka efter:
 
 * **Ogiltig registreringar**
 
-    Ogiltigt mål finns om notification hub har konfigurerats korrekt och om alla taggar eller Tagguttryck användes på rätt sätt. Meddelanden ska skickas till dessa mål. Notification Hubs sedan utlöses av flera bearbetning batchar parallellt. Varje grupp som skickar meddelanden till en uppsättning registreringar. 
+    Ogiltigt mål finns om notification hub har konfigurerats korrekt och om alla taggar eller Tagguttryck användes på rätt sätt. Meddelanden ska skickas till dessa mål. Notification Hubs-tjänst och utlöses av flera bearbetning batchar parallellt. Varje grupp som skickar meddelanden till en uppsättning registreringar. 
 
     > [!NOTE]
     > Den ordning som meddelanden levereras garanteras inte eftersom bearbetning utförs parallellt. 
@@ -102,7 +102,7 @@ Här följer några vanliga felinställningar att söka efter:
     Om du vill ha mer felinformation om försöket inte mot en registrering kan du använda Notification Hub REST-API: er [Per meddelande telemetri: hämta meddelanden meddelande telemetri](https://msdn.microsoft.com/library/azure/mt608135.aspx) och [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). Exempelkod finns i [skicka REST exempel](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Push notification service problem
-När meddelandet har tagits emot av plattform push notification service, ansvarar push notification service att leverera meddelandet till enheten. Nu Meddelandehubbar ligger utanför bilden och har ingen kontroll över när eller om meddelandet levereras till enheten. 
+När meddelandet har tagits emot av plattform push notification service, ansvarar push notification service att leverera meddelandet till enheten. Nu tjänsten Meddelandehubbar ligger utanför bilden och har ingen kontroll över när eller om meddelandet levereras till enheten. 
 
 Eftersom platform notification services är stabilt, tenderar meddelanden att nå enheter från push notification-tjänsten inom några sekunder. Om begränsning push notification-tjänsten är gäller Meddelandehubbar exponentiell inte strategi. Push notification-tjänsten är inte kan nås i 30 minuter, har vi en princip för att gälla och släpp meddelandena permanent. 
 
@@ -120,7 +120,7 @@ Här följer sökvägar till diagnostisera orsaken till ignorerade meddelanden i
    
     Kontrollera autentiseringsuppgifterna i respektive push notification service developer portal (APN, FCM, Windows Notification Service och så vidare). Mer information finns i [Kom igång med Azure Notification Hubs].
 
-* **Azure-portalen**
+* **Azure Portal**
    
     Om du vill granska och överensstämma med autentiseringsuppgifterna med de som du fick från den push notification service developer-portalen i Azure-portalen går du till den **åtkomstprinciper** fliken. 
    
@@ -146,7 +146,7 @@ Här följer sökvägar till diagnostisera orsaken till ignorerade meddelanden i
     Många kunder använder [Service Bus Explorer] visa och hantera sina meddelandehubben. Service Bus Explorer är ett projekt med öppen källkod. Exempel finns [Service Bus Explorer koden].
 
 ### <a name="verify-message-notifications"></a>Kontrollera meddelanden
-* **Azure-portalen**
+* **Azure Portal**
    
     Skicka ett testmeddelande till dina klienter utan att behöva en service serverdel igång, under **stöd + felsökning**väljer **prova att skicka**. 
    
@@ -226,7 +226,7 @@ Det här meddelandet anger att antingen ogiltiga autentiseringsuppgifter har kon
    
         ![Instrumentpanel för Notification Hubs-översikt][5]
    
-    2. På den **övervakaren** fliken kan du lägga till många andra plattformsspecifika mått för en djupare inblick. Du kan se specifikt fel relaterade till tjänsten för push-meddelanden som returneras när Meddelandehubbar försöker skicka meddelandet till tjänsten för push-meddelanden. 
+    2. På den **övervakaren** fliken kan du lägga till många andra plattformsspecifika mått för en djupare inblick. Du kan se specifikt fel relaterade till tjänsten för push-meddelanden som returneras när Notification Hub-tjänsten försöker skicka meddelandet till tjänsten för push-meddelanden. 
    
         ![Azure portal aktivitetsloggen][6]
    

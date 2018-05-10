@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
     - Nyckeln för programmet
     - Klient-ID:t
 
-2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören måste vara en AAD-användare eller grupp för AAD, men kan inte vara en tjänstens huvudnamn. Det här steget gör du så att i senare steg kan du använda en AAD-identitet för att skapa en innesluten databasanvändare för tjänsten huvudnamn.
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören måste vara en AAD-användare eller grupp för AAD, men kan inte vara en tjänstens huvudnamn. Det här steget gör du så att i senare steg kan du använda en AAD-identitet för att skapa en innesluten databasanvändare för tjänsten huvudnamn.
 
 3. **Skapa en innesluten databasanvändare för tjänstens huvudnamn**, genom att ansluta till databasen från/till vilken du vill kopiera data med hjälp av verktyg som SSMS med en AAD identitet med minst ALTER de ANVÄNDARBEHÖRIGHETER som krävs och kör följande T-SQL. Läs mer på innesluten databasanvändare från [här](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -111,7 +111,7 @@ Följ dessa steg om du vill använda service principal AAD programmet token aute
 4. **Bevilja behörigheter som krävs för tjänstens huvudnamn** som vanligt för SQL-användare, t.ex. genom att köra nedan:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. I ADF, konfigurerar du en Azure SQL Database länkad tjänst.
@@ -160,7 +160,7 @@ Om du vill använda MSI baserad autentisering för AAD-token, gör du följande:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören kan vara en AAD-användare eller grupp för AAD. Om du ger gruppen MSI en administratörsroll kan du hoppa över steg 3 och 4 nedan som administratören skulle ha fullständig åtkomst till databasen.
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören kan vara en AAD-användare eller grupp för AAD. Om du ger gruppen MSI en administratörsroll kan du hoppa över steg 3 och 4 nedan som administratören skulle ha fullständig åtkomst till databasen.
 
 3. **Skapa en innesluten databasanvändare för gruppen AAD**, genom att ansluta till databasen från/till vilken du vill kopiera data med hjälp av verktyg som SSMS med en AAD identitet med minst ALTER de ANVÄNDARBEHÖRIGHETER som krävs och kör följande T-SQL. Läs mer på innesluten databasanvändare från [här](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -171,7 +171,7 @@ Om du vill använda MSI baserad autentisering för AAD-token, gör du följande:
 4. **Ge gruppen AAD nödvändiga behörigheter** som vanligt för SQL-användare, t.ex. genom att köra nedan:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. I ADF, konfigurerar du en Azure SQL Database länkad tjänst.

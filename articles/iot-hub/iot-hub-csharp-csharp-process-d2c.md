@@ -1,11 +1,11 @@
 ---
 title: Vidarebefordra meddelanden med Azure IoT Hub (.Net) | Microsoft Docs
-description: "Så här bearbeta meddelanden för Azure IoT Hub-enhet till moln genom att använda regler för Routning och anpassade slutpunkter för att skicka meddelanden till andra backend-tjänster."
+description: Så här bearbeta meddelanden för Azure IoT Hub-enhet till moln genom att använda regler för Routning och anpassade slutpunkter för att skicka meddelanden till andra backend-tjänster.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5177bac9-722f-47ef-8a14-b201142ba4bc
 ms.service: iot-hub
 ms.devlang: csharp
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 84a74a59417d3d1b9ebe0e2ede6c105b6fb3a576
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Vidarebefordra meddelanden med IoT Hub (.NET)
 
@@ -214,7 +214,7 @@ I den här självstudiekursen beskrivs hur du ska skicka meddelanden från enhet
 
 Den [hur du skickar meddelanden moln till enhet med IoT-hubben] [ lnk-c2d] visar hur du kan skicka meddelanden till dina enheter från din lösningens serverdel.
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT Suite][lnk-suite].
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT-Fjärrövervaknings lösningsaccelerator][lnk-suite].
 
 Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Utvecklarhandbok].
 

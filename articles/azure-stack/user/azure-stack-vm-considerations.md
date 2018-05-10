@@ -1,24 +1,24 @@
 ---
-title: "Skillnader och överväganden för virtuella datorer i Azure-stacken | Microsoft Docs"
-description: "Läs mer om skillnader och överväganden när du arbetar med virtuella datorer i Azure-stacken."
+title: Skillnader och överväganden för virtuella datorer i Azure-stacken | Microsoft Docs
+description: Läs mer om skillnader och överväganden när du arbetar med virtuella datorer i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -61,7 +61,7 @@ I följande tabell visas de virtuella datorerna som stöds på Azure-Stack tills
 |Minnesoptimerad|Dv2-serien     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Minnesoptimerad|DSv2-serien-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Den här konsekvenskontroll innehåller till exempel hur mycket minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
+Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Den här konsekvenskontroll innehåller mängd minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
@@ -93,6 +93,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 Listan över resurstyper som stöds och API-versioner kan variera om operatorn molnet uppdaterar din Azure Stack-miljö till en nyare version.
+
+## <a name="windows-activation"></a>Windows-aktivering
+
+Windows-produkter måste användas i enlighet med användarrättigheter och licensvillkoren för Microsoft. Azure-stacken använder [automatisk aktivering av Virtuella](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) för att aktivera Windows Server virtuella maskiner (VMs). 
+ - Eftersom Azure Stack-värden aktiveras med AVMA-nycklar för Windows Server 2016, alla virtuella datorer som kör Windows Server 2012 eller senare aktiveras automatiskt.
+ - Virtuella datorer som kör Windows Server 2008 R2 aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx). 
+
+Microsoft Azure använder KMS-aktivering för att aktivera Windows-datorer. Om du flyttar en virtuell dator från Azure-stacken till Azure och stöter aktivera problem, se [aktiveringsproblem för felsökning av Windows Azure virtuella](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Mer information finns på den [felsökning av Windows-aktivering fel på Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support Teamblogg post.
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

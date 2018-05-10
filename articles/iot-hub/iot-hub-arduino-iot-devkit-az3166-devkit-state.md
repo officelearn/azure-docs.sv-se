@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac013cf234fdc7249d4d71992435adcc27fcc64e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -90,10 +90,10 @@ Ansluten till datorn med din MXChip IoT DevKit:
 ## <a name="next-steps"></a>Nästa steg
 
 Du har lärt dig hur du:
-- Anslut en MXChip IoT DevKit enhet till din Azure IoT Suite.
+- Anslut en MXChip IoT DevKit enhet till din Azure IoT-Fjärrövervaknings lösningsaccelerator.
 - Funktionen Azure IoT-enhet twins känner av och kontrollera färgen för DevKit RGB-Indikator.
 
 Här är de föreslagna nästa steg:
 
-* [Översikt över Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT fjärråtkomst övervakning solution accelerator-översikt](https://docs.microsoft.com/azure/iot-suite/)
 * [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

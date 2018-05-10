@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 05/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 82069b31ee51e0dd60691edca490b1a60384288a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-token-reference"></a>Tokenreferens för Azure AD
-Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
+Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token. 
 
 ## <a name="types-of-tokens"></a>Typer av token
 Azure AD stöder den [OAuth 2.0-protokollet för auktorisering](active-directory-protocols-oauth-code.md), som utnyttjar både access_tokens och refresh_tokens.  Det stöder också autentisering och logga in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), som innehåller en tredje typ av id_token-token.  Var och en av dessa token representeras som ett ”ägartoken”.
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT-anspråk | Namn | Beskrivning |
 | --- | --- | --- |
-| `appid` |Program-ID:t |Identifierar det program som använder token för åtkomst till en resurs. Programmet kan fungera som sig själv eller för en användares räkning. Program-ID representerar vanligen programobjekt, men det kan också vara en UPN serviceobjektet i Azure AD. <br><br> **JWT exempelvärde**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Målgrupp |Den avsedda mottagaren av token. Det program som tar emot en token måste kontrollera att värdet för målgruppen är korrekt och ignorera eventuella tokens som är avsedda för en annan publik. <br><br> **Exempel SAML värdet**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **JWT exempelvärde**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Application Authentication Context Class Reference |Anger hur klienten autentiserades. För en offentlig klient är värdet 0. Om du använder klient-ID och klienthemlighet, är värdet 1. <br><br> **JWT exempelvärde**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Anger hur ämnet autentiserades klienten i Application Authentication Context Class Reference-anspråk. Värdet ”0” anger slutanvändarens autentisering inte uppfyllde kraven i ISO/IEC 29115. <br><br> **JWT exempelvärde**: <br> `"acr": "0"` |
@@ -163,9 +162,10 @@ Uppdatera token kan ogiltiga eller återkallas när som helst för en mängd oli
   * Ofrivilliga lösenordsändring: Om en administratör tvingar en användare att ändra sina lösenord eller återställer den, sedan användarens token blir ogiltiga om de har uppnås med hjälp av sina lösenord.  Se informationen nedan för undantag. 
   * Säkerhetsintrång: Vid ett intrång (t.ex. det lokala arkivet för lösenord komprometteras) administratören kan återkalla alla uppdaterings-tokens som utfärdats för närvarande.  Detta kräver att alla användare att autentisera igen. 
 
-Obs! 
-
-Om en icke-password-metod för autentisering för (Windows Hello, autentiseringsapp, biometrik som en yta eller fingeravtryck) att uppnå token, ändra användarens lösenord kommer inte att tvinga användaren att autentisera igen (men det tvingar sina autentiseringsapp återautentisera).  Detta beror på att ange sina valda autentisering (en min, t.ex.) inte har ändrats och därför kan användas igen återautentisera.
+> [!NOTE]
+>Om en icke-password-metod för autentisering för (Windows Hello, autentiseringsapp, biometrik som en yta eller fingeravtryck) att uppnå token, ändra användarens lösenord kommer inte att tvinga användaren att autentisera igen (men det tvingar sina autentiseringsapp återautentisera).  Detta beror på att ange sina valda autentisering (en min, t.ex.) inte har ändrats och därför kan användas igen återautentisera.
+>
+> Konfidentiell klienter påverkas inte av återkallelse för ändring av lösenord.  En konfidentiell klient med en uppdateringstoken som utfärdats innan en lösenordsändring fortsätter att vara abl att använda den uppdateringstoken för att få fler token. 
 
 ## <a name="sample-tokens"></a>Exempel-token
 

@@ -1,33 +1,33 @@
 ---
-title: "Distribuera fjärråtkomst övervakningslösning - Azure | Microsoft Docs"
-description: "Den här kursen visar hur du etablerar fjärråtkomst övervakning förkonfigurerade lösningen från azureiotsuite.com."
-services: 
+title: Distribuera fjärråtkomst övervakningslösning - Azure | Microsoft Docs
+description: Den här kursen visar hur du etablerar fjärråtkomst övervakning solution accelerator från azureiotsuite.com.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eb78ce91755c43f1c6fedf62a70238df911b940f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuera den förkonfigurerade lösningen för fjärrövervakning
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Distribuera fjärråtkomst övervakning solution accelerator
 
-I den här självstudiekursen lär du dig hur du etablerar den förkonfigurerade lösningen för fjärrövervakning. Du distribuerar lösningen från azureiotsuite.com. Du kan också distribuera lösningen med hjälp av CLI att lära dig om det här alternativet finns [distribuerar en förkonfigurerade lösning från kommandoraden](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line).
+Den här kursen visar hur du etablerar fjärråtkomst övervakning solution accelerator. Du distribuerar lösningen från azureiotsuite.com. Du kan också distribuera lösningen med hjälp av CLI att lära dig om det här alternativet finns [distribuera en lösningsaccelerator från kommandoraden](iot-suite-remote-monitoring-deploy-cli.md).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera förkonfigurerade lösningen
-> * Distribuera förkonfigurerade lösningen
-> * Logga in på den förkonfigurerade lösningen
+> * Konfigurera solution accelerator
+> * Distribuera solution accelerator
+> * Logga in på solution accelerator
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,19 +35,17 @@ Du behöver en aktiv Azure-prenumeration för att kunna utföra stegen i den hä
 
 Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="deploy-the-preconfigured-solution"></a>Distribuera förkonfigurerade lösningen
+## <a name="deploy-the-solution-accelerator"></a>Distribuera solution accelerator
 
-Innan du distribuerar den förkonfigurerade lösningen till din Azure-prenumeration måste du välja vissa konfigurationsalternativ:
+Innan du distribuerar solution accelerator till din Azure-prenumeration måste du välja vissa konfigurationsalternativ:
 
-1. Logga in på [azureiotsuite.com](https://www.azureiotsuite.com) med din Azure kontoautentiseringsuppgifter och klicka på  **+**  att skapa en ny lösning:
+1. Logga in på [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) med dina inloggningsuppgifter för Azure-konto.
 
-    ![Skapa en ny lösning](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
-
-1. Klicka på **Välj** på den **fjärråtkomst övervakning preview** panelen.
+1. Klicka på **försök nu** på den **Fjärrövervaknings** panelen.
 
     ![Välj fjärrövervaknings](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
-1. På den **skapa Fjärrövervaknings lösning** anger en **lösningsnamn** för fjärråtkomst övervakningen förkonfigurerade lösningen.
+1. På den **skapa Fjärrövervaknings lösning** anger en **lösningsnamn** för din fjärråtkomst övervakning solution accelerator.
 
 1. Välj en **grundläggande** eller **Standard** distribution. Om du distribuerar lösningen för att lära dig hur det fungerar eller för att köra en demonstration, Välj den **grundläggande** alternativet för att minimera kostnaderna.
 
@@ -63,9 +61,9 @@ Innan du distribuerar den förkonfigurerade lösningen till din Azure-prenumerat
 
 Information om felsökning finns [vad du gör om en distribution misslyckas](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) i GitHub-lagringsplatsen.
 
-## <a name="sign-in-to-the-preconfigured-solution"></a>Logga in på den förkonfigurerade lösningen
+## <a name="sign-in-to-the-solution-accelerator"></a>Logga in på solution accelerator
 
-När etableringen är klar kan du logga in i fjärråtkomst övervakning förkonfigurerade lösningen.
+När etableringen är klar kan du logga in på din fjärranslutna övervakning solution accelerator.
 
 1. På den **etablerade lösningar** väljer du den nya lösningen för fjärråtkomst övervakning:
 
@@ -85,9 +83,9 @@ När etableringen är klar kan du logga in i fjärråtkomst övervakning förkon
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera förkonfigurerade lösningen
-> * Distribuera förkonfigurerade lösningen
-> * Logga in på den förkonfigurerade lösningen
+> * Konfigurera solution accelerator
+> * Distribuera solution accelerator
+> * Logga in på solution accelerator
 
 Nu när du har distribuerat remote övervakningslösning nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](./iot-suite-remote-monitoring-explore.md).
 

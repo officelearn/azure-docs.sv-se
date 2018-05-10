@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Översikt över SAP HANA (stora instanser) och arkitektur på Azure
 
@@ -68,7 +68,7 @@ Flera gemensamma definitioner används ofta i guiden arkitektur och teknisk dist
 - **Klient**: en kund som distribuerats i HANA stora instans stämpel hämtar isolerade i en *klient.* En klient är separat i nätverk, lagring och beräkning lagret från andra klienter. Lagrings- och enheter som tilldelats till olika klienter kan inte se varandra eller kommunicera med varandra på HANA stora stämpel instansnivå. En kund kan du ha distributioner till olika klienter. Det finns även sedan ingen kommunikation mellan klienter i HANA stora stämpel instansnivå.
 - **SKU-kategori**: för HANA stort instans, erbjuds följande två kategorier av SKU: er:
     - **Typen I klassen**: S72, S72m, S144, S144m, S192 och S192m
-    - **Skriv II klassen**: S384, S384m, S384xm, S576, S768 och S960
+    - **Skriv II klassen**: S384, S384m, S384xm, S576m, S768m och S960m
 
 
 En mängd ytterligare resurser är tillgängliga på hur du distribuerar en SAP arbetsbelastning i molnet. Om du planerar att köra en SAP HANA-distribution i Azure måste vara erfarenhet och medveten om principerna om Azure IaaS och distributionen av SAP arbetsbelastningar på Azure IaaS. Innan du fortsätter kan du se [Använd SAP-lösningar på Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information. 
@@ -133,20 +133,20 @@ Precis som du kan välja mellan VM av olika typer med Azure Virtual Machines, ka
 
 Från och med juli 2017 är SAP HANA i Azure (stora instanser) tillgänglig i flera konfigurationer i Azure-regioner oss Väst och oss Öst, östra, Australien, sydost, västra Europa och Norra Europa.
 
-| SAP-lösning | CPU | Minne | Storage | Tillgänglighet |
+| SAP-lösning | Processor | Minne | Storage | Tillgänglighet |
 | --- | --- | --- | --- | --- |
 | Optimerad för OLAP-: SAP BW BW/4HANA<br /> eller SAP HANA för allmänna OLAP-arbetsbelastning | SAP HANA på Azure S72<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kärnor och 72 CPU-trådar |  768 GB |  3 TB | Tillgänglig |
 | --- | SAP HANA på Azure S144<br /> – 4 x Intel Xeon®-Processor E7 8890 v3<br /> 72 CPU-kärnor och 144 CPU-trådar |  1,5 TB |  6 TB | Erbjuds inte längre |
 | --- | SAP HANA på Azure S192<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kärnor och 192 CPU-trådar |  2.0 TB |  8 TB | Tillgänglig |
 | --- | SAP HANA på Azure S384<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kärnor och 384 CPU-trådar |  4.0 TB |  16 TB | Tillgänglig |
-| Optimerad för OLTP: SAP Business Suite<br /> på SAP HANA eller S/4HANA (OLTP)<br /> generic OLTP | SAP HANA på Azure S72m<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kärnor och 72 CPU-trådar |  1,5 TB |  6 TB | Tillgänglig |
+| Optimerad för OLTP: SAP Business Suite<br /> på SAP HANA eller S/4HANA (OLTP)<br /> allmän OLTP | SAP HANA på Azure S72m<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kärnor och 72 CPU-trådar |  1,5 TB |  6 TB | Tillgänglig |
 |---| SAP HANA på Azure S144m<br /> – 4 x Intel Xeon®-Processor E7 8890 v3<br /> 72 CPU-kärnor och 144 CPU-trådar |  3.0 TB |  12 TB | Erbjuds inte längre |
 |---| SAP HANA på Azure S192m<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kärnor och 192 CPU-trådar  |  4.0 TB |  16 TB | Tillgänglig |
 |---| SAP HANA på Azure S384m<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kärnor och 384 CPU-trådar |  6.0 TB |  18 TB | Tillgänglig |
 |---| SAP HANA på Azure S384xm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kärnor och 384 CPU-trådar |  8.0 TB |  22 TB |  Tillgänglig |
-|---| SAP HANA på Azure S576<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kärnor och 576 CPU-trådar |  12,0 TB |  28 TB | Tillgänglig |
-|---| SAP HANA på Azure S768<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kärnor och 768 CPU-trådar |  16,0 TB |  36 TB | Tillgänglig |
-|---| SAP HANA på Azure S960<br /> – 20 x Intel Xeon®-Processor E7 8890 v4<br /> 480 CPU-kärnor och 960 CPU-trådar |  20,0 TB |  46 TB | Tillgänglig |
+|---| SAP HANA på Azure S576m<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kärnor och 576 CPU-trådar |  12,0 TB |  28 TB | Tillgänglig |
+|---| SAP HANA på Azure S768m<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kärnor och 768 CPU-trådar |  16,0 TB |  36 TB | Tillgänglig |
+|---| SAP HANA på Azure S960m<br /> – 20 x Intel Xeon®-Processor E7 8890 v4<br /> 480 CPU-kärnor och 960 CPU-trådar |  20,0 TB |  46 TB | Tillgänglig |
 
 - CPU-kärnor = summan av icke-hypertrådade CPU-kärnor av summan av processorer för server-enhet.
 - CPU-trådar = summan av beräknings-trådar som tillhandahålls av hyper-threaded processorkärnor av summan av processorer för server-enhet. Alla enheter som är konfigurerade som standard att använda flertrådsteknik.
@@ -157,7 +157,7 @@ Specifika konfigurationer som valts är beroende av arbetsbelastning, CPU-resurs
 Maskinvara för alla erbjudanden är SAP HANA TDI-certifierad. Två olika klasser av maskinvara delar upp SKU: er till:
 
 - S72, S72m, S144, S144m, S192 och S192m, som kallas ”typen I klassen” av SKU: er.
-- S384, S384m, S384xm, S576, S768 och S960 som kallas den ”typ II klass” av SKU: er.
+- S384, S384m, S384xm, S576m, S768m och S960m som kallas den ”typ II klass” av SKU: er.
 
 En fullständig HANA stora instans stämpel exklusivt är inte tilldelade för en kund&#39;s användning. Detta gäller racken av beräkning och lagring resurser som är anslutna via en nätverksinfrastruktur samt distribuerade i Azure. HANA stora instans infrastruktur som Azure, distribuerar annan kund &quot;hyresgäster&quot; som är isolerade från varandra i följande tre nivåer:
 
@@ -335,7 +335,7 @@ HANA stora instans av typen I klassen har fyra gånger minne volymen lagringsvol
 
 Se tabellen nedan vad gäller lagringsallokering. Tabellen innehåller grov kapacitet för olika volymer med olika HANA stora instans-enheter.
 
-| HANA stora instans SKU | hana/data | Hana/logg | Hana/delat | Hana/loggsäkerhetskopiering |
+| HANA stora instans SKU | Hana-data | Hana/logg | Hana/delat | Hana/loggsäkerhetskopiering |
 | --- | --- | --- | --- | --- |
 | S72 | 1 280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1 280 GB | 768 GB |
@@ -344,16 +344,16 @@ Se tabellen nedan vad gäller lagringsallokering. Tabellen innehåller grov kapa
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12 000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16 000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
-| S576 | 20 000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S768 | 28 000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S960 | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S576m | 20 000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S768m | 28 000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
 
 
 Faktiska distribuerade volymer kan variera beroende på distribution och verktyg som används för att visa Volymstorlekar.
 
 Om du dela upp en HANA stora instans SKU kan se några exempel på uppdelning delar ut:
 
-| Minnespartition i GB | hana/data | Hana/logg | Hana/delat | Hana/loggsäkerhetskopiering |
+| Minnespartition i GB | Hana-data | Hana/logg | Hana/delat | Hana/loggsäkerhetskopiering |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |

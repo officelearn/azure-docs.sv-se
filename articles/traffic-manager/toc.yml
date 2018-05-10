@@ -8,12 +8,6 @@
   items:
     - name: Skapa en Traffic Manager-profil
       href: traffic-manager-create-profile.md
-- name: Exempel
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Självstudier
   items:
     - name: Dirigera trafik utifrån slutpunktens geografiska plats
@@ -24,6 +18,12 @@
       href: traffic-manager-configure-weighted-routing-method.md
     - name: Dirigera trafik till en slutpunkt för prioritet
       href: traffic-manager-configure-priority-routing-method.md
+- name: Exempel
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Begrepp
   items:
     - name: Routningsmetoder
@@ -91,7 +91,7 @@
   items:
     - name: Application Gateway
       href: /azure/application-gateway/
-    - name: Belastningsutjämnare
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: Azure DNS
       href: /azure/dns/

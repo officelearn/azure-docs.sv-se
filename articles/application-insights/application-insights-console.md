@@ -3,8 +3,8 @@ title: Azure Application Insights för konsolprogram | Microsoft Docs
 description: Övervaka webbprogram för tillgänglighet, prestanda och användning.
 services: application-insights
 documentationcenter: .net
-author: lmolkova
-manager: bfung
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
 ms.workload: tbd
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova; mbullwin
-ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c0bbb8b7c2f1e4a7609fde1f8c1487794d3d5897
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET konsolen program
 [Application Insights](app-insights-overview.md) kan du övervaka ditt webbprogram för tillgänglighet, prestanda och användning.
 
 Du behöver en prenumeration med [Microsoft Azure](http://azure.com). Logga in med ett Microsoft-konto som du kanske för Windows, Xbox Live och andra Microsoft-molntjänster. Gruppen kan ha en organisationens prenumeration på Azure: Be ägare att lägga till dig i den med ditt Microsoft-konto.
 
-## <a name="getting-started"></a>Komma i gång
+## <a name="getting-started"></a>Komma igång
 
 * [Skapa en Application Insights-resurs](app-insights-create-new-resource.md) på [Azure Portal](https://portal.azure.com). Programtyp, Välj **allmänna**.
 * Kopiera instrumenteringsnyckeln. Hitta nyckeln i den **Essentials** listrutan för den nya resursen som du skapade. 

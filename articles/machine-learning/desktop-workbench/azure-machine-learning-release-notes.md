@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Vad är nytt i Azure Machine Learning?
 
-I den här artikeln lär dig mer om de nya versionerna för [Azure Machine Learning Services](../service/overview-what-is-azure-ml.md). 
+I den här artikeln lär du dig om nya versioner av [Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+
+
+## <a name="2018-05-sprint-5"></a>2018 05 (sprint 5)
+
+Med den här versionen av Azure Machine Learning kan du:
++ Featurize bilder med en quantized version ResNet 50 träna en baserat på dessa funktioner, klassificerare och [distribuera den modellen till en då FPGA på Azure](../service/how-to-deploy-fpga-web-service.md) för mycket låg latens inferencing.
+
++ Snabbt skapa och distribuera hög korrekt machine learning och djup learning-modeller med [anpassade Azure Machine Learning paket](../service/reference-python-package-overview.md) för följande domäner:
+  + [Datorn vision](../service/how-to-build-deploy-image-classification-models.md)
+  + [Textanalys](../service/how-to-build-deploy-text-classification-models.md)
+  + [Prognoser](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
 **Versionsnumret**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Välkommen till den femte uppdateringen Azure Machine Learning-arbetsstationen. Många av följande uppdateringar görs direkt resultatet av din feedback. Skriv ned dem kommer!
+Många av följande uppdateringar görs direkt resultatet av din feedback. Skriv ned dem kommer!
 
 **Viktiga nya funktioner och ändringar**
 

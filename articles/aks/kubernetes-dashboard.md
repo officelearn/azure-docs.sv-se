@@ -1,5 +1,5 @@
 ---
-title: "Hantera Azure Kubernetes kluster med webbgränssnittet"
+title: Hantera Azure Kubernetes kluster med webbgränssnittet
 description: Med instrumentpanelen Kubernetes i AKS
 services: container-service
 author: neilpeterson
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: MT
+ms.openlocfilehash: ab137c8397f747ba07475910cd4461d88951d6be
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes instrumentpanel med Azure Container Service (AKS)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes instrumentpanel med Azure-Kubernetes (AKS)
 
 Azure CLI kan användas för att starta Kubernetes instrumentpanelen. Det här dokumentet går igenom börjar Kubernetes instrumentpanelen med Azure CLI och även går igenom några grundläggande instrumentpanelen åtgärder. Mer information om instrumentpanelen finns i den Kubernetes [Kubernetes instrumentpanel för webbgränssnitt][kubernetes-dashboard].
 
@@ -63,13 +63,13 @@ Förutom att skapa och visa program kan Kubernetes instrumentpanelen användas f
 
 Om du vill redigera en distribution **distributioner** i den vänstra menyn och välj sedan den **NGINX** distribution. Välj slutligen **redigera** i det övre högra navigeringsfältet.
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
+![Redigera Kubernetes](./media/container-service-kubernetes-ui/view-deployment.png)
 
 Leta upp den `spec.replica` -värde som ska vara 1, ändra värdet till 3. På så sätt kan ökas replikantalet NGINX-distributionen från 1 till 3.
 
 Välj **uppdatering** när redo.
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Redigera Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

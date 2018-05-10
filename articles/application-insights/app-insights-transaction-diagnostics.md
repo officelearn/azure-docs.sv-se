@@ -3,20 +3,20 @@ title: Azure Application Insights transaktion Diagnostics | Microsoft Docs
 description: Programdiagnostik insikter slutpunkt till slutpunkt-transaktion
 services: application-insights
 documentationcenter: .net
-author: SoubhagyaDash
-manager: victormu
+author: mrbullwinkle
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: sdash
-ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: mbullwin;sdash
+ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig mellan olika komponenter transaktion diagnostik
 
@@ -80,9 +80,9 @@ Det här fönstret visar information för de valda objekten från någon av två
 
 [Application Insights profiler](app-insights-profiler.md) eller [ögonblicksbild felsökare](app-insights-snapshot-debugger.md) hjälp med diagnostiken i koden nivå av prestanda och fel. Du kan se profiler-spårningar eller ögonblicksbilder från alla komponenter med en enda på med den här miljön.
 
-Om du inte kunde hämta Profiler fungerar, kontakta**serviceprofilerhelp@microsoft.com**
+Om du inte kunde hämta Profiler fungerar, kontakta **serviceprofilerhelp@microsoft.com**
 
-Om du inte kunde hämta ögonblicksbild felsökare fungerar, kontakta**snapshothelp@microsoft.com**
+Om du inte kunde hämta ögonblicksbild felsökare fungerar, kontakta **snapshothelp@microsoft.com**
 
 ![Felsökare integrering](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -51,7 +51,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
 | [Kontroll av flödet nyckelord](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Ja | Ja |
 | [Mellan databasfrågor](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Finns inte - [elastisk frågor](sql-database-elastic-query-overview.md) | Ja, plus [elastisk frågor](sql-database-elastic-query-overview.md) |
-| [Transaktioner över flera databaser](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej | Ja |
+| [Transaktioner över flera databaser](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej | Ja - finns [länkad server skillnader](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#linked-servers) |
 | [Markörer](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Ja |Ja | 
 | [Datakomprimering](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Ja |Ja |
 | [Database mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Nej | Ja |
@@ -69,8 +69,8 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [DML-instruktioner](https://docs.microsoft.com/sql/t-sql/queries/queries) | Ja | Ja |
 | [DML-utlösare](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | De flesta - finns enskilda uttryck |  Ja |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | De flesta - finns enskilda av DMV: er |  Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
-|[Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Ja](sql-database-dynamic-data-masking-get-started.md)| Ja |
-| [Elastiska pooler](sql-database-elastic-pool.md) | Ja | en enda instans hanteras kan ha flera databaser som delar samma pool av resurser |
+|[Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Ja](sql-database-dynamic-data-masking-get-started.md)| [Ja](sql-database-dynamic-data-masking-get-started.md) |
+| [Elastiska pooler](sql-database-elastic-pool.md) | Ja | Inbyggda – en enda instans hanteras kan ha flera databaser som delar samma pool av resurser |
 | [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Finns inte - [aviseringar](sql-database-insights-alerts-portal.md) | Ja |
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Vissa - Se [utökade händelser i SQL-databas](sql-database-xevent-db-diff-from-svr.md) | Ja - finns [utökade händelser skillnader ](sql-database-managed-instance-transact-sql-information.md#extended-events) |
@@ -83,7 +83,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Geo-replikering](sql-database-geo-replication-overview.md) | Ja | Nej |
 | [Diagrammet bearbetning](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [Premium- och Business kritiska nivåer](sql-database-in-memory.md) | Nej |
-| [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Ja | Ja |
+| [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Språkelement](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta - finns i enskilda element |  Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Finns inte - [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast för SQLServer och SQL-databas |
 | [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |[Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
@@ -103,7 +103,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
 | [Predikat](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
 | [R-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Förhandsversionen; Se [vad är nytt i machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nej |
-| [Resursstyrningen](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nej | Nej |
+| [Resursstyrningen](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nej | Ja |
 | [ÅTERSTÄLLA rapporter](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nej | Ja - finns [återställa skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Återställa databasen från en säkerhetskopia](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Se från automatisk säkerhetskopiering endast - [återställning av SQL-databasen](sql-database-recovery-using-backups.md) | Automatisk säkerhetskopiering – Se [SQL databasåterställning](sql-database-recovery-using-backups.md) och fullständiga säkerhetskopieringar - Se [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Ja | Ja |
@@ -132,7 +132,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Systemtabeller](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Vissa - se enskilda tabeller | Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [System katalogvyer](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Vissa - se enskilda vyer | Ja - finns [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) (Temporära tabeller) | Lokala och databas-omfattande globala temporära tabeller | Lokala och instans omfång globala temporära tabeller |
-| [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Ja | Ja |
+| [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) |
 |Hotidentifiering|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Spårningsflaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Nej |
 | [Variabler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |

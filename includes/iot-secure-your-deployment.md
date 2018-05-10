@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 # <a name="secure-your-iot-deployment"></a>Skydda distributionen av IoT
 
 Den här artikeln innehåller nästa detaljnivå för att skydda Azure IoT-baserade Sakernas Internet (IoT)-infrastruktur. Den länkar till implementeringsinformation för att konfigurera och distribuera varje komponent. Det ger också jämförelser och val mellan olika konkurrerande metoder.
@@ -12,7 +28,7 @@ Säkra Azure IoT-distributionen kan delas in i följande tre områden:
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Säker enhetsetableringen och autentisering
 
-Azure IoT Suite skyddar IoT-enheter med hjälp av följande två metoder:
+IoT-Lösningsacceleratorer säker IoT-enheter med hjälp av följande två metoder:
 
 * Genom att tillhandahålla en unik identitetsnyckel (säkerhetstoken) för varje enhet som kan användas av enheten kommunicerar med IoT-hubben.
 * Med hjälp av en på enhet [X.509-certifikat] [ lnk-x509] och den privata nyckeln som ett sätt att autentisera enheten till IoT-hubben. Den här autentiseringsmetoden garanterar att den privata nyckeln på enheten inte är känd utanför enheten när som helst, vilket ger en högre säkerhetsnivå.

@@ -1,9 +1,9 @@
 ---
 title: Arbetsflödet Definition Language funktioner - Azure Logic Apps | Microsoft Docs
-description: Lär dig mer om de funktioner som du kan använda i logik app arbetsflödesdefinitioner
+description: Lär dig mer om funktioner för att skapa logikappar med arbetsflödet Definition Language
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Arbetsflödet Definition Language funktioner referens för Azure Logic Apps
 
-Den här artikeln beskrivs de funktioner som du kan använda när du skapar arbetsflöden med [Azure Logikappar](../logic-apps/logic-apps-overview.md). Mer information om logik app definitioner finns [språk i Arbetsflödesdefinitionen för Logikappar i Azure](../logic-apps/logic-apps-workflow-definition-language.md). 
+Den här artikeln beskrivs de funktioner som du kan använda när du skapar arbetsflöden med [Azure Logikappar](../logic-apps/logic-apps-overview.md). Mer information om funktioner i logic app definitioner finns [språk i Arbetsflödesdefinitionen för Logikappar i Azure](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > Syntaxen för parameterdefinitioner är ett frågetecken (?) som visas när en parameter innebär att parametern valfri. Se exempelvis [getFutureTime()](#getFutureTime).

@@ -1,11 +1,11 @@
 ---
-title: "Använd Azure AD-autentisering att få åtkomst till Azure Media Services-API med övriga | Microsoft Docs"
-description: "Lär dig hur du kommer åt Azure Media Services API med Azure Active Directory-autentisering med hjälp av REST."
+title: Använd Azure AD-autentisering att få åtkomst till Azure Media Services-API med övriga | Microsoft Docs
+description: Lär dig hur du kommer åt Azure Media Services API med Azure Active Directory-autentisering med hjälp av REST.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Använd Azure AD-autentisering för åtkomst till Azure Media Services-API med övriga
 
@@ -31,7 +31,7 @@ När du använder Azure AD-autentisering med Azure Media Services kan autentiser
     > [!NOTE]
     > **Tjänstens huvudnamn** är rekommenderad praxis för de flesta program som ansluter till Azure Media Services. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Hämta autentiseringsinformation om från Azure-portalen
@@ -59,7 +59,7 @@ Du behöver samla in följande datapunkter för att komma åt Media Services API
 
 |Inställning|Exempel|Beskrivning|
 |---|-------|-----|
-|Azure Active Directory-klientorganisationsdomän|microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomst-token).|
+|Azure Active Directory-klientorganisationsdomän|Microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomst-token).|
 |REST API-slutpunkt|https://amshelloworld.restv2.westus.media.azure.net/api/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program görs.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD-program (klient)-ID. Klient-ID krävs för att få åtkomst-token. |
 |Klienthemlighet|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application-nycklar (klienthemlighet). Klienthemligheten krävs för att få åtkomst-token.|
@@ -128,7 +128,7 @@ Det här avsnittet visar hur du använder **Postman** att köra en REST-API som 
 4. Välj den **huvuden** fliken.
 5. Ange den **huvuden** information med hjälp av datarutnätet ”nyckel/värde”. 
 
-    ![Data Grid](./media/connect-with-rest/headers-data-grid.png)
+    ![Datarutnätet](./media/connect-with-rest/headers-data-grid.png)
 
     Alternativt klickar du på **Massredigera** länka till höger i fönstret Postman och klistra in följande kod.
 
@@ -138,7 +138,7 @@ Det här avsnittet visar hur du använder **Postman** att köra en REST-API som 
 6. Tryck på den **brödtext** fliken.
 7. Ange brödtext information med hjälp av datarutnätet ”nyckel/värde” (Ersätt klient-ID och Hemlig värden). 
 
-    ![Data Grid](./media/connect-with-rest/data-grid.png)
+    ![Datarutnätet](./media/connect-with-rest/data-grid.png)
 
     Alternativt klickar du på **Massredigera** till höger i fönstret Postman och klistra in följande organ (Ersätt klient-ID och Hemlig värden):
 

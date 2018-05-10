@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -32,9 +32,9 @@ För att ge förutsägbar prestanda, måste du reservera dataflöde i enheter av
 När du har läst den här artikeln kommer du att kunna svara på följande frågor:  
 
 * Vad är frågeenheter och begäran tillägg i Azure Cosmos DB?
-* Hur ange begäran enhet kapacitet för en behållare i Azure Cosmos DB?
+* Hur ange begäran enhet kapacitet för en behållare eller uppsättning behållare i Azure Cosmos DB?
 * Hur jag beräkna måste mitt program begäran enhet?
-* Vad händer om jag överskrider begäran enhet kapacitet för en behållare i Azure Cosmos DB?
+* Vad händer om jag överskrider begäran enhet kapacitet för en behållare eller uppsättning behållare i Azure Cosmos DB?
 
 Eftersom Azure Cosmos DB är en flera modellen databas. Det är viktigt att notera att den här artikeln gäller för alla datamodeller och API: er i Azure Cosmos DB. Den här artikeln använder allmänna villkor som *behållare* och en *objektet* att referera till en samling, diagram, eller en tabell och ett dokument, en nod eller en entitet Allmänt respektive.
 
@@ -50,14 +50,19 @@ Vi rekommenderar att komma igång med att titta på nedanstående video, där Az
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Ange kapacitet för begäran-enhet i Azure Cosmos DB
-När du startar en ny behållare du ange hur många frågeenheter per sekund (RU per sekund) som du vill reserverade. Baserat på etablerat dataflöde, Azure Cosmos DB allokerar fysiska partitioner som värd för din behållare och delningar/rebalances data över partitioner när det växer.
 
-Azure DB Cosmos-behållare kan skapas som fast eller obegränsade. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Du måste ange minsta dataflöde på 1 000 RU/s för att skapa ett obegränsat antal behållare och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden du se till att ditt diagram-behållare/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
+Du kan ange hur många frågeenheter per sekund (RU per sekund) som du vill reserverade både för en enskild behållare eller för en uppsättning behållare. Baserat på etablerat dataflöde, allokerar Azure Cosmos DB fysiska partitioner som värd för dina behållare och delningar/rebalances data över partitioner när det växer.
+
+När du tilldelar RU/s på nivån enskilda behållaren behållarna kan skapas som *fast* eller *obegränsade*. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Om du vill skapa ett obegränsat antal behållare, måste du ange en lägsta dataflöde på 1 000 RU/s och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden kan du se till att ditt diagram-behållare/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
+
+När du tilldelar RU/sek i en behållare kan de behållare som hör till den här uppsättningen behandlas som *obegränsade* behållare och måste ange en partitionsnyckel.
+
+![Etablering av frågeenheter för enskilda behållare och behållare][6]
 
 > [!NOTE]
 > En partitionsnyckel är en logisk gräns och inte en fysisk. Därför behöver du inte begränsa antalet distinkta partitionsnyckelvärden. I praktiken är det bättre att ha tydligare partitionsnyckelvärden än mindre, Azure Cosmos DB har flera alternativ för belastningsutjämning.
 
-Här är ett kodfragment för att skapa en behållare med 3 000 frågeenheter per andra med .NET SDK:
+Här är ett kodfragment för att skapa en behållare med 3 000 frågeenheter per sekund för en enskild behållare med SQL-API .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -70,12 +75,41 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure Cosmos-DB fungerar på en modell för reservation för genomströmning. Det vill säga du debiteras mängden genomströmning *reserverade*, oavsett hur mycket av den genomströmningen är aktivt *används*. Som programmet har belastning, data och användning mönster ändring som du kan enkelt skala uppåt och nedåt mängden, som reserverats RUs via SDK eller med hjälp av den [Azure Portal](https://portal.azure.com).
+Här är ett kodfragment för etablering 100 000 enheter per sekund för begäran i en behållare med SQL-API .NET SDK:
 
-Varje behållare är mappad till en `Offer` resurs i Azure Cosmos DB som innehåller metadata om etablerat dataflöde. Du kan ändra det allokerade genomflödet genom att leta upp motsvarande erbjudande resurs för en behållare och sedan uppdateras med det nya värdet för genomströmning. Här är ett kodfragment för att ändra genomflödet av en behållare till 5 000 frågeenheter per andra med .NET SDK:
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+
+Azure Cosmos-DB fungerar på en modell för reservation för genomströmning. Det vill säga du debiteras mängden genomströmning *reserverade*, oavsett hur mycket av den genomströmningen är aktivt *används*. Som programmet har belastning, data och användning mönster ändring som du kan enkelt skala uppåt och nedåt antalet, som reserverats RUs via SDK eller med hjälp av den [Azure Portal](https://portal.azure.com).
+
+Varje behållare eller uppsättning behållare, mappas till en `Offer` resurs i Azure Cosmos DB som innehåller metadata om etablerat dataflöde. Du kan ändra det allokerade genomflödet genom att leta upp motsvarande erbjudande resurs för en behållare och sedan uppdateras med det nya värdet för genomströmning. Här är ett kodfragment för att ändra genomflödet av en behållare till 5 000 frågeenheter per andra med .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
@@ -88,28 +122,28 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Det finns ingen inverkan på tillgängligheten för din behållaren när du ändrar genomflödet. Nya reserverat dataflöde är vanligtvis effektiva i sekunder för tillämpning av nya genomflöde.
+Det finns ingen inverkan på tillgängligheten för din behållare eller uppsättning behållare, när du ändrar genomflödet. Nya reserverat dataflöde är vanligtvis effektiva i sekunder för tillämpning av nya genomflöde.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Genomströmning isolering i globalt distribuerade databaser
 
-När du har replikerats databasen till flera regioner, tillhandahåller Azure Cosmos DB genomströmning isolering för att säkerställa att RU användning i en region inte påverkar RU användning i en annan region. Till exempel om du skriva data till en region och läsa data från en annan region, RUs används för att utföra åtgärden i regionen *A* inte ta bort från RUs som används för läsning i regionen *B*. RUs delas inte mellan regioner där du har distribuerat. Varje region där databasen replikeras har fullständig mängden RUs etableras. Mer information om globala replikering finns [hur du distribuerar data globalt med Azure Cosmos DB](distribute-data-globally.md).
+När du har replikerats databasen till flera regioner, tillhandahåller Azure Cosmos DB genomströmning isolering för att säkerställa att RU användning i en region inte påverkar RU användning i en annan region. Till exempel om du skriva data till en region och läsa data från en annan region, RUs används för att utföra åtgärden i regionen *A* inte ta bort från RUs som används för läsning i regionen *B*. RUs delas inte mellan regioner där du har distribuerat. Varje region där databasen replikeras har fullständig antal RUs etableras. Mer information om globala replikering finns [hur du distribuerar data globalt med Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Överväganden för begäran-enhet
-När du uppskattar antalet begäran enheter att etablera för Azure DB som Cosmos-behållare, är det viktigt att beakta följande variabler:
+När du uppskattar antalet begäran enheter att etablera, är det viktigt att beakta följande variabler:
 
 * **Objektet storlek**. När du ökar antalet ökar även frågeenheter som används för att läsa eller skriva data.
 * **Objektet antal egenskaper**. Under förutsättning att standard indexering av alla egenskaper för de enheter som används för att skriva en entitet-dokumentet/nod ökad när egenskapen Antal ökar.
 * **Datakonsekvens**. När du använder konsekvenskontroll datamodeller, till exempel starka eller begränsas föråldrad förbrukas ytterligare frågeenheter för att läsa objekt.
-* **Indexerade egenskaper**. En princip för index varje behållare avgör vilka egenskaper som indexeras som standard. Du kan minska konsumtion din begäran enheten genom att begränsa antalet indexerade egenskaper eller genom att aktivera lazy indexering.
+* **Indexerade egenskaper**. En princip för index varje behållare avgör vilka egenskaper som indexeras som standard. Du kan minska din begäran Enhetsförbrukningen för skrivåtgärder genom att begränsa antalet indexerade egenskaper eller genom att aktivera lazy indexering.
 * **Dokumentindexering**. Som standard indexeras automatiskt varje objekt. Du kan använda färre frågeenheter om du väljer att inte indexera vissa av dina artiklar.
-* **Fråga mönster**. Komplexiteten i en fråga påverkar hur många enheter som begäran används för en åtgärd. Antalet predikat, uppbyggnad predikat, projektioner, antalet UDF: er och storleken på datakällan - påverkar alla kostnaden för frågor.
+* **Fråga mönster**. Komplexiteten i en fråga påverkar hur många enheter som begäran används för en åtgärd. Antalet frågeresultat, antalet predikat, uppbyggnad predikat, projektioner, antalet UDF: er och storleken på datakällan - påverkar alla kostnaden för frågor.
 * **Script användning**.  Precis som med frågor, lagrade procedurer och utlösare kan du använda frågeenheter baserat på komplexiteten i åtgärder som utförs. När du utvecklar programmet inspektera kostnad begärandehuvudet för att bättre förstå hur varje åtgärd förbrukar begäran enhet kapacitet.
 
 ## <a name="estimating-throughput-needs"></a>Uppskattning behov för genomströmning
 En begäran-enhet är ett normaliserat mått på kostnaden för begäranden. En enskild begäran enhet representerar bearbetningskapacitet som krävs för att läsa en enda 1 KB artikel bestående av 10 unika värden (exklusive Systemegenskaper) (via self länk eller id). En begäran om att skapa (insert), ersätta eller ta bort samma artikel förbrukar mer bearbetning från tjänsten och därmed mer frågeenheter.   
 
 > [!NOTE]
-> Baslinje för begäran om 1 enhet för en 1 KB motsvarar objekt på enkel GET av self länk eller id för objektet.
+> Baslinje för begäran om 1 enhet för en 1-KB-artikel motsvarar en enkel GET av self länk eller id för objektet.
 > 
 > 
 
@@ -174,11 +208,11 @@ Verktyget omfattar också stöd för att uppskatta lagringsbehov baserat på exe
 
 Med hjälp av verktyget är enkel:
 
-1. Ladda upp en eller flera representativa objekt (t.ex. ett exempel JSON-dokument).
+1. Ladda upp en eller flera representativa objekt (t.ex, ett exempel JSON-dokument).
    
     ![Skicka objekt till begäran enhet Kalkylatorn][2]
-2. Om du vill beräkna krav för datalagring, ange det totala antalet objekt (t.ex. dokument, tabeller och diagram) du förväntar dig att lagra.
-3. Ange antalet skapa, läsa, uppdatera och delete-åtgärder som du behöver (på grundval av per sekund). Överför en kopia av exemplet objekt från steg 1 ovan som innehåller fältuppdateringar för vanliga om du vill beräkna begäran enhet avgifterna för objektet uppdateringsåtgärder.  Till exempel om objektet uppdateringar vanligtvis ändra två egenskaper med namnet *lastLogin* och *userVisits*, sedan enkelt kopiera en exempel-objekt, uppdatera värdena för dessa två egenskaper och ladda upp det kopierade objektet.
+2. Om du vill beräkna krav för datalagring, ange det totala antalet objekt (t.ex, dokument, rader eller formhörnen) du förväntar dig att lagra.
+3. Ange antalet skapa, läsa, uppdatera och delete-åtgärder som du behöver (på grundval av per sekund). Överför en kopia av exemplet objekt från steg 1 ovan som innehåller fältuppdateringar för vanliga om du vill beräkna begäran enhet avgifterna för objektet uppdateringsåtgärder.  Till exempel om objektet uppdateringar vanligtvis ändra två egenskaper med namnet *lastLogin* och *userVisits*, sedan kopiera en exempel-objekt, uppdatera värdena för dessa två egenskaper och ladda upp det kopierade objektet.
    
     ![Ange krav för genomflöde i begäran enhet Kalkylatorn][3]
 4. Klicka på Beräkna och granska resultatet.
@@ -299,7 +333,7 @@ Med den här informationen kan du beräkna RU kraven för det här programmet f�
 | Välj av Matgrupp |10 |700 |
 | Välj Topp 10 |15 |150 totalt |
 
-I detta fall kan du förvänta dig en genomsnittlig genomströmning krav på 1,275 RU/s.  Avrundas till närmaste 100, skulle du etablera 1 300 RU/s för behållare i det här programmet.
+I detta fall kan du förvänta dig en genomsnittlig genomströmning krav på 1,275 RU/s.  Avrundas till närmaste 100, skulle du etablera 1 300 RU/s för det här programmet behållare (eller uppsättning behållare).
 
 ## <a id="RequestRateTooLarge"></a> Reserverat dataflöde överskreds i Azure Cosmos DB
 Kom ihåg att begäran enhet förbrukning utvärderas med en hastighet per sekund. För program som överskrider den etablerade begäran enhet hastigheten har begäranden begränsad hastighet tills frekvensen sjunker under nivån dataflöde. När en begäran hämtar begränsad hastighet, servern förebyggande syfte avslutas på begäran med `RequestRateTooLargeException` (HTTP-statuskod 429) och returnerar det `x-ms-retry-after-ms` huvud som anger hur lång tid i millisekunder som användaren måste vänta innan du försöker begäran.
@@ -310,7 +344,7 @@ Kom ihåg att begäran enhet förbrukning utvärderas med en hastighet per sekun
 
 Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall måste du aldrig hantera detta undantag som den aktuella versionen av .NET-klient-SDK fångar implicit svaret respekterar server angetts försök igen efter rubriken och försöker den begäran om automatiskt. Om ditt konto används samtidigt av flera klienter, lyckas nästa försök.
 
-Om du har mer än ett klientoperativsystem kumulativt högre begärandehastighet, försök standardbeteendet inte finns tillräckligt och klienten genereras en `DocumentClientException` med statusen code 429 till programmet. I detta fall kanske du vill överväga hantering försök beteende och logiken i ditt program felhantering rutiner eller öka dataflöde för behållaren.
+Om du har mer än ett klientoperativsystem kumulativt högre begärandehastighet, försök standardbeteendet inte finns tillräckligt och klienten genereras en `DocumentClientException` med statusen code 429 till programmet. I detta fall kanske du vill överväga hantering försök beteende och logiken i ditt program felhantering rutiner eller öka dataflödet för behållaren (eller uppsättning behållare).
 
 ## <a name="next-steps"></a>Nästa steg
 Utforska gärna dessa resurser om du vill veta mer om reserverat dataflöde med Azure Cosmos DB databaser kan:
@@ -326,3 +360,4 @@ Om du vill komma igång med skalning och prestandatester med Azure Cosmos DB, se
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+[6]: ./media/request-units/provisioning_set_containers.png

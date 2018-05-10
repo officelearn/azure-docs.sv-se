@@ -1,30 +1,26 @@
 ---
-title: "Azure Active Directory certifikatbaserad autentisering - komma igång | Microsoft Docs"
-description: "Lär dig hur du konfigurerar certifikatbaserad autentisering i din miljö"
-author: MarkusVi
-documentationcenter: na
-manager: mtillman
-ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
+title: Komma igång med Azure Active Directory certifikatbaserad autentisering
+description: Lär dig hur du konfigurerar certifikatbaserad autentisering i din miljö
+services: active-directory
 ms.service: active-directory
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 01/15/2018
-ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 5c96f33b8f678155dc4b7a84718e5eadc541f441
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: annaba
+ms.openlocfilehash: db2c19bdc303f6f7773772dd7873878ceb892cc3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Komma igång med certifikatbaserad autentisering i Azure Active Directory
 
 Certifikatbaserad autentisering gör att du ska kunna autentiseras av Azure Active Directory med ett klientcertifikat på en Windows-, Android eller iOS-enhet när du ansluter din Exchange-onlinekonto till:
 
-- Microsoft mobila program, till exempel Microsoft Outlook och Microsoft Word   
-
+- Microsoft mobila program, till exempel Microsoft Outlook och Microsoft Word
 - Exchange ActiveSync (EAS) klienter
 
 Konfigurera den här funktionen eliminerar behovet av att ange en kombination av användarnamn och lösenord i vissa e-post och Microsoft Office-program på din mobila enhet.
@@ -32,43 +28,31 @@ Konfigurera den här funktionen eliminerar behovet av att ange en kombination av
 Det här avsnittet:
 
 - Ger dig stegen för att konfigurera och använda certifikatbaserad autentisering för användare av klienter i Office 365 Enterprise, företag, Education och som tillhör amerikanska myndigheter planer. Den här funktionen är tillgängliga i förhandsversionen i Office 365 Kina US Government skydd och US Government Federal planer.
-
-- Förutsätter att du redan har en [infrastruktur för offentliga nycklar (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) och [AD FS](connect/active-directory-aadconnectfed-whatis.md) konfigurerats.    
-
+- Förutsätter att du redan har en [infrastruktur för offentliga nycklar (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) och [AD FS](connect/active-directory-aadconnectfed-whatis.md) konfigurerats.
 
 ## <a name="requirements"></a>Krav
 
-Följande om du vill konfigurera certifikatbaserad autentisering, den måste vara sant:  
+Följande instruktioner om du vill konfigurera certifikatbaserad autentisering måste vara uppfyllda:
 
-- Certifikatbaserad autentisering (CBA) stöds endast för federerat miljöer för webbläsarprogram eller interna klienter som använder modern autentisering (ADAL). Det enda undantaget är Exchange Active Sync (EAS) för EXO som kan användas för både federerade och hanterade konton.
-
-- Rotcertifikatutfärdaren och alla mellanliggande certifikatutfärdare måste konfigureras i Azure Active Directory.  
-
-- Varje certifikatutfärdare måste ha en lista certifikat (CRL) som kan refereras via en Internetuppkopplad URL.  
-
-- Du måste ha minst en certifikatutfärdare som konfigurerats i Azure Active Directory. Du kan hitta relaterade stegen i den [konfigurera certificate myndigheter](#step-2-configure-the-certificate-authorities) avsnitt.  
-
-- För Exchange ActiveSync-klienter, måste klientcertifikatet ha användarens dirigerbara e-postadress i Exchange online i huvudnamn eller RFC822 namn-värde i fältet Alternativt ämnesnamn. Azure Active Directory mappar RFC822 värdet till attributet proxyadress i katalogen.  
-
-- Klientenheten måste ha tillgång till minst en certifikatutfärdare som utfärdar certifikat.  
-
-- Ett klientcertifikat för klientautentisering måste har utfärdats till klienten.  
-
-
-
+- Certifikatbaserad autentisering (CBA) stöds endast för federerat miljöer för webbläsarprogram eller interna klienter som använder modern autentisering (ADAL). Det enda undantaget är Exchange Active Sync (EAS) för Exchange Online (EXO), som kan användas för federerade och hanterade konton.
+- Rotcertifikatutfärdaren och alla mellanliggande certifikatutfärdare måste konfigureras i Azure Active Directory.
+- Varje certifikatutfärdare måste ha en lista certifikat (CRL) som kan refereras via en Internetuppkopplad URL.
+- Du måste ha minst en certifikatutfärdare som konfigurerats i Azure Active Directory. Du kan hitta relaterade stegen i den [konfigurera certificate myndigheter](#step-2-configure-the-certificate-authorities) avsnitt.
+- För Exchange ActiveSync-klienter, måste klientcertifikatet ha användarens dirigerbara e-postadress i Exchange online i huvudnamn eller RFC822 namn-värde i fältet Alternativt ämnesnamn. Azure Active Directory mappar RFC822 värdet till attributet proxyadress i katalogen.
+- Klientenheten måste ha tillgång till minst en certifikatutfärdare som utfärdar certifikat.
+- Ett klientcertifikat för klientautentisering måste har utfärdats till klienten.
 
 ## <a name="step-1-select-your-device-platform"></a>Steg 1: Välj din enhetsplattform
 
 Som ett första steg för den enhetsplattform som du bryr dig om du behöver för att granska följande:
 
 - Stöd för mobila Office-program
-- Krav för specifik implementering  
+- Krav för specifik implementering
 
 Det finns relaterad information för följande enhetsplattformar:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
-
 
 ## <a name="step-2-configure-the-certificate-authorities"></a>Steg 2: Konfigurera på certifikatutfärdare
 
@@ -81,7 +65,7 @@ Schemat för en certifikatutfärdare som ser ut som följer:
 
     class TrustedCAsForPasswordlessAuth
     {
-       CertificateAuthorityInformation[] certificateAuthorities;    
+       CertificateAuthorityInformation[] certificateAuthorities;
     }
 
     class CertificateAuthorityInformation
@@ -93,7 +77,7 @@ Schemat för en certifikatutfärdare som ser ut som följer:
         string deltaCrlDistributionPoint;
         string trustedIssuer;
         string trustedIssuerSKI;
-    }                
+    }
 
     enum CertAuthorityType
     {
@@ -101,10 +85,10 @@ Schemat för en certifikatutfärdare som ser ut som följer:
         IntermediateAuthority = 1
     }
 
-Konfiguration, kan du använda den [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
+Konfiguration, kan du använda den [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
 
 1. Starta Windows PowerShell med administratörsbehörighet.
-2. Installera Azure AD-modulen. Du måste installera Version [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) eller högre.  
+2. Installera Azure AD-Modulversion [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) eller högre.
 
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
 
@@ -116,13 +100,11 @@ För att upprätta en anslutning till din klient använder de [Connect-AzureAD](
 
     Connect-AzureAD
 
-
 ### <a name="retrieve"></a>Hämta
 
 Använd för att hämta de betrodda certifikatutfärdare som har definierats i din katalog i [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet.
 
     Get-AzureADTrustedCertificateAuthority
-
 
 ### <a name="add"></a>Lägg till
 
@@ -135,7 +117,6 @@ Så här skapar du en betrodd certifikatutfärdare på [ny AzureADTrustedCertifi
     $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-
 ### <a name="remove"></a>Ta bort
 
 Ta bort en betrodd certifikatutfärdare med den [ta bort AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
@@ -143,15 +124,13 @@ Ta bort en betrodd certifikatutfärdare med den [ta bort AzureADTrustedCertifica
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
 
-
-### <a name="modfiy"></a>Modfiy
+### <a name="modify"></a>Ändra
 
 Om du vill ändra en betrodd certifikatutfärdare, använder den [Set AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
 
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
-
 
 ## <a name="step-3-configure-revocation"></a>Steg 3: Konfigurera återkallade certifikat
 
@@ -181,7 +160,6 @@ Följande steg beskriver processen för att uppdatera och ogiltigförklara auten
 
 Det datum som du anger måste vara i framtiden. Om datumet inte är i framtiden kan den **StsRefreshTokensValidFrom** egenskapen har inte angetts. Om datumet är i framtiden, **StsRefreshTokensValidFrom** anges till den aktuella tiden (inte det datum som anges av kommandot Set-MsolUser).
 
-
 ## <a name="step-4-test-your-configuration"></a>Steg 4: Testa din konfiguration
 
 ### <a name="testing-your-certificate"></a>Testa ditt certifikat
@@ -191,14 +169,13 @@ Som ett första konfigurationstest bör du försöker logga in på [Outlook Web 
 Om din inloggning lyckades, vet som:
 
 - Användarcertifikatet har etablerats till testenhet
-- AD FS är korrekt konfigurerad  
-
+- AD FS är korrekt konfigurerad
 
 ### <a name="testing-office-mobile-applications"></a>Testa mobila Office-program
 
 **Så här testar certifikatbaserad autentisering på din mobila Office-program:**
 
-1. Installera ett mobila Office-program (t.ex. OneDrive) på enheten test.
+1. Installera ett mobila Office-program (till exempel OneDrive) på enheten test.
 3. Starta programmet.
 4. Ange ditt användarnamn och välj sedan användarcertifikatet för som du vill använda.
 
@@ -214,11 +191,17 @@ EAS-profil måste innehålla följande information:
 
 - EAS-slutpunkt (till exempel outlook.office365.com)
 
-EAS-profil kan konfigureras och placeras på enheten via användning av hantering av mobila enheter (MDM), till exempel Intune eller genom att manuellt certifikatet EAS-profil på enheten.  
+EAS-profil kan konfigureras och placeras på enheten via användning av hantering av mobila enheter (MDM), till exempel Intune eller genom att manuellt certifikatet EAS-profil på enheten.
 
 ### <a name="testing-eas-client-applications-on-android"></a>Testa EAS klientprogram på Android
 
-**Att testa autentisering med datorcertifikat:**  
+**Att testa autentisering med datorcertifikat:**
 
-1. Konfigurera en EAS-profil i programmet som uppfyller kraven ovan.  
+1. Konfigurera en EAS-profil i programmet som uppfyller kraven i föregående avsnitt.
 2. Öppna programmet och kontrollera att du synkroniserar e-post.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Ytterligare information om certifikatbaserad autentisering på Android-enheter.](active-directory-certificate-based-authentication-android.md)
+
+[Ytterligare information om certifikatbaserad autentisering på iOS-enheter.](active-directory-certificate-based-authentication-ios.md)

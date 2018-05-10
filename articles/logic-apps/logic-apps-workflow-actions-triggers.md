@@ -1,229 +1,354 @@
 ---
 title: Arbetsflödet utlösare och åtgärder - Azure Logic Apps | Microsoft Docs
-description: Lär dig mer om utlösare och åtgärder för att skapa automatiska arbetsflöden och processer med logic apps
+description: Lär dig mer om utlösare och åtgärder i arbetsflödesdefinitioner för Logic Apps i Azure
 services: logic-apps
-author: divyaswarnkar
-manager: anneta
+author: kevinlam1
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 10/13/2017
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: reference
+ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="triggers-and-actions-for-logic-app-workflows"></a>Utlösare och åtgärder för logik app arbetsflöden
+# <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Utlösare och åtgärder för arbetsflödesdefinitioner i Azure Logic Apps
 
-Alla logikappar börja med en utlösare följt av åtgärder. Den här artikeln beskrivs vilka typer av utlösare och åtgärder som du kan använda för att skapa integreringar system och automatisera verksamheten arbetsflöden eller processer genom att skapa logikappar. 
-  
-## <a name="triggers-overview"></a>Utlösare: översikt 
+I [Azure Logikappar](../logic-apps/logic-apps-overview.md), alla logik app arbetsflöden som startar med utlösare följt av åtgärder. Den här artikeln beskriver utlösare och åtgärder som du kan använda för att skapa logikappar för automatiskt business arbetsflöden eller processer i lösningar för katalogintegrering. Du kan skapa logikappar visuellt med Logic Apps Designer eller genom direkt redigering av underliggande arbetsflödesdefinitioner med den [språk i arbetsflödesdefinitionen](../logic-apps/logic-apps-workflow-definition-language.md). Du kan använda Azure-portalen eller Visual Studio. Lär dig hur [priser fungerar för utlösare och åtgärder](../logic-apps/logic-apps-pricing.md).
 
-Alla logikappar börja med en utlösare som anger de anrop som kan starta en logikapp som körs. Här följer typerna av utlösare som du kan använda:
+<a name="triggers-overview"></a>
+
+## <a name="triggers-overview"></a>Utlösare: översikt
+
+Alla logikappar börja med en utlösare, vilket definierar de anrop som kan skapa en instans av och starta ett arbetsflöde för logik app. Här följer typerna av utlösare som du kan använda:
 
 * En *avsökning* utlösare som kontrollerar HTTP-slutpunkten för en tjänst med jämna mellanrum
 * En *push* utlösa, som anropar den [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)
-  
-Alla utlösare innehålla de översta elementen:  
+ 
+Alla utlösare har de översta elementen, även om vissa är valfria:  
   
 ```json
-"<myTriggerName>": {
-    "type": "<triggerType>",
-    "inputs": { <callSettings> },
-    "recurrence": {  
-        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-        "interval": "<recurrence-interval-based-on-frequency>"
-    },
-    "conditions": [ <array-with-required-conditions> ],
-    "splitOn": "<property-used-for-creating-runs>",
-    "operationOptions": "<options-for-operations-on-the-trigger>"
+"<triggerName>": {
+   "type": "<triggerType>",
+   "inputs": { "<trigger-behavior-settings>" },
+   "recurrence": { 
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "conditions": [ <array-with-required-conditions> ],
+   "splitOn": "<property-used-for-creating-runs>",
+   "operationOptions": "<optional-trigger-operations>"
 }
 ```
 
-## <a name="trigger-types-and-inputs"></a>Typer av utlösare och indata  
+*Krävs*
 
-Varje typ av utlösare som har ett annat nätverkskort och annan *indata* som definierar sitt beteende. 
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| <*Utlösarnamn*> | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Utlösaren Skriv till exempel: ”Http” eller ”ApiConnection” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
+| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
+| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
+|||| 
+
+*Valfria*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| [Villkor](#trigger-conditions) | Matris | Ett eller flera villkor som avgör om att köra arbetsflödet eller inte | 
+| [splitOn](#split-on-debatch) | Sträng | Ett uttryck som delar upp, eller *debatches*, matrisen objekt till flera arbetsflödesinstanser för bearbetning. Det här alternativet är tillgängligt för utlösare som returnerar en matris och endast när du arbetar direkt i kodvy. | 
+| [operationOptions](#trigger-operation-options) | Sträng | Vissa utlösare ger ytterligare alternativ som kan du ändra standardfunktioner för utlösare | 
+||||| 
+
+## <a name="trigger-types-and-details"></a>Typer av utlösare och information  
+
+Varje typ av utlösare har olika gränssnitt och indata som definierar utlösarens beteende. 
 
 | Typ av utlösare | Beskrivning | 
 | ------------ | ----------- | 
-| **Upprepning** | Utlöses baserat på ett definierat schema. Du kan ange ett framtida datum och tid för startar den här utlösaren. Baserat på hur ofta du kan också ange tider och dagar för att köra arbetsflödet. | 
-| **Förfrågan**  | Gör din logikapp till en slutpunkt som du kan anropa, även kallat en ”manuell” utlösare. | 
-| **HTTP** | Kontrollerar, eller *polls*, en HTTP-slutpunkt för webbprogram. HTTP-slutpunkten måste överensstämma med en specifik utlösande kontrakt med hjälp av en ”202” asynkront mönster eller returnerar en matris. | 
-| **ApiConnection** | Avsöker som en HTTP-utlösare, men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). | 
-| **HTTPWebhook** | Gör din logikapp i en anropsbar slutpunkt som den **begära** utlösa, men en angiven URL-anrop för registrering och avregistrering. |
-| **ApiConnectionWebhook** | Fungerar som den **HTTPWebhook** utlösare, men använder Microsoft-hanterade API: er. | 
+| [**Upprepning**](#recurrence-trigger) | Utlöses baserat på ett definierat schema. Du kan ange ett framtida datum och tid för startar den här utlösaren. Baserat på hur ofta du kan också ange tider och dagar för att köra arbetsflödet. | 
+| [**Begäran**](#request-trigger)  | Gör din logikapp i en anropsbar slutpunkt, även kallat en ”manuell” utlösare. Se exempelvis [anropa utlösare eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**HTTP**](#http-trigger) | Kontrollerar, eller *polls*, en HTTP-slutpunkt för webbprogram. HTTP-slutpunkten måste motsvara en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller returnerar en matris. | 
+| [**ApiConnection**](#apiconnection-trigger) | Fungerar som HTTP-utlösare, men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). | 
+| [**HTTPWebhook**](#httpwebhook-trigger) | Fungerar som utlösare för begäran, men en angiven URL-anrop för registrering och avregistrering. |
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Fungerar som HTTPWebhook utlösaren, men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). | 
 ||| 
-
-Mer information finns i [språk i arbetsflödesdefinitionen](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 <a name="recurrence-trigger"></a>
 
 ## <a name="recurrence-trigger"></a>Utlösare för upprepning  
 
-Den här utlösaren körs beroende på upprepning och schema som du anger och ger ett enkelt sätt för att regelbundet köra ett arbetsflöde. 
+Den här utlösaren körs baserat på angivet intervall och schema och ger ett enkelt sätt för att regelbundet köra ett arbetsflöde. 
 
-Här är ett exempel på grundläggande upprepning utlösare som körs varje dag:
+Här är utlösardefinition:
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month",
+      "interval": <recurrence-interval-based-on-frequency>,
+      "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+      "timeZone": "<time-zone>",
+      "schedule": {
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "hours": [ <one-or-more-hour-marks> ], 
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "minutes": [ <one-or-more-minute-marks> ], 
+         // Applies only when frequency is Week. Separate values with commas.
+         "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
+      }
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+*Krävs*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| Upprepning | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Typen av utlösare som är ”återkommande” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
+| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
+| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
+|||| 
+
+*Valfria*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| startTime | Sträng | Datum och tid i det här formatet: <p>ÅÅÅÅ-MM-ddTHH om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-ddTHH om du inte anger en tidszon <p>Exempelvis om du vill 18 September 2017 2:00 PM, anger du ”2017-09-18T14:00:00” och ange en tidszon, till exempel ”Pacific Standard Time”, eller ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** starttiden måste följa den [ISO 8601 dag tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. ”Z” refererar till motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkel scheman starttiden är den första förekomsten medan för komplexa scheman utlösaren inte utlösa en snabbare än starttiden. Läs mer om startdatum och gånger [skapa och aktiviteter som körs regelbundet schema](../connectors/connectors-native-recurrence.md). | 
+| Tidszon | Sträng | Gäller endast när du anger en starttid eftersom utlösaren inte acceptera [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Ange den tidszon som du vill använda. | 
+| hours | Heltal eller heltalsmatris | Om du anger ”dag” eller ”vecka” för `frequency`, kan du ange en eller flera heltal mellan 0 och 23, avgränsade med kommatecken, som tidpunkter på dagen när du vill köra arbetsflödet. <p>Till exempel, om du anger ”10”, ”12” och ”14”, får du 10 AM och 12 PM 14: 00 som timme markerar. | 
+| minutes | Heltal eller heltalsmatris | Om du anger ”dag” eller ”vecka” för `frequency`, kan du ange en eller flera heltal mellan 0 och 59, avgränsade med kommatecken, minuter för den när du vill köra arbetsflödet. <p>Exempelvis kan du ange ”30” som minut märket och använder det föregående exemplet för tidpunkter på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. | 
+| weekDays | Sträng eller strängmatris | Om du anger ”vecka” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”söndag” | 
+| Concurrency | JSON-objekt | Det här objektet anger återkommande och avsökning utlösare, maximalt antal arbetsflödesinstanser som kan köras samtidigt. Använd det här värdet om du vill begränsa förfrågningar som tar emot serverdelssystem. <p>Detta värde anger gränsen för samtidighet till 10 instanser: `"concurrency": { "runs": 10 }` | 
+| operationOptions | Sträng | Den `singleInstance` alternativet anger att utlösaren Utlöses efter att alla aktiva körs är klar. Se [utlösare: eller endast när active körs Slutför](#single-instance). | 
+|||| 
+
+*Exempel 1*
+
+Den här grundläggande upprepning utlösaren körs dagligen:
+
+```json
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Du kan också schemalägga ett startdatum och tidpunkt för startar utlösaren. Till exempel om du vill starta en vecka rapport varje måndag, kan du schemalägga logikappen att starta på en specifik måndag som det här exemplet: 
+*Exempel 2*
+
+Du kan ange ett startdatum och tidpunkt för startar utlösaren. Den här utlösaren upprepning startar på det angivna datumet och sedan utlöses varje dag:
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": "1",
-        "startTime": "2017-09-18T00:00:00Z"
-    }
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1,
+      "startTime": "2017-09-18T00:00:00Z"
+   }
 }
 ```
 
-Här är definitionen för denna utlösare:
+*Exempel 3*
 
-```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "second|minute|hour|day|week|month",
-        "interval": <recurrence-interval-based-on-frequency>,
-        "schedule": {
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ <one-or-more-hour-marks> ], 
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ <one-or-more-minute-marks> ], 
-            // Applies only when frequency is Week. Separate values with commas.
-            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
-        },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<specify-time-zone>"
-    }
-}
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | Ja | Sträng | Tidsenhet för hur ofta utlösaren utlöses. Använd bara ett av följande värden: ”andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
-| interval | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
-| Tidszon | Nej | Sträng | Gäller endast när du anger en starttid eftersom utlösaren inte acceptera [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Ange den tidszon som du vill använda. | 
-| startTime | Nej | Sträng | Ange startdatum och tidpunkt i det här formatet: <p>ÅÅÅÅ-MM-ddTHH om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-ddTHH om du inte anger en tidszon <p>Exempelvis om du vill 18 September 2017 2:00 PM, anger du ”2017-09-18T14:00:00” och ange en tidszon, till exempel ”Pacific Standard Time”. Alternativt kan du ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** starttiden måste följa den [ISO 8601 dag tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. ”Z” refererar till motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkel scheman starttiden är den första förekomsten medan för komplexa scheman utlösaren inte utlösa en snabbare än starttiden. Läs mer om startdatum och gånger [skapa och aktiviteter som körs regelbundet schema](../connectors/connectors-native-recurrence.md). | 
-| weekDays | Nej | Sträng eller strängmatris | Om du anger ”vecka” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”söndag” | 
-| hours | Nej | Heltal eller heltalsmatris | Om du anger ”dag” eller ”vecka” för `frequency`, kan du ange en eller flera heltal mellan 0 och 23, avgränsade med kommatecken, som tidpunkter på dagen när du vill köra arbetsflödet. <p>Till exempel, om du anger ”10”, ”12” och ”14”, får du 10 AM och 12 PM 14: 00 som timme markerar. | 
-| minutes | Nej | Heltal eller heltalsmatris | Om du anger ”dag” eller ”vecka” för `frequency`, kan du ange en eller flera heltal mellan 0 och 59, avgränsade med kommatecken, minuter för den när du vill köra arbetsflödet. <p>Exempelvis kan du ange ”30” som minut märket och använder det föregående exemplet för tidpunkter på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. | 
-||||| 
-
-Till exempel utlösaren återkommande anger att din logikapp körs varje vecka varje måndag kl 10:30, 12:30:00 och 14:30:00 Pacific Standard Time, Starta tidigast 9 September 2017 14:00:00:
+Återkommande utlösaren startar på 9 September 2017 på 2:00 PM och utlöses varje vecka varje måndag 10:30 AM, 12:30:00 och 14:30:00 Pacific, normaltid:
 
 ``` json
 "myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": 1,
-        "schedule": {
-            "hours": [
-                10,
-                12,
-                14
-            ],
-            "minutes": [
-                30
-            ],
-            "weekDays": [
-                "Monday"
-            ]
-        },
-       "startTime": "2017-09-07T14:00:00",
-       "timeZone": "Pacific Standard Time"
-    }
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "hours": [ 10, 12, 14 ],
+         "minutes": [ 30 ],
+         "weekDays": [ "Monday" ]
+      },
+      "startTime": "2017-09-07T14:00:00",
+      "timeZone": "Pacific Standard Time"
+   }
 }
 ```
 
-Mer information med återkommande och starta tid exempel för denna utlösare finns [skapa och aktiviteter som körs regelbundet schema](../connectors/connectors-native-recurrence.md).
+Mer information och exempel på den här utlösaren finns [skapa och aktiviteter som körs regelbundet schema](../connectors/connectors-native-recurrence.md).
+
+<a name="request-trigger"></a>
 
 ## <a name="request-trigger"></a>Begäran utlösare
 
-Den här utlösaren fungerar som en slutpunkt som du kan använda för att anropa logikappen via en HTTP-begäran. Det ser ut som i det här exemplet en utlösare för begäran:  
-  
+Den här utlösaren gör din logikapp callable genom att skapa en slutpunkt som kan ta emot inkommande HTTP-begäranden. För att anropa den här utlösaren, måste du använda den `listCallbackUrl` API i den [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). Information om hur du använder den här utlösaren som en HTTP-slutpunkt finns [anropa utlösare eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md).
+
 ```json
-"myRequestTrigger": {
-    "type": "Request",
-    "kind": "Http",
-    "inputs": {
-        "schema": {
-            "type": "Object",
-            "properties": {
-                "myInputProperty1": { "type" : "string" },
-                "myInputProperty2": { "type" : "number" }
-            },
-            "required": [ "myInputProperty1" ]
-        }
-    }
-} 
-```
-
-Den här utlösaren har en valfri egenskap som heter `schema`:
-  
-| Elementnamn | Krävs | Typ | Beskrivning |
-| ------------ | -------- | ---- | ----------- |
-| Schemat | Nej | Objekt | En JSON-schema som kontrollerar den inkommande begäranden. Användbart för att hjälpa efterföljande arbetsflödessteg veta vilka egenskaper som ska referera till. | 
-||||| 
-
-Om du vill anropa den här utlösaren som en slutpunkt måste du anropa den `listCallbackUrl` API. Se [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows).
-
-## <a name="http-trigger"></a>HTTP-utlösare  
-
-Den här utlösaren genomsöker den angivna slutpunkten och kontrollerar svaret för att avgöra om arbetsflödet ska köras eller inte. Här är den `inputs` objektet följer dessa parametrar som krävs för att konstruera ett HTTP-anrop: 
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| URI | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
-||||| 
-
-En *standardpolicy* gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"manual": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "relativePath": "<relative-path-for-accepted-parameter>",
+      "schema": {
+         "type": "object",
+         "properties": { 
+            "<propertyName>": {
+               "type": "<property-type>"
+            }
+         },
+         "required": [ "<required-properties>" ]
+      }
+   }
 }
 ```
 
-Om du vill arbeta med din logikapp kräver HTTP-utlösaren HTTP-API för att överensstämma med ett specifikt mönster. Utlösaren identifierar dessa egenskaper:  
+*Krävs*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| Manuell | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Typen av utlösare som är ”begär” | 
+| typ | Sträng | Typ av begäran som är ”Http” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+|||| 
+
+*Valfria*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| metod | Sträng | Metoden som begäranden måste använda för att anropa utlösaren: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” |
+| RelativePath | Sträng | Den relativa sökvägen för den parameter som accepterar HTTP-slutpunktens URL | 
+| Schemat | JSON-objekt | JSON-schema som beskriver och validerar nyttolasten eller indata som utlösaren tar emot från den inkommande begäranden. Det här schemat kan efterföljande arbetsflödesåtgärder veta vilka egenskaper som ska referera till. | 
+| properties | JSON-objekt | En eller flera egenskaper i JSON-schema som beskriver nyttolasten | 
+| Krävs | Matris | En eller flera egenskaper som kräver att värden | 
+|||| 
+
+*Exempel*
+
+Den här begäran utlösaren anger att en inkommande begäran använder HTTP POST-metoden för att anropa utlösaren och ett schema som validerar indata från den inkommande begäranden: 
+
+```json
+"myRequestTrigger": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "POST",
+      "schema": {
+         "type": "Object",
+         "properties": {
+            "customerName": {
+               "type": "String"
+            },
+            "customerAddress": { 
+               "type": "Object",
+               "properties": {
+                  "streetAddress": {
+                     "type": "String"
+                  },
+                  "city": {
+                     "type": "String"
+                  }
+               }
+            }
+         }
+      }
+   }
+} 
+```
+
+<a name="http-trigger"></a>
+
+## <a name="http-trigger"></a>HTTP-utlösare  
+
+Den här utlösaren genomsöker den angivna slutpunkten och kontrollerar svaret. Svaret avgör om arbetsflödet ska köras eller inte. Den `inputs` JSON-objekt innehåller och kräver den `method` och `uri` parametrar som krävs för att konstruera HTTP-anropet:
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": <recurrence-interval-based-on-frequency>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+
+*Krävs*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| HTTP | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Typen av utlösare som är ”Http” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| metod | Ja | Sträng | HTTP-metoden för avsökning av den angivna slutpunkten: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
+| URI | Ja| Sträng | HTTP eller HTTPS slutpunkts-URL som utlösaren söker eller avsöker <p>Maximal strängens storlek: 2 KB | 
+| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
+| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
+| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
+|||| 
+
+*Valfria*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| frågor | JSON-objekt | Alla frågeparametrar som du vill ta med URL-Adressen <p>Till exempel lägger till i det här elementet i `?api-version=2015-02-01` frågesträng till URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultat: `https://contoso.com?api-version=2015-02-01` | 
+| rubriker | JSON-objekt | En eller flera sidhuvuden att skicka till begäran <p>Till exempel ange språk och typ för en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | JSON-objekt | Nyttolasten (data) att skicka till slutpunkten | 
+| autentisering | JSON-objekt | Den metod som den inkommande begäranden ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). Utöver Scheduler, den `authority` egenskapen stöds. Om inget värde anges är standardvärdet `https://login.windows.net`, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
+| retryPolicy | JSON-objekt | Det här objektet anpassar beteendet för återkommande fel som har 4xx eller 5xx statuskoder försök igen. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
+| Concurrency | JSON-objekt | Det här objektet anger återkommande och avsökning utlösare, maximalt antal arbetsflödesinstanser som kan köras samtidigt. Använd det här värdet om du vill begränsa förfrågningar som tar emot serverdelssystem. <p>Detta värde anger gränsen för samtidighet till 10 instanser: <p>`"concurrency": { "runs": 10 }` | 
+| operationOptions | Sträng | Den `singleInstance` alternativet anger att utlösaren Utlöses efter att alla aktiva körs är klar. Se [utlösare: eller endast när active körs Slutför](#single-instance). | 
+|||| 
+
+Om du vill arbeta med din logikapp, kräver HTTP-utlösaren att HTTP-API som överensstämmer med ett specifikt mönster. HTTP-utlösaren identifierar dessa egenskaper:  
   
 | Svar | Krävs | Beskrivning | 
 | -------- | -------- | ----------- |  
-| Statuskod | Ja | Statuskod 200 (”OK”) orsakar en körning. Andra statuskod göra inte en körning. | 
-| Försök igen efter rubrik | Nej | Antalet sekunder tills logikappen avsöker slutpunkten igen. | 
+| Statuskod | Ja | Den ”200 OK” statuskod startar en körning. Andra statuskod starta inte en körning. | 
+| Försök igen efter rubrik | Nej | Antalet sekunder tills logikappen avsöker slutpunkten igen | 
 | Platshuvud | Nej | URL till anropa vid nästa avsökningsintervall. Om inget anges används den ursprungliga URL: en. | 
 |||| 
 
-Här följer några exempel beteenden för olika typer av begäranden:
-  
-| Svarskod | Försök igen efter | Beteende | 
-| ------------- | ----------- | -------- | 
+*Exempel beteenden för olika begäranden*
+
+| Statuskod | Försök igen efter | Beteende | 
+| ----------- | ----------- | -------- | 
 | 200 | {Ingen} | Köra arbetsflödet och Sök igen efter mer data efter den definierade upprepningen. | 
 | 200 | 10 sekunder | Köra arbetsflödet och Sök igen efter mer data efter 10 sekunder. |  
 | 202 | 60 sekunder | Inte Utlös arbetsflödet. Nästa försök sker i en minut, kan den definierade upprepningen. Om den definierade upprepningen är mindre än en minut, företräde försök igen efter huvudet. Annars används den definierade upprepningen. | 
@@ -231,181 +356,314 @@ Här följer några exempel beteenden för olika typer av begäranden:
 | 500 | {Ingen}| Serverfel, inte köra arbetsflödet. Om inget `retryPolicy` definieras standardprincipen används. När antalet försök har nåtts kontrollerar utlösaren igen data efter den definierade upprepningen. | 
 |||| 
 
-Här är http-utlösaren utdata: 
-  
+### <a name="http-trigger-outputs"></a>HTTP-utlösaren matar ut
+
 | Elementnamn | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| rubriker | Objekt | Sidhuvuden för HTTP-svar | 
-| brödtext | Objekt | Innehållet i HTTP-svar | 
+| rubriker | JSON-objekt | Huvuden från HTTP-svar | 
+| brödtext | JSON-objekt | Text från HTTP-svar | 
 |||| 
 
 <a name="apiconnection-trigger"></a>
 
 ## <a name="apiconnection-trigger"></a>APIConnection utlösare  
 
-Den här utlösaren fungerar som HTTP-utlösaren i grundläggande funktioner. Parametrar för att identifiera åtgärden är dock olika. Här är ett exempel:   
-  
+Den här utlösaren fungerar som den [HTTP-utlösaren](#http-trigger), men använder [Microsoft-hanterade API: er](../connectors/apis-list.md) så skiljer sig åt parametrar för den här utlösaren. 
+
+Här är utlösardefinition, även om många avsnitt är valfria, så den utlösaren beteende beror på om huruvida avsnitt är infogade:
+
 ```json
-"myDailyReportTrigger": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://myarticles.example.com/"
-            }
-        },
-        "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
-        }
-    },  
-    "method": "POST",
-    "body": {
-        "category": "myCategory"
-    }
+"<APIConnectionTriggerName>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "<managed-API-endpoint-URL>"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         },
+      },
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| värd | Ja | Objekt | Värdbaserade gateway och -ID för API-appen | 
-| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). | 
-||||| 
+*Krävs*
 
-För den `host` objekt följer egenskaper:  
-  
-| Elementnamn | Krävs | Beskrivning | 
-| ------------ | -------- | ----------- | 
-| API-runtimeUrl | Ja | Slutpunkten för hanterade API: et | 
-| Anslutningens namn |  | Namnet på den hanterade API-anslutningen som används i arbetsflödet. Måste referera till en parameter med namnet `$connection`. |
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| *APIConnectionTriggerName* | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Typen av utlösare som är ”ApiConnection” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| värd | JSON-objekt | JSON-objekt som beskriver värden gateway och -ID för den hanterade API <p>Den `host` JSON-objekt har dessa element: `api` och `connection` | 
+| api | JSON-objekt | Slutpunkts-URL för den hanterade API: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
+| anslutning | JSON-objekt | Namn för den hanterade API-anslutningen som används i arbetsflödet, som måste innehålla en referens till en parameter med namnet `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| metod | Sträng | HTTP-metoden för att kommunicera med hanterade API: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
+| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
+| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
+| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
 |||| 
 
-En *standardpolicy* gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
+*Valfria*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| frågor | JSON-objekt | Alla frågeparametrar som du vill ta med URL-Adressen <p>Till exempel lägger till i det här elementet i `?api-version=2015-02-01` frågesträng till URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultat: `https://contoso.com?api-version=2015-02-01` | 
+| rubriker | JSON-objekt | En eller flera sidhuvuden att skicka till begäran <p>Till exempel ange språk och typ för en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | JSON-objekt | I JSON-objekt som beskriver nyttolasten (data) att skicka till hanterade API: et | 
+| autentisering | JSON-objekt | Den metod som en inkommande begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON-objekt | Det här objektet anpassar försök beteendet för återkommande fel som har 4xx eller 5xx statuskoder: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
+| Concurrency | JSON-objekt | Det här objektet anger återkommande och avsökning utlösare, maximalt antal arbetsflödesinstanser som kan köras samtidigt. Använd det här värdet om du vill begränsa förfrågningar som tar emot serverdelssystem. <p>Detta värde anger gränsen för samtidighet till 10 instanser: `"concurrency": { "runs": 10 }` | 
+| operationOptions | Sträng | Den `singleInstance` alternativet anger att utlösaren Utlöses efter att alla aktiva körs är klar. Se [utlösare: eller endast när active körs Slutför](#single-instance). | 
+||||
+
+*Exempel*
+
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"Create_daily_report": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         }     
+      },
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Här följer utdata för en utlösare för API-anslutningen:
-  
+### <a name="apiconnection-trigger-outputs"></a>APIConnection utlösaren utdata
+ 
 | Elementnamn | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| rubriker | Objekt | Sidhuvuden för HTTP-svar | 
-| brödtext | Objekt | Innehållet i HTTP-svar | 
+| rubriker | JSON-objekt | Huvuden från HTTP-svar | 
+| brödtext | JSON-objekt | Text från HTTP-svar | 
 |||| 
 
-Lär dig mer om [hur priser fungerar för API-anslutningen utlöser](../logic-apps/logic-apps-pricing.md#triggers).
+<a name="httpwebhook-trigger"></a>
 
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook utlösare  
 
-Den här utlösaren innehåller en slutpunkt som liknar den `Request` utlösare, men HTTPWebhook utlösaren också anropar en angiven URL för registrering och avregistrering. Här är ett exempel på hur en HTTPWebhook-utlösare kan se ut:
+Den här utlösaren fungerar som den [begäran utlösaren](#request-trigger) genom att skapa en anropsbar slutpunkten för din logikapp. Den här utlösaren anropar dock också en viss slutpunkts-URL för registrering eller avregistrering av en prenumeration. Du kan ange gränserna på en webhook-utlösare på samma sätt som [HTTP asynkron gränser](#asynchronous-limits). 
+
+Här är utlösardefinition, även om många avsnitt är valfria och utlösarens beteende beror på de avsnitt som du använder eller utelämna:
 
 ```json
-"myAppsSpotTrigger": {
+"HTTP_Webhook": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
             "method": "POST",
-            "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": {},
+            "uri": "<subscribe-to-endpoint-URL>",
+            "headers": { "<headers-for-request>" },
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {},
             "retryPolicy": {}
         },
         "unsubscribe": {
             "method": "POST",
-            "url": "https://pubsubhubbub.appspot.com/subscribe",
+            "url": "<unsubscribe-from-endpoint-URL>",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {}
         }
     },
-    "conditions": []
 }
 ```
 
-Många av dessa avsnitt är valfria och HTTPWebhook utlösaren beteende beror på de avsnitt som du tillhandahåller eller utelämna. Här följer egenskaperna för utlösaren HTTPWebhook:
-  
-| Elementnamn | Krävs | Beskrivning | 
-| ------------ | -------- | ----------- |  
-| prenumerera på | Nej | Anger den utgående begäranden att anropa när utlösaren skapas och utför registreringen. | 
-| avbryta prenumerationen | Nej | Anger den utgående begäranden att anropa när utlösaren tas bort. | 
+*Krävs*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| HTTP_Webhook | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Typen av utlösare som är ”HttpWebhook” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| prenumerera på | JSON-objekt| Utgående begäran att anropa och utföra registreringen när utlösaren har skapats. Det här anropet sker så att utlösaren kan börja lyssna på händelser på slutpunkten. Mer information finns i [prenumerera och avbryta prenumerationen](#subscribe-unsubscribe). | 
+| metod | Sträng | HTTP-metod som används för prenumerationsbegäran: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
+| URI | Sträng | Slutpunkts-URL att skicka prenumerationsbegäran | 
 |||| 
 
-Du kan ange gränserna på en webhook-utlösare på samma sätt som [HTTP asynkron gränser](#asynchronous-limits). Här finns mer information om den `subscribe` och `unsubscribe` åtgärder:
+*Valfria*
 
-* `subscribe` kallas så att utlösaren kan börja lyssna på händelser. Utgående anropet börjar med samma parametrar som standard HTTP-åtgärder. Det här anropet sker när arbetsflödet ändras på något sätt, till exempel när autentiseringsuppgifterna samlas eller ändra utlösarens indataparametrar. 
-  
-  Att stödja det här anropet den `@listCallbackUrl()` funktionen returnerar en unik URL för den här specifika utlösaren i arbetsflödet. Denna URL representerar den unika identifieraren för slutpunkter som använder tjänstens REST API.
-  
-* `unsubscribe` anropas automatiskt när en åtgärd återgivningar utlösaren är ogiltig, inklusive dessa åtgärder:
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| avbryta prenumerationen | JSON-objekt | De utgående begäran om att anropa automatiskt och avbryta prenumerationen när en åtgärd gör utlösaren är ogiltig. Mer information finns i [prenumerera och avbryta prenumerationen](#subscribe-unsubscribe). | 
+| metod | Sträng | HTTP-metoden ska användas för begäran om att avbryta: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
+| URI | Sträng | Slutpunkts-URL för att skicka begäran om att avbryta | 
+| brödtext | JSON-objekt | JSON-objekt som beskriver nyttolasten (data) för prenumerationen eller avbryta begäran | 
+| autentisering | JSON-objekt | Den metod som en inkommande begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON-objekt | Det här objektet anpassar försök beteendet för återkommande fel som har 4xx eller 5xx statuskoder: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
+|||| 
 
-  * Ta bort eller inaktivera utlösaren. 
-  * Ta bort eller inaktivera arbetsflödet. 
-  * Ta bort eller inaktivera prenumerationen. 
-  
-  Parametrarna för den här funktionen är samma som HTTP-utlösaren.
+*Exempel*
 
-Här följer utdata från HTTPWebhook utlösa och innehållet i den inkommande begäranden är:
-  
+```json
+"myAppSpotTrigger": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "headers": {},
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      }
+   },
+}
+```
+
+<a name="subscribe-unsubscribe"></a>
+
+### <a name="subscribe-and-unsubscribe"></a>`subscribe` och `unsubscribe`
+
+Den `subscribe` anrop sker när arbetsflödet ändras på något sätt, till exempel när autentiseringsuppgifter förnyas eller utlösaren input parametrar ändringen. Anropet använder samma parametrar som standard HTTP-åtgärder. 
+ 
+Den `unsubscribe` anrop sker automatiskt när en åtgärd gör HTTPWebhook utlösaren ogiltig, till exempel:
+
+* Ta bort eller inaktivera utlösaren. 
+* Ta bort eller inaktivera arbetsflödet. 
+* Ta bort eller inaktivera prenumerationen. 
+
+Att stödja dessa anrop av `@listCallbackUrl()` returnerar funktionen ett unikt ”återanrop URL” för den här utlösaren. Denna URL representerar en unik identifierare för slutpunkter som använder tjänstens REST API. Parametrarna för den här funktionen är samma som HTTP-utlösaren.
+
+### <a name="httpwebhook-trigger-outputs"></a>HTTPWebhook utlösaren utdata
+
 | Elementnamn | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| rubriker | Objekt | Sidhuvuden för HTTP-svar | 
-| brödtext | Objekt | Innehållet i HTTP-svar | 
+| rubriker | JSON-objekt | Huvuden från HTTP-svar | 
+| brödtext | JSON-objekt | Text från HTTP-svar | 
 |||| 
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+## <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook utlösare
+
+Den här utlösaren fungerar som den [HTTPWebhook utlösaren](#httpwebhook-trigger), men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). 
+
+Här är utlösardefinition:
+
+```json
+"<ApiConnectionWebhookTriggerName>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },        
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "queries": "<query-parameters>"
+   }
+}
+```
+
+*Krävs*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| <*ApiConnectionWebhookTriggerName*> | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
+| typ | Sträng | Typen av utlösare som är ”ApiConnectionWebhook” | 
+| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| värd | JSON-objekt | JSON-objekt som beskriver värden gateway och -ID för den hanterade API <p>Den `host` JSON-objekt har dessa element: `api` och `connection` | 
+| anslutning | JSON-objekt | Namn för den hanterade API-anslutningen som används i arbetsflödet, som måste innehålla en referens till en parameter med namnet `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
+| brödtext | JSON-objekt | I JSON-objekt som beskriver nyttolasten (data) att skicka till hanterade API: et | 
+| NotificationUrl | Sträng | Returnerar en unik ”återanrop URL” för denna utlösare som kan använda för hanterade API: et | 
+|||| 
+
+*Valfria*
+
+| Elementnamn | Typ | Beskrivning | 
+| ------------ | ---- | ----------- | 
+| frågor | JSON-objekt | Alla frågeparametrar som du vill ta med URL-Adressen <p>Till exempel lägger till i det här elementet i `?folderPath=Inbox` frågesträng till URL: <p>`"queries": { "folderPath": "Inbox" }` <p>Resultat: `https://<managed-API-URL>?folderPath=Inbox` | 
+|||| 
+
+<a name="trigger-conditions"></a>
 
 ## <a name="triggers-conditions"></a>Utlösare: villkor
 
-Du kan använda ett eller flera villkor för alla utlösare för att avgöra om arbetsflödet ska köras eller inte. I det här exemplet rapporten endast utlösare när arbetsflödets `sendReports` parameter är angiven till true. 
+Du kan inkludera en matris med en eller flera villkor som avgör om arbetsflödet ska köras för alla utlösare. I det här exemplet rapporten utlösaren utlöses endast när arbetsflödets `sendReports` parameter är angiven till true. 
 
 ```json
 "myDailyReportTrigger": {
-    "type": "Recurrence",
-    "conditions": [ 
-        {
-            "expression": "@parameters('sendReports')"
-        } 
-    ],
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+   "type": "Recurrence",
+   "conditions": [ {
+      "expression": "@parameters('sendReports')"
+   } ],
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Slutligen kan villkor referera till statuskod för utlösaren. Du kan till exempel starta ett arbetsflöde endast när din webbplats returnerar en statuskod 500:
-  
+Villkor kan också referera utlösarens statuskod. Anta att du vill starta ett arbetsflöde endast när din webbplats returnerar statuskod ”500”:
+
 ``` json
-"conditions": [ 
-    {  
-      "expression": "@equals(triggers().code, 'InternalServerError')"  
-    }  
-]  
+"conditions": [ {
+   "expression": "@equals(triggers().code, 'InternalServerError')"  
+} ]  
 ```  
 
 > [!NOTE]
-> Som standard utlöses en utlösare bara på Ta emot en ”200 OK” svar. När ett uttryck som refererar till en utlösare statuskod på något sätt, ersätts utlösarens standardbeteendet. Om du vill att utlösaren ska brand baserat på flera statuskoder, till exempel, statuskod 200 och statuskod 201 så måste du inkludera den här instruktionen som dina villkor: 
+> Som standard utlöses en utlösare bara på Ta emot en ”200 OK” svar. När ett uttryck som refererar till en utlösare statuskod på något sätt, ersätts utlösarens standardbeteendet. Om du vill att utlösaren att utlösas för flera statuskoder, till exempel statuskod 200 och statuskod 201, så måste du inkludera den här instruktionen som dina villkor: 
 >
 > `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="triggers-process-an-array-with-multiple-runs"></a>Utlösare: Bearbeta en matris med flera körs
+## <a name="triggers-split-an-array-into-multiple-runs"></a>Utlösare: Dela en matris i flera körs
 
 Om utlösaren returnerar en matris för din logikapp att bearbeta kan ibland ”för var och en” loop ta lång tid att bearbeta varje element i matrisen. Använd i stället de **SplitOn** egenskap i utlösaren till *debatch* matrisen. 
 
@@ -442,7 +700,7 @@ Din logikapp behöver bara innehåll från `Rows`, så du kan skapa en utlösare
     "type": "Http",
     "recurrence": {
         "frequency": "Second",
-        "interval": "1"
+        "interval": 1
     },
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
@@ -476,21 +734,36 @@ Nu kan du använda din arbetsflödesdefinitionen `@triggerBody().name` att hämt
     }
 }
 ```
-  
-## <a name="triggers-fire-only-after-all-active-runs-finish"></a>Utlösare: Brand körs endast när alla aktiva Slutför
 
-Du kan konfigurera återkommande utlösare så att de eller endast när alla aktiva körningar har slutförts. För att konfigurera den här inställningen, ange den `operationOptions` egenskapen `singleInstance`:
+<a name="trigger-operation-options"></a>
+
+## <a name="triggers-operation-options"></a>Utlösare: Åtgärden alternativ
+
+Dessa utlösare tillhandahåller flera alternativ som kan du ändra standardbeteendet.
+
+| Utlösare | Åtgärden alternativet | Beskrivning |
+|---------|------------------|-------------|
+| [Återkommande](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Fire körs endast när alla aktiva utlösaren har slutförts. |
+||||
+
+<a name="single-instance"></a>
+
+### <a name="triggers-fire-only-after-active-runs-finish"></a>Utlösare: Eller endast när active körs Slutför
+
+Du kan ange att utlösaren brand körs endast när alla aktiva är klar för utlösare där du kan ange återkommande. Om en schemalagd upprepning händer när en arbetsflödesinstans som körs, hoppar över utlösaren och väntar tills nästa schemalagda upprepning innan kontrollen igen. Exempel:
 
 ```json
-"myTrigger": {
-    "type": "Http",
-    "inputs": { },
-    "recurrence": { },
+"myRecurringTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+    },
     "operationOptions": "singleInstance"
 }
 ```
 
-Om en schemalagd upprepning händer när en arbetsflödesinstans som körs, hoppar över utlösaren och väntar tills nästa schemalagda Upprepningsintervall söka igen.
+<a name="actions-overview"></a>
 
 ## <a name="actions-overview"></a>Översikt över åtgärder
 
@@ -548,12 +821,12 @@ Här är den `inputs` objektet följer dessa parametrar som krävs för att kons
 | ------------ | -------- | ---- | ----------- | 
 | metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | URI | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
+| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
+| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | JSON-objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
+| autentisering | Nej | JSON-objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
 ||||| 
 
 HTTP- och APIConnection åtgärder stöder *försök principer*. En återförsöksprincip som gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
@@ -649,15 +922,15 @@ Den här åtgärden refererar till en Microsoft-hanterad koppling som kräver en
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| värd | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
+| värd | Ja | JSON-objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
 | metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
+| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
+| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | JSON-objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| autentisering | Nej | JSON-objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 En återförsöksprincip som gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
@@ -703,14 +976,14 @@ En återförsöksprincip som gäller för återkommande fel som betecknas som HT
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| värd | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
+| värd | Ja | JSON-objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
 | sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
+| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
+| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | JSON-objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| autentisering | Nej | JSON-objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Svaret åtgärd  
@@ -794,9 +1067,9 @@ Den här åtgärden kan du representerar och anropa ett [Azure funktionen](../az
 | ------------ | -------- | ---- | ----------- |  
 | funktionen id | Ja | Sträng | Resurs-ID för Azure-funktionen som du vill anropa. | 
 | metod | Nej | Sträng | HTTP-metoden som används för att anropa funktionen. Om inget anges är ”POST” standardmetoden. | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
+| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 |||||
 
 När du sparar din logikapp utför Logic Apps motorn vissa kontroller på den angivna funktionen:
@@ -853,7 +1126,7 @@ Till exempel för att stoppa en körning som har `Failed` status:
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | Ja | Sträng | Målet kör har status, vilket antingen är `Failed` eller `Cancelled` |
-| runError | Nej | Objekt | Felinformation. Stöds endast när `runStatus` är inställd på `Failed`. |
+| runError | Nej | JSON-objekt | Felinformation. Stöds endast när `runStatus` är inställd på `Failed`. |
 | runError kod | Nej | Sträng | Det kör felkod: |
 | runError meddelande | Nej | Sträng | Det kör felmeddelande | 
 ||||| 
@@ -990,9 +1263,9 @@ Om du vill vänta tills en särskild tidpunkt, kan du också använda det här e
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| tills | Nej | Objekt | Vänta varaktighet baserat på en punkt i tiden | 
+| tills | Nej | JSON-objekt | Vänta varaktighet baserat på en punkt i tiden | 
 | tills tidsstämpel | Ja | Sträng | Tidpunkten i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) när väntetiden upphör att gälla | 
-| interval | Nej | Objekt | Vänta varaktighet baserat på intervall och antalet | 
+| interval | Nej | JSON-objekt | Vänta varaktighet baserat på intervall och antalet | 
 | intervall | Ja | Sträng | Tidsenhet. Använd bara ett av följande värden: ”andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
 | intervall för antal | Ja | Integer | Ett positivt heltal som representerar antalet intervallenheter som används för vänta varaktighet | 
 ||||| 
@@ -1029,9 +1302,9 @@ Den här åtgärden låter dig kapsla ett arbetsflöde. Logic Apps-motorn utför
 | ------------ | -------- | ---- | ----------- |  
 | värd-id | Ja | Sträng| Resurs-ID för det arbetsflöde som du vill anropa | 
 | värden Utlösarnamn | Ja | Sträng | Namnet på det som du vill anropa utlöser | 
-| frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
+| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 ||||| 
 
 Den här åtgärden utdata är baserat på vad du anger i den `Response` åtgärd för arbetsflöden. Om arbetsflöden som inte definierar en `Response` , utdata är tom.
@@ -1042,7 +1315,7 @@ För att du kan styra arbetsflödeskörning, åtgärder för samlingen kan inneh
 
 ## <a name="if-action"></a>Om åtgärden
 
-Den här åtgärden, vilket är en villkorlig programsats, kan du utvärdera ett villkor och köra en gren baserat på om uttrycket utvärderas som SANT. Om villkoret har utvärderas som SANT, markeras villkoret ”lyckades”. Åtgärder som är den `actions` eller `else` objekt utvärderas till dessa värden:
+Den här åtgärden, vilket är en villkorlig programsats, kan du utvärdera ett villkor och köra en gren baserat på om uttrycket utvärderas som SANT. Om villkoret har utvärderas som SANT, är villkoret markerad med ”Succeeded” status. Åtgärder som är den `actions` eller `else` objekt utvärderas till dessa värden:
 
 * ”Lyckades” när de körs och lyckas
 * ”Misslyckades” när de körs och misslyckas
@@ -1076,9 +1349,9 @@ Lär dig mer om [villkorssatser i logikappar](../logic-apps/logic-apps-control-f
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| åtgärder | Ja | Objekt | De inre åtgärderna för att köras när `expression` utvärderas till `true` | 
+| åtgärder | Ja | JSON-objekt | De inre åtgärderna för att köras när `expression` utvärderas till `true` | 
 | uttryck | Ja | Sträng | Uttrycket som ska utvärderas |
-| annan | Nej | Objekt | De inre åtgärderna för att köras när `expression` utvärderas till `false` |
+| annan | Nej | JSON-objekt | De inre åtgärderna för att köras när `expression` utvärderas till `false` |
 ||||| 
 
 Exempel:
@@ -1133,14 +1406,14 @@ Den här åtgärden som är en switch-instruktionen, utför olika åtgärder bas
    "type": "Switch",
    "expression": "<evaluate-this-object-expression-token>",
    "cases": {
-      "myCase1" : {
-         "actions" : {
+      "myCase1": {
+         "actions": {
            "myAction1": {}
          },
          "case": "<result1>"
       },
       "myCase2": {
-         "actions" : {
+         "actions": {
            "myAction2": {}
          },
          "case": "<result2>"
@@ -1158,10 +1431,10 @@ Den här åtgärden som är en switch-instruktionen, utför olika åtgärder bas
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | uttryck | Ja | Sträng | Objektet, uttryck eller token för att utvärdera | 
-| fall | Ja | Objekt | Innehåller uppsättningar med inre åtgärder som körs baserat på uttryckresultatet. | 
+| fall | Ja | JSON-objekt | Innehåller uppsättningar med inre åtgärder som körs baserat på uttryckresultatet. | 
 | Ärende | Ja | Sträng | Värdet som stämmer överens med resultatet | 
-| åtgärder | Ja | Objekt | De inre åtgärder som körs för fall matchar uttryckresultatet | 
-| standard | Nej | Objekt | De inre åtgärder som körs när inga fall matchar resultatet | 
+| åtgärder | Ja | JSON-objekt | De inre åtgärder som körs för fall matchar uttryckresultatet | 
+| standard | Nej | JSON-objekt | De inre åtgärder som körs när inga fall matchar resultatet | 
 ||||| 
 
 Exempel:
@@ -1172,13 +1445,13 @@ Exempel:
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
-         "actions" : {
+         "actions": {
            "Send_an_email": {...}
          },
          "case": "Approve"
       },
       "Case_2": {
-         "actions" : {
+         "actions": {
            "Send_an_email_2": {...}
          },
          "case": "Reject"
@@ -1219,7 +1492,7 @@ Exempel:
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| åtgärder | Ja | Objekt | Inre åtgärder för att köra i den här slingan | 
+| åtgärder | Ja | JSON-objekt | Inre åtgärder för att köra i den här slingan | 
 | foreach | Ja | Sträng | Matrisen för att gå igenom | 
 | operationOptions | Nej | Sträng | Anger åtgärden alternativ för att anpassa beteende. Stöder för närvarande endast `Sequential` för att köra sekventiellt iterationer där standardbeteendet är parallellt. |
 ||||| 
@@ -1279,9 +1552,9 @@ Exempel:
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| åtgärder | Ja | Objekt | Inre åtgärder för att köra i den här slingan | 
+| åtgärder | Ja | JSON-objekt | Inre åtgärder för att köra i den här slingan | 
 | uttryck | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
-| Gränsen | Ja | Objekt | Gränser för loopen. Måste ange minst en gräns. | 
+| Gränsen | Ja | JSON-objekt | Gränser för loopen. Måste ange minst en gräns. | 
 | antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
 | timeout | Nej | Sträng | Timeout-gränsen i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger hur länge slingan ska köras |
 ||||| 
@@ -1332,7 +1605,7 @@ Den här åtgärden kan du logiskt gruppera åtgärder i ett arbetsflöde. Omfå
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- |  
-| åtgärder | Ja | Objekt | Inre åtgärder för att köra inuti scope |
+| åtgärder | Ja | JSON-objekt | Inre åtgärder för att köra inuti scope |
 ||||| 
 
 ## <a name="next-steps"></a>Nästa steg

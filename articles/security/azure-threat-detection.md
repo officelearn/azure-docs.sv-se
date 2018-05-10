@@ -1,12 +1,12 @@
 ---
 title: Azure avancerade Hotidentifiering | Microsoft Docs
-description: "Läs mer om identitetsskydd och dess funktioner."
+description: Läs mer om identitetsskydd och dess funktioner.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerade Hotidentifiering
 ## <a name="introduction"></a>Introduktion
@@ -56,7 +56,7 @@ I det här dokumentet fokuserar på teknik för Azure-plattformen och kunden vä
 
 [Azure Active Directory-identitetsskydd](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) är en funktion i den [Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition som ger dig en översikt över riskhändelser och potentiella säkerhetsproblem som påverkar din organisations identiteter. Microsoft har skydda molnbaserade identiteter för över tio år och med Azure AD Identity Protection Microsoft att skydda datorerna tillgängliga för enterprise-kunder. Identity Protection använder befintliga Azure ADS avvikelseidentifiering identifiering funktioner tillgängliga via [Azure AD avvikande aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), och ger nya risk händelsetyper som kan identifiera avvikelser i realtid.
 
-Identity Protection använder anpassningsbar maskininlärningsalgoritmer och heuristik för att identifiera avvikelser och risker händelser som kan indikera att en identitet har komprometterats. Med dessa data kan genererar identitetsskydd rapporter och aviseringar som gör att du kan undersöka dessa riskhändelser och vidta lämpliga reparation eller lösning åtgärd.
+Identity Protection använder anpassningsbara maskininlärningsalgoritmer och heurestik för att identifiera avvikelser och riskhändelser som kan tyda på att en identitet är utsatt för risk. Med dessa data kan genererar identitetsskydd rapporter och aviseringar som gör att du kan undersöka dessa riskhändelser och vidta lämpliga reparation eller lösning åtgärd.
 
 Men Azure Active Directory Identity Protection är mer än ett verktyg för övervakning och rapportering. Baserat på riskhändelser beräknar identitetsskydd en användare risknivå för varje användare, så att du kan konfigurera risk-baserade principer för att automatiskt skydda identiteter i din organisation.
 

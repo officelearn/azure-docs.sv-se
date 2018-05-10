@@ -1,11 +1,11 @@
 ---
-title: "H264 enkel bithastighet 16 x 9 SD Media Encoder Standard förinställda - Azure | Microsoft Docs"
-description: "Avsnittet ger en översikt över de ** H264 enkel bithastighet 16 x 9 SD ** uppgiften förinställda."
+title: H264 enkel bithastighet 16 x 9 SD Media Encoder Standard förinställda - Azure | Microsoft Docs
+description: Avsnittet ger en översikt över de **H264 enkel bithastighet 16 x 9 SD** aktivitet förinställningen.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: ce0efc07-3461-44f6-a7bc-c4877bc09529
 ms.service: media-services
 ms.workload: media
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 746dc845f1e32d6be3f207448523d8966da9f8a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="h264-single-bitrate-16x9-sd"></a>H264 Enkel bithastighet 16 x 9 SD
-`Media Encoder Standard`definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Det här avsnittet beskrivs de `H264 Single Bitrate 16x9 SD` förinställda XML och JSON-format.  
   

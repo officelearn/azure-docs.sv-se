@@ -32,8 +32,8 @@
 ### [Utvärdering av webbaslinje](oms-security-web-baseline-assessment.md)
 
 ## Använd lösningar
-### [Lösningar för hantering](operations-management-suite-solutions.md)
-### [Mållösningar](operations-management-suite-solution-targeting.md)
+### [Lösningar för hantering](../monitoring/monitoring-solutions.md)
+### [Mållösningar](../monitoring/monitoring-solution-targeting.md)
 ### Information och analyser
 #### [AD-bedömning](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replikeringsstatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric-analys](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Tjänstkarta
-##### [Genomgång](operations-management-suite-walkthrough-servicemap.md)
-##### [Använd](operations-management-suite-service-map.md)
-##### [Konfigurera](operations-management-suite-service-map-configure.md)
-##### [Integration med Operations Manager](operations-management-suite-service-map-scom.md)
+##### [Genomgång](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [Använd](../monitoring/monitoring-service-map.md)
+##### [Konfigurera](../monitoring/monitoring-service-map-configure.md)
+##### [Integration med Operations Manager](../monitoring/monitoring-service-map-scom.md)
 #### [SQL-bedömning](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [Utvärdering av program mot skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Skapa lösningar
-### [Utforma och skapa](operations-management-suite-solutions-creating.md)
-### [Lösningsfil](operations-management-suite-solutions-solution-file.md)
-### [Automation-resurser](operations-management-suite-solutions-resources-automation.md)
-### [Loggsökningar och aviseringar](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Vyer](operations-management-suite-solutions-resources-views.md)
-### [Bästa praxis](operations-management-suite-solutions-best-practices.md)
+### [Utforma och skapa](../monitoring/monitoring-solutions-creating.md)
+### [Lösningsfil](../monitoring/monitoring-solutions-solution-file.md)
+### [Automation-resurser](../monitoring/monitoring-solutions-resources-automation.md)
+### [Loggsökningar och aviseringar](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [Vyer](../monitoring/monitoring-solutions-resources-views.md)
+### [Bästa praxis](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Hanteringsscenarier
 ### [Samla in analysdata från runbook](operations-management-suite-runbook-datacollect.md)

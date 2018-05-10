@@ -3,7 +3,7 @@ title: Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen
 description: Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 
@@ -43,7 +43,7 @@ Grundläggande arkitektur består av följande komponenter:
 - **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenterna i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
 - **Automatisk distribution skript**. Dessa skript att distribuera lösningen för slutpunkt till slutpunkt. Skripten består av:
     - En installation av modulen och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och kontrollera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade.
-    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [ modell databasen][code-repo]. 
+    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [modell databasen] [kod lagringsplatsen]. 
 
 ## <a name="architectural-diagram"></a>Arkitekturdiagram
 
@@ -299,7 +299,7 @@ Standarddistribution är avsedd att ge en basnivå för security center-rekommen
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Komponenter för att distribuera den här lösningen är tillgängliga i den [PCI utkast databasen][code-repo]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
+Komponenter för att distribuera den här lösningen finns i [PCI utkast kod databasen] [kod lagringsplatsen]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
 
 Skripten lägga till domänanvändare i Azure AD-klient som du anger. Vi rekommenderar att du skapar en ny Azure AD-klienten ska användas som ett test.
 
@@ -384,11 +384,3 @@ Lösningen granskades av Coalfire systems, Inc. (PCI-DSS kvalificerade säkerhet
 - Alla kundnamn, transaktionsposter och eventuella relaterade data på den här sidan är fiktiva, skapas för denna grundläggande arkitektur och endast för jämförelseändamål. Ingen verklig associering eller koppling är avsedd och oavsiktliga ingen.  
 - Den här lösningen har utvecklats gemensamt av Microsoft och Avyan rådgivning och är tillgängliga under den [MIT-licensen](https://opensource.org/licenses/MIT).
 - Den här lösningen har granskats av Coalfire, Microsofts PCI-DSS granskare. Den [PCI efterlevnad granska](https://aka.ms/pciblueprintcrm32) ger en oberoende, från tredje part granskning av lösningen och komponenter som behöver åtgärdas. 
-
-### <a name="document-authors"></a>Dokumentförfattare
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan samråd)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Databasen"

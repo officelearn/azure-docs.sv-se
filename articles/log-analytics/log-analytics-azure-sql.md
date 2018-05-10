@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -118,25 +118,26 @@ Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elas
 
 Azure SQL Database [Intelligent insikter](../sql-database/sql-database-intelligent-insights.md) gör att du vet vad som händer med databasens prestanda. Alla Intelligent insikter som samlas in kan visualiseras och nås via insikter perspektiv.
 
-![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+![Azure SQL Analytics insikter](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
 ### <a name="elastic-pool-and-database-reports"></a>Elastiska poolen och databasen rapporter
 
 Både elastiska pooler och databaser har sina egna specifika rapporter som visar alla data som samlas in för resursen i den angivna tiden.
 
-![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
+![Analytics Azure SQL-databas](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
-![Azure SQL Analytics Elastic Pool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+![Azure SQL Analytics elastisk Pool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
 
 ### <a name="query-reports"></a>Frågan rapporter
 
 Genom att fråga varaktighet och perspektiv för fråga väntar korrelera du prestanda för alla frågor via frågan rapporten. Den här rapporten jämför frågeprestandan mellan olika databaser och gör det enkelt att identifiera databaser som utför den valda frågan väl jämfört med de som tar lång tid.
 
-![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
+![Azure SQL Analytics-frågor](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Analysera data och skapa varningar
 
-Du kan enkelt skapa aviseringar med data från Azure SQL Database-resurser. Här följer några användbara [loggen Sök](log-analytics-log-searches.md) frågor som du kan använda för aviseringar:
+Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) med data från Azure SQL Database-resurser. Här följer några användbara [loggen Sök](log-analytics-log-searches.md) frågor som du kan använda med en avisering i loggen:
+
 
 
 *Hög DTU på Azure SQL-databas*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Du kan använda dessa avisering-baserade frågor för att Avisera om specifika tröskelvärden för både Azure SQL Database och elastiska pooler. Konfigurera en avisering för logganalys-arbetsytan:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Så här konfigurerar du en avisering för din arbetsyta
-
-1. Gå till den [OMS-portalen](http://mms.microsoft.com/) och logga in.
-2. Öppna arbetsytan som du har konfigurerat för lösningen.
-3. På sidan Översikt över den **Azure SQL Analytics (förhandsgranskning)** panelen.
-4. Kör något av de exempel på frågorna.
-5. I loggen sökning, klickar du på **avisering**.  
-![Skapa en avisering i sökningen](./media/log-analytics-azure-sql/create-alert01.png)
-6. På den **lägga till Varningsregeln** konfigurerar lämpliga egenskaper och specifika tröskelvärden som du vill använda och klicka sedan på **spara**. 
-![Lägga till varningsregel](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

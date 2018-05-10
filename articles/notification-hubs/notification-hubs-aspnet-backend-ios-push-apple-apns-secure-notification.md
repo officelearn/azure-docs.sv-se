@@ -1,10 +1,10 @@
 ---
-title: "Azure Notification Hubs säker Push"
-description: "Lär dig mer om att skicka säkra push-meddelanden till en iOS-app från Azure. Kodexempel som skrivits i Objective-C och C#."
+title: Azure Notification Hubs säker Push
+description: Lär dig mer om att skicka säkra push-meddelanden till en iOS-app från Azure. Kodexempel som skrivits i Objective-C och C#.
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs säker Push
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ På en hög nivå är flödet:
    * Enheten kontaktar serverdelen begär säker nyttolasten.
    * Appen kan du visa nyttolasten som ett meddelande på enheten.
 
-Det är viktigt att Observera att i det föregående flödet (och i den här självstudiekursen) antar vi att enheten lagrar en autentiseringstoken i lokal lagring när en användare loggar in. Detta garanterar en helt integrerad upplevelse som enheten kan hämta den anmälan säker nyttolast med denna token. Om ditt program inte kan lagra autentiseringstoken på enheten, eller om dessa token kan ha gått, visas vid mottagning av meddelanden i appen enhet ett allmänt meddelande där användaren uppmanas att starta appen. Appen sedan autentiserar användaren och visar nyttolasten för meddelanden.
+Det är viktigt att Observera att i det föregående flödet (och i den här självstudiekursen) antar vi att enheten lagrar en autentiseringstoken i lokal lagring när en användare loggar in. Detta garanterar en integrerad upplevelse som enheten kan hämta den anmälan säker nyttolast med denna token. Om ditt program inte kan lagra autentiseringstoken på enheten, eller om dessa token kan ha gått, visas vid mottagning av meddelanden i appen enhet ett allmänt meddelande där användaren uppmanas att starta appen. Appen sedan autentiserar användaren och visar nyttolasten för meddelanden.
 
 Den här säkra Push-kursen visar hur du skickar push-meddelanden på ett säkert sätt. Kursen bygger på den [meddela användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) självstudier, så du måste slutföra stegen i den här självstudiekursen först.
 
@@ -54,11 +54,11 @@ Den här säkra Push-kursen visar hur du skickar push-meddelanden på ett säker
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>Ändra iOS-projektet
-Nu när du har ändrat din appens serverdel att skicka bara den *id* av ett meddelande som du behöver ändra din iOS-app för att hantera detta meddelande och ringa upp din serverdel för att hämta det säkra meddelandet som ska visas.
+Nu när du har ändrat din appens serverdel att skicka bara den *ID* av ett meddelande som du behöver ändra din iOS-app för att hantera detta meddelande och ringa upp din serverdel för att hämta det säkra meddelandet som ska visas.
 
 Vi har skriva logik för att hämta skyddat innehåll från appens serverdel för att åstadkomma detta.
 
-1. I **AppDelegate.m**, se till att appen registreras för tyst meddelanden så att den bearbetar ID: t som skickas från serverdelen. Lägg till den **UIRemoteNotificationTypeNewsstandContentAvailability** alternativ i didFinishLaunchingWithOptions:
+1. I **AppDelegate.m**, kontrollera att app-register för tyst meddelanden så att den bearbetar meddelande-ID skickas från serverdelen. Lägg till den **UIRemoteNotificationTypeNewsstandContentAvailability** alternativ i didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 2. I din **AppDelegate.m** lägga till en implementeringsavsnittet överst med följande deklaration:

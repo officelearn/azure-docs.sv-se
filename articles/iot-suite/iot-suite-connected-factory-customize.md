@@ -1,13 +1,13 @@
 ---
-title: "Anpassa lösningen anslutna factory - Azure | Microsoft Docs"
-description: "En beskrivning av hur du anpassar anslutna fabriken förkonfigurerade lösningen."
-services: 
+title: Anpassa lösningen anslutna Factory - Azure | Microsoft Docs
+description: En beskrivning av hur du anpassar anslutna Factory solution accelerator.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: c#
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5d074a5cf0dd5191b5d94531068341ad1b953391
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur lösningen anslutna factory visar data från dina OPC UA-servrar
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur lösningen anslutna Factory visar data från OPC UA-servrar
 
-Anslutna factory lösningen sammanställer och visar data från OPC UA-servrar som är anslutna till lösningen. Du kan bläddra och skicka kommandon till OPC UA-servrar i din lösning. Mer information om OPC UA finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
+Ansluten Factory lösningen sammanställer och visar data från OPC UA-servrar som är anslutna till lösningen. Du kan bläddra och skicka kommandon till OPC UA-servrar i din lösning. Mer information om OPC UA finns i [anslutna Factory vanliga frågor och svar](iot-suite-faq-cf.md).
 
 Exempel på sammanställda data i lösningen är den övergripande utrustning effektivitet (OEE) och nyckeln (nyckeltal) som kan visas på instrumentpanelen på fabriken, rad och station nivåer. Följande skärmbild visar OEE och KPI-värden för den **sammansättningen** station på **produktion rad 1**i den **München** fabriken:
 
@@ -44,7 +44,7 @@ Den här artikeln beskrivs:
 
 ## <a name="data-sources"></a>Datakällor
 
-Den anslutna factory-lösningen visar data från OPC UA-servrar som är anslutna till lösningen. Standardinstallationen omfattar flera OPC UA-servrar som kör en fabrik simulering. Du kan lägga till egna OPC UA-servrar som [ansluta via en gateway] [ lnk-connect-cf] i lösningen.
+Ansluten Factory lösningen visar data från OPC UA-servrar som är anslutna till lösningen. Standardinstallationen omfattar flera OPC UA-servrar som kör en fabrik simulering. Du kan lägga till egna OPC UA-servrar som [ansluta via en gateway] [ lnk-connect-cf] i lösningen.
 
 Du kan bläddra dataobjekt som en anslutna OPC UA-servern kan skicka din lösning på instrumentpanelen:
 
@@ -61,33 +61,33 @@ Du kan bläddra dataobjekt som en anslutna OPC UA-servern kan skicka din lösnin
 
     ![Publicerade objekt][img-published]
 
-1. Om du är en *administratör* i lösningen kan du välja att publicera ett dataobjekt att göra den tillgänglig i den anslutna factory-lösningen. Som administratör kan du också ändra värdet för dataobjekt och anropa metoder i OPC UA-server.
+1. Om du är en *administratör* i lösningen kan du välja att publicera ett dataobjekt att göra den tillgänglig i den anslutna Factory-lösningen. Som administratör kan du också ändra värdet för dataobjekt och anropa metoder i OPC UA-server.
 
 ## <a name="map-the-data"></a>Mappa data
 
-Den anslutna factory-lösningen mappar och sammanställer publicerade dataobjekt från servern OPC UA till de olika vyerna i lösningen. Anslutna factory-lösningen distribueras till din Azure-konto när du etablerar lösningen. En JSON-fil i Visual Studio-ansluten factory lösningen lagrar mappningsinformationen. Du kan visa och ändra den här JSON-konfigurationsfil i anslutna fabriken Visual Studio-lösning. Du kan distribuera lösningen igen när du har gjort en ändring.
+Ansluten Factory lösningen mappar och sammanställer publicerade dataobjekt från servern OPC UA till de olika vyerna i lösningen. Ansluten Factory-lösningen distribueras till din Azure-konto när du etablerar lösningen. En JSON-fil i Visual Studio anslutna Factory lösningen lagrar mappningsinformationen. Du kan visa och ändra den här JSON-konfigurationsfil i ansluten Factory Visual Studio-lösning. Du kan distribuera lösningen igen när du har gjort en ändring.
 
 Du kan använda konfigurationsfilen till:
 
 - Redigera den befintliga simulerade fabriker och produktion rader stationer.
 - Mappa data från verkliga OPC UA-servrar som du ansluter till lösningen.
 
-Mer information om mappning och datainsamling för att uppfylla dina specifika krav finns [hur du konfigurerar anslutna fabriken förkonfigurerade lösningen ](iot-suite-connected-factory-configure.md).
+Mer information om mappning och datainsamling för att uppfylla dina specifika krav finns [hur du konfigurerar anslutna Factory solution accelerator ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Distribuera ändringarna
 
-När du är klar med att göra ändringar i den **ContosoTopologyDescription.json** fil, du måste distribuera om anslutna factory lösningen till din Azure-konto.
+När du är klar med att göra ändringar i den **ContosoTopologyDescription.json** fil, du måste distribuera om anslutna Factory lösningen till din Azure-konto.
 
 Den **azure iot-ansluten-fabrik** databasen innehåller en **build.ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den anslutna factory förkonfigurerade lösningen genom att läsa följande artiklar:
+Läs mer om anslutna Factory solution accelerator genom att läsa följande artiklar:
 
-* [Genomgång av den förkonfigurerade lösningen Ansluten fabrik][lnk-rm-walkthrough]
-* [Distribuera en gateway för anslutna factory][lnk-connect-cf]
+* [Anslutna Factory solution accelerator genomgång][lnk-rm-walkthrough]
+* [Distribuera en gateway för anslutna Factory][lnk-connect-cf]
 * [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
-* [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md)
+* [Anslutna Factory vanliga frågor och svar](iot-suite-faq-cf.md)
 * [VANLIGA FRÅGOR OCH SVAR][lnk-faq]
 
 

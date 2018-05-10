@@ -1,6 +1,6 @@
 ---
-title: "Dokumentation om Azure IoT Suite – Självstudier, API-referens | Microsoft Docs"
-description: "Dokumentationen för Azure IoT Suite innehåller vägledningar för att komma igång, instruktionsartiklar, självstudier och API-referens."
+title: Dokumentation för Azure IoT-lösningsacceleratorer – självstudier, API-referens | Microsoft Docs
+description: Dokumentationen för Azure IoT-lösningsacceleratorer innehåller vägledning för att komma igång, instruktionsartiklar, självstudier och API-referens.
 services: iot-suite
 author: czeumault
 manager: carolz
@@ -9,72 +9,81 @@ ms.service: iot-suite
 ms.topic: landing-page
 ms.date: 11/27/2017
 ms.author: carolz
-ms.openlocfilehash: 8cb979f645f0c1405ebd424d39cc2d67c5b59ba0
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 62a414697e5ce217f1533d64020d4ce06c222d10
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="iot-suite-documentation"></a>IoT Suite-dokumentation
+# <a name="iot-solution-accelerators-documentation"></a>Dokumentation för IoT-lösningsacceleratorer
 
-Kom igång snabbt med Microsoft Azure IoT Suite. Använd förkonfigurerade lösningar och påskynda utvecklingen av din IoT-lösning (Sakernas Internet). Lägg till nya enheter och anslut befintliga, med hjälp av enhets-SDK:er för flera plattformar, inklusive Linux, Windows och operativsystem i realtid. Skala enkelt från några sensorer till miljontals simultant kopplade enheter och förlita dig på Azures globala tillgänglighet&mdash;oavsett hur stort eller litet ditt projekt är.
+Kom igång snabbt med IoT-lösningsacceleratorer för att bygga dina IoT-lösningar. Lägg till nya enheter och anslut befintliga, med hjälp av enhets-SDK:er för flera plattformar, inklusive Linux, Windows och operativsystem i realtid. Skala enkelt från några sensorer till miljontals simultant kopplade enheter och förlita dig på Azures globala tillgänglighet&mdash;oavsett hur stort eller hur litet ditt projekt är.
 
-<ul class="panelContent cardsFTitle">
+<h2>Utforska</h2>
+<ul class="panelContent cardsW">
     <li>
-        <a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/iot-suite.svg" alt="Learn about IoT Suite" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Läs mer om IoT Suite</h3>
+                        <p>Lär dig mer om lösningsacceleratorer, viktiga scenarier och hur du kommer igång</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-what-are-solution-accelerators">Översikt över IoT-lösningsacceleratorer</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Distribuera en lösningsaccelerator</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Lösningar du kan använda direkt</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Övervakningskapacitet</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-automate">Reglerar hanteringsfunktioner</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-automate">Kapacitet för enhetshantering</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
+</ul> 
+
+---
+
+<h2>Anslut</h2>
+<ul class="panelContent cardsW">
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="Azure Video Library" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Azure videobibliotek</h3>
+                        <p>Lär dig hur du ansluter dina enheter till en lösningsaccelerator</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Översikt över enhetsmodell</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Anpassa dina simulerade enheter</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Ansluta fysisk enhet</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Deploy the remote monitoring preconfigured solution" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Distribuera den förkonfigurerade lösningen för fjärrövervakning</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
 </ul>
+
+---
+
+<h2>Anpassa</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Lär dig hur du anpassar en lösningsaccelerator</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy-local">Kör en lösning lokalt</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-customize#presentation-and-visualization">Anpassa UX</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul> 
 
 ---
 

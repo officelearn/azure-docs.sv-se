@@ -1,6 +1,6 @@
 ---
-title: SSH till noder i Azure Container Service (AKS)
-description: Skapa en SSH-anslutning med ett Azure Container Service (AKS)-kluster med noder
+title: SSH till noder i Azure Kubernetes Service (AKS)
+description: Skapa en SSH-anslutning med ett kluster i Azure Kubernetes Service (AKS) noder
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>SSH till noder i Azure Container Service (AKS)
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH till noder i Azure Kubernetes Service (AKS)
 
-Ibland kan behöva du åtkomst till en Azure Container Service (AKS)-nod för underhåll, Logginsamling eller andra åtgärder för felsökning. Azure Container Service (AKS) noder exponeras inte till internet. Använd stegen som beskrivs i det här dokumentet för att skapa en SSH-anslutning med en AKS-nod.
+Ibland kan behöva du åtkomst till en Azure Kubernetes Service (AKS)-nod för underhåll, Logginsamling eller andra åtgärder för felsökning. Azure Kubernetes Service (AKS) noder exponeras inte till internet. Använd stegen som beskrivs i det här dokumentet för att skapa en SSH-anslutning med en AKS-nod.
 
 ## <a name="get-aks-node-address"></a>Hämta AKS nodadress
 

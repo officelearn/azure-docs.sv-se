@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-stacken 1803 uppdatering
 
@@ -40,8 +40,18 @@ Azure-stacken 1803 uppdatera versionsnumret är **20180329.1**.
 
 
 ### <a name="prerequisites"></a>Förutsättningar
-- Installera Azure-stacken [1802 uppdatera](azure-stack-update-1802.md) innan du installerar Azure Stack 1803 uppdateringen.    
+- Installera Azure-stacken [1802 uppdatera](azure-stack-update-1802.md) innan du installerar Azure Stack 1803 uppdateringen.   
 
+- Installera **AzS Hotfix – 1.0.180312.1-Skapa 20180222.2** innan du installerar Azure Stack 1803 uppdateringen. Den här snabbkorrigeringen uppdaterar Windows Defender och är tillgänglig när du hämtar uppdateringar för Azure-stacken.
+
+  Följ vanliga procedurer för att installera snabbkorrigeringen [installerar uppdateringar för Azure-Stack](azure-stack-apply-updates.md). Namnet på uppdateringen visas som **AzS Hotfix – 1.0.180312.1**, och innehåller följande filer: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.XML
+
+  När du överför dessa filer till ett lagringskonto och en behållare, kör du installationen från panelen uppdatering i administrationsportal. 
+  
+  Till skillnad från uppdateringar till Azure-stacken ändras installera den här uppdateringen inte versionen av Azure-stacken. För att bekräfta den här uppdateringen har installerats, visas en lista med **installerade uppdateringar**.
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
 - Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).

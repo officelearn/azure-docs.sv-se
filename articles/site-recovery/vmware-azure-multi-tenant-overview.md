@@ -1,25 +1,25 @@
 ---
-title: "Översikt över flera innehavare stöd för VMware VM-replikering till Azure (CSP) med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "En översikt över Azure Site Recovery-stöd för klienten prenumerationer i en miljö med flera innehavare, via CSP-programmet."
+title: Översikt över flera innehavare stöd för VMware VM-replikering till Azure (CSP) med hjälp av Azure Site Recovery | Microsoft Docs
+description: En översikt över Azure Site Recovery-stöd för klienten prenumerationer i en miljö med flera innehavare, via CSP-programmet.
 services: site-recovery
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/03/2018
 ms.author: manayar
-ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 285086964365339291e9027a7fe8e5ee0083e13b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Översikt över flera innehavare stöd för VMware-replikering till Azure med CSP
 
-[Azure Site Recovery](site-recovery-overview.md) har stöd för miljöer med flera innehavare för klient-prenumerationer. Det stöder också flera innehavare för klient-prenumerationer som skapas och hanteras via programmet Microsoft Cloud Solution Providers (CSP). 
+[Azure Site Recovery](site-recovery-overview.md) har stöd för miljöer med flera innehavare för klient-prenumerationer. Det stöder också flera innehavare för klient-prenumerationer som skapas och hanteras via programmet Microsoft Cloud Solution Providers (CSP).
 
-Den här artikeln innehåller en översikt över implementering och hantering av flera innehavare VMware till Azure-replikering. 
+Den här artikeln innehåller en översikt över implementering och hantering av flera innehavare VMware till Azure-replikering.
 
 ## <a name="multi-tenant-environments"></a>Miljöer med flera innehavare
 
@@ -33,7 +33,7 @@ Det finns tre huvudsakliga modeller för flera innehavare:
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Delade tjänsteleverantör (HSP)
 
- De två scenarierna är delmängder av scenariot delade och de använder samma principer. Skillnaderna beskrivs i slutet av den delade vägledningen.
+De två scenarierna är delmängder av scenariot delade och de använder samma principer. Skillnaderna beskrivs i slutet av den delade vägledningen.
 
 Grundläggande krav i ett scenario med flera innehavare är att klienter måste vara isolerad. En klient ska inte kunna se vad en annan innehavare har värdet hosted. Det här kravet är inte lika viktigt i en självbetjäning miljö där det kan vara avgörande i en partner-hanterad miljö. Den här artikeln förutsätter att klientisolering krävs.
 
@@ -47,7 +47,7 @@ Varje kund har en separat management-server i diagrammet. Denna konfiguration be
 
 Kravet på isolering innebär att alla känsliga infrastruktur (till exempel autentiseringsuppgifter) förblir hemlig till innehavare. Därför rekommenderar vi att alla komponenter i hanteringsservern förblir under exklusiv kontroll av partnern. Management server-komponenter är:
 
-* Konfigurationsservern)
+* Konfigurationsservern
 * Processervern
 * Huvudmålservern
 
@@ -63,7 +63,7 @@ Varje konfigurationsservern i ett scenario med flera innehavare använder två k
 
 ## <a name="vcenter-account-requirements"></a>vCenter-kontokrav
 
-Du måste konfigurera konfigurationsservern med ett konto som har en särskild roll som tilldelats. 
+Konfigurera konfigurationsservern med ett konto som har en särskild roll som tilldelats.
 
 - Rolltilldelning måste tillämpas på vCenter åtkomstkonto för varje vCenter-objekt och inte sprids till underordnade objekt. Den här konfigurationen garanterar klientisolering, eftersom åtkomst spridningen kan medföra oavsiktlig åtkomst till andra objekt.
 
@@ -108,22 +108,36 @@ Att begränsa katastrofåterställningsåtgärder fram till endast redundans (de
 - I stället för att den *Azure_Site_Recovery* roll åtkomstkonto vCenter endast tilldela en *skrivskyddad* roll till det kontot. Den här behörighetsgruppen låter VM-replikering och redundans, vilket tillåter inte återställning efter fel.
 - Allt annat i föregående procedur blir kvar som är. För att säkra isolering av innehavare och begränsa VM identifiering, är var behörigheten fortfarande tilldelade på objektnivån och inte sprids till underordnade objekt.
 
+### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuera resurser till klientprenumeration
+
+1. Skapa en resursgrupp i Azure-portalen och sedan distribuera Recovery Services-valvet vanliga processer.
+2. Ladda ned valvregistreringsnyckeln.
+3. Registrera CS för klienten med hjälp av valvregistreringsnyckeln.
+4. Ange autentiseringsuppgifterna för de två kontona, konto för åtkomst till vCenter-servern och konto för åtkomst till den virtuella datorn.
+
+    ![Serverkonton med configuration Manager](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+
+### <a name="register-servers-in-the-vault"></a>Registrera servrar i valvet
+
+1. Registrera vCenter-servern till konfiguration, med hjälp av vCenter-kontot som du skapade i Azure-portalen i valvet som du skapade tidigare.
+2. Avsluta ”Förbered infrastruktur”-processen för Site Recovery vanliga processer.
+3. De virtuella datorerna är nu redo att replikeras. Kontrollera att endast klientorganisationens virtuella datorer visas i **replikera** > **Välj virtuella datorer**.
 
 ## <a name="dedicated-hosting-solution"></a>Dedikerad värd
 
-I följande diagram visas den arkitektoniska skillnaden i en dedikerad värd-lösning är att varje klient infrastrukturen har ställts in för att klienten endast. Eftersom klienter är isolerade via separat Vcenter, värdtjänsten fortfarande måste följa stegen för CSP som värd för delade men behöver inte bry dig om klientisolering. CSP inställningar ändras inte.
+I följande diagram visas den arkitektoniska skillnaden i en dedikerad värd-lösning är att varje klient infrastrukturen har ställts in för att klienten endast.
 
 ![arkitektur för delade hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Dedikerad värd scenario med flera Vcenter**
 
 ## <a name="managed-service-solution"></a>Hanterad tjänst-lösning
 
-I följande diagram visas den arkitektoniska skillnaden i en hanterad tjänst-lösning är att varje klient infrastruktur är fysiskt avskild från andra klienter infrastruktur. Det här scenariot finns vanligtvis när klienten äger infrastrukturen och vill lösningsleverantören för att hantera katastrofåterställning. Igen, eftersom klienterna är fysiskt isolerade via olika nätverksinfrastrukturer, partner behöver gör CSP angavs som värd för delade men behöver inte bry dig om klientisolering. CSP etablering ändras inte.
+I följande diagram visas den arkitektoniska skillnaden i en hanterad tjänst-lösning är att varje klient infrastruktur är fysiskt avskild från andra klienter infrastruktur. Det här scenariot finns vanligtvis när klienten äger infrastrukturen och vill lösningsleverantören för att hantera katastrofåterställning.
 
 ![arkitektur för delade hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Hanterad service scenario med flera Vcenter**
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer](site-recovery-role-based-linked-access-control.md) om rollbaserad åtkomstkontroll i Site Recovery.
-Lär dig hur du [konfigurera återställning av virtuella VMware-datorer till Azure](vmware-azure-tutorial.md)
-[konfigurera katastrofåterställning för virtuella VMWare-datorer med flera innehavare med CSP](vmware-azure-multi-tenant-csp-disaster-recovery.md)
+- [Lär dig mer](site-recovery-role-based-linked-access-control.md) om rollbaserad åtkomstkontroll i Site Recovery.
+- Lär dig hur du [konfigurera återställning av virtuella VMware-datorer till Azure](vmware-azure-tutorial.md).
+- Lär dig mer om [multitenans med CSP: N för virtuella VMWare-datorer](vmware-azure-multi-tenant-csp-disaster-recovery.md).

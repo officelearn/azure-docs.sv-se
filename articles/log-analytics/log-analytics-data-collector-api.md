@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 167c36d2fa9bc182b6e37c0f47f838fde1ba01df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till logganalys med HTTP-Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP-Data Collector API för att skicka data till logganalys från en REST API-klient.  Det beskriver hur du formatera data som samlas in av skript eller program, inkludera den i en begäran och har den begäran som auktoriserad genom logganalys.  Exempel för för PowerShell, C# och Python.
@@ -57,9 +57,9 @@ Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran so
 | Sidhuvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC SHA256-huvud. |
-| Typ |Ange posttyp för de data som skickas. Loggtyp stöder för närvarande endast alfanumeriska tecken. Stöder inte siffror eller specialtecken. |
+| Typ |Ange posttyp för de data som skickas. Loggtyp stöder för närvarande endast alfanumeriska tecken. Stöder inte siffror eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| time-generated-field |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
+| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
 
 ## <a name="authorization"></a>Auktorisering
 Alla förfrågningar till Log Analytics HTTP Data Collector API måste innehålla ett authorization-huvud. För att autentisera en begäran, måste du registrera begäran med primärt eller den sekundära nyckeln för den arbetsyta som begäran kommer ifrån. Sedan överföra signaturen som en del av begäran.   
@@ -134,10 +134,10 @@ Lägger till ett suffix till egenskapsnamnet för att identifiera en egenskapens
 
 | Datatypen för egenskapen | Suffix |
 |:--- |:--- |
-| Sträng |_s |
+| Sträng |_S |
 | Boolesk |_b |
-| Dubbel |_d |
-| Datum/tid |_t |
+| Dubbel |_D |
+| Datum/tid |_Tätt |
 | GUID |_g |
 
 Datatypen som Log Analytics använder för varje egenskap beror på om posttypen för den nya posten redan finns.

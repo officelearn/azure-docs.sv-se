@@ -1,6 +1,6 @@
 ---
-title: Jenkins kontinuerlig distribution med Kubernetes i Azure Container Service
-description: Automatisera en process för kontinuerlig distribution med Jenkins att distribuera och uppgradera en av app på Kubernetes i Azure Container Service
+title: Jenkins kontinuerlig distribution med Kubernetes i Azure Kubernetes Service
+description: Automatisera en process för kontinuerlig distribution med Jenkins att distribuera och uppgradera en av app på Kubernetes i Azure Kubernetes Service
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Kontinuerlig distribution med Jenkins och Azure Container Service
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Kontinuerlig distribution med Jenkins och Azure Kubernetes Service
 
-Det här dokumentet visar hur du ställer in ett grundläggande kontinuerlig distribution arbetsflöde mellan Jenkins och ett Azure Container Service (AKS)-kluster.
+Det här dokumentet visar hur du ställer in ett grundläggande kontinuerlig distribution arbetsflöde mellan Jenkins och ett kluster i Azure Kubernetes Service (AKS).
 
 Arbetsflödesexemplet omfattar följande steg:
 
@@ -33,7 +33,7 @@ Arbetsflödesexemplet omfattar följande steg:
 Du behöver följande för att kunna slutföra stegen i den här artikeln.
 
 - Grundläggande förståelse för Kubernetes, Git, CI/CD- och Azure Container registret (ACR).
-- En [Azure Container Service (AKS) kluster] [ aks-quickstart] och [AKS autentiseringsuppgifter konfigurerat] [ aks-credentials] i utvecklingssystemet.
+- En [Azure Kubernetes Service (AKS) kluster] [ aks-quickstart] och [AKS autentiseringsuppgifter konfigurerat] [ aks-credentials] i utvecklingssystemet.
 - En [Azure Container registret (ACR) registret][acr-quickstart], inloggningsnamnet server ACR och [ACR autentiseringsuppgifter] [ acr-authentication] push och pull-åtkomst.
 - Azure CLI är installerad i utvecklingssystemet.
 - Docker installerad i utvecklingssystemet.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ac12ccb3f14c8ec433570da78e6ba8a76c7a5b5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrera virtuella Azure-datorer till hanterade diskar i Azure
 
@@ -65,7 +65,7 @@ Det finns sju typer av hanterade premiumdiskar som kan användas med den virtuel
 
 | Premium diskar typ  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 128 GB| 512 GB| 128 GB| 256 GB|512 GB | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1 024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS per disk       | 120   | 240   | 500   | 1100  |2 300              | 5000              | 7500              | 7500              | 
 | Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 125 MB per sekund |150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund |
 
@@ -75,7 +75,7 @@ Det finns sju typer av hanterade standarddiskar som kan användas med den virtue
 
 | Disk av standardtyp  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Diskstorlek           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1 024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| Diskstorlek           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1 024 GB (1 TB)   | 2 048 GB (2TB)    | 4095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Dataflöde per disk | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund |60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 
 

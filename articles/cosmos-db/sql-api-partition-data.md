@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50be809df0938272a3e1d710b879ca3dd5de9428
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bdc7820910540b789fd11533389f79aa9f297f5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitionering i Azure Cosmos-databasen med SQL-API
 
@@ -43,7 +43,7 @@ Hämta projektet från att komma igång med kod [Azure Cosmos DB prestanda testa
 
 ## <a name="partition-keys"></a>Partitionsnycklar
 
-Ange partition viktiga definition i form av en JSON-sökvägen i SQL-API. I följande tabell visas exempel på partitionen viktiga definitioner och de värden som motsvarar varje. Partitionsnyckeln har angetts som en sökväg, t.ex. `/department` representerar egenskapen avdelning. 
+Ange partition viktiga definition i form av en JSON-sökvägen i SQL-API. I följande tabell visas exempel på partitionen viktiga definitioner och de värden som motsvarar varje. Partitionsnyckeln har angetts som en sökväg, till exempel `/department` representerar egenskapen avdelning. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -81,9 +81,9 @@ Nu ska vi titta på hur valet av partitionsnyckel påverkar prestanda för ditt 
 Azure Cosmos-DB tillagt stöd för automatisk partitionering med [REST API-version 2015-12-16](/rest/api/cosmos-db/). För att kunna skapa partitionerade behållare, måste du hämta SDK-versioner 1.6.0 eller senare på en av SDK plattformar som stöds (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Skapa behållare
-I följande exempel visas en .NET-fragment för att skapa en behållare för att lagra telemetri enhetsdata för 20 000 frågeenheter per sekund genomströmning. SDK anger OfferThroughput-värde (som i sin tur anger den `x-ms-offer-throughput` huvudet i begäran i REST-API). Här ska du ange den `/deviceId` som partitionsnyckel. Valet av partitionsnyckel sparas tillsammans med resten av metadata för behållaren som namn och indexprincip.
+I följande exempel visas en .NET-fragment för att skapa en behållare för att lagra telemetri enhetsdata för 20 000 frågeenheter per sekund genomströmning. SDK anger OfferThroughput-värde (som i sin tur anger den `x-ms-offer-throughput` huvudet i begäran i REST-API). Här anger du den `/deviceId` som partitionsnyckel. Valet av partitionsnyckel sparas tillsammans med resten av metadata för behållaren som namn och indexprincip.
 
-För det här exemplet vi plockats `deviceId` eftersom vi vet att (a) eftersom det finns ett stort antal enheter skrivningar kan fördelas jämnt mellan partitioner och att tillåta oss att skala databasen för att mata in massiva mängder data och (b) många förfrågningar som hämtar den senaste avläsningen för en enhet är begränsade till en enda deviceId och kan hämtas från en enda partition.
+För det här exemplet du valt `deviceId` eftersom du vet att (a) det finns ett stort antal enheter, skriver kan vara jämnt över partitioner och så att du kan skala databasen om du vill föra in stora mängder data och (b) många förfrågningar som hämtar den senaste avläsningen för en enhet är begränsade till en enda deviceId och kan hämtas från en enda partition.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -102,10 +102,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-Den här metoden gör en REST-API-anrop för att Cosmos-DB och tjänsten etablerar ett antal partitioner baserat på det begärda genomflödet. Du kan ändra genomflödet av en behållare prestandan behov utvecklas. 
+Den här metoden gör en REST-API-anrop för att Cosmos-DB och tjänsten etablerar ett antal partitioner baserat på det begärda genomflödet. Du kan ändra genomflödet av en behållare eller en uppsättning behållare prestandan behov utvecklas. 
 
 ### <a name="reading-and-writing-items"></a>Läsning och skrivning av objekt
-Nu ska vi infoga data i Cosmos DB. Här är ett exempel på klass som innehåller en enhet som läser och ett anrop till CreateDocumentAsync att infoga en ny enhet som läses in en behållare. Detta är ett exempel som utnyttjar SQL-API:
+Nu ska vi infoga data i Cosmos DB. Här är ett exempel på klass som innehåller en enhet som läser och ett anrop till CreateDocumentAsync att infoga en ny enhet som läses in en behållare. Följande är ett exempel kodblock som utnyttjar SQL-API:
 
 ```csharp
 public class DeviceReading
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Vi läsa objekt av sin partitionsnyckel och id, uppdatera och som ett sista steg kan ta bort den av partitionsnyckel och ID: t. Observera att läsningar inkluderar ett PartitionKey-värde (som motsvarar `x-ms-documentdb-partitionkey`-begäranderubriken i REST API).
+Vi läsa objekt av sin partitionsnyckel och id, uppdatera och som ett sista steg kan ta bort den av partitionsnyckel och ID: t. Läsningar innehåller ett PartitionKey-värde (som motsvarar den `x-ms-documentdb-partitionkey` huvudet i begäran i REST-API).
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -178,7 +178,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-Följande fråga har inget filter på partitionsnyckeln (DeviceId) och är utspridd till alla partitioner där den körs mot partitionens index. Observera att du måste ange EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` i REST API:t) för att SDK:t ska köra en fråga över partitioner.
+Följande fråga har inget filter på partitionsnyckeln (DeviceId) och är utspridd till alla partitioner där den körs mot partitionens index. Du måste ange EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` i REST-API) har SDK, för att köra en fråga i partitioner.
 
 ```csharp
 // Query across partition keys
@@ -188,7 +188,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Har stöd för cosmos DB [mängdfunktionerna](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` och `AVG` över partitionerad behållare med SQL som börjar med SDK: er 1.12.0 och högre. Frågor måste innehålla en sammanställd operator och måste innehålla ett värde i projektionen.
+Har stöd för cosmos DB [mängdfunktionerna](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`,, och `AVG` över partitionerad behållare med SQL som börjar med SDK: er 1.12.0 och högre. Frågor måste innehålla en sammanställd operator och måste innehålla ett värde i projektionen.
 
 ### <a name="parallel-query-execution"></a>Parallell frågekörning
 SDK: er 1.9.0 för Cosmos DB och högre support parallell körning frågealternativ, så att du kan utföra låg latens frågor mot partitionerade samlingar, även när de behöver touch ett stort antal partitioner. Följande fråga är till exempel konfigurerad för att köras parallellt över partitioner.
@@ -204,13 +204,13 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-* Genom att ange `MaxDegreeOfParallelism`, du kan styra i vilken grad av parallellitet i d.v.s., det maximala antalet samtidiga anslutningar till behållarens partitioner. Om du anger detta till -1 så hanteras graden av parallellitet av SDK:n. Om den `MaxDegreeOfParallelism` är inte angiven eller ange värdet 0, vilket är standardvärdet, finns en nätverksanslutning till behållarens partitioner.
-* Genom att ange `MaxBufferedItemCount`, kan du avväga frågesvarstider och minnesanvändning på klientsidan. Om du utelämnar den här parametern eller anger den till -1, hanteras antalet objekt som buffras under parallell frågekörning av SDK:n.
+* Genom att ange `MaxDegreeOfParallelism`, du kan styra i vilken grad av parallellitet som är maximalt antal samtidiga anslutningar till behållarens partitioner. Om du anger egenskapen 1 hanteras grad av parallellitet av SDK. Om den `MaxDegreeOfParallelism` är inte angiven eller ange värdet 0, vilket är standardvärdet, finns en nätverksanslutning till behållarens partitioner.
+* Genom att ange `MaxBufferedItemCount`, kan du avväga frågesvarstider och minnesanvändning på klientsidan. Om du utelämnar den här parametern eller ange egenskapen till -1, hanteras antal objekt som buffras under parallell frågekörning av SDK.
 
 Med samma status för samlingen, returnerar en parallell fråga resultat i samma ordning som vid seriell körning. När du utför fråga cross-partition som innehåller sortering (ORDER BY och/eller TOP), Azure Cosmos DB SDK skickar fråga parallellt över partitioner och sammanfogar delvis sorterade resulterar i klientsidan inga globalt beställda resultat.
 
 ### <a name="executing-stored-procedures"></a>Köra lagrade procedurer
-Du kan också köra atomiska transaktioner mot dokument med samma enhets-ID, t.ex. Om du underhålla mängdfunktioner eller det aktuella tillståndet för en enhet i ett enskilt objekt. 
+Du kan också köra atomiska transaktioner mot dokument med samma enhets-ID till exempel om du underhålla mängdfunktioner eller det aktuella tillståndet för en enhet i ett enskilt objekt. 
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -219,10 +219,10 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
    
-I nästa avsnitt titta vi på hur du kan flytta till partitionerade behållare från enskild partition behållare.
+I nästa avsnitt titta på hur du kan flytta till partitionerade behållare från enskild partition behållare.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har sammanställt vi en översikt över hur du arbetar med partitionering av Azure Cosmos DB behållare med SQL-API. Se även [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
+Den här artikeln som en översikt över hur du arbetar med partitionering av Azure Cosmos DB behållare med SQL-API. Se även [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
 
 * Utföra skalnings- och prestandatester med Azure Cosmos DB. Se [prestanda och Skalningstester med Azure Cosmos DB](performance-testing.md) ett exempel.
 * Komma igång med programmeringen med den [SDK](sql-api-sdk-dotnet.md) eller [REST API](/rest/api/cosmos-db/)

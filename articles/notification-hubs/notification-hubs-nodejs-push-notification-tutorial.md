@@ -1,25 +1,25 @@
 ---
 title: Skicka push-meddelanden med Azure Notification Hubs och Node.js
-description: "Lär dig hur du använder Notification Hubs för att skicka push-meddelanden från en Node.js-program."
+description: Lär dig hur du använder Notification Hubs för att skicka push-meddelanden från en Node.js-program.
 keywords: push-meddelande, push notifications,node.js push ios push
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -65,19 +65,19 @@ Med hjälp av en textredigerare, Lägg till följande överst i den **server.js*
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>Skapa en anslutning med Azure Notification Hub
-Den **NotificationHubService** objekt kan du arbeta med notification hubs. Följande kod skapar en **NotificationHubService** objekt för nofication hubben med namnet **hubname**. Lägg till den övre delen av den **server.js** filen när instruktionen för att importera modulen för azure:
+### <a name="set-up-an-azure-notification-hub-connection"></a>Skapa en anslutning med Azure Notification Hub
+Den **NotificationHubService** objekt kan du arbeta med notification hubs. Följande kod skapar en **NotificationHubService** objekt för notification hub med namnet **hubname**. Lägg till den övre delen av den **server.js** filen när instruktionen för att importera modulen för azure:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Anslutningen **connectionstring** värde kan hämtas från den [Azure Portal] genom att utföra följande steg:
+Anslutningen **connectionstring** värde kan hämtas från den [Azure-portalen] genom att utföra följande steg:
 
 1. I det vänstra navigeringsfönstret klickar du på **Bläddra**.
 2. Välj **Meddelandehubbar**, och sen hittar du vill använda för hubben. Du kan referera till den [Windows Store komma igång-kursen](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) om du behöver hjälp med att skapa en ny Meddelandehubb.
 3. Välj **inställningar**.
-4. Klicka på **åtkomstprinciper**. Båda anslutningssträngar för delade och fullständig åtkomst visas.
+4. Klicka på **åtkomstprinciper**. Du kan se båda anslutningssträngar för delade och fullständig åtkomst.
 
-![Azure Portal – Notification hub](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
+![Azure portal – Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
 > Du kan också hämta den anslutningssträng genom att använda den **Get-AzureSbNamespace** cmdlet som tillhandahålls av [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller **azure sb namnområde visa** kommandot med de [Azure kommandoradsverktyget gränssnitt (Azure CLI)](../cli-install-nodejs.md).
@@ -139,7 +139,7 @@ Den **MpnsService** objektet innehåller en **skicka** metod som kan användas f
 
 * **Taggar** -taggen identifierare. Om ingen tagg anges, skickas meddelandet till alla klienter.
 * **Nyttolasten** -meddelandets nyttolast för XML.
-* **Målnamn**  -  `toast` för popup-meddelanden. `token`för sida vid sida-meddelanden.
+* **Målnamn**  -  `toast` för popup-meddelanden. `token` för sida vid sida-meddelanden.
 * **NotificationClass** -prioriteten för meddelandet. Finns det **HTTP-huvudet element** avsnitt i den [Push-meddelanden från en server](http://msdn.microsoft.com/library/hh221551.aspx) dokument för giltiga värden.
 * **Alternativ** – valfritt begärandehuvuden.
 * **Motringning** -Återanropsfunktionen.

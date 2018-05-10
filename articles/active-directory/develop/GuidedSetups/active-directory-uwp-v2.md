@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4db14bc250bf9d6740380f3c4376f43d6f315b01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 390559922b3b8fb293d1c8b38f36dfd0a1df9ebd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Anropa Microsoft Graph API från ett program för universella Windowsplattformen (UWP)
 
-Den här guiden visar hur en programspecifika Universal Windows Platform (XAML) kan få en åtkomsttoken och sedan använda den här åtkomst toke för att anropa Microsoft Graph API eller andra API: er som kräver åtkomst-token från Azure Active Directory v2-slutpunkten.
+Den här guiden visar hur en ursprungliga Universal Windows Platform (XAML)-programmet kan få en åtkomsttoken och sedan använda åtkomsttoken för att anropa Microsoft Graph API eller andra API: er som kräver åtkomst-token från Azure Active Directory v2-slutpunkten.
 
 I slutet av den här guiden kommer programmet att kunna anropa en skyddad API med hjälp av personliga konton (inklusive outlook.com och live.com) samt arbets- och skolkonton från alla företag eller organisation som har Azure Active Directory.  
 
@@ -33,7 +33,7 @@ I slutet av den här guiden kommer programmet att kunna anropa en skyddad API me
 
 ![Hur den här guiden fungerar](media/active-directory-mobileanddesktopapp-windowsuniversalplatform-introduction/uwp-intro.png)
 
-Det exempelprogram som skapats av den här guiden kan ett Uwp-program till Microsoft Graph API eller ett webb-API som accepterar token från Azure Active Directory v2 slutpunkten. I det här scenariot läggs en token på HTTP-förfrågningar via Authorization-huvud. Token förvärv och förnyelse hanteras av Microsoft Authentication Library (MSAL).
+Det exempelprogram som skapats av den här guiden kan en UWP-appen att fråga Microsoft Graph API eller ett webb-API som accepterar token från Azure Active Directory v2-slutpunkten. I det här scenariot läggs en token på HTTP-förfrågningar via Authorization-huvud. Token förvärv av organisationer och förnyelser hanteras av Microsoft Authentication Library (MSAL).
 
 ### <a name="nuget-packages"></a>NuGet-paket
 
@@ -46,9 +46,9 @@ Den här guiden använder följande NuGet-paket:
 
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
-Det här avsnittet innehåller stegvisa instruktioner för hur du skapar ett nytt projekt för att demonstrera hur du integrerar Windows Desktop .NET-program (XAML) med *logga In med Microsoft* så att den kan fråga webb-API: er som kräver en token.
+Det här avsnittet innehåller stegvisa instruktioner för hur du integrerar Windows Desktop .NET-program (XAML) med *logga In med Microsoft* så att den kan fråga webb-API: er som kräver ett token, till exempel Microsoft Graph API.
 
-Program som skapats av den här guiden visar en knapp för att ett diagram och visa resultaten på skärmen och en knapp för utloggning.
+Program som skapats av den här guiden visar en knapp som används för att fråga Graph API och en knapp för utloggning textrutor som visar resultatet av anrop.
 
 > Om du vill hämta det här exemplet Visual Studio-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) och gå vidare till den [appregistrering](#register-your-application "programmet registreringssteget") steg för att konfigurera kodexemplet innan du kör.
 
@@ -61,7 +61,7 @@ Program som skapats av den här guiden visar en knapp för att ett diagram och v
 5. Om du uppmanas minskade välja en version för *mål* och *minsta* version och klicka på 'Ok':<br/><br/>![Lägsta och mål-versioner](media/active-directory-uwp-v2.md/vs-minimum-target.png)
 
 ## <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Lägg till Microsoft Authentication Library (MSAL) i projektet
-1. I Visual Studio: **verktyg** > **Nuget Package Manager** > **Package Manager-konsolen**
+1. I Visual Studio: **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**
 2. Kopiera och klistra in följande kommando i fönstret Package Manager-konsolen:
 
     ```powershell
@@ -83,8 +83,8 @@ Det här steget kan du skapa en klass för att hantera interaktion med MSAL bibl
 2. Lägga till följande två rader i appens klass (inuti <code>sealed partial class App : Application</code> block):
 
     ```csharp
-    //Below is the clientId of your app registration. 
-    //You have to replace the below with the Application Id for your app registration
+    // Below is the clientId of your app registration. 
+    // You have to replace the below with the Application Id for your app registration
     private static string ClientId = "your_client_id_here";
     
     public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
@@ -120,15 +120,15 @@ Det här avsnittet visar hur du använder MSAL för att hämta en token för Mic
     ```csharp
     using Microsoft.Identity.Client;
     ```
-2. Ersätt Koden i din <code>MainPage</code> klassen med följande:
+2. Ersätt Koden i din <code>MainPage</code> klassen med:
 
     ```csharp
     public sealed partial class MainPage : Page
     {
-        //Set the API Endpoint to Graph 'me' endpoint
+        // Set the API Endpoint to Graph 'me' endpoint
         string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
     
-        //Set the scope for API call to user.read
+        // Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
     
         public MainPage()
@@ -188,7 +188,7 @@ Den `AcquireTokenSilentAsync` metoden hanterar token anskaffning och förnyelser
 
 Slutligen den `AcquireTokenSilentAsync` metoden misslyckas. Orsaker till felet kan vara att användaren har loggat ut eller ändra sina lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd, den utlöses en `MsalUiRequiredException` undantag. Programmet kan hantera det här undantaget på två sätt:
 
-* Det kan göra att ett anrop mot `AcquireTokenAsync` omedelbart. Det här anropet resulterar i att användaren uppmanas att logga in. Det här mönstret används vanligtvis i Onlineprogram där det finns inga tillgängliga offline innehåll för användaren. Exempel som genererats av den här interaktiv installation följer detta mönster som du kan se i åtgärden första gången du köra exemplet. 
+* Det kan göra att ett anrop mot `AcquireTokenAsync` omedelbart. Det här anropet resulterar i att användaren uppmanas att logga in. Det här mönstret används normalt Onlineprogram där det finns inga tillgängliga offline innehåll för användaren. Exempel som genererats av den här interaktiv installation följer detta mönster som du kan se i åtgärden första gången du köra exemplet. 
     * Eftersom ingen användare har använt programmet, `PublicClientApp.Users.FirstOrDefault()` innehåller ett null-värde och ett `MsalUiRequiredException` undantag. 
     * Koden i exemplet hanterar undantaget genom att anropa `AcquireTokenAsync`, vilket innebär att användaren uppmanas att logga in.
 
@@ -212,7 +212,7 @@ Slutligen den `AcquireTokenSilentAsync` metoden misslyckas. Orsaker till felet k
         try
         {
             var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
-            //Add the token in Authorization header
+            // Add the token in Authorization header
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             response = await httpClient.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
@@ -311,23 +311,23 @@ Applikationsmanifestet måste aktivera ytterligare funktioner för att aktivera 
     - Privata nätverk (klient och Server)
     - Delade användarcertifikat 
 
-3. Öppna **App.xaml.cs**, och Lägg till följande i App-konstruktorn:
+3. Öppna **App.xaml.cs**, och Lägg till följande rad i App-konstruktorn:
 
     ```csharp
     App.PublicClientApp.UseCorporateNetwork = true;
     ```
 
 > [!IMPORTANT]
-> Windows-integrerad autentisering är inte konfigurerad som standard för det här exemplet eftersom program som begär den *Enterprise-autentisering* eller *delade användarcertifikat* funktioner kräver en högre verificationby Windows Store och inte alla utvecklare du vill utföra den högre nivån av verifiering. Aktivera den här inställningen bara om du behöver Windows-integrerad autentisering med en federerade Azure Active Directory-domän.
+> Windows-integrerad autentisering är inte konfigurerad som standard för det här exemplet eftersom program som begär den *Enterprise-autentisering* eller *delade användarcertifikat* funktioner kräver en högre säkerhetsnivå för verifiering av Windows Store och inte alla utvecklare som vill utföra den högre nivån av verifiering. Aktivera den här inställningen bara om du behöver Windows-integrerad autentisering med en federerade Azure Active Directory-domän.
 
 
 ## <a name="test-your-code"></a>Testa din kod
 
-För att testa ditt program, trycker du på `F5` köra projektet i Visual Studio. Main-fönster visas:
+Om du vill testa ditt program, trycker du på `F5` köra projektet i Visual Studio. Main-fönster visas:
 
 ![Programmets användargränssnitt](media/active-directory-uwp-v2.md/testapp-ui.png)
 
-När du är redo att testa klickar du på *anropa Microsoft Graph API* och Använd Microsoft Azure Active Directory (organisationskonto) eller ett Account (live.com, outlook.com) för att logga in. Om det är första gången visas ett fönster som ber användaren logga in:
+När du är redo att testa klickar du på *anropa Microsoft Graph API* och Använd Microsoft Azure Active Directory (organisationskonto) eller ett Account (live.com, outlook.com) för att logga in. Om det är första gången visas ett fönster som ber användaren att logga in:
 
 ![Inloggningssidan](media/active-directory-uwp-v2.md/sign-in-page.png)
 
@@ -365,18 +365,18 @@ För att få åtkomst till användarkalendrar i kontexten för ett program måst
 
 ### <a name="issue-1"></a>Problem 1:
 Får du ett av följande fel när inloggningen på ditt program på en federerad Azure Active Directory-domän:
- - Har inget giltigt certifikat hittades i begäran.
+ - Inget giltigt certifikat hittades i begäran.
  - Inga giltiga certifikat finns i användarens certifikatarkiv.
- - Försök igen genom att välja en annan autentiseringsmetod ”.
+ - Försök igen genom att välja en annan autentiseringsmetod.
 
 **Orsak:** Enterprise-och certifikat inte har aktiverats
 
 **Lösning:** följer du stegen i [integrerad autentisering på externa domäner](#enable-integrated-authentication-on-federated-domains-optional)
 
 ### <a name="issue-2"></a>Problem 2:
-Du aktiverar enare [integrerad autentisering på externa domäner](#enable-integrated-authentication-on-federated-domains-optional) och försök att använda Windows Hello på en Windows 10-dator för att logga in en en miljö med flera-factor-autentisering har konfigurerat listan över certifikat visas , men om du väljer att använda din PIN-kod fönstret PIN-koden aldrig visas.
+När du har aktiverat [integrerad autentisering på externa domäner](#enable-integrated-authentication-on-federated-domains-optional) och försök att använda Windows Hello på en Windows 10-dator för att logga in i en miljö med flera-factor-autentisering konfigurerad, visas listan över certifikat Om du väljer att använda din PIN-kod visas men aldrig fönstret PIN-kod.
 
-**Orsak:** detta är en känd begränsning med webbautentiseringskoordinatorn i UWP-program som körs på Windows 10 desktop (fungerar bra i Windows 10 Mobile)
+**Orsak:** känd begränsning med webbautentiseringskoordinatorn i UWP-program som körs på Windows 10 desktop (fungerar bra i Windows 10 Mobile)
 
-**Lösning:** som tillfällig lösning kan användarna måste välja att logga in med andra alternativ och välj sedan *logga in med ett användarnamn och lösenord* i stället väljer Ange ditt lösenord och sedan gå igenom telefon-autentisering.
+**Lösning:** användarna behöver för att markera att logga in med andra alternativ och välj sedan *logga in med ett användarnamn och lösenord* i stället väljer Ange ditt lösenord och sedan gå igenom telefon-autentisering.
 

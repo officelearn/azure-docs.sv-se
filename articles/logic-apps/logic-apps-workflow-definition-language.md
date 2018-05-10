@@ -3,7 +3,7 @@ title: Arbetsflödet Definition Language schema - Azure Logic Apps | Microsoft D
 description: Skriva anpassade arbetsflödesdefinitioner för Logic Apps i Azure med arbetsflödet Definition Language
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -12,13 +12,13 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 7c253fd83bcc1f1dde93ac6ef0c26da1fa1a9a4b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Logic Apps arbetsflödesdefinitioner med språk i Arbetsflödesdefinitionen för schemat
 
@@ -54,7 +54,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 
 ## <a name="parameters"></a>Parametrar
 
-I den `parameters` och definierar de parametrar som accepterar indata för arbetsflödet vid körning. Innan du kan använda dessa parametrar i andra avsnitt i arbetsflödet, se till att du deklarera alla parametrar i dessa avsnitt.
+I den `parameters` avsnittet, definiera alla arbetsflödesparametrar som används i din logikapp vid distribution för att acceptera indata. Både parameterdeklarationer och parametervärden måste anges vid distributionen. Innan du kan använda dessa parametrar i andra avsnitt i arbetsflödet, se till att du deklarera alla parametrar i dessa avsnitt. 
 
 Här är den allmänna strukturen för en parameterdefinition:  
 
@@ -80,7 +80,7 @@ Här är den allmänna strukturen för en parameterdefinition:
 | allowedValues | Nej | Samma som `type` | En matris med värden som kan användas med parametern |  
 | metadata | Nej | JSON-objekt | Övriga parametern detaljer, till exempel namnet eller en läsbar beskrivning för din logikapp eller designläge data som används av Visual Studio eller andra verktyg |  
 ||||
-  
+
 ## <a name="triggers-and-actions"></a>Utlösare och åtgärder  
 
 I en arbetsflödesdefinition den `triggers` och `actions` avsnitten definierar anropen under körning av ditt arbetsflöde. Syntax och mer information om dessa avsnitt finns [arbetsflöde utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
@@ -88,6 +88,9 @@ I en arbetsflödesdefinition den `triggers` och `actions` avsnitten definierar a
 ## <a name="outputs"></a>Utdata 
 
 I den `outputs` avsnittet, definiera data som arbetsflödet kan returnera när du är klar kör. Ange till exempel att arbetsflödet utdata returnerar informationen för att spåra en viss status eller ett värde från varje körning. 
+
+> [!NOTE]
+> Använd inte när svarar på inkommande begäranden från en tjänst REST API: et `outputs`. Använd i stället de `Response` åtgärdstyp. Mer information finns i [arbetsflöde utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 Här är den allmänna strukturen för en definition av utdata: 
 
@@ -108,9 +111,6 @@ Här är den allmänna strukturen för en definition av utdata:
 ||||| 
 
 Granska logikappen körningshistorik och information i Azure-portalen för att hämta utdata från ett arbetsflöde som körs eller använda den [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan också skicka utdata till externa system, till exempel PowerBI så att du kan skapa instrumentpaneler. 
-
-> [!NOTE]
-> Använd inte när svarar på inkommande begäranden från en tjänst REST API: et `outputs`. Använd i stället de `Response` åtgärdstyp. Mer information finns i [arbetsflöde utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
 
@@ -217,9 +217,10 @@ I [uttryck](#expressions) och [funktioner](#functions), operatörer utföra viss
 
 <a name="functions"></a>
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
-Vissa uttryck hämta sina värden från runtime-åtgärder som inte kanske ännu finns när en logikapp börjar köras. Du kan använda för att referera eller arbeta med dessa värden i uttryck, *funktioner*. T.ex, du kan använda matematiska funktioner för beräkningar, som den [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) som returnerar summan från heltal eller flyttal. 
+Vissa uttryck hämta sina värden från runtime-åtgärder som inte kanske ännu finns när en logikapp börjar köras. Du kan använda för att referera eller arbeta med dessa värden i uttryck, [ *funktioner*](../logic-apps/workflow-definition-language-functions-reference.md). T.ex, du kan använda matematiska funktioner för beräkningar, som den [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) som returnerar summan från heltal eller flyttal. Detaljerad information om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
+Eller fortsätta lära dig mer om funktioner och deras generella.
 
 Här följer ett par exempel på uppgifter som du kan utföra med funktioner: 
 

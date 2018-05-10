@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över Azure operativ sä
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20dfbd2c5c2c38abddf332dc6a20ddb271c95ace
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure operativ säkerhet
 Azure operativ säkerhet refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. [Azure operativ säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) är ett ramverk som innehåller informationen som gjorts via en mängd funktioner som är unika för Microsoft, inklusive den Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programmet och djup medvetenhet om cyber security hotbilden i grunden.
@@ -44,7 +44,7 @@ Huvudfunktionerna i OMS tillhandahålls genom en uppsättning tjänster som kör
 -   Log Analytics
 -   Automation
 -   Backup
--   Webbplatsåterställning
+-   Site Recovery
 
 ### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning för OMS genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export. Med den här metoden kan du konsolidera data från olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Metoden innebär också en tydlig separation mellan insamling av data från de åtgärder som vidtas för dessa data, vilket gör att alla åtgärder är tillgängliga för alla typer av data.

@@ -1,7 +1,7 @@
 ---
-title: "Avancerad övervakning i fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "Den här kursen visar hur du övervakar enheter med instrumentpanelen för fjärråtkomst övervakning lösning."
-services: 
+title: Avancerad övervakning i fjärranslutna övervakningslösning - Azure | Microsoft Docs
+description: Den här kursen visar hur du övervakar enheter med instrumentpanelen för fjärråtkomst övervakning lösning.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,32 +12,32 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning
 
 Den här kursen visar funktionerna i instrumentpanelen för fjärråtkomst övervakning. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
 
-I den här kursen använder du två simulerade Contoso lastbil enheter att lära dig hur du övervakar dina enheter från instrumentpanelen förkonfigurerade lösningen. Du behöver övervaka plats och beteendet för din lastbilar i fältet som en Contoso-operator.
+I den här kursen använder du två simulerade Contoso lastbil enheter att lära dig hur du övervakar dina enheter från solution accelerator instrumentpanelen. Du behöver övervaka plats och beteendet för din lastbilar i fältet som en Contoso-operator.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
 > * Filtrera enheter i instrumentpanelen
 > * Visa realtid telemetri
 > * Visa information om enhet
-> * Visa larm från dina enheter
+> * Visa aviseringar från dina enheter
 > * Visa system KPI: er
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
 
 ## <a name="choose-the-devices-to-display"></a>Välj vilka enheter som ska visas
 
@@ -57,7 +57,7 @@ För att skapa, redigera och ta bort filter, Välj **hantera filter**.
 
 ## <a name="view-real-time-telemetry"></a>Visa realtid telemetri
 
-Den förkonfigurerade lösningen visar detaljerad realtid telemetridata i diagrammet på den **instrumentpanelen** sidan. Telemetri diagrammet visar telemetri information för enheter som valts av det aktuella filtret:
+Solution accelerator visar detaljerad realtid telemetridata i diagrammet på den **instrumentpanelen** sidan. Telemetri diagrammet visar telemetri information för enheter som valts av det aktuella filtret:
 
 ![Lastbil telemetri ritytans](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,39 +65,41 @@ Välj typen telemetri överst i diagrammet för att välja telemetri värden att
 
 ![Lastbil telemetri ritytans](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-Om du visa live telemetri, Välj **Flowing**. Om du vill återaktivera live visningen, Välj **paus**:
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![Pausa och starta om telemetri visning](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>Använd kartan
 
-Kartan visar information om simulerad lastbilar som valts av det aktuella filtret. Du kan zooma och Panorera kartan för att visa platser i mer eller mindre information. Ikoner för enheter på kartan ange någon **larm** eller **varningar** som är aktiva för enheten. En sammanfattning av antalet **larm** och **varningar** visas till vänster om kartan.
+Kartan visar information om simulerad lastbilar som valts av det aktuella filtret. Du kan zooma och Panorera kartan för att visa platser i mer eller mindre information. Ikoner för enheter på kartan ange någon **aviseringar** eller **varningar** som är aktiva för enheten. En sammanfattning av antalet **aviseringar** och **varningar** visas till vänster om kartan.
 
-Om du vill visa information om enheten Panorera och Zooma i kartan för att hitta enheter och sedan klickar du på enheten på kartan. Informationen omfattar:
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* Senaste telemetri värden
-* Metoder som har stöd för enheten
-* Enhetsegenskaper
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![Visa information om enhet på instrumentpanelen](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>Visa larm från dina enheter
+## <a name="view-alerts-from-your-devices"></a>Visa aviseringar från dina enheter
 
-Kartan visar enheterna i det aktuella filtret med **larm** och **varningar**. Den **System larm** panelen visas detaljerad information om de senaste larm från dina enheter:
+Kartan visar enheterna i det aktuella filtret med **aviseringar** och **varningar**. Den **aviseringar** panelen visas detaljerad information om de senaste aviseringarna från dina enheter:
 
-![Visa system larm på instrumentpanelen](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![Visa system aviseringar på instrumentpanelen](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-Du kan använda den **System larm** filter för att justera tidsintervallet för senaste larm. Panelen visar larm från den senaste timmen som standard:
+Du kan använda den **instrumentpanelen** filter för att justera tidsintervallet för senaste aviseringarna. Panelen visas aviseringar från den senaste timmen som standard:
 
-![Filtrera larm enligt tid](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![Filtrera aviseringarna efter tid](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## <a name="view-the-system-kpis"></a>Visa system KPI: er
 
 Den **instrumentpanelen** visar sidan system KPI: er:
 
-![Filtrera larm enligt tid](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![Instrumentpanelen KPI: er](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-Du kan använda den **System KPI** filter för att justera tidsintervallet för KPI-aggregering. Som standard visar panelen KPI: er samman under den senaste timmen.
+Du kan använda den **instrumentpanelen** filter för att justera tidsintervallet för KPI-aggregering. Som standard visar panelen KPI: er samman under den senaste timmen.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -108,7 +110,7 @@ Den här självstudiekursen visades hur du använder den **instrumentpanelen** a
 > * Filtrera enheter i instrumentpanelen
 > * Visa realtid telemetri
 > * Visa information om enhet
-> * Visa larm från dina enheter
+> * Visa aviseringar från dina enheter
 > * Visa system KPI: er
 
 Nu när du har lärt dig hur du övervakar dina enheter, föreslagna nästa steg är att lära dig hur du:

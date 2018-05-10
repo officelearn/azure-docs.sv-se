@@ -12,21 +12,21 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8fc014efab898bf0ab3d8cd5eaa83dce53ee275b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Konfigurera tjänsten IoT Hub Device Provisioning med en Azure Resource Manager-mall
 
-Du kan använda [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. De här anvisningarna visar hur du skapar en IoT-hubb, en ny IoT Hub Device Provisioning-tjänst och hur du länkar de två tjänsterna till varandra med en Azure Resource Manager-mall. I den här snabbstarten används [Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli) för att utföra de nödvändiga programmässiga stegen för att skapa en resursgrupp och distribuera mallen, men du kan enkelt använda [Azure-portalen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby eller andra programmeringsspråk för att utföra stegen och distribuera mallen. 
+Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. De här anvisningarna visar hur du skapar en IoT-hubb, en ny IoT Hub Device Provisioning-tjänst och hur du länkar de två tjänsterna till varandra med en Azure Resource Manager-mall. I den här snabbstarten används [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) för att utföra de nödvändiga programmässiga stegen för att skapa en resursgrupp och distribuera mallen, men du kan enkelt använda [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby eller andra programmeringsspråk för att utföra stegen och distribuera mallen. 
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- För den här snabbstarten krävs att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+- För den här snabbstarten krävs att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Logga in på Azure och skapa en resursgrupp
@@ -116,7 +116,7 @@ Använd en JSON-mall för att skapa en etableringstjänst och en länkad IoT-hub
 
    ```
 
-4. Lägg till följande rader till samlingen **resurser** när du ska skapa en IoT-hubb. JSON anger det minsta antalet egenskaper som krävs för att skapa en IoT Hub. Egenskaperna **namn** och **plats** skickas som parametrar. Om du vill veta mer om egenskaperna som du kan ange för en IoT Hub i en mall kan du läsa [Microsoft.Devices/IotHubs-mallreferensen](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothubs).
+4. Lägg till följande rader till samlingen **resurser** när du ska skapa en IoT-hubb. JSON anger det minsta antalet egenskaper som krävs för att skapa en IoT Hub. Egenskaperna **namn** och **plats** skickas som parametrar. Om du vill veta mer om egenskaperna som du kan ange för en IoT Hub i en mall kan du läsa [Microsoft.Devices/IotHubs-mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -136,9 +136,9 @@ Använd en JSON-mall för att skapa en etableringstjänst och en länkad IoT-hub
 
    ``` 
 
-5. Om du vill skapa etableringstjänsten lägger du till följande rader efter IoT-hubbspecifikationen i samlingen **resources**. Etableringstjänstens **namn** och **plats** överförs i parametrar. Ange IoT-hubbarna för att länka till etableringstjänsten i samlingen **iotHubs**. Du måste minst ange egenskaperna **connectionString** och **location** för varje länkad IoT-hubb. Du kan också ange egenskaper som **allocationWeight** och **applyAllocationPolicy** för varje IoT-hubb, samt egenskaper som **allocationPolicy** och **authorizationPolicies** för själva etableringstjänsten. Mer information finns i [Microsoft.Devices/provisioningServices-mallreferensen](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices).
+5. Om du vill skapa etableringstjänsten lägger du till följande rader efter IoT-hubbspecifikationen i samlingen **resources**. Etableringstjänstens **namn** och **plats** överförs i parametrar. Ange IoT-hubbarna för att länka till etableringstjänsten i samlingen **iotHubs**. Du måste minst ange egenskaperna **connectionString** och **location** för varje länkad IoT-hubb. Du kan också ange egenskaper som **allocationWeight** och **applyAllocationPolicy** för varje IoT-hubb, samt egenskaper som **allocationPolicy** och **authorizationPolicies** för själva etableringstjänsten. Mer information finns i [Microsoft.Devices/provisioningServices-mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
-   Egenskapen **dependsOn** används för att se till att Resource Manager skapar IoT-hubben före etableringstjänsten. Mallen kräver IoT-hubbens anslutningssträng för att ange dess länkning till etableringstjänsten, så hubben och dess nycklar måste skapas först. I mallen används funktioner som **concat** och **listKeys** för att skapa anslutningssträngen. Om du vill lära dig mer läser du [Azure Resource Manager-mallfunktioner](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions).
+   Egenskapen **dependsOn** används för att se till att Resource Manager skapar IoT-hubben före etableringstjänsten. Mallen kräver IoT-hubbens anslutningssträng för att ange dess länkning till etableringstjänsten, så hubben och dess nycklar måste skapas först. I mallen används funktioner som **concat** och **listKeys** för att skapa anslutningssträngen. Om du vill lära dig mer läser du [Azure Resource Manager-mallfunktioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -301,7 +301,7 @@ Mallen som du definierade i det sista steget använder parametrar för att ange 
 
 Använd följande Azure CLI-kommandon för att distribuera dina mallar och verifiera distributionen.
 
-1. För att distribuera din mall kör du följande [kommando för att starta en distribuering](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. För att distribuera din mall kör du följande [kommando för att starta en distribuering](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Använd följande Azure CLI-kommandon för att distribuera dina mallar och verif
    ![Etableringsutdata](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Om du vill verifiera din distribution kör du följande [kommando för att lista resurser](https://docs.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest#az_resource_list) och hålla utkik efter den nya etableringstjänsten och IoT-hubben i utdata:
+2. Om du vill verifiera din distribution kör du följande [kommando för att lista resurser](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) och hålla utkik efter den nya etableringstjänsten och IoT-hubben i utdata:
 
     ```azurecli
      az resource list -g {your resource group name}

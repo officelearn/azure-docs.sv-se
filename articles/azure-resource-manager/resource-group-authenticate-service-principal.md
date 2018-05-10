@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: 6ab1b2357e88525f4730b5ad550cfcf3acbb906e
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Skapa ett huvudnamn för tjänsten med ett certifikat med hjälp av Azure PowerShell
 
@@ -31,6 +31,8 @@ När du har en app eller skript som behöver åtkomst till resurser, kan du stä
 > Överväg att använda Azure AD hanterade tjänstidentiteten för tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD-MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är ett bättre alternativ för Azure AD-MSI. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande, [hanterade tjänstidentiteten för Azure-resurser](../active-directory/managed-service-identity/overview.md).
 
 Den här artikeln visar hur du skapar ett huvudnamn för tjänsten som autentiserar med ett certifikat. Om du vill konfigurera ett huvudnamn för tjänsten med lösenord finns [skapa en Azure tjänstens huvudnamn med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+
+Du måste ha den [senaste versionen](/powershell/azure/get-started-azureps) PowerShell för den här artikeln.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
@@ -58,61 +60,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge, visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”. Lös det här felet genom att vänta ett ögonblick som kör den **ny AzureRmRoleAssignment** kommandot igen.
 
-I nästa exempel är mer komplicerad eftersom du kan ange omfånget för den rolltilldelning som skiljer sig från din aktuella Azure-prenumeration. Ange parametern ResourceGroup bara när du vill begränsa omfattningen av rolltilldelningen i en resursgrupp. Om ett fel inträffar under rolltilldelningen återförsök tilldelningen. Du måste ha Azure PowerShell 2.0 på Windows 10 eller Windows Server 2016.
-
-```powershell
-Param (
-
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
- [Parameter(Mandatory=$false)]
- [String] $ResourceGroup,
-
- # Use to set subscription. If no value is provided, default subscription is used. 
- [Parameter(Mandatory=$false)]
- [String] $SubscriptionId,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationDisplayName
- )
-
- Connect-AzureRmAccount
- Import-Module AzureRM.Resources
-
- if ($SubscriptionId -eq "") 
- {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
- }
- else
- {
-    Set-AzureRmContext -Subscription $SubscriptionId
- }
-
- if ($ResourceGroup -eq "")
- {
-    $Scope = "/subscriptions/" + $SubscriptionId
- }
- else
- {
-    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
- }
-
- $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
- $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
-
- $NewRole = $null
- $Retries = 0;
- While ($NewRole -eq $null -and $Retries -le 6)
- {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-    Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
-    $Retries++;
- }
-```
+Du kan ange omfång rolltilldelning till en viss resursgrupp med hjälp av den **ResourceGroupName** parameter. Du kan ange omfång för en viss resurs med hjälp av även de **ResourceType** och **ResourceName** parametrar. 
 
 Om du **inte har Windows 10 eller Windows Server 2016**, måste du hämta den [självsignerat certifikat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) från Microsoft Script Center. Extrahera innehållet och importera den cmdlet som du behöver.
 
@@ -137,35 +85,14 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 När du loggar in som ett huvudnamn för tjänsten som du behöver ange klient-ID för katalogen för din AD-app. En klient är en instans av Azure Active Directory.
 
 ```powershell
-Param (
- 
- [Parameter(Mandatory=$true)]
- [String] $CertSubject,
- 
- [Parameter(Mandatory=$true)]
- [String] $ApplicationId,
+$TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+$ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- [Parameter(Mandatory=$true)]
- [String] $TenantId
- )
-
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match "CN=exampleappScriptCert" }).Thumbprint
  Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
-```
-
-Program-ID och klient-ID inte skiftlägeskänslig, så du kan bädda in dem direkt i skriptet. Använd om du behöver hämta klient-ID:
-
-```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-```
-
-Använd om du behöver hämta program-ID:
-
-```powershell
-(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Skapa tjänstens huvudnamn med certifikat från certifikatutfärdare
@@ -264,13 +191,13 @@ Om du vill ändra autentiseringsuppgifterna för en AD-app, antingen på grund a
 Ta bort alla autentiseringsuppgifter för ett program med:
 
 ```powershell
-Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
 ```
 
 Skapa ett självsignerat certifikat för att lägga till ett Certifikatvärde som visas i den här artikeln. Använd sedan:
 
 ```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 `
+Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore

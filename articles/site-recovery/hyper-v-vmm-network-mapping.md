@@ -1,18 +1,18 @@
 ---
-title: "Om nätverksmappningen för Hyper-V-dator (med VMM) replikering till Azure med Site Recovery | Microsoft Docs"
-description: "Beskriver hur du ställer in nätverksmappningen för replikering av Hyper-V-datorer hanteras i VMM-moln med Azure Site Recovery."
+title: Om nätverksmappningen för Hyper-V-dator (med VMM) replikering till Azure med Site Recovery | Microsoft Docs
+description: Beskriver hur du ställer in nätverksmappningen för replikering av Hyper-V-datorer hanteras i VMM-moln med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f7c6e3eeb8db75a3857e687fecc9ee2748e92696
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
 

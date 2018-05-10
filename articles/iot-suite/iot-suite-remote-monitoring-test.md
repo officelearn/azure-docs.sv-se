@@ -1,7 +1,7 @@
 ---
-title: "Enheten simuleringen i fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning förkonfigurerade lösningen."
-services: 
+title: Enheten simuleringen i fjärranslutna övervakningslösning - Azure | Microsoft Docs
+description: Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning solution accelerator.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="create-a-new-simulated-device"></a>Skapa en ny simulerade enhet
+# <a name="create-a-new-simulated-device"></a>Skapa en ny simulerad enhet
 
-Den här kursen visar hur du anpassar enheten simulatorn mikrotjänster i fjärråtkomst övervakning förkonfigurerade lösningen. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
+Den här kursen visar hur du anpassar enheten simulatorn mikrotjänster i fjärråtkomst övervakning solution accelerator. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
+
+Följande videoklipp visar en översikt över alternativ för att anpassa enheten simulatorn mikrotjänster:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 Contoso vill testa en ny enhet för smart av glödlampa i det första scenariot. Om du vill utföra testerna måste skapa du en ny simulerade enhet med följande egenskaper:
 
@@ -68,9 +72,9 @@ I följande tabell visas enhetens inledande status:
 
 I det andra scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhet.
 
-Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning förkonfigurerade lösningen:
+Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning solution accelerator:
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
 > * Skapa en ny enhetstyp av
@@ -86,7 +90,7 @@ Följande videoklipp visar en genomgång av simulerade och verkliga enheter som 
 
 Om du vill följa den här kursen behöver du:
 
-* En distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration. Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md) kursen.
+* En distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration. Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
 
 * Visual Studio 2017. Om du inte har Visual Studio 2017 installerat kan du hämta den kostnadsfria [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -221,7 +225,7 @@ I kursen får du arbeta med den **enheten simuleringen** och **lagringsadapter**
 1. Att klona .NET-versionen av den **lagringsadapter** databasen, kör du följande kommando:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     Tjänsten enhet simuleringen använder nätverkskort lagringstjänsten för att ansluta till tjänsten Cosmos-DB i Azure. Fjärråtkomst övervakningslösning lagrar konfigurationsdata för simulerade enheten i en Cosmos-DB-databas.
@@ -261,8 +265,8 @@ Det enklaste sättet att skapa en ny typ av enhet i simuleringen tjänst är att
     | Källa                      | Mål                   |
     | --------------------------- | ----------------------------- |
     | chiller-01.json             | lightbulb-01.json             |
-    | scripts/chiller-01-state.js | scripts/lightbulb-01-state.js |
-    | scripts/reboot-method.js    | scripts/SwitchOn-method.js    |
+    | skript/kylaggregat-01-state.js | skript/av glödlampa-01-state.js |
+    | omstart/skript-method.js    | SwitchOn/skript-method.js    |
 
 ### <a name="define-the-characteristics-of-the-new-device-type"></a>Definiera egenskaperna för den nya enhetstypen
 
@@ -289,10 +293,10 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -474,7 +478,7 @@ Du är nu redo att testa din nya simulerade av glödlampa typ genom att köra en
 
     ![Antal anslutna enheter](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. I din webbläsare, navigerar du till den **instrumentpanelen** för fjärråtkomst övervakning lösningen. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för din simulerade enheterna visas i diagrammet:
+1. I din webbläsare, navigerar du till den **instrumentpanelen** för fjärråtkomst övervakning lösningen. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för simulerad enheter visas i diagrammet:
 
     ![Temperatur telemetri](media/iot-suite-remote-monitoring-test/telemetry.png)
 
@@ -532,7 +536,7 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
     publish.cmd
     ```
 
-1. För att kontrollera överföringen, gå till [https://hub.docker.com/](https://hub.docker.com/). Leta upp din **av glödlampa** databasen och välj **information**. Välj **taggar**:
+1. För att kontrollera överföringen, gå till [ https://hub.docker.com/ ](https://hub.docker.com/). Leta upp din **av glödlampa** databasen och välj **information**. Välj **taggar**:
 
     ![Docker-hubb](media/iot-suite-remote-monitoring-test/dockerhub.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Felsöka filkomprimering i Azure CDN | Microsoft Docs"
-description: "Felsöka problem med Azure CDN komprimering."
+title: Felsöka filkomprimering i Azure CDN | Microsoft Docs
+description: Felsöka problem med Azure CDN komprimering.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Felsöka CDN-filkomprimering
 Den här artikeln hjälper dig att felsöka problem med [CDN filkomprimering](cdn-improve-performance.md).
@@ -42,7 +42,7 @@ Det finns flera möjliga orsaker, bland annat:
 * Komprimering är inte aktiverat för den begärda filen.
 * HTTP-begäran innehöll inte en rubrik som begär en giltig Komprimeringstypen.
 
-## <a name="troubleshooting-steps"></a>Felsökningssteg
+## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 > [!TIP]
 > Som distribuerar nya slutpunkter, ta CDN konfigurationsändringar lite tid att spridas via nätverket.  Vanligtvis tillämpas ändringar inom 90 minuter.  Om du har konfigurerat komprimering för CDN-slutpunkten bör du vänta 1 – 2 timmar att komprimering inställningar har spridits till POP. 
 > 
@@ -61,9 +61,9 @@ Först ska vi göra en snabb förstånd kontroll på begäran.  Du kan använda 
 
 ![CDN-huvuden för begäran](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Kontrollera inställningarna för komprimering (Standard CDN-profil)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Kontrollera inställningarna för komprimering (standard CDN profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profilen är en **Azure CDN Standard från Verizon** eller **Azure CDN Standard från Akamai** profil. 
+> Det här steget gäller endast om din CDN-profilen är en **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**, eller **Azure CDN Standard från Akamai** profil. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Navigera till din slutpunkt i den [Azure-portalen](https://portal.azure.com) och
 
 ![CDN-inställningarna för komprimering](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Kontrollera inställningarna för komprimering (Premium CDN-profil)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Kontrollera inställningarna för komprimering (Premium CDN profiler)
 > [!NOTE]
 > Det här steget gäller endast om din CDN-profilen är en **Azure CDN Premium från Verizon** profil.
 > 
@@ -88,9 +88,9 @@ Navigera till din slutpunkt i den [Azure-portalen](https://portal.azure.com) och
 
 ![CDN premium komprimeringsinställningar](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Kontrollera innehållet cachelagras
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Kontrollera innehållet är cachelagrade (Verizon CDN profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profilen är en **Azure CDN från Verizon** profilen (Standard eller Premium).
+> Det här steget gäller endast om din CDN-profilen är en **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** profil.
 > 
 > 
 
@@ -101,9 +101,9 @@ Kontrollera med din webbläsare utvecklingsverktyg svarshuvuden för att se till
 
 ![CDN-svarshuvuden](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Kontrollera att filen uppfyller storlek
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Kontrollera att filen uppfyller storlek (Verizon CDN profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profilen är en **Azure CDN från Verizon** profilen (Standard eller Premium).
+> Det här steget gäller endast om din CDN-profilen är en **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** profil.
 > 
 > 
 

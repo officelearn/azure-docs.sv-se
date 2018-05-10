@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: Kontrollflöde
       items:
-        - name: If-villkorsaktivitet
-          href: control-flow-if-condition-activity.md
-        - name: Tills-aktivitet
-          href: control-flow-until-activity.md
-        - name: Webbaktivitet
-          href: control-flow-web-activity.md
-        - name: Sökningsaktivitet
-          href: control-flow-lookup-activity.md
-        - name: Hämta metadataaktivitet
-          href: control-flow-get-metadata-activity.md
         - name: Köra pipelineaktivitet
           href: control-flow-execute-pipeline-activity.md
+        - name: Filteraktivitet
+          href: control-flow-filter-activity.md
         - name: För varje aktivitet
           href: control-flow-for-each-activity.md
+        - name: Hämta metadataaktivitet
+          href: control-flow-get-metadata-activity.md
+        - name: If-villkorsaktivitet
+          href: control-flow-if-condition-activity.md
+        - name: Sökningsaktivitet
+          href: control-flow-lookup-activity.md
+        - name: Tills-aktivitet
+          href: control-flow-until-activity.md
         - name: Vänteaktivitet
           href: control-flow-wait-activity.md
+        - name: Webbaktivitet
+          href: control-flow-web-activity.md
         - name: Uttrycksspråk
           href: control-flow-expression-language-functions.md
         - name: Systemvariabler

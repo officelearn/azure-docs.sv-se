@@ -1,11 +1,11 @@
 ---
-title: "Optimera SQL Server-miljön med Azure Log Analytics | Microsoft Docs"
-description: "Du kan använda SQL Health Check-lösning med Azure logganalys bedöma risker och hälsotillståndet för dina miljöer regelbundna intervall."
+title: Optimera SQL Server-miljön med Azure Log Analytics | Microsoft Docs
+description: Du kan använda SQL Health Check-lösning med Azure logganalys bedöma risker och hälsotillståndet för dina miljöer regelbundna intervall.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera SQL-miljön med SQL Server Health Check-lösningen i logganalys
 
@@ -54,7 +54,7 @@ Om du vill utföra hälsokontroll mot SQL Server-servrar, kräver de en agent oc
 
 1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) om servern inte är redan övervakas av System Center 2016 - Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 - Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen inte är integrerad med Log Analytics-tjänsten, är att servern multihomed med logganalys samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
-3. Annars om hanteringsgruppen för Operations Manager är integrerat med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten följande under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-oms) när du har aktiverat lösning på arbetsytan.  
+3. Annars om hanteringsgruppen för Operations Manager är integrerat med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten följande under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösning på arbetsytan.  
 
 Agenten på SQL Server att en Operations Manager-hanteringsgrupp samlar in data, vidarebefordrar till dess tilldelade hanteringsserver och skickas sedan direkt från en hanteringsserver till Log Analytics-tjänsten.  Data skrivs inte till Operations Manager-databaserna.  
 

@@ -1,12 +1,12 @@
 ---
-title: "Översikt över säkerheten i Azure-databas | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över Azure-databas säkerhetsfunktioner."
+title: Översikt över säkerheten i Azure-databas | Microsoft Docs
+description: Den här artikeln innehåller en översikt över Azure-databas säkerhetsfunktioner.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b5e9e412fddf727237b008e37238fa2c547694de
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-overview"></a>Översikt över säkerheten i Azure-databas
 
@@ -99,7 +99,7 @@ Dessutom blir Always Encrypted kryptering transparent för program. En Always En
 ## <a name="access-control"></a>Åtkomstkontroll
 För att erbjuda säkerhet, kontrollerar SQL Database åtkomsten med hjälp av brandväggsregler som begränsar anslutning efter IP-adress, autentiseringsmekanismer kräver att användare bevisar sin identitet och auktoriseringsmekanismer begränsar användare till specifika åtgärder och data.
 
-### <a name="database-access"></a>Åtkomst till databasen
+### <a name="database-access"></a>Databasåtkomst
 
 Dataskydd börjar med att kontrollera åtkomst till dina data. Datacenter som värd för dina data hanterar fysisk åtkomst medan du kan konfigurera en brandvägg för att hantera säkerhet på nätverksnivå. Du kan också styra åtkomsten genom att konfigurera inloggningar för autentisering och definiera rättigheter för servern och databasen roller.
 
@@ -120,7 +120,7 @@ Den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) tj�
 SQL-databasautentisering refererar till hur du styrker din identitet när du ansluter till databasen. SQL Database stöder två typer av autentisering:
 
 -   **SQL-autentisering:** en enkel inloggningskontot skapas när en logisk SQL-instans skapas med namnet konto för SQL Database-prenumerant. Det här kontot ansluter med hjälp av [SQL Server-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (användarnamn och lösenord). Kontot är administratör på den logiska server-instansen och på alla användardatabaser kopplade till denna instans. Behörigheterna för prenumerationskontot kan inte begränsas. Endast ett av dessa konton kan finnas.
--   **Azure Active Directory-autentisering:** [Azure Active Directory-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) är en mekanism för anslutning till Microsoft Azure SQL Database och SQL Data Warehouse med hjälp av identiteter i Azure Active Directory (AD Azure). På så sätt kan du centralt hantera identiteter för databasanvändare.
+-   **Azure Active Directory-autentisering:** [Azure Active Directory-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) är en mekanism för anslutning till Microsoft Azure SQL Database och SQL Data Warehouse med hjälp av identiteter i Azure Active Directory ( Azure AD). På så sätt kan du centralt hantera identiteter för databasanvändare.
 
 ![Autentisering](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -196,7 +196,7 @@ Säkerhet polis eller andra avsedda administratörer kan få en omedelbar aviser
 
 ## <a name="centralized-security-management"></a>Centraliserad hantering
 
-[Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+[Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database) kan du skydda data i SQL-databas genom att tillhandahålla insyn i säkerheten för servrar och databaser. Med Security Center kan du:
 

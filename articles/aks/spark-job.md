@@ -1,6 +1,6 @@
 ---
-title: Kör ett Apache Spark-jobb med Azure Container Service (AKS)
-description: Använd Azure Container Service (AKS) för att köra ett Apache Spark-jobb
+title: Kör ett Apache Spark-jobb med Azure-Kubernetes (AKS)
+description: Använd Azure Kubernetes Service (AKS) för att köra ett Apache Spark-jobb
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 627cb80a055fb4b66fcc428a1de87d754af6991e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbeddb60ce968ff0d32e2ddb6a4f62d2036d80aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Apache Spark jobb som körs på AKS
 
-[Apache Spark] [ apache-spark] är en snabb motor för storskalig databearbetning. Med den [Spark 2.3.0 versionen][spark-latest-release], Apache Spark har stöd för integrering med Kubernetes kluster. Azure Container Service (AKS) är en hanterad Kubernetes miljö som körs i Azure. Det här dokumentet beskriver förbereda och Apache Spark jobb som körs i ett kluster med Azure Container Service (AKS).
+[Apache Spark] [ apache-spark] är en snabb motor för storskalig databearbetning. Med den [Spark 2.3.0 versionen][spark-latest-release], Apache Spark har stöd för integrering med Kubernetes kluster. Azure Kubernetes Service (AKS) är en hanterad Kubernetes miljö som körs i Azure. Det här dokumentet beskriver förbereda och Apache Spark jobb som körs i ett kluster med Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,7 +32,7 @@ Du behöver följande för att kunna slutföra stegen i den här artikeln.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-Spark används för storskalig databearbetning och kräver att Kubernetes noder storleken anpassas för att uppfylla kraven för Spark-resurser. Vi rekommenderar en minsta storlek på `Standard_D3_v2` för Azure Container Service (AKS)-noder.
+Spark används för storskalig databearbetning och kräver att Kubernetes noder storleken anpassas för att uppfylla kraven för Spark-resurser. Vi rekommenderar en minsta storlek på `Standard_D3_v2` för Azure Kubernetes Service (AKS)-noder.
 
 Om du behöver ett AKS kluster som uppfyller den här rekommendationen om minsta, kör du följande kommandon.
 

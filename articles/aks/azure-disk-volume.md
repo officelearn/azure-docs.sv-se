@@ -1,6 +1,6 @@
 ---
-title: "Använda Azure-diskarna med AKS"
-description: "Använda Azure-diskarna med AKS"
+title: Använda Azure-diskarna med AKS
+description: Använda Azure-diskarna med AKS
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 33d9a01f063ee8ad531a3f7e01dcfbf1c4ba8901
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Volymer med Azure-diskar
 
-Behållaren-baserade program behöver ofta åtkomst och spara data i en volym på externa data. Azure-diskar som kan användas som den här externa datalager. Den här artikeln information med hjälp av en Azure-disken som Kubernetes volymer i ett kluster med Azure Container Service (AKS).
+Behållaren-baserade program behöver ofta åtkomst och spara data i en volym på externa data. Azure-diskar som kan användas som den här externa datalager. Den här artikeln information med hjälp av en Azure-disken som Kubernetes volymer i ett kluster med Azure Kubernetes Service (AKS).
 
 Mer information om Kubernetes volymer finns [Kubernetes volymer][kubernetes-volumes].
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Använd den [az disk skapa] [ az-disk-create] kommando för att skapa Azure-disken. 
+Använd den [az disk skapa] [ az-disk-create] kommando för att skapa Azure-disken.
 
 Med det här exemplet kan uppdatera `--resource-group` med namnet på resursgruppen och `--name` till ett valfritt namn.
 
@@ -58,7 +58,7 @@ Du bör se utdata som liknar följande när disken har skapats. Det här värdet
 
 ## <a name="mount-disk-as-volume"></a>Montera disk som volym
 
-Montera Azure-disken till din baljor genom att konfigurera volymen i behållaren-specifikationen. 
+Montera Azure-disken till din baljor genom att konfigurera volymen i behållaren-specifikationen.
 
 Skapa en ny fil med namnet `azure-disk-pod.yaml` med följande innehåll. Uppdatera `diskName` med namnet på den nya disken och `diskURI` med disk-ID. Dessutom anteckna den `mountPath`, det här är den sökväg som Azure-disken har monterats i baljor.
 

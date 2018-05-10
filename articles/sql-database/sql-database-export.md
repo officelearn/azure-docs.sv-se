@@ -9,11 +9,11 @@ ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 7653f0953241fa0b4a1780075641fc3fe5570a23
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 30e89ea940b25e8db4a1203e966000981c47abc9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportera en Azure SQL database till en BACPAC-fil
 
@@ -97,3 +97,4 @@ $exportStatus
 * Läs om hur du importerar en BACPAC till en SQL Server-databas i [importera en BACPCAC till en SQL Server-databas](https://msdn.microsoft.com/library/hh710052.aspx).
 * Läs om hur du exporterar en BACPAC från en SQL Server-databas i [exportera en Dataskiktsprogrammet](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) och [migrera din första databas](sql-database-migrate-your-sql-server-database.md).
 * Om du exporterar från SQL Server som en prelude för migrering till Azure SQL Database, se [migrera en SQL Server-databas till Azure SQL Database](sql-database-cloud-migrate.md).
+* Information om hur du hanterar och dela lagringsnycklar och delad åtkomst signitures finns på ett säkert sätt, [säkerhetsguiden för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

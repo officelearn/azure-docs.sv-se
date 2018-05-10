@@ -3,22 +3,22 @@ title: Mallar
 description: Det här avsnittet beskriver mallar för Azure notification hubs.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Mallar
 ## <a name="overview"></a>Översikt
@@ -50,9 +50,9 @@ Du kan skapa liknande nyttolaster för MPNS (Windows Phone) och (Android) GCM-pl
 
 Det här kravet tvingar appens serverdel för att skapa olika nyttolaster för varje plattform och blir serverdelen som ansvarar för en del av presentation lager av appen. Vissa problem är lokalisering och grafiska layouter (särskilt för Windows Store-appar som innehåller meddelanden för olika typer av paneler).
 
-Notification Hubs mall-funktionen kan ett klientprogram att skapa särskilda registreringar som kallas mall registreringar, bland annat, utöver uppsättningen taggar, en mall. Notification Hubs mall-funktionen kan ett klientprogram att associera enheter med mallar om du arbetar med installationer (rekommenderas) eller registreringar. Nyttolasten i föregående exempel är, endast plattformsoberoende information den faktiska varning (Hej!). En mall är en uppsättning instruktioner för Meddelandehubben om hur du formaterar meddelandet plattformsoberoende för registrering av den specifika klient-app. I föregående exempel plattform oberoende meddelandet är en enskild egenskap: **message = Hej!**.
+Notification Hubs mall-funktionen kan ett klientprogram att skapa särskilda registreringar som kallas mall registreringar, bland annat, utöver uppsättningen taggar, en mall. Notification Hubs mall-funktionen kan ett klientprogram att associera enheter med mallar om du arbetar med installationer (rekommenderas) eller registreringar. Nyttolasten i föregående exempel är, endast plattformsoberoende information den faktiska varning (Hej!). En mall är en uppsättning instruktioner för Meddelandehubben om hur du formaterar meddelandet plattformsoberoende för registrering av den specifika klient-app. I föregående exempel, plattformsoberoende meddelandet är en enskild egenskap: **message = Hej!**.
 
-Följande bild illustrerar processen för ovan:
+Följande bild visar processen:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ Observera att det faktiska meddelandet ersätts av uttrycket $(meddelande). Det 
 
 Om du arbetar med installationsmodell innehåller nyckeln ”mallar” installationen en JSON över flera mallar. Om du arbetar med registrering modell kan klientprogrammet skapa flera registreringar för att kunna använda flera mallar. till exempel uppdateringar en mall för aviseringar och en mall för bricka. Klientprogram kan också blanda interna registreringar (registreringar utan någon mall) och mallen registreringar.
 
-Notification Hub skickar en avisering för varje mall utan att överväga om de hör till klientappen med samma. Det här beteendet kan användas för att översätta plattformsoberoende meddelanden till flera meddelanden. Till exempel kan samma plattform oberoende meddelande Notification Hub sömlöst översättas i ett popup-meddelande och en sida vid sida-uppdatering utan backend ska vara medvetna om det. Observera att vissa plattformar (till exempel iOS) kan komprimera flera meddelanden till samma enhet om de skickas i en kort tidsperiod.
+Notification Hub skickar en avisering för varje mall utan att överväga om de hör till klientappen med samma. Det här beteendet kan användas för att översätta plattformsoberoende meddelanden till flera meddelanden. Till exempel kan plattformsoberoende samma meddelande till Meddelandehubben sömlöst översättas i ett popup-meddelande och en sida vid sida-uppdatering utan serverdelen för att vara medveten om den. Vissa plattformar (till exempel iOS) kan komprimera flera meddelanden till samma enhet, om de skickas i en kort tidsperiod.
 
 ## <a name="using-templates-for-personalization"></a>Med hjälp av mallar för anpassning
 En annan fördel med att använda mallar är möjligheten att använda Notification Hubs för att utföra per registrering anpassningar av meddelanden. Anta till exempel att en väder-app som visar en panel med väder villkor på en viss plats. En användare kan välja mellan Celsius eller Fahrenheit grader och en enkel eller fem dagar prognos. Med hjälp av mallar, kan varje app klientinstallation registreras för det format som krävs (1 dag Celsius, 1 dag Fahrenheit, 5 dagar Celsius 5 dagar Fahrenheit), och skicka ett enda meddelande som innehåller den information som krävs för att fylla mallarna serverdelen (till exempel fem dagar vid en prognos med Celsius och Fahrenheit grader).
@@ -126,9 +126,9 @@ I följande tabell visas det språk som tillåts i mallar:
 
 Uttrycken kan vara något av de föregående formulär.
 
-När du använder sammanfogning måste helt uttryck omges av {}. Till exempel {$(prop) + '-' + $(prop2)}. |
+När du använder sammanfogning helt uttryck måste omges av {}. Till exempel {$(prop) + '-' + $(prop2)}. |
 
-Till exempel är följande inte en giltig XML-mall:
+Till exempel är följande mall inte en giltig XML-mall:
 
     <tile>
       <visual>
@@ -139,7 +139,7 @@ Till exempel är följande inte en giltig XML-mall:
     </tile>
 
 
-Som beskrivs ovan, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Exempel:
+Enligt beskrivningen tidigare, när du använder sammanfogning måste uttryck omges av klammerparenteser. Exempel:
 
     <tile>
       <visual>

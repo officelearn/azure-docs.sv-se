@@ -1,13 +1,13 @@
 ---
-title: "Ansluten factory lösning vanliga frågor och svar – Azure | Microsoft Docs"
-description: "Vanliga frågor och svar för IoT Suite anslutna factory"
-services: 
+title: Ansluten Factory lösning vanliga frågor och svar – Azure | Microsoft Docs
+description: Vanliga frågor om anslutna Factory solution accelerator
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Vanliga frågor och svar för IoT Suite anslutna factory förkonfigurerade lösningen
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om anslutna Factory solution accelerator
 
-Se även allmänna [vanliga frågor och svar](iot-suite-faq.md) för IoT Suite.
+Se även allmänna [vanliga frågor och svar](iot-suite-faq.md) för IoT-Lösningsacceleratorer.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>Var hittar källkoden för den förkonfigurerade lösningen?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Var hittar källkoden för solution accelerator?
 
 Källkoden lagras i följande GitHub-lagringsplatsen:
 
-* [Anslutna factory förkonfigurerade lösningen](https://github.com/Azure/azure-iot-connected-factory)
+* [Anslutna Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>Vad är OPC UA?
 
@@ -40,7 +40,7 @@ OPC enhetlig arkitektur (UA), utgivet 2008, är en plattformsoberoende, tjänsto
 * Teknologi
 * Processer
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Varför Microsoft välja OPC UA för anslutna factory förkonfigurerade lösningen?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Varför Microsoft välja OPC UA för anslutna Factory solution accelerator?
 
 Microsoft har valt OPC UA eftersom det är en öppen plattform för icke-generiska, oberoende branschen identifieras och beprövade standard. Det är ett krav för att säkerställa samverkan mellan en bred uppsättning tillverkningsprocesser och utrustning Industrie 4.0 (RAMI4.0) referens arkitektur lösningar. Microsoft ser begäran från sina kunder att skapa Industrie 4.0 lösningar. Stöd för OPC UA hjälper dig att minska barriären för kunder att nå sina mål och ger omedelbar affärsvärde dem.
 
@@ -74,7 +74,7 @@ Om du har distribuerat en lösning från www.azureiotsuite.com kan du logga in p
 1. Användarnamnet som ska användas är: `docker`.
 1. Lösenordet som ska användas beror på vilken version som används för att distribuera:
     * Lösenordet är för lösningar som distribueras med skriptet build.ps1 före den 1 juni 2017: `Passw0rd`.
-    * Lösningar som distribueras med skriptet build.ps1 efter den 1 juni 2017 kan du hitta lösenordet i den `<name of your deployment>.config.user` filen. Lösenordet lagras i den **VmAdminPassword** inställningen. Lösenordet genereras slumpmässigt vid tidpunkten för distribution om du inte anger den med hjälp av den `build.ps1` skript parametern`-VmAdminPassword`
+    * Lösningar som distribueras med skriptet build.ps1 efter den 1 juni 2017 kan du hitta lösenordet i den `<name of your deployment>.config.user` filen. Lösenordet lagras i den **VmAdminPassword** inställningen. Lösenordet genereras slumpmässigt vid tidpunkten för distribution om du inte anger den med hjälp av den `build.ps1` skript parametern `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Hur jag för att stoppa och starta alla docker processer i simuleringen VM?
 
@@ -100,7 +100,7 @@ Om du har distribuerat en lösning med den `build.ps1` skript i den [databasen](
 
 Du kan också hitta anslutningssträngen med Azure-portalen. Leta upp strängen anslutningsinställningarna i IoT-hubb-resurs i resursgruppen för din distribution.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Vilka IoT Hub-enheter använder anslutna factory simuleringen?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Vilka IoT Hub-enheter använder anslutna Factory simuleringen?
 
 Simuleringen self registrerar följande enheter:
 
@@ -111,9 +111,9 @@ Simuleringen self registrerar följande enheter:
 * proxy.rio.corp.contoso
 * proxy.seattle.corp.contoso
 * publisher.beijing.corp.contoso
-* publisher.capetown.corp.contoso
+* Publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
-* publisher.munich0.corp.contoso
+* Publisher.munich0.corp.contoso
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
@@ -136,23 +136,23 @@ Med den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/mast
 Granska de data som skickas av en enhet som utgivare:
 
 * publisher.beijing.corp.contoso
-* publisher.capetown.corp.contoso
+* Publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
-* publisher.munich0.corp.contoso
+* Publisher.munich0.corp.contoso
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
 Om du ser inga data skickas till IoT-hubben är ett problem med simuleringen. Som ett första steg analys bör du analysera loggfiler simuleringen komponenter. Se [hur kan jag loggdata från simuleringen komponenterna?](#how-can-i-get-log-data-from-the-simulation-components) Försök sedan att stoppa och starta simuleringen och om det finns fortfarande inga data skickas, uppdatera simuleringen helt. Se [hur uppdaterar jag simuleringen i den virtuella datorn?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur aktiverar en interaktiv karta i min anslutna factory-lösning?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur aktiverar en interaktiv karta i min anslutna Factory-lösning?
 
 Om du vill aktivera en interaktiv karta i din lösning för anslutna fabriken, måste du ha en befintlig Bing Maps API för Enterprise-plan.
 
 När du distribuerar från [www.azureiotsuite.com](http://www.azureiotsuite.com), distributionsprocessen verifierar att prenumerationen har en aktiverad Bing Maps API för företagsplan och distribuerar automatiskt en interaktiv karta till anslutna fabriken. Om detta inte är fallet kan du fortfarande aktivera en interaktiv karta i distributionen på följande sätt:
 
-När du distribuerar med den `build.ps1` skriptet i den anslutna fabriken GitHub-lagringsplats och du har en Bing Maps API för Enterprise-plan kan du ange miljövariabeln `$env:MapApiQueryKey` i fönstret build till Frågenyckeln för planen. Interaktiv karta aktiveras sedan automatiskt.
+När du distribuerar med den `build.ps1` skriptet i den anslutna Factory GitHub-lagringsplats och du har en Bing Maps API för företagsplan genom att ange miljövariabeln `$env:MapApiQueryKey` i fönstret build till Frågenyckeln för planen. Interaktiv karta aktiveras sedan automatiskt.
 
-Om du inte har en Bing Maps API för företagsplan distribuera lösningen för anslutna factory från [www.azureiotsuite.com](http://www.azureiotsuite.com) eller med hjälp av den `build.ps1` skript. Lägg sedan till en Bing Maps API för företagsplan till din prenumeration enligt beskrivningen i [hur skapar jag en Bing Maps API för företag-konto?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Leta upp Frågenyckeln för det här kontot som beskrivs i [skaffa Bing Maps API för Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) och spara den här nyckeln. Gå till Azure-portalen och komma åt resursen Apptjänst i distributionen anslutna fabriken. Gå till **programinställningar**, där du hittar ett avsnitt **appinställningar**. Ange den **MapApiQueryKey** i frågan nyckeln som du fick. Spara inställningarna och gå sedan till **översikt** och starta om tjänsten App.
+Om du inte har en Bing Maps API för företagsplan distribuera lösningen för anslutna Factory från [www.azureiotsuite.com](http://www.azureiotsuite.com) eller med hjälp av den `build.ps1` skript. Lägg sedan till en Bing Maps API för företagsplan till din prenumeration enligt beskrivningen i [hur skapar jag en Bing Maps API för företag-konto?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Leta upp Frågenyckeln för det här kontot som beskrivs i [skaffa Bing Maps API för Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) och spara den här nyckeln. Gå till Azure-portalen och komma åt resursen Apptjänst i distributionen anslutna fabriken. Gå till **programinställningar**, där du hittar ett avsnitt **appinställningar**. Ange den **MapApiQueryKey** i frågan nyckeln som du fick. Spara inställningarna och gå sedan till **översikt** och starta om tjänsten App.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hur skapar jag en Bing Maps API för företag-konto
 
@@ -162,7 +162,7 @@ Du kan få ett kostnadsfritt *interna transaktioner nivå 1 Bing Maps för Enter
 
 ### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Skaffa Bing Maps API för Enterprise QueryKey
 
-När du har skapat din Bing Maps API för företagsplan, lägga till en Bing Maps för företagsresurs i resursgruppen för lösningen anslutna factory i Azure-portalen.
+När du har skapat din Bing Maps API för företagsplan, lägga till en Bing Maps för företagsresurs i resursgruppen för lösningen anslutna Factory i Azure-portalen.
 
 1. Navigera till den resursgrupp som innehåller dina Bing Maps API för företagsplan i Azure-portalen.
 
@@ -182,13 +182,13 @@ Ange värdet för inställningen för att aktivera interaktiv karta när du fels
 
 Om du vill ändra statiska bilden visas i/o startsidan på instrumentpanelen ersätter bilden `WebApp\Content\img\world.jpg`. Sedan återskapa och distribuera WebApp.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hur använder icke OPC UA enheter med anslutna factory?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hur använder icke OPC UA enheter med anslutna Factory?
 
-Skicka telemetridata från icke OPC UA enheter till anslutna factory:
+Skicka telemetridata från icke OPC UA enheter till fabriksinställningarna ansluten:
 
-1. [Konfigurera en ny station i topologin anslutna factory](iot-suite-connected-factory-configure.md) i den `ContosoTopologyDescription.json` filen.
+1. [Konfigurera en ny station i topologin anslutna Factory](iot-suite-connected-factory-configure.md) i den `ContosoTopologyDescription.json` filen.
 
-1. Mata in telemetridata i anslutna factory kompatibel JSON-format:
+1. Mata in telemetridata i ansluten Factory kompatibel JSON-format:
 
     ```json
     [
@@ -204,14 +204,14 @@ Skicka telemetridata från icke OPC UA enheter till anslutna factory:
     ]
     ```
 
-1. Formatet för `<timestamp>` är:`2017-12-08T19:24:51.886753Z`
+1. Formatet för `<timestamp>` är: `2017-12-08T19:24:51.886753Z`
 
-1. Starta om anslutna fabriken App Service.
+1. Starta om Apptjänst anslutna fabriken.
 
 ### <a name="next-steps"></a>Nästa steg
 
-Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
+Du kan även utforska några av de andra funktionerna och funktioner i IoT solution Accelerator:
 
-* [Förutsägande Underhåll förkonfigurerade lösning: översikt](iot-suite-predictive-overview.md)
-* [Anslutna factory förkonfigurerade lösning: översikt](iot-suite-connected-factory-overview.md)
+* [Förutsägande Underhåll solution accelerator: översikt](iot-suite-predictive-overview.md)
+* [Anslutna Factory solution accelerator översikt](iot-suite-connected-factory-overview.md)
 * [IoT-säkerhet från grunden](securing-iot-ground-up.md)

@@ -1,37 +1,37 @@
 ---
-title: "Office 365-lösningen i Operations Management Suite (OMS) | Microsoft Docs"
-description: "Den här artikeln innehåller information om konfiguration och användning av Office 365-lösningen i OMS.  Den innehåller en detaljerad beskrivning av Office 365-poster som skapats i logganalys."
+title: Office 365 hanteringslösning i Azure | Microsoft Docs
+description: Den här artikeln innehåller information om konfiguration och användning av Office 365-lösningen i Azure.  Den innehåller en detaljerad beskrivning av Office 365-poster som skapats i logganalys.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Office 365-lösningen i Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Office 365 hanteringslösning i Azure (förhandsversion)
 
 ![Office 365-logotyp](media/oms-solution-office-365/icon.png)
 
-Office 365-lösningen för Operations Management Suite (OMS) kan du övervaka din Office 365-miljö i logganalys.  
+Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i logganalys.
 
 - Övervaka användaraktiviteter på Office 365-konton för att analysera användningsmönster samt identifiera beteendebaserade trender. Du kan exempelvis extrahera av specifika Användningsscenarier, till exempel filer som delas utanför din organisation eller populäraste SharePoint-webbplatser.
 - Övervaka aktiviteter för administratören att spåra konfigurationsändringar eller Privilegierade åtgärder.
 - Identifiera och undersöka oönskade användarbeteende som kan anpassas efter organisationens behov.
 - Visa granskning och kompatibilitet. Exempelvis kan du övervaka åtkomståtgärder på konfidentiella filer som kan hjälpa dig med processen gransknings- och efterlevnad.
-- Utföra operativa felsökning med hjälp av OMS-sökning på Office 365 aktivitetsdata i din organisation.
+- Använd felsökning med hjälp av [logga sökningar](../log-analytics/log-analytics-log-search.md) ovanpå Office 365 aktivitetsdata i din organisation.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande krävs innan den här lösningen som ska installeras och konfigureras.
 
 - Organisationens prenumeration på Office 365.
@@ -47,7 +47,7 @@ Den här lösningen installerar inte några management packs i anslutna hanterin
 ## <a name="configuration"></a>Konfiguration
 När du [lägga till Office 365-lösningen till din prenumeration](../log-analytics/log-analytics-add-solutions.md), måste du ansluta till Office 365-prenumeration.
 
-1. Lägg till avisering hanteringslösningen i OMS-arbetsytan med processen som beskrivs i [lägga till lösningar](../log-analytics/log-analytics-add-solutions.md).
+1. Lägg till avisering hanteringslösningen i logganalys-arbetsytan med processen som beskrivs i [lägga till lösningar](../log-analytics/log-analytics-add-solutions.md).
 2. Gå till **inställningar** i OMS-portalen.
 3. Under **anslutna källor**väljer **Office 365**.
 4. Klicka på **ansluta Office 365**.<br>![Koppla de olika processtegen Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +63,7 @@ Office 365-lösningen inte hämta data från någon av de [OMS agenter](../log-a
 Office 365 skickar en [webhook meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerad information till logganalys varje gång en post har skapats.
 
 ## <a name="using-the-solution"></a>Använda lösningen
-När du lägger till Office 365-lösningen till OMS-arbetsyta i **Office 365** panelen kommer att läggas till OMS-instrumentpanelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
+När du lägger till Office 365-lösningen logganalys-arbetsytan i **Office 365** panelen kommer att läggas till på instrumentpanelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
 ![Panelen för Office 365-sammanfattning](media/oms-solution-office-365/tile.png)  
 
 Klicka på den **Office 365** öppna den **Office 365** instrumentpanelen.
@@ -100,7 +100,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | ResultStatus | Anger om åtgärden (anges i egenskapen åtgärden) lyckades eller inte. Möjliga värden är slutfört, PartiallySucceded eller misslyckades. Värdet är för Exchange-administratörsaktivitet, antingen SANT eller FALSKT. |
 | Användar-ID | UPN (User Principal Name) för användaren som utförde åtgärden resulterade i posten loggas; till exempel my_name@my_domain_name. Observera att posterna för aktivitet som utförs av Systemkonton (till exempel SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
 | UserKey | Ett alternativt ID för den användare som identifieras i användar-ID-egenskapen.  Den här egenskapen är fylls i med passport unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som egenskapen användar-ID för händelser i andra tjänster och händelser som utförs av systemkonton|
-| UserType | Typ av användaren som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Vanliga<br>Reserverad<br>ServicePrincipal<br>System |
+| UserType | Typ av användaren som utförde åtgärden.<br><br>Administratör<br>Program<br>DcAdmin<br>Vanliga<br>Reserverad<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-bas
@@ -135,7 +135,7 @@ Dessa poster skapas när ändringen eller tillägg görs i Azure Active Director
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | Användaren som åtgärden (som identifieras av egenskapen åtgärden) utfördes på. |
-| aktören | Användaren eller tjänstens huvudnamn som utförde åtgärden. |
+| Aktör | Användaren eller tjänstens huvudnamn som utförde åtgärden. |
 | ActorContextId | GUID för den organisation som aktören tillhör. |
 | ActorIpAddress | Skådespelare, IP-adress i IPV4- eller IPV6-adress-format. |
 | InterSystemsId | GUID som spårar åtgärder mellan komponenter i tjänsten Office 365. |
@@ -280,9 +280,9 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 | Fråga | Beskrivning |
 | --- | --- |
-|Antalet för alla åtgärder på Office 365-prenumeration |Typ = OfficeActivity &#124; måttet count() för åtgärden |
-|Användning av SharePoint-webbplatser|Typ = OfficeActivity OfficeWorkload = sharepoint &#124; Mät count() som antal SiteUrl &#124; Sortera antal asc|
-|Filåtgärder för åtkomst av typ|Typ = OfficeActivity OfficeWorkload = sharepoint åtgärden = FileAccessed &#124; måttet count() av UserType|
+|Antalet för alla åtgärder på Office 365-prenumeration |Typ = OfficeActivity &#124; mäta count() för åtgärden |
+|Användning av SharePoint-webbplatser|Typ = OfficeActivity OfficeWorkload = sharepoint &#124; mäta count() som antal av SiteUrl &#124; sortera antal asc|
+|Filåtgärder för åtkomst av typ|Typ = OfficeActivity OfficeWorkload = sharepoint åtgärden = FileAccessed &#124; mäta count() av UserType|
 |Söka med ett specifikt nyckelord|Typ = OfficeActivity OfficeWorkload = azureactivedirectory ”MinTest”|
 |Övervaka externa åtgärder i Exchange|Typ = OfficeActivity OfficeWorkload = exchange ExternalAccess = true|
 
@@ -294,9 +294,9 @@ Om din Office 365-lösningen inte samlar in data som förväntat, kontrollera st
 
 | Status | Beskrivning |
 |:--|:--|
-| Active | Office 365-prenumeration är aktiv och arbetsbelastningen är ansluten till din OMS-arbetsyta. |
-| Väntande åtgärder | Office 365-prenumeration är aktiv men arbetsbelastningen är ännu inte ansluten till OMS-arbetsytan har. Första gången du ansluter till Office 365-prenumeration är alla arbetsbelastningar inte på den här statusen förrän de har anslutits. Vänta 24 timmar för alla arbetsbelastningar för att växla till aktiv. |
-| Inaktiva | Office 365-prenumeration är i ett inaktivt tillstånd. Kontrollera din Office 365 Admin information på sidan. När du har aktiverat din Office 365-prenumeration Avlänka från din OMS-arbetsyta och länka det igen för att börja ta emot data. |
+| Active | Office 365-prenumeration är aktiv och att arbetsbelastningen är ansluten till logganalys-arbetsytan. |
+| Väntande åtgärder | Office 365-prenumeration är aktiv men arbetsbelastningen är ännu inte ansluten till logganalys-arbetsytan har. Första gången du ansluter till Office 365-prenumeration är alla arbetsbelastningar inte på den här statusen förrän de har anslutits. Vänta 24 timmar för alla arbetsbelastningar för att växla till aktiv. |
+| Inaktiv | Office 365-prenumeration är i ett inaktivt tillstånd. Kontrollera din Office 365 Admin information på sidan. När du har aktiverat din Office 365-prenumeration Avlänka från logganalys-arbetsytan och länka det igen för att börja ta emot data. |
 
 
 

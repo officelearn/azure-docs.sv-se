@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från enheten till molnet med IoT-hubb
 
@@ -32,11 +32,11 @@ Den här kursen bygger på koden i den [meddelanden moln till enhet med IoT-hubb
 Den [Kom igång med IoT-hubb](iot-hub-node-node-getstarted.md) självstudiekursen visas de grundläggande enhet till moln meddelanden funktionerna i IoT-hubb. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
 
 * Stora filer som innehåller bilder
-* Videor
+* Videoklipp
 * Vibration data samplas vid hög frekvens
 * Någon form av förbearbetade data.
 
-Dessa filer finns vanligtvis i molnet med hjälp av verktyg som bearbetas i batch [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.md) stacken. När du behöver upland filer från en enhet kan du fortfarande använda säkerheten och pålitligheten för IoT-hubb.
+Dessa filer finns vanligtvis i molnet med hjälp av verktyg som bearbetas i batch [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.yml) stacken. När du behöver upland filer från en enhet kan du fortfarande använda säkerheten och pålitligheten för IoT-hubb.
 
 I slutet av den här kursen kan du köra två Node.js-konsolappar:
 

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Låg prioritet virtuella datorer på skaluppsättningar (förhandsgranskning)
 
@@ -27,24 +27,28 @@ Med låg prioritet virtuella datorer på skaluppsättningar kan du dra nytta av 
 
 Mängden tillgänglig unutilized kapacitet kan variera beroende på storleken, region, tid på dagen och mer. När du distribuerar låg prioritet virtuella datorer på skala anger allokerar Azure de virtuella datorerna om kapacitet är tillgänglig, men det finns inga SLA för dessa virtuella datorer. En låg prioritet skaluppsättning distribueras i en enda feldomän och erbjuder garanterar att inga hög tillgänglighet.
 
-> [!NOTE]
-> Skaluppsättningar för låg prioritet finns i förhandsgranskningen och redo för dina scenarier för utveckling och testning. 
-
 ## <a name="eviction-policy"></a>Princip för borttagning
 
-När din låg prioritet för skaluppsättning för virtuella datorer har avlägsnats, de kommer att flyttas till tillståndet Stoppad (frigjord) som standard. Du kan distribuera avlägsnade instanser med den här principen för borttagning, men det finns ingen garanti för att allokera lyckas. Stoppade virtuella datorer räknas av mot din scale set instans kvot och du kommer att debiteras för underliggande diskarna. 
+När du skapar skaluppsättningar för låg prioritet, du kan ange princip för borttagning och *Deallocate* (standard) eller *ta bort*. 
 
-Om du vill att dina virtuella datorer i din låg prioritet skaluppsättningen som ska tas bort när de avlägsnas, du kan ange princip för borttagning ska tas bort i ditt [Azure Resource Manager-mall](#use-azure-resource-manager-templates). Du kan skapa nya virtuella datorer genom att öka egenskapen scale set instans antal med principen borttagning har angetts till ta bort. Avlägsnade VMs tas bort tillsammans med deras underliggande diskar och därför du debiteras inte för lagring. Du kan också använda funktionen automatisk skalning av skaluppsättningar för att automatiskt försök och kompensera för avlägsnade virtuella datorer, men det finns ingen garanti för att allokera lyckas. Det rekommenderas att du endast använda funktionen Autoskala på skaluppsättningar för låg prioritet när du ställer in principen borttagning för att ta bort om du vill undvika kostnader för diskar och träffa kvotgränser. 
+Den *Deallocate* principen flyttar din avlägsnade virtuella datorer till tillståndet stoppad frigjorts så att du kan distribuera avlägsnade instanser. Det finns dock ingen garanti för att allokera lyckas. Frigjord VMs räknas av mot din scale set instans kvot och du kommer att debiteras för underliggande diskarna. 
+
+Om du vill att dina virtuella datorer i din låg prioritet skaluppsättningen som ska tas bort när de avlägsnas, du kan ange princip för borttagning och *ta bort*. Du kan skapa nya virtuella datorer genom att öka egenskapen scale set instans antal med principen borttagning har angetts till ta bort. Avlägsnade VMs tas bort tillsammans med deras underliggande diskar och därför du debiteras inte för lagring. Du kan också använda funktionen automatisk skalning av skaluppsättningar för att automatiskt försök och kompensera för avlägsnade virtuella datorer, men det finns ingen garanti för att allokera lyckas. Det rekommenderas att du endast använda funktionen Autoskala på skaluppsättningar för låg prioritet när du ställer in principen borttagning för att ta bort om du vill undvika kostnader för diskar och träffa kvotgränser. 
 
 > [!NOTE]
-> Under förhandsgranskning, kommer du att kunna ställa in av principen med hjälp av [Azure Resource Manager-mallar](#use-azure-resource-manager-templates). 
+> Under förhandsgranskning, kommer du att kunna ställa in av principen med hjälp av den [Azure-portalen](#use-the-azure-portal) och [Azure Resource Manager-mallar](#use-azure-resource-manager-templates). 
 
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>Distribuera virtuella datorer låg prioritet på skala anger
 
 Om du vill distribuera låg prioritet virtuella datorer på skalningsuppsättningar, och du kan ange den nya *prioritet* flaggan till *låg*. Alla virtuella datorer i din skaluppsättning anges till låg prioritet. Använd någon av följande metoder för att skapa en skala med låg prioritet virtuella datorer:
+- [Azure Portal](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
+
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
+
+Processen för att skapa en skalningsuppsättning med låg prioritet virtuella datorer är samma som i den [komma igång artikel](quick-create-portal.md). När du distribuerar en skalningsuppsättning, kan du ange flaggan låg prioritet och principen för borttagning: ![skapa en skala med låg prioritet virtuella datorer](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
 
@@ -77,7 +81,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Använd Azure Resource Manager-mallar
 
-Processen för att skapa en skalningsuppsättning med låg prioritet virtuella datorer är samma som detaljerad i komma igång-artikel för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). Lägga till egenskapen 'priority' till den *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resurs Skriv i mallen och ange *låg* som värde. Se till att använda *2017-10-30-preview* API-version eller högre. 
+Processen för att skapa en skalningsuppsättning med låg prioritet virtuella datorer är samma som detaljerad i komma igång-artikel för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). Lägga till egenskapen 'priority' till den *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resurs Skriv i mallen och ange *låg* som värde. Se till att använda *2018-03-01* API-version eller högre. 
 
 Lägg till parametern 'evictionPolicy' för att ställa in principen för borttagning tas bort, och ange det till *ta bort*.
 
@@ -88,7 +92,7 @@ I följande exempel skapas en Linux låg prioritet skaluppsättningen namngivna 
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   "name": "myScaleSet",
   "location": "East US 2",
-  "apiVersion": "2017-12-01",
+  "apiVersion": "2018-03-01",
   "sku": {
     "name": "Standard_DS2_v2",
     "capacity": "2"
@@ -121,6 +125,23 @@ I följande exempel skapas en Linux låg prioritet skaluppsättningen namngivna 
   }
 }
 ```
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+### <a name="can-i-convert-existing-scale-sets-to-low-priority-scale-sets"></a>Kan jag omvandla befintliga skaluppsättningar till skaluppsättningar för låg prioritet
+Nej, ange låg prioritet stöds bara vid skapandet.
+
+### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>Kan jag skapa en skala med både vanliga virtuella datorer och låg prioritet virtuella datorer?
+Nej, en skaluppsättning inte stöd för fler än en typ av prioritet.
+
+### <a name="how-is-quota-managed-for-low-priority-vms"></a>Hur hanteras kvoten för låg prioritet virtuella datorer?
+Dela samma kvot pool låg prioritet virtuella datorer och vanliga virtuella datorer. 
+
+### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>Kan jag använda Autoskala med låg prioritet skaluppsättningar?
+Ja, kan du ange autoskalning regler för din skaluppsättning med låg prioritet. Om din virtuella dator har avlägsnats kan Autoskala försöka skapa nya låg prioritet för virtuella datorer. Kom ihåg att du inte är garanterat denna kapacitet om. 
+
+### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>Har Autoskala fungerar med principer för både borttagning (frigöra och ta bort)?
+Vi rekommenderar att du ställer in din princip för borttagning ska tas bort när du använder Autoskala. Det beror på att frigjord instanser räknas mot beräkningen kapaciteten på skaluppsättning. När du använder Autoskala, träffar du förmodligen dina mål instansantalet snabbt på grund av frigjorts, avlägsnade instanser. 
+
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat en skala med låg prioritet virtuella datorer kan du prova med att distribuera vår [automatiskt skala mallen med låg prioritet](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 

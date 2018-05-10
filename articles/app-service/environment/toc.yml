@@ -22,7 +22,7 @@
       href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Azure PowerShell
       href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-- name: Koncept
+- name: Begrepp
   items:
     - name: Nätverksarkitektur
       href: network-info.md
@@ -30,6 +30,8 @@
       href: app-service-app-service-environment-geo-distributed-scale.md
     - name: ASEv1
       href: app-service-app-service-environment-intro.md
+    - name: Diagnostik
+      href: ../app-service-diagnostics.md
 - name: Instruktionsguider
   items:
     - name: Använd ASE
@@ -79,7 +81,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: REST API
+    - name: REST-API
       href: /rest/api/appservice/
 - name: Resurser
   items:

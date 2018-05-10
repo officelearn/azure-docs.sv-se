@@ -1,22 +1,22 @@
 ---
-title: "Använd IoT-hubb händelser för att utlösa Azure Logic Apps | Microsoft Docs"
-description: "Med routningstjänsten för händelsen i Azure händelse rutnät kan skapa automatiserade processer för att utföra åtgärder för Logikappar i Azure baserat på händelser för IoT-hubb."
+title: Använd IoT-hubb händelser för att utlösa Azure Logic Apps | Microsoft Docs
+description: Med routningstjänsten för händelsen i Azure händelse rutnät kan skapa automatiserade processer för att utföra åtgärder för Logikappar i Azure baserat på händelser för IoT-hubb.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 4fed42a45f8d291bd3ba1e4fd5d636b7d0b0fbfc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
 
@@ -156,7 +156,7 @@ Innan du lämnar Logic Apps Designer, kopiera den URL som dina logic apps lyssna
 I det här avsnittet kan du konfigurera din IoT-hubb för att publicera händelser när de inträffar. 
 
 1. Navigera till din IoT-hubb i Azure-portalen. 
-2. Välj **händelse rutnätet**.
+2. Välj **händelser**.
 
    ![Öppna händelsen rutnätet-information](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 

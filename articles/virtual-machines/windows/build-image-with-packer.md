@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e06db46d5e1d7862f7b47b75e38d0b10df628f48
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder förpackaren för att skapa virtuella Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distributionen och OS-version. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de vanligaste operativsystem och miljöer eller skapa egna anpassade avbildningar som är anpassade efter era behov. Den här artikeln beskriver hur du använder verktyget öppen källkod [förpackaren](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -67,8 +67,8 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Visa service ägar-ID med `$sp.applicationId` |
 | *client_secret*                     | Lösenordet du angav i `$securePassword` |
-| *tenant_id*                         | Utdata från `$sub.TenantId` kommando |
-| *subscription_id*                   | Utdata från `$sub.SubscriptionId` kommando |
+| *Tenant_id*                         | Utdata från `$sub.TenantId` kommando |
+| *PRENUMERATIONSID*                   | Utdata från `$sub.SubscriptionId` kommando |
 | *object_id*                         | Visa service principal objekt-ID med `$sp.Id` |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
 | *managed_image_name*                | Namn för den hanterade diskavbildning som har skapats |
@@ -221,6 +221,8 @@ New-AzureRmVm `
     -OpenPorts 80 `
     -Image "myPackerImage"
 ```
+
+Om du vill skapa virtuella datorer i en annan resursgrupp eller region än förpackaren avbildningen ange avbildnings-ID i stället för namn. Du kan hämta avbildnings-ID med [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
 
 Det tar några minuter att skapa den virtuella datorn från förpackaren avbildningen.
 

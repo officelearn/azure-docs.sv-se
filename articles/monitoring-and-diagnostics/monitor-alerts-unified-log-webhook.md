@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för log Varningsregler
 När en [aviseringen har skapats i Azure ](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -161,9 +161,6 @@ Följande är ett exempel nyttolasten för en standard webhook *utan anpassade J
     }
 }
 ```
-
-> [!NOTE]
-> Loggen aviseringar för Application Insights är för närvarande offentlig Förhandsgranska - funktionerna och användarupplevelse kan ändras.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Logga avisering med anpassad JSON-nyttolast
 Om du vill skapa en anpassad nyttolast som innehåller bara aviseringsnamn och sökresultaten kan du till exempel använda följande: 

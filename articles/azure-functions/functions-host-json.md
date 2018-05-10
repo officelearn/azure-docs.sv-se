@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON referens för Azure Functions
 
@@ -139,8 +139,48 @@ Kontroller av [provtagning funktion i Application Insights](functions-monitoring
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|isEnabled|true|Aktiverar eller inaktiverar provtagning.| 
+|IsEnabled|true|Aktiverar eller inaktiverar provtagning.| 
 |maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka provtagning börjar.| 
+
+## <a name="durabletask"></a>durableTask
+
+Konfigurationsinställningar för [varaktiga funktioner](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Hubb aktivitetsnamn måste börja med en bokstav och endast bestå av bokstäver och siffror. Om inget anges är standardnamnet för aktiviteten hubb för en funktionsapp **DurableFunctionsHub**. Mer information finns i [uppgift hubbar](durable-functions-task-hubs.md).
+
+|Egenskap  |Standard | Beskrivning |
+|---------|---------|---------|
+|hubName|DurableFunctionsHub|Alternativa [aktivitet hubb](durable-functions-task-hubs.md) namn kan användas för att isolera flera beständiga funktioner program från varandra, även om de använder samma lagringserverdel.|
+|ControlQueueBatchSize|32|Antal meddelanden till pull från kontrollen kön i taget.|
+|PartitionCount |4|Antalet partitioner för kö för kontrollen. Kan vara ett positivt heltal mellan 1 och 16.|
+|ControlQueueVisibilityTimeout |5 minuter|Tidsgränsen för visning av meddelanden i kö togs bort från kön kontroll.|
+|WorkItemQueueVisibilityTimeout |5 minuter|Tidsgränsen för visning av meddelanden i kö för objektet togs bort från kön arbete.|
+|MaxConcurrentActivityFunctions |10 x antalet processorer på den aktuella datorn|Maximalt antal aktiviteten funktioner som kan bearbetas samtidigt på en enda värd-instans.|
+|MaxConcurrentOrchestratorFunctions |10 x antalet processorer på den aktuella datorn|Maximalt antal aktiviteten funktioner som kan bearbetas samtidigt på en enda värd-instans.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Namnet på appinställningen med Azure Storage-anslutningssträngen som används för att hantera de underliggande resurserna i Azure Storage.|
+|TraceInputsAndOutputs |false|Ett värde som anger om du vill spåra indata och utdata för funktionsanrop. Standardbeteendet när spårning funktionen körning händelser är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Detta ger minimalt information om hur indata och utdata ut utan svullen buk loggarna eller exponera känslig information till loggar oavsiktligt. Den här egenskapen till true kommer funktionen Standardloggning logga hela innehållet i funktionen indata och utdata.|
+|EventGridTopicEndpoint ||URL till en Azure händelse rutnätet anpassade avsnittet slutpunkt. När den här egenskapen anges publiceras orchestration livscykel meddelandehändelser till den här slutpunkten.|
+|EventGridKeySettingName ||Namnet på appinställningen som innehåller den nyckel som används för att autentisera med Azure händelse rutnätet anpassade artikeln i `EventGridTopicEndpoint`.
+
+Många av dessa är för att optimera prestanda. Mer information finns i [prestanda och skalning](durable-functions-perf-and-scale.md).
 
 ## <a name="eventhub"></a>eventHub
 
@@ -150,7 +190,7 @@ Konfigurationsinställningar för [Event Hub-utlösare och bindningar](functions
 
 ## <a name="functions"></a>functions
 
-En lista över funktioner som värd för jobbet ska köras.  En tom matris innebär att köra alla funktioner.  Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionen appar använda den *function.json* `disabled` egenskapen i stället för den här egenskapen i *host.json*.
+En lista över funktioner som värd för jobbet ska köras. En tom matris innebär att köra alla funktioner. Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionen appar använda den *function.json* `disabled` egenskapen i stället för den här egenskapen i *host.json*.
 
 ```json
 {
@@ -190,7 +230,7 @@ Konfigurationsinställningar för [värden hälsoövervakning](https://github.co
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsa kontrollerar. | 
 |healthCheckWindow|2 minuter|Ett skjutfönster tid används tillsammans med den `healthCheckThreshold` inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger hälsotillståndskontroll kan misslyckas innan värden återvinning initieras.| 
-|counterThreshold|0.80|Tröskelvärdet som en prestandaräknare betraktas som ohälsosamt.| 
+|counterThreshold|0,80|Tröskelvärdet som en prestandaräknare betraktas som ohälsosamt.| 
 
 ## <a name="http"></a>http
 
@@ -211,7 +251,7 @@ Om du delar ett lagringskonto över flera funktionen appar, se till att varje fu
 }
 ```
 
-## <a name="logger"></a>logger
+## <a name="logger"></a>Loggaren
 
 Kontroller filtrering för loggar som skrivits av en [ILogger objekt](functions-monitoring.md#write-logs-in-c-functions) eller [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -242,7 +282,7 @@ Konfigurationsinställningar för [lagring-utlösare och bindningar](functions-b
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="servicebus"></a>serviceBus
+## <a name="servicebus"></a>ServiceBus
 
 Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions-bindings-service-bus.md).
 
@@ -287,7 +327,7 @@ Konfigurationsinställningar för loggarna som du skapar med hjälp av en `Trace
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|consoleLevel|info|Spårning-nivå för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
+|consoleLevel|Info|Spårning-nivå för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
 |fileLoggingMode|debugOnly|Spårning-nivå för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
@@ -299,21 +339,6 @@ En uppsättning [delade kod kataloger](functions-reference-csharp.md#watched-dir
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[Uppgiften hubb](durable-functions-task-hubs.md) för [varaktiga funktioner](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Hubb aktivitetsnamn måste börja med en bokstav och endast bestå av bokstäver och siffror. Om inget anges är standardnamnet för aktiviteten hubb för en funktionsapp **DurableFunctionsHub**. Mer information finns i [uppgift hubbar](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Skapa klipp med Azure Media Clipper | Microsoft Docs
-description: "Översikt över Azure Media Clipper, ett verktyg för att skapa media klipp från tillgångar"
+description: Översikt över Azure Media Clipper, ett verktyg för att skapa media klipp från tillgångar
 services: media-services
 keywords: Clip; underklipp; kodning; media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper
 Azure Media Clipper är ett gratis JavaScript-bibliotek som gör att webbutvecklare att ge användarna ett gränssnitt för att skapa media klipp. Det här verktyget kan integreras i en webbsida och innehåller API: er för inläsning av tillgångar och skickar urklippet jobben.
@@ -33,7 +33,7 @@ Följande bild illustrerar gränssnittet Clipper: ![Azure Media Clipper](media/m
 
 ## <a name="release-notes"></a>Viktig information
 Se följande lista för blogginlägget Clipper, olika kända problem och changelog för den senaste versionen av Clipper:
-- [Blogginlägget](https://azure.microsoft.com/blog/azure-media-clipper/)
+- [blogginlägget](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Lista över kända problem](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Changelog](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 
@@ -53,12 +53,12 @@ Azure Media Clipper skapas med moderna HTML5-tekniker och stöder följande webb
 Widgeten Clipper finns i följande 18 språk:
 - Kinesiska (förenklad)
 - Kinesiska (traditionell)
-- Tjeckiska
+- tjeckiska
 - Nederländska Flamländska
 - Svenska
 - Franska
 - Tyska
-- Ungerska
+- ungerska
 - Italienska
 - Japanska
 - Koreanska

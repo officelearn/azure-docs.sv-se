@@ -1,12 +1,12 @@
 ---
 title: Azure varaktiga funktioner enhet testning
-description: "Lär dig hur testa varaktiga funktioner till enheten."
+description: Lär dig hur testa varaktiga funktioner till enheten.
 services: functions
 author: kadimitr
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Den beständiga funktioner enhet testning
 
@@ -28,7 +28,7 @@ Testa enheten är en viktig del av moderna software development praxis. Kontroll
 
 Exemplen i den här artikeln kräver kunskap om följande begrepp och ramverk: 
 
-* Testa enhet
+* Enhetstestning
 
 * Bestående funktioner 
 
@@ -128,7 +128,7 @@ Efter att kombinera alla steg har enhet testet följande kod:
 
 ## <a name="unit-testing-orchestrator-functions"></a>Enhet testning orchestrator-funktioner
 
-Orchestrator-funktioner är ännu mer intressant för testning eftersom de har vanligtvis mer affärslogik. Orchestrator-funktioner kan för närvarande kan implementeras i C#.
+Orchestrator-funktioner är ännu mer intressant för testning eftersom de har vanligtvis mer affärslogik.
 
 I det här avsnittet enheten tester validerar utdata från den `E1_HelloSequence` Orchestrator-funktion:
 

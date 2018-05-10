@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens - IoT-hubb kvoter och begränsning
 
@@ -49,6 +49,8 @@ I följande tabell visas de tvingande begränsas. Värden finns i en enskild hub
 | Dubbla uppdateringar (enheten och modulen)<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
 | Jobb operations<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
 | Jobb per enhet åtgärden genomströmning<sup>1</sup> | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
+| Konfigurationer och distributioner edge<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 0.33/sec/Unit (unit-20/min) | 0.33/sec/Unit (unit-20/min) | 0.33/sec/Unit (unit-20/min) |
+
 
 <sup>1</sup>den här funktionen är inte tillgänglig i den grundläggande nivån av IoT-hubb. Mer information finns i [hur du väljer rätt IoT-hubben](iot-hub-scaling.md). <br/><sup>2</sup>begränsning mätaren storlek är 8 KB.
 
@@ -76,6 +78,9 @@ IoT-hubb tillämpar andra begränsningar:
 | Meddelanden enhet till moln | Maximal meddelandestorlek på 256 KB |
 | Moln till enhet messaging<sup>1</sup> | Maximal meddelandestorlek 64 KB. Maximalt antal väntande meddelanden för leverans är 50. |
 | Direkt metod<sup>1</sup> | Maximal direkta metoden nyttolastens storlek är 128 KB. |
+| Konfigurationer | 20 konfigurationer per hubb. |
+| Edge-distributioner | 20 distributioner per hubb. 20 moduler per distribution. |
+| Twins | Maximal storlek per dubbla avsnitt (taggar, önskade egenskaper, rapporterade egenskaper) är 8 KB |
 
 <sup>1</sup>den här funktionen är inte tillgänglig i den grundläggande nivån av IoT-hubb. Mer information finns i [hur du väljer rätt IoT-hubben](iot-hub-scaling.md).
 

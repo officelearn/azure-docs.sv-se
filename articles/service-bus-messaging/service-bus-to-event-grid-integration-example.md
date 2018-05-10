@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exempel på integration av Azure Service Bus till Azure Event Grid
 
@@ -62,7 +62,7 @@ Du kan använda valfri metod för att skicka ett meddelande till ditt Service Bu
 
 Innan du går igenom hela scenariot skapar du minst en liten testfunktion, som du kan använda för att felsöka och se vilka händelser som finns i flödet.
 
-1. Skapa ett nytt Azure Functions-program i Azure Portal. Om du vill lära dig grunderna i Azure Functions kan du läsa [dokumentationen för Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. Skapa ett nytt Azure Functions-program i Azure Portal. Om du vill lära dig grunderna i Azure Functions kan du läsa [dokumentationen för Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
 2. Välj plustecknet (+) i din nya funktion om du vill lägga till en HTTP-utlösare:
 

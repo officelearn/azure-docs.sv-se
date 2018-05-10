@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolym och kvarhållning i logganalys
 Log Analytics utformats för att skala och stöd för att samla in, indexering och lagra stora mängder data per dag från alla datakällor i företaget eller distribueras i Azure.  Detta kan vara en primär drivrutin för din organisation är kostnadseffektiviteten slutligen den underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en logg Analytisc arbetsyta inte är bara baserat på mängden data som samlas in, och hur länge du väljer att lagra data som genereras av dina anslutna källor.  
@@ -33,14 +33,15 @@ Kostnaden för att data kan vara betydande beroende på följande faktorer:
 - Period data finns kvar på arbetsytan  
 - Antal hanteringslösningar aktiverad, datakällan och frekvens för samlingen 
 
-Finns i dokumentationen för varje lösning eftersom det ger dig en uppfattning av hur mycket data som samlas in.   
+> [!NOTE]
+> Finns i dokumentationen för varje lösning eftersom det ger dig en uppfattning av hur mycket data som samlas in.   
 
-Om du är i ”kostnadsfria”-prisnivån begränsas data till 7 dagar kvarhållning. Data som samlas in är tillgänglig under de senaste 31 dagarna för ”Per GB (fristående)” eller ”Per nod (OMS)” nivåer och kvarhållning kan du öka upp till 2 år. Avgifter kan tillkomma om du väljer en längre period. Fria abonnemang har 500 MB dagliga införandet gränsen och om du hittar du konsekvent överskrider de belopp som tillåts volym, kan du ändra ditt arbetsområde Per GB eller Per nod nivåer för att samla in data utöver den här gränsen. Du kan ändra Plantyp av när som helst och mer information om priser, se [prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Om du är på den *lediga* planen data begränsas till 7 dagar kvarhållning. För den *fristående* eller *betald* nivån data som samlas in är tillgänglig under de senaste 31 dagarna. Den *lediga* plan har 500 MB dagliga införandet gränsen och om du hittar du konsekvent överskrider de belopp som tillåts volym kan du kan ändra din arbetsyta till en betald plan för att samla in data utöver den här gränsen. 
 
 > [!NOTE]
-> I April 2018 vi [introduceras](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) en ny prissättningsmodell för övervakning av Azure. Den här modellen antar en enkel ”betalning per användning” modell över komplett portfölj av övervaka tjänster. Lär dig mer om den [nya Prismodell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur till [utvärdera effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på ditt användningsmönster och [så att använda den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> Avgifter kan tillkomma om du vill välja en längre period för betald skiktet. Du kan ändra Plantyp av när som helst och mer information om priser, se [prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Oavsett prisnivå modell eller nivå är hantera volymen av data fundmental att styra dina kostnader. Dessa är dagliga fästpunkten och lagring av data utöver valet och konfigurering av specifika lösningen i logganalys som det finns två sätt mängden data kan vara begränsad och att styra dina kostnader.  
+Det finns två sätt mängden data kan vara begränsad och att styra dina kostnader, de dagliga fästpunkten och lagring av data.  
 
 ## <a name="review-estimated-cost"></a>Granska uppskattade kostnaden
 Log Analytics gör det enkelt att förstå vad kostnaderna kan vara baserad på senaste användningsmönster.  Utför följande steg om du vill göra detta.  
@@ -54,9 +55,9 @@ Du kan granska din datavolym månadens härifrån. Detta omfattar alla data tas 
 Log Analytics avgifter läggs till fakturan Azure. Du kan se information om din Azure debiterar under avsnittet faktureringen av Azure-portalen eller i den [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Dagliga linjeslut
-När du skapar en logganalys-arbetsytan från Azure portal och du väljer den *lediga* plan, är den inställd på 500 MB per dag gränsen. Det finns ingen gräns för de prisnivå planerna. Du kan konfigurera en daglig kapacitet och begränsa dagliga införandet för din arbetsyta men försiktig som inte bör målet vara att träffa den dagliga gränsen.  Annars då förlorar du data för resten av dagen och möjligheten att se hälsa villkoren för resurser som stödjer IT-tjänster påverkas.  Dagliga fästpunkten är avsedd att användas som ett sätt att hantera den oväntade mängden data från dina hanterade resurser och hålla sig inom gränsen, eller när du vill begränsa bara oplanerad avgifter för din arbetsyta.  
+När du skapar en logganalys-arbetsytan från Azure portal och du väljer den *lediga* plan, är den inställd på 500 MB per dag gränsen. Det finns ingen gräns för de prisnivå planerna. Du kan konfigurera en daglig kapacitet och begränsa dagliga införandet för din arbetsyta men försiktig som inte bör målet vara att träffa den dagliga gränsen.  Annars förlorar du data för resten av dag, vilket kan påverka andra Azure-tjänster och lösningar vars funktioner beror på aktuell information är tillgänglig i arbetsytan.  Du kan se och ta emot aviseringar därför när hälsa villkoren för resurser som stödjer IT-tjänster påverkas.  Dagliga fästpunkten är avsedd att användas som ett sätt att hantera den oväntade mängden data från dina hanterade resurser och hålla sig inom gränsen, eller när du vill begränsa bara oplanerad avgifter för din arbetsyta.  
 
-När den dagliga gränsen har uppnåtts, stoppar insamling av fakturerbar datatyper för resten av dagen.  En varning banderoll visas överst på sidan för den valda logganalys-arbetsytan och en åtgärden händelse skickas till den *åtgärden* tabell **LogManagement** kategori. Insamling av data återupptar när återställningstiden definierats *dagliga gränsen anges till*. Vi rekommenderar att du definierar en aviseringsregel baserat på den här åtgärden händelsen som konfigurerats för att meddela när den dagliga data gränsen har nåtts. 
+När den dagliga gränsen har uppnåtts, stoppar insamling av fakturerbar datatyper för resten av dagen. En varning banderoll visas överst på sidan för den valda logganalys-arbetsytan och en åtgärden händelse skickas till den *åtgärden* tabell **LogManagement** kategori. Insamling av data återupptar när återställningstiden definierats *dagliga gränsen anges till*. Vi rekommenderar att du definierar en aviseringsregel baserat på den här åtgärden händelsen som konfigurerats för att meddela när den dagliga data gränsen har nåtts. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka data dagsgränsen definiera 
 Granska [Log Analytics användning och de uppskattade kostnaderna](log-analytics-usage.md) att förstå data införandet trend och vad som är daglig volym fästpunkten definiera. Det bör ses med försiktighet, eftersom du inte kommer att kunna övervaka dina resurser när gränsen har nåtts. 

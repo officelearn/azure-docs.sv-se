@@ -1,25 +1,23 @@
 ---
-title: "Registrera dig för Azure som en organisation"
-description: "Lär dig hur du kan använda ett arbets eller skolkonto för att utnyttja befintliga användarkonton, principer, inställningar eller lokal server-distributioner du redan har och förbättra effektiviteten mellan din organisations identitetsinfrastruktur lokalt och Azure AD."
+title: Registrera dig för Azure som en organisation
+description: Lär dig hur du kan använda ett arbets eller skolkonto för att utnyttja befintliga användarkonton, principer, inställningar eller lokal server-distributioner du redan har och förbättra effektiviteten mellan din organisations identitetsinfrastruktur lokalt och Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: eab79e4c1b579697f702c41e40f6b27b2d3d0864
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5d8bb9769cbaa10a62fd2cf923235049429b7018
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Registrera dig för Azure som en organisation
 Tills nyligen, kan du bara registrera dig för en ny Microsoft Azure-prenumeration med ditt Microsoft-konto (Windows Live ID). Azure stöder nu med någon av följande två konto metoder för att logga:

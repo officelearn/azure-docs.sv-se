@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff059b27dc2bdcbfa8cecad1e46e9c2f268ef8c7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Självstudier: Azure Active Directory-integrering med Adobe
 
@@ -103,7 +103,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. På den **Adobe logga domän och URL: er** avsnittet, utför följande steg:
@@ -115,8 +115,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) att hämta dessa värden. 
- 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) att hämta dessa värden.
+
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -127,15 +127,34 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. På den **Adobe logga Configuration** klickar du på **Konfigurera Adobe logga** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. I en annan webbläsarfönster loggar du in på webbplatsen Adobe logga företag som administratör.
+7. Innan konfigurationen måste du kontakta [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) till godkända din domän i Adobe logga. Följ de nedanstående steg för att lägga till domänen:
 
-8. SAML-menyn klickar du på **kontoinställningar**, och klicka sedan på **SAML inställningar**.
+    a. [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) skicka en slumpmässigt genererad token. Token är för din domän, t.ex.: **adobe-sign-verifiering = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+
+    b. Du måste publicera verifieringstoken i en DNS-post för text och meddela [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html).
+    
+    > [!NOTE]
+    > Du kan förvänta dig att det kan ta ett par dagar eller kanske längre. Observera att DNS-spridningen fördröjningar betyder att ett värde som är publicerad i DNS inte kan vara synlig för en timme. Vi räknar med IT-administratören bör vara kunskap om hur du publicerar denna token i en DNS-post för text.
+    
+    c. När du meddela [Adobe logga klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) via supportärende, när token som har publicerats ska verifiera domänen och lägga till den i ditt konto.
+    
+    d. Allmänna steg som du kan vidta för att publicera på en DNS-post - token
+
+    * Logga in på ditt domänkonto
+    * Hitta sidan för att uppdatera DNS-posten. Den här sidan kan anropas Datorhantering, namnet Serverhantering eller avancerade inställningar.
+    * Hitta TXT-poster för din domän.
+    * Lägg till en TXT-post med fullständig token värdet som angavs av Adobe
+    * Spara ändringarna.
+
+8. I en annan webbläsarfönster loggar du in på webbplatsen Adobe logga företag som administratör.
+
+9. SAML-menyn klickar du på **kontoinställningar**, och klicka sedan på **SAML inställningar**.
    
     ![Kontot](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "konto")
 
-9. I den **SAML inställningar** avsnittet, utför följande steg:
+10. I den **SAML inställningar** avsnittet, utför följande steg:
   
     ![Inställningar för SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
    
@@ -265,4 +284,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

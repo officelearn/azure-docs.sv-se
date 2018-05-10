@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor om Azure Container Service
-description: Innehåller svar på några vanliga frågor om Azure Container Service.
+title: Vanliga frågor om Azure Kubernetes Service
+description: Innehåller svar på några vanliga frågor om Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,21 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Vanliga frågor och svar om Azure-behållaren (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure-Kubernetes (AKS)
 
-Den här artikeln adresser vanliga frågor om Azure-behållaren (AKS).
+Den här artikeln adresser vanliga frågor om Azure-Kubernetes (AKS).
 
 > [!IMPORTANT]
-> Azure Container Service (AKS) finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Azure Kubernetes Service (AKS) är för närvarande i **preview**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Vilka regioner som Azure tillhandahåller Azure Container Service (AKS) idag?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Vilka regioner som Azure tillhandahåller Azure Kubernetes Service (AKS) idag?
 
 - Centrala Kanada
 - Östra Kanada

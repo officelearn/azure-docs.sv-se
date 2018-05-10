@@ -1,6 +1,6 @@
 ---
-title: "Använd Azure Media Clipper i portalen | Microsoft Docs"
-description: "Skapa klipp med hjälp av Azure Media Clipper från Azure Portal"
+title: Använd Azure Media Clipper i portalen | Microsoft Docs
+description: Skapa klipp med hjälp av Azure Media Clipper från Azure Portal
 services: media-services
 keywords: Clip; underklipp; kodning; media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Skapa klipp med Azure Media Clipper i portalen
 Du kan använda Azure Media Clipper i portalen för att skapa klipp från tillgångar i ditt media services-konton. Kom igång genom att gå till media services-konto i portalen. Välj sedan den **underklipp** fliken.

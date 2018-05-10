@@ -1,322 +1,118 @@
 ---
-title: Flera huvuddatabasen arkitekturer med Azure Cosmos DB | Microsoft Docs
-description: Läs mer om hur du utformar programarkitekturer med lokala läsningar och skrivningar över flera geografiska områden med Azure Cosmos DB.
+title: Multimaster på global skala med Azure Cosmos DB | Microsoft Docs
+description: ''
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: rimman
 manager: kfile
-ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
-ms.devlang: multiple
+ms.workload: data-services
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/23/2017
-ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 05/07/2018
+ms.author: rimman
+ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Flera master replikerad globalt databasarkitekturer med Azure Cosmos DB
-Azure Cosmos-DB stöder NYCKELFÄRDIGT [globala replikering](distribute-data-globally.md), där du kan distribuera data till flera regioner med låg latens åtkomst var som helst i arbetsbelastningen. Den här modellen används ofta för utgivaren/konsumenten arbetsbelastningar där det finns en skrivare i en geografisk region och globalt distribuerade läsare i andra (skrivskyddad) regioner. 
+# <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Flera master i global skala med Azure Cosmos DB 
+ 
+Utveckla globalt distribuerade program som svarar med lokala fördröjning när det är svårt problem att upprätthålla konsekvent vyer av data över hela världen. Kunder använder globalt distribuerade databaser, eftersom de behöver för att förbättra svarstiden för åtkomst av data, uppnå hög tillgänglighet till data och säkerställa garanterad katastrofåterställning och, (4) för att uppfylla sina affärsbehov. Flera master i Azure Cosmos DB ger hög tillgänglighet (99,999%), en siffra millisekunders latens att skriva data och skalbarhet med stöd för inbyggda omfattande och flexibelt konflikt lösning. Dessa funktioner avsevärt förenklar utvecklingen av globalt distribuerade program. Stöd för flera master är avgörande för globalt distribuerade program. 
 
-Du kan också använda Azure Cosmos DB globala replication stöd för att bygga program som skrivare och läsare globalt distribueras. Det här dokumentet beskrivs ett mönster som gör det möjligt att uppnå lokala Skriv- och lokala läsbehörighet för distribuerade skrivare med hjälp av Azure Cosmos DB.
+![Multimaster-arkitektur](./media/multi-region-writers/multi-master-architecture.png)
 
-## <a id="ExampleScenario"></a>Publiceringen av innehållet - exempel
-Nu ska vi titta på ett verkligt scenario som beskriver hur du kan använda global flera-region/flera-master läsa skriva mönster med Azure Cosmos DB. Överväg att en innehåll publishing plattform som bygger på Azure Cosmos DB. Här följer några krav som den här plattformen måste uppfylla för en bra användarupplevelse för både utgivare och konsumenter.
+Du kan utföra skrivningar med stöd för Azure Cosmos DB multimaster på behållare för data (till exempel samlingar, diagram, tabeller) distribueras var som helst i världen. Du kan uppdatera data i en region som är kopplad till ditt konto. Uppdateringarna data kan spridas asynkront. Förutom att tillhandahålla snabb åtkomst och skrivfördröjningen till dina data är med flera master också en praktisk lösning för redundans och belastningsutjämning problem. Sammanfattningsvis med Azure Cosmos DB får du skrivfördröjningen för < 10 ms vid 99th percentilen var som helst i världen, 99,999% skrivning och Läs tillgänglighet var som helst i världen, och möjligheten att skala både skriva och läsa genomströmning var som helst i världen.   
 
-* Både författare och prenumeranter kan sträcka sig över hela världen 
-* Författare måste publicera (skriva) artiklar på sin lokala (närmaste) region
-* Författare har läsare-/ prenumeranter sina artiklar som distribueras över hela världen. 
-* Prenumeranter bör få ett meddelande när nya artiklar publiceras.
-* Prenumeranter måste kunna läsa artiklar från sin lokala region. De bör också kunna lägga till granskningar till dessa artiklar. 
-* Alla inklusive författaren av artiklarna ska kunna visa alla omdömen anslutna till artiklar från region med en lokal. 
+## <a name="a-simple-multi-master-example--content-publishing"></a>Publicering av ett enkelt multimaster exempel – innehåll  
 
-Under förutsättning att miljontals användare och utgivare med miljarder artiklar, snart vi behöver ta itu med problem för skala tillsammans med garanterar ort åtkomst. Precis som med de flesta skalbarhetsproblem med, är lösningen en bra strategi för partitionering. Nu ska vi titta på hur modellen artiklar, granska och meddelanden som dokument, konfigurera Azure Cosmos DB konton och implementera en dataåtkomstnivå. 
+Nu ska vi titta på ett verkligt scenario som beskriver hur du använder multimaster support med Azure Cosmos DB. Överväg att en innehåll publishing plattform som bygger på Azure Cosmos DB. Här följer några krav som den här plattformen måste uppfylla för en bra användarupplevelse för både utgivare och konsumenter. 
 
-Om du vill veta mer om partitionering och partitionsnycklar [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+* Både författare och prenumeranter sprids över hela världen.  
 
-## <a id="ModelingNotifications"></a>Modeling meddelanden
-Meddelanden är datafeeds specifika för en användare. Därför är åtkomstmönster för meddelanden dokument alltid i samband med en enskild användare. Du kan till exempel ”skicka ett meddelande till en användare” eller ”hämta alla meddelanden för en viss användare”. Därför föredra partitionering nyckel för den här typen är `UserId`.
+* Författare måste publicera (skriva) artiklar på sin lokala (närmaste) region.  
 
-    class Notification 
-    { 
-        // Unique ID for Notification. 
-        public string Id { get; set; }
+* Författare har läsare-/ prenumeranter sina artiklar som distribueras över hela världen.  
 
-        // The user Id for which notification is addressed to. 
-        public string UserId { get; set; }
+* Prenumeranter bör få ett meddelande när nya artiklar publiceras.  
 
-        // The partition Key for the resource. 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.UserId; 
-            }
-        }
+* Prenumeranter måste kunna läsa artiklar från sin lokala region. De bör också kunna lägga till granskningar till dessa artiklar.  
 
-        // Subscription for which this notification is raised. 
-        public string SubscriptionFilter { get; set; }
+* Alla inklusive författaren av artiklarna ska kunna visa alla omdömen anslutna till artiklar från region med en lokal.  
 
-        // Subject of the notification. 
-        public string ArticleId { get; set; } 
-    }
+Under förutsättning att miljontals användare och utgivare med miljarder artiklar, snart vi behöver ta itu med problem för skala tillsammans med garanterar ort åtkomst. Ett användningsfall är en perfekt kandidat för Azure Cosmos DB flera master. 
 
-## <a id="ModelingSubscriptions"></a>Modeling prenumerationer
-Prenumerationer kan skapas för olika kriterier som en viss kategori med artiklar för specifika intresseområden eller en specifik utgivare. Därför det `SubscriptionFilter` är ett bra alternativ för partitionsnyckel.
+## <a name="benefits-of-having-multi-master-support"></a>Fördelarna med att ha stöd för flera master 
 
-    class Subscriptions 
-    { 
-        // Unique ID for Subscription 
-        public string Id { get; set; }
+Multimaster-stöd är nödvändigt för globalt distribuerade program. Flera master består av [flera master regioner](distribute-data-globally.md) som lika deltar i en skrivning var som helst modell (aktiv-aktiv mönster) och används för att säkerställa att data är tillgängliga när som helst där det behövs. Uppdateringar som görs i en enskild region sprids asynkront till alla andra regioner (som i sin tur master regioner på sina egna). Azure DB Cosmos-regioner som fungerar som hanterare regioner i en konfiguration för multimaster automatiskt fungerar för att Konvergera alla data för alla repliker och se till att [globala konsekvens och dataintegritet](consistency-levels.md). Följande bild visar läsning och skrivning replikering för ett enda ställe och mult master.
 
-        // Subscription source. Could be Author | Category etc. 
-        public string SubscriptionFilter { get; set; }
+![Single master och multimaster](./media/multi-region-writers/single-vs-multi-master.png)
 
-        // subscribing User. 
-        public string UserId { get; set; }
+Implementera flera master på egen hand lägger till belastningen på utvecklare. Storskalig kunder som försöker implementera flera master på egen hand tillbringar hundratals timmar att konfigurera och testa en globalt multimaster-konfiguration, och många har en särskild uppsättning tekniker som arbetar med enda är att övervaka och underhålla flera master replikering. Skapa och hantera multimaster installationen på egen hand tar tid, resurser från införa i programmet och ger mycket högre kostnader. Azure Cosmos-DB multimaster stöder ”out-of-the-box” och tar bort det här arbetet utvecklare.  
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.SubscriptionFilter; 
-            } 
-        } 
-    }
+Sammanfattningsvis ger flera master följande fördelar:
 
-## <a id="ModelingArticles"></a>Modeling artiklar
-När en artikel identifieras via meddelanden efterföljande frågor vanligtvis baserat på den `Article.Id`. Att välja `Article.Id` som partition nyckeln därför ger bästa distributionen för att lagra artiklar i en samling Azure Cosmos DB. 
+* **Bättre katastrofåterställning, skriva tillgänglighet och redundans**-flera master kan användas för att bevara hög tillgänglighet för en verksamhetskritiska databas i större utsträckning. Till exempel kan flera master-databasen replikera data från en till en region för växling vid fel när den primära regionen blir otillgänglig på grund av ett avbrott eller en regional katastrofåterställning. Sådan växling vid fel region fungerar som en fullt fungerande master region som stöd för programmet. Flera master ger större ”överlevnads” skydd med avseende på naturkatastrof, strömavbrott, eller sabotage av anläggningen eller båda eftersom återstående regioner kan vara i ett geografiskt olika flera original med en garanterad skrivåtgärder tillgänglighet > 99,999%. 
 
-    class Article 
-    { 
-        // Unique ID for Article 
-        public string Id { get; set; }
-        
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.Id; 
-            } 
-        }
-        
-        // Author of the article
-        public string Author { get; set; }
+* **Förbättrad skrivfördröjningen för slutanvändare** - närmare dina data (som du hanterar) är till slutanvändare, desto bättre blir upplevelsen. Till exempel om du har användare i Europa men databasen är i USA eller Australien tillagda svarstiden är cirka 140 ms och 300 ms för respektive regioner. Fördröjningar är acceptabelt att börja med för många populära spel, banktjänster krav eller interaktiva program (web eller mobile). Latens spelar en stor del i kundens uppfattning av en hög kvalitet och har visat för att påverka beteendet för användare i några märkbara utsträckning. Som förbättrar teknik och särskilt med ankomsten av AR, VR och MR, måste som kräver ytterligare djupare och verklighetstrogna upplevelser utvecklare nu du skapa programvarusystem med strikta fördröjning. Därför är har lokalt tillgängliga program och data (innehåll för program) viktigare. Prestanda är lika snabbt som regelbundet lokala läser och skriver och förbättrad globalt av geo-distribution med flera master i Azure Cosmos DB.  
 
-        // Category/genre of the article
-        public string Category { get; set; }
+* **Förbättrad skalbarhet för skrivning och genomströmning för skrivning** – flera master ger högre genomströmning och större användning samtidigt som den erbjuder flera konsekvenskontroll modeller med är korrekt garanterar och backas upp av SLA: er. 
 
-        // Tags associated with the article
-        public string[] Tags { get; set; }
+  ![Skalning genomströmning för skrivning med flera master](./media/multi-region-writers/scale-write-throughput.png)
 
-        // Title of the article
-        public string Title { get; set; }
-        
-        //... 
-    }
+* **Bättre stöd för frånkopplade miljöer (till exempel gränsenheterna)** -flera master gör att användarna kan replikera alla eller en delmängd av data från en insticksenhet till en närmaste region i en frånkopplad miljö. Det här scenariot är typiska för säljarna automatiseringssystem, där en person bärbar dator (en frånkopplad enhet) lagrar en delmängd av data som rör enskilda säljare. Master regioner i molnet som finns var som helst i världen kan användas som mål för kopiera från de fjärranslutna enheterna.  
 
-## <a id="ModelingReviews"></a>Modellering granskar
-Som artiklar, granskningar främst skrivs och läses i kontexten för artikeln. Att välja `ArticleId` som en partition nyckel ger bästa distribution och effektiv åtkomst av granskningar som är kopplad till artikeln. 
+* **Belastningsutjämning** -med flera master belastningen över programmet kan genomförs genom att flytta användare/arbetsbelastningar från en tungt belastad region till regioner där belastningen fördelas jämnt. Skriva kapacitet kan enkelt utökas genom att lägga till en ny region och sedan växla vissa skrivningar till den nya regionen. 
 
-    class Review 
-    { 
-        // Unique ID for Review 
-        public string Id { get; set; }
+* **Bättre användning av etablerad kapacitet** – med flera master för skrivintensiv och blandade arbetsbelastningar, kan du fylla etablerad kapacitet över flera regioner...  I vissa fall som du kan distribuera läsningar och skrivningar mer lika, så att den kräver färre genomströmning till etableras och leder till en mer besparingar för kunder.  
 
-        // Article Id of the review 
-        public string ArticleId { get; set; }
+* **Enklare och mer robust apparkitekturer** -program som flyttar till multimaster configuration få garanterat data återhämtning.  Med Azure Cosmos-DB dölja alla komplexitet, förenkla den avsevärt programdesign och arkitektur. 
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.ArticleId; 
-            } 
-        }
-        
-        //Reviewer Id 
-        public string UserId { get; set; }
-        public string ReviewText { get; set; }
-        
-        public int Rating { get; set; } }
-    }
+* **Risk utan testning av redundans** -testning av redundans kommer inte har någon försämring på genomströmning för skrivning. Med flera master är alla andra regioner fullständig huvudservrar så redundans inte har mycket inverkan på genomströmning för skrivning.  
 
-## <a id="DataAccessMethods"></a>Metoder för dataåtkomst lager
-Nu ska vi titta på viktigaste data åtkomstmetoder vi behöver implementera. Här är listan över metoder som den `ContentPublishDatabase` måste:
+* **Lägre totala kostnaden Ownership(TCO) och DevOps** -möte skalbarhet, prestanda, global distributionsplatsen återställningstiden kostar ofta på grund av dyra tillägg eller underhålla en infrastruktur för säkerhetskopiering som är vilande tills katastrofåterställning träffar. Med Azure Cosmos DB flera master säkerhetskopierats av branschledande serviceavtal, utvecklare längre kräver skapa och underhålla ”backend ibland sammanlänkande logik” sig själva och blir en sinnesro sina verksamhetskritiska arbetsbelastningar som körs. 
 
-    class ContentPublishDatabase 
-    { 
-        public async Task CreateSubscriptionAsync(string userId, string category);
-    
-        public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
-    
-        public async Task<Article> ReadArticleAsync(string articleId);
-    
-        public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
-    
-        public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
-    }
+## <a name="use-cases-where-multi-master-support-is-needed"></a>Användningsfall där multimaster stöd krävs
 
-## <a id="Architecture"></a>Konfigurationen av Azure DB Cosmos-konto
-Om du vill garantera lokala läser och skriver vi måste partitionera bara data inte på partition nyckel, men även baserat på geografisk åtkomstmönstret i regioner. Modellen är beroende av att ha ett geo-replikerade Azure Cosmos DB databaskonto för varje region. Till exempel med två regioner är här en konfiguration för flera regioner skrivningar:
+Det finns flera användningsområden för flera master i Azure Cosmos-databasen: 
 
-| Kontonamn | Skrivregion | Läsregion |
-| --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
+* **IoT** -Azure Cosmos DB flera master tillåter förenklad distribuerade implementering av IoT databearbetning. Fördelade edge-distributioner som använder CRDT konflikt utan replikerade data typer ofta behöver spåra tid series-data från flera platser. Varje enhet kan vara homed till någon av de närmaste regionerna, och en enhet kan förflytta sig (t.ex, en bil) och kan dynamiskt rehomed för att skriva till en annan region.  
 
-Följande diagram visar hur läsning och skrivning utförs i en typisk program med den här installationen:
+* **E-handel** -så bra användarupplevelse i e-handel scenarier kräver hög tillgänglighet och återhämtning för scenarier. Om det inte går att en region, vill användarsessioner shopping Datorvagnar, aktiva listor behöver sömlöst tas upp av en annan region utan tillstånd. Under tiden kan uppdateringar som görs av användaren måste hanteras på rätt sätt (exempelvis lägger till och tar bort från kundvagnen måste överföra). Med flera master kan Azure Cosmos DB hantera dessa scenarier avslutas, med en smidig övergång mellan active regioner samtidigt som en konsekvent vy från användarens synvinkel. 
 
-![Azure multimaster Cosmos-DB-arkitektur](./media/multi-region-writers/multi-master.png)
+* **Bedrägeri/Avvikelseidentifiering** -ofta program som övervakar användaraktivitet eller kontoaktivitet distribueras globalt och måste hålla reda på flera händelser samtidigt. När du skapar och underhålla poängen för en användare, uppdatera åtgärder från olika geografiska regioner samtidigt resultat för att hålla risken mått infogad. Azure Cosmos-DB kan garantera utvecklare inte behöver hantera konflikt scenarier på programnivå. 
 
-Här är ett kodfragment som visar hur du initierar klienter i en DAL som körs i den `West US` region.
-    
-    ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
-    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+* **Samarbete** – för program som skolorna utifrån popularitet artiklar, till exempel varor på försäljning eller media som ska konsumeras osv. Spåra popularitet över geografiska regioner kan få komplicerad, särskilt när royalty måste vara betald eller verkliga reklam beslut görs. Rangordning, sortering och rapportering över flera regioner över hela världen, i realtid med Azure Cosmos DB gör att utvecklare kan tillhandahålla funktioner med mycket ansträngning och utan att kompromissa med svarstider. 
 
-    DocumentClient writeClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-usa.documents.azure.com"), 
-        writeRegionAuthKey,
-        writeClientPolicy);
+* **Avläsning** - inventering och reglerar användningen (till exempel API-anrop, transaktioner per sekund minuter används) kan implementeras globalt med enkelhet med hjälp av Azure Cosmos DB flera master. Inbyggda konfliktlösning säkerställer båda noggrannhet i antal och förordning i realtid. 
 
-    ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
-    readClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
+* **Anpassning** – om du underhålla geografiskt distribuerade räknare som utlöser åtgärder, till exempel förmåner pekar priser eller implementera anpassade användarsession vyer, hög tillgänglighet och förenklad geodistribuerad inventering som tillhandahålls av Azure Cosmos DB kan program ger hög prestanda med enkelhet. 
 
-    DocumentClient readClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-europe.documents.azure.com"),
-        readRegionAuthKey,
-        readClientPolicy);
+## <a name="conflict-resolution-with-multi-master"></a>Konfliktlösning med flera master 
 
-Med den föregående installationen kan dataåtkomstnivå vidarebefordra alla skrivningar till det lokala kontot utifrån där den distribueras. Läser utförs av läsning från båda kontona att hämta globala vyn av data. Den här metoden kan utökas till så många regioner som krävs. Här är till exempel en installation med tre geografiska områden:
+Med flera master är det en utmaningen ofta att två (eller fler) repliker av samma post samtidigt kan uppdateras av olika skrivare i två eller flera olika regioner. Samtidiga skrivningar kan leda till att två olika versioner av samma post och utan inbyggda konfliktlösning och programmet måste utföra konfliktlösning för att lösa det här inkonsekvens.  
 
-| Kontonamn | Skrivregion | Läs Region 1 | Läs Region 2 |
-| --- | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
-| `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
+**Exempel** -vi antar att du använder Azure Cosmos DB som det beständiga arkivet för ett kundvagnsprogram och det här programmet har distribuerats i två områden: östra USA och västra USA.  Om ungefär på samma gång en användare i San Francisco lägger till ett objekt i sin kundvagn (till exempel en bok) när en process för hantering av inventering i östra USA upphäver ett annat i kundvagn objekt (t.ex, ett nytt telefonnummer) för samma användare som svar på en s meddelande om upplier som lanseringsdatumet har fördröjts. Vid tiden T1 är shopping kundvagn posterna i två regioner olika. Databasen använder dess replikering och konflikt upplösning mekanism för att lösa det här inkonsekvens och slutligen ett av de två versionerna av kundvagnen markeras. Med konflikt upplösning heuristik som oftast används av multimaster databaser (till exempel senaste skrivning wins) är det möjligt för användaren eller programmet att förutsäga vilken version som ska väljas. I båda fallen data förloras eller oväntat kan inträffa. Om den region Öst-versionen är markerad sedan användarens val av ett nytt köp-objekt (det vill säga en bok) går förlorad och väljer region Väst, sedan det tidigare valda objektet (det vill säga phone) är fortfarande i vagnen. Oavsett hur information går förlorad. En annan process undersöks den shopping kundvagn slutligen mellan tid T1 och T2 ska se samt icke-deterministiska beteende. Bakgrunden som väljer automatiserat datalager och uppdaterar kundvagn leverans kostnader skulle exempelvis gav inga resultat som står i konflikt med eventuell innehållet i vagnen. Om processen körs i region Väst och alternativ 1 blir verkligheten, skulle den beräkna leveranskostnader för två objekt även om vagnen snart har bara ett objekt, boken. 
 
-## <a id="DataAccessImplementation"></a>Data access layer implementering
-Nu ska vi titta på implementering av dataåtkomstlagret (DAL) för ett program med två skrivbar regioner. DAL måste implementera följande steg:
+Azure Cosmos-DB implementerar logik för att hantera motstridiga skrivningar i databasmotorn sig själv. Azure Cosmos-DB erbjuder **omfattande och flexibelt konflikt matchningsstöd** genom att erbjuda flera konflikt upplösning modeller, inklusive automatisk (CRDT konflikt utan replikerad datatyper), senaste skriva Wins (LWW) och anpassade ( Lagrade proceduren) för automatisk konfliktlösning. Konflikt upplösning modeller ge garantier är korrekt och konsekvent och ta bort belastningen från utvecklare behöver tänka på konsekvens, tillgänglighet, prestanda, replikeringsfördröjning och komplicerade kombinationer av händelser under geo-redundans och konflikter mellan region skrivåtgärder.  
 
-* Skapa flera instanser av `DocumentClient` för varje konto. Med två regioner varje DAL-instans har en `writeClient` och ett `readClient`. 
-* Baserat på den distribuerade regionen för programmet, konfigurera slutpunkter för `writeclient` och `readClient`. Till exempel DAL distribuerats i `West US` använder `contentpubdatabase-usa.documents.azure.com` för att utföra skrivningar. DAL distribuerats i `NorthEurope` använder `contentpubdatabase-europ.documents.azure.com` för skrivningar.
+  ![Mult master konfliktlösning](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
-Metoder för dataåtkomst kan implementeras med föregående installation. Skriva operations vidarebefordra skriva till motsvarande `writeClient`.
+Du måste 3 typer av konflikt upplösning modeller som erbjuds av Azure Cosmos DB. Semantiken för konflikt upplösning modeller är följande: 
 
-    public async Task CreateSubscriptionAsync(string userId, string category)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Subscriptions
-        {
-            UserId = userId,
-            SubscriptionFilter = category
-        });
-    }
+**Automatisk** -detta är standardprincipen konflikt lösning. Att välja den här principen gör Azure Cosmos-Databsen ska automatiskt lösa Motstridiga uppdateringar på serversidan och ger stark-eventuell-konsekvens garanterar. Internt, implementerar Azure Cosmos DB automatisk konfliktlösning genom att utnyttja konflikt-kostnadsfri-replikerade-datatyper (CRDTs) i databasmotorn.  
 
-    public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Review
-        {
-            UserId = userId,
-            ArticleId = articleId,
-            ReviewText = reviewText,
-            Rating = rating
-        });
-    }
+**Senaste skrivning Wins (LWW)** – om du väljer den här principen kan du lösa konflikter baserat på något som definieras synkroniseras tidsstämpel-egenskapen eller en anpassad egenskap definierats på poster i konflikt version. Konfliktlösningen sker på serversidan och version med den senaste tidsstämpeln är markerad som vinnaren.  
 
-För att läsa meddelanden och granskningar, måste du läsa från både regioner och union resultaten som visas i följande utdrag:
+**Anpassad** -du kan registrera en definierad konflikt upplösning programlogik genom att registrera en lagrad procedur. Den lagrade proceduren kommer hämta anropas vid identifiering av Uppdateringskonflikter av en databastransaktion på serversidan. Om du väljer alternativet men inte det gick att registrera en lagrad procedur (eller om den lagrade proceduren genererar ett undantag vid körning), du kan använda alla filversioner via konflikter Feed och Lös dem individuellt.  
 
-    public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
-    {
-        IDocumentQuery<Notification> writeAccountNotification = (
-            from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
-        
-        IDocumentQuery<Notification> readAccountNotification = (
-            from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
+## <a name="next-steps"></a>Nästa steg  
 
-        List<Notification> notifications = new List<Notification>();
+I den här artikeln upptäckt använda globalt distribuerade flera master med Azure Cosmos DB. Ta en titt på följande resurser: 
 
-        while (writeAccountNotification.HasMoreResults || readAccountNotification.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Notification>>> results = new List<Task<FeedResponse<Notification>>>();
+* [Lär dig mer om hur Azure Cosmos DB stöder global distributionsplatsen](distribute-data-globally.md)  
 
-            if (writeAccountNotification.HasMoreResults)
-            {
-                results.Add(writeAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [Lär dig mer om automatisk redundans i Azure Cosmos DB](regional-failover.md)  
 
-            if (readAccountNotification.HasMoreResults)
-            {
-                results.Add(readAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [Lär dig mer om globala konsekvens med Azure Cosmos DB](consistency-levels.md)  
 
-            IList<FeedResponse<Notification>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Notification> feed in notificationFeedResult)
-            {
-                notifications.AddRange(feed);
-            }
-        }
-        return notifications;
-    }
-
-    public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
-    {
-        IDocumentQuery<Review> writeAccountReviews = (
-            from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-        
-        IDocumentQuery<Review> readAccountReviews = (
-            from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-
-        List<Review> reviews = new List<Review>();
-        
-        while (writeAccountReviews.HasMoreResults || readAccountReviews.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Review>>> results = new List<Task<FeedResponse<Review>>>();
-
-            if (writeAccountReviews.HasMoreResults)
-            {
-                results.Add(writeAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            if (readAccountReviews.HasMoreResults)
-            {
-                results.Add(readAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            IList<FeedResponse<Review>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Review> feed in notificationFeedResult)
-            {
-                reviews.AddRange(feed);
-            }
-        }
-
-        return reviews;
-    }
-
-Genom att välja en bra partitionsnyckel och statiska konto-baserade partitionering, kan du därför uppnå flera regioner lokala skrivningar och läsningar med hjälp av Azure Cosmos DB.
-
-## <a id="NextSteps"></a>Nästa steg
-I den här artikeln beskrivs hur du kan använda global flera regioner läsa skriva mönster med Azure Cosmos-databasen med publiceringen av innehållet som ett exempelscenario.
-
-* Lär dig mer om hur Azure Cosmos DB stöder [global distributionsplatsen](distribute-data-globally.md)
-* Lär dig mer om [automatisk och manuell växling vid fel i Azure Cosmos DB](regional-failover.md)
-* Lär dig mer om [global konsekvens med Azure Cosmos DB](consistency-levels.md)
-* Utveckla med flera regioner med hjälp av den [Azure Cosmos DB - SQL-API](tutorial-global-distribution-sql-api.md)
-* Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
-* Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - tabellen API](tutorial-global-distribution-table.md)
+* Utveckla med flera områden med Azure Cosmos-DB - [SQL API](tutorial-global-distribution-sql-api.md), [MongoDB API](tutorial-global-distribution-mongodb.md), eller [tabell-API](tutorial-global-distribution-table.md)  

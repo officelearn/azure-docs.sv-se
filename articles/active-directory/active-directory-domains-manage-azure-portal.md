@@ -1,25 +1,23 @@
 ---
-title: "Hantera anpassade domännamn i Azure Active Directory | Microsoft Docs"
-description: "Management-begrepp och instruktioner för att hantera ett domännamn i Azure Active Directory"
+title: Hantera anpassade domännamn i Azure Active Directory | Microsoft Docs
+description: Management-begrepp och instruktioner för att hantera ett domännamn i Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81c2371d5dbb17399071c80ff4e8b81813ed014c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domännamn i Azure Active Directory
 Ett domännamn är en viktig del av identifierare för många katalogresurserna: det är en del av ett användarnamn eller e-postadress för en användare, en del av adressen för en grupp, och kan vara en del av app-ID URI för ett program. En resurs i Azure Active Directory (Azure AD) kan innehålla ett domännamn som redan har verifierats som ägs av katalogen som innehåller resursen. Endast en global administratör kan utföra hanteringsuppgifter för domänen i Azure AD.

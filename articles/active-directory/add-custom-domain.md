@@ -1,24 +1,22 @@
 ---
-title: "Lägg till en anpassad domän till Azure AD | Microsoft Docs"
-description: "Beskriver hur du lägger till en anpassad domän i Azure Active Directory."
+title: Lägg till en anpassad domän till Azure AD | Microsoft Docs
+description: Beskriver hur du lägger till en anpassad domän i Azure Active Directory.
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 37890ac856a6b6bd89acc17973327b239a583997
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Snabbstart: Lägga till ett anpassat domännamn i Azure Active Directory
 
@@ -64,10 +62,10 @@ Nu kan du [tilldela användarnamn som innehåller ditt domännamn](active-direct
 ## <a name="troubleshooting"></a>Felsökning
 Om du inte kan verifiera ett eget domännamn kan du prova följande felsökningssteg:
 
-1. **Vänta en timma**. DNS-poster måste spridas innan Azure AD kan verifiera domänen. Den här processen kan ta minst en timme.
+1. **Vänta en timma**. DNS-poster måste spridas innan Azure AD kan verifiera domänen. Processen kan ta en timma eller mer.
 2. **Kontrollera att DNS-posten har angetts och att den är korrekt**. Utför det här steget på webbplatsen för domännamnsregistratorn för domänen. Azure AD kan inte verifiera domännamnet om 
   * DNS-posten finns inte i DNS-zonfilen
-  * Det är inte en exakt matchning med DNS-posten som Azure AD tillhandahåller. 
+  * Det inte finns någon exakt matchning med DNS-posten som Azure AD gav dig. 
   
   Om du inte har den åtkomst som krävs för att uppdatera DNS-poster för domänen hos domännamnsregistratorn så dela DNS-posten med den person eller grupp i din organisation som har den åtkomst som krävs och be dem att lägga till DNS-posten.
 3. **Ta bort domännamnet från en annan katalog i Azure AD**. Ett domännamn kan bara verifieras i en enskild katalog. Om ett domännamn för närvarande har verifierats i en annan katalog kan det inte verifieras i den nya katalogen tills det tas bort på den andra. Mer information om hur du tar bort domännamn finns i [Hantera anpassade domännamn](active-directory-domains-manage-azure-portal.md).    

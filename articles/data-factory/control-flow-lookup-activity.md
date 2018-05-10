@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/05/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 Du kan använda sökning aktiviteten för att läsa eller söka efter en post, namn eller värde från en extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
@@ -31,22 +31,7 @@ Sökning aktivitet är användbart när du vill hämta en lista över filer, pos
 
 Följande datakällor stöds för närvarande för sökning:
 
-- Amazon Redshift
-- Azure Blob Storage
-- Azure Cosmos DB
-- Azure Data Lake Store
-- Azure File storage
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- Azure Table Storage
-- Dynamics 365
-- Dynamics CRM
-- Filsystem
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, och upp till **10MB** i storlek.
 
@@ -285,7 +270,7 @@ Den här Azure SQL Database-instansen innehåller data som ska kopieras till Blo
 }
 ```
 
-### <a name="sourcetablejson"></a>sourcetable.json
+### <a name="sourcetablejson"></a>SourceTable.JSON
 
 #### <a name="set-of-objects"></a>Uppsättning objekt
 

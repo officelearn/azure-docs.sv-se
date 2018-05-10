@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarkisk Azure Cosmos DB-resursmodell och huvudkoncept
 
@@ -58,7 +58,7 @@ När du börjar arbeta med resurser, måste du [skapa ett databaskonto](create-s
 | Databas |En databas är en logisk behållare för dokumentlagring, partitionerad över samlingarna. Det är en användarbehållare. |
 | Användare |Det logiska namnområden scope behörigheter. |
 | Behörighet |En autentiseringstoken som associeras med en användare för åtkomst till en viss resurs. |
-| Samling |En samling är en behållare för JSON-dokument och associerad JavaScript-applogik. En samling är en fakturerbar enhet där [kostnaden](performance-levels.md) bestäms av samlingens prestandanivå. Samlingar kan omfatta en eller flera partitioner/servrar och skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde. |
+| Samling |En samling är en behållare för JSON-dokument och associerad JavaScript-applogik. Samlingar kan omfatta en eller flera partitioner/servrar och skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde. |
 | Lagrad procedur |Programlogik skriven i JavaScript, som är registrerade med en samling och transaktionellt köras inom databasmotorn. |
 | Utlösare |Programlogik som skrivits i JavaScript utföras före eller efter antingen ett insert-, ersätta eller ta bort igen. |
 | UDF |Programlogik skriven i JavaScript. UDF: er kan du utforma en anpassad fråga operator och därmed Utöka grundläggande SQL API-frågespråket. |
@@ -166,14 +166,14 @@ En Cosmos-DB-databas är en logisk behållare för en eller flera samlingar och 
 ![Konto och samlingar hierarkiska databasmodellen][2]  
 **En databas är en logisk behållare för användare och samlingar**
 
-En databas kan innehålla praktiskt taget obegränsade dokumentlagring, partitionerad i samlingar.
+En databas kan innehålla obegränsade dokumentlagring, partitionerad i samlingar.
 
 ### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Elastisk skalbarhet av en Azure Cosmos-DB-databas
 En Cosmos-DB-databas är elastisk standard-allt från några få GB till petabyte SSD backas upp dokumentlagring och etablerat dataflöde. 
 
 Till skillnad från en databas i traditionella RDBMS begränsas inte en databas i Cosmos-databasen till en enda dator. Med Cosmos DB som skala ditt program behöver växa, kan du skapa flera samlingar, databaser eller båda. Faktiskt har olika första partsprogram i Microsoft använt Azure Cosmos DB på en konsument skala genom att skapa mycket stora databaser i Azure Cosmos DB varje med tusentals samlingar med terabytes dokumentlagring. Du kan öka eller minska en databas genom att lägga till eller ta bort samlingar för att uppfylla skala programkrav. 
 
-Du kan skapa valfritt antal samlingar i en databas, upp till erbjudandet. Varje samling har säkerhetskopieras SSD-lagringen och dataflödet du beroende på vilken valda prestandanivå.
+Du kan skapa valfritt antal samlingar i en databas, upp till erbjudandet. Varje samling eller en uppsättning samlingar (inom en databas), har SSD säkerhetskopieras lagring och dataflödet du beroende på det valda erbjudandet.
 
 En Azure Cosmos-DB-databas är också en behållare för användare. En användare i sin tur är ett logiskt namnområde för en uppsättning behörigheter som ger detaljerad behörighet och åtkomst till samlingar, dokument och bifogade filer.  
 
@@ -183,7 +183,7 @@ Eftersom andra resurser i Azure Cosmos DB resursmodell databaser kan skapas, ers
 En Cosmos-DB-samling är en behållare för JSON-dokument. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Elastisk SSD säkerhetskopieras dokumentlagring
-En samling är filsystemen elastisk - och den automatiskt växer förminskas när du lägger till eller ta bort dokument. Samlingar är logiska nätverksresurser och kan sträcka sig över en eller flera partitioner fysiska servrar. Antalet partitioner i en samling bestäms av Cosmos DB baserat på lagringsstorleken och etablerat dataflöde för din samling. Varje partition i Cosmos-databasen har en fast mängd SSD-baserad lagring som är kopplad till den och replikeras för hög tillgänglighet. Partitionen management hanteras helt av Azure Cosmos DB och du behöver inte skriva komplex kod eller hantera din partitioner. Cosmos DB samlingar är **praktiskt taget obegränsade** vad gäller lagring och genomflöde. 
+En samling är filsystemen elastisk - och den automatiskt växer förminskas när du lägger till eller ta bort dokument. Samlingar är logiska nätverksresurser och kan sträcka sig över en eller flera partitioner fysiska servrar. Antalet partitioner som tilldelats till en samling bestäms av Cosmos DB baserat på lagringsstorleken och det tillhandahållna dataflödet för samlingen eller en uppsättning av samlingar. Varje partition i Cosmos-databasen har en fast mängd SSD-baserad lagring som är kopplad till den och replikeras för hög tillgänglighet. Partitionen management hanteras helt av Azure Cosmos DB och du behöver inte skriva komplex kod eller hantera din partitioner. Cosmos DB samlingar är **obegränsade** vad gäller lagring och genomflöde. 
 
 ### <a name="automatic-indexing-of-collections"></a>Automatisk indexering av samlingar
 Azure Cosmos-DB är ett sant schemafria databassystem. Varken antar eller kräver ett schema för JSON-dokument. När du lägger till dokument till en samling Azure Cosmos DB indexerar automatiskt dem och de är tillgängliga för dig att fråga. Automatisk indexering av dokument utan schemat eller sekundärindex är en funktion som är viktiga för Azure Cosmos DB och aktiveras av write-optimerad frigöra Lås och loggstrukturerad index Underhåll tekniker. Azure Cosmos-DB stöder varaktigt mängden mycket snabba skrivningar när betjänar konsekvent frågor. Både dokumentet och index lagring används för att beräkna det lagringsutrymme som förbrukas av varje samling. Du kan styra lagrings- och prestandakrav avvägningarna som är associerade med indexering genom att konfigurera indexprincip för en samling. 
@@ -195,7 +195,7 @@ Indexprincip för varje samling kan du kompromissa prestanda och lagring som är
 * Välj om du vill inkludera eller exkludera specifika sökvägar eller mönster i dokument från indexet. Du kan respektive åstadkomma detta genom att inställningen includedPaths och excludedPaths på indexingPolicy i en samling. Du kan också konfigurera lagrings- och prestandakrav avvägningarna för intervall och hash för angiven sökväg mönster. 
 * Välj mellan synkron (konsekvent) och uppdateringar av index för asynkron (lazy). Indexet uppdateras synkront som standard på varje insert-, ersätta eller ta bort ett befintligt dokument i samlingen. Detta gör att frågorna ta hänsyn till samma konsekvensnivå som dokumentet läsningar. Du kan konfigurera vissa samlingar för att uppdatera deras index lazy medan Azure Cosmos DB skrivåtgärder optimerad och stöder varaktigt volymer av dokumentet skrivningar tillsammans med synkron index underhåll och betjänar konsekvent frågor. Lazy indexering förstärker skrivprestanda ytterligare och är idealisk för bulk införandet scenarier för främst frekventa Läs samlingar.
 
-Indexprincip kan ändras genom att köra en PUT på samlingen. Detta kan vara uppnås antingen via den [klient-SDK](sql-api-sdk-dotnet.md), [Azure-portalen](https://portal.azure.com) eller [REST API: er](/rest/api/cosmos-db/).
+Indexprincip kan ändras genom att köra en PUT på samlingen. Detta kan vara uppnås antingen via den [klient-SDK](sql-api-sdk-dotnet.md), [Azure-portalen](https://portal.azure.com), eller [REST API: er](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Fråga till en samling
 Dokumenten inom en samling kan ha godtyckliga scheman och du kan fråga dokument i en samling utan att ange något schema eller sekundärindex förskott. Du kan fråga en samling med hjälp av den [referens för Azure Cosmos-Databasens SQL-syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), vilket ger omfattande hierarkiska relationella och spatial operatorer och utvidgas via JavaScript-baserade UDF: er. JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med etiketter som trädnoder. Både SQL API-metoder för automatisk indexering samt Azure Cosmos DB SQL dialect utnyttjas. SQL-frågespråket består av tre huvudsakliga aspekter:   
@@ -222,7 +222,7 @@ Tack vare djupgående förbinder sig att JavaScript och JSON direkt i databasmot
 * Effektiv implementering av samtidighet styra, återställning av automatisk indexering av JSON-objektdiagram direkt i databasmotorn
 * Naturligt uttrycka Kontrollflöde, variabel scope, tilldelning och integration av undantagshantering primitiver med databastransaktioner direkt i JavaScript programmeringsspråket
 
-JavaScript-logik som registrerats på en samlingsnivå kan sedan utfärda databasåtgärder i dokumenten i den angivna samlingen. Azure Cosmos-DB implicit radbryts JavaScript-baserade lagrade procedurer och utlösare inom en omgivande ACID-transaktioner med ögonblicksbildisolering mellan dokument i en samling. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen. Resulterande programmeringsmiljö är mycket enkelt men ändå kraftfulla. JavaScript-utvecklare får en ”varaktiga” programmeringsmodell när du använder fortfarande sin bekant språkkonstruktioner och biblioteket primitiver.   
+JavaScript-logik som registrerats på en samlingsnivå kan sedan utfärda databasåtgärder i dokumenten i den angivna samlingen. Azure Cosmos-DB implicit radbryts JavaScript-baserade lagrade procedurer och utlösare inom en omgivande ACID-transaktion med ögonblicksbildisolering mellan dokument i en samling. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen. Resulterande programmeringsmiljö är enkla men ändå kraftfulla. JavaScript-utvecklare får en ”varaktiga” programmeringsmodell när du använder fortfarande sin bekant språkkonstruktioner och biblioteket primitiver.   
 
 Möjligheten att köra JavaScript direkt i databasmotorn i samma adressutrymme som buffertpoolen kan performant och transaktionell körning av databasåtgärder mot dokumenten i en samling. Dessutom Cosmos-databasen databasmotor gör ett djupgående åtagande att JSON och JavaScript åtgärdar eventuella impedans matchningsfel mellan de typ av program och databasen.   
 
@@ -282,7 +282,7 @@ Lagrade procedurer och utlösare interagera med en samling och dokument i en sam
 Samlingar i SQL-API kan skapas, tagits bort, läs eller uppräknade enkelt med antingen den [REST API: er](/rest/api/cosmos-db/) eller någon av de [klient-SDK: er](sql-api-sdk-dotnet.md). SQL-API ger alltid stark konsekvens för läsning eller en fråga till metadata för en samling. Om du tar bort en samling automatiskt säkerställer att du kan inte komma åt dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er som finns i den.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Lagrade procedurer, utlösare och användaren definierat funktioner (UDF)
-Enligt beskrivningen i föregående avsnitt, kan du skriva programlogiken till att köras direkt i en transaktion i databasmotorn. Logik för programmet kan vara helt skrivna i JavaScript och kan modelleras som en lagrad procedur, utlösare eller en UDF. JavaScript-kod i en lagrad procedur eller en utlösare kan infoga, Ersätt, ta bort, läs eller fråga dokument i en samling. Å andra sidan JavaScript inom en UDF inte insert-, ersätta eller ta bort dokument. UDF: Räkna upp dokument för en frågeresultatet och skapar en annan resultatuppsättning. Azure Cosmos DB tillämpar en strikt reservation-baserade resurs styrning för flera innehavare. Alla lagrade procedurer, utlösare och en UDF hämtar en fast quantum av systemresurser med sitt arbete. Dessutom lagrade procedurer, utlösare och UDF: er kan inte länka mot externa JavaScript-bibliotek och övriga om de överskrider budgetarna resurs tilldelas. Du kan registrera, avregistrera lagrade procedurer, utlösare och UDF: er med en samling med hjälp av REST-API: er.  Vid registreringen en lagrad procedur, utlösare eller en UDF före kompileras och lagras som bytekod genomförs senare. Följande ssection illustrateshow som du kan använda Azure Cosmos DB JavaScript SDK för att registrera, köra och avregistrera en lagrad procedur, utlösare och en UDF. JavaScript SDK är en enkel omslutning över den [REST API: er](/rest/api/cosmos-db/). 
+Enligt beskrivningen i föregående avsnitt, kan du skriva programlogiken till att köras direkt i en transaktion i databasmotorn. Logik för programmet kan vara helt skrivna i JavaScript och kan modelleras som en lagrad procedur, utlösare eller en UDF. JavaScript-kod i en lagrad procedur eller en utlösare kan infoga, Ersätt, ta bort, läs eller fråga dokument i en samling. Å andra sidan JavaScript inom en UDF inte insert-, ersätta eller ta bort dokument. UDF: Räkna upp dokument för en frågeresultatet och skapar en annan resultatuppsättning. Azure Cosmos DB tillämpar en strikt reservation-baserade resurs styrning för flera innehavare. Alla lagrade procedurer, utlösare och en UDF hämtar en fast quantum av systemresurser med sitt arbete. Dessutom lagrade procedurer, utlösare och UDF: er kan inte länka mot externa JavaScript-bibliotek och övriga om de överskrider budgetarna resurs tilldelas. Du kan registrera, avregistrera lagrade procedurer, utlösare och UDF: er med en samling med hjälp av REST-API: er.  Vid registreringen en lagrad procedur, utlösare eller en UDF före kompileras och lagras som bytekod genomförs senare. Följande avsnitt visar hur du kan använda Azure Cosmos DB JavaScript SDK för att registrera, köra och avregistrera en lagrad procedur, utlösare och en UDF. JavaScript SDK är en enkel omslutning över den [REST API: er](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registrera en lagrad procedur
 Registrering av en lagrad procedur skapar en ny resurs lagrad procedur på en samling via HTTP POST.  
@@ -322,7 +322,7 @@ Körningen av en lagrad procedur görs genom att utfärda en HTTP POST mot en be
         });
 
 ### <a name="unregistering-a-stored-procedure"></a>Avregistrerar en lagrad procedur
-Avregistrerar en lagrad procedur görs bara genom att utfärda ett HTTP DELETE mot en befintlig resurs lagrad procedur.   
+Avregistrerar en lagrad procedur görs genom att utfärda ett HTTP DELETE mot en befintlig resurs lagrad procedur.   
 
     client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
         .then(function (response) {
@@ -364,7 +364,7 @@ Körningen av en utlösare gör du genom att ange namnet på en befintlig utlös
         });
 
 ### <a name="unregistering-a-pre-trigger"></a>Avregistrerar en före utlösare
-Avregistrerar en utlösare sker bara via utfärdar en HTTP-ta bort mot en befintlig resurs för utlösare.  
+Avregistrerar en utlösare sker via utfärdar en HTTP-ta bort mot en befintlig resurs för utlösare.  
 
     client.deleteTriggerAsync(createdPreTrigger._self);
         .then(function(response) {
@@ -415,7 +415,7 @@ Avregistrerar en UDF görs bara genom att utfärda ett HTTP DELETE mot en befint
 ## <a name="documents"></a>Dokument
 Du kan infoga, Ersätt, ta bort, Läs, räkna upp och fråga godtyckliga JSON-dokument i en samling. Azure Cosmos-DB tvingade inte alla scheman och kräver inte sekundärindex för att stödja frågealternativ över dokument i en samling. Den maximala storleken för ett dokument är 2 MB.   
 
-Som en tjänst verkligen öppna databasen Azure Cosmos DB inte hittar några särskilda datatyper (till exempel datum och tid) eller specifika kodningar för JSON-dokument. Azure Cosmos-DB kräver inte några särskilda JSON-konventioner att kodifiera relationerna mellan olika dokument. SQL-syntaxen i Azure Cosmos DB ger mycket kraftfulla hierarkiska relationella frågan och operatorer som fråge- och dokument utan speciella anteckningar eller behöver kodifiera relationerna mellan dokument med unika egenskaper.  
+Som en tjänst verkligen öppna databasen Azure Cosmos DB inte hittar några särskilda datatyper (till exempel datum och tid) eller specifika kodningar för JSON-dokument. Azure Cosmos-DB kräver inte några särskilda JSON-konventioner att kodifiera relationerna mellan olika dokument. SQL-syntaxen i Azure Cosmos DB tillhandahåller kraftfulla hierarkiska relationella frågan och operatorer som fråge- och dokument utan speciella anteckningar eller behöver kodifiera relationerna mellan dokument med unika egenskaper.  
 
 Som med alla andra resurser dokument kan skapas, bytts ut kan tas bort, Läs, räkna upp och frågas enkelt använda REST API: er eller någon av de [client SDK](sql-api-sdk-dotnet.md). Ta bort ett dokument direkt frigör den kvot som motsvarar alla kapslade bifogade filer. Läskonsekvens andelen dokument följer principen konsekvenskontroll på databaskontot. Den här principen kan åsidosättas på grundval av per begäran beroende på kraven för konsekvenskontroll av ditt program. När du frågar dokument följer läskonsekvensen indexering inställd på samlingen. Det följer kontoprincip konsekvens för ”konsekvent”. 
 
@@ -426,11 +426,11 @@ Azure Cosmos-DB kan du lagra binära blobbar/media antingen med Azure Cosmos DB 
 
 * Boken själva innehållet lagras i media storage antingen tillgängligt som en del av Azure Cosmos DB databaskonto eller en fjärransluten mediebutik. 
 * Ett program kan lagra metadata för varje användare som distinkta dokument – till exempel Toms metadata för Bok1 lagras i ett dokument som refereras av /colls/joe/docs/book1. 
-* Bifogade filer pekar på innehåll sidor i en viss bok för en användare till exempel lagras under motsvarande dokument, /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 osv. 
+* Bifogade filer som pekar på sidorna innehåll i en viss bok för en användare lagras under motsvarande dokumentet, till exempel /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 osv. 
 
 Exemplen ovan Använd eget-ID: n för att förmedla resurs-hierarkin. Resurser kan nås via REST-API: er via unik resurs-ID: n. 
 
-Egenskapen _media för den bifogade filen refererar till media av dess URI: N för de media som hanteras av Azure Cosmos DB. Azure Cosmos-DB säkerställer att skräp samla in mediet när alla utestående referenser tas bort. Azure Cosmos-DB automatiskt genererar den bifogade filen när du överför det nya mediet och fylls _media så att den pekar till det nyligen tillagda mediet. Om du väljer att lagra media i en fjärransluten blobstore som hanteras av dig (till exempel OneDrive, Azure Storage, DropBox osv), kan du fortfarande använda bilagor för att referera till mediet. I så fall måste du själv skapar den bifogade filen och fylla i egenskapen _media.   
+Egenskapen _media för den bifogade filen refererar till media av dess URI: N för de media som hanteras av Azure Cosmos DB. Azure Cosmos-DB säkerställer att skräp samla in mediet när alla utestående referenser tas bort. Azure Cosmos-DB automatiskt genererar den bifogade filen när du överför det nya mediet och fylls _media så att den pekar till det nyligen tillagda mediet. Om du väljer att lagra media i en fjärransluten blobstore som hanteras av dig (till exempel OneDrive, Azure Storage, DropBox osv.), kan du fortfarande använda bilagor för att referera till mediet. I så fall måste du själv skapar den bifogade filen och fylla i egenskapen _media.   
 
 Som med alla andra resurser, bifogade filer skapas, ersätts bort, läsa eller räkna upp enkelt använda REST API: er eller någon av klient-SDK: er. Precis som med dokument, följer läskonsekvens andelen bilagor konsekvenskontroll principen på kontot. Den här principen kan åsidosättas på grundval av per begäran beroende på kraven för konsekvenskontroll av ditt program. När du frågar efter bilagor följer läskonsekvensen indexering inställd på samlingen. Det följer kontoprincip konsekvens för ”konsekvent”. 
  
@@ -457,7 +457,7 @@ Precis som alla andra resurser, användare i Azure Cosmos DB kan skapas, ersätt
 ## <a name="permissions"></a>Behörigheter
 Ur ett access control, resurser, till exempel databasen konton, databaser, användare och behörigheten anses *administrativa* resurser eftersom de kräver administratörsbehörighet. Å andra sidan resurser inklusive samlingarna, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er omfång under en viss databas och anses vara *programresurser*. Auktoriseringsmodellen som motsvarar de två typerna av resurser och de roller som kan komma åt dem (nämligen administratörer och användare) definierar två typer av *åtkomstnycklar*: *huvudnyckeln* och  *Resursnyckeln*. Huvudnyckeln är en del av kontot och har angetts för utvecklare (eller administratör) som etablerar databaskontot. Den här huvudnyckeln har administratören semantik i att den kan användas för att bevilja åtkomst till både administrativa och program. En Resursnyckeln är däremot ett detaljerade åtkomstnyckel som ger åtkomst till en *specifika* programresursen. Det innebär den samlar in relationen mellan användare av en databas och vilka behörigheter användaren har för en viss resurs (exempelvis samling dokument, bifogad fil, lagrade procedurer, utlösare eller UDF).   
 
-Det enda sättet att hämta en Resursnyckeln är genom att skapa en behörighet resurs under en viss användare. Observera att för att skapa eller hämta behörighet, en huvudnyckel måste vara angiven på authorization-huvud. En behörighet resurs kopplar samman resursen, dess åtkomst och användaren. När du har skapat en behörighet resurs behöver användaren bara finns nyckeln associerad resurs för att få åtkomst till den aktuella resursen. Därför kan en Resursnyckeln ses som en logisk och compact representation av resursen behörighet.  
+Det enda sättet att hämta en Resursnyckeln är genom att skapa en behörighet resurs under en viss användare. För att skapa eller hämta behörighet, måste en huvudnyckel presenteras i authorization-huvud. En behörighet resurs kopplar samman resursen, dess åtkomst och användaren. När du har skapat en behörighet resurs behöver användaren bara finns nyckeln associerad resurs för att få åtkomst till den aktuella resursen. Därför kan en Resursnyckeln ses som en logisk och compact representation av resursen behörighet.  
 
 Som med alla andra resurser, behörigheter i Azure Cosmos DB skapas, ersätts bort, läsa eller räkna upp enkelt använda REST API: er eller någon av klient-SDK: er. Azure Cosmos-DB ger alltid stark konsekvens för läsning eller en fråga till metadata för en behörighet. 
 

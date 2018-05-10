@@ -1,26 +1,26 @@
 ---
-title: "Beständiga funktioner översikt – Azure (förhandsversion)"
-description: "Introduktion till tillägget varaktiga funktioner för Azure Functions."
+title: Beständiga funktioner översikt – Azure
+description: Introduktion till tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>Beständiga översikt över Functions (förhandsgranskning)
+# <a name="durable-functions-overview"></a>Översikt över varaktiga Functions
 
 *Beständiga funktioner* är en utökning av [Azure Functions](functions-overview.md) och [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) som låter dig skriva tillståndskänslig funktioner i en miljö med serverlösa. Tillägget hanterar tillstånd, kontrollpunkter och startas om för dig.
 
@@ -31,7 +31,7 @@ Tillägget kan du definiera tillståndskänslig arbetsflöden i en ny typ av fun
 * De automatiskt kontrollpunkt framstegen när funktionen väntar. Lokala tillstånd går aldrig förlorad om processen återanvänds eller den virtuella datorn startas om.
 
 > [!NOTE]
-> Beständiga funktioner är en förhandsversion och är en avancerad tillägg för Azure-funktioner som inte är lämplig för alla program. Resten av den här artikeln förutsätter att du har en stark förtrogenhet med [Azure Functions](functions-overview.md) begrepp och utmaningarna som deltar i serverlösa programutveckling.
+> Beständiga funktioner är ett avancerat tillägg för Azure-funktioner som inte är lämplig för alla program. Resten av den här artikeln förutsätter att du har en stark förtrogenhet med [Azure Functions](functions-overview.md) begrepp och utmaningarna som deltar i serverlösa programutveckling.
 
 Det primära användningsfallet för beständig funktioner är förenkla komplexa, tillståndskänslig samordning problem i serverlösa program. I följande avsnitt beskrivs några vanliga program mönster som kan dra nytta av beständiga funktioner.
 
@@ -42,6 +42,8 @@ Det primära användningsfallet för beständig funktioner är förenkla komplex
 ![Funktionen chaining diagram](media/durable-functions-overview/function-chaining.png)
 
 Beständiga funktioner kan du genomföra det här mönstret koncist i kod.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 Värdena ”F1”, ”F2”, ”F3” och ”F4” är namnen på andra funktioner i appen funktion. Kontrollflöde implementeras med normal tvingande kodning konstruktioner. Det vill säga kod kör uppifrån och ned och kan omfatta befintliga kontrollen flödet språksemantik, som villkorlig sats och slingor.  Felhantering logik kan ingå i försök/catch/finally-block.
 
 Den `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) ger metoder för att anropa andra funktioner efter namn, skicka parametrar och returnera utdata för funktionen. Varje gång koden anropar `await`, beständiga funktioner framework *kontrollpunkter* förloppet för den aktuella instansen för funktionen. Om processen eller VM återvinns halvvägs vid körning, funktionen instans återupptas från den tidigare `await` anropa. Mer information om detta omstartsbeteende senare.
@@ -71,6 +86,8 @@ Den `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure
 ![FAN-in/fan-i diagrammet](media/durable-functions-overview/fan-out-fan-in.png)
 
 Med normal funktion, fläkt kan du göra genom att låta funktionen Skicka flera meddelanden till en kö. Fläkt tillbaka i är dock mycket mer utmanande. Du skulle behöva skriva kod för att spåra när kön-utlösta funktioner avslutas och lagra funktionen utdata. Tillägget varaktiga funktioner hanterar det här mönstret med relativt enkla kod.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 Fan-out arbete distribueras till flera instanser av funktionen `F2`, och vad som ska spåras med hjälp av en dynamisk lista över aktiviteter. .NET `Task.WhenAll` API anropas för att vänta tills alla kallas funktioner ska slutföras. Sedan `F2`funktionen matar ut sammanställs från dynamisk uppgiftslistan och skickas till den `F3` funktion.
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametern är ett värde från det `orchestrationClient` utdata bindning, som ingår i tillägget varaktiga funktioner. Det ger metoder för Start, för att skicka händelser till, avbryts och frågar efter nya eller befintliga orchestrator-instanser för funktionen. I exemplet ovan tar en HTTP-funktion som utlöses en `functionName` värde från inkommande URL och överför ett värde till [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Den här bindningen API returnerar ett svar som innehåller en `Location` sidhuvud och ytterligare information om den instans som senare kan användas för att leta upp status för igång instansen eller avsluta.
+Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametern är ett värde från det `orchestrationClient` utdata bindning, som ingår i tillägget varaktiga funktioner. Det ger metoder för Start, för att skicka händelser till, avbryts och frågar efter nya eller befintliga orchestrator-instanser för funktionen. I det förra exemplet tar en HTTP-funktion som utlöses en `functionName` värde från inkommande URL och överför ett värde till [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Den här bindningen API returnerar ett svar som innehåller en `Location` sidhuvud och ytterligare information om den instans som senare kan användas för att leta upp status för igång instansen eller avsluta.
 
 ## <a name="pattern-4-monitoring"></a>Mönstret #4: övervaka
 
@@ -162,6 +201,8 @@ Ett exempel skulle återföra tidigare asynkrona HTTP API scenariot. I stället 
 ![Övervakare för diagram](media/durable-functions-overview/monitor.png)
 
 Med hjälp av beständiga funktioner, kan flera bildskärmar som använder valfri slutpunkter skapas i några rader med kod. Övervakarna kan avsluta körningen när vissa villkor uppfylls, eller avslutas med den [DurableOrchestrationClient](durable-functions-instance-management.md), och deras intervall kan ändras baserat på vissa villkor (d.v.s. exponentiell backoff.) Följande kod implementerar en grundläggande Övervakare.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 När en begäran tas emot, skapa en ny orchestration-instans för detta jobb-ID. Instansen avsöker status tills ett villkor uppfylls och slingan har avslutats. En beständig timer används för att styra avsökningsintervallet. Ytterligare arbete kan utföras eller orchestration kan avsluta. När den `ctx.CurrentUtcDateTime` överskrider den `expiryTime`, övervaka parterna.
 
 ## <a name="pattern-5-human-interaction"></a>Mönster för #5: Mänsklig interaktion
@@ -200,6 +269,8 @@ Ett exempel på en affärsprocess som inbegriper mänsklig interaktion är en go
 ![Mänsklig interaktionsdiagram](media/durable-functions-overview/approval.png)
 
 Det här mönstret kan implementeras med hjälp av en orchestrator-funktion. Orchestrator använder en [varaktiga timer](durable-functions-timers.md) att begära godkännande och eskalera vid timeout. Det skulle vänta tills en [extern händelse](durable-functions-external-events.md), vilket är meddelande som genereras av vissa mänsklig interaktion.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 Beständiga timern har skapats genom att anropa `ctx.CreateTimer`. Meddelandet tas emot av `ctx.WaitForExternalEvent`. Och `Task.WhenAny` anropas för att bestämma om du vill eskalera (timeout inträffar först) eller bearbeta godkännande (godkännande tas emot innan timeout).
+
+En extern klient kan leverera händelseavisering till en väntande orchestrator-funktion med hjälp av antingen den [inbyggda HTTP APIs](durable-functions-http-api.md#raise-event) eller genom att använda [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API från en annan funktion:
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>Tekniken
 
@@ -244,7 +347,7 @@ Beteendet replay skapar begränsningar på vilken typ av kod som kan skrivas i e
 
 ## <a name="language-support"></a>Språkstöd
 
-För närvarande är C# det enda språket som stöds för beständig funktioner. Detta inkluderar orchestrator-funktioner och funktioner för aktiviteten. I framtiden kommer vi lägga till stöd för alla språk som stöds av Azure Functions. Se Azure Functions [GitHub-lagringsplatsen problem listan](https://github.com/Azure/azure-functions-durable-extension/issues) att visa den senaste statusen för våra ytterligare språk stöder arbete.
+För närvarande C# (funktioner v1 och v2) och JavaScript (endast funktioner v2) är de enda språk som stöds för beständig funktioner. Detta inkluderar orchestrator-funktioner och funktioner för aktiviteten. I framtiden kommer vi lägga till stöd för alla språk som stöds av Azure Functions. Se Azure Functions [GitHub-lagringsplatsen problem listan](https://github.com/Azure/azure-functions-durable-extension/issues) att visa den senaste statusen för våra ytterligare språk stöder arbete.
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
@@ -275,7 +378,7 @@ Tabellagring används för att lagra körningstiden för orchestrator-konton. N�
 
 ## <a name="known-issues-and-faq"></a>Kända problem och vanliga frågor och svar
 
-I allmänhet alla kända problem ska spåras i den [GitHub problem](https://github.com/Azure/azure-functions-durable-extension/issues) lista. Om du stöter på problem och går inte att hitta problemet i GitHub, öppnas ett nytt ärende och innehåller en detaljerad beskrivning av problemet. Även om du vill ställa en fråga, passa på att öppna ett GitHub-problem och tagga som en fråga.
+Alla kända problem som ska spåras i den [GitHub problem](https://github.com/Azure/azure-functions-durable-extension/issues) lista. Om du stöter på problem och går inte att hitta problemet i GitHub, öppnas ett nytt ärende och innehåller en detaljerad beskrivning av problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 

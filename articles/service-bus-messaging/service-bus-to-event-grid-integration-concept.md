@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
@@ -47,9 +47,9 @@ Service Bus skickar händelser för två scenarier:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Dessutom använder Service Bus standardsäkerhet för Event Grid och [autentiseringsmekanismer](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Dessutom använder Service Bus standardsäkerhet för Event Grid och [autentiseringsmekanismer](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
-Mer information finns i [Azure Event Grid event schemas](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) (Händelsescheman i Azure Event Grid).
+Mer information finns i [Azure Event Grid event schemas](https://docs.microsoft.com/azure/event-grid/event-schema) (Händelsescheman i Azure Event Grid).
 
 #### <a name="active-messages-available-event"></a>Aktiva meddelanden, tillgänglig händelse
 
@@ -138,7 +138,7 @@ Så här skapar du en ny Event Grid-prenumeration:
 
 ## <a name="azure-cli-instructions"></a>Azure CLI-instruktioner
 
-Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Ladda ned installationsprogrammet](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
+Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Ladda ned installationsprogrammet](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 Kör följande kod:
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell-instruktioner
 
-Kontrollera att du har Azure PowerShell installerat. [Ladda ned installationsprogrammet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
+Kontrollera att du har Azure PowerShell installerat. [Ladda ned installationsprogrammet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ Härifrån kan du utforska andra installationsalternativ eller [testa händelser
 ## <a name="next-steps"></a>Nästa steg
 
 * Hämta Service Bus- och Event Grid-[exempel](service-bus-to-event-grid-integration-example.md).
-* Läs mer om [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Läs mer om [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Läs mer om [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Läs mer om [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Läs mer om [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* Läs mer om [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+* Läs mer om [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

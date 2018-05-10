@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager mallstruktur och syntax | Microsoft Docs
-description: "Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med deklarativ JSON-syntax."
+description: Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med deklarativ JSON-syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3b70817f973f0bfbdcec2aa8c76a431eec308bcf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå struktur och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen i en Azure Resource Manager-mall. Det innehåller olika avsnitt i en mall och egenskaper som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
@@ -32,6 +32,7 @@ I sin enklaste strukturen innehåller en mall följande element:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
+    "functions": {  },
     "resources": [  ],
     "outputs": {  }
 }
@@ -43,6 +44,7 @@ I sin enklaste strukturen innehåller en mall följande element:
 | contentVersion |Ja |Version av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
 | parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resource distribution. |
 | variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
+| functions |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
 | resurser |Ja |Resurstyper som distribuerats eller uppdateras i en resursgrupp. |
 | utdata |Nej |Värden som returneras efter distributionen. |
 
@@ -92,6 +94,25 @@ Varje element innehåller egenskaper som du kan ange. I följande exempel inneh�
             }
         ]
     },
+    "functions": [
+      {
+        "namespace": "<namespace-for-your-function>",
+        "members": {
+          "<function-name>": {
+            "parameters": [
+              {
+                "name": "<parameter-name>",
+                "type": "<type-of-parameter-value>"
+              }
+            ],
+            "output": {
+              "type": "<type-of-output-value>",
+              "value": "<function-expression>"
+            }
+          }
+        }
+      }
+    ],
     "resources": [
       {
           "condition": "<boolean-value-whether-to-deploy>",
@@ -184,6 +205,59 @@ I följande exempel visas ett enkelt variabeldefinitionen:
 ```
 
 Information om hur du definierar variabler finns i [variabler avsnitt i Azure Resource Manager-mallar](resource-manager-templates-variables.md).
+
+## <a name="functions"></a>Functions
+
+Du kan skapa egna funktioner i din mall. Dessa funktioner är tillgängliga för användning i mallen. Normalt kan du definiera komplicerade uttryck som du inte vill upprepa i hela din mall. Du kan skapa användardefinierade funktioner från uttryck och [funktioner](resource-group-template-functions.md) som stöds i mallar.
+
+När du definierar en user-funktionen, finns det vissa begränsningar:
+
+* Funktionen kommer inte åt variabler.
+* Funktionen kan inte använda den [referera funktionen](resource-group-template-functions-resource.md#reference).
+* Parametrar för funktionen kan inte ha standardvärden.
+
+Dina funktioner kräver ett namnutrymmesvärde för att undvika namngivningskonflikter med Mallfunktioner. I följande exempel visas en funktion som returnerar namnet på ett lagringskonto:
+
+```json
+"functions": [
+  {
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
+  }
+],
+```
+
+Du kan anropa en funktion med:
+
+```json
+"resources": [
+  {
+    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "South Central US",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## <a name="resources"></a>Resurser
 I avsnittet resurser kan du definiera de resurser som distribueras eller uppdateras. Det här avsnittet får komplicerad, eftersom du måste förstå vilka typer som du distribuerar för att tillhandahålla rätt värden.

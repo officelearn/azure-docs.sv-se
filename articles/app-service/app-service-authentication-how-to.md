@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Anpassa autentisering och auktorisering i Azure App Service
 
@@ -25,7 +25,8 @@ Den här artikeln visar hur du anpassar [autentisering och auktorisering i Apptj
 
 Om du vill komma igång snabbt, finns i något av följande kurser:
 
-* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Så här konfigurerar du din app för att använda Facebook-inloggning](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Så här konfigurerar du din app för att använda Google-inloggning](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Klicka på **redigera**ändra följande egenskaper och klicka sedan på **placer
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt](app-service-web-tutorial-auth-aad.md)
+> [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Självstudier: autentisera och auktorisera användare slutpunkt till slutpunkt (Linux)](containers/tutorial-auth-aad.md)

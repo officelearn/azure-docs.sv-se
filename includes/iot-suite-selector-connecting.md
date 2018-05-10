@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C i Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
@@ -5,7 +21,7 @@
 > * [Node.js på Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C på Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-I kursen får du implementerar en **kylaggregat** enhet som skickar följande telemetri för fjärråtkomst övervakning [förkonfigurerade lösningen](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
+I kursen får du implementerar en **kylaggregat** enhet som skickar följande telemetri för fjärråtkomst övervakning [lösningsaccelerator](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
 
 * Temperatur
 * Tryck
@@ -23,11 +39,11 @@ Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om d
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du skriva kod för enheten Distribuera fjärråtkomst övervakning förkonfigurerade lösningar och lägger till en ny fysisk enhet i lösningen.
+Innan du skriva kod för enheten kan du distribuera din fjärråtkomst övervakning solution accelerator och lägger till en ny fysisk enhet i lösningen.
 
-### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Distribuera fjärråtkomst övervakning förkonfigurerade lösningar
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuera din fjärråtkomst övervakning solution accelerator
 
-Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [fjärrövervaknings](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) förkonfigurerade lösningen. Om du inte redan har etablerats fjärråtkomst övervakning förkonfigurerade lösningen i ditt Azure-konto, se [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [fjärrövervaknings](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) lösningsaccelerator. Om du inte redan har etablerats fjärråtkomst övervakning solution accelerator i ditt Azure-konto, se [Distribuera fjärråtkomst övervakning solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
 När distributionsprocessen för fjärranslutna övervakningslösning är klar klickar du på **starta** att öppna lösningen instrumentpanelen i webbläsaren.
 
@@ -38,7 +54,7 @@ När distributionsprocessen för fjärranslutna övervakningslösning är klar k
 > [!NOTE]
 > Om du redan har lagt till en enhet i din lösning kan du hoppa över det här steget. Nästa steg kräver dock anslutningssträngen enhet. Du kan hämta anslutningssträngen för en enhet från den [Azure-portalen](https://portal.azure.com) eller med hjälp av den [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-verktyget.
 
-För att en enhet ska kunna ansluta till den förkonfigurerade lösningen måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara anslutningssträngen för enheten som innehåller dessa autentiseringsuppgifter när du lägger till enheten lösningen. Du inkludera enheten anslutningssträngen i ditt klientprogram senare i den här kursen.
+För en enhet kan ansluta till solution accelerator, måste den identifiera sig för IoT-hubb med giltiga autentiseringsuppgifter. Du har möjlighet att spara anslutningssträngen för enheten som innehåller dessa autentiseringsuppgifter när du lägger till enheten lösningen. Du inkludera enheten anslutningssträngen i ditt klientprogram senare i den här kursen.
 
 Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför följande steg på den **enheter** sida i lösningen:
 
@@ -54,9 +70,9 @@ Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför föl
 
     ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
 
-Du har nu lagt till en fysisk enhet till fjärråtkomst övervakning förkonfigurerade lösningen och anges sin enhet anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enheten anslutningssträngen för att ansluta till din lösning.
+Du har nu lagt till en fysisk enhet till fjärråtkomst övervakning solution accelerator och anges sin enhet anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enheten anslutningssträngen för att ansluta till din lösning.
 
-Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En förkonfigurerade lösningen enhetsmodell anger följande om en enhet:
+Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En solution accelerator enhetsmodell anger följande om en enhet:
 
 * Egenskaperna enheten rapporterar till lösningen. Till exempel en **kylaggregat** enheten rapporterar information om den inbyggda programvaran och plats.
 * Vilka typer av telemetri enheten skickar till lösningen. Till exempel en **kylaggregat** enheten skickar temperatur, fuktighet och tryckvärden.

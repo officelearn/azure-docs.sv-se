@@ -1,6 +1,6 @@
 ---
-title: "Använda en Azure Apptjänst-miljö"
-description: "Skapa, publicera och skala appar i Azure Apptjänst-miljö"
+title: Använda en Azure Apptjänst-miljö
+description: Skapa, publicera och skala appar i Azure Apptjänst-miljö
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>Använd en Apptjänst-miljö #
 
@@ -58,19 +58,28 @@ Skapa en webbapp i en ASE:
 
 4. Ange ett namn för en ny resursgrupp eller välj **använda befintliga** och välj en från den nedrullningsbara listan.
 
+5. Välj ditt operativsystem. 
+
+    * Värd för en Linux-app i en ASE är en ny funktion i förhandsversionen, så vi rekommenderar att du inte lägger till Linux-appar i en ASE som körs för tillfället produktionsarbetsbelastningar. 
+    * Att lägga till en Linux-app i en ASE innebär att ASE också i förhandsgranskningsläge. 
+
 5. Välj en befintlig programtjänstplan i din ASE eller skapa en ny genom att följa dessa steg:
 
     a. Välj **skapa nya**.
 
     b. Ange namn för din programtjänstplan.
 
-    c. Välj din ASE i den **plats** listrutan.
+    c. Välj din ASE i den **plats** listrutan. Värd för en Linux-app i en ASE är endast aktiverad i 6 områden för tillfället: **västra USA, östra USA, västra Europa, Norra Europa, östra, Sydostasien.** 
 
     d. Välj en **isolerad** prisnivån. Välj **Välj**.
 
     e. Välj **OK**.
     
     ![Isolerade prisnivåer][2]
+
+    > [!NOTE]
+    > Linux-webbprogram och Windows web apps får inte finnas i den samma App Service-Plan, men kan vara i samma Apptjänst-miljön. 
+    >
 
 6. Välj **Skapa**.
 
@@ -109,8 +118,8 @@ URL: en contoso.scm.external-ase.p.azurewebsites.net används för att få åtko
 
 I en ILB ASE bestämma domänen vid tidpunkten för distribution. Läs mer om hur du skapar en ILB ASE [skapa och använda en ILB ASE][MakeILBASE]. Om du anger domännamnet _ilb ase.info_, appar i den ASE använda denna domän under skapande av app. För program med namnet _contoso_, URL: er är:
 
-- contoso.ilb-ase.info
-- contoso.scm.ilb-ase.info
+- Contoso.ilb ase.info
+- Contoso.SCM.ilb ase.info
 
 ## <a name="publishing"></a>Publicering ##
 

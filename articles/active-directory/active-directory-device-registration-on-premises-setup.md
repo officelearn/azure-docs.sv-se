@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (AD Azure) enhetsregistreringstjänsten kan sina enheter markeras som kända för din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.
@@ -86,7 +86,7 @@ Följ stegen i checklistan om du vill aktivera och konfigurera enhetsregistrerin
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Del 3: Aktivera tillbakaskrivning av enhet i Azure AD
 | Aktivitet | Referens |
 | --- | --- |
-| Slutföra två tillhör ”aktivera tillbakaskrivning av enheter i Azure AD Connect”. Återgå till den här guiden när du avslutar den. |[Aktivera tillbakaskrivning av enheter i Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Slutföra två tillhör ”aktivera tillbakaskrivning av enheter i Azure AD Connect”. Återgå till den här guiden när du avslutar den. |[Aktivera tillbakaskrivning av enheter i Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Valfritt] Del 4: Aktivera Multi-Factor Authentication
 Vi rekommenderar starkt att du konfigurerar ett av flera alternativ för Multifaktorautentisering. Om du vill kräva Multifaktorautentisering [väljer säkerhetslösning Multi-Factor Authentication för du](authentication/concept-mfa-whichversion.md). Den innehåller en beskrivning av varje lösning och länkar som hjälper dig att konfigurera lösningen för ditt val.

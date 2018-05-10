@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8a3eedb5a3d96eedd1a64d85afdb58f8961df272
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure belastningsutjämnare?
 
@@ -73,9 +73,9 @@ Belastningsutjämnare ger följande grundläggande funktioner för TCP och UDP-p
 
 * **Programmet storleksoberoende och transparent**
 
-    Belastningsutjämnaren interagerar inte direkt med TCP eller UDP eller programlager och alla TCP eller UDP-baserade program scenario kan stödjas.  Belastningsutjämnaren matchar inte avsluta eller kommer flöden, interagera med nyttolasten för flödet, innehåller inga program layer gateway-funktionen och protokollet handskakningar på alltid ske direkt mellan klienten och backend-pool-instans.  Ett svar på ett inkommande flöde är alltid ett svar från en virtuell dator.  När flödet anländer på den virtuella datorn, bevaras också ursprungliga källans IP-adress.  Några exempel för att illustrera ytterligare genomskinlighet:
-    - En TCP-handskakning inträffar alltid mellan klienten och valda backend-VM. Ett svar på en begäran om att en klientdel är ett svar som genererats av backend-VM. Du bör använda TCP ping för att verifiera anslutningarna i det här scenariot.  Använd [psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) eller [nmap](https://nmap.org) att kontrollera om en handskakning med en felfri virtuell dator ska lyckas. Observera ICMP är en annan IP-protokoll än UDP eller TCP och stöds inte för detta ändamål.
-    - Programmet nyttolaster är transparent för belastningsutjämnaren och eventuella UDP eller TCP-baserade program kan användas. För arbetsbelastningar som kräver per bearbetning av HTTP-begäranden eller modifiering av application layer nyttolaster (t.ex. tolkning av HTTP-URL: er), bör du använda en lager 7 belastningsutjämning som [Programgateway](https://azure.microsoft.com/en-us/services/application-gateway).
+    Belastningsutjämnaren interagerar inte direkt med TCP eller UDP eller programlager och alla TCP eller UDP-programmet scenario kan stödjas.  Belastningsutjämnaren matchar inte avsluta eller kommer flöden, interagera med nyttolasten för flödet, innehåller inga program layer gateway-funktionen och protokollet handskakningar på alltid ske direkt mellan klienten och backend-pool-instans.  Ett svar på ett inkommande flöde är alltid ett svar från en virtuell dator.  När flödet anländer på den virtuella datorn, bevaras också ursprungliga källans IP-adress.  Några exempel för att illustrera ytterligare genomskinlighet:
+    - Varje slutpunkt har bara besvarats av en virtuell dator.  Till exempel sker en TCP-handskakning alltid mellan klienten och valda backend-VM.  Ett svar på en begäran om att en klientdel är ett svar som genererats av backend-VM. När du har Validera anslutningen till en frontend validerar du slutpunkt till slutpunkt-anslutning till minst en backend-virtuella datorn.
+    - Programmet nyttolaster är transparent för belastningsutjämnaren och eventuella UDP eller TCP-programmet kan användas. För arbetsbelastningar som kräver per bearbetning av HTTP-begäranden eller modifiering av application layer nyttolaster (till exempel tolkning av HTTP-URL: er), bör du använda en lager 7 belastningsutjämnare som [Programgateway](https://azure.microsoft.com/en-us/services/application-gateway).
     - Eftersom belastningsutjämnare är oberoende av TCP-nyttolasten och TLS-avlastning (”SSL”) har inte angetts, kan du skapa slutpunkt till slutpunkt krypterade scenarier med hjälp av belastningsutjämnare och få stor skala ut för TLS-program genom att avsluta TLS-anslutning på Virtuellt datorn.  Sessionen TLS transparens kapacitet begränsas bara efter typ och antal virtuella datorer som du lägger till backend-poolen.  Om du behöver ”SSL genom att avlasta” application layer behandling eller vill delegera certifikathantering till Azure, bör du använda Azures layer 7 belastningsutjämnaren [Programgateway](https://azure.microsoft.com/en-us/services/application-gateway) i stället.
         
 
@@ -93,14 +93,14 @@ Belastningsutjämnare ger följande grundläggande funktioner för TCP och UDP-p
 
     - **Anpassade TCP-avsökning**: den här avsökningen förlitar sig på att upprätta en lyckad TCP-session till en definierad avsökningsport. Den här avsökningen lyckas så länge som den angivna lyssnaren på den virtuella datorn finns. Avsökningen misslyckas om anslutningen nekas. Den här avsökningen åsidosätter standard gäst agent avsökning.
 
-    - **Gästen agent avsökningen (på plattform som en tjänst [PaaS] virtuella datorer bara)**: belastningsutjämnaren kan också använda gästagenten inuti den virtuella datorn. Gästagenten lyssnar och svarar med ett HTTP-200 OK svar endast när instansen är i tillståndet redo. Om agenten inte svarar med en HTTP-200 OK, markerar instansen som inte svarar belastningsutjämnaren och stoppar skickar trafik till den instansen. Belastningsutjämnaren fortsätter att försöka att nå instansen. Om gästagenten svarar med en HTTP-200, skickar belastningsutjämnaren trafik till instansen igen. Gästen agent avsökningar är en sista utväg och ska inte användas när HTTP- eller TCP anpassad avsökningsåtgärd konfigurationer är möjliga. 
+    - **Gästen agent avsökningen (på plattform som en tjänst [PaaS] virtuella datorer bara)**: belastningsutjämnaren kan också använda gästagenten inuti den virtuella datorn. Gästagenten lyssnar och svarar med ett HTTP-200 OK svar endast när instansen är i tillståndet redo. Om agenten inte svarar med en HTTP-200 OK, markerar instansen som inte svarar belastningsutjämnaren och stoppar skickar trafik till den instansen. Belastningsutjämnaren fortsätter att försöka att nå instansen. Om gästagenten svarar med en HTTP-200, skickar belastningsutjämnaren trafik till instansen igen. Gästen agent avsökningar är en sista utväg och bör inte när HTTP- eller TCP anpassad avsökningsåtgärd konfigurationer är möjliga. 
     
-* **Utgående anslutningar (källa NAT)**
+* **Utgående anslutningar (SNAT)**
 
-    Alla utgående flöden från privata IP-adresser i det virtuella nätverket till den offentliga IP-adresser på internet kan översättas till ett frontend IP-adressen för belastningsutjämnaren. När en offentlig klientdel är knuten till en backend-VM via en belastningsutjämningsregel Azure-program utgående anslutningar till översättas automatiskt till offentliga frontend IP-adressen. Detta kallas också källa NAT (SNAT). SNAT ger viktiga fördelar:
+    Alla utgående flöden från privata IP-adresser i det virtuella nätverket till den offentliga IP-adresser på internet kan översättas till ett frontend IP-adressen för belastningsutjämnaren. När en offentlig klientdel är knuten till en backend-VM via en belastningsutjämningsregel Azure-program utgående anslutningar till översättas automatiskt till offentliga frontend IP-adressen.
 
-    * Aktiverar enkel uppgradering och katastrofåterställning för tjänster, eftersom klientdelen dynamiskt kan mappas till en annan instans av tjänsten.
-    * Det underlättar åtkomstkontrollistan (ACL) för åtkomstkontrollhantering. ACL: er som uttrycks i frontend IP-adresser ändras inte services skala upp eller ned eller hämta omdistribueras.
+    * Aktivera enkel uppgradering och katastrofåterställning för tjänster, eftersom klientdelen dynamiskt kan mappas till en annan instans av tjänsten.
+    * Enklare åtkomstkontrollistan (ACL) åtkomstkontrollhantering till. ACL: er som uttrycks i frontend IP-adresser ändras inte services skala upp eller ned eller hämta omdistribueras.  Översätter utgående anslutningar till ett mindre antal IP-adresser än datorer kan minska belastningen på vitlistning.
 
     Mer information finns i [utgående anslutningar](load-balancer-outbound-connections.md).
 
@@ -115,7 +115,7 @@ Men, beroende på vilka SKU som du väljer konfigurationen av hela scenariot kan
 >[!NOTE]
 > Överväg att använda Standard belastningsutjämnaren om du använder ett nyare design-scenario. 
 
-Fristående virtuella datorer och tillgänglighetsuppsättningar skalningsuppsättningar kan anslutas till endast en SKU aldrig båda. När du använder dem med offentliga IP-adresser, både belastningsutjämnaren och den offentliga IP-adressen SKU måste överensstämma. Belastningsutjämnare och offentliga IP-SKU: er är inte föränderliga.
+Fristående virtuella datorer, tillgänglighetsuppsättningar och skalningsuppsättningar i virtuella datorer kan anslutas till endast en SKU aldrig båda. När du använder dem med offentliga IP-adresser, både belastningsutjämnaren och den offentliga IP-adressen SKU måste överensstämma. Belastningsutjämnare och offentliga IP-SKU: er är inte föränderliga.
 
 _Det är bäst att ange de SKU: er explicit, även om det inte är ännu obligatoriskt._  För tillfället hålls nödvändiga ändringar till ett minimum. Om en SKU inte anges, tolkas det som en avsikt att använda 2017-08-01 API-versionen av grundläggande SKU: N.
 
@@ -125,7 +125,7 @@ _Det är bäst att ange de SKU: er explicit, även om det inte är ännu obligat
 | | [Standard-SKU](load-balancer-standard-overview.md) | Grundläggande SKU |
 | --- | --- | --- |
 | Storlek på backend-pool | Upp till 1 000 instanser. | Upp till 100 instanser. |
-| Backend-adresspool slutpunkter | Någon virtuell dator i ett enda virtuellt nätverk, inklusive en blandning av virtuella datorer, tillgänglighetsuppsättningar och skalningsuppsättningar. | Virtuella datorer i en enda tillgänglighetsuppsättning eller skaluppsättningen för virtuell dator. |
+| Backend-adresspool slutpunkter | Någon virtuell dator i ett enda virtuellt nätverk, inklusive en blandning av virtuella datorer, tillgänglighetsuppsättningar och skalningsuppsättningar i virtuella datorer. | Virtuella datorer i en enda tillgänglighet eller virtuella datorn. |
 | Tillgänglighetszoner i Azure | Zonredundant och zonal frontwebbservrarna för inkommande och utgående, utgående flödet mappningar klara zonen fel mellan zon belastningsutjämning. | / |
 | Diagnostik | Övervakare för Azure flerdimensionella mått, t.ex. byte och paket räknare, hälsa avsökning status, anslutningsförsök (TCP SYN), utgående anslutningshälsa (SNAT lyckade och misslyckade flöden), aktiva data plan mått. | Azure Log Analytics för offentliga ladda bara belastningsutjämnare, SNAT uttömning avisering, backend-adresspool hälsa antal. |
 | Hög tillgänglighet portar | Intern belastningsutjämnare. | / |
@@ -177,6 +177,11 @@ Grundläggande belastningsutjämnaren erbjuds utan kostnad.
 ## <a name="sla"></a>SLA
 
 Information om Standard Load Balancer SLA går du till den [belastningen belastningsutjämnaren SLA](https://aka.ms/lbsla) sidan. 
+
+## <a name="limitations"></a>Begränsningar
+
+- Belastningsutjämning är en TCP- eller UDP-produkt för belastningsutjämning och vidarebefordrade portar för dessa specifika IP-protokoll.  Regler för belastningsutjämning och inkommande NAT-regler som stöds för TCP och UDP- och stöds inte för andra IP-protokoll inklusive ICMP. Belastningsutjämnaren inte avslutas, svara eller annars interagera med nyttolasten för ett UDP eller TCP-flöde. Det är inte en proxy. Lyckad validering av anslutning till en frontend måste vidta plats i band med samma protokoll som används i en belastningsutjämning eller ingående NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för att se ett svar från en frontend.  Inte får en in-band-svar från belastningsutjämnaren frontend anger inga virtuella datorer kan svara.  Det går inte att interagera med en belastningsutjämnare frontend utan en virtuell dator kan svara.  Detta gäller även för utgående anslutningar där [port maskerade SNAT](load-balancer-outbound-connections.md#snat) är stöds endast för TCP och UDP, några andra inklusive ICMP IP-protokoll fungerar inte.  Tilldela en instansnivå offentliga IP-adress för att minimera.
+- Till skillnad från offentliga belastningsutjämnare som innehåller [utgående anslutningar](load-balancer-outbound-connections.md) vid övergång från privata IP-adresser i det virtuella nätverket till den offentliga IP-adresser, interna belastningsutjämnare inte översätta utgående ursprung anslutningar till klientdelen av en intern belastningsutjämnare som båda finns i privata IP-adressutrymme.  På så sätt undviker du risken för SNAT uttömning i unika interna IP-adressutrymmet som där översättning inte krävs.  Bieffekten är att om ett utgående flöde från en virtuell dator i backend-poolen försöker ett flöde till frontend för intern belastningsutjämnare i vilka pool finns _och_ mappas till sig själv, både ben i flöde matchar inte och flödet misslyckas .  Om flödet inte mappade till samma virtuella dator i backend-poolen som flödar till frontend har skapat, lyckas flödet.   När flödet mappar till sig själv utgående flödet verkar kommer från den virtuella datorn till frontend och motsvarande inkommande flödet visas som kommer från den virtuella datorn till sig själv. Ur gäst-OS matchar inte de inkommande och utgående delarna i samma flöde inuti den virtuella datorn. TCP-stacken känner inte igen dessa halvorna i samma flöde som en del av samma flöde som källa och mål inte matchar.  När flödet mappar till till andra Virtuella i backend-poolen, hälften av flödet matchar och den virtuella datorn har kan svara på flödet.  Symtom för det här scenariot är tillfälligt timeout. Det finns flera vanliga lösningar för på ett tillförlitligt sätt att uppnå det här scenariot (ursprung flödar från en backend-pool till backend-adresspooler respektive interna belastningsutjämnare frontend) som innehåller antingen infogning av en tredjeparts-proxy bakom interna belastningen Belastningsutjämnare eller [med DSR formatmallsregler](load-balancer-multivip-overview.md).  När en offentlig belastningsutjämnare kan användas för att minska, det resulterande scenariot är enkelt att [SNAT resursuttömning](load-balancer-outbound-connections.md#snat) och bör inte användas om inte hanteras noggrant.
 
 ## <a name="next-steps"></a>Nästa steg
 

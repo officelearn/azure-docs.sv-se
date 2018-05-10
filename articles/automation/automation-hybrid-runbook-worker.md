@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7065ec97e1e02dfb4ee873993caac584f6a63ba6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 2cf4eecbc45e6d842b5a548c8f25ac49aa8fb216
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller molnet med Hybrid Runbook Worker
 
@@ -147,7 +147,20 @@ Du kan ta bort en eller flera Runbook Worker-hybrider från en grupp och du tar 
 
 1. Navigera till ditt Automation-konto i Azure-portalen.
 2. Från den **inställningar** bladet väljer **nycklar** och anteckna värdena för fältet **URL** och **primära åtkomstnyckeln**. Du behöver den här informationen för nästa steg.
-3. Öppna ett PowerShell-session i administratörsläge och kör följande kommando – `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Använd den **-Verbose** växla för en detaljerad logg över borttagningen.
+
+### <a name="windows"></a>Windows
+
+Öppna ett PowerShell-session i administratörsläge och kör följande kommando. Använd den **-Verbose** växla för en detaljerad logg över borttagningen.
+
+```powershell
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
+```
+
+### <a name="linux"></a>Linux
+
+```bash
+sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
+```
 
 Ta bort inaktuella datorer från Hybrid Worker-grupp med det valfria `machineName` parameter.
 

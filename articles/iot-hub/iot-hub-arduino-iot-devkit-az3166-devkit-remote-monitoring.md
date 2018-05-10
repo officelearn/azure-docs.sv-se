@@ -1,6 +1,6 @@
 ---
 title: 'IoT DevKit till molnet: ansluta IoT MXChip DevKit till Azure IoT Hub | Microsoft Docs'
-description: I den här kursen lär du dig hur du skicka status för sensorer på IoT DevKit AZ3166 till Azure IoT Suite för övervakning och visualisering.
+description: I den här kursen lär du dig hur du skickar status för sensorer på IoT DevKit AZ3166 till Azure IoT-Fjärrövervaknings solution accelerator.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: d59a739e2222aca27993f6ae944a1d3bda567041
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Ansluta MXChip IoT DevKit till Azure IoT Suite för övervakning av fjärråtkomst
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT-Fjärrövervaknings solution accelerator
 
-I kursen får du lära dig hur du kör en exempelapp på din DevKit sensordata ska skickas till din Azure IoT Suite.
+Lär dig hur du kör en exempelapp på din DevKit sensordata ska skickas till din Azure IoT-Fjärrövervaknings lösningsaccelerator i den här självstudiekursen.
 
 Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino kompatibel skiva med sensorer och omfattande kringutrustning. Du kan utveckla för den med hjälp av [Visual Studio Code-tillägget för Arduino](https://aka.ms/arduino). Och det ingår en växande [projekt katalogen](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) att hjälpa dig prototyp Sakernas Internet (IoT) lösningar som utnyttjar Microsoft Azure-tjänster.
 
@@ -38,12 +38,12 @@ En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någo
 * Aktivera en [kostnadsfria 30-dagars utvärderingsversion av Microsoft Azure-konto](https://azure.microsoft.com/free/)
 * Anspråk din [Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) om du prenumererar på MSDN eller Visual Studio
 
-## <a name="create-an-azure-iot-suite"></a>Skapa ett Azure IoT Suite
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Skapa en Azure IoT-Fjärrövervaknings solution accelerator
 
-1. Gå till [Azure IoT Suite plats](https://www.azureiotsuite.com/) och på **skapa en ny lösning**.
-  ![Välj Azure IoT Suite-typ](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+1. Gå till [Azure IoT-lösningen acclerators plats](https://www.azureiotsuite.com/) och på **skapa en ny lösning**.
+  ![Välj typ av Azure IoT solution accelerator](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
-  > Det här exemplet skapar en IoT-hubb S2 när den skapar en IoT Suite som standard. Om den här IoT-hubb inte används med massiv antalet enheter, rekommenderar vi du nedgradera den från S2 till S1 och ta bort IoT Suite så att relaterade IoT-hubb kan också tas bort, när du inte längre behöver. 
+  > Det här exemplet skapar en IoT-hubb S2 när den skapar en IoT Fjärrövervaknings solution accelerator som standard. Om den här IoT-hubb inte används med massiv antalet enheter, rekommenderar vi du nedgradera den från S2 till S1 och ta bort IoT Fjärrövervaknings solution accelerator så att relaterade IoT-hubb kan också tas bort, när du inte längre behöver. 
 
 2. Välj **fjärrövervaknings**.
 
@@ -100,13 +100,13 @@ DevKit startar om och börjar köras koden.
 
 ## <a name="test-the-project"></a>Testa projektet
 
-När du kör exempelappen skickar DevKit sensordata via Wi-Fi till dina Azure IoT Suite. Följ dessa steg om du vill visa resultatet:
+När du kör exempelappen skickar DevKit sensordata via Wi-Fi till dina Azure IoT-Fjärrövervaknings lösningsaccelerator. Följ dessa steg om du vill visa resultatet:
 
-1. Gå till din Azure IoT Suite och klicka **INSTRUMENTPANELEN**.
+1. Gå till din Azure IoT-Fjärrövervaknings lösningsaccelerator och på **INSTRUMENTPANELEN**.
 
-2. På konsolen Azure IoT Suite-lösningen kommer att se din DevKit sensor status.
+2. På konsolen Fjärrövervaknings lösningen kommer att se din DevKit sensor status.
 
-![Sensordata i Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+![Sensordata i Azure IoT-Fjärrövervaknings solution accelerator](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>Ändra enhets-ID
 
@@ -121,7 +121,7 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT Suite och visualisera sensordata, är här de föreslagna nästa steg:
+Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT-Fjärrövervaknings lösningsaccelerator och visualisera sensordata, är här de föreslagna nästa steg:
 
-* [Översikt över Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT-lösningen acceleratorer översikt](https://docs.microsoft.com/azure/iot-suite/)
 * [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

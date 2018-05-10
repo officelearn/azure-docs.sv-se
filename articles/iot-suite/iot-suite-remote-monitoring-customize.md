@@ -1,7 +1,7 @@
 ---
-title: "Anpassa den fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "Den här artikeln innehåller information om hur du kan komma åt källkoden för fjärråtkomst övervakning förkonfigurerade lösningen."
-services: 
+title: Anpassa Fjärrövervaknings lösningen UI - Azure | Microsoft Docs
+description: Den här artikeln innehåller information om hur du kan använda källkoden för Fjärrövervaknings solution accelerator UI och göra vissa anpassningar.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,256 +12,457 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: be20d45b380f66208884f15f4644f36f2a403837
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Anpassa fjärråtkomst övervakning förkonfigurerade lösning
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa Fjärrövervaknings solution accelerator
 
-Den här artikeln innehåller information om hur du kan använda källkoden och anpassa remote övervakningen förkonfigurerade lösningen. Den här artikeln innehåller:
+Den här artikeln innehåller information om hur du kan komma åt källkoden och anpassa Fjärrövervaknings solution accelerator Användargränssnittet. Den här artikeln innehåller:
 
-* GitHub-lagringsplatser som innehåller källkoden och för mikrotjänster som utgör den förkonfigurerade lösningen.
-* Vanliga scenarier för anpassning till exempel lägga till en ny typ av enhet.
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Förbereda en lokal utvecklingsmiljö för Användargränssnittet
 
-Följande videoklipp visar en översikt över alternativ för anpassning av fjärråtkomst övervakning förkonfigurerade lösningen:
+Fjärrövervaknings solution accelerator UI-kod har implementerats med hjälp av React.js framework. Du hittar källkoden i den [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub-lagringsplatsen.
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
+Om du vill göra ändringar i Användargränssnittet, kan du köra en kopia av den lokalt. Den lokala kopian ansluter till en distribuerad instans av lösningen för att utföra åtgärder som hämtar telemetri.
 
-## <a name="project-overview"></a>Översikt över projekt
+Följande steg beskriver processen för att konfigurera en lokal miljö för utveckling av UI:
 
-### <a name="implementations"></a>Implementeringar
+1. Distribuera en **grundläggande** instans av solution accelerator med den **datorer** CLI. Anteckna namnet på din distribution och autentiseringsuppgifterna för den virtuella datorn. Mer information finns i [distribuera med hjälp av CLI](iot-suite-remote-monitoring-deploy-cli.md).
 
-Fjärråtkomst övervakningslösning har både .NET och Java-implementeringar. Båda implementeringar ger liknande funktionalitet och förlitar sig på samma underliggande Azure-tjänster. Du kan hitta de översta GitHub-lagringsplatser som här:
+1. Använd Azure-portalen eller [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för SSH-åtkomst till den virtuella datorn som är värd för mikrotjänster i din lösning. Exempel:
 
-* [.NET-lösning](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Java-lösning](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+    ```sh
+    az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
+    ```
 
-### <a name="microservices"></a>Mikrotjänster
+1. Använd Azure-portalen eller [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Exempel:
 
-Om du är intresserad av en viss funktion i lösningen kan du komma åt GitHub-lagringsplatser för varje enskild mikrotjänster. Varje mikrotjänster implementerar en annan del av funktionen för lösningen. Läs mer om övergripande arkitektur i [fjärrövervaknings förkonfigurerade lösningsarkitektur](iot-suite-remote-monitoring-sample-walkthrough.md).
+    ```sh
+    az resource list --resource-group {your solution name} -o table
+    az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
+    ```
 
-Den här tabellen sammanfattas aktuella tillgängligheten för varje mikrotjänster för varje språk:
+1. Använda SSH för att ansluta till den virtuella datorn med IP-adress från föregående steg, och de autentiseringsuppgifter du angav när du körde **datorer** du distribuerar lösningen.
 
-<!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
+1. Kör följande kommandon i bash-gränssnitt på den virtuella datorn så att den lokala UX att ansluta:
 
-| Mikrotjänster      | Beskrivning | Java | .NET |
-| ----------------- | ----------- | ---- | ---- |
-| Webbgränssnittet            | Webbprogrammet för fjärranslutna övervakningslösning. Implementerar Gränssnittet använder React.js framework. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
-| IoT Hub Manager   | Hanterar kommunikation med IoT-hubben.        | [Tillgängliga](https://github.com/Azure/iothub-manager-java) | [Tillgängliga](https://github.com/Azure/iothub-manager-dotnet)   |
-| Autentisering    |  Hanterar Azure Active Directory-integrering.  | Ännu ej tillgänglig | [Tillgängliga](https://github.com/Azure/pcs-auth-dotnet)   |
-| Enhetssimulering | Hanterar en pool av simulerade enheter. | Ännu ej tillgänglig | [Tillgängliga](https://github.com/Azure/device-simulation-dotnet)   |
-| Telemetri         | Gör enhetstelemetrin tillgängliga för Användargränssnittet. | [Tillgängliga](https://github.com/Azure/device-telemetry-java) | [Tillgängliga](https://github.com/Azure/device-telemetry-dotnet)   |
-| Telemetri Agent   | Analyserar telemetri dataströmmen, lagrar meddelanden från Azure IoT Hub och genererar aviseringar enligt definierade regler.  | [Tillgängliga](https://github.com/Azure/telemetry-agent-java) | [Tillgängliga](https://github.com/Azure/telemetry-agent-dotnet)   |
-| UI-konfiguration         | Hanterar konfigurationsdata i användargränssnittet. | [Tillgängliga](https://github.com/azure/pcs-ui-config-java) | [Tillgängliga](https://github.com/azure/pcs-ui-config-dotnet)   |
-| Lagringsadapter   |  Hanterar interaktioner med storage-tjänst.   | [Tillgängliga](https://github.com/azure/pcs-storage-adapter-java) | [Tillgängliga](https://github.com/azure/pcs-storage-adapter-dotnet)   |
-| Omvänd proxy     | Exponerar privata resurser i ett hanterat sätt via en unik slutpunkt. | Ännu ej tillgänglig | [Tillgängliga](https://github.com/Azure/reverse-proxy-dotnet)   |
+    ```sh
+    cd /app
+    sudo ./start.sh --unsafe
+    ```
 
-Java-lösning använder för närvarande .NET-autentisering, simulering och mikrotjänster omvänd proxy. Dessa mikrotjänster ersätts av Java-versioner så snart de blir tillgängliga.
+1. När du ser kommandot har slutförts och webbplatsen startar, kan du koppla från den virtuella datorn.
 
-## <a name="presentation-and-visualization"></a>Presentation och visualisering
+1. I den lokala kopian av den [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) databasen, redigera den **.env** fil att lägga till URL: en i distribuerade lösningen:
 
-I följande avsnitt beskrivs alternativ för att anpassa presentation och visualiseringar lagret i den fjärranslutna övervakningslösning:
+    ```config
+    NODE_PATH = src/
+    REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
+    ```
 
-### <a name="change-the-logo-in-the-ui"></a>Ändra logotypen i Användargränssnittet
-
-Standard-distributionen använder Contoso företagets namn och logotyp i Användargränssnittet. Ändra dessa UI-element för att visa företagets namn och logotyp:
-
-1. Använd följande kommando för att klona lagringsplatsen Webbgränssnittet:
+1. Vid en kommandotolk i den lokala kopian av den `azure-iot-pcs-remote-monitoring-webui` mapp, kör följande kommandon för att installera bibliotek som krävs och köra Användargränssnittet lokalt:
 
     ```cmd/sh
-    git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
+    npm install
+    npm start
     ```
 
-1. Om du vill ändra namnet på företaget, öppna den `src/common/lang.js` filen i en textredigerare.
+1. Föregående kommando kör Användargränssnittet lokalt på http://localhost:3000/dashboard. Du kan redigera koden medan platsen körs och se den uppdateras dynamiskt.
 
-1. Leta upp följande rad i filen:
+## <a name="customize-the-layout"></a>Anpassa layout
 
-    ```js
-    CONTOSO: 'Contoso',
+Varje sida i lösningen Fjärrövervaknings består av en uppsättning kontroller, kallas *paneler* i källkoden. Till exempel den **instrumentpanelen** sidan består av fem paneler: översikt, karta, larm, telemetri och KPI: er. Du hittar källkoden som definierar varje sida och dess paneler i den [datorer-fjärr-övervakning-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-lagringsplatsen. Till exempel den kod som definierar den **instrumentpanelen** sida, layouten och paneler på sidan finns i den [src/komponenter/sidor/instrumentpanel](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) mapp.
+
+Eftersom panelerna hantera sina egna layout och storlek, kan du enkelt ändra layouten för en sida. Till exempel följande ändringar av den **PageContent** element i den `src/components/pages/dashboard/dashboard.js` filen växla positioner panelerna kartan och telemetri och ändra de relativa bredden på karta och KPI paneler:
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-5">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+![Ändra panelen layout](media/iot-suite-remote-monitoring-customize/layout.png)
+
+> [!NOTE]
+> Kartan har inte konfigurerats i den lokala distributionen.
+
+Du kan också lägga till flera instanser av samma panelen eller flera versioner om du [Duplicera och anpassa en panel](#duplicate-and-customize-an-existing-control). I följande exempel visas hur du lägger till två instanser av panelen telemetri genom att redigera den `src/components/pages/dashboard/dashboard.js` filen:
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-2">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+Du kan sedan visa olika telemetri i varje panel:
+
+![Flera telemetri paneler](media/iot-suite-remote-monitoring-customize/multiple-telemetry.png)
+
+> [!NOTE]
+> Kartan har inte konfigurerats i den lokala distributionen.
+
+## <a name="duplicate-and-customize-an-existing-control"></a>Duplicera och anpassa en befintlig kontroll
+
+Följande steg beskriver hur du använder den **larm** panelen som ett exempel på hur du duplicera en befintlig Kontrollpanelen, ändra den och använda den ändrade versionen:
+
+1. I den lokala kopian av databasen att göra en kopia av den **larm** mapp i den `src/components/pages/dashboard/panels` mapp. Namnge den nya kopian **cust_alarms**.
+
+1. I den **alarmsPanel.js** filen i den **cust_alarms** mapp, redigera namnet på klassen som ska vara **CustAlarmsPanel**:
+
+    ```nodejs
+    export class CustAlarmsPanel extends Component {
     ```
 
-1. Ersätt `Contoso` med namnet på ditt företag. Exempel:
+1. Lägg till följande rad i den `src/components/pages/dashboard/panels/index.js` filen:
 
-    ```js
-    CONTOSO: 'YourCo',
+    ```nodejs
+    export * from './cust_alarms';
     ```
 
-1. Spara filen.
+1. Ersätt `AlarmsPanel` med `CustAlarmsPanel` i den `src/components/pages/dashboard/dashboard.js` filen:
 
-1. Om du vill uppdatera logotypen, lägger du till en ny SVG-fil och den `assets/icons` mapp. Befintliga logotypen är den `assets/icons/Contoso.svg` filen.
+    ```nodejs
+    import {
+      OverviewPanel,
+      CustAlarmsPanel,
+      TelemetryPanel,
+      KpisPanel,
+      MapPanel,
+      transformTelemetryResponse,
+      chartColors
+    } from './panels';
 
-1. Öppna den `src/components/layout/leftNav/leftNav.js` filen i en textredigerare.
+    ...
 
-1. Leta upp följande rad i filen:
-
-    ```js
-    import ContosoIcon from '../../../assets/icons/Contoso.svg';
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
     ```
 
-1. Ersätt `Contoso.svg` med namnet på din logotyp-fil. Exempel:
+Du har nu ersätts ursprungligt **larm** panel med en kopia som kallas **CustAlarms**. Den här kopian är identisk med ursprungligt. Du kan nu ändra kopian. Till exempel ändra kolumnens sortering i den **larm** panelen:
 
-    ```js
-    import ContosoIcon from '../../../assets/icons/YourCo.svg';
+1. Öppna filen `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js`.
+
+1. Ändra kolumndefinitionerna enligt följande kodavsnitt:
+
+    ```nodejs
+    this.columnDefs = [
+      rulesColumnDefs.severity,
+      {
+        headerName: 'rules.grid.count',
+        field: 'count'
+      },
+      {
+        ...rulesColumnDefs.ruleName,
+        minWidth: 200
+      },
+      rulesColumnDefs.explore
+    ];
     ```
 
-1. Leta upp följande rad i filen:
+Följande skärmbild visar den nya versionen av den **larm** panelen:
 
-    ```js
-    alt="ContosoIcon"
+![Larm panelen uppdateras](media/iot-suite-remote-monitoring-customize/reorder-columns.png)
+
+## <a name="customize-the-telemetry-chart"></a>Anpassa telemetri diagram
+
+Telemetri diagram på den **instrumentpanelen** sidan definieras av filerna i den `src/components/pages/dashboard/panels/telemtry` mapp. Användargränssnittet hämtar telemetrin från lösningens serverdel i den `src/services/telemetryService.js` filen. Följande steg visar hur du ändrar den tidsperiod som visas i diagrammet telemetri från 15 minuter till 5 minuter:
+
+1. I den `src/services/telemetryService.js` filen, leta upp den anropade funktionen **getTelemetryByDeviceIdP15M**. Skapa en kopia av den här funktionen och ändra kopian på följande sätt:
+
+    ```nodejs
+    static getTelemetryByDeviceIdP5M(devices = []) {
+      return TelemetryService.getTelemetryByMessages({
+        from: 'NOW-PT5M',
+        to: 'NOW',
+        order: 'desc',
+        devices
+      });
+    }
     ```
 
-1. Ersätt `ContosoIcon` med din `alt` text. Exempel:
+1. Om du vill använda den här nya funktionen för att fylla i diagrammet telemetri, öppna den `src/components/pages/dashboard/dashboard.js` filen. Leta upp den rad som initierar dataströmmen telemetri och ändra på följande sätt:
 
-    ```js
-    alt="YourCoIcon"
+    ```node.js
+    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-1. Spara filen.
+Telemetri diagrammet visas nu de fem minuterna av telemetridata:
 
-1. Om du vill testa ändringarna, kan du köra den uppdaterade `webui` på den lokala datorn. Information om hur du skapar och kör den `webui` lösningen lokalt, se [bygga, köra och testa lokalt](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally) i den `webui` GitHub-lagringsplatsen Readme-filen.
+![Telemetri diagram med en dag](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
 
-1. Om du vill distribuera dina ändringar finns i [referens Utvecklarhandbok](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide).
+## <a name="add-a-new-kpi"></a>Lägg till en ny KPI
 
-<!--
+Den **instrumentpanelen** sidan visar KPI: er i den **System KPI: er** panelen. Dessa KPI: er beräknas i den `src/components/pages/dashboard/dashboard.js` filen. KPI: er som återges av den `src/components/pages/dashboard/panels/kpis/kpisPanel.js` filen. Följande steg beskriver hur du beräkna och göra ett nytt värde för KPI: N på den **instrumentpanelen** sidan. I exemplet är att lägga till en ny ändring i procent i larm KPI:
 
-### Add a new KPI to the Dashboard page
+1. Öppna filen `src/components/pages/dashboard/dashboard.js`. Ändra den **initialState** objekt att inkludera en **warningAlarmsChange** egenskapen på följande sätt:
 
-The following steps describe how to add a new KPI to display on the **Dashboard** page. The new KPI shows information about the number of alarms with specific status values as a pie chart:
+    ```nodejs
+    const initialState = {
+      ...
 
-1. Step 1
+      // Kpis data
+      currentActiveAlarms: [],
+      topAlarms: [],
+      alarmsPerDeviceId: {},
+      criticalAlarmsChange: 0,
+      warningAlarmsChange: 0,
+      kpisIsPending: true,
+      kpisError: null,
 
-1. Step 2
--->
+      ...
+    };
+    ```
 
-### <a name="customize-the-map"></a>Anpassa kartan
+1. Ändra den **currentAlarmsStats** objekt som inkluderas **totalWarningCount** som en egenskap:
+
+    ```nodejs
+    return {
+      openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
+      openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
+      totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
+      totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
+      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+    };
+    ```
+
+1. Beräkna den nya KPI: N. Hitta beräkningen för kritiska larm count. Kopiera koden och ändra kopian på följande sätt:
+
+    ```nodejs
+    // ================== Warning Alarms Count - START
+    const currentWarningAlarms = currentAlarmsStats.totalWarningCount;
+    const previousWarningAlarms = previousAlarms.reduce(
+      (cnt, { severity }) => severity === 'warning' ? cnt + 1 : cnt,
+      0
+    );
+    const warningAlarmsChange = ((currentWarningAlarms - previousWarningAlarms) / currentWarningAlarms * 100).toFixed(2);
+    // ================== Warning Alarms Count - END
+    ```
+
+1. Inkludera den nya **warningAlarmsChange** KPI i dataströmmen KPI:
+
+    ```nodejs
+    return ({
+      kpisIsPending: false,
+
+      // Kpis data
+      currentActiveAlarms,
+      topAlarms,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      alarmsPerDeviceId: currentAlarmsStats.alarmsPerDeviceId,
+
+      ...
+    });
+
+1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+
+    ```nodejs
+    const {
+      ...
+
+      currentActiveAlarms,
+      topAlarms,
+      alarmsPerDeviceId,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      kpisIsPending,
+      kpisError,
+
+      ...
+    } = this.state;
+    ```
+
+1. Uppdatera data som skickas till panelen KPI: er:
+
+    ```node.js
+    <KpisPanel
+      topAlarms={topAlarmsWithName}
+      alarmsPerDeviceId={alarmsPerDeviceType}
+      criticalAlarmsChange={criticalAlarmsChange}
+      warningAlarmsChange={warningAlarmsChange}
+      isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+      error={devicesError || rulesError || kpisError}
+      colors={chartColorObjects}
+      t={t} />
+    ```
+
+Du är nu klar med ändringarna i den `src/components/pages/dashboard/dashboard.js` filen. Följande steg beskriver ändringarna i den `src/components/pages/dashboard/panels/kpis/kpisPanel.js` filen ska visas den nya KPI:
+
+1. Ändra följande rad med kod för att hämta det nya värdet för KPI: N på följande sätt:
+
+    ```nodejs
+    const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
+    ```
+
+1. Ändra koden för att visa det nya värdet för KPI: N på följande sätt:
+
+    ```nodejs
+    <div className="kpi-cell">
+      <div className="kpi-header">{t('dashboard.panels.kpis.criticalAlarms')}</div>
+      <div className="critical-alarms">
+        {
+          criticalAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ criticalAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+      <div className="kpi-header">{t('Warning alarms')}</div>
+      <div className="critical-alarms">
+        {
+          warningAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ warningAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+    </div>
+    ```
+
+Den **instrumentpanelen** nu visas det nya värdet för KPI:
+
+![Varning KPI](media/iot-suite-remote-monitoring-customize/new-kpi.png)
+
+## <a name="customize-the-map"></a>Anpassa kartan
 
 Finns det [anpassa kartan](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) sida i GitHub för information om kartan komponenter i lösningen.
 
 <!--
-### Customize the telemetry chart
-
-See the [Customize telemetry chart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the telemetry chart components in the solution.
-
 ### Connect an external visualization tool
 
 See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
 
-### Duplicate an existing control
-
-To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
-
 -->
 
-### <a name="other-customization-options"></a>Andra alternativ för anpassning
+## <a name="other-customization-options"></a>Andra alternativ för anpassning
 
-Du kan redigera koden för att ändra presentationen och visualiseringar lagret i den fjärranslutna övervakningslösning ytterligare. De relevanta GitHub-lagringsplatser är:
+Om du vill ändra presentationen och visualiseringar lagret i Fjärrövervaknings-lösningen, kan du redigera koden. De relevanta GitHub-lagringsplatser är:
 
-* [UIConfig (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [UIConfig (Java)](https://github.com/Azure/pcs-ui-config-java/)
-* [Fjärrövervaknings WebUI i Azure-datorer](https://github.com/Azure/pcs-remote-monitoring-webui)
-
-## <a name="device-connectivity-and-streaming"></a>Enhetsanslutning och strömning
-
-I följande avsnitt beskrivs alternativ för att anpassa enhetsanslutning och strömning lager i fjärranslutna övervakningslösning. [Enhetsmodeller](https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models) beskrivs de typer av enheter och telemetri i lösningen. Du använder enhetsmodeller för både simulerade och fysiska enheter.
-
-Ett exempel på en fysisk enhet implementering finns [ansluta enheten till den fjärranslutna förkonfigurerade övervakningslösning](iot-suite-connecting-devices-node.md).
-
-Om du använder en _fysisk enhet_, måste du ange klientprogrammet med en enhetsmodell som innehåller metadata och telemetri specifikation för enheten.
-
-I följande avsnitt beskrivs enhetsmodeller med simulerade enheter:
-
-### <a name="add-a-telemetry-type"></a>Lägga till en telemetri typ.
-
-Enhetstyper i Contoso-demon lösningen ange telemetri som skickar varje typ av enhet. Om du vill ange ytterligare telemetri typer, kan en enhet skicka telemetri definitioner som metadata i lösningen. Om du använder det här formatet instrumentpanelen förbrukar din enhet telemetri och tillgängliga metoder dynamiskt och du behöver inte ändra Användargränssnittet. Alternativt kan du ändra typdefinitionen för enheten i lösningen.
-
-Mer information om hur du lägger till anpassad telemetri i den _enheten simulatorn_ mikrotjänster, se [testa din lösning med simulerade enheter](iot-suite-remote-monitoring-test.md).
-
-### <a name="add-a-device-type"></a>Lägg till en typ av enhet
-
-Contoso demo lösningen definierar vissa typer av enheter exempel. Den här lösningen kan du definiera anpassade enhetstyper för att uppfylla kraven för specifika program. Företaget kan till exempel använda en industriella gateway som användarens primära enhet ansluten till lösningen.
-
-Om du vill skapa enheten exakt så som du behöver ändra program som körs på din enhet för att matcha enhetskraven.
-
-Mer information om hur du lägger till en ny typ av enhet i den _enheten simulatorn_ mikrotjänster, se [testa din lösning med simulerade enheter](iot-suite-remote-monitoring-test.md).
-
-### <a name="define-custom-methods-for-simulated-devices"></a>Definiera anpassade metoder för simulerad enheter
-
-Information om hur du definierar anpassade metoder för simulerad enheter i den fjärranslutna övervakningslösning finns [enhetsmodeller](https://github.com/Azure/device-simulation-dotnet/wiki/%5BAPI-Specifications%5D-Device-Models) i GitHub-lagringsplatsen.
-
-<!--
-#### Using the simulator service
-
-TODO: add steps for the simulator microservice here
--->
-
-#### <a name="using-a-physical-device"></a>Med hjälp av en fysisk enhet
-
-Om du vill implementera metoder och jobb på fysiska enheter, finns i följande artiklar för IoT-hubb:
-
-* [Förstå och anropa direkt metoder från IoT-hubb](../iot-hub/iot-hub-devguide-direct-methods.md).
-* [Schemalägga jobb på flera enheter](../iot-hub/iot-hub-devguide-jobs.md).
-
-### <a name="other-customization-options"></a>Andra alternativ för anpassning
-
-Om du vill ändra ytterligare enhetsanslutning och strömning lager i fjärranslutna övervakningslösning, kan du redigera koden. De relevanta GitHub-lagringsplatser är:
-
-* [Enhetstelemetrin (.NET)](https://github.com/Azure/device-telemetry-dotnet)
-* [Enhetstelemetrin (Java)](https://github.com/Azure/device-telemetry-java)
-* [Telemetri Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetri Agent (Java)](https://github.com/Azure/telemetry-agent-java)
-
-## <a name="data-processing-and-analytics"></a>Databearbetning och analys
-
-<!--
-The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
-
-### Rules and actions
-
-See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
-
-
-### Other customization options
--->
-
-Om du vill ändra databehandling och analytics lager i fjärranslutna övervakningslösning, kan du redigera koden. De relevanta GitHub-lagringsplatser är:
-
-* [Telemetri Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetri Agent (Java)](https://github.com/Azure/telemetry-agent-java)
-
-## <a name="infrastructure"></a>Infrastruktur
-
-<!--
-The following sections describe options for customizing the infrastructure services in the remote monitoring solution:
-
-### Change storage
-
-The default storage service for the remote monitoring solution is Cosmos DB. See the [Customize storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses.
-
-### Change log storage
-
-The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
-
-### Other customization options
--->
-
-Du kan redigera koden för att ändra infrastrukturen i fjärranslutna övervakningslösning. De relevanta GitHub-lagringsplatser är:
-
-* [IoTHub Manager (.NET)](https://github.com/Azure/iothub-manager-dotnet)
-* [IoTHub Manager (Java)](https://github.com/Azure/iothub-manager-java)
-* [Kortet (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
-* [Kortet (Java)](https://github.com/Azure/pcs-storage-adapter-java)
+* [Konfigurationen mikrotjänster för Azure IoT lösningar (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
+* [Konfigurationen mikrotjänster för Azure IoT-lösningar (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Azure IoT-datorer Remote övervakning webbgränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om resurserna som är tillgängliga för att anpassa den förkonfigurerade lösningen.
+I den här artikeln har du lärt dig om resurserna som är tillgängliga för att anpassa webbgränssnittet Fjärrövervaknings solution accelerator.
 
-Mer information om fjärråtkomst övervakning förkonfigurerade lösningen finns [fjärråtkomst övervakning arkitektur](iot-suite-remote-monitoring-sample-walkthrough.md)
+Mer information om Fjärrövervaknings solution accelerator finns [Fjärrövervaknings arkitektur](iot-suite-remote-monitoring-sample-walkthrough.md)
 
-Mer information om hur du anpassar den fjärranslutna övervakningslösning finns:
-
-* [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-
+Mer information om hur du anpassar Fjärrövervaknings-lösningen finns [anpassa och distribuera om ett mikrotjänster](iot-suite-microservices-example.md)
 <!-- Next tutorials in the sequence -->

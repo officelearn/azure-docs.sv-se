@@ -1,9 +1,9 @@
 ---
 title: Smartkort identifiering - prestandaavvikelser | Microsoft Docs
-description: "Application Insights utför smart analys av din app telemetri och varnar dig om potentiella problem. Den här funktionen behöver ingen installation."
+description: Application Insights utför smart analys av din app telemetri och varnar dig om potentiella problem. Den här funktionen behöver ingen installation.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Identifiering - Prestandaavvikelser för smartkort
 
@@ -87,7 +87,7 @@ E-post om identifieringar som Smart prestandaavvikelser är begränsade till en 
   * Nej.  Vi att inte identifiera var problemet bör du överväga onormalt.
 
 
-* *Om jag inte göra någonting i respons till ett meddelande ska jag en påminnelse?*
+* *Om jag inte göra något svar på ett meddelande ska jag en påminnelse?*
   * Nej, du får ett meddelande om varje problemet bara en gång. Om problemet kvarstår kommer att uppdateras i Smart identifieringen feed bladet.
 * *E-postmeddelandet gick förlorad. Var hittar jag meddelanden i portalen*
   * I Application Insights-översikten över appen klickar du på den **Smart identifiering** panelen. Det kommer du att kunna hitta alla meddelanden upp till 90 dagar bakåt.
@@ -132,7 +132,7 @@ Svaret tid försämring meddelandet kan du se:
 * Länkar som hjälper dig att felsöka problemet.
   * Profiler-spårningar för att visa där åtgärden tid det tar (länken är tillgänglig om profileraren trace exempel samlades in för den här åtgärden under identifieringsperioden). 
   * Prestandarapporter i måttet Explorer, där du kan statistikforskning tid intervallfilter för den här åtgärden.
-  * Sök efter den här anrop till specifika anrop egenskaper.
+  * Sök efter det här anropet till specifika anropet egenskaper.
   * Fel rapporteras - om räkna > 1 detta innebära att det inträffade fel under den här åtgärden kan ha bidragit till försämrade prestanda.
 
 ## <a name="dependency-duration-degradation"></a>Beroende varaktighet försämring
@@ -152,7 +152,7 @@ Observera att du får meddelande:
 * Länkar som hjälper dig att diagnostisera problemet
   * Prestandarapporter i måttet Explorer för detta beroende
   * Sök efter beroendeanrop för att visa egenskaper för anrop
-  * Fel rapporteras - om räkna > 1 Detta innebär att det fanns misslyckades beroendeanrop under identifieringsperioden som kanske har bidragit till varaktighet försämras. 
+  * Rapporter om fel - om antalet > 1 Detta innebär att det fanns misslyckade beroende anrop under identifieringsperioden som kanske har bidragit till varaktighet försämras. 
   * Öppna Analytics med frågor som utför den här beroende varaktighet och antal  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Smart identifiering av långsam prestanda mönster 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c1c3191ba198b56386f813b6f9d2588b895633c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Enhet till moln och moln till enhet meddelanden med IoT-hubb
 
@@ -31,7 +31,7 @@ Använd IoT-hubb-meddelanden för att kommunicera med dina enheter genom att:
 
 Grundläggande egenskaper för IoT-hubb meddelandefunktioner är tillförlitlighet och hållbarhet av meddelanden. De här egenskaperna aktiverar återhämtning för återkommande anslutning på enhetens sida och att läsa in toppar i händelsebearbetning på sidan moln. IoT-hubb implementerar *minst en gång* leverans garanterar för både enhet till moln och moln till enhet meddelanden.
 
-En introduktion till funktionerna för IoT-hubb finns i artiklar [Azure och Sakernas Internet] [ lnk-azure-iot] och [översikt över tjänsten Azure IoT Hub] [ lnk-iot-hub-overview].
+En introduktion till funktionerna för IoT-hubb, finns det [översikt över tjänsten Azure IoT Hub][lnk-iot-hub-overview].
 
 ## <a name="when-to-use-iot-hub-messaging"></a>När du ska använda IoT-hubb-meddelanden
 

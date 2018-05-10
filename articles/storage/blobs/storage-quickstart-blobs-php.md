@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 03aaa6b3440c1e20028078ee3d45c13cdd16cfea
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 463b6051009ab79013f9bef958fcadec2ef3cd16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Överföra objekt till och från Azure Blob Storage med hjälp av PHP
 I den här snabbstarten får du lära dig att använda PHP för att ladda upp, ladda ned och lista blockblobar i Azure Blob-lagring. 
@@ -211,7 +211,7 @@ Se följande ytterligare resurser för PHP-utveckling med blobblagring:
 I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med PHP. Om du vill veta mer om hur du kan arbeta med PHP så gå till vårt PHP Developer Center.
 
 > [!div class="nextstepaction"]
-> [PHP Developer Center](https://azure.microsoft.com/en-us/develop/php/)
+> [PHP Developer Center](https://azure.microsoft.com/develop/php/)
 
 
 Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

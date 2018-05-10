@@ -1,29 +1,29 @@
 ---
 title: Hur du skickar meddelanden schemalagda | Microsoft Docs
-description: "Det här avsnittet beskriver hur du använder schemalagda meddelanden med Azure Notification Hubs."
+description: Det här avsnittet beskriver hur du använder schemalagda meddelanden med Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-keywords: "push-meddelanden, push-meddelande, schemalägga push-meddelanden"
-author: ysxu
-manager: erikre
-editor: 
+keywords: push-meddelanden, push-meddelande, schemalägga push-meddelanden
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 0f4055a11d22604c0936685a7a2be3d56b259a5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Så här: Skicka schemalagda meddelanden
 ## <a name="overview"></a>Översikt
-Om du har ett scenario där du vill skicka ett meddelande vid en viss tidpunkt i framtiden, men inte har ett enkelt sätt att aktivera upp backend-koden för att skicka meddelandet. Standardnivån Notification Hubs stöder en funktion som gör att du kan schemalägga meddelanden upp till 7 dagar i framtiden.
+Om du har ett scenario där du vill skicka ett meddelande vid en viss tidpunkt i framtiden, men inte har ett enkelt sätt att aktivera upp backend-koden för att skicka meddelandet. Standardnivån meddelandehubbar stöd för en funktion som gör att du kan schemalägga meddelanden upp till sju dagar i framtiden.
 
 När du skickar ett meddelande kan bara använda den [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) klassen i Notification Hubs SDK som visas i följande exempel:
 

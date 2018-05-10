@@ -1,7 +1,7 @@
 ---
-title: "Enheten schemat i fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "Den här artikeln beskriver JSON-schema som definierar en simulerad enhet i fjärranslutna övervakningslösning."
-services: 
+title: Enheten schemat i fjärranslutna övervakningslösning - Azure | Microsoft Docs
+description: Den här artikeln beskriver JSON-schema som definierar en simulerad enhet i fjärranslutna övervakningslösning.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 364698a529623958695f93a245bab28a89f6bd4c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 24aeb9c3f73d04a3d05f09ebd2ba0859a38e7ad8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå modellschemat enhet
 
@@ -29,7 +29,7 @@ I följande artiklar är relaterade till den aktuella artikeln:
 * [Implementera modellen enhetsbeteende](iot-suite-remote-monitoring-device-behavior.md) beskriver JavaScript-filer som används för att implementera beteendet för en simulerad enhet.
 * [Skapa en ny simulerade enhet](iot-suite-remote-monitoring-test.md) placeras alla tillsammans och visar hur du distribuerar en ny typ av simulerade enhet till din lösning.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 >[!div class="checklist"]
 > * Använda en JSON-fil för att definiera en simulerad enhetsmodell
@@ -85,8 +85,8 @@ I den `Simulation` avsnittet kan du definiera det interna tillståndet för den 
 
 Definitionen av enhetens tillstånd har två element:
 
-* `InitialState`definierar ursprungliga värden för alla egenskaper i objektet enhetens tillstånd.
-* `Script`identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd. Du kan använda den här skriptfilen för att Slumpa telemetri-värden som skickas av enheten.
+* `InitialState` definierar ursprungliga värden för alla egenskaper i objektet enhetens tillstånd.
+* `Script` identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd. Du kan använda den här skriptfilen för att Slumpa telemetri-värden som skickas av enheten.
 
 Läs mer om JavaScript-fil som uppdaterar tillstånd enhetsobjekt i [förstå beteendet enheten modellen](iot-suite-remote-monitoring-device-behavior.md).
 
@@ -104,10 +104,10 @@ I följande exempel visas definitionen av enhetsobjekt för tillstånd för en s
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -155,9 +155,9 @@ I följande exempel skickar meddelandet JSON telemetri var 10: e sekund med `flo
 ]
 ```
 
-`MessageTemplate`definierar strukturen i JSON-meddelande som skickas av den simulerade enheten. Platshållare i `MessageTemplate` Använd syntax `${NAME}` där `NAME` är en nyckel från den [tillstånd enhetsobjekt](#simulation). Ska innehålla citattecken strängar, siffror bör inte.
+`MessageTemplate` definierar strukturen i JSON-meddelande som skickas av den simulerade enheten. Platshållare i `MessageTemplate` Använd syntax `${NAME}` där `NAME` är en nyckel från den [tillstånd enhetsobjekt](#simulation). Ska innehålla citattecken strängar, siffror bör inte.
 
-`MessageSchema`definierar schemat för meddelanden från den simulerade enheten. Meddelandet schemat publiceras också IoT-hubb att backend-programmen kan använda informationen för att tolka inkommande telemetri.
+`MessageSchema` definierar schemat för meddelanden från den simulerade enheten. Meddelandet schemat publiceras också IoT-hubb att backend-programmen kan använda informationen för att tolka inkommande telemetri.
 
 För närvarande kan du bara använda JSON meddelandescheman. Fälten som anges i schemat kan vara av följande typer:
 

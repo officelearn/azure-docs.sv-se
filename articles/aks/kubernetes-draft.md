@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f474921acbd3a5082afea03dd982bcfa9c52dcda
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Använd utkast med Azure Container Service (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Använd utkast med Azure Kubernetes Service (AKS)
 
 Utkastet är ett verktyg med öppen källkod som hjälper till att innehålla och distribuera dessa behållare i ett Kubernetes kluster, så att du kan koncentrera dig på dev cykel--i topp utvecklingen av ”inre loop”. Utkast fungerar som koden utvecklas, men innan du genomför för versionskontroll. Med utkastet kan du snabbt distribuera ett program till Kubernetes när koden ändringar görs. Mer information om utkast finns i [utkast dokumentation på Github][draft-documentation].
 
@@ -27,7 +27,7 @@ Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AK
 
 Du måste också ett privat Docker-register i Azure Container registret (ACR). Anvisningar om hur du distribuerar en ACR-instans finns i [Azure Container registret Quickstart][acr-quickstart].
 
-Helm måste också installeras i klustret AKS. Läs mer om hur du installerar helm [Använd Helm med Azure Container Service (AKS)][aks-helm].
+Helm måste också installeras i klustret AKS. Läs mer om hur du installerar helm [Använd Helm med Azure-Kubernetes (AKS)][aks-helm].
 
 Slutligen måste du installera [Docker](https://www.docker.com).
 

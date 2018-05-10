@@ -14,11 +14,11 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och Återställ kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 **Gäller för:**
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 Microsoft Authenticator-appen säkerhetskopierar dina autentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton till molnet. Efter säkerhetskopieringen, du kan också använda appen för att återställa din information på en ny enhet undvika potentiellt komma låst out- eller att skapa konton.
 
 >[!IMPORTANT]
-> Du behöver ett personligt Microsoft-konto och en iCloud-konto för varje lagringsplats för säkerhetskopiering. Men i den lagringsplatsen du kan säkerhetskopiera flera konton. Du kan till exempel har ett personligt konto, en skolans konto och ett konto från tredje part som Facebook, Google, och så vidare.<br><br>Dina autentiseringsuppgifter lagras som innehåller ditt användarnamn och 8 siffror konto verifieringskoden som krävs för att styrka din identitet med Microsoft Authenticator-appen. Annan information som är kopplade till dina konton, inklusive e-post eller filer lagras inte. Vi inte också koppla eller dela dina konton på något sätt eller med en produkt eller tjänst. Och slutligen IT-administratören får inte någon information om något av dessa konton.
+> Du behöver ett personligt Microsoft-konto och en iCloud-konto för varje lagringsplats för säkerhetskopiering. Men i den lagringsplatsen du kan säkerhetskopiera flera konton. Du kan till exempel har ett personligt konto, en skolans konto och ett konto från tredje part som Facebook, Google, och så vidare.<br><br>Endast dina personliga och 3 parts autentiseringsuppgifter lagras som innehåller ditt användarnamn och kontot verifieringskoden som krävs för att styrka din identitet. Annan information som är kopplade till dina konton, inklusive e-post eller filer lagras inte. Vi inte också koppla eller dela dina konton på något sätt eller med en produkt eller tjänst. Och slutligen IT-administratören får inte någon information om något av dessa konton.
 
 ## <a name="back-up-your-account-credentials"></a>Säkerhetskopiera dina autentiseringsuppgifter
 Innan du kan säkerhetskopiera dina autentiseringsuppgifter måste ha både:

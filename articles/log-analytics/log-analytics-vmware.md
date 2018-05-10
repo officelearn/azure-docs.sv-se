@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware övervakning (förhandsgranskning) lösning i logganalys
 
@@ -37,7 +37,7 @@ Använd följande information för att installera och konfigurera lösningen.
 * Lägg till övervakning av VMware-lösning till din prenumeration med hjälp av den process som beskrivs i [lägga till en lösning för](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>VMware ESXi-värdar som stöds
-vSphere ESXi 5.5 för värden och 6.0
+vSphere 5.5, 6.0 och 6.5 ESXi-värd
 
 #### <a name="prepare-a-linux-server"></a>Förbered en Linux-server
 Skapa ett Linux-operativsystem VM ta emot alla syslog-data från ESXi-värdar. Den [OMS Linux-agenten](log-analytics-linux-agents.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en Linux-server, som i följande exempel.  
@@ -45,7 +45,7 @@ Skapa ett Linux-operativsystem VM ta emot alla syslog-data från ESXi-värdar. D
    ![Syslog-flöde](./media/log-analytics-vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Ange syslog-samling
-1. Ange syslog-vidarebefordring för VSphere. Detaljerad information för att ställa in syslog-vidarebefordran finns [konfigurerar syslog på ESXi 5.x och 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi Värdkonfiguration** > **programvara** > **avancerade inställningar** > **Syslog**.
+1. Ange syslog-vidarebefordring för VSphere. Detaljerad information för att ställa in syslog-vidarebefordran finns [konfigurera syslog på ESXi 5.0 och högre (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi Värdkonfiguration** > **programvara** > **avancerade inställningar** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. I den *Syslog.global.logHost* fältet, lägga till Linux-server och portnumret *1514*. Till exempel `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
 3. Öppna ESXi-värd-brandväggen för syslog. **ESXi Värdkonfiguration** > **programvara** > **säkerhetsprofil** > **brandväggen** och öppna **Egenskaper**.  

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: d81343ed894185cb60340f3eccdf2bff2d7ca1e2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03a66dbfc1df33ba8a91ba133a732dbf38f59262
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Skapa mobila program med Xamarin och Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Azure Cosmos-DB innehåller följande viktiga funktioner för utvecklare av mobi
 
 * Omfattande frågor över schemalös data. Azure Cosmos-DB lagrar data som schemalös JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabb frågor](sql-api-sql-query.md) utan att behöva bekymra dig om scheman eller index.
 * Snabb genomflöde. Det tar bara några millisekunder att läsa och skriva dokument med Azure Cosmos DB. Utvecklare kan ange genomströmning som de behöver och Azure Cosmos DB godkänner den med 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databas .
-* Obegränsad skala. Azure DB som Cosmos-samlingar [växer när din app växer](partition-data.md). Du kan starta med liten storlek och dataflöde hundratals begäranden per sekund. Samlingar kan växa till petabyte data och godtyckligt högt dataflöde med hundratals miljoner förfrågningar per sekund.
+* Obegränsad skala. Azure DB som Cosmos-samlingar [växer när din app växer](partition-data.md). Du kan starta med liten storlek och dataflöde hundratals begäranden per sekund. Din samlingar eller databaser kan växa till petabyte data och godtyckligt högt dataflöde med hundratals miljoner förfrågningar per sekund.
 * Globalt distribuerad. Användare av mobila appar är i farten, ofta över hela världen. Azure Cosmos-databasen är en [globalt distribuerad databas](distribute-data-globally.md). Klicka på kartan för att göra data tillgängliga för användarna.
 * Inbyggda omfattande auktorisering. Med Azure Cosmos DB, kan du enkelt implementera populära mönster som [användardata](https://aka.ms/documentdb-xamarin-todouser) eller fleranvändar delade data utan kod för komplexa anpassad auktorisering.
 * Geospatiala frågor. Geo-kontextuella upplevelser erbjuder idag för flera mobila appar. Med förstklassigt stöd för [geospatiala typer](geospatial.md), Azure Cosmos DB gör att skapa upplevelserna lätt att åstadkomma.

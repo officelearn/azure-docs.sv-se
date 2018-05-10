@@ -1,11 +1,11 @@
 ---
-title: "Dokumentation om Azure Media Services – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig säker strömning på begäran eller live-video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och mycket annat."
+title: Dokumentation om Azure Media Services – Självstudier, API-referens | Microsoft Docs
+description: Lär dig säker strömning på begäran eller live-video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och mycket annat.
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="media-services-documentation"></a>Dokumentation för Media Services
 
@@ -191,7 +191,7 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
                    </div>
                 </div>
             </div>

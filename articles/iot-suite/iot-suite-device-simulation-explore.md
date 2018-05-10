@@ -1,6 +1,6 @@
 ---
 title: Kom igång med enheten simuleringen lösningen - Azure | Microsoft Docs
-description: IoT Suite simuleringen lösningen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Tjänsten simuleringen är ett fristående erbjudande som kan användas tillsammans med andra förkonfigurerade lösningar eller användas med din egen anpassade lösningar.
+description: IoT-lösningen acceleratorer simuleringen-lösningen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Tjänsten simuleringen är ett fristående erbjudande som kan användas tillsammans med andra solution Accelerator eller användas med din egen anpassade lösningar.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,15 +12,15 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7dfd56d06e180dd163fa84d4289e6daf4baefc51
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Enheten simuleringen genomgång
 
-Azure IoT-enhet simuleringen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Enheten simuleringen är en fristående erbjudande som du kan använda tillsammans med andra förkonfigurerade lösningar eller med din egen anpassade lösningar.
+Azure IoT-enhet simuleringen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Enheten simuleringen är en fristående erbjudande som du kan använda tillsammans med andra solution Accelerator eller med din egen anpassade lösningar.
 
 Den här självstudiekursen vägleder dig igenom några av funktionerna i enheten simuleringen. Den visar hur det fungerar och gör att du kan använda den för att testa din egen IoT-lösningar.
 
@@ -39,7 +39,7 @@ Om du inte har distribuerat enheten simuleringen ännu, bör du genomföra den [
 
 ## <a name="configuring-device-simulation"></a>Konfigurera simulering av enheten
 
-Du kan konfigurera och köra enheten simuleringen helt från instrumentpanelen. Öppna instrumentpanelen från IoT Suite [etablerade lösningar](https://www.azureiotsuite.com/) sidan. Klicka på **starta** under distributionen av nya enheter simuleringen.
+Du kan konfigurera och köra enheten simuleringen helt från instrumentpanelen. Öppna instrumentpanelen från IoT solution Accelerator [etablerade lösningar](https://www.azureiotsuite.com/) sidan. Klicka på **starta** under distributionen av nya enheter simuleringen.
 
 ### <a name="target-iot-hub"></a>Målet IoT-hubb
 

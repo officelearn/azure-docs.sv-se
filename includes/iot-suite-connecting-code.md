@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: c835b5594676edc39b85a1b10cc04afc7486731d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Ange beteende för IoT-enheten
 
 Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange formatet på de meddelanden som enheten utbyter med IoT Hub.
@@ -78,7 +94,7 @@ Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange 
 
 Lägg till kod som implementerar det beteende som definierats i modellen.
 
-1. Lägg till följande motringningshanterare som körs när enheten har skickat nya rapporterade egenskapsvärden till den förkonfigurerade lösningen:
+1. Lägg till följande återanrop hanteraren som körs när enheten har skickat nya rapporterade egenskapsvärden till solution accelerator:
 
     ```c
     /* Callback after sending reported properties */
@@ -221,7 +237,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
     }
     ```
 
-1. Lägg till följande funktion som skickar ett meddelande med egenskaper till den förkonfigurerade lösningen:
+1. Lägg till följande funktion som skickar ett meddelande med egenskaper till solution accelerator:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +276,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
     }
     ```
 
-1. Lägg till följande funktion för att ansluta enheten till den förkonfigurerade lösningen i molnet och utbyta data. Den här funktionen utför följande steg:
+1. Lägg till följande funktion för att ansluta enheten till solution accelerator i molnet och utbyta data. Den här funktionen utför följande steg:
 
     - Initierar plattformen.
     - Registrerar namnområdet Contoso med serialiseringsbiblioteket.
@@ -396,7 +412,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
     }
     ```
 
-    Här är ett exempel på ett **Telemetri**-meddelande som skickats till den förkonfigurerade lösningen:
+    Här är ett exempel referens **telemetri** meddelandet som skickas till solution accelerator:
 
     ```
     Device: [myCDevice],

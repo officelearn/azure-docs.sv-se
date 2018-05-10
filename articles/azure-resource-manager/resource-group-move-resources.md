@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8ad73132839aaa77166c115feff9a70db864ba12
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -53,7 +53,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Om klient-ID: N för käll- och -prenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N: 
+  Om klient-ID: N för käll- och -prenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
 
   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
   * [Hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -125,7 +125,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* Händelsehubbar
+* Event Hubs
 * HDInsight-kluster - finns [HDInsight begränsningar](#hdinsight-limitations)
 * IoT-hubbar
 * Key Vault
@@ -145,7 +145,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Serverhantering
 * Service Bus
 * Service Fabric
-* Lagring
+* Storage
 * Storage (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics-jobb inte kan flyttas när du kör i läget.
 * SQL Database-server - databasen och servern måste finnas i samma resursgrupp. När du flyttar en SQLServer, flyttas även alla databaser. Detta inkluderar Azure SQL Database och Azure SQL Data Warehouse-databaser. 
@@ -166,12 +166,12 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Azure Database for MySQL
 * BizTalk Services
 * Certifikat - Apptjänstcertifikat kan flyttas, men överförda certifikat har [begränsningar](#app-service-limitations).
-* Container Service
+* Kubernetes Service
 * DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
 * Dynamics LCS
 * Express Route
 * Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
-* Hanterade program
+* Managed Applications
 * Hanterade diskar - Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
 * Recovery Services-ventilen - också vill inte flytta beräknings-, nätverks- och resurser som är associerade med Recovery Services-valvet finns [återställningstjänster begränsningar](#recovery-services-limitations).
@@ -203,13 +203,13 @@ Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det vir
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 
-Begränsningar för att flytta resurser Apptjänst variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration. 
+Begränsningar för att flytta resurser Apptjänst variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration.
 
 De begränsningar som beskrivs i dessa avsnitt gäller överförda certifikat, inte Apptjänstcertifikat. Du kan flytta Apptjänstcertifikat till en ny resursgrupp eller prenumeration utan begränsningar. Om du har flera webbprogram som använder samma App Service certifikat, först flytta alla webbprogram, flyttar du certifikatet.
 
 ### <a name="moving-within-the-same-subscription"></a>Flytta inom samma prenumeration
 
-När du flyttar en Webbapp _inom samma prenumeration_, du kan inte flytta de överförda SSL-certifikat. Men du kan flytta en Webbapp till den nya resursgruppen utan att flytta det överförda SSL-certifikatet och din app SSL fortfarande fungerar. 
+När du flyttar en Webbapp _inom samma prenumeration_, du kan inte flytta de överförda SSL-certifikat. Men du kan flytta en Webbapp till den nya resursgruppen utan att flytta det överförda SSL-certifikatet och din app SSL fortfarande fungerar.
 
 Följ dessa steg om du vill flytta SSL-certifikat med webbprogrammet:
 
@@ -227,7 +227,7 @@ När du flyttar en Webbapp _över prenumerationer_, gäller följande begränsni
     - Överförda eller importerade SSL-certifikat
     - Apptjänstmiljöer
 - Alla Apptjänst resurser i resursgruppen måste flyttas tillsammans.
-- Apptjänst resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service-resursen är inte längre i dess ursprungliga resursgrupp, det måste flyttas tillbaka till den ursprungliga resursgruppen först och sedan den flyttas över prenumerationer. 
+- Apptjänst resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service-resursen är inte längre i dess ursprungliga resursgrupp, det måste flyttas tillbaka till den ursprungliga resursgruppen först och sedan den flyttas över prenumerationer.
 
 ## <a name="classic-deployment-limitations"></a>Klassisk distribution begränsningar
 

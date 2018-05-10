@@ -1,25 +1,23 @@
 ---
-title: "Hur du utför en åtkomst-granskning | Microsoft Docs"
-description: "När du har startat en åtkomst-granskning i Azure AD Privileged Identity Management lär du dig hur du slutför den och visa resultaten"
+title: Hur du utför en åtkomst-granskning | Microsoft Docs
+description: När du har startat en åtkomst-granskning i Azure AD Privileged Identity Management lär du dig hur du slutför den och visa resultaten
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: abc2d3dd-afd5-42cf-8a17-6c11f5674c35
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: kgremban
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 3866438de8fba7a6c42777bbb57746eadf1158eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1314724d8094f171e4c8468d854a9d4ae0c85d7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Hur du utför en åtkomst-granskning i Azure AD Privileged Identity Management
 Privilegierade rollen administratörer kan granska privilegierad åtkomst när en [säkerhetsgranskning har startats](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) skickar automatiskt ett e-postmeddelande som uppmanar användare att granska deras åtkomst. Om en användare inte fick ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en säkerhetsgranskning](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -41,7 +39,7 @@ Om en åtkomst-granskning har konfigurerats så att användarna granska själva 
 ### <a name="stop"></a>Stoppa
 Alla åtkomst omdömen har ett slutdatum, men du kan använda den **stoppa** för att slutföra den tidigt. Om användare inte har granskats vid den tidpunkten, kommer inte de att kunna när du stoppar granskningen. Du kan inte starta om ett omdöme när den stoppas.
 
-### <a name="apply"></a>Ansök
+### <a name="apply"></a>Använd
 När en åtkomst-granskning har slutförts, antingen eftersom du har nått slutdatum eller hindrade den manuellt på **tillämpa** knappen implementerar resultatet av granskningen. Om en användares åtkomst nekades i granskningen, är det steg som tar bort sin rolltilldelning.  
 
 ### <a name="export"></a>Exportera

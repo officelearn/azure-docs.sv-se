@@ -4,14 +4,14 @@ description: En översikt över insamlaren installation och hur du konfigurerar 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="collector-appliance"></a>Installation av insamlaren
 
@@ -62,13 +62,13 @@ Insamlaren installation måste vara ansluten till internet för att skicka infor
 
 Förutvärdering Kontrollera är om insamlaren kan ansluta till internet via de angivna inställningarna. Kontrollen av anslutningen verifieras genom att ansluta till en lista över webbadresser som anges i följande tabell. Om du använder alla URL-baserade brandväggen proxy för att styra utgående anslutning, att kontrollera listan över godkända följande obligatoriska URL: er:
 
-**URL** | **Purpose**  
+**URL** | **Syfte**  
 --- | ---
 *.portal.azure.com | Krävs för att kontrollera anslutningen till Azure-tjänsten och validera tidssynkronisering utfärdar.
 
 Dessutom kontrollen också försöker att verifiera anslutningarna till följande URL: er men misslyckas inte kontrollen om det är inte tillgänglig. Konfigurera godkända för följande URL: er är valfritt men du måste utföra manuella åtgärder för att minimera förutvärdering kontrollen.
 
-**URL** | **Purpose**  | **Om du inte godkända**
+**URL** | **Syfte**  | **Om du inte godkända**
 --- | --- | ---
 *.oneget.org:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI modul. | PowerCLI installationen misslyckas. Installera modulen manuellt.
 *.windows.net:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI modul. | PowerCLI installationen misslyckas. Installera modulen manuellt.
@@ -89,7 +89,7 @@ Insamlaren ska vara synkroniserade med tiden Internetserver så autentiseras fö
 
 Azure migrera Collector-tjänsten ska köras på datorn. Den här tjänsten startas automatiskt när datorn startas. Om tjänsten inte körs kan du starta den *Azure migrera insamlaren* tjänsten via Kontrollpanelen. Collector-tjänsten ansvarar för att ansluta till vCenter-servern, samla in data för den dator metadata och prestanda och skicka den till tjänsten.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 VMware PowerCLI powershell-modulen måste vara installerad så att insamlaren kan kommunicera med vCenter-servern och fråga om information om datorn och deras prestandadata. Powershell-modulen automatiskt hämtas och installeras som en del av kontrollen krävs. Automatisk hämtning kräver några vitlistad för URL: er, misslyckas som du måste ange antingen åtkomst av vitlistning av dem, eller installera modulen manuellt.
 
@@ -103,7 +103,7 @@ Installera modulen manuellt med hjälp av följande steg:
 
 Insamlaren ska ansluta till vCenter-servern och kan fråga efter de virtuella datorerna och deras metadata sina prestandaräknare. Dessa data används av projektet för att beräkna en utvärdering.
 
-1. För att ansluta till vCenter-servern, en skrivskyddad konto med behörighet som anges i följande tabell kan användas för att köra identifieringen. 
+1. För att ansluta till vCenter-servern, en skrivskyddad konto med behörighet som anges i följande tabell kan användas för att köra identifieringen.
 
     |Aktivitet  |Nödvändiga roll-konto  |Behörigheter  |
     |---------|---------|---------|
@@ -118,13 +118,13 @@ Insamlaren ska ansluta till vCenter-servern och kan fråga efter de virtuella da
 > Endast versioner vCenter Server 5.5, 6.0 och 6.5 officiellt.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du vanliga filegenskaper (3) för statistik nivån så att alla räknare samlas in korrekt. Om du har vCenter på en lägre nivå kan bara några räknare samlas helt, med de övriga anges som 0. Bedömning kan sedan visa ofullständiga data. 
+> Vi rekommenderar att du vanliga filegenskaper (3) för statistik nivån så att alla räknare samlas in korrekt. Om du har vCenter på en lägre nivå kan bara några räknare samlas helt, med de övriga anges som 0. Bedömning kan sedan visa ofullständiga data.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Att välja omfattning för identifiering av
 
 Du kan välja ett scope för att identifiera när du är ansluten till vCenter. Att välja ett scope identifierar alla virtuella datorer från den angivna vCenter inventering sökvägen.
 
-1. Omfattningen kan vara ett datacenter, en mapp eller en ESXi-värd. 
+1. Omfattningen kan vara ett datacenter, en mapp eller en ESXi-värd.
 2. Du kan bara välja ett omfång i taget. Om du vill välja flera virtuella datorer kan du slutföra en identifiering och starta om processen för identifiering med ett nytt scope.
 3. Du kan bara välja en omfattning som har *mindre än 1500 virtuella datorer*.
 
@@ -141,28 +141,29 @@ När identifieringen startar de virtuella datorerna vCenter identifieras och der
 
 ### <a name="what-data-is-collected"></a>Vilka data som samlas in?
 
-Samlingen jobbet identifieras följande statiska metadata om de valda virtuella datorerna. 
+Samlingen jobbet identifieras följande statiska metadata om de valda virtuella datorerna.
 
 1. VM visningsnamn (på vCenter)
 2. Virtuella datorns lager sökväg (värd/mapp i vCenter)
 3. IP-adress
 4. MAC-adress
+5. Operativsystem
 5. Antal kärnor, diskar, nätverkskort
-6. RAM-minne, diskstorlekar
-7. Och prestandaräknare för virtuell dator, Disk och nätverk som anges i tabellen nedan.
+6. Minnesstorleken diskstorlekar
+7. Och prestandaräknare för virtuell dator, disk och nätverk som anges i tabellen nedan.
 
 I följande tabell visas de prestandaräknare som samlas in och visar också utvärderingsresultat som påverkas om räknaren inte samlas in.
 
 |Räknaren                                  |Nivå    |Nivå per enhet  |Bedömning påverkan                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
-|mem.usage.average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
+|CPU.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
+|Mem.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
 |virtualDisk.read.average                 | 2       |2                 |Diskstorleken och lagringskostnaden är VM-storlek         |
 |virtualDisk.write.average                | 2       |2                 |Diskstorleken och lagringskostnaden är VM-storlek         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Diskstorleken och lagringskostnaden är VM-storlek         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Diskstorleken och lagringskostnaden är VM-storlek         |
-|net.received.average                     | 2       |3                 |VM-storlek och nätverket kostnad                        |
-|net.transmitted.average                  | 2       |3                 |VM-storlek och nätverket kostnad                        |
+|NET.Received.Average                     | 2       |3                 |VM-storlek och nätverket kostnad                        |
+|NET.Transmitted.Average                  | 2       |3                 |VM-storlek och nätverket kostnad                        |
 
 > [!WARNING]
 > Om du precis har högre statistik, tar det till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.
@@ -190,7 +191,7 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ägg ige
 2. För att säkerställa att hämtade snabbkorrigeringen är säker, öppna kommandofönstret administratör och kör följande kommando för att generera hash för ZIP-filen. Genererade hash-värdet ska vara identiskt med hash-algoritmen som nämns mot en viss version:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (exempel på användning C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Kopiera zip-filen till den Azure migrera insamlaren virtuell datorn (insamlaren installation).
 4. Högerklicka på zip-filen och välj extrahera alla.

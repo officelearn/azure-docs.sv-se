@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Suite och Azure Active Directory | Microsoft Docs
-description: "Beskriver hur Azure IoT Suite använder Azure Active Directory för att hantera behörigheter."
-services: 
+title: Azure IoT solution Accelerator och Azure Active Directory | Microsoft Docs
+description: Beskriver hur Azure IoT-Lösningsacceleratorer använder Azure Active Directory för att hantera behörigheter.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Behörigheter på webbplatsen azureiotsuite.com
 
@@ -29,35 +29,35 @@ Första gången du loggar in på [azureiotsuite.com][lnk-azureiotsuite], platsen
 
 1. Först för att fylla i listan över klienter som visas bredvid ditt användarnamn hittar webbplatsen från Azure vilka AAD-klienter som du tillhör. Platsen kan för närvarande kan endast hämta användartoken för en klient i taget. Därför när du växlar innehavare med den nedrullningsbara listrutan i det övre högra hörnet loggar platsen in till den klientorganisationen att hämta token för den klienten.
 
-2. Därefter hittar webbplatsen från Azure vilka prenumerationer som du har associerat med den valda klientorganisationen. Du kan se tillgängliga prenumerationer när du skapar en ny förkonfigurerade lösning.
+2. Därefter hittar webbplatsen från Azure vilka prenumerationer som du har associerat med den valda klientorganisationen. Du kan se tillgängliga prenumerationer när du skapar en ny solution accelerator.
 
-3. Slutligen hämtar platsen alla resurser i prenumerationer och resursgrupper märks med förkonfigurerade lösningar och fyller paneler på startsidan.
+3. Slutligen hämtar platsen alla resurser i prenumerationer och resursgrupper som solution Accelerator och fyller paneler på startsidan.
 
-I följande avsnitt beskrivs de roller som styr åtkomsten till de förkonfigurerade lösningarna.
+I följande avsnitt beskrivs de roller som styr åtkomsten till solution Accelerator.
 
 ## <a name="aad-roles"></a>AAD-roller
 
-AAD-roller styr möjligheten etablera förkonfigurerade lösningar och hantera användare i en förkonfigurerade lösning.
+AAD-roller styra solution Accelerator kan etablera och hantera användare i en lösningsaccelerator.
 
-Du hittar mer information om administratörsroller i AAD i [Tilldela administratörsroller i Azure AD][lnk-aad-admin]. Den aktuella artikeln fokuserar på de **Global administratör** och **användaren** directory roller som används av förkonfigurerade lösningar.
+Du hittar mer information om administratörsroller i AAD i [Tilldela administratörsroller i Azure AD][lnk-aad-admin]. Den aktuella artikeln fokuserar på de **Global administratör** och **användaren** directory roller som används av solution Accelerator.
 
 ### <a name="global-administrator"></a>Global administratör
 
 Det kan finnas flera globala administratörer per AAD-klient:
 
 * När du skapar en AAD-klient är du som standard global administratör för att klienten.
-* Global administratör kan etablera en basic och standard förkonfigurerade lösningar.
+* Global administratör kan etablera en basic och standard solution Accelerator.
 
 ### <a name="domain-user"></a>Domänanvändare
 
 Det kan finnas många domänanvändare per AAD-klient:
 
-* En domänanvändare kan etablera en grundläggande förkonfigurerade lösning via den [azureiotsuite.com] [ lnk-azureiotsuite] plats.
-* En domänanvändare kan skapa en grundläggande förkonfigurerade lösning med hjälp av CLI.
+* En domänanvändare kan etablera en grundläggande lösning för accelerator via den [azureiotsuite.com] [ lnk-azureiotsuite] plats.
+* En domänanvändare kan skapa en grundläggande lösning för accelerator med hjälp av CLI.
 
 ### <a name="guest-user"></a>Gästanvändare
 
-Det kan finnas många gästanvändare per AAD-klient. Gästanvändare har en begränsad uppsättning rättigheter i AAD-klient. Därför kan inte gästanvändare etablera en förkonfigurerade lösning i AAD-klient.
+Det kan finnas många gästanvändare per AAD-klient. Gästanvändare har en begränsad uppsättning rättigheter i AAD-klient. Därför kan inte gästanvändare etablera en lösningsaccelerator i AAD-klient.
 
 Mer information om användare och roller i AAD finns i följande resurser:
 
@@ -94,7 +94,7 @@ Titta på följande diagram anvisningar:
 Om du är säker på att du har en Azure-prenumeration, verifiera innehavaren mappning för din prenumeration och kontrollera att rätt klient väljs i listrutan. Om du har verifierats önskade innehavaren är korrekt, följ föregående diagram och verifiera mappningen för din prenumeration och AAD-klient.
 
 ## <a name="next-steps"></a>Nästa steg
-Se hur du kan om du vill fortsätta lära dig mer om IoT Suite [anpassa förkonfigurerade lösning][lnk-customize].
+Se hur du kan om du vill fortsätta lära dig mer om IoT solution Accelerator [anpassa en lösningsaccelerator][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

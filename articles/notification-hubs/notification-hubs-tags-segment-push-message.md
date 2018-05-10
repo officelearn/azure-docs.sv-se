@@ -1,24 +1,24 @@
 ---
 title: Routning och Tagguttryck
-description: "Det här avsnittet beskrivs uttryck för Routning och tagg i Azure notification hubs."
+description: Det här avsnittet beskrivs uttryck för Routning och tagg i Azure notification hubs.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: c3266698a6077e85806286fadf1f48b7194a4d88
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: e08fca0b6b57d654f2b2ff7b935f38d8c517487b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-and-tag-expressions"></a>Routning och tagg uttryck
 ## <a name="overview"></a>Översikt
@@ -33,7 +33,7 @@ Serverdelen program kan välja registreringar till målet med ett visst meddelan
 3. **Tagga uttryck**: alla registreringar vars uppsättning taggar som matchar det angivna uttrycket ta emot meddelandet.
 
 ## <a name="tags"></a>Taggar
-En tagg kan vara valfri sträng som innehåller alfanumeriska upp till 120 tecken och följande icke-alfanumeriska tecken: '_' ' @', '#', '. ',':', '-'. I följande exempel visas ett program som du kan ta emot popup-meddelanden om särskilda musik grupper. I det här scenariot är ett enkelt sätt att vägen meddelanden till etiketten registreringar med taggar som representerar olika banden, enligt följande bild.
+En tagg kan vara valfri sträng som innehåller alfanumeriska upp till 120 tecken och följande icke-alfanumeriska tecken: '_' ' @', '#', '. ',':', '-'. I följande exempel visas ett program som du kan ta emot popup-meddelanden om särskilda musik grupper. I det här scenariot är ett enkelt sätt att vägen meddelanden till etiketten registreringar med taggar som representerar olika banden, enligt följande bild:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -69,11 +69,11 @@ Medan du kan koda flera frågor i taggar (till exempel ”band_Beatles” eller 
 En fullständig stegvis självstudiekurs om hur du använder taggar för att skicka till intressegrupper finns [bryter nyheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
 ## <a name="using-tags-to-target-users"></a>Med hjälp av taggar till målgruppsanvändare
-Ett annat sätt att använda taggar är att identifiera alla enheter av en viss användare. Registreringar taggas med en tagg som innehåller användar-id, som i följande bild:
+Ett annat sätt att använda taggar är att identifiera alla enheter av en viss användare. Registreringar taggas med en tagg som innehåller användar-ID, som i följande bild:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-I den här bilden når meddelandet märkta uid:Alice alla registreringar taggade uid:Alice; Därför måste alla Annas enheter.
+I den här bilden meddelandet märkta uid: Alice når alla registreringar taggade uid:Alice; Därför måste alla Annas enheter.
 
 ## <a name="tag-expressions"></a>Tagguttryck
 Finns det fall där en avisering har som mål en uppsättning registreringar som identifieras inte som en enskild tagg, men av ett booleskt uttryck på taggar.

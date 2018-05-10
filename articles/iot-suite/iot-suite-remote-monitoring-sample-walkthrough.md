@@ -1,12 +1,12 @@
 ---
-title: "Arkitektur för fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "En genomgång av arkitekturen för fjärråtkomst övervakning förkonfigurerade lösningen."
-services: 
+title: Arkitektur för fjärranslutna övervakningslösning - Azure | Microsoft Docs
+description: En genomgång av arkitekturen för fjärråtkomst övervakning solution accelerator.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Fjärrövervaknings förkonfigurerade lösningsarkitektur
+# <a name="remote-monitoring-solution-accelerator-architecture"></a>Fjärråtkomst övervakning accelerator lösningsarkitektur
 
-IoT Suite fjärråtkomst övervakning [förkonfigurerade lösningen](iot-suite-what-are-preconfigured-solutions.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](iot-suite-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
+Fjärråtkomst övervakning [lösningsaccelerator](iot-suite-what-are-solution-accelerators.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](iot-suite-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
 
 Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakningslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
 
@@ -33,13 +33,13 @@ Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakni
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
-Diagrammet nedan visar logiska komponenterna i den fjärranslutna förkonfigurerade övervakningslösning högst upp på den [IoT-arkitekturen](iot-suite-what-is-azure-iot.md):
+Diagrammet nedan visar logiska komponenter för fjärråtkomst övervakning solution accelerator högst upp på den [IoT-arkitekturen](iot-suite-what-is-azure-iot.md):
 
 ![Logisk arkitektur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="why-microservices"></a>Varför mikrotjänster?
 
-Molnarkitektur har utvecklats eftersom Microsoft har publicerat de första förkonfigurerade lösningarna. [Mikrotjänster](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) har vuxit fram som en beprövad idé att uppnå skalbarhet och flexibilitet utan att kompromissa development hastighet. Flera Microsoft-tjänster använder den här arkitekturen mönster internt med bra tillförlitlighet och skalbarhet resultat. Uppdaterade förkonfigurerade lösningar placera dessa learnings i praktiken så att du kan också dra nytta av dem.
+Molnarkitektur har utvecklats eftersom Microsoft har publicerat första solution Accelerator. [Mikrotjänster](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) har vuxit fram som en beprövad idé att uppnå skalbarhet och flexibilitet utan att kompromissa development hastighet. Flera Microsoft-tjänster använder den här arkitekturen mönster internt med bra tillförlitlighet och skalbarhet resultat. Uppdaterade solution Accelerator placera dessa learnings i praktiken så att du kan också dra nytta av dem.
 
 > [!TIP]
 > Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
@@ -67,7 +67,7 @@ Du kan etablera fysiska enheter från instrumentpanelen i portalen för lösning
 
 ### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT-hubb och mikrotjänster för IoT-hanteraren
 
-Den [IoT-hubb](../iot-hub/index.md) en data som skickas från enheter i molnet och gör den tillgänglig för den `telemetry-agent` mikrotjänster.
+Den [IoT-hubb](../iot-hub/index.yml) en data som skickas från enheter i molnet och gör den tillgänglig för den `telemetry-agent` mikrotjänster.
 
 IoT Hub ansvarar även för följande uppgifter i lösningen:
 
@@ -110,13 +110,13 @@ Den `telemetry-agent` mikrotjänster kan lösningen-portalen för att läsa tele
 
 Använda RESTful slutpunkten som tillhandahålls av den här mikrotjänster för att hantera telemetri, regler och larm.
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
-Den [lagringsadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) mikrotjänster är ett kort framför den huvudsakliga storage-tjänst som används för förkonfigurerade lösningen. Det ger enkel insamling och nyckel / värde-lagring.
+Den [lagringsadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) mikrotjänster är ett kort framför den huvudsakliga storage-tjänst som används för solution accelerator. Det ger enkel insamling och nyckel / värde-lagring.
 
-Standarddistribution av förkonfigurerade lösningen använder Cosmos DB som dess huvudsakliga storage-tjänst.
+Standarddistribution av solution accelerator använder Cosmos DB som dess huvudsakliga storage-tjänst.
 
-Cosmos-DB-databasen lagrar data i den förkonfigurerade lösningen. Den **lagringsadapter** mikrotjänster fungerar som ett kort för den andra mikrotjänster i lösningen till lagringstjänster för åtkomst.
+Cosmos-DB-databasen lagrar data i solution accelerator. Den **lagringsadapter** mikrotjänster fungerar som ett kort för den andra mikrotjänster i lösningen till lagringstjänster för åtkomst.
 
 ## <a name="presentation"></a>Presentation
 
@@ -128,7 +128,7 @@ Den [webbanvändargränssnitt är ett reagera Javascript-program](https://github
 * Är formaterad med CSS.
 * Samverkar med offentliga Internetriktade mikrotjänster via AJAX-anrop.
 
-Användargränssnittet visar alla förkonfigurerade lösningen funktioner och samverkar med andra tjänster som:
+Användargränssnittet visar alla solution accelerator funktionen och samverkar med andra tjänster som:
 
 * Den [autentisering](https://github.com/Azure/pcs-auth-dotnet) mikrotjänster att skydda användardata.
 * Den [iothub manager](https://github.com/Azure/iothub-manager-dotnet) mikrotjänster att visa och hantera IoT-enheter.
@@ -139,8 +139,8 @@ Den [ui-config](https://github.com/Azure/pcs-config-dotnet) mikrotjänster aktiv
 
 Om du vill utforska källa kod och utvecklare dokumentationen börjar du med en två huvudsakliga GitHub-databaser:
 
-* [Förkonfigurerade lösning för fjärråtkomst övervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Förkonfigurerade lösning för fjärråtkomst övervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Förkonfigurerade lösning för fjärråtkomst övervakning arkitektur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+* [Solution accelerator för fjärråtkomst övervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Solution accelerator för fjärråtkomst övervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Solution accelerator för fjärråtkomst övervakning arkitektur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Mer information om fjärråtkomst övervakning förkonfigurerade lösningen finns [anpassa förkonfigurerade lösningen](iot-suite-remote-monitoring-customize.md).
+Mer information om fjärråtkomst övervakning solution accelerator finns [anpassa solution accelerator](iot-suite-remote-monitoring-customize.md).

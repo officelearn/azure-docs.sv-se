@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Store-resurser i Storage Explorer
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) är en tjänst som används för att lagra stora mängder ostrukturerade data, som text eller binära data. Du kan komma åt data var du än är via HTTP eller HTTPS. Data Lake Store i Azure Storage Explorer ger dig möjlighet att komma åt och hantera Data Lake Store-data och -resurser med andra Azure-entiteter som blobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) är en tjänst som används för att lagra stora mängder ostrukturerade data, som text eller binära data. Du kan komma åt data var du än är via HTTP eller HTTPS. Data Lake Store i Azure Storage Explorer ger dig möjlighet att komma åt och hantera Data Lake Store-data och -resurser med andra Azure-entiteter som blobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe.
 
 En annan fördel är att du inte behöver ha prenumerationsbehörighet för att hantera Data Lake Store-data. I Storage Explorer kan du koppla Data Lake Store-sökvägen till noden **Lokal och Ansluten** så länge någon beviljar behörigheten.
 
@@ -32,7 +32,7 @@ En annan fördel är att du inte behöver ha prenumerationsbehörighet för att 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 *   En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Ett Azure Data Lake Store-konto. Mer information om hur du skapar ett finns i [Kom igång med Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Ett Azure Data Lake Store-konto. Mer information om hur du skapar ett finns i [Kom igång med Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Installera Storage Explorer
 
@@ -197,7 +197,7 @@ Om du har en URL kan du ange den i adressfältet i Utforskaren eller i en webbl�
 
 ## <a name="next-steps"></a>Nästa steg
 * Visa [viktig information och videor för den senaste Storage Explorer-versionen](http://www.storageexplorer.com).
-* Lär dig [hantera Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Kom igång med Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Kom igång med Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Lär dig [hantera Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Kom igång med Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Titta på en [YouTube-video om hur du använder Azure Cosmos DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

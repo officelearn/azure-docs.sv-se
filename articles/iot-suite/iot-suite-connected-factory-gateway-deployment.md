@@ -1,12 +1,12 @@
 ---
-title: Distribuera dina anslutna factory gateway - Azure | Microsoft Docs
-description: "Så här distribuerar du en gateway på Windows eller Linux för att ansluta till till anslutna fabriken förkonfigurerade lösningen."
-services: 
+title: Distribuera dina anslutna Factory gateway - Azure | Microsoft Docs
+description: Så här distribuerar du en gateway på Windows eller Linux för att aktivera anslutning till ansluten Factory solution accelerator.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Distribuera en gräns-gatewayen för anslutna factory förkonfigurerade lösningen på Windows- eller Linux
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Distribuera en gräns-gatewayen för anslutna Factory solution accelerator på Windows- eller Linux
 
-Du behöver två programvarukomponenter att distribuera en gräns-gatewayen för det *anslutna factory* förkonfigurerade lösningen:
+Du behöver två programvarukomponenter att distribuera en gräns-gatewayen för det *anslutna Factory* solution accelerator:
 
-- Den *OPC Proxy* upprättar en anslutning till ansluten factory. OPC-Proxy väntar sedan kommando- och meddelanden från integrerade OPC webbläsaren som körs i den anslutna factory lösning portalen.
+- Den *OPC Proxy* upprättar en anslutning till ansluten Factory. OPC-Proxy väntar sedan kommando- och meddelanden från integrerade OPC webbläsaren som körs i den anslutna Factory lösning portalen.
 
-- Den *OPC Publisher* ansluter till befintliga lokala OPC UA servrar och vidarebefordrar telemetri från dem till anslutna factory. Du kan ansluta en OPC klassiska enheter med hjälp av den [OPC klassiska kortet för OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- Den *OPC Publisher* ansluter till befintliga lokala OPC UA servrar och vidarebefordrar telemetri från dem till anslutna Factory. Du kan ansluta en OPC klassiska enheter med hjälp av den [OPC klassiska kortet för OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Båda komponenterna är öppen källkod och är tillgängliga som källa på GitHub och Docker behållare på DockerHub:
 
@@ -37,14 +37,14 @@ Båda komponenterna är öppen källkod och är tillgängliga som källa på Git
 
 Du behöver inte en offentlig IP-adress eller öppna ingående portar i brandväggen för gateway för någon komponent. OPC-Proxy och OPC utgivaren komponenter kan bara använda utgående port 443.
 
-Stegen i den här artikeln visar hur du distribuerar en gräns-gatewayen med Docker i Windows eller Linux. Gatewayen kan ansluta till den anslutna factory förkonfigurerade lösningen. Du kan också använda komponenterna utan anslutna fabriken.
+Stegen i den här artikeln visar hur du distribuerar en gräns-gatewayen med Docker i Windows eller Linux. Gatewayen kan anslutningen till anslutna Factory solution accelerator. Du kan också använda komponenterna utan anslutna fabriken.
 
 > [!NOTE]
 > Du kan använda båda komponenterna som moduler i [Azure IoT kant](https://github.com/Azure/iot-edge).
 
 ## <a name="choose-a-gateway-device"></a>Välj en gateway-enhet
 
-Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. En lista över alla gatewayenheter som är kompatibla med anslutna factory-lösningen finns i [Azure IoT-enhet katalogen](https://catalog.azureiotsuite.com/?q=opc). Följ instruktionerna som medföljer enheten för att konfigurera gatewayen.
+Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. En lista över alla gatewayenheter som är kompatibla med anslutna Factory-lösningen finns i [Azure IoT-enhet katalogen](https://catalog.azureiotsuite.com/?q=opc). Följ instruktionerna som medföljer enheten för att konfigurera gatewayen.
 
 Alternativt, Använd följande instruktioner för att manuellt konfigurera en befintlig gatewayenhet.
 
@@ -75,7 +75,7 @@ Mer information finns i [använda volymer](https://docs.docker.com/engine/admin/
 
 Utför följande steg för att förbereda din miljö innan du installerar OPC-komponenter:
 
-1. Du behöver för att slutföra gateway-distribution av **iothubowner** anslutningssträngen för IoT-hubben i distributionen anslutna fabriken. I den [Azure-portalen](http://portal.azure.com/), navigera till din IoT-hubb i resursgruppen som skapas när du har distribuerat anslutna factory-lösning. Klicka på **principer för delad åtkomst** att få åtkomst till den **iothubowner** anslutningssträngen:
+1. Du behöver för att slutföra gateway-distribution av **iothubowner** anslutningssträngen för IoT-hubben i distributionen anslutna fabriken. I den [Azure-portalen](http://portal.azure.com/), navigera till din IoT-hubb i resursgruppen som skapas när du har distribuerat anslutna Factory-lösning. Klicka på **principer för delad åtkomst** att få åtkomst till den **iothubowner** anslutningssträngen:
 
     ![Hitta anslutningssträngen IoT-hubb](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
@@ -143,33 +143,33 @@ OPC Proxy sparar anslutningssträngen under installationen. På efterföljande k
 
 ## <a name="enable-your-gateway"></a>Aktivera din gateway
 
-Utför följande steg om du vill aktivera din gateway i anslutna factory förkonfigurerade lösningen:
+Utför följande steg om du vill aktivera din gateway i ansluten Factory solution accelerator:
 
-1. När båda komponenterna körs, bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna factory lösning portalen. Den här sidan är endast tillgänglig för administratörer i lösningen. Ange utgivare slutpunkts-URL (opc.tcp://publisher: 62222) och klicka på **Anslut**.
+1. När båda komponenterna körs, bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna Factory lösning portalen. Den här sidan är endast tillgänglig för administratörer i lösningen. Ange utgivare slutpunkts-URL (opc.tcp://publisher: 62222) och klicka på **Anslut**.
 
-1. Upprätta en förtroenderelation mellan anslutna factory portal och OPC utgivare. När en certifikatvarning, klickar du på **Fortsätt**. Därefter kan du se ett fel att OPC utgivaren inte har förtroende för UA webbklienten. Lös problemet genom att kopiera den **UA webbklienten** certifikat från den `<SharedFolder>/CertificateStores/rejected/certs` mappen till den `<SharedFolder>/CertificateStores/trusted/certs` mappen på gateway. Du behöver inte starta om gatewayen.
+1. Upprätta en förtroenderelation mellan anslutna Factory portal och OPC utgivare. När en certifikatvarning, klickar du på **Fortsätt**. Därefter kan du se ett fel att OPC utgivaren inte har förtroende för UA webbklienten. Lös problemet genom att kopiera den **UA webbklienten** certifikat från den `<SharedFolder>/CertificateStores/rejected/certs` mappen till den `<SharedFolder>/CertificateStores/trusted/certs` mappen på gateway. Du behöver inte starta om gatewayen.
 
 Du kan ansluta till gatewayen nu från molnet och du är redo att lägga till OPC UA servrar i lösningen.
 
 ## <a name="add-your-own-opc-ua-servers"></a>Lägga till egna OPC UA-servrar
 
-Att lägga till dina egna OPC UA servrar anslutna fabriken förkonfigurerade lösningen:
+Lägg till OPC UA servrarna till anslutna Factory solution accelerator:
 
-1. Bläddra till den **ansluta OPC UA servern** sidan på anslutna factory lösning portalen.
+1. Bläddra till den **ansluta OPC UA servern** sidan på anslutna Factory lösning portalen.
 
     1. Starta OPC UA-server som du vill ansluta till. Se till att OPC UA servern kan nås från OPC utgivare och OPC-Proxy som körs i behållaren (se tidigare kommentarer om namnmatchning).
     1. Ange slutpunkts-URL för OPC UA-server (`opc.tcp://<host>:<port>`) och klicka på **Anslut**.
-    1. Som en del av installationen anslutning kan upprättas en förtroenderelation mellan anslutna factory-portal (OPC UA klienten) och OPC UA-server som du försöker ansluta. I instrumentpanelen för anslutna factory du får en **går inte att verifiera certifikatet på den server som du vill ansluta** varning. När en certifikatvarning, klickar du på **Fortsätt**.
-    1. Svårare att installationen är certifikatkonfigureringen OPC UA-server som du försöker ansluta till. Du kan bara få ett varningsmeddelande i instrumentpanelen som du kan bekräfta för PC-baserade OPC UA-servrar. Inbäddade OPC UA serversystem i dokumentationen för OPC UA att leta upp hur den här uppgiften utförs. Du kanske måste certifikatet för anslutna factory portalens OPC UA klienten för att slutföra den här uppgiften. En administratör kan hämta det här certifikatet på den **ansluta OPC UA servern** sidan:
+    1. Som en del av installationen anslutning kan upprättas en förtroenderelation mellan anslutna Factory-portal (OPC UA klienten) och OPC UA-server som du försöker ansluta. I instrumentpanelen för anslutna Factory du får en **går inte att verifiera certifikatet på den server som du vill ansluta** varning. När en certifikatvarning, klickar du på **Fortsätt**.
+    1. Svårare att installationen är certifikatkonfigureringen OPC UA-server som du försöker ansluta till. Du kan bara få ett varningsmeddelande i instrumentpanelen som du kan bekräfta för PC-baserade OPC UA-servrar. Inbäddade OPC UA serversystem i dokumentationen för OPC UA att leta upp hur den här uppgiften utförs. Du kanske måste certifikatet för anslutna Factory portalens OPC UA klienten för att slutföra den här uppgiften. En administratör kan hämta det här certifikatet på den **ansluta OPC UA servern** sidan:
 
         ![Lösningsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder som du vill skicka värden till anslutna factory och välj **publicera**.
+1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder som du vill skicka värden till anslutna Factory och välj **publicera**.
 
-1. Telemetri nu flödar från gateway-enheten. Du kan visa telemetri i den **Factory platser** visa anslutna factory portalens under **nya Factory**.
+1. Telemetri nu flödar från gateway-enheten. Du kan visa telemetri i den **Factory platser** visa anslutna Factory portalens under **nya Factory**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om arkitekturen för den anslutna factory förkonfigurerade lösningen finns [anslutna factory förkonfigurerade lösningen genomgången](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Mer information om arkitekturen för anslutna Factory solution accelerator finns [anslutna Factory solution accelerator genomgången](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
 Lär dig mer om den [OPC Publisher referensimplementering](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

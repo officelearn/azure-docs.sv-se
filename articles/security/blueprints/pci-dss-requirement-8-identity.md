@@ -3,7 +3,7 @@ title: Azure betalning bearbetning modell - identitetskrav?
 description: PCI DSS krav 8
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>Identitetskrav för PCI DSS-kompatibel miljöer 
 ## <a name="pci-dss-requirement-8"></a>PCI DSS krav 8
@@ -42,8 +42,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore ger ett användningsfall och en beskrivning för rätt användning av administratörer för distributionen av exemplet.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore ger ett användningsfall och en beskrivning för rätt användning av administratörer för distributionen av exemplet.|
 
 
 
@@ -55,8 +55,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore implementerar Azure Active Directory och Azure Active Directory Role-Based åtkomstkontroll (RBAC) för alla användare ha ett unikt ID. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore implementerar Azure Active Directory och Azure Active Directory Role-Based åtkomstkontroll (RBAC) för alla användare ha ett unikt ID. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -68,8 +68,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore implementerar Azure Active Directory och Azure Active Directory Role-Based åtkomstkontroll (RBAC) för alla användare ha ett unikt ID. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore implementerar Azure Active Directory och Azure Active Directory Role-Based åtkomstkontroll (RBAC) för alla användare ha ett unikt ID. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -81,8 +81,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för användarhantering. Upphävande av användare kan göras i Active Directory.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för användarhantering. Upphävande av användare kan göras i Active Directory.|
 
 
 
@@ -94,8 +94,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för användarhantering. Den `-enableADDomainPasswordPolicy` alternativet kan ställas in så lösenord upphör att gälla inom 90 dagar.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för användarhantering. Den `-enableADDomainPasswordPolicy` alternativet kan ställas in så lösenord upphör att gälla inom 90 dagar.|
 
 
 
@@ -109,8 +109,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har antagit tillämpliga företagets och organisationens säkerhetsprinciper, inklusive en säkerhetsprincip för Information. Principerna har godkänts, publicerats och kommunicerade till Microsoft Azure. Säkerhetsprincipen Information kräver att åtkomst till Microsoft Azure-resurser för att beviljas åtkomst baserat på affärsjustering med tillgångens ägare auktorisering och begränsad baserat på ”till behovsnivå” och ”lägsta behörighet” principer. Dessutom principen åtgärdas även kraven för access management livscykel, inklusive åtkomst etablering, autentisering, åtkomstauktorisering, borttagande av åtkomstbehörighet och periodiska åtkomst till granskningar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore demo har implementerat Azure Active Directory och Azure Active Directory Role-Based åtkomstkontroll för att hantera användarnas åtkomst till installationen. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har antagit tillämpliga företagets och organisationens säkerhetsprinciper, inklusive en säkerhetsprincip för Information. Principerna har godkänts, publicerats och kommunicerade till Microsoft Azure. Säkerhetsprincipen Information kräver att åtkomst till Microsoft Azure-resurser för att beviljas åtkomst baserat på affärsjustering med tillgångens ägare auktorisering och begränsad baserat på ”till behovsnivå” och ”lägsta behörighet” principer. Dessutom principen åtgärdas även kraven för access management livscykel, inklusive åtkomst etablering, autentisering, åtkomstauktorisering, borttagande av åtkomstbehörighet och periodiska åtkomst till granskningar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore demo har implementerat Azure Active Directory och Azure Active Directory Role-Based åtkomstkontroll för att hantera användarnas åtkomst till installationen. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -122,8 +122,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore har implementerat tydlig uppdelning av uppgifter (MATJORD) för alla användare av demonstrationen. Mer information finns i ”” Azure Active Directory Identity Protection ”i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore har implementerat tydlig uppdelning av uppgifter (MATJORD) för alla användare av demonstrationen. Mer information finns i ”” Azure Active Directory Identity Protection ”i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -135,8 +135,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa, tillämpa och övervaka en lösenordsprincip som är kompatibla med PCI DSS krav.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa, tillämpa och övervaka en lösenordsprincip som är kompatibla med PCI DSS krav.|
 
 
 
@@ -148,8 +148,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att skapa, tillämpa och övervaka en lösenordsprincip som är kompatibla med PCI DSS krav.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att skapa, tillämpa och övervaka en lösenordsprincip som är kompatibla med PCI DSS krav.|
 
 
 
@@ -164,8 +164,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore-implementering för multi-Factor authentication har inaktiverats för att tillhandahålla enkel användning för demonstrationen. Multifaktorautentisering kan implementeras med hjälp av [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore-implementering för multi-Factor authentication har inaktiverats för att tillhandahålla enkel användning för demonstrationen. Multifaktorautentisering kan implementeras med hjälp av [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -177,8 +177,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat nyckelhantering procedurer för att hantera krypteringsnycklar under deras livscykel (t.ex. generation, distribution, återkallade certifikat). Microsoft Azure använder Microsofts företagets PKI-infrastruktur. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat nyckelhantering procedurer för att hantera krypteringsnycklar under deras livscykel (t.ex. generation, distribution, återkallade certifikat). Microsoft Azure använder Microsofts företagets PKI-infrastruktur. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -191,8 +191,8 @@ Effektivitet med ett lösenord i stort sett bestäms av design och implementerin
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat nyckelhantering procedurer för att hantera krypteringsnycklar under deras livscykel (t.ex. generation, distribution, återkallade certifikat). Microsoft Azure använder Microsofts företagets PKI-infrastruktur. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure har upprättat nyckelhantering procedurer för att hantera krypteringsnycklar under deras livscykel (t.ex. generation, distribution, återkallade certifikat). Microsoft Azure använder Microsofts företagets PKI-infrastruktur. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -207,8 +207,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden.|
 
 
 
@@ -220,8 +220,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för användarhantering. Den `-enableADDomainPasswordPolicy` alternativet kan ställas in så lösenord upphör att gälla minst en gång var 90: e dag.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore använder Azure Active Directory för användarhantering. Den `-enableADDomainPasswordPolicy` alternativet kan ställas in så lösenord upphör att gälla minst en gång var 90: e dag.|
 
 
 
@@ -233,8 +233,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -246,8 +246,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore tillämpar starka lösenord, beskrivs i distributionsguiden. Mer information finns i [PCI - vägledning för Identitetshantering](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -263,8 +263,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure administratörer krävs för att använda multifaktorautentisering för att komma åt när du utför underhåll och administration till Azure-datorer och servrar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure administratörer krävs för att använda multifaktorautentisering för att komma åt när du utför underhåll och administration till Azure-datorer och servrar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
 
 
 
@@ -279,8 +279,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure administratörer krävs för att använda multifaktorautentisering för att komma åt när du utför underhåll och administration till Azure-datorer och servrar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure administratörer krävs för att använda multifaktorautentisering för att komma åt när du utför underhåll och administration till Azure-datorer och servrar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
 
 
 
@@ -293,8 +293,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Azure administratörer krävs för att använda multifaktorautentisering för att komma åt när du utför underhåll och administration till Azure-datorer och servrar. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure administratörer krävs för att använda multifaktorautentisering för att komma åt när du utför underhåll och administration till Azure-datorer och servrar. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
 
 
 
@@ -310,8 +310,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för följande riktlinjer och dokumentera och kommunikation förfaranden för autentisering och principer för alla användare.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för följande riktlinjer och dokumentera och kommunikation förfaranden för autentisering och principer för alla användare.|
 
 
 
@@ -326,8 +326,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen.|
 
 
 
@@ -342,8 +342,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt för Microsoft Azure-kunder. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Inte tillämpligt för Microsoft Azure-kunder.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt för Microsoft Azure-kunder. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Inte tillämpligt för Microsoft Azure-kunder.|
 
 
 
@@ -357,8 +357,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen. All åtkomst hanteras via [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), vilket hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och tjänster. |
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skapas tre konton under distributionen: admin, sqladmin, och edna (standardanvändaren loggat in webbprogrammet under körning av demo). Multifaktorautentisering har inte implementerats för demonstrationen. All åtkomst hanteras via [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), vilket hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och tjänster. |
 
 
 
@@ -373,8 +373,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Contoso Webstore skyddar alla kreditkortsinformation med Azure Key Vault och kryptering av poster beskrivs i dokumentationen för distribution. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Contoso Webstore skyddar alla kreditkortsinformation med Azure Key Vault och kryptering av poster beskrivs i dokumentationen för distribution. Mer information finns i [PCI vägledning - kryptering](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -386,8 +386,8 @@ Lösenord/lösenfraser måste också ha komplexitet och styrkan minst motsvarar 
 
 |||
 |---|---|
-| **Providern<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
-| **Kunden<br />(PCI &#8209; DSS&nbsp;modell)** | Kunder ansvarar för att säkerställa att säkerhetsprinciper och operativa procedurer för identifiering och autentisering dokumenterat, används, och kända för alla berörda parter.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Inte tillämpligt. |
+| **Kunden<br />(PCI&#8209;DSS&nbsp;modell)** | Kunder ansvarar för att säkerställa att säkerhetsprinciper och operativa procedurer för identifiering och autentisering dokumenterat, används, och kända för alla berörda parter.|
 
 
 

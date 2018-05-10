@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -190,7 +190,7 @@ Förutom MongoDB vanliga felkoder har MongoDB-API: et sin egen specifika felkode
 
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Det totala antalet frågeenheter förbrukas har överskridit den etablerade begärt-enhet hastigheten för insamling och har begränsats. | Överväg att skalning genomflödet i samlingen från Azure-portalen eller du försöker igen. |
+| TooManyRequests     | 16500 | Det totala antalet frågeenheter förbrukas har överskridit den etablerade begärt-enhet hastigheten för insamling och har begränsats. | Överväg att skalning genomströmning som tilldelats till en behållare eller en uppsättning av behållare igen från Azure portal eller sprider på nytt. |
 | ExceededMemoryLimit | 16501 | Som en tjänst med flera innehavare överskred åtgärden klientens minne tilldelning. | Minska omfånget för åtgärden via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {namn: ”Anders”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Utveckla med tabell-API
@@ -386,7 +386,7 @@ Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos DB 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>När bör jag ändra TableThroughput för tabell-API
 Du bör ändra TableThroughput när någon av följande villkor gäller:
 * Du utför en extrahering, transformering och laddning (ETL) av data, eller om du vill överföra stora mängder data på kort tid. 
-* Du behöver mer genomströmning från behållaren på serverdelen. Till exempel visas att använda genomströmning är större än det tillhandahållna dataflödet och du har komma begränsats. Mer information finns i [Set genomströmning för Azure Cosmos DB behållare](set-throughput.md).
+* Du behöver mer genomströmning från behållaren eller från en uppsättning behållare på serverdelen. Till exempel visas att använda genomströmning är större än det tillhandahållna dataflödet och du har komma begränsats. Mer information finns i [Set genomströmning för Azure Cosmos DB behållare](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Kan jag skala upp eller ned genomflödet av tabellen API tabellen? 
 Ja, kan du använda portalen Azure Cosmos DB skala fönstret för att skala genomflödet. Mer information finns i [Set genomströmning](set-throughput.md).
@@ -401,7 +401,7 @@ Ingen. Det finns ingen ändring i priset för befintliga Azure Table storage-kun
 Priset beror på allokerade TableThroughput. 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Hur hanterar jag en begränsning på tabellerna i tabellen API erbjudande? 
-Om frekvensen för begäran överskrider det tillhandahållna dataflödet kapacitet för den underliggande behållaren, du får ett felmeddelande och SDK försöker anropet genom att använda principen försök igen.
+Om frekvensen för begäran överskrider kapaciteten för etablerat dataflöde för den underliggande behållaren eller en uppsättning behållare, du får ett felmeddelande och SDK försöker anropet genom att använda principen försök igen.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Varför måste välja en genomströmning förutom PartitionKey och RowKey för att dra nytta av tabellen API-erbjudande på Azure Cosmos DB?
 Azure Cosmos-DB anger en standard-genomströmning för din behållaren om du inte anger något i filen app.config eller via portalen. 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d1eb3229f22b2da3a356562250fedb3c35c4816
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa prenumerationer Azure Enterprise (förhandsversion)
 
@@ -49,7 +49,7 @@ När du har lagt till en Azure EA-registrering som Kontoägare använder Azure r
 - Du har en eller flera EA eller EA utveckling och testning prenumerationer, vilket innebär att du har gått igenom manuell registrering minst en gång
 - Du är inloggad i den Kontoägaren *hemkatalog*, vilket är den katalog som prenumerationer skapas som standard
 
-Om ovanstående förutsättningar är uppfyllda, en `enrollmentAccount` resurs returneras och du kan börja skapa prenumerationer under det kontot. Alla prenumerationer som skapats under kontot debiteras mot EA-registrering som kontot finns i.
+Om ovanstående tre villkor uppfylls, en `enrollmentAccount` resurs returneras och du kan börja skapa prenumerationer under det kontot. Alla prenumerationer som skapats under kontot debiteras mot EA-registrering som kontot finns i.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 

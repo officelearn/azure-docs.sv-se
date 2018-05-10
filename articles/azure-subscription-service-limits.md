@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -53,15 +53,16 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
-* [BizTalk Services](#biztalk-services-limits)
+* [BizTalk-tjänst](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Container Service (AKS)](#container-service-aks-limits)
+* [Kubernetes Service](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -69,16 +70,16 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
-* [IoT-hubb etablering av tjänst](#iot-hub-device-provisioning-service-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
+* [Mobilt engagemang](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Övervaka](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Nätverk](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+* [Nätverksbevakaren](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resursgrupp](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
@@ -129,7 +130,7 @@ I följande tabell beskrivs funktioner och begränsningar för Basic, Standard o
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### <a name="container-service-aks-limits"></a>Begränsar container Service (AKS)
+### <a name="kubernetes-service-limits"></a>Kubernetes tjänstbegränsningarna
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Begränsningar för nätverk
@@ -280,6 +281,9 @@ Läs mer om gränserna för en mer detaljerad nivå, till exempel storlek, fråg
 
 ### <a name="azure-event-grid-limits"></a>Azure händelse rutnätet gränser
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### <a name="azure-maps-limits"></a>Azure Maps-gränser
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Begränsar StorSimple-System
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

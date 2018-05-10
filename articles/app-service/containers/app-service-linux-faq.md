@@ -1,13 +1,13 @@
 ---
-title: "Azure Apptjänst i Linux vanliga frågor och svar | Microsoft Docs"
-description: "Azure Apptjänst i Linux vanliga frågor och svar."
-keywords: "Azure apptjänst, webbprogram, vanliga frågor och svar, linux, oss"
+title: Azure Apptjänst i Linux vanliga frågor och svar | Microsoft Docs
+description: Azure Apptjänst i Linux vanliga frågor och svar.
+keywords: Azure apptjänst, webbprogram, vanliga frågor och svar, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
 
@@ -47,11 +47,15 @@ Den här åtgärden är samma som en Docker-omstart.
 
 Ja, kan du göra det via källplatsen kontrollen management (SCM).
 
+> [!NOTE] 
+> Du kan också ansluta till app-behållaren direkt från lokala utvecklingsdatorn med SSH, SFTP eller Visual Studio Code (för live felsökning Node.js-appar). Mer information finns i [fjärrfelsökning och SSH i App Service på Linux](https://aka.ms/linux-debug).
+>
+
 **Hur skapar jag en Linux App Service-plan via en SDK eller en Azure Resource Manager-mall**
 
 Du måste ange den **reserverade** i apptjänst ska *SANT*.
 
-## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integration och distribution
+## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integrering och distribution
 
 **Webbappen använder fortfarande en gamla Docker behållare avbildningen när jag har uppdaterat avbildningen på Docker-hubben. Har du stöd för kontinuerlig integrering och distribution av anpassade behållare?**
 
@@ -158,5 +162,5 @@ Du kan skicka din idé på den [Web Apps Feedbackforum](https://aka.ms/webapps-u
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure App Service på Linux?](app-service-linux-intro.md)
-* [Skapa mellanlagringsmiljöer i Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Konfigurera mellanlagringsmiljöer i Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md)

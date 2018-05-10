@@ -1,26 +1,24 @@
 ---
 title: Azure Active Directory gruppbaserade licensiering fler scenarier | Microsoft Docs
-description: "Flera scenarier för Azure Active Directory gruppbaserade licensiering"
+description: Flera scenarier för Azure Active Directory gruppbaserade licensiering
 services: active-directory
 keywords: Azure AD-licensiering
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: piotrci
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf18076c81ecf7471771674fe40d36dba3b9866d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb8bd727618eda2a887cc9e1b739889204eb87fa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem använda grupper för att hantera licensiering i Azure Active Directory
 
@@ -139,7 +137,7 @@ Du kan använda ett PowerShell-skript för att kontrollera om användarna har en
 
 1. Kör den `connect-msolservice` för att autentisera och ansluta till din klient.
 
-2. `Get-MsolAccountSku`kan användas för att identifiera alla etablerade produktlicenser i klienten.
+2. `Get-MsolAccountSku` kan användas för att identifiera alla etablerade produktlicenser i klienten.
 
   ![Skärmbild av cmdleten Get-Msolaccountsku](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

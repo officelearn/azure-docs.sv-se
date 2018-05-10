@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i logganalys logga sökningar
 
@@ -56,14 +56,6 @@ Använd följande procedur för att skapa en datorgrupp från en logg sökning i
 2. Öppna **loggen Sök** och klicka sedan på **sparade sökningar** överst på skärmen.
 3. Klicka på **Lägg till** och ange värden för varje egenskap för datorgruppen.
 4. Välj **spara frågan som en datorgrupp** och på **OK**.
-
-
-Använd följande procedur för att skapa en datorgrupp från en logg sökning i OMS-portalen.
-
-1. Öppna **loggen Sök** och skapa log-sökning för datorgruppen.  
-2. Klicka på den **spara** längst upp på skärmen.
-3. Välj **Ja** till **spara frågan som en datorgrupp**.
-5. Ange värden för varje egenskap för datorgruppen. 
 
 
 

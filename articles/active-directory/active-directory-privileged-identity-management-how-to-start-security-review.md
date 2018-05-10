@@ -1,30 +1,28 @@
 ---
-title: "Så här startar du en åtkomst-granskning | Microsoft Docs"
-description: "Lär dig hur du skapar en åtkomst-granskning för privilegierade identiteter med Azure Privileged Identity Management-programmet."
+title: Så här startar du en åtkomst-granskning | Microsoft Docs
+description: Lär dig hur du skapar en åtkomst-granskning för privilegierade identiteter med Azure Privileged Identity Management-programmet.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 3e52b731-55f4-4c8a-ba87-9fd34033f52f
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 05/04/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: f57a32ca1914d18540289ebb05421a7ae9618094
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1923890e01b351f884837e14b5e2ca736ec687ce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Hur du startar en åtkomst-granskning i Azure AD Privileged Identity Management
 Rolltilldelningar blir ”inaktiva” när användare privilegierad åtkomst som de inte behöver längre. För att minska riskerna i samband med dessa inaktuella rolltilldelningar bör Privilegierade rollen administratörer regelbundet granska de roller som användarna har fått. Det här dokumentet beskriver steg för att starta en åtkomst-granskning i Azure AD Privileged Identity Management (PIM).
 
-## <a name="start-an-access-review"></a>Starta en åtkomst-granskning
+## <a name="start-an-access-review"></a>Starta en åtkomstgranskning
 > [!NOTE]
 > Om du inte har lagt till programmet PIM på instrumentpanelen i Azure-portalen, hittar du i [komma igång med Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 > 

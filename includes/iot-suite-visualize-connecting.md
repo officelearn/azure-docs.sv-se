@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 8eada6b88c320396b30ecdeb96c95e4ec61679ce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="view-device-telemetry"></a>Visa enhetstelemetri
 
 Du kan visa telemetri som skickas från enheten på den **enheter** sida i lösningen.
@@ -41,4 +57,4 @@ Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fj�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Artikeln [anpassa fjärråtkomst övervakning förkonfigurerade lösningen](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) beskrivs några sätt att anpassa den förkonfigurerade lösningen.
+Artikeln [anpassa fjärråtkomst övervakning solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) beskrivs några sätt att anpassa solution accelerator.

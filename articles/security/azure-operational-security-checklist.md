@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en uppsättning checklista för Azure
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c03e8bcfe3b874e3897d3c2d94f42d10d64d7af5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ae8f2393b6965cc2fc78a297ea79e1170acc011f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-checklist"></a>Checklista för Azure operativ säkerhet
 Distribuera ett program på Azure är snabb, enkel och kostnadseffektiv. Innan du distribuerar cloud program i produktion praktiskt att ha en checklista för att hjälpa dig att utvärdera programmet mot en lista över viktiga och rekommenderade operativ säkerhetsåtgärder som du bör tänka.

@@ -3,8 +3,7 @@ title: ApplicationInsights.config - referens i Azure | Microsoft Docs
 description: Aktivera eller inaktivera data collection moduler och lägga till prestandaräknare och andra parametrar.
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
-editor: mrbullwinkle
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: mbullwin; olegan
+ms.openlocfilehash: 670600d4370be0b675c71d1c6cf09b17c7bd2597
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ange telemetri *moduler* och *initierare* för automatiskt spåra telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ange parametrar för några av dem.
@@ -288,7 +287,7 @@ Vi tillhandahåller två implementeringar i den [Microsoft.ApplicationInsights](
 
 ### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
 
-Det här är en omslutning runt vårt profil-Api. Det kommer begränsning begäranden och cache-resultat.
+Det här är en omslutning runt vårt profil-API. Det kommer begränsning begäranden och cache-resultat.
 
 Den här providern har lagts till i konfigurationsfilen när du installerar antingen [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) eller [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
 

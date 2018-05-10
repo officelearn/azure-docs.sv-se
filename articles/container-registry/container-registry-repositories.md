@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 4479c78eb2eb4138dbacfa3619616a3b16d51121
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visa behållaren registret databaser i Azure-portalen
 
@@ -49,7 +49,7 @@ Till exempel om du pushas Nginx-avbildning som beskrivet i [Push och pull en bil
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du känner till grunderna för att visa och arbeta med databaser i portalen, försök med Azure Container registret med en [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) klustret.
+Nu när du känner till grunderna för att visa och arbeta med databaser i portalen, försök med Azure Container registret med en [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) klustret.
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

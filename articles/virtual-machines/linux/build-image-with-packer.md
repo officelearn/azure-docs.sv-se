@@ -1,25 +1,25 @@
 ---
-title: "Hur du skapar Linux Azure VM-avbildningar med förpackaren | Microsoft Docs"
-description: "Lär dig mer om förpackaren skapa avbildningar av virtuella Linux-datorer i Azure"
+title: Hur du skapar Linux Azure VM-avbildningar med förpackaren | Microsoft Docs
+description: Lär dig mer om förpackaren skapa avbildningar av virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hur du använder förpackaren för att skapa avbildningar av Linux virtuella datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar distribution för Linux och OS-version. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för programmet miljöer och de vanligaste distributioner eller skapa egna anpassade avbildningar som är anpassade efter era behov. Den här artikeln beskriver hur du använder verktyget öppen källkod [förpackaren](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -72,8 +72,8 @@ Skapa en fil med namnet *ubuntu.json* och klistra in följande innehåll. Ange e
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Första raden i utdata från `az ad sp` skapa kommando - *appId* |
 | *client_secret*                     | Andra raden på utdata från `az ad sp` skapa kommando - *lösenord* |
-| *tenant_id*                         | Tredje raden på utdata från `az ad sp` skapa kommando - *klient* |
-| *subscription_id*                   | Utdata från `az account show` kommando |
+| *Tenant_id*                         | Tredje raden på utdata från `az ad sp` skapa kommando - *klient* |
+| *PRENUMERATIONSID*                   | Utdata från `az account show` kommando |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
 | *managed_image_name*                | Namn för den hanterade diskavbildning som har skapats |
 
@@ -211,9 +211,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
+Om du vill skapa virtuella datorer i en annan resursgrupp eller region än förpackaren avbildningen ange avbildnings-ID i stället för namn. Du kan hämta avbildnings-ID med [az bilden visar](/cli/azure/image#az-image-show).
+
 Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats, notera den `publicIpAddress` visas av Azure CLI. Den här adressen används för åtkomst till NGINX-webbplatsen via en webbläsare.
 
-Tillåt Internet-trafik till den virtuella datorn genom att öppna port 80 från Internet med [az vm öppna port](/cli/azure/vm#open-port):
+För att låta webbtrafik nå din virtuella dator öppnar du port 80 från Internet med [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
 az vm open-port \

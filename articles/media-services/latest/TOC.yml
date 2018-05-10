@@ -1,0 +1,73 @@
+- name: Dokumentation för Media Services
+  href: ./index.yml
+- name: Översikt
+  items:
+    - name: Om Media Services
+      href: media-services-overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Strömma videofiler med .NET
+      href: stream-files-dotnet-quickstart.md
+- name: Självstudier
+  items:
+    - name: 'Ladda upp, koda och strömma'
+      href: stream-files-tutorial-with-api.md
+    - name: Analysera din video
+      href: analyze-videos-tutorial-with-api.md
+- name: Exempel
+  items:
+    - name: Azure-kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: Azure CLI
+      href: cli-samples.md
+- name: Begrepp
+  items:
+    - name: Tillgångar
+      href: assets-concept.md
+    - name: Generera anpassningsbar bithastighetsstege automatiskt
+      href: autogen-bitrate-ladder.md
+    - name: Medieintelligens
+      href: intelligence-concept.md
+    - name: Lagringskonton
+      href: storage-account-concept.md
+    - name: Transformeringar och jobb
+      href: transform-concept.md
+    - name: Reagerar på händelser
+      href: reacting-to-media-services-events.md
+- name: Instruktionsguider
+  items:
+    - name: Skapa ett konto – CLI
+      href: create-account-cli-how-to.md
+    - name: 'Åtkomst till API:er – CLI'
+      href: access-api-cli-how-to.md
+    - name: Händelser för jobbstatus – CLI
+      href: job-state-events-cli-how-to.md
+    - name: Överföra innehåll – .NET
+      items:
+        - name: Från HTTP(s)
+          href: job-input-from-http-how-to.md
+        - name: Från en lokal fil
+          href: job-input-from-local-file-how-to.md
+- name: Referens
+  items:
+    - name: Azure CLI 2.0
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: Händelsescheman
+      href: media-services-event-schemas.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Viktig information
+      href: release-notes.md
+    - name: Kvoter och begränsningar
+      href: limits-quotas-constraints.md

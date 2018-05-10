@@ -54,6 +54,12 @@
 ### [Migrera till .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### [Spara hemligheter för webbprogram](vs-secure-secret-appsettings.md)
 ### [Tjänstautentisering med hjälp av .NET](service-to-service-authentication.md)
+### Arbeta med Visual Studio
+#### [Använda Key Vault Connected Service](vs-key-vault-add-connected-service.md)
+#### [Komma igång med ASP.NET-projekt](vs-key-vault-aspnet-get-started.md)
+#### [Vad hände med mitt ASP.NET-projekt?](vs-key-vault-aspnet-what-happened.md)
+#### [Komma igång med ASP.NET Core-projekt](vs-key-vault-aspnet-core-get-started.md)
+#### [Vad hände med mitt ASP.NET Core-projekt?](vs-key-vault-aspnet-core-what-happened.md)
 
 # Resurser
 ## [Tjänstöversikt](https://azure.microsoft.com/services/key-vault/)

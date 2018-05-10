@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
 
@@ -34,6 +34,8 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 - Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
+Kontot du loggar in, eller Anslut till Azure med måste tilldelas den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
+
 ## <a name="work-with-network-security-groups"></a>Arbeta med nätverkssäkerhetsgrupper
 
 Du kan skapa [visa alla](#view-all-network-security-groups), [Visa detaljer för](#view-details-of-a-network-security-group), [ändra](#change-a-network-security-group), och [ta bort](#delete-a-network-security-group) en nätverkssäkerhetsgrupp. Du kan också [koppla eller koppla bort](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) en nätverkssäkerhetsgrupp från nätverksgränssnittet eller ett undernät.
@@ -44,7 +46,7 @@ Det finns en gräns för hur många nätverkssäkerhetsgrupper kan du skapa per 
 
 1. I det övre vänstra hörnet av portalen väljer **+ skapa en resurs för**.
 2. Välj **nätverk**och välj **nätverkssäkerhetsgruppen**.
-3. Ange en **namn** nätverkssäkerhetsgruppen, Välj din **prenumeration**, skapa en ny **resursgruppen**, eller välj en befintlig resursgrupp, Välj en **Plats**, och välj sedan **skapa**. 
+3. Ange en **namn** nätverkssäkerhetsgruppen, Välj din **prenumeration**, skapa en ny **resursgruppen**, eller välj en befintlig resursgrupp, Välj en **Plats**, och välj sedan **skapa**.
 
 **Kommandon**
 
@@ -67,7 +69,7 @@ Skriv i sökrutan överst i portalen *nätverkssäkerhetsgrupper*. När **nätve
 3. Mer information om vanliga Azure inställningarna finns i följande artiklar:
     *   [Aktivitetslogg](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Taggar](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Lås](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automation-skript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +213,7 @@ Medan du kan ändra vissa inställningar, till exempel taggar och behörigheter 
 
 ### <a name="delete-an-application-security-group"></a>Ta bort en säkerhetsgrupp för programmet
 
-Du kan inte ta bort en säkerhetsgrupp för programmet om den har alla nätverksgränssnitt i den. Du måste ta bort alla nätverksgränssnitt från säkerhetsgruppen program genom att antingen ändra inställningar för nätverksgränssnittet eller ta bort nätverksgränssnitten. Mer information finns i [Lägg till eller ta bort ett nätverksgränssnitt från programmet säkerhetsgrupper](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) eller [ta bort ett nätverksgränssnitt](virtual-network-network-interface.md#delete-a-network-interface).
+Du kan inte ta bort en säkerhetsgrupp för programmet om den har alla nätverksgränssnitt i den. Ta bort alla nätverksgränssnitt från säkerhetsgruppen program genom att antingen ändra inställningar för nätverksgränssnittet eller ta bort nätverksgränssnitten. Mer information finns i [Lägg till eller ta bort ett nätverksgränssnitt från programmet säkerhetsgrupper](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) eller [ta bort ett nätverksgränssnitt](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Kommandon**
 
@@ -220,18 +222,33 @@ Du kan inte ta bort en säkerhetsgrupp för programmet om den har alla nätverks
 
 ## <a name="permissions"></a>Behörigheter
 
-För att utföra uppgifter på nätverkssäkerhetsgrupper säkerhetsregler och säkerhetsgrupper för program, ditt konto måste ha tilldelats den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som är tilldelad den behörighet som visas i följande tabell:
+För att utföra uppgifter på nätverkssäkerhetsgrupper säkerhetsregler och säkerhetsgrupper för program, ditt konto måste ha tilldelats den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som är tilldelade den behörighet som visas i följande tabeller:
 
-|Åtgärd                                                       |   Åtgärdsnamn                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Hämta nätverkssäkerhetsgrupp                              |
-|Microsoft.Network/ruleTables/write                             |   Skapa eller uppdatera nätverkssäkerhetsgrupp                 |
-|Microsoft.Network/ruleTables/delete                            |   Ta bort nätverkssäkerhetsgruppen                           |
-|Microsoft.Network/ruleTables/join/action                       |   Anslut nätverkssäkerhetsgrupp                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Hämta regel                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Skapa eller uppdatera regel                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Ta bort regeln                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Hämta Network Interface effektiva nätverkssäkerhetsgrupp  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Hämtar nästa hopp från en virtuell dator                  |
+### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-Den *Anslut nätverkssäkerhetsgrupp* åtgärden krävs för att associera en säkerhetsgrupp för nätverk till ett undernät.
+| Åtgärd                                                        |   Namn                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Hämta nätverkssäkerhetsgrupp                                          |
+| Microsoft.Network/ruleTables/write                            |   Skapa eller uppdatera nätverkssäkerhetsgrupp                             |
+| Microsoft.Network/ruleTables/delete                           |   Ta bort nätverkssäkerhetsgruppen                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Associera en säkerhetsgrupp för nätverk till ett undernät eller nätverk gränssnitt |
+| Microsoft.Network/ruleTables/rules/read                       |   Hämta regel                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Skapa eller uppdatera regel                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Ta bort regeln                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Hämta Network Interface effektiva nätverkssäkerhetsgrupp              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   Hämtar nästa hopp från en virtuell dator                                         |
+
+### <a name="application-security-groups"></a>Programsäkerhetsgrupper
+
+| Åtgärd                                                                     | Namn                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Ansluta till IP-konfiguration till en säkerhetsgrupp för programmet|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Anslut en säkerhetsregel till en säkerhetsgrupp för programmet    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Hämta en säkerhetsgrupp för programmet                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Skapa eller uppdatera en säkerhetsgrupp för programmet           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Ta bort en säkerhetsgrupp för programmet                     |
+
+## <a name="next-steps"></a>Nästa steg
+
+- Skapa ett nätverk eller program säkerhet med [PowerShell](powershell-samples.md) eller [Azure CLI](cli-samples.md) exempel på skript eller använda Azure [Resource Manager-mallar](template-samples.md)
+- Skapa och använda [Azure princip](policy-samples.md) för virtuella nätverk

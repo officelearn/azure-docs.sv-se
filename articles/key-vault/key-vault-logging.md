@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -235,32 +235,32 @@ Följande tabell innehåller operationName och motsvarande REST-API-kommando.
 | operationName | REST-API-kommando |
 | --- | --- |
 | Autentisering |Via Azure Active Directory-slutpunkt |
-| VaultGet |[Hämta information om ett nyckelvalv](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Skapa eller uppdatera ett nyckelvalv](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Ta bort ett nyckelvalv](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Hämta information om ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Skapa eller uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Ta bort ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Visa en lista med alla nyckelvalv i en resursgrupp](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Skapa en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Hämta information om en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Importera en nyckel till ett valv](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Säkerhetskopiera en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Ta bort en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Återställa en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Signera med en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Verifiera med en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Omsluta en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Ta bort en nyckelomslutning](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Kryptera med en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Dekryptera med en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Uppdatera en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Visa en lista med nycklarna i ett valv](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Visa en lista över versionerna av en nyckel](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Skapa en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Hämta en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Uppdatera en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Ta bort en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Visa en lista med alla nyckelvalv i en resursgrupp](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Skapa en nyckel](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Hämta information om en nyckel](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Importera en nyckel till ett valv](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Säkerhetskopiera en nyckel](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Ta bort en nyckel](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Återställa en nyckel](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Signera med en nyckel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Verifiera med en nyckel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Omsluta en nyckel](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Ta bort en nyckelomslutning](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Kryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Dekryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Uppdatera en nyckel](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[Visa en lista med nycklarna i ett valv](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[Visa en lista över versionerna av en nyckel](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Skapa en hemlighet](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Hämta en hemlighet](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Uppdatera en hemlighet](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Ta bort en hemlighet](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Använda Log Analytics
 

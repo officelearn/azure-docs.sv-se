@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -59,7 +59,7 @@ Granska tabellen nedan ger en översikt över skillnaderna mellan Standard belas
 | Hög tillgänglighet portar | Interna belastningsutjämnare | / |
 | Som standard | standard stängd för offentliga IP- och belastningsutjämnare slutpunkter och en nätverkssäkerhetsgrupp måste användas för att explicit godkända för trafiken flöda | standard öppen nätverkssäkerhetsgruppen valfria |
 | Utgående anslutningar | Flera frontends med per regel CEIP. Ett scenario för utgående _måste_ skapas explicit för den virtuella datorn för att kunna använda utgående anslutning.  [VNet Tjänsteslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) kan nås utan utgående anslutning och räknas inte mot data som bearbetas.  Alla offentliga IP-adresser, inklusive Azure PaaS tjänster inte är tillgängliga som VNet Tjänsteslutpunkter måste uppnås via utgående anslutning och antal mot data som bearbetas. När bara en intern belastningsutjämnare används av en virtuell dator, är utgående anslutningar via standard SNAT inte tillgängliga. Utgående SNAT programmering är transportprotokollet specifika baserat på protokollet för inkommande regel för belastningsutjämning. | Enskild klientdel slumpmässigt valda när det finns flera frontends.  När endast interna belastningsutjämnare används av en virtuell dator, används standardvärdet SNAT. |
-| Flera frontends | Inkommande och utgående | Endast inkommande |
+| Flera klienter | Inkommande och utgående | Endast inkommande |
 | Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60-90 sekunder vanliga |
 | SLA | 99,99% för datasökväg med två felfri virtuella datorer | Implicit i VM SLA | 
 | Prissättning | Debiteras baserat på antalet regler bearbetade data inkommande eller utgående som hör till resursen  | Utan kostnad |
@@ -137,7 +137,7 @@ Dessa är viktiga tenets komma ihåg när du arbetar med Standard belastningsutj
 - utgående scenarier är explicit och utgående anslutning finns inte förrän det har angetts.
 - belastningsutjämningsregler härleda hur SNAT programmerad. Belastningsutjämningsregler är protokoll. SNAT är protokoll och konfiguration bör återspegla det i stället för att skapa en sidoeffekt.
 
-#### <a name="multiple-frontends"></a>Flera frontends
+#### <a name="multiple-frontends"></a>Flera klienter
 Om du vill fler SNAT portar eftersom du förväntar dig eller inte redan har en hög belastning för utgående anslutningar, du kan också lägga till inkrementella SNAT port inventering genom att konfigurera ytterligare frontends, regler och serverdelspooler till samma virtuella dator resurser.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Kontrollera vilka frontend används för utgående
@@ -218,11 +218,12 @@ Standard belastningsutjämnare är en produkt som debiteras baserat på antalet 
 
 ## <a name="limitations"></a>Begränsningar
 
-- Belastningen belastningsutjämnaren backend-instanser kan inte finnas i peerkoppla virtuella nätverk just nu. Backend-instanser måste vara i samma region.
 - SKU: er är inte föränderliga. Du kan inte ändra SKU av en befintlig resurs.
 - En fristående virtuell datorresurs, tillgänglighetsuppsättning resurs eller virtuell scale set datorresurs kan referera till en SKU aldrig båda.
-- [Azure övervaka aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) stöds inte just nu.
+- En regel för belastningsutjämnare får inte omfatta två virtuella nätverk.  Frontends och deras relaterade backend-instanser måste finnas i samma virtuella nätverk.  
+- Load Balancer frontends är inte tillgängliga över peering globala virtuella nätverk.
 - [Flytta prenumeration operations](../azure-resource-manager/resource-group-move-resources.md) stöds inte för Standard SKU LB och PIP resurser.
+- Web arbetsroller utan ett VNet och andra Microsoft-tjänster för plattformen kan vara tillgänglig när bara en intern Standard belastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet-tjänster och andra platform services-funktionen. Du måste inte förlita dig på den här som respektive tjänst sig själv eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid förutsätter att du behöver skapa [utgående anslutning](load-balancer-outbound-connections.md) uttryckligen om du vill när du använder en intern Standard belastningsutjämnare endast.
 
 ## <a name="next-steps"></a>Nästa steg
 

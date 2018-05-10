@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a51b7d115a8287340450b3525a9b1a325702485b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos-DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering tas utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan storage-tjänst och dessa säkerhetskopieringar replikeras globalt för återhämtning mot regionala katastrofer. Automatisk säkerhetskopiering är avsedda för situationer när du av misstag tar bort Cosmos-DB-behållaren och senare behöver återställa data eller en lösning för katastrofåterställning.  
@@ -50,7 +50,11 @@ Följande bild illustrerar periodiska fullständiga säkerhetskopieringar för a
 ## <a name="backup-retention-period"></a>Period för lagring av säkerhetskopior.
 Enligt beskrivningen ovan tar Azure Cosmos DB ögonblicksbilder av data var fjärde timme på nivån partition. Endast de två sista ögonblicksbilderna bevaras vid en given tidpunkt. Om insamlingsdatabasen raderas behålla vi befintliga ögonblicksbilder för alla borttagna partitioner inom den angivna insamlingsdatabasen för 30 dagar.
 
-Om du vill att underhålla din egen ögonblicksbilder, du kan använda export till JSON-alternativet i Azure Cosmos DB [datamigreringsverktyget](import-data.md#export-to-json-file) att schemalägga ytterligare säkerhetskopieringar.
+För SQL-API, om du vill behålla dina egna ögonblicksbilder, du kan använda export till JSON-alternativet i Azure Cosmos-DB [datamigreringsverktyget](import-data.md#export-to-json-file) att schemalägga ytterligare säkerhetskopieringar.
+
+> [!NOTE]
+> Om du ”etablera genomströmning för en uppsättning behållare på databasnivå –” Kom ihåg att sker återställningen på fullständig kontonivå för databasen. Du måste också se till att nå ut inom 8 timmar till vår support om du av misstag tar bort din behållare - diagram-samling/tabell om du använder den här nya funktionen. 
+
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Återställa en databas från en onlinesäkerhetskopiering
 Om du av misstag tar bort den databas eller en samling kan du [filen ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [kontakta Azure support](https://azure.microsoft.com/support/options/) att återställa data från den senaste automatiska säkerhetskopieringen. Om du behöver återställa databasen på grund av data felärende (inklusive fall där dokument i en samling tas bort), se [hantering datafel](#handling-data-corruption) som du måste vidta ytterligare åtgärder för att förhindra skadade data skriver över befintliga säkerhetskopior. För en specifik ögonblicksbild av säkerhetskopian ska återställas kräver Cosmos DB att data var tillgängliga under säkerhetskopiering för den ögonblicksbilden.

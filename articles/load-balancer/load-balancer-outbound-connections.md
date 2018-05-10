@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -40,11 +40,11 @@ Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenar
 
 Azure belastningsutjämnare och relaterade resurser definieras explicit när du använder [Azure Resource Manager](#arm).  Azure tillhandahåller tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser för närvarande. 
 
-| Scenario | Metod | Beskrivning |
-| --- | --- | --- |
-| [1. Virtuell dator med en offentlig IP på instansnivå adress (med eller utan belastningsutjämnare)](#ilpip) | SNAT, utger sig för porten inte används |Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. |
-| [2. Offentliga belastningsutjämnare som är kopplad till en virtuell dator (ingen offentlig IP på instansnivå adress på instansen)](#lb) | SNAT med port låtsas (PAT) med hjälp av belastningsutjämnaren frontends |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare frontends med flera privata IP-adresser. Azure använder tillfälliga portarna frontends att TILLDELNINGEN. |
-| [3. Standalone VM (någon belastningsutjämnare, ingen offentlig IP på instansnivå adress)](#defaultsnat) | SNAT med port låtsas (PAT) | Azure automatiskt utser en offentlig IP-adress för SNAT delar den här offentliga IP-adressen med flera privata IP-adresser för tillgänglighetsuppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Det här är en återställningsplats scenario för föregående scenarier. Vi rekommenderar inte den om du behöver synlighet och kontroll. |
+| Scenario | Metod | IP-protokoll | Beskrivning |
+| --- | --- | --- | --- |
+| [1. Virtuell dator med en offentlig IP på instansnivå adress (med eller utan belastningsutjämnare)](#ilpip) | SNAT, utger sig för porten inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. |
+| [2. Offentliga belastningsutjämnare som är kopplad till en virtuell dator (ingen offentlig IP på instansnivå adress på instansen)](#lb) | SNAT med port låtsas (PAT) med hjälp av belastningsutjämnaren frontends | TCP OCH UDP |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare frontends med flera privata IP-adresser. Azure använder tillfälliga portarna frontends att TILLDELNINGEN. |
+| [3. Standalone VM (någon belastningsutjämnare, ingen offentlig IP på instansnivå adress)](#defaultsnat) | SNAT med port låtsas (PAT) | TCP OCH UDP | Azure automatiskt utser en offentlig IP-adress för SNAT delar den här offentliga IP-adressen med flera privata IP-adresser för tillgänglighetsuppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Det här är en återställningsplats scenario för föregående scenarier. Vi rekommenderar inte den om du behöver synlighet och kontroll. |
 
 Du kan använda nätverkssäkerhetsgrupper (NSG: er) för att blockera åtkomst efter behov om du inte vill att en virtuell dator för att kommunicera med slutpunkter utanför Azure i offentliga IP-adressutrymme. Avsnittet [förhindrar en utgående anslutning](#preventoutbound) NSG: er beskrivs i detalj. Anvisningar om hur man designar, implementera och hantera ett virtuellt nätverk utan utgående åtkomst är utanför omfånget för den här artikeln.
 
@@ -243,7 +243,7 @@ Om en NSG blockerar hälsa avsökningen begäranden från Standardetiketten AZUR
 
 ## <a name="limitations"></a>Begränsningar
 - DisableOutboundSnat är inte tillgängligt som ett alternativ när du konfigurerar en regel i portalen för belastningsutjämning.  Använd REST, mall eller klienten verktyg i stället.
-- Web arbetsroller utanför ett virtuellt nätverk kan nås när bara en intern Standard belastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet services-funktionen. Du måste inte förlita sig på detta som respektive tjänst sig själv eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa utgående anslutning uttryckligen om du vill när du använder en intern Standard belastningsutjämnare endast. 
+- Web arbetsroller utan ett VNet och andra Microsoft-tjänster för plattformen kan vara tillgänglig när bara en intern Standard belastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet-tjänster och andra platform services-funktionen. Du måste inte förlita sig på detta som respektive tjänst sig själv eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa utgående anslutning uttryckligen om du vill när du använder en intern Standard belastningsutjämnare endast. Den [standard SNAT](#defaultsnat) scenario 3 som beskrivs i den här artikeln är inte tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 

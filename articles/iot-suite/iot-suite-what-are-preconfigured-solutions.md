@@ -1,12 +1,12 @@
 ---
-title: "Översikt över förkonfigurerade lösningar i Azure IoT Suite | Microsoft Docs"
-description: "En beskrivning av de förkonfigurerade lösningarna i Azure IoT Suite och deras arkitektur med länkar till ytterligare resurser."
-services: 
+title: Översikt över förkonfigurerade lösningar i Azure IoT Suite | Microsoft Docs
+description: En beskrivning av de förkonfigurerade lösningarna i Azure IoT Suite och deras arkitektur med länkar till ytterligare resurser.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Vad är Azure IoT Suite?
 
@@ -97,7 +97,7 @@ När du distribuerar en förkonfigurerad lösning konfigurerar etableringsproces
 * [Azure Time Series Insights](../time-series-insights/index.yml). De förkonfigurerade lösningarna använder den här tjänsten för att analysera och visa telemetridata från dina enheter.
 * [Azure Container Service](../container-service/index.yml). Den här tjänsten är värd för och hanterar mikrotjänster i förkonfigurerade lösningar.
 * [Azure Cosmos DB](../cosmos-db/index.yml) och [Azure Storage](../storage/index.yml) för datalagring.
-* [Azure Stream Analytics](../stream-analytics/index.md). Den förkonfigurerade lösningen Förutsägande underhåll använder den här tjänsten för att bearbeta inkommande telemetri, utföra sammansättningar och identifiera händelser. Den här förkonfigurerade lösningen använder också dataströmsanalys för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter.
+* [Azure Stream Analytics](../stream-analytics/index.yml). Den förkonfigurerade lösningen Förutsägande underhåll använder den här tjänsten för att bearbeta inkommande telemetri, utföra sammansättningar och identifiera händelser. Den här förkonfigurerade lösningen använder också dataströmsanalys för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter.
 * [Azure Web Apps](../app-service/index.yml) som värd för den anpassade programkoden i de förkonfigurerade lösningarna.
 
 En översikt över arkitekturen i en typisk IoT-lösning finns i [Microsoft Azure och Sakernas Internet (IoT)](iot-suite-what-is-azure-iot.md).

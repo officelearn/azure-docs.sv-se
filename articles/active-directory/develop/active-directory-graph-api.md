@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c0f5110fe73fb48cf6cf5307de08045bd843cb5a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ Azure AD Graph API innehåller följande funktioner:
 * **Skyddas av behörighetsomfattningen**: Azure AD Graph API exponerar behörighetsomfattningen som ger säker åtkomst till Azure AD-data med hjälp av OAuth 2.0. Den stöder en mängd olika apptyper som klienten, inklusive:
   
   * användargränssnitt som ges delegerad åtkomst till data via tillstånd från (delegerad) inloggade användaren
-  * Kontrollera tjänsten-daemon program att åtgärden i bakgrunden utan en inloggad användare som finns på och använda programdefinierade rollbaserad åtkomst
+  * Service-daemon program som fungerar i bakgrunden utan en inloggad-användare vara närvarande och använda programdefinierade rollbaserad åtkomstkontroll
     
     Både delegerade och programbehörigheter representerar privilegium som exponeras av Azure AD Graph-API och kan begäras av klientprogram via tillämpningsfunktioner registrering behörigheter i den [Azure-portalen](https://portal.azure.com). [Azure AD Graph API Behörighetsomfattningen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) innehåller information om vad som är tillgängligt för användning av klientprogrammet.
 

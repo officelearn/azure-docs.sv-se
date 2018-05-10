@@ -8,18 +8,17 @@ manager: michael.tillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Tillämpa en princip för namngivning för Office 365-grupper i Azure Active Directory (förhandsgranskning)
 
@@ -187,7 +186,7 @@ Mobilappen för grupper | Grupper som skapats i grupper mobila appar är kompati
 Planner | Planner är kompatibel med principen för namngivning. Planner visar namngivning princip förhandsgranskningen när du lägger till namn för energischema. När en användare anger en anpassad blockerade word, visas ett felmeddelande när du skapar planen.
 Dynamics 365 för kunden Engagement | Dynamics 365 för kunden Engagement är kompatibel med principen för namngivning. Dynamics 365 visar namngivning principen tillämpas när användaren anger ett gruppnamn eller grupp e-postalias. Om användaren anger en anpassad blockerade word, visas ett felmeddelande med blockerade ordet så att användaren kan ta bort den.
 School datasynkronisering (SDS) | Grupper som skapats via SDS följa naming princip, men namngivning principen används inte automatiskt. SDS-administratörer har att lägga till prefix och suffix till klassnamn som grupper måste skapas och sedan överförs till SDS. Gruppen Skapa eller redigera misslyckas annars.
-Outlook Customer Manager (OCM) | Outlook Customer Manager är kompatibel med principen namngivning som automatiskt tillämpas på gruppen som skapades i Outlook kunden Manager. Om en anpassad blockerade word upptäcks att skapa gruppen i OCM blockeras och användaren har blockerats från att använda appen OCM.
+Outlook kunden hanteraren för | Outlook Customer Manager är kompatibel med principen namngivning som automatiskt tillämpas på gruppen som skapades i Outlook kunden Manager. Om en anpassad blockerade word upptäcks att skapa gruppen i OCM blockeras och användaren har blockerats från att använda appen OCM.
 Klassrum app | Grupper som skapats i klassrummet appen uppfyller principen namngivning men namngivning principen används inte automatiskt, och namngivning princip förhandsgranskningen visas inte för användarna när du skriver in ett klassrum gruppnamn. Användarna måste ange namnet på tvingande klassrum med prefix och suffix. Om inte klassrumsgruppen skapa eller redigera misslyckas med fel.
 Power BI | Power BI arbetsytor är kompatibla med principen för namngivning.    
 Yammer | Yammer-anslutna grupperna inte framtvingar den konfigurerade namngivning principen. För organisationer med naming principen är aktiverad skapar Yammer äldre Yammer-grupper som inte är ansluten till Office 365 för grupper som inte överensstämmer med principen för namngivning.

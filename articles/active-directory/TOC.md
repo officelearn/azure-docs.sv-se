@@ -289,6 +289,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Villkor](active-directory-conditional-access-conditions.md)
+#### [Platsvillkor](active-directory-conditional-access-locations.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)

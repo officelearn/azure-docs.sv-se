@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3966de95233f32a09d4799630632c2bb6a490d78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a38a5461e96d741b3a0d556990418e022afdb305
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI-element
 En kontroll för att välja en storlek för en eller flera instanser av virtuell dator.
@@ -39,7 +39,9 @@ En kontroll för att välja en storlek för en eller flera instanser av virtuell
   ],
   "constraints": {
     "allowedSizes": [],
-    "excludedSizes": []
+    "excludedSizes": [],
+    "numAvailabilityZonesRequired": 3,
+    "zone": "3"
   },
   "osPlatform": "Windows",
   "imageReference": {
@@ -60,6 +62,7 @@ En kontroll för att välja en storlek för en eller flera instanser av virtuell
 - `osPlatform` måste anges, och kan vara antingen **Windows** eller **Linux**. Den används för att fastställa kostnader för maskinvara för virtuella datorer.
 - `imageReference` tas bort för från första part bilder, men det angivna för bilder från tredje part. Den används för att fastställa programvara kostnaderna för virtuella datorer.
 - `count` används för att ange lämplig multiplikatorn för elementet. Den stöder ett statiskt värde som **2**, eller ett dynamiskt värde från ett annat element som `[steps('step1').vmCount]`. Standardvärdet är **1**.
+- Den `numAvailabilityZonesRequired` kan vara 1, 2 eller 3.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json

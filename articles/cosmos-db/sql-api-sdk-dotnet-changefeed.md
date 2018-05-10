@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -48,6 +50,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Stabilitetsförbättringar.
+  * Lösning för hantering av avbrutna aktiviteter problem som kan leda till stoppades observatörerna för några partitioner.
 * Stöd för manuell kontrollpunkter.
 * Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.21 och högre.
 
@@ -70,7 +73,14 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="pre-release-builds"></a>Förhands-versioner
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Mindre ändringar i API:
+  * Ta bort ChangeFeedProcessorOptions.IsAutoCheckpointEnabled som har markerats som föråldrade.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Förbättringar av stabiliteten:
+  * Bättre hantering av lånet initiering av certifikatarkiv. När lånet store är tom, bara en instans av processorn kan initiera den väntar övriga.
+  * Mer stabilt effektivt lån förnyelse och utgåva. Förnya och lanserar en lån en partition är oberoende av förnyar andra. I v1 som gjordes i tur och ordning för alla partitioner.
 * Nya v2 API:
   * Builder mönster för flexibel konstruktionen processorn: ChangeFeedProcessorBuilder-klassen.
     * Det kan ta en kombination av parametrar.
@@ -83,6 +93,7 @@ ms.lasthandoff: 04/28/2018
     * IPartitionProcessor - anpassad bearbetning ändringar på en partition.
 * Loggning - använder [LibLog](https://github.com/damianh/LibLog) bibliotek.
 * 100% bakåtkompatibel med API: n v1.
+* Nya kodbas.
 * Kompatibel med [SQL .NET SDK](sql-api-sdk-dotnet.md) versioner 1.21.1 och högre.
 
 ## <a name="release--retirement-dates"></a>Versionen & pensionering datum

@@ -1,7 +1,7 @@
 ---
-title: "Simulerade enhetsbeteende i fjärranslutna övervakningslösning - Azure | Microsoft Docs"
-description: "Den här artikeln beskriver hur du använder JavaScript för att definiera beteendet för en simulerad enhet i fjärranslutna övervakningslösning."
-services: 
+title: Simulerade enhetsbeteende i fjärranslutna övervakningslösning - Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du använder JavaScript för att definiera beteendet för en simulerad enhet i fjärranslutna övervakningslösning.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementera enhetsbeteende för modellen
 
@@ -25,7 +25,7 @@ Artikeln [förstå modellschemat enheten](iot-suite-remote-monitoring-device-sch
 - **Tillstånd** JavaScript-filer som körs med fasta intervaller att uppdatera det interna tillståndet för enheten.
 - **Metoden** JavaScript-filer som körs när lösningen anropar en metod på enheten.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln kan du se hur du:
 
 >[!div class="checklist"]
 > * Kontrollera statusen för en simulerad enhet
@@ -36,8 +36,8 @@ I den här artikeln får du lära dig hur du:
 
 Den [simuleringen](iot-suite-remote-monitoring-device-schema.md#simulation) avsnitt i enheten modellschemat definierar det interna tillståndet för en simulerad enhet:
 
-- `InitialState`definierar ursprungliga värden för alla egenskaper i objektet enhetens tillstånd.
-- `Script`identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd.
+- `InitialState` definierar ursprungliga värden för alla egenskaper i objektet enhetens tillstånd.
+- `Script` identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd.
 
 I följande exempel visas definitionen av enhetsobjekt för tillstånd för en simulerad kylaggregat enhet:
 
@@ -53,10 +53,10 @@ I följande exempel visas definitionen av enhetsobjekt för tillstånd för en s
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ Tillståndet för den simulerade enheten enligt definitionen i den `InitialState
 Här visas en typisk kontur `main` funktionen:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -78,9 +78,9 @@ function main(context, previousState) {
 
 Den `context` parametern har följande egenskaper:
 
-- `currentTime`som en sträng med formatet`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, till exempel`Simulated.Chiller.123`
-- `deviceModel`, till exempel`Chiller`
+- `currentTime` som en sträng med formatet `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, till exempel `Simulated.Chiller.123`
+- `deviceModel`, till exempel `Chiller`
 
 Den `state` parametern innehåller tillståndet för enheten som hanteras av tjänst för simuleringen. Det här värdet är den `state` objektet som returnerades av det föregående anropet till `main`.
 
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,28 +192,31 @@ Tillståndet för den simulerade enheten enligt definitionen i den `InitialState
 Här visas en typisk kontur `main` funktionen:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
 
 Den `context` parametern har följande egenskaper:
 
-- `currentTime`som en sträng med formatet`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, till exempel`Simulated.Chiller.123`
-- `deviceModel`, till exempel`Chiller`
+- `currentTime` som en sträng med formatet `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, till exempel `Simulated.Chiller.123`
+- `deviceModel`, till exempel `Chiller`
 
 Den `state` parametern innehåller tillståndet för enheten som hanteras av tjänst för simuleringen.
 
-Det finns två globala funktioner som du kan använda för att implementera metodens beteende:
+Den `properties` parametern innehåller egenskaper för enheten som skrivits i som rapporterades egenskaper till dubbla för IoT Hub-enhet.
 
-- `updateState`Uppdaterar status från tjänsten simuleringen.
-- `sleep`Så här pausar körningen för att simulera en tidskrävande uppgift.
+Det finns tre globala funktioner som du kan använda för att implementera metodens beteende:
+
+- `updateState` Uppdaterar status från tjänsten simuleringen.
+- `updateProperty` att uppdatera en enskild enhetsegenskap.
+- `sleep` Så här pausar körningen för att simulera en tidskrävande uppgift.
 
 I följande exempel visas en förkortad version av den **IncreasePressure method.js** skript som används av simulerade kylaggregat enheter:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

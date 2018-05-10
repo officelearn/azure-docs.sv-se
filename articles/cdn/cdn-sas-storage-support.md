@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09efd5cd54fbd05d85939b3ae08bfbb37e91058d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Med SAS Azure CDN
 
@@ -49,7 +49,7 @@ Mer information om inställningen parametrar finns [SAS parametern övervägande
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Alternativ 1: Med hjälp av SAS med direkt till blob storage från Azure CDN
 
-Det här alternativet är den enklaste och använder en enda SAS-token som skickas till den ursprungliga servern från Azure CDN. Det stöds av **Azure CDN från Verizon** och **Azure CDN från Akamai**. 
+Det här alternativet är den enklaste och använder en enda SAS-token som skickas till den ursprungliga servern från Azure CDN. Det stöds av **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** profiler. 
  
 1. Välj en slutpunkt **cachelagring regler**och välj **cachelagra varje unik URL** från den **cachelagring av frågesträngar i frågan** lista.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -433,7 +433,7 @@ Ange namnet på den samling som data ska importeras och klicka på Lägg till om
 När samlingen namn har angetts, väljer du önskad genomflödet av samling(ar) (400 RUs till 250 000 RUs). Välj en högre genomströmning för bästa prestanda för import. Läs mer om prestandanivåer [prestandanivåer i Azure Cosmos DB](performance-levels.md). Import till samlingar med genomströmning > 10 000 RUs kräver en partitionsnyckel. Om du vill ha mer än 250 000 RUs, måste du in en begäran till ditt konto ökade Portal.
 
 > [!NOTE]
-> Genomströmning inställningen gäller bara skapa en samling. Om den angivna samlingen finns redan, ändras inte dess genomflöde.
+> Genomströmning inställningen gäller endast samling eller skapa databasen. Om den angivna samlingen finns redan, ändras inte dess genomflöde.
 > 
 > 
 

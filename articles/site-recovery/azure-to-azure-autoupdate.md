@@ -8,15 +8,15 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: rajanaki
-ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Automatisk uppdatering av Mobilitetstjänsten tillägg i Azure till Azure-replikering
 
-Azure Site Recovery har en månatlig versionen takt där förbättringar av befintliga funktioner eller nya läggs och kända problem som eventuellt åtgärdas. Det betyder att för att fortsätta vara aktuella med tjänsten, måste du planera för distribution av dessa korrigeringar i en månatlig takt. Användare kan i stället välja att tillåta Site Recovery för att hantera uppdateringar av komponenter för att undvika över huvud som är associerade med uppgraderingen. Detaljerad i den [arkitektur referens](azure-to-azure-architecture.md) för katastrofåterställning i Azure till Azure, Mobilitetstjänsten installeras på alla virtuella Azure-datorer för vilka replikering har aktiverats vid replikering av virtuella datorer från en Azure till en annan region. Det här dokumentet beskriver följande:
+Azure Site Recovery har en månatlig versionen takt där förbättringar av befintliga funktioner eller nya läggs och kända problem som eventuellt åtgärdas. Det betyder att för att fortsätta vara aktuella med tjänsten, måste du planera för distribution av dessa korrigeringar, varje månad. Användare kan i stället välja att tillåta Site Recovery för att hantera uppdateringar av komponenter för att undvika över huvud som är associerade med uppgraderingen. Detaljerad i den [arkitektur referens](azure-to-azure-architecture.md) för katastrofåterställning i Azure till Azure, Mobilitetstjänsten installeras på alla virtuella Azure-datorer för vilka replikering har aktiverats vid replikering av virtuella datorer från en Azure till en annan region. När du aktiverar automatisk uppdatering kan uppdateras webbtjänsttillägget Mobility med varje ny utgåva. Det här dokumentet beskriver följande:
 
 - Hur fungerar automatisk uppdatering?
 - Aktivera automatiska uppdateringar
@@ -25,6 +25,9 @@ Azure Site Recovery har en månatlig versionen takt där förbättringar av befi
 ## <a name="how-does-automatic-update-work"></a>Hur fungerar automatisk uppdatering
 
 När du tillåter Site Recovery för att hantera uppdateringar är har en global runbook (som används av Azure-tjänster) distribuerats via ett automation-konto som skapas i samma prenumeration som valvet. Ett automation-konto används för en specifik valvet. Runbook kontrollerar för varje virtuell dator i ett valv som automatisk uppdatering är aktiverade och initierar en uppgradering av tillägget Mobilitetstjänsten om en nyare version är tillgänglig. Standardschemat för runbook-recurrs varje dag klockan 12:00 AM enligt tidszonen för den replikerade virtuella geo. Schemat för runbook kan också ändras via automation-kontot av användaren, om det behövs. 
+
+> [!NOTE]
+> Aktivera automatiska uppdateringar kräver inte en omstart av virtuella datorerna i Azure och påverkar inte pågående replikering.
 
 ## <a name="enable-automatic-updates"></a>Aktivera automatiska uppdateringar
 

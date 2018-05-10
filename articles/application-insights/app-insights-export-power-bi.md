@@ -1,9 +1,9 @@
 ---
-title: "Exportera till Powerbi från Azure Application Insights | Microsoft Docs"
-description: "Analytics-frågor kan visas i Power BI."
+title: Exportera till Powerbi från Azure Application Insights | Microsoft Docs
+description: Analytics-frågor kan visas i Power BI.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-feed från Application Insights
 [Power BI](http://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera och dela information. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från flera källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -121,8 +121,8 @@ Om du minskar datauppsättningen kommer från Analytics-fråga inte uppfyller di
 
 1. Skapa en [API-nyckeln](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Uppdatera Power BI M-skriptet som du exporterade från Analytics genom att ersätta Azure Resource Manager-URL med Application Insights API.
-   * Ersätt **https://management.azure.com/subscriptions/...**
-   * med, **https://api.applicationinsights.io/beta/apps/...**
+   * Ersätt  **https://management.azure.com/subscriptions/...**
+   * med,  **https://api.applicationinsights.io/beta/apps/...**
 3. Slutligen uppdatera autentiseringsuppgifterna till basic och Använd API-nyckel.
   
 

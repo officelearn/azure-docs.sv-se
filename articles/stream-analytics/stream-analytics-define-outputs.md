@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 05/07/2018
+ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskriver de olika typerna av utdata som är tillgängliga för ett Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobbet. Med utdata kan du göra ytterligare Företagsanalys och datalagring för dina data. 
@@ -48,7 +48,7 @@ Strömma Analytics stöder [Azure Data Lake Store](https://azure.microsoft.com/s
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i sökvägen till prefix. Exempel: ÅÅÅÅ/MM/DD |
 |Tidsformat | Valfri. Ange tidsformat där filerna ordnas om tid token används i sökvägen till prefix. Det enda värdet som stöds är för närvarande HH. |
 | Händelseserialiseringsformat | Serialiseringsformat för utdata. JSON-, CSV- och Avro stöds.| 
-| Encoding | Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande.|
+| Kodning | Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande.|
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering CSV. Värden som stöds är kommatecken, semikolon, blanksteg, fliken och vertikalstreck.|
 | Format | Gäller endast för JSON-serialisering. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. Denna matris stängs endast när jobbet stoppar eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda rad avgränsade JSON, eftersom den inte kräver någon särskild hantering när utdatafilen fortfarande skrivs till.|
 
@@ -86,22 +86,24 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Lagringskonto | Namnet på det lagringskonto där du skickar din utdata. |
 | Lagringskontonyckel | Den hemliga nyckeln som associeras med lagringskontot. |
 | Lagringsbehållaren | Behållare innehåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du överför en blobb till Blob-tjänsten måste du ange en behållare för blobben. |
-| Sökvägsmönster | Valfri. Filen sökvägar som används för att skriva dina blobbar i den angivna behållaren. </br> Du kan välja att använda en eller flera instanser av följande 2 variabler för att ange hur ofta BLOB skrivs i sökväg-mönster: </br> {date}, {time} </br> Exempel 1: cluster1/logs / {date} / {time} </br> Exempel 2: cluster1/logs / {date} <BR> <BR> Filnamngivning följer enligt följande konvention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Exempel utdatafilerna: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Sökvägsmönster | Valfri. Filen sökvägar som används för att skriva dina blobbar i den angivna behållaren. </br></br> Du kan välja att använda en eller flera instanser av variablerna datum tid för att ange hur ofta BLOB skrivs i sökväg-mönster: </br> {date}, {time} </br> </br>Du kan också specificera ett fältnamn {kolumnen} från dina data till BLOB för partition av där fältnamnet är alfanumeriska och kan innehålla blanksteg, bindestreck och understreck. Följande: begränsningar för anpassade fält <ul><li>Fall insensitivity (det går inte att skiljer sig mellan kolumnen ”ID” och kolumnen ”id”)</li><li>Kapslade fält är inte tillåtna (i stället använda ett alias i jobbet frågan till ”platta ut” fältet)</li><li>Uttryck kan inte användas som ett fältnamn</li></ul>Exempel: <ul><li>Exempel 1: cluster1/logs / {date} / {time}</li><li>Exempel 2: cluster1/logs / {date}</li><li>Exempel 3: cluster1 / {client_id} / {date} / {time}</li><li>Exempel 4: cluster1 / {myField} där frågan är: Välj data.myField som myField indata från;</li></ul><BR> Filnamngivning följer enligt följande konvention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Exempel utdatafilerna: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i sökvägen till prefix. Exempel: ÅÅÅÅ/MM/DD |
 | Tidsformat | Valfri. Ange tidsformat där filerna ordnas om tid token används i sökvägen till prefix. Det enda värdet som stöds är för närvarande HH. |
 | Händelseserialiseringsformat | Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds.
-| Encoding | Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande. |
+| Kodning | Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande. |
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering CSV. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 | Format | Gäller endast för JSON-serialisering. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. Denna matris stängs endast när jobbet stoppar eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda rad avgränsade JSON, eftersom den inte kräver någon särskild hantering när utdatafilen fortfarande skrivs till. |
 
 När du använder blob storage som utdata, skapas en ny fil i blob i följande fall:
 
-* Om filen är större än det maximala antalet tillåtna block. Det maximala antalet tillåtna block kan nås utan att den maximala tillåtna blobbstorleken. Till exempel utdata är hög, hittar du mer byte per block och filstorlek är större. Om frekvensen av utgående är låg varje block har mindre data och filstorleken är mindre.
+* Om filen är större än det maximala antalet tillåtna block (för närvarande 50 000). Det maximala antalet tillåtna block kan nås utan att den maximala tillåtna blobbstorleken. Till exempel utdata är hög, hittar du mer byte per block och filstorlek är större. Om frekvensen av utgående är låg varje block har mindre data och filstorleken är mindre.
 * Om det finns en schemaändring i utdata och utdataformat kräver fast schema (CSV- och Avro).  
-* Om ett jobb startas antingen externt eller internt omstart av ett jobb.  
+* Om ett jobb startas antingen externt av en användare stoppa den och sedan starta den eller internt för återställning av underhåll eller fel.  
 * Om frågan fullständigt är partitionerad skapas ny fil för varje partition i utdata.  
 * Om en fil eller en behållare för lagringskontot tas bort av användaren.  
 * Om resultatet blir tid partitionerats med hjälp av prefixet sökvägar, används en ny blob när frågan flyttar till nästa timma.
+* Om utdata har partitionerats med ett anpassat fält, skapas en ny blob per partitionsnyckel om den inte finns.
+*   Om resultatet är partitionerad med ett anpassat fält där partition nyckelns kardinalitet överstiger 8000 kan du skapa en ny blob per partitionsnyckel.
 
 ## <a name="event-hub"></a>Händelsehubb
 Den [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service är en mycket skalbar publicera och prenumerera händelseinmatare. Det kan samla in miljontals händelser per sekund. När resultatet av ett Stream Analytics-jobb blir indata för en annan direktuppspelningsjobbet är en använda en Händelsehubb som utdata.
@@ -117,7 +119,7 @@ Det finns några parametrar som behövs för att konfigurera Event Hub-dataströ
 | Principnyckel för Event Hub | Åtkomst till delade nyckeln används för att autentisera åtkomst till Event Hub-namnområdet. |
 | Partitionsnyckelkolumnen [valfritt] | Kolumnen innehåller Partitionsnyckeln för Event Hub-utdata. |
 | Händelseserialiseringsformat | Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
-| Encoding | För CSV och JSON är UTF-8 endast stöds Kodningsformatet just nu. |
+| Kodning | För CSV och JSON är UTF-8 endast stöds Kodningsformatet just nu. |
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 | Format | Gäller endast för JSON-serialisering. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. Denna matris stängs endast när jobbet stoppar eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda rad avgränsade JSON, eftersom den inte kräver någon särskild hantering när utdatafilen fortfarande skrivs till. |
 
@@ -218,7 +220,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Köprincipnamn |När du skapar en kö kan skapa du även principer för delad åtkomst på fliken Konfigurera för kön. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
 | Köprincipnyckel |Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd |
 | Händelseserialiseringsformat |Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
-| Encoding |För CSV- och JSON är UTF-8 endast stöds Kodningsformatet just nu |
+| Kodning |För CSV- och JSON är UTF-8 endast stöds Kodningsformatet just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 | Format |Gäller endast för JSON-typen. Radseparering innebär att utdata formateras genom att varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. |
 
@@ -237,7 +239,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Ämnesprincipnamn |När du skapar ett ämne kan skapa du även principer för delad åtkomst på fliken avsnittet Konfigurera. Varje princip för delad åtkomst har namn, behörigheter som du ställa in och åtkomstnycklar |
 | Ämnesprincipnyckel |Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd |
 | Händelseserialiseringsformat |Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds. |
-| Encoding |Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är endast stöds Kodningsformatet just nu |
+| Kodning |Om du använder CSV- eller JSON-format, måste kodning anges. UTF-8 är endast stöds Kodningsformatet just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och vertikalstreck. |
 
 Antalet partitioner är [baserat på Service Bus SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltal som unikt för varje partition.

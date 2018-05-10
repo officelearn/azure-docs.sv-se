@@ -3,7 +3,7 @@ title: Telemetri provtagning i Azure Application Insights | Microsoft Docs
 description: Så här håller telemetrivolym under kontroll.
 services: application-insights
 documentationcenter: windows
-author: vgorbenko
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: mbullwin; vitalyg
+ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -38,7 +38,7 @@ Samplingsfrekvensen minskar kostnaderna för trafik och data och hjälper dig at
 ## <a name="types-of-sampling"></a>Typer av provtagning
 Det finns tre alternativ provtagningsmetoder:
 
-* **Anpassningsbar provtagning** justeras automatiskt telemetrivolym som skickas från SDK i din ASP.NET-app. Från och med SDK v 2.0.0-beta3 är detta standard urvalsmetoden. Anpassningsbar provtagning är för närvarande endast tillgängligt för ASP.NET serversidan telemetri. För Asp.NET Core program targetting fullständig Framework, anpassningsbar provtagning är tillgänglig från version 1.0.0 av Microsoft.ApplicationInsights.AspNetCore SDK. Anpassningsbar provtagning är tillgänglig från 2.2.0-beta1 Microsoft.ApplicationInsights.AspNetCore SDK för Asp.NET Core program targetting NetCore.
+* **Anpassningsbar provtagning** justeras automatiskt telemetrivolym som skickas från SDK i din ASP.NET-app. Från och med SDK v 2.0.0-beta3 är detta standard urvalsmetoden. Anpassningsbar provtagning är för närvarande endast tillgängligt för ASP.NET serversidan telemetri. Anpassningsbar provtagning är tillgänglig från version 1.0.0 av Microsoft.ApplicationInsights.AspNetCore SDK för Asp.NET Core program full Framework som mål. Anpassningsbar provtagning är tillgänglig från 2.2.0-beta1 Microsoft.ApplicationInsights.AspNetCore SDK för Asp.NET Core program NetCore som mål.
 
 * **Fast räntesats provtagning** minskar mängden telemetri som skickas från båda ASP.NET eller Java-servern och från användarnas webbläsare. Anges. Klienten och servern ska synkronisera sina provtagning så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
 * **Införandet provtagning** fungerar i Azure-portalen. Den tar bort vissa av telemetri som tas emot från din app på en samplingsfrekvensen som du anger. Det minskar inte telemetri trafik som skickas från din app, men hjälper dig att hålla inom den månatliga kvoten. Den största fördelen med införandet provtagning är att du kan ange samplingsfrekvensen utan att omdistribuera din app och det fungerar enhetligt för alla servrar och klienter. 

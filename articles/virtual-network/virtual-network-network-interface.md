@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c39f11eae08e74e1bb29a5587fa4a8f0ba7c6a5b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
 Lär dig mer om att skapa, ändra inställningar för och ta bort ett nätverksgränssnitt. Ett nätverksgränssnitt kan en virtuell dator i Azure att kommunicera med internet, Azure och lokala resurser. När du skapar en virtuell dator med hjälp av Azure portal, skapar portalen ett nätverksgränssnitt med standardinställningar för dig. Du kan i stället välja att skapa nätverksgränssnitt med anpassade inställningar och Lägg till en eller flera nätverksgränssnitt i en virtuell dator när du skapar den. Du kanske vill ändra standard gränssnitt för nätverksinställningar för en befintlig nätverksgränssnitt. Den här artikeln beskriver hur du skapar ett nätverksgränssnitt med anpassade inställningar, ändra befintliga inställningar, till exempel tilldelning av nätverket filter (nätverkssäkerhetsgrupp), undernättilldelning, DNS-serverinställningarna och IP-vidarebefordring och ta bort ett nätverksgränssnitt.
 
 Om du behöver för att lägga till, ändra eller ta bort IP-adresser för ett nätverksgränssnitt, se [hantera IP-adresser](virtual-network-network-interface-addresses.md). Om du behöver lägga till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer, se [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -37,7 +36,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 - Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
-Det konto som du loggar in på Azure med måste tilldelas på ett minimum, behörigheter för nätverket deltagarrollen för din prenumeration. Mer information om hur du tilldelar roller och behörigheter till konton finns [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+Kontot du loggar in, eller Anslut till Azure med, måste vara tilldelade till den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
 
 ## <a name="create-a-network-interface"></a>Skapa ett nätverksgränssnitt
 
@@ -88,7 +87,7 @@ Du kan visa och ändra de flesta inställningar för ett nätverksgränssnitt n�
     - **Egenskaper:** visar nyckeln inställningar för nätverksgränssnittet, inklusive dess MAC-adress (tomt om nätverksgränssnittet inte är kopplad till en virtuell dator) och prenumerationen den finns i.
     - **Effektiva säkerhetsregler:** säkerhetsregler listas om nätverksgränssnittet är ansluten till en aktiv virtuell dator och en NSG är kopplad till nätverksgränssnittet eller den undernät som den är tilldelad till. Läs mer om vad som visas i [visa effektiva säkerhetsregler](#view-effective-security-rules). Läs mer om NSG: er i [Nätverkssäkerhetsgrupper](security-overview.md).
     - **Effektiva vägar:** vägar listas om nätverksgränssnittet är kopplat till en aktiv virtuell dator. Vägar är en kombination av Azure standardvägar några användardefinierade vägar och BGP-vägar som kan finnas för undernätet nätverksgränssnittet har tilldelats. Läs mer om vad som visas i [visa effektiva vägar](#view-effective-routes). Läs mer om Azure standardvägar och användardefinierade vägar i [routning: översikt](virtual-networks-udr-overview.md).
-    - **Gemensamma inställningar för Azure Resource Manager:** mer information om gemensamma inställningar för Azure Resource Manager finns [aktivitetsloggen](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [taggar](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Låser](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), och [automatiseringsskriptet](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Gemensamma inställningar för Azure Resource Manager:** mer information om gemensamma inställningar för Azure Resource Manager finns [aktivitetsloggen](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Låser](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), och [automatiseringsskriptet](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Kommandon**
 
@@ -204,7 +203,7 @@ När du tar bort ett nätverksgränssnitt släpps alla MAC- eller IP-adresser so
 
 ## <a name="resolve-connectivity-issues"></a>Lösa problem med nätverksanslutningen
 
-Om det inte går att kommunicera till eller från en virtuell dator, network security group säkerhetsregler eller vägar som gäller för ett nätverksgränssnitt kan vara orsaken till problemet. Du har följande alternativ för att lösa problemet:
+Om du inte kan kommunicera till eller från en virtuell dator, säkerhetsregler för nätverkssäkerhetsgrupper eller vägar som gäller för ett nätverksgränssnitt kan vara orsaken till problemet. Du har följande alternativ för att lösa problemet:
 
 ### <a name="view-effective-security-rules"></a>Visa effektiva säkerhetsregler
 
@@ -216,7 +215,7 @@ De effektiva säkerhetsregler för varje nätverksgränssnitt som är kopplad ti
 4. Välj **effektiva säkerhetsregler** under **stöd + felsökning**.
 5. Granska listan över giltiga säkerhetsregler för att avgöra om det finns rätt regler för ditt nödvändiga inkommande och utgående kommunikation. Mer information om vad som visas i listan i [nätverk Säkerhetsöversikt för gruppen](security-overview.md).
 
-IP-flöde Kontrollera funktion i Azure Nätverksbevakaren kan också hjälpa dig att avgöra om säkerhetsregler förhindrar kommunikation mellan en virtuell dator och en slutpunkt. Läs mer i [IP-flöde Kontrollera](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+IP-flöde Kontrollera funktion i Azure Nätverksbevakaren kan också hjälpa dig att avgöra om säkerhetsregler förhindrar kommunikation mellan en virtuell dator och en slutpunkt. Läs mer i [IP-flöde Kontrollera](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Kommandon**
 
@@ -233,18 +232,37 @@ Effektiva vägar i nätverksgränssnitt som är kopplad till en virtuell dator �
 4. Välj **effektiva vägar** under **stöd + felsökning**.
 5. Granska listan över effektiva vägar för att avgöra om det finns rätt vägar för ditt nödvändiga inkommande och utgående kommunikation. Mer information om vad som visas i listan i [routning: översikt](virtual-networks-udr-overview.md).
 
-Nästa hopp-funktion i Azure Nätverksbevakaren kan också hjälpa dig att avgöra om vägar förhindrar kommunikation mellan en virtuell dator och en slutpunkt. Läs mer i [nästa hopp](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Nästa hopp-funktion i Azure Nätverksbevakaren kan också hjälpa dig att avgöra om vägar förhindrar kommunikation mellan en virtuell dator och en slutpunkt. Läs mer i [nästa hopp](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Kommandon**
 
 - Azure CLI: [az nätverk nic visa-gällande--routningstabellen](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Nästa steg
-Om du vill skapa en virtuell dator med flera nätverksgränssnitt eller IP-adresser finns i följande artiklar:
+## <a name="permissions"></a>Behörigheter
 
-|Aktivitet|Verktyget|
-|---|---|
-|Skapa en virtuell dator med flera nätverkskort|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Skapa en enda NIC VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Skapa en enda NIC VM med en privat IPv6-adress (bakom en belastningsutjämnare i Azure)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager-mall](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Om du vill utföra aktiviteter på nätverksgränssnitt måste ditt konto måste ha tilldelats den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter som anges i följande tabell:
+
+| Åtgärd                                                                     | Namn                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Hämta nätverksgränssnitt                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Skapa eller uppdatera nätverksgränssnitt                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Koppla ett nätverksgränssnitt till en virtuell dator           |
+| Microsoft.Network/networkInterfaces/delete                                 | Ta bort nätverksgränssnittet                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Ansluta till en resurs till ett nätverksgränssnitt via en servi...     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Hämta network interface effektiva routningstabellen               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Hämta gränssnittet effektiva nätverkssäkerhetsgrupper           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Hämta nätverksgränssnitt för belastningsutjämnare                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Hämta associationen för tjänsten                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Skapa eller uppdatera en tjänst-koppling                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Ta bort associationen för tjänsten                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Validera service association                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Hämta IP-konfiguration nätverksgränssnitt                    |
+
+## <a name="next-steps"></a>Nästa steg
+
+- Skapa en virtuell dator med flera nätverkskort med den [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Skapa en enda NIC VM med flera IPv4-adresser med hjälp av [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) eller [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+- Skapa en enda NIC VM med en privat IPv6-adress (bakom en belastningsutjämnare i Azure) med hjälp av den [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), eller [Azure Resource Manager-mall](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Skapa ett nätverksgränssnitt med [PowerShell](powershell-samples.md) eller [Azure CLI](cli-samples.md) exempel på skript eller använda Azure [Resource Manager-mallar](template-samples.md)
+- Skapa och använda [Azure princip](policy-samples.md) för virtuella nätverk

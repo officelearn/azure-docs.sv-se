@@ -1,18 +1,18 @@
 ---
-title: "Azure händelse rutnät och Händelsehubbar-integrering"
-description: "Beskriver hur du använder Azure Event rutnät och Händelsehubbar för att migrera data till ett SQL Data Warehouse"
+title: Azure händelse rutnät och Händelsehubbar-integrering
+description: Beskriver hur du använder Azure Event rutnät och Händelsehubbar för att migrera data till ett SQL Data Warehouse
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Dataströmmen stordata i ett data warehouse
 
@@ -66,7 +66,7 @@ Händelsen rutnätet distribuerar händelsedata prenumeranter. I följande exemp
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här kursen behöver du:
+Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * [Visual studio 2017 Version 15.3.2 eller större](https://www.visualstudio.com/vs/) med arbetsbelastningar för: .NET skrivbord utveckling, Azure-utveckling, ASP.NET och web utveckling, Node.js utveckling och utveckling av Python.
@@ -118,71 +118,45 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Öppna den [EventHubsCaptureEventGridDemo exempelprojektet](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) i Visual Studio-2017 (15.3.2 eller högre).
 
-2. I Solution Explorer högerklickar du på **FunctionDWDumper**, och välj **publicera**.
+1. I Solution Explorer högerklickar du på **FunctionEGDWDumper**, och välj **publicera**.
 
    ![Publicera funktionsapp](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Välj **Azure Funktionsapp** och **Välj befintlig**. Välj **OK**.
+1. Välj **Azure Funktionsapp** och **Välj befintlig**. Välj **publicera**.
 
    ![Mål-funktionsapp](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Välj funktionen appen som du har distribuerat via mallen. Välj **OK**.
+1. Välj funktionen appen som du har distribuerat via mallen. Välj **OK**.
 
    ![Välj funktionsapp](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. När profilen har konfigurerats för Visual Studio, markera **publicera**.
+1. När profilen har konfigurerats för Visual Studio, markera **publicera**.
 
    ![Välj publicera](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. När du har publicerat funktionen, gå till den [Azure-portalen](https://portal.azure.com/). Välj appen resurs grupp och funktion.
-
-   ![Visa funktionsapp](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Välj funktionen.
-
-   ![Välj funktionen](media/event-grid-event-hubs-integration/select-function.png)
-
-8. Hämta URL för funktionen. När du skapar händelseprenumerationen måste denna URL.
-
-   ![Hämta funktionswebbadress](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Kopiera värdet.
-
-   ![Kopiera URL](media/event-grid-event-hubs-integration/copy-url.png)
+Du är redo att prenumerera på händelsen när du har publicerat funktionen.
 
 ## <a name="subscribe-to-the-event"></a>Prenumerera på händelsen
 
-Du kan använda Azure CLI eller portalen för att prenumerera på händelsen. Den här artikeln visar båda metoderna.
+1. Gå till [Azure-portalen](https://portal.azure.com/). Välj appen resurs grupp och funktion.
 
-### <a name="portal"></a>Portalen
+   ![Visa funktionsapp](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. Välj namnområdet Händelsehubbar **händelse rutnätet** till vänster.
+1. Välj funktionen.
 
-   ![Välj händelse rutnätet](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Välj funktionen](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Lägga till en händelseprenumeration.
+1. Välj **Lägg till händelse rutnätet prenumeration**.
 
-   ![Lägg till händelseprenumeration](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Lägg till en prenumeration](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Ange värden för händelseprenumerationen. Använd Azure Functions-URL som du kopierade. Välj **Skapa**.
+9. Namnge rutnätet händelseprenumerationen. Använd **Event Hubs namnområden** som händelsetyp. Ange värden för att välja din instans av namnområdet Händelsehubbar. Lämna prenumeranten slutpunkten som det angivna värdet. Välj **Skapa**.
 
-   ![Ange värden för prenumeration](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Azure CLI
-
-Kör följande kommandon för att prenumerera på händelsen (som kräver version 2.0.24 eller senare av Azure CLI):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Skapa en prenumeration](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Kör appen för att generera data
 
-Du har konfigurerat din händelsehubb, SQL data warehouse, Azure funktionsapp och händelseprenumerationen. Lösningen är redo att migrera data från event hub till datalagret. Innan du kör ett program som genererar data för händelsehubb, måste du konfigurera några värden.
+Du har slutfört konfigurationen din händelsehubb, SQL data warehouse, Azure funktionsapp och händelseprenumerationen. Lösningen är redo att migrera data från event hub till datalagret. Innan du kör ett program som genererar data för händelsehubb, måste du konfigurera några värden.
 
 1. Välj namnområdet händelse hubb i portalen. Välj **anslutningssträngar**.
 
@@ -198,10 +172,10 @@ Du har konfigurerat din händelsehubb, SQL data warehouse, Azure funktionsapp oc
 
 4. Gå tillbaka till Visual Studio-projekt. Öppna i projektet WindTurbineDataGenerator **program.cs**.
 
-5. Ersätt två konstanta värden. Använd kopierade värdet för **EventHubConnectionString**. Använd händelsehubbens namn för **EventHubName**.
+5. Ersätt två konstanta värden. Använd kopierade värdet för **EventHubConnectionString**. Använd **hubdatamigration** händelsehubbens namn.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

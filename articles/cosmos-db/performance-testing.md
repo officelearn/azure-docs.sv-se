@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda och skalning testa med Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Det snabbaste sättet att komma igång är att kompilera och köra .NET-exempel 
     Press any key to exit...
 
 
-**Steg 4 (vid behov):** genomflödet rapporterade (RU/s) från verktyget ska vara samma eller högre än det tillhandahållna dataflödet i mängden. Om det inte kan öka DegreeOfParallelism i små steg hjälpa dig att nå gränsen. Om genomströmning från din klient högplaåter starta flera instanser av appen på ytterligare datorer. Om du behöver hjälp med det här steget e- askcosmosdb@microsoft.com eller filen ett supportärende från den [Azure-portalen](https://portal.azure.com).
+**Steg 4 (vid behov):** genomflödet rapporterade (RU/s) från verktyget ska vara samma eller högre än det tillhandahållna dataflödet i mängden eller en uppsättning samlingar. Om det inte kan öka DegreeOfParallelism i små steg hjälpa dig att nå gränsen. Om genomströmning från din klient högplaåter starta flera instanser av appen på ytterligare datorer. Om du behöver hjälp med det här steget e- askcosmosdb@microsoft.com eller filen ett supportärende från den [Azure-portalen](https://portal.azure.com).
 
 När du har appen körs, kan du försöka olika [indexering principer](indexing-policies.md) och [konsekvensnivåer](consistency-levels.md) att förstå deras inverkan på genomflöde och svarstid. Du kan också granska källkoden och implementera liknande konfigurationer till testpaket eller program i produktion.
 

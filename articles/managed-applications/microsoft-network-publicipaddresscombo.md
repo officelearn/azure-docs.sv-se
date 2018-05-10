@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bced85abaf24beb0997ec906a68e5947f0e67cca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c308b6626f9c37b3928107c4c03e9e0a5da12e6f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI element
+# <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI-element
 En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress.
 
 ## <a name="ui-sample"></a>UI-exempel
@@ -54,7 +54,8 @@ En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress
   "options": {
     "hideNone": false,
     "hideDomainNameLabel": false,
-    "hideExisting": false
+    "hideExisting": false,
+    "zone": 3
   },
   "visible": true
 }
@@ -65,6 +66,7 @@ En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress
 - Om `options.hideNone` är inställd på **SANT**, sedan alternativet **ingen** för den offentliga IP-adress är dolt. Standardvärdet är **FALSKT**.
 - Om `options.hideDomainNameLabel` är inställd på **SANT**, och sedan textrutan för domännamnet är dolt. Standardvärdet är **FALSKT**.
 - Om `options.hideExisting` är true tas användaren inte har möjlighet att välja en befintlig offentlig IP-adress. Standardvärdet är **FALSKT**.
+- För `zone`, endast offentliga IP-adresser för den angivna zonen eller zonen flexibel offentliga IP-adresser som är tillgängliga.
 
 ## <a name="sample-output"></a>Exempel på utdata
 Om användaren väljer Ingen offentlig IP-adress, förväntat i följande utdata:

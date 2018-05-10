@@ -4,7 +4,7 @@ description: Lär dig mer om Microsoft Operations Management Suite (OMS), dess t
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security"></a>Azure operativ säkerhet
 ## <a name="introduction"></a>Introduktion
@@ -68,8 +68,8 @@ Huvudfunktionerna i OMS tillhandahålls genom en uppsättning tjänster som kör
 | :------------- | :-------------|
 | Log Analytics | Övervaka och analysera tillgänglighet och prestanda för olika resurser inklusive fysiska och virtuella datorer. |
 |Automation | Automatisera manuella processer och tillämpa konfigurationer för fysiska och virtuella datorer. |
-| Säkerhetskopiering | Säkerhetskopiera och återställa kritiska data. |
-| Webbplatsåterställning | Ge hög tillgänglighet för viktiga program. |
+| Backup | Säkerhetskopiera och återställa kritiska data. |
+| Site Recovery | Ge hög tillgänglighet för viktiga program. |
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -132,13 +132,13 @@ Security Center samlar in data från dina virtuella datorer (VM) för att utvär
 
 ### <a name="data-sources"></a>Datakällor
 
-- Azure Security Center analyserar data från följande källor för att ge dig information om säkerhetstillståndet, identifiera säkerhetsproblem och rekommendera lösningar och identifiera aktiva hot:
+- Azure Security Center analyserar data från följande källor för att ge dig information om säkerhetstillstånd, identifiera säkerhetsproblem, rekommendera lösningar och upptäcka aktiva hot:
 
--   Azures-tjänster: Använder information om konfigurationen av Azure-tjänster som du har distribuerat genom att kommunicera med tjänstens resursprovider.
+-   Azure-tjänster: Använder information om konfigurationen av Azure-tjänster som du har distribuerat genom att kommunicera med tjänstens resursprovider.
 
-- Nätverkstrafik: Använder samplade metadata för nätverkstrafiken från Microsofts infrastruktur, till exempel käll- och mål IP-adress/port, paketstorlek och nätverksprotokoll.
+- Nätverkstrafik: Använder samplade metadata för nätverkstrafiken från Microsofts infrastruktur, till exempel källans/målets IP-adress/port, paketstorlek och nätverksprotokoll.
 
--   Partnerlösningar: Använder säkerhetsvarningar från integrerade partnerlösningar, till exempel brandväggar och lösningar mot skadlig kod.
+-   Partnerlösningar: Använder säkerhetsaviseringar från integrerade partnerlösningar, till exempel brandväggar och lösningar mot skadlig kod.
 
 -   Virtual Machines: Använder information om konfigurationer och säkerhetshändelser, till exempel händelser och granskningsloggar i Windows, IIS-loggar, syslog-meddelanden och kraschdumpfiler från dina virtuella datorer.
 
@@ -146,7 +146,7 @@ Security Center samlar in data från dina virtuella datorer (VM) för att utvär
 
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
 
--   **Datauppdelning**: Data lagras logiskt och separat på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
+-   **Datauppdelning**: Data lagras logiskt separerade på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
 
 -   **Dataåtkomst**: Om du vill ange säkerhetsrekommendationer och undersöka potentiella säkerhetshot, Microsoft-Personal kan komma åt information som samlas in eller analyseras av Azure-tjänster, inklusive kraschdumpfiler, bearbeta-skapande händelser, virtuell disk ögonblicksbilder och artefakter som kan oavsiktligt innehålla kundinformation eller personliga data från dina virtuella datorer. Vi följer den [Microsoft Online Services-licensvillkoren och sekretesspolicyn](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), vilka tillstånd som inte är Microsoft använder kundinformation eller härledd information från den i reklam eller liknande kommersiellt syfte.
 
@@ -193,7 +193,7 @@ Dessa loggar orsakat av en resurs och ger omfattande, ofta data om användningen
 
 Till exempel Windows-händelsesystemloggar är en kategori av diagnostiska loggar för virtuella datorer och blob, tabell och kön loggar är kategorier av diagnostiska loggar för lagringskonton.
 
-Diagnostik loggar skiljer sig från den [aktivitetsloggen (kallades granskningsloggen eller arbetsloggen)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Aktivitetsloggen ger inblick i åtgärder som utfördes på resurser i din prenumeration. Diagnostik-loggarna ger information om åtgärder som din resurs utförde sig själv.
+Diagnostik loggar skiljer sig från den [aktivitetsloggen (kallades granskningsloggen eller arbetsloggen)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Aktivitetsloggen ger inblick i åtgärder som utfördes på resurser i din prenumeration. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit på egen hand.
 
 ### <a name="metrics"></a>Mått
 

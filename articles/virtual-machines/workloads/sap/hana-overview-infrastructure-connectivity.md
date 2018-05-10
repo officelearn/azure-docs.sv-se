@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruktur för SAP HANA (stora instanser) och anslutningar på Azure 
 
 Vissa definitioner gång innan du läser den här guiden. I [SAP HANA (stora instanser) översikt och arkitektur för Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vi har fört två olika klasser av HANA stora instans enheter med:
 
 - S72, S72m, S144, S144m, S192 och S192m som vi kallar ”typen I klassen' av SKU: er.
-- S384, S384m, S384xm, S576, S768 och S960 som vi kallar ”typ II class-av SKU: er.
+- S384, S384m, S384xm, S576m, S768m och S960m som vi kallar ”typ II class-av SKU: er.
 
 Klass-specificerare kommer att användas i hela dokumentationen HANA stora instans att så småningom referera till olika funktioner och krav utifrån HANA stora instans SKU: er.
 
@@ -213,7 +213,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 I det här exemplet används HighPerformance gateway SKU. Alternativen är HighPerformance eller UltraPerformance som den enda gatewayen-SKU: er som stöds för SAP HANA i Azure (stora instanser).
 
 > [!IMPORTANT]
-> För HANA stora instanser av SKU: N typer S384, S384m, S384xm, S576, S768 och S960 (typ II klassen SKU: er), användning av Gateway-SKU UltraPerformance är obligatoriskt.
+> För HANA stora instanser av SKU: N typer S384, S384m, S384xm, S576m, S768m och S960m (typ II klassen SKU: er), användning av Gateway-SKU UltraPerformance är obligatoriskt.
 
 ### <a name="linking-vnets"></a>Länka Vnet
 

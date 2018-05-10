@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
-Lär dig hur Azure Cosmos DB språkintegrerade, transaktionell körning av JavaScript kan utvecklare skriva **lagrade procedurer**, **utlösare**, och **användardefinierade funktioner (UDF)**  internt i en [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Den här integreringen av Javascript kan du skriva programlogiken för databasen program kan levereras och köras direkt på partitioner för lagring av databasen. 
+Lär dig hur Azure Cosmos DB språkintegrerade, transaktionell körning av JavaScript kan utvecklare skriva **lagrade procedurer**, **utlösare**, och **användardefinierade funktioner (UDF)**  internt i en [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript-integrering gör det möjligt att skriva program logik som levererats och köras direkt i partitioner för lagring av databasen. 
 
 Vi rekommenderar att komma igång med att titta på nedanstående video, där Andrew Liu ger en introduktion till Azure Cosmos DB serversidan databasen programmeringsmodell. 
 
@@ -58,7 +58,7 @@ Skapa och körning av databasutlösare, lagrade procedurer och anpassade frågeo
 Den här kursen använder den [Node.js SDK med Q löftena](http://azure.github.io/azure-documentdb-node-q/) att illustrera syntax och användning av lagrade procedurer, utlösare och UDF: er.   
 
 ## <a name="stored-procedures"></a>Lagrade procedurer
-### <a name="example-write-a-simple-stored-procedure"></a>Exempel: Skriv en enkel lagrad procedur
+### <a name="example-write-a-stored-procedure"></a>Exempel: Skriv en lagrad procedur
 Låt oss börja med en lagrad procedur som returnerar svaret ”Hello World”.
 
     var helloWorldStoredProc = {
@@ -96,7 +96,7 @@ När den lagrade proceduren har registrerats kan du köra den mot samlingen och 
         });
 
 
-Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos-databaslagring samt åtkomst till objekt förfrågan och svar. I det här fallet används det response-objektet för att ange brödtexten i svaret som skickades till klienten. Mer information finns i [server Azure Cosmos DB JavaScript SDK-dokumentationen](http://azure.github.io/azure-documentdb-js-server/).  
+Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos-databaslagring samt åtkomst till objekt förfrågan och svar. I så fall måste använda du objektet response för att ange brödtexten i svaret som skickades till klienten. Mer information finns i [server Azure Cosmos DB JavaScript SDK-dokumentationen](http://azure.github.io/azure-documentdb-js-server/).  
 
 Låt oss Expandera på det här exemplet och lägga till fler Databasrelaterade funktioner i den lagrade proceduren. Lagrade procedurer kan skapa, uppdatera, läsa, fråga och ta bort dokument och bifogade filer i samlingen.    
 
@@ -122,7 +122,7 @@ Nästa utdrag visar hur du använder context-objektet för att interagera med Co
 
 Den här lagrade proceduren tar inkommande documentToCreate, brödtexten i ett dokument som ska skapas i samlingen. Dessa åtgärder är asynkron och beroende av JavaScript-funktionen återanrop. Återanropsfunktionen har två parametrar, ett för felobjektet om åtgärden misslyckas och en för det skapade objektet. I återanropet, kan användare hantera undantaget eller ett fel genereras. Om ett återanrop har angetts och det finns ett fel, genererar ett fel i Azure DB som Cosmos-körningsmiljön.   
 
-I exemplet ovan genererar återanropet ett fel om åtgärden misslyckades. Annars anges id för det skapade dokumentet som en del av svar till klienten. Här är hur den här lagrade proceduren körs med indataparametrar.
+I exemplet ovan genererar återanropet ett fel om åtgärden misslyckades. Annars anges ID för det skapade dokumentet som en del av svar till klienten. Här är hur den här lagrade proceduren körs med indataparametrar.
 
     // register the stored procedure
     client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
@@ -148,16 +148,16 @@ I exemplet ovan genererar återanropet ett fel om åtgärden misslyckades. Annar
     });
 
 
-Observera att den här lagrade proceduren kan ändras för att ta en matris med dokumentet organ som indata och skapar dem i samma lagrade procedurkörningen i stället för flera nätverk förfrågningar till skapa dem individuellt. Detta kan användas för att implementera en effektiv bulk-Importverktyget för Cosmos-DB (beskrivs senare i den här självstudiekursen).   
+Den här lagrade proceduren kan ändras för att ta en matris med dokumentet organ som indata och skapar dem i samma lagrade procedurkörningen i stället för flera förfrågningar till skapa dem individuellt. Den här lagrade proceduren kan användas för att implementera en effektiv bulk-Importverktyget för Cosmos-DB (beskrivs senare i den här självstudiekursen).   
 
-Det exempel som beskrivs visas hur du använder lagrade procedurer. Senare under kursen tar vi upp utlösare och användardefinierade funktioner (UDF).
+Det exempel som beskrivs visas hur du använder lagrade procedurer. Nästa du lära dig om utlösare och användardefinierade funktioner (UDF) senare under kursen.
 
 ## <a name="database-program-transactions"></a>Programmet databastransaktioner
 Transaktion i en typisk databas kan definieras som en sekvens med åtgärder som utförs som en logisk enhet på arbetet. Varje transaktion innehåller **ACID garantier**. AV är en välkänd förkortning som står för fyra egenskaper - odelbarhet, konsekvens, isolering och hållbarhet.  
 
 En kort, odelbarhet garanterar att arbetet inuti en transaktion behandlas som en enhet där antingen alla strävar eller none. Konsekvenskontroll ser till att data alltid är i ett internt tillstånd över transaktioner. Isolering garanterar att inga två transaktioner störa varandra – Allmänt, de flesta kommersiella system ger flera isoleringsnivåer som kan användas baserat på programbehov. Hållbarhet säkerställer att alla ändringar genomförs i databasen alltid är tillgänglig.   
 
-I Cosmos DB finns JavaScript i samma minnesutrymme som databas. Därför begäranden som görs i lagrade procedurer och utlösare kör samma omfånget för en databas-session. Detta gör att Cosmos-Databsen ska garantera av för alla åtgärder som ingår i en enda lagrade proceduren/utlösare. Överväg följande lagrade Procedurdefinition:
+I Cosmos DB finns JavaScript i samma minnesutrymme som databas. Därför begäranden som görs i lagrade procedurer och utlösare kör samma omfånget för en databas-session. Den här funktionen kan Cosmos-Databsen ska garantera av för alla åtgärder som ingår i en enda lagrade proceduren/utlösare. Överväg följande lagrade Procedurdefinition:
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -232,14 +232,14 @@ Transaktioner är djupt och internt integrerade i Cosmos DB JavaScript-programme
 Om det finns några undantag sprids från skriptet, återställs Cosmos DB JavaScript-körning hela transaktionen. I exemplet ovan visas ett undantagsfel utlöses motsvarar effektivt en ”ROLLBACK TRANSACTION” i Cosmos-databasen.
 
 ### <a name="data-consistency"></a>Datakonsekvens
-Lagrade procedurer och utlösare körs alltid på den primära repliken på Azure DB som Cosmos-behållaren. Detta säkerställer att läsningar av inuti lagrade procedurer erbjudande stark konsekvens. Frågor med användardefinierade funktioner kan köras på den primära servern eller en sekundär replik, men vi se till att uppfylla de begärda konsekvensnivå genom att välja lämplig replica.
+Lagrade procedurer och utlösare körs alltid på den primära repliken på Azure DB som Cosmos-behållaren. Detta säkerställer att läsningar av inuti lagrade procedurer erbjudande stark konsekvens. Frågor med användardefinierade funktioner kan köras på den primära servern eller en sekundär replik, men du se till att uppfylla de begärda konsekvensnivå genom att välja lämplig replica.
 
 ## <a name="bounded-execution"></a>Begränsad körning
 Alla Cosmos-DB-åtgärder måste slutföras inom den angivna servern begär timeout-varaktighet. Den här begränsningen gäller även för JavaScript-funktioner (lagrade procedurer, utlösare och användardefinierade funktioner). Om en åtgärd inte slutförs med tidsgränsen återställs transaktionen. JavaScript-funktioner måste slutföras inom tidsgränsen eller implementera en fortsättning-baserade modell för batch/återuppta körning.  
 
 För att förenkla utvecklingen av lagrade procedurer och utlösare för att hantera tidsfrister returnerar alla funktioner under samlingsobjektet (för att skapa, läsa, Ersätt och borttagning av dokument och bifogade filer) ett booleskt värde som representerar om att åtgärden ska slutföras. Om det här värdet är FALSKT, är en indikation på att tidsgränsen upphör snart att gälla och att proceduren måste slutföra körningen.  Åtgärder i kö före den första typen Lagringsåtgärden garanteras att slutföra om den lagrade proceduren har slutförts i tid och inte kö inga fler begäranden.  
 
-JavaScript-funktioner är också avgränsas i resursförbrukning. Cosmos DB reserverar genomströmning per samling baserat på ett databaskonto etablerade storlek. Genomströmning uttrycks som ett normaliserat enhet av CPU, minne och i/o-förbrukning kallas frågeenheter eller RUs. JavaScript-funktioner kan användaren använda ett stort antal RUs inom en kort tid och få hastighet begränsad om mängdens gränsen har nåtts. Resurs-intensiva lagrade procedurer kan även placeras i karantän för att säkerställa tillgängligheten för primitiva databasåtgärder.  
+JavaScript-funktioner är också avgränsas i resursförbrukning. Cosmos DB reserverar genomströmning per samling eller för en uppsättning behållare. Genomströmning uttrycks som ett normaliserat enhet av CPU, minne och i/o-förbrukning kallas frågeenheter eller RUs. JavaScript-funktioner kan användaren använda ett stort antal RUs inom en kort tid och få hastighet begränsad om mängdens gränsen har nåtts. Resurs-intensiva lagrade procedurer kan även placeras i karantän för att säkerställa tillgängligheten för primitiva databasåtgärder.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exempel: Massredigera importera data till ett databasprogram
 Nedan visas ett exempel på en lagrad procedur som skrivs till massimport dokument till en samling. Observera hur den lagrade proceduren hanterar avgränsas körning genom att kontrollera booleskt returvärde från createDocument, och använder sedan antal dokument som infogas i varje anrop av den lagrade proceduren för att spåra och återuppta förlopp i batchar.
@@ -349,7 +349,7 @@ Och motsvarande Node.js klientsidan Registreringskod för utlösaren:
 
 Före utlösare kan inte ha indataparametrar. Request-objektet kan användas för att manipulera begärandemeddelandet som associeras med operationen. Här före utlösaren körs med skapandet av ett dokument och brödtext i begäran innehåller ett dokument ska skapas i JSON-format.   
 
-När utlösare är registrerade anger användare vilka åtgärder som inte har. Den här utlösaren har skapats med TriggerOperation.Create, vilket innebär följande inte tillåts.
+När utlösare är registrerade anger användare vilka åtgärder som inte har. Den här utlösaren har skapats med TriggerOperation.Create, vilket innebär att använda utlösaren i en ersättningsåtgärden som visas i följande kod inte är tillåtet.
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -434,7 +434,7 @@ Utlösaren kan registreras som visas i följande exempel.
 
 Den här utlösaren frågar för Metadatadokumentet och uppdaterar med information om det nyligen skapade dokumentet.  
 
-En sak som är viktigt att notera är den **transaktionella** körning av utlösare i Cosmos-databasen. Den här efter utlösaren körs som en del av samma transaktion som skapas i det ursprungliga dokumentet. Därför, om vi utlöser ett undantag från efter utlösaren (t.ex. Om det inte att uppdatera metadata dokument) hela transaktionen misslyckas och återställas. Inget dokument kommer att skapas och ett undantag ska returneras.  
+En sak som är viktigt att notera är den **transaktionella** körning av utlösare i Cosmos-databasen. Den här efter utlösaren körs som en del av samma transaktion som skapas i det ursprungliga dokumentet. Därför, om du utlöser ett undantag från efter utlösaren (t.ex. Om det inte går att uppdatera Metadatadokumentet) hela transaktionen misslyckas och återställas. Inget dokument kommer att skapas och ett undantag ska returneras.  
 
 ## <a id="udf"></a>Användardefinierade funktioner
 Användardefinierade funktioner (UDF) används för att utöka Azure Cosmos-Databasens SQL-frågegrammatik för språk och implementera anpassad affärslogik. De kan endast anropas från inuti frågor. De har inte åtkomst till context-objektet och är avsedda att användas som endast beräkning JavaScript. Därför kan du köra UDF: er på sekundära repliker för tjänsten Cosmos DB.  
@@ -479,7 +479,7 @@ UDF-filen kan därefter användas i frågor som i följande exempel:
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript språkintegrerade frågan API
-Förutom att utfärda frågor med Azure Cosmos DB SQL-grammatik kan serversidan SDK du utföra optimerade frågor en flytande JavaScript-gränssnittet utan kännedom om SQL. Frågan JavaScript API kan du skapa frågor via programmering genom att skicka predikat funktioner till chainable funktionen anropas med en bekant för ECMAScript5's matris built-ins och populära JavaScript-bibliotek som lodash syntax. Frågor tolkas av JavaScript-körning för att köra ett effektivt sätt med hjälp av Azure Cosmos DB.
+Förutom att utfärda frågor med Azure Cosmos DB SQL-grammatik kan serversidan SDK du utföra optimerade frågor en flytande JavaScript-gränssnittet utan kännedom om SQL. Frågan JavaScript API kan du skapa frågor via programmering genom att skicka predikat funktioner till chainable funktionen anropas med en bekant för ECMAScript5's matris built-ins och populära JavaScript-bibliotek som Lodash syntax. Frågor tolkas av JavaScript-körning för att köra ett effektivt sätt med hjälp av Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (double understreck) är ett alias till `getContext().getCollection()`.
@@ -503,7 +503,7 @@ Startar en länkad anrop som måste avslutas med value().
 <b>filter (predicateFunction [, alternativ] [, motringning])</b>
 <ul>
 <li>
-Filtrerar indata med hjälp av ett predikat funktion som returnerar SANT/FALSKT för att filtrera inkommande dokument in/ut till den resulterande uppsättningen. Detta fungerar liknar en WHERE-satsen i SQL.
+Filtrerar indata med hjälp av ett predikat funktion som returnerar SANT/FALSKT för att filtrera inkommande dokument in/ut till den resulterande uppsättningen. Den här funktionen fungerar liknar en WHERE-satsen i SQL.
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ Filtrerar indata med hjälp av ett predikat funktion som returnerar SANT/FALSKT 
 <b>karta (transformationFunction [, alternativ] [, motringning])</b>
 <ul>
 <li>
-Gäller en projektion som anges en transformation-funktion som mappar varje inkommande objekt till en JavaScript-objekt eller ett värde. Detta fungerar liknar en SELECT-satsen i SQL.
+Gäller en projektion som anges en transformation-funktion som mappar varje inkommande objekt till en JavaScript-objekt eller ett värde. Den här funktionen fungerar liknar en SELECT-satsen i SQL.
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ Gäller en projektion som anges en transformation-funktion som mappar varje inko
 <b>pluck ([egenskapsnamn] [, alternativ] [, motringning])</b>
 <ul>
 <li>
-Det här är en genväg till en karta som hämtar värdet för en enskild egenskap från varje inkommande objekt.
+Den här funktionen är en genväg till en karta som hämtar värdet för en enskild egenskap från varje inkommande objekt.
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ Det här är en genväg till en karta som hämtar värdet för en enskild egensk
 <b>förenkla ([isShallow] [, alternativ] [, motringning])</b>
 <ul>
 <li>
-Kombinerar och förenklas matriser från varje inkommande objekt i till en matris. Detta fungerar liknar SelectMany i LINQ.
+Kombinerar och förenklas matriser från varje inkommande objekt i till en matris. Den här funktionen fungerar liknar SelectMany i LINQ.
 </li>
 </ul>
 </li>
@@ -535,7 +535,7 @@ Kombinerar och förenklas matriser från varje inkommande objekt i till en matri
 <b>sortBy ([predicate] [, alternativ] [, motringning])</b>
 <ul>
 <li>
-Skapa en ny uppsättning dokument genom att sortera dokument i Indatadokumentet dataströmmen i stigande ordning med hjälp av angivna predikatet. Detta fungerar liknar en ORDER BY-satsen i SQL.
+Skapa en ny uppsättning dokument genom att sortera dokument i Indatadokumentet dataströmmen i stigande ordning med hjälp av angivna predikatet. Den här funktionen fungerar liknar en ORDER BY-satsen i SQL.
 </li>
 </ul>
 </li>
@@ -543,7 +543,7 @@ Skapa en ny uppsättning dokument genom att sortera dokument i Indatadokumentet 
 <b>sortByDescending ([predicate] [, alternativ] [, motringning])</b>
 <ul>
 <li>
-Skapa en ny uppsättning dokument genom att sortera dokument i Indatadokumentet dataströmmen i fallande ordning med hjälp av angivna predikatet. Detta fungerar liknar en x DESC ORDER BY-satsen i SQL.
+Skapa en ny uppsättning dokument genom att sortera dokument i Indatadokumentet dataströmmen i fallande ordning med hjälp av angivna predikatet. Den här funktionen fungerar liknar en x DESC ORDER BY-satsen i SQL.
 </li>
 </ul>
 </li>
@@ -553,7 +553,7 @@ Skapa en ny uppsättning dokument genom att sortera dokument i Indatadokumentet 
 När ingår i predikatet och/eller selector-funktioner, hämta följande JavaScript-konstruktioner automatiskt optimerats för att köras direkt på Azure Cosmos DB index:
 
 * Enkel operatörer: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
-* Literaler, inklusive objektet literal: {}
+* Literaler, inklusive literal objektet: {}
 * varians returnerade
 
 Inte hämta optimerad följande JavaScript-konstruktioner för Azure Cosmos DB index:
@@ -627,10 +627,10 @@ Som med SQL-frågor, dokumentera egenskapen nycklar (exempelvis `doc.id`) är sk
 |---|---|---|
 |VÄLJ *<br>FRÅN dokument| __.Map(Function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc;<br>});|1|
 |Välj docs.id, docs.message som ignorerad, docs.actions <br>FRÅN dokument|__.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meddelande: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
-|VÄLJ *<br>FRÅN dokument<br>VAR docs.id="X998_Y998”|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>});|3|
-|VÄLJ *<br>FRÅN dokument<br>VAR ARRAY_CONTAINS (dokument. Taggar 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return x.Tags && x.Tags.indexOf(123) > -1;<br>});|4|
-|Välj docs.id, docs.message som ignorerad<br>FRÅN dokument<br>VAR docs.id="X998_Y998”|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meddelande: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5|
-|SELECT VALUE-tagg<br>FRÅN dokument<br>Anslut tagg i dokumenten. Taggar<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. Taggar & & Array.isArray (doc. Taggar).<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6|
+|VÄLJ *<br>FRÅN dokument<br>VAR docs.id="X998_Y998”|__.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>});|3|
+|VÄLJ *<br>FRÅN dokument<br>VAR ARRAY_CONTAINS (dokument. Taggar 123)|__.filter(Function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera x.Tags & & x.Tags.indexOf(123) > -1;<br>});|4|
+|Välj docs.id, docs.message som ignorerad<br>FRÅN dokument<br>VAR docs.id="X998_Y998”|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id === ”X998_Y998”;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meddelande: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|5|
+|SELECT VALUE-tagg<br>FRÅN dokument<br>Anslut tagg i dokumenten. Taggar<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. Taggar & & Array.isArray (doc. Taggar).<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|6|
 
 Följande beskrivningar förklarar varje fråga i tabellen ovan.
 1. Leder till att alla dokument (sidbrytning med fortsättningstoken) som är.
@@ -648,7 +648,7 @@ Azure Cosmos DB [JavaScript server side API](http://azure.github.io/azure-docume
 JavaScript-lagrade procedurer och utlösare är i begränsat läge så att effekterna av ett skript inte läcker till en annan utan att gå via ögonblicksbildisolering för transaktionen på databasnivå. Runtime-miljöer pool men rengöras från kontexten efter varje körning. De är garanterat därför vara säker på alla oavsiktliga sidoeffekter från varandra.
 
 ### <a name="pre-compilation"></a>Före kompileringen
-Lagrade procedurer, utlösare och UDF: er är implicit förkompilerade till formatet byte kod för att undvika kompilering kostnaden vid tidpunkten för varje skript-anrop. Detta säkerställer att anrop för lagrade procedurer är snabb och har en låg storleken.
+Lagrade procedurer, utlösare och UDF: er är implicit förkompilerade till formatet byte kod för att undvika kompilering kostnaden vid tidpunkten för varje skript-anrop. Före kompileringen anrop av lagrade procedurer är snabb och har en låg storleken.
 
 ## <a name="client-sdk-support"></a>Stöd för klient-SDK
 Utöver Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB har [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), och [Python SDK](sql-api-sdk-python.md) för SQL-API. Lagrade procedurer, utlösare och UDF: er kan skapas och köras med hjälp av dessa SDK: er samt. I följande exempel visas hur du skapar och köra en lagrad procedur med hjälp av .NET-klienten. Observera hur .NET-typer som skickas till den lagrade proceduren som JSON och läsa tillbaka.
@@ -723,7 +723,7 @@ Och följande exempel visar hur du skapar en användardefinierad funktion (UDF) 
     }
 
 ## <a name="rest-api"></a>REST-API
-Alla Azure DB som Cosmos-åtgärder kan utföras på ett RESTful sätt. Lagrade procedurer, utlösare och användardefinierade funktioner kan registreras i en samling med hjälp av HTTP POST. Följande är ett exempel på hur du registrerar en lagrad procedur:
+Alla Azure DB som Cosmos-åtgärder kan utföras på ett RESTful sätt. Lagrade procedurer, utlösare och användardefinierade funktioner kan registreras i en samling med hjälp av HTTP POST. I följande exempel visas hur du registrerar en lagrad procedur:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -757,7 +757,7 @@ Det här lagrade proceduren kan sedan köras genom att utfärda en POST-begäran
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Här kan skickas indata till den lagrade proceduren i begärandetexten. Observera att indata skickas som ett JSON-matris av indataparametrar. Den lagrade proceduren använder den första indata som ett dokument som är en brödtext för svar. Vi tar emot svaret är följande:
+Här kan skickas indata till den lagrade proceduren i begärandetexten. Indata har skickats som en JSON-matris för indataparametrarna. Den lagrade proceduren använder den första indata som ett dokument som är en brödtext för svar. Du får svar är följande:
 
     HTTP/1.1 200 OK
 
@@ -773,7 +773,7 @@ Här kan skickas indata till den lagrade proceduren i begärandetexten. Observer
     }
 
 
-Utlösare, till skillnad från lagrade procedurer kan inte köras direkt. I stället körs de som en del av en åtgärd på ett dokument. Vi kan ange utlösare kan köras med en förfrågan med en HTTP-huvuden. Följande kod visar begäran om att skapa ett dokument.
+Utlösare, till skillnad från lagrade procedurer kan inte köras direkt. I stället körs de som en del av en åtgärd på ett dokument. Du kan ange utlösare kan köras med en förfrågan med en HTTP-huvuden. Följande kod visar begäran om att skapa ett dokument.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,9 +793,9 @@ Utlösare, till skillnad från lagrade procedurer kan inte köras direkt. I stä
 Här anges före utlösaren ska köras med förfrågan i rubriken x-ms-documentdb-pre-trigger-include. På motsvarande sätt anges efter utlösare i rubriken x-ms-documentdb-post-trigger-include. Både före och efter utlösare kan anges för en viss begäran.
 
 ## <a name="sample-code"></a>Exempelkod
-Du kan hitta mer kodexempel för serversidan (inklusive [massborttagning](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), och [uppdatera](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) på vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Du kan hitta mer kodexempel för serversidan (inklusive [massborttagning](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), och [uppdatera](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Om du vill dela dina helt otroligt lagrade proceduren? Skicka oss en pull-begäran! 
+Om du vill dela dina helt otroligt lagrade proceduren? bidra till databasen och skapa en pull-begäran! 
 
 ## <a name="next-steps"></a>Nästa steg
 När du har en eller flera lagrade procedurer, utlösare och användardefinierade funktioner som har skapats kan du läsa in dem och visa dem i Azure-portalen med hjälp av Data Explorer.
@@ -803,7 +803,7 @@ När du har en eller flera lagrade procedurer, utlösare och användardefinierad
 Du kan också hitta följande referenser och resurser användbart i din sökväg till mer information om Azure Cosmos dB serversidan programmering:
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
+* [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Säker och bärbar databasen utökningsbarhet](http://dl.acm.org/citation.cfm?id=276339) 

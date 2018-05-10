@@ -1,19 +1,19 @@
 ---
-title: "Distribuera ett Docker-behållarkluster – Azure CLI"
-description: "Distribuera en Kubernetes-, DC/OS- eller Docker Swarm-lösning i Azure Container Service med hjälp av Azure CLI 2.0"
+title: Distribuera ett Docker-behållarkluster – Azure CLI
+description: Distribuera en Kubernetes-, DC/OS- eller Docker Swarm-lösning i Azure Container Service med hjälp av Azure CLI 2.0
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 40d5ea0e7abce165659219db8842ab64ac75fda7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 037834fa94a4ef6ecf6ab87055ed1369a3c8f1fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Distribuera en Dockerbehållare med en värdlösning med hjälp av Azure CLI 2.0
 
@@ -23,7 +23,7 @@ Om du vill visa hjälp om `az acs`-kommandon använder du `-h`-parametern med va
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0 måste du
 * ha ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
 * ha installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2)
@@ -38,7 +38,7 @@ Följ anvisningarna för att logga in interaktivt. Andra metoder för att logga 
 
 ### <a name="set-your-azure-subscription"></a>Ange din Azure-prenumeration
 
-Om du har mer än en Azure-prenumeration anger du standardprenumerationen. Exempel:
+Om du har mer än en Azure-prenumeration anger du standardprenumerationen. Till exempel:
 
 ```
 az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Vi rekommenderar att du skapar en resursgrupp för varje kluster. Ange en Azure-region där Azure Container Service är [tillgänglig](https://azure.microsoft.com/en-us/regions/services/). Exempel:
+Vi rekommenderar att du skapar en resursgrupp för varje kluster. Ange en Azure-region där Azure Container Service är [tillgänglig](https://azure.microsoft.com/regions/services/). Till exempel:
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

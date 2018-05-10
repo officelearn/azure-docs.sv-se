@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>Vad är Azure IoT Suite anslutna Factory?
 
@@ -65,11 +65,11 @@ Anslutna fabriken innehåller följande funktioner:
 ## <a name="customizability"></a>Anpassningsbarheten
 
 - [Anpassa](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) lösning som uppfyller specifika krav i företaget.
-- Fullständig lösning-källkod finns på GitHub. Finns det [anslutna factory förkonfigurerade lösningen](https://github.com/Azure/azure-iot-connected-factory) databasen.
+- Fullständig lösning-källkod finns på GitHub. Finns det [anslutna Factory förkonfigurerade lösningen](https://github.com/Azure/azure-iot-connected-factory) databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den anslutna factory förkonfigurerade lösningen genom att läsa följande artiklar:
+Lär dig mer om den anslutna Factory förkonfigurerade lösningen genom att läsa följande artiklar:
 
-* [Anslutna factory förkonfigurerade lösningen genomgång](iot-suite-connected-factory-sample-walkthrough.md)
-* [Distribuera en gateway för anslutna factory]( iot-suite-connected-factory-gateway-deployment.md)
+* [Anslutna Factory förkonfigurerade lösningen genomgång](iot-suite-connected-factory-sample-walkthrough.md)
+* [Distribuera en gateway för anslutna Factory]( iot-suite-connected-factory-gateway-deployment.md)

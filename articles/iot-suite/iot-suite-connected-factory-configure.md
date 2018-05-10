@@ -1,12 +1,12 @@
 ---
-title: Konfigurera den anslutna factory topologin | Microsoft Docs
-description: "Så här konfigurerar du topologin för en ansluten fabrik förkonfigurerade lösningen."
-services: 
+title: Konfigurera den anslutna Factory topologin | Microsoft Docs
+description: Hur du konfigurerar en ansluten Factory solution accelerator topologi.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>Konfigurera anslutna factory förkonfigurerade lösningen
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera anslutna Factory solution accelerator
 
-Den anslutna factory förkonfigurerade lösningen visar en simulerad instrumentpanel för fiktiva företaget Contoso. Det här företaget har fabriker i flera globala platser globalt.
+Ansluten Factory solution accelerator visar en simulerad instrumentpanel för fiktiva företaget Contoso. Det här företaget har fabriker i flera globala platser globalt.
 
-Den här artikeln använder Contoso som ett exempel som beskriver hur du konfigurerar topologin för en ansluten factory-lösning.
+Den här artikeln använder Contoso som ett exempel som beskriver hur du konfigurerar topologin för en ansluten Factory-lösning.
 
 ## <a name="simulated-factories-configuration"></a>Simulerade fabriker konfiguration
 
@@ -39,14 +39,14 @@ Servrarna OPC UA har OPC UA noder och [OPC Publisher](https://github.com/Azure/i
 * Driftstatus, till exempel aktuell energiförbrukning.
 * Resulterade i produktionsinformation, till exempel antalet produkter.
 
-Du kan använda instrumentpanelen till Contoso factory topologi från en global vy till vyn för station mer detaljerat. Anslutna factory-instrumentpanelen kan:
+Du kan använda instrumentpanelen till Contoso factory topologi från en global vy till vyn för station mer detaljerat. Ansluten Factory-instrumentpanelen kan:
 
 * Visualisering av OEE och KPI siffror för varje lager i topologin.
 * Visualisering av aktuella värden för OPC UA noder i stationer.
 * Sammanställning av OEE och KPI siffror från station nivå på global nivå.
 * Visualisering av aviseringar och åtgärder som ska utföras om värden nå specifika tröskelvärden.
 
-## <a name="connected-factory-topology"></a>Anslutna factory-topologi
+## <a name="connected-factory-topology"></a>Anslutna Factory-topologi
 
 Topologin för fabriker och produktion rader stationer är hierarkisk:
 
@@ -66,7 +66,7 @@ Alla noder i topologin har en gemensam uppsättning egenskaper som definierar:
 
 ## <a name="topology-configuration-file"></a>Topologi konfigurationsfilen
 
-Om du vill konfigurera de egenskaper som anges i föregående avsnitt, anslutna factory-lösningen använder en konfigurationsfil som kallas [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+Om du vill konfigurera de egenskaper som anges i föregående avsnitt, ansluten Factory-lösningen använder en konfigurationsfil som kallas [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 Du hittar den här filen i källkoden lösning i den `WebApp/Contoso/Topology` mapp.
 
@@ -114,13 +114,13 @@ Den `<factory_configuration>` och `<production_line_configuration>` objekt har e
 
   Identifierar noden topologi.
 
-`<factory_configuration>`har en egenskap:
+`<factory_configuration>` har en egenskap:
 
 * **Plats** (typen `<location_definition>`)
 
   Anger var fabriken är placerad.
 
-`<station_configuration>`har egenskaper:
+`<station_configuration>` har egenskaper:
 
 * **OpcUri** (typen sträng)
 
@@ -129,7 +129,7 @@ Den `<factory_configuration>` och `<production_line_configuration>` objekt har e
 
 * **OpcNodes**, som är en matris med OPC UA noder (typen `<opc_node_description>`)
 
-`<location_definition>`har egenskaper:
+`<location_definition>` har egenskaper:
 
 * **Stad** (typen sträng)
 
@@ -147,7 +147,7 @@ Den `<factory_configuration>` och `<production_line_configuration>` objekt har e
 
   Longituden för platsen
 
-`<performance_definition>`har egenskaper:
+`<performance_definition>` har egenskaper:
 
 * **Minsta** (typen double)
 
@@ -193,7 +193,7 @@ Den `<factory_configuration>` och `<production_line_configuration>` objekt har e
   * **CallOpcMethod**: nod information och parametrarna för metoden OPC UA att anropa i formatet ”NodeId av överordnad nod NodeId för metoden att anropa URI OPC UA Server”.
   * **OpenWebPage**: URL: en ska visas i webbläsarfönstret.
 
-`<opc_node_description>`innehåller information om OPC UA noder i en station (OPC UA server). Noder som motsvarar ingen befintlig OPC UA noder, men används som lagring i logiken för beräkning av anslutna fabriken kan användas. Det har följande egenskaper:
+`<opc_node_description>` innehåller information om OPC UA noder i en station (OPC UA server). Noder som motsvarar ingen befintlig OPC UA noder, men används som lagring i logiken för beräkning av anslutna fabriken kan användas. Det har följande egenskaper:
 
 * **NodeId** (typen sträng)
 
@@ -259,7 +259,7 @@ Den `<factory_configuration>` och `<production_line_configuration>` objekt har e
 
   Definierar de åtgärder som kan vidtas som svar på en maximal avisering.
 
-På nivån station du också se **simuleringen** objekt. Dessa objekt bara används för att konfigurera anslutna factory simuleringen och ska inte användas för att konfigurera en verklig topologi.
+På nivån station du också se **simuleringen** objekt. Dessa objekt bara används för att konfigurera anslutna Factory simuleringen och ska inte användas för att konfigurera en verklig topologi.
 
 ## <a name="how-the-configuration-data-is-used-at-runtime"></a>Hur konfigurationsdata används vid körning
 
@@ -274,7 +274,7 @@ I den här kategorin definiera utseendet på instrumentpanelen anslutna fabriken
 * Bild
 * Plats
 * Enheter
-* Synlig
+* Synligt
 
 ### <a name="internal-topology-tree-addressing"></a>Internt topologi trädet adressering
 
@@ -282,12 +282,12 @@ WebApp upprätthåller en intern Dataordlista som innehåller information för a
 
 ### <a name="oeekpi-computation"></a>OEE/KPI beräkning
 
-OEE/KPI siffrorna för anslutna factory simuleringen parametriserade av:
+OEE/KPI siffrorna för anslutna Factory simuleringen parametriserade av:
 
 * Noden OPC UA värden ska tas med i beräkningen.
 * Hur beräknas bilden från telemetri värdena.
 
-Anslutna factory använder OEE formler som publicerats av http://oeeindustrystandard.oeefoundation.org.
+Anslutna Factory använder OEE formler som publicerats av den http://oeeindustrystandard.oeefoundation.org.
 
 OPC UA nod objekt i stationer aktivera märkning för användning i OEE/KPI-beräkning. Den **relevans** egenskapen anger för vilken OEE/KPI-bild OPC UA nodvärde ska användas. Den **OpCode** egenskap anger hur värdet med i beräkningen.
 
@@ -308,17 +308,17 @@ För vissa åtgärder, till exempel visualisera det sista värdet eller skapa ti
 
   Identifierar (globalt unik) OPC UA server telemetrin kommer från. I de infogade meddelandena skickas den här egenskapen som **ApplicationUri**.
 
-* **NodeId**
+* **nodeId**
 
   Identifierar nod-värde i OPC UA-server. Formatet på egenskapen måste vara som anges i OPC UA-specifikationen. I de infogade meddelandena skickas den här egenskapen som **NodeId**.
 
-Kontrollera [detta](https://github.com/Azure/iot-edge-opc-publisher) GitHub-sidan för mer information om hur telemetridata inhämtas till anslutna factory med OPC-utgivare.
+Kontrollera [detta](https://github.com/Azure/iot-edge-opc-publisher) GitHub-sidan för mer information om hur telemetridata inhämtas till anslutna Factory med OPC-utgivare.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exempel: Hur KPI1 beräknas
 
 Konfigurationen i den `ContosoTopologyDescription.json` filen styr hur OEE/KPI figurerna beräknas. I följande exempel visas hur egenskaper i den här filen styra beräkning av KPI1.
 
-I ansluten tillverkas factory KPI1 används för att kunna mäta antalet produkter i den senaste timmen. Varje station (OPC UA server) i simuleringen anslutna fabriken innehåller en OPC UA-nod (`NodeId: "ns=2;i=385"`), som tillhandahåller telemetri att beräkna KPI.
+I ansluten Factory KPI1 används för att mäta antalet produkter som har tillverkats under den senaste timmen. Varje station (OPC UA server) i simuleringen anslutna fabriken innehåller en OPC UA-nod (`NodeId: "ns=2;i=385"`), som tillhandahåller telemetri att beräkna KPI.
 
 Konfigurationen för den här noden OPC UA ser ut som följande utdrag:
 
@@ -339,10 +339,10 @@ Den här konfigurationen kan frågor till telemetri värdena för den här noden
 * Medelvärdet av alla värden.
 * Summan av alla värden för alla unika **OpcUri** (**ApplicationUri**), **NodeId** par i ett givet timespan.
 
-En egenskap för den **NumberOfManufactureredProducts** nodvärde är att den endast ökar. Beräkna antalet produkter framställda i timespan, ansluten factory använder den **OpCode** **SubMaxMin**. Beräkningen hämtar det minsta värdet i början av timespan och det högsta värdet i slutet av timespan.
+En egenskap för den **NumberOfManufactureredProducts** nodvärde är att den endast ökar. Om du vill beräkna antalet produkter som tillverkas på timespan anslutna fabriken använder den **OpCode** **SubMaxMin**. Beräkningen hämtar det minsta värdet i början av timespan och det högsta värdet i slutet av timespan.
 
 Den **OpCode** konfigurerar beräkning logik för att beräkna ett resultat av skillnaden mellan de högsta och lägsta värde i konfigurationen. Dessa resultat kan sedan ackumulerad längst ned till rotnivån (global) och visas i instrumentpanelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett förslag nästa steg är att lära dig hur du [distribuera en gateway på Windows- eller Linux för anslutna factory förkonfigurerade lösningen](iot-suite-connected-factory-gateway-deployment.md).
+Ett förslag nästa steg är att lära dig hur du [distribuera en gateway på Windows- eller Linux för anslutna Factory solution accelerator](iot-suite-connected-factory-gateway-deployment.md).

@@ -1,27 +1,32 @@
 - name: Dokumentation om Azure HDInsight
   href: /azure/hdinsight
-- name: Spark på HDInsight
+- name: Översikt
   items:
-    - name: Översikt
+    - name: Om Spark på HDInsight
       href: apache-spark-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Kom igång
+- name: Snabbstarter
   items:
-    - name: Skapa ett Spark-kluster
+    - name: Skapa ett Spark-kluster – Portal
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Skapa ett Spark-kluster – PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Skapa ett Spark-kluster – Mall
       href: apache-spark-jupyter-spark-sql.md
+- name: Självstudier
+  items:
     - name: Köra frågor i ett Spark-kluster
       href: apache-spark-load-data-run-query.md
     - name: Analysera data med BI-verktyg
       href: apache-spark-use-bi-tools.md
-    - name: Hantera klusterresurser
-      href: apache-spark-resource-manager.md
-    - name: Felsöka Spark-jobb
-      href: apache-spark-job-debugging.md
-    - name: Installera HDInsight-appar
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Köra ett direktuppspelningsjobb
+      href: apache-spark-eventhub-streaming.md
+    - name: Skapa ett maskininlärningsprogram
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: Skapa ett Spark-program med IntelliJ
+      href: apache-spark-create-standalone-application.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: Utveckla
       items:
-        - name: Skapa fristående app
-          href: apache-spark-create-standalone-application.md
         - name: Använda en interaktiv Spark Shell
           href: apache-spark-shell.md
         - name: Fjärrstyrda jobb med Livy
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark och Machine Learning
       items:
-        - name: Förutsäga HVAC-prestanda
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Förutse matinspektionsresultat
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Analysera webbplatsloggar
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: Hantera
       items:
+        - name: Hantera klusterresurser
+          href: apache-spark-resource-manager.md
         - name: Konfigurera Spark-inställningar
           href: apache-spark-settings.md
         - name: Optimera Spark-jobb
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: Felsöka
       items:
+        - name: Felsöka Spark-jobb
+          href: apache-spark-job-debugging.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

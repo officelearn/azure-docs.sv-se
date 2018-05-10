@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ordlista IoT-hubb
 Den här artikeln innehåller några av de vanliga termer som används i IoT-hubb-artiklar.
 
 ## <a name="advanced-message-queueing-protocol"></a>Avancerade Message Queueing-protokoll
 [Avancerade Message Queueing Protocol (AMQP)](https://www.amqp.org/) är en av de messaging protokoll som [IoT-hubb](#iot-hub) har stöd för att kommunicera med enheter. Läs mer om meddelanden protokoll som stöds i IoT-hubb [skicka och ta emot meddelanden med IoT-hubben](iot-hub-devguide-messaging.md).
+
+## <a name="automatic-device-management"></a>Automatisk enhetshantering
+Automatisk hantering av enheter i Azure IoT Hub automatiserar många av återkommande och komplicerade uppgifter för att hantera stora enheten flottor via deras livscykler i sin helhet. Med automatisk hantering av enheter du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och låta IoT-hubb uppdatera enheter när de kommer inom omfånget.  Består av [automatisk enhetskonfigurationer](iot-hub-auto-device-config.md) och [IoT kant automatiska uppdateringar](../iot-edge/how-to-deploy-monitor.md).
+
+## <a name="automatic-device-configuration"></a>Automatisk enhetskonfigurationen
+Din lösningens serverdel kan använda [automatisk enhetskonfigurationer](iot-hub-auto-device-config.md) att tilldela en uppsättning egenskaper [enhet twins](#device-twin) och rapportera status med hjälp av system mått och anpassade mått. 
 
 ## <a name="azure-cli"></a>Azure CLI
 Den [Azure CLI](../cli-install-nodejs.md) är ett kommandoradsverktyg för plattformsoberoende, öppen källkod, shell-baserade, för att skapa och hantera resurser i Microsoft Azure. Den här versionen av CLI implementeras med hjälp av Node.js.
@@ -65,6 +71,9 @@ En molngateway upprättar anslutningarna för enheter som inte kan ansluta direk
 
 ## <a name="cloud-to-device"></a>Moln till enhet
 Refererar till meddelanden som skickas från en IoT-hubb till en ansluten enhet. Dessa meddelanden är ofta kommandon som instruerar enheten att vidta en åtgärd. Mer information finns i [skicka och ta emot meddelanden med IoT-hubben](iot-hub-devguide-messaging.md).
+
+## <a name="configuration"></a>Konfiguration
+I samband med [automatisk enhetskonfiguration](iot-hub-auto-device-config.md), en konfiguration i IoT-hubb definierar önskad konfiguration för en uppsättning enheter twins och ger en uppsättning mått för att rapportera status och förlopp.
 
 ## <a name="connection-string"></a>Anslutningssträng
 Du kan använda anslutningssträngar i koden app kapsla in informationen som krävs för att ansluta till en slutpunkt. En anslutningssträng innehåller normalt sett adressen för slutpunkten och säkerhetsinformation men anslutningssträngen format variera mellan olika tjänster. Det finns två typer av anslutningssträngen för IoT-hubb-tjänsten:
@@ -181,8 +190,8 @@ Den [IoT-hubb frågespråket](iot-hub-devguide-query-language.md) är en SQL-lik
 ## <a name="iot-hub-resource-provider-rest-api"></a>IoT-hubb Resursprovidern REST-API
 Du kan använda den [IoT Hub Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) utföra åtgärder som att skapa, uppdatera och ta bort hubs.
 
-## <a name="iot-suite"></a>IoT Suite
-Azure IoT Suite-paket tillsammans flera Azure-tjänster med förkonfigurerade lösningar. Dessa förkonfigurerade lösningar kan du komma igång snabbt med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT solution Accelerator
+Azure IoT solution Accelerator paketet tillsammans flera Azure-tjänster i lösningar. Dessa lösningar kan du komma igång snabbt med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT solution Accelerator?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>IoT-tillägget för Azure CLI 2.0
 [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera dina enheter i den [identitetsregistret](#identity-registry), skicka och motta meddelanden och filer från dina enheter och övervaka dina IoT hub-åtgärder.

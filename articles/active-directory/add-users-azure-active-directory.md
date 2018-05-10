@@ -1,25 +1,23 @@
 ---
-title: "Lägg till eller ta bort användare i Azure Active Directory | Microsoft Docs"
-description: "Beskriver hur du lägger till nya användare eller ta bort befintliga användare i Azure Active Directory"
+title: Lägg till eller ta bort användare i Azure Active Directory | Microsoft Docs
+description: Beskriver hur du lägger till nya användare eller ta bort befintliga användare i Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3e8b7061e57c1baf222e5f565a5b7efc6b997507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snabbstart: Lägga till nya användare i Azure Active Directory
 Den här artikeln beskriver hur du tar bort eller lägga till användare i din organisation till din orgnization Azure Active Directory (Azure AD)-klient med hjälp av Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-kontot användardata. 

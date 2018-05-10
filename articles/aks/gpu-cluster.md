@@ -1,6 +1,6 @@
 ---
-title: GPU-kort på Azure Container Service (AKS)
-description: Använda GPU-kort på Azure Container Service (AKS)
+title: GPU-kort i Azure Kubernetes-tjänster (AKS)
+description: Använda GPU-kort på Azure Kubernetes-tjänsten (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="using-gpus-on-aks"></a>Med hjälp av GPU-kort på AKS
+# <a name="using-gpus-on-aks"></a>Använda grafikprocessorer på AKS
 
 AKS stöder skapandet av GPU aktiverat nod pooler. Azure tillhandahåller för närvarande enda eller flera GPU aktiverade virtuella datorer. GPU aktiverat virtuella datorer är utformade för beräkningsintensiva, grafik och visualisering arbetsbelastningar. En lista över GPU aktiverat virtuella datorer kan hittas [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
 GPU-kort behövs oftast för beräknings-intensiva arbetsbelastningar som till exempel grafik och visualisering arbetsbelastningar. Referera till följande [dokument](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) att fastställa rätt VM-storlek för din arbetsbelastning.
-Vi rekommenderar en minsta storlek på `Standard_NC6` för Azure Container Service (AKS)-noder.
+Vi rekommenderar en minsta storlek på `Standard_NC6` för Azure Kubernetes Service (AKS)-noder.
 
 > [!NOTE]
 > GPU aktiverat virtuella datorer innehåller speciell maskinvara som är tillgänglig för högre prisnivå och region. Mer information finns i [priser](https://azure.microsoft.com/pricing/) verktyget och [regional tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/) webbplats för mer information.
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>Bekräfta schemaläggningsbar GPU-kort
 
-Kör följande kommandon för att bekräfta GPU är schemaläggningsbar via Kubernetes. 
+Kör följande kommandon för att bekräfta GPU är schemaläggningsbar via Kubernetes.
 
 Hämta den aktuella listan över noder.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Använd den [kubectl skapa] [ kubectl-create] kommando för att köra jobbet. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten.

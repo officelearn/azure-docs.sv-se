@@ -1,10 +1,10 @@
 ---
-title: "Meddela användare för iOS med .NET-serverdel i Azure Notification Hubs"
-description: "Lär dig hur du skickar push-meddelanden till användare i Azure. Kodexempel som skrivits i Objective-C och .NET-API: et för serverdelen."
+title: Push-meddelanden till specifika användare använder Azure Notification Hubs | Microsoft Docs
+description: Lär dig hur du skickar push-meddelanden till specifika användare via Azure Notification Hubs.
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
@@ -12,25 +12,33 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 0fa7a886e1ecb0a90b6aebc1dbf9ef0c6ce1acf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/13/2018
+ms.author: dimazaid
+ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Meddela användare för iOS med .NET-serverdel i Azure Notification Hubs
+# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till specifika användare använder Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a>Översikt
-Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multiplatform skalats ut push-infrastruktur, vilket förenklar implementeringen av push-meddelanden för konsument- och enterprise-program för mobila plattformar. Denna självstudie visar hur du använder Azure-meddelandehubbar för att skicka push-meddelanden till en specifik app-användare på en viss enhet. En ASP.NET-WebAPI-serverdel används för att autentisera klienter och att generera meddelanden, som visas i avsnittet vägledning [registrering från din Apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Denna självstudie visar hur du använder Azure-meddelandehubbar för att skicka push-meddelanden till en specifik app-användare på en viss enhet. En ASP.NET-WebAPI-serverdel används för att autentisera klienter och att generera meddelanden, som visas i avsnittet vägledning [registrering från din Apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
-> [!NOTE]
-> Den här kursen förutsätter att du har skapat och konfigurerat din meddelandehubb enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Den här kursen är också nödvändigt för att den [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) kursen.
-> Om du vill använda Mobile Apps som serverdelstjänsten kan se den [Mobile Apps Kom igång med Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
-> 
-> 
+I den här kursen kan du utföra följande steg:
+
+> [!div class="checklist"]
+> * Skapa WebAPI-projekt
+> * Autentisera klienter till WebAPI-serverdel
+> * Registrera dig för meddelanden med hjälp av WebAPI-serverdel
+> * Skicka meddelanden från WebAPI-serverdel
+> * Publicera nya WebAPI-serverdel
+> * Ändra din iOS-app
+> * Testa programmet
+
+## <a name="prerequisites"></a>Förutsättningar
+Den här kursen förutsätter att du har skapat och konfigurerat din meddelandehubb enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Den här kursen är också nödvändigt för att den [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) kursen.
+Om du vill använda Mobile Apps som serverdelstjänsten kan se den [Mobile Apps Kom igång med Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -38,25 +46,26 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
 1. Öppna en sida visa app som du skapade i den [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) kursen.
    
    > [!NOTE]
-   > I det här avsnittet förutsätter att projektet har konfigurerats med ett tomt organisationsnamn. Om inte, måste du har lagt till ditt organisationsnamn till alla klassnamn.
+   > Det här avsnittet förutsätter att projektet har konfigurerats med ett tomt organisationsnamn. Om inte, måste du har lagt till ditt organisationsnamn till alla klassnamn.
    > 
    > 
-2. Lägg till de komponenter som visas i skärmbilden nedan från objektbiblioteket i din Main.storyboard.
+2. I den `Main.storyboard`, lägga till komponenter som visas i skärmbilden från objektbiblioteket.
    
     ![][1]
    
    * **Användarnamnet**: A UITextField med platshållartext, *ange användarnamn*omedelbart under Skicka resultaten etikett och begränsad till höger och vänster marginaler och under Skicka resultaten etikett.
    * **Lösenordet**: A UITextField med platshållartext, *ange lösenord för*, omedelbart under användarnamnet text fältet och begränsad till höger och vänster marginaler och under textfältet användarnamn. Kontrollera den **Secure textinmatning** alternativet i attributet-Inspector under *returnera nyckeln*.
    * **Logga in**: A UIButton etikett direkt under lösenordsfältet och avmarkerar de **aktiverad** alternativet i attribut-Inspector under *kontrollens innehåll*
-   * **WNS**: etikett och växel för att skicka meddelande Windows Notification Service om den har konfigurerats på hubben. Finns det [Windows komma igång](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) kursen.
-   * **GCM**: etikett och växel för att skicka aviseringen till Google Cloud Messaging om den har konfigurerats på hubben. Se [Android igång](notification-hubs-android-push-notification-google-gcm-get-started.md) kursen.
+   * **WNS**: etikett och växel för att skicka meddelande Windows Notification Service om den har ställts in på hubben. Finns det [Windows komma igång](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) kursen.
+   * **GCM**: etikett och växel för att skicka aviseringen till Google Cloud Messaging om den har ställts in på hubben. Se [Android igång](notification-hubs-android-push-notification-google-gcm-get-started.md) kursen.
    * **APN**: etikett och växel för att skicka aviseringen till Apple Platform Notification Service.
-   * **Recipent Username**: A UITextField med platshållartext, *mottagaren användarnamn taggen*direkt under GCM etikett och begränsad till höger och vänster marginaler och under GCM-etiketten.
+   * **Mottagaren Username:A** UITextField med platshållartext, *mottagaren användarnamn taggen*direkt under GCM etikett och begränsad till höger och vänster marginaler och under GCM-etiketten.
 
     Vissa komponenter har lagts till i den [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) kursen.
 
 1. **CTRL** dra från komponenter i vyn till ViewController.h och Lägg till dessa nya uttag.
    
+    ```obj-c
         @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
         @property (weak, nonatomic) IBOutlet UITextField *PasswordField;
         @property (weak, nonatomic) IBOutlet UITextField *RecipientField;
@@ -72,11 +81,15 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
         @property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
    
         - (IBAction)LogInAction:(id)sender;
-2. Lägg till följande i ViewController.h, `#define` under import-instruktioner. Ersätt den *< Endpoint ange Backend\>*  med mål-URL som du använde för att distribuera din Apps serverdel i föregående avsnitt. Till exempel *http://you_backend.azurewebsites.net*.
+    ```
+2. Lägg till följande i ViewController.h, `#define` efter import-instruktioner. Ersätt den *< Endpoint ange Backend\>*  med mål-URL som du använde för att distribuera din Apps serverdel i föregående avsnitt. Till exempel *http://you_backend.azurewebsites.net*.
    
+    ```obj-c
         #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    ```
 3. I projektet, skapa en ny **Cocoa Touch klassen** med namnet **RegisterClient** gränssnittet med ASP.NET serverdel du skapat. Skapa klassen som ärver från `NSObject`. Lägg sedan till följande kod i RegisterClient.h.
-   
+
+    ```obj-c   
         @interface RegisterClient : NSObject
    
         @property (strong, nonatomic) NSString* authenticationHeader;
@@ -87,8 +100,10 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
         -(instancetype) initWithEndpoint:(NSString*)Endpoint;
    
         @end
-4. I uppdateringen RegisterClient.m i `@interface` avsnitt:
-   
+    ```
+4. I den `RegisterClient.m`, uppdatera det `@interface` avsnitt:
+
+    ```obj-c   
         @interface RegisterClient ()
    
         @property (strong, nonatomic) NSURLSession* session;
@@ -102,8 +117,10 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
                     tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
    
         @end
-5. Ersätt den `@implementation` avsnitt i RegisterClient.m med följande kod.
+    ```
+5. Ersätt den `@implementation` avsnitt i RegisterClient.m med följande kod:
 
+    ```obj-c
         @implementation RegisterClient
 
         // Globals used by RegisterClient
@@ -260,19 +277,23 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
         }
 
         @end
+    ```
 
-    Koden ovan implementerar logik som beskrivs i artikeln vägledning [registrering från din Apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) använda NSURLSession för REST-anrop till din Apps serverdel och NSUserDefaults lokalt lagra registrationId som returneras av meddelandehubben.
+    Den här koden implementerar logik som beskrivs i artikeln vägledning [registrering från din Apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) använda NSURLSession för REST-anrop till din Apps serverdel och NSUserDefaults lokalt lagra registrationId som returneras av den meddelandehubben.
 
-    Observera att den här klassen kräver egenskapen **authorizationHeader** ställs in för att fungera korrekt. Den här egenskapen anges av den **ViewController** klassen efter inloggningen.
+    Den här klassen kräver egenskapen **authorizationHeader** ställs in för att fungera korrekt. Den här egenskapen anges av den **ViewController** klassen efter inloggningen.
 
 1. ViewController.h, lägga till en `#import` -instruktion för RegisterClient.h. Sedan lägger du till en deklaration för enhetstoken och hänvisar till en `RegisterClient` instans i den `@interface` avsnitt:
-   
+
+    ```obj-c   
         #import "RegisterClient.h"
    
         @property (strong, nonatomic) NSData* deviceToken;
         @property (strong, nonatomic) RegisterClient* registerClient;
+    ```
 2. ViewController.m, lägga till en privat metoddeklaration i den `@interface` avsnitt:
    
+    ```obj-c
         @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
    
         // create the Authorization header to perform Basic authentication with your app back-end
@@ -280,14 +301,13 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
                         AndPassword:(NSString*)password;
    
         @end
+    ```
 
-> [!NOTE]
-> Följande kodavsnitt är inte en säker autentiseringsschema, ska du ersätta att genomföra den **createAndSetAuthenticationHeaderWithUsername:AndPassword:** med specifika autentiseringsmekanism som genererar en autentiseringstoken som ska konsumeras av registrera klient-klassen, t.ex. OAuth Active Directory.
-> 
-> 
-
-1. I den `@implementation` delen av ViewController.m Lägg till följande kod som lägger till implementeringen för att ange rubriken enhet token och autentisering.
+    > [!NOTE]
+    > Följande kodavsnitt är inte en säker autentiseringsschema, ska du ersätta att genomföra den **createAndSetAuthenticationHeaderWithUsername:AndPassword:** med specifika autentiseringsmekanism som genererar en autentiseringstoken som ska konsumeras av registrera klient-klassen, t.ex. OAuth Active Directory.
+1. I den `@implementation` avsnitt i `ViewController.m`, Lägg till följande kod, som lägger till implementeringen för att ange rubriken enhet token och autentisering.
    
+    ```obj-c
         -(void) setDeviceToken: (NSData*) deviceToken
         {
             _deviceToken = deviceToken;
@@ -310,27 +330,72 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
             [textField resignFirstResponder];
             return YES;
         }
+    ```
    
-    Observera hur enhetstoken kan logga in knappen. Det beror på att som en del av åtgärden inloggningen view controller registrerar för push-meddelanden med appens serverdel. Därför kan vill vi inte logga In åtgärd som ska vara tillgängliga förrän enhetstoken har konfigurerats korrekt. Logga in från push-registrering kan frikopplar så länge som det tidigare sker innan de senare.
+    Observera hur enhetstoken kan logga in knappen. Det beror på att som en del av åtgärden inloggningen view controller registrerar för push-meddelanden med appens serverdel. Därför vill inte logga In åtgärden ska vara tillgänglig tills enhetstoken har konfigurerats korrekt. Så länge som det tidigare sker innan de senare kan du frikoppla inloggningen från registreringen av push.
 2. I ViewController.m, använder du följande kodavsnitt för att implementera åtgärdsmetod för din **loggar In** knapp och en metod för att skicka meddelandet med ASP.NET-serverdel.
    
-       - (IBAction) LogInAction: (id) avsändaren {/ / skapa autentiseringshuvud och ange den registrera klienten NSString * användarnamn = self. UsernameField.text;   NSString * lösenord = self. PasswordField.text;
+    ```obj-c
+       - (IBAction)LogInAction:(id)sender {
+           // create authentication header and set it in register client
+           NSString* username = self.UsernameField.text;
+           NSString* password = self.PasswordField.text;
    
            [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
    
-           __weak ViewController * selfie = self;   [self.registerClient registerWithDeviceToken:self.deviceToken taggar: nil andCompletion:^(NSError* error) {Om (! fel) {dispatch_async(dispatch_get_main_queue(), ^ {selfie. SendNotificationButton.enabled = Ja.               [self MessageBox:@"Success" message:@"Registered har”!];});}}];}
+           __weak ViewController* selfie = self;
+           [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil
+               andCompletion:^(NSError* error) {
+               if (!error) {
+                   dispatch_async(dispatch_get_main_queue(),
+                   ^{
+                       selfie.SendNotificationButton.enabled = YES;
+                       [self MessageBox:@"Success" message:@"Registered successfully!"];
+                   });
+               }
+           }];
+       }
 
-        -(void) SendNotificationASPNETBackend: (NSString*) pns UsernameTag: (NSString*) usernameTag meddelande: (NSString*) meddelande {NSURLSession* session = [NSURLSession sessionWithConfiguration: [NSURLSessionConfiguration defaultSessionConfiguration] ombud: nil delegateQueue:nil];
+        - (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag
+                    Message:(NSString*)message
+        {
+            NSURLSession* session = [NSURLSession
+                sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil
+                delegateQueue:nil];
 
-            Skicka taggen pns och användarnamnet som parametrar med REST-URL: en till ASP.NET-serverdel NSURL * requestURL = [NSURL URLWithString: [NSString stringWithFormat:@"%@/api/notifications? pns = % @& to_tag = % @”, BACKEND_ENDPOINT pns, usernameTag]];
+            // Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend
+            NSURL* requestURL = [NSURL URLWithString:[NSString
+                stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns,
+                usernameTag]];
 
-            NSMutableURLRequest * begäran = [NSMutableURLRequest requestWithURL:requestURL];    [begära setHTTPMethod:@"POST"];
+            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
+            [request setHTTPMethod:@"POST"];
 
-            Hämta fingerad authenticationheader från registrera klienten NSString * authorizationHeaderValue = [NSString stringWithFormat:@"Basic % @”, self.registerClient.authenticationHeader];    [begära setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+            // Get the mock authenticationheader from the register client
+            NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
+                self.registerClient.authenticationHeader];
+            [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-            Lägg till avisering brödtext [begära setValue:@"application/json;charset=utf-8” forHTTPHeaderField:@"Content-Type"];    [begära setHTTPBody: [meddelande dataUsingEncoding:NSUTF8StringEncoding]];
+            //Add the notification message body
+            [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
 
-            Köra skicka meddelandet REST API för ASP.NET-serverdel NSURLSessionDataTask * dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) svar;        Om (fel || httpResponse.statusCode! = 200) {NSString* status = [NSString stringWithFormat:@"Error Status för % @: % d\nError: %@\n”, pns, httpResponse.statusCode, fel];            dispatch_async(dispatch_get_main_queue(), ^ {/ / lägga till text eftersom alla 3 PNS-anrop kan också ha information för att visa [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];            });            NSLog(status);        }
+            // Execute the send notification REST API on the ASP.NET Backend
+            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+            {
+                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+                if (error || httpResponse.statusCode != 200)
+                {
+                    NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n",
+                                        pns, httpResponse.statusCode, error];
+                    dispatch_async(dispatch_get_main_queue(),
+                    ^{
+                        // Append text because all 3 PNS calls may also have information to view
+                        [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];
+                    });
+                    NSLog(status);
+                }
 
                 if (data != NULL)
                 {
@@ -338,17 +403,19 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
                     [xmlParser setDelegate:self];
                     [xmlParser parse];
                 }
-            }];    [dataTask återuppta]; }
-
+            }];
+            [dataTask resume];
+        }
+    ```
 
 1. Uppdatera åtgärden för den **skicka meddelande** knappen för att använda ASP.NET-serverdel och skicka till alla PNS aktiveras med en växel.
 
+    ```obj-c
         - (IBAction)SendNotificationMessage:(id)sender
         {
             //[self SendNotificationRESTAPI];
             [self SendToEnabledPlatforms];
         }
-
 
         -(void)SendToEnabledPlatforms
         {
@@ -365,17 +432,19 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
             if ([self.APNSSwitch isOn])
                 [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
         }
-
-
+    ```
 
 1. I funktionen **ViewDidLoad**, Lägg till följande för att skapa en instans av RegisterClient instansen och ange ombud för textfält.
    
+    ```obj-c
        self.UsernameField.delegate = self;
        self.PasswordField.delegate = self;
        self.RecipientField.delegate = self;
        self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
-2. Nu i **AppDelegate.m**, ta bort allt innehåll för metoden **program: didRegisterForPushNotificationWithDeviceToken:** och Ersätt den med följande för att se till att view controller innehåller den senaste enhetstoken som hämtas från APN:
+    ```
+2. Nu i **AppDelegate.m**, ta bort allt innehåll för metoden `application:didRegisterForPushNotificationWithDeviceToken:` och Ersätt den med följande för att se till att view controller innehåller den senaste enhetstoken som hämtas från APN:
    
+    ```obj-c
        // Add import to the top of the file
        #import "ViewController.h"
    
@@ -385,25 +454,35 @@ Stöd för push-meddelanden i Azure kan du få ett enkelt att använda och multi
            ViewController* rvc = (ViewController*) self.window.rootViewController;
            rvc.deviceToken = deviceToken;
        }
+    ```
 3. Slutligen i **AppDelegate.m**, kontrollera att du har följande metod:
-   
+
+    ```obj-c   
        - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
            NSLog(@"%@", userInfo);
            [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
        }
+    ```
 
 ## <a name="test-the-application"></a>Testa programmet
 1. Kör appen i XCode på en fysisk iOS-enhet (push-meddelanden inte fungerar i simulatorn).
-2. Ange ett användarnamn och lösenord i iOS-app Användargränssnittet. Det kan vara valfri sträng, men de måste båda vara samma strängvärde. Klicka på **loggar In**.
+2. Ange samma värde för både användarnamn och lösenord i iOS-app Användargränssnittet. Klicka på **loggar In**.
    
     ![][2]
 3. Du bör se ett popup-fönster som informerar dig om registreringen lyckades. Klicka på **OK**.
    
     ![][3]
 4. I den **mottagaren användarnamn taggen* text, ange namnet användartaggen används med registrering från en annan enhet.
-5. Ange ett meddelande och klicka på **skicka meddelande**.  Endast de enheter som har en registrering med taggen mottagande användaren namnet ta emot meddelandet.  Endast skickas till användare.
+5. Ange ett meddelande och klicka på **skicka meddelande**. Endast de enheter som har en registrering med taggen mottagande användaren namnet ta emot meddelandet. Endast skickas till användare.
    
     ![][4]
+
+## <a name="next-steps"></a>Nästa steg
+I den här självstudiekursen beskrivs hur du push-meddelanden till specifika användare som har taggarna associerade med deras registreringar. Information om hur du push-meddelanden för plats-baserad, fortsätter du till följande kursen: 
+
+> [!div class="nextstepaction"]
+>[Push-meddelanden för plats-baserad](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

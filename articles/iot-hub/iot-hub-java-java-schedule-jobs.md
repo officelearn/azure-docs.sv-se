@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schemat och sändning jobb (Java)
 
@@ -52,7 +52,7 @@ I slutet av den här kursen har du en enhet för java konsolapp och en java-back
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) innehåller information om Azure IoT-SDK: er som du kan använda för att skapa både enheten och backend-appar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -64,7 +64,7 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Om du vill skapa enhetens identitet programmässigt läsa motsvarande avsnitt i den [ansluta enheten till din IoT-hubb som använder Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artikel. Du kan också använda den [IoT-tillägg för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) verktyg för att lägga till en enhet till IoT-hubben.
+Du kan också använda den [IoT-tillägg för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) verktyg för att lägga till en enhet till IoT-hubben.
 
 ## <a name="create-the-service-app"></a>Skapa service-appen
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installera och använda Solr på HDInsight Hadoop-kluster
 
@@ -87,7 +87,7 @@ Använd följande steg för att lägga till exempeldata i Solr och fråga den:
     Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
      > [!IMPORTANT]
-     > Stegen senare i det här dokumentet använder en SSL-tunnel för att ansluta till Solr webbgränssnittet. Om du vill använda de här stegen, måste du upprätta en SSL-tunnel och sedan konfigurera webbläsaren för att använda den.
+     > Stegen senare i det här dokumentet använder en SSH-tunnel för att ansluta till Solr webbgränssnittet. Om du vill använda de här stegen, måste du upprätta en SSH-tunnel och sedan konfigurera webbläsaren för att använda den.
      >
      > Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
 

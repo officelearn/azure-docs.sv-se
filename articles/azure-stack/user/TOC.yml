@@ -91,6 +91,10 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: KeyVault-exempelprogram
               href: azure-stack-kv-sample-app.md
+            - name: Lösningsmallar
+              items:
+                - name: Distribuera ett Service Fabric-kluster
+                  href: azure-stack-solution-template-service-fabric-cluster.md
     - name: Skapa appar
       items:
         - name: Utveckla för Azure Stack

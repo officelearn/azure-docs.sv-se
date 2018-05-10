@@ -1,12 +1,12 @@
 ---
-title: "Uppgiften hubbar i varaktiga funktioner – Azure"
-description: "Lär dig vilka ett nav för aktiviteten är i tillägget varaktiga funktioner för Azure Functions. Lär dig hur du konfigurerar konfigurera aktiviteten hubs."
+title: Uppgiften hubbar i varaktiga funktioner – Azure
+description: Lär dig vilka ett nav för aktiviteten är i tillägget varaktiga funktioner för Azure Functions. Lär dig hur du konfigurerar konfigurera aktiviteten hubs.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 563667684accf8b434052cd412bf6e93c77ea63a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Uppgiften hubbar i varaktiga funktioner (Azure-funktioner)
 
@@ -35,6 +35,7 @@ En uppgift hubb består av följande lagringsresurser:
 * En eller fler köer för kontrollen.
 * Ett arbetsobjekt kö.
 * För en historiktabell.
+* En tabell instanser.
 * Storage-behållare som innehåller en eller flera lease-BLOB.
 
 Alla resurser skapas automatiskt i Azure lagringskonto när orchestrator eller funktioner för aktiviteten kör eller är schemalagda att köras. Den [prestanda och skalning](durable-functions-perf-and-scale.md) artikeln förklaras hur du använder dessa resurser.

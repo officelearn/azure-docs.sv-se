@@ -1,6 +1,6 @@
 ---
-title: "Distribuera lösningen för enheten simuleringen - Azure | Microsoft Docs"
-description: "Den här kursen visar hur du etablerar enheten simuleringen-lösning från azureiotsuite.com."
+title: Distribuera lösningen för enheten simuleringen - Azure | Microsoft Docs
+description: Den här kursen visar hur du etablerar enheten simuleringen-lösning från azureiotsuite.com.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Distribuera lösningen för simulering av Azure IoT-enhet
 
 Den här kursen visar hur du etablerar en enhet simuleringen lösning. Du distribuerar lösningen från azureiotsuite.com.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera simulering av enheten lösningen
@@ -39,7 +39,7 @@ Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto p�
 
 Innan du distribuerar lösningen till din Azure-prenumeration måste du välja vissa konfigurationsalternativ:
 
-1. Logga in på [azureiotsuite.com](https://www.azureiotsuite.com) med din Azure kontoautentiseringsuppgifter och klicka på  **+**  att skapa en ny lösning:
+1. Logga in på [azureiotsuite.com](https://www.azureiotsuite.com) med din Azure kontoautentiseringsuppgifter och klicka på **+** att skapa en ny lösning:
 
     ![Skapa en ny lösning](media/iot-suite-device-simulation-deploy/createnewsolution.png)
 
@@ -47,7 +47,7 @@ Innan du distribuerar lösningen till din Azure-prenumeration måste du välja v
 
     ![Välj enhet simulering](media/iot-suite-device-simulation-deploy/select.png)
 
-1. På den **skapa enheten simuleringslösning** anger en **lösningsnamn** för din enhet simuleringen lösning.
+1. På den **skapa enheten simuleringen lösning** anger en **lösningsnamn** för din enhet simuleringen lösning.
 
 1. Välj den **prenumeration** och **region** som du vill använda för att etablera lösningen.
 

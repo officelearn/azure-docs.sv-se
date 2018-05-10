@@ -8,17 +8,17 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5c82659e4dd980b9285d81d51eb17b227ec33035
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Beständiga volymer med Azure-diskar
 
 En beständig volym representerar en typ av lagring som har etablerats för användning med Kubernetes skida. En beständig volym kan användas av en eller flera skida och kan etableras statiskt eller dynamiskt. Mer information om Kubernetes beständiga volymer finns [Kubernetes beständiga volymer][kubernetes-volumes].
 
-Det här dokumentet beskriver beständiga volymer med Azure-diskar i ett kluster med Azure Container Service (AKS).
+Det här dokumentet beskriver beständiga volymer med Azure-diskar i ett kluster med Azure Kubernetes Service (AKS).
 
 > [!NOTE]
 > En Azure-disken kan endast monteras med åtkomst läge typen ReadWriteOnce, vilket gör den tillgänglig att endast en AKS nod. Om du behöver att dela en beständig volym över flera noder, kan du använda [Azure Files][azure-files-pvc].

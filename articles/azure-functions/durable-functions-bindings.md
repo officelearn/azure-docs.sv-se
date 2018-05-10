@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f3952ce87394270051bd37fae271162abc04a675
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för beständig funktioner (Azure-funktioner)
 
@@ -36,17 +36,12 @@ När du skriver orchestrator-funktioner i skriptspråk (till exempel i Azure-por
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` är namnet på orchestration. Detta är det värde som klienter måste använda när de vill börja nya instanser av den här funktionen för orchestrator. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
-* `version` är en versionsetikett för orchestration. Klienter som startar en ny instans av en orchestration måste innehålla matchande versionsetiketten. Den här egenskapen är valfri. Om inget annat anges, används en tom sträng. Mer information om versioner finns [versionshantering](durable-functions-versioning.md).
-
-> [!NOTE]
-> Ange värden för `orchestration` eller `version` egenskaper rekommenderas inte just nu.
 
 Internt avsöker bindningen utlösare en serie av köer på standardkontot för lagring för funktionen appen. Dessa köer är internt implementeringsinformation om filnamnstillägget, vilket är anledningen till att de inte uttryckligen har konfigurerats i bindningsegenskaperna för.
 
@@ -69,12 +64,11 @@ Orchestration-utlösaren bindningen stöder både inmatningar och matar ut. Här
 * **indata** -Orchestration-funktioner stöder bara [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) som parametertyp. Avserialisering av indata direkt i funktionssignatur stöds inte. Koden måste använda den [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metod för att hämta orchestrator indata för funktionen. Dessa indata måste vara JSON-serialiserbara typer.
 * **matar ut** -Orchestration utlösare stöder utdatavärden som indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en funktion returnerar `Task` eller `void`, en `null` värdet kommer att sparas som utdata.
 
-> [!NOTE]
-> Orchestration-utlösare stöds endast i C# just nu.
-
 ### <a name="trigger-sample"></a>Utlösaren exempel
 
-Följande är ett exempel på hur funktionen enklaste ”Hello World” C# orchestrator kan se ut:
+Följande är ett exempel på hur funktionen enklaste ”Hello World” orchestrator kan se ut:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,7 +79,23 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> JavaScript orchestrators ska använda `return`. Den `durable-functions` bibliotek tar hand om anropar den `context.done` metoden.
+
 De flesta funktioner i orchestrator anropa aktivitet funktioner, så här är en ”Hello World”-exempel som visar hur du anropa en funktion för aktiviteten:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -96,6 +106,18 @@ public static async Task<string> Run(
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Utlösare för aktiviteten
@@ -110,17 +132,12 @@ Om du använder Azure-portalen för utveckling, aktivitet utlösaren definieras 
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` är namnet på aktiviteten. Detta är det värde som orchestrator-funktioner som använder för att anropa den här funktionen för aktiviteten. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
-* `version` är en versionsetikett för aktiviteten. Orchestrator-funktioner som anropar en aktivitet måste innehålla matchande versionsetiketten. Den här egenskapen är valfri. Om inget annat anges, används en tom sträng. Mer information finns i [versionshantering](durable-functions-versioning.md).
-
-> [!NOTE]
-> Ange värden för `activity` eller `version` egenskaper rekommenderas inte just nu.
 
 Den här bindningen utlösare avsöker internt en kö i standardkontot för lagring för funktionen appen. Den här kön är en intern implementering information om filnamnstillägget, vilket är anledningen till det inte är uttryckligen har konfigurerats i bindningsegenskaperna för.
 
@@ -144,12 +161,11 @@ Aktiviteten utlösaren bindningen stöder både inmatningar och matar ut precis 
 * **matar ut** -aktiviteten fungerar stöd utdatavärden som indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en funktion returnerar `Task` eller `void`, en `null` värdet kommer att sparas som utdata.
 * **metadata** -aktiviteten funktioner kan bindas till en `string instanceId` parametern för att hämta instans-ID för överordnad orchestration.
 
-> [!NOTE]
-> Aktiviteten utlösare stöds inte i Node.js-funktioner.
-
 ### <a name="trigger-sample"></a>Utlösaren exempel
 
-Följande är ett exempel på hur en enkel ”Hello World” C# aktivitet funktion kan se ut:
+Följande är ett exempel på hur en enkel ”Hello World” aktivitet funktion kan se ut:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,7 +176,17 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 Parametern standardtypen för den `ActivityTriggerAttribute` bindning är `DurableActivityContext`. Dock aktivitet utlösare också stöd för bindning direkt till JSON-serializeable typer (inklusive primitiva typer), så samma funktion kan förenklas som följer:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -168,6 +194,14 @@ public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
 ```
 
 ### <a name="passing-multiple-parameters"></a>Skicka flera parametrar 
@@ -302,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Node.js-exempel
+#### <a name="javascript-sample"></a>JavaScript-exempel
 
-I följande exempel visas hur du använder beständiga orchestration klienten bindning för att starta en ny instans av funktionen från en Node.js-funktion:
+I följande exempel visas hur du använder beständiga orchestration klienten bindning för att starta en ny instans av funktionen från en JavaScript-funktion:
 
 ```js
 module.exports = function (context, input) {

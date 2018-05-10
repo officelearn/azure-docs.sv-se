@@ -1,25 +1,24 @@
 ---
-title: "Anpassa sidan logga in för din Azure Active Directory-klient | Microsoft Docs"
-description: "Lär dig hur du lägger till en företagsanpassning till Azure inloggningssidan"
+title: Anpassa sidan logga in för din Azure Active Directory-klient | Microsoft Docs
+description: Lär dig hur du lägger till en företagsanpassning till Azure inloggningssidan
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snabbstart: Lägga till företagsanpassning till din inloggningssidan i Azure AD
 För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory (AD Azure) tillhandahåller den här funktionen genom att låta dig anpassa utseendet på inloggningssidan med företagets logotyp och egna färgscheman. På inloggningssidan visas när du loggar in till webbaserade program, till exempel Office 365 som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan om du vill ange dina autentiseringsuppgifter.
@@ -33,7 +32,7 @@ För att undvika förvirring vill många företag använda ett enhetligt utseend
 
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
-Företagets företagsanpassning anpassningar som visas på sidan för Azure AD när användare har åtkomst till en klient-specifika URL som [ *https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+Företagets företagsanpassning anpassningar som visas på sidan för Azure AD när användare har åtkomst till en klient-specifika URL som [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com).
 
 När användare besöker www.office.com, visar inte på inloggningssidan alla företagsanpassning anpassningar eftersom användaren inte har ännu trätt autentiseringsuppgifter. När en användaren anger sitt användar-ID eller väljer en Användarikon, visar företagsinformation.
 

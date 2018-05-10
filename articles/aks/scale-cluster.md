@@ -1,6 +1,6 @@
 ---
-title: Skala ett Azure Container Service-kluster (AKS)
-description: Skala ett Azure Container Service-kluster (AKS).
+title: Skala ett kluster i Azure Kubernetes Service (AKS)
+description: Skala ett kluster i Azure Kubernetes Service (AKS).
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 37f949e1e043e62b8bd8f73a2b40d0549f77adc3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Skala ett Azure Container Service-kluster (AKS)
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Skala ett kluster i Azure Kubernetes Service (AKS)
 
 Det är enkelt att skala ett AKS kluster till ett annat antal noder.  Välj önskat antal noder och kör kommandot `az aks scale`.  Vid skalning noderna kommer att noggrant [cordoned och tar slut] [ kubernetes-drain] att minimera störningar för program som körs.  Vid uppskalning väntar kommandot `az` tills noderna är markerade med `Ready` av Kubernetes-klustret.
 

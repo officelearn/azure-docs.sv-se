@@ -4,7 +4,7 @@ description: Lär dig mer om Azure-säkerhet, att tjänsterna och hur det funger
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -148,7 +148,7 @@ I Programdiagnostik kan visa du gruppera händelser på följande sätt:
 -   Programfel (visar undantagshändelser)
 -   Prestanda (visar prestandahändelser)
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure storage säkerhets- och sammanfattning information om dessa funktioner.
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
@@ -225,7 +225,7 @@ Azure-nätverk har stöd för olika scenarier för säker fjärråtkomst. Några
 
 -   [Ansluta virtuella Azure-nätverk till varandra](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps)
 
-### <a name="vpn-gateway"></a>VPN-gateway
+### <a name="vpn-gateway"></a>VPN Gateway
 Om du vill skicka nätverkstrafik mellan dina virtuella Azure-nätverket och den lokala platsen, måste du skapa en VPN-gateway för det virtuella Azure-nätverket. En [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) är en typ av virtuell nätverksgateway som skickar krypterad trafik mellan en offentlig anslutning. Du kan också använda VPN-gatewayer för att skicka trafik mellan virtuella Azure-nätverk via Azure-nätverk-infrastruktur.
 
 ### <a name="express-route"></a>Express Route

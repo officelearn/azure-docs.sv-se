@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0ce01b62fde690934d97fdefb7720e1be5512f4a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ddb72f267fc46d7980007d41c5d512f50eaf47e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 
@@ -319,7 +319,7 @@ Att nå [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) et
 
 Fullständig URL finns också i fönstret klustret essentials i Azure-portalen.
 
-Du kan importera klientcertifikatet för att ansluta till en säker kluster i Windows eller OS X med en webbläsare och uppmanas du för certifikatet som ska användas för att ansluta till klustret.  För Linux-datorer måste certifikatet importeras med avancerade webbläsarinställningar (varje webbläsare har olika metoder) och gå till tehe certifikatet plats på disken.
+Du kan importera klientcertifikatet för att ansluta till en säker kluster i Windows eller OS X med en webbläsare och uppmanas du för certifikatet som ska användas för att ansluta till klustret.  För Linux-datorer måste certifikatet importeras med avancerade webbläsarinställningar (varje webbläsare har olika metoder) och gå till certifikatsplatsen på disken.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Ansluta till en säker kluster med hjälp av Azure Active Directory
 

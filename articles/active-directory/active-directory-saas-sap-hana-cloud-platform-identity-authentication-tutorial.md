@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SAP Cloud Platform identitetsverifiering | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Cloud Platform identitetsverifiering."
+title: 'Självstudier: Azure Active Directory-integrering med SAP Cloud Platform identitetsverifiering | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Cloud Platform identitetsverifiering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 69a8eba2e099e9333d19d139fb5af503fd582dda
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Självstudier: Azure Active Directory-integrering med SAP Cloud Platform identitetsverifiering
 
@@ -32,7 +32,7 @@ När du integrerar SAP Cloud Platform identitetsverifiering med Azure AD kan du 
 
 Mer information om integrering av SaaS-app med Azure AD finns i artikeln [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med SAP Cloud Platform identitetsverifiering, behöver du följande:
 
@@ -126,21 +126,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Om du vill konfigurera programmet i **IDP** initierade läge i den **SAP Cloud Platform identitet autentisering domän och URL: er** avsnittet i den **identifierare** rutan Ange en URL med följande mönster: `https://<entity-id>.accounts.ondemand.com`.  
+3. Om du vill konfigurera programmet i **IDP** initierade läge i den **SAP Cloud Platform identitet autentisering domän och URL: er** avsnittet, utför följande steg:  
 
     ![URL: er och SAP Cloud Platform identitet autentisering domän med enkel inloggning information](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Det här värdet inte existerar. Uppdatera det här värdet med den faktiska identifieraren. Kontakta den [klientautentisering för SAP Cloud Platform identitet supportteamet](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) att hämta det här värdet. Om du inte förstår det här värdet Läs i dokumentationen för SAP Cloud Platform identitetsverifiering om [klient SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+    a. I den **identifierare** Skriv en URL med följande mönster: `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. Om du vill konfigurera programmet i **SP** initierade läge, Välj **visa avancerade inställningar för URL: en**. 
+    b. I den **Reply URL** Skriv en URL med följande mönster: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta den [klientautentisering för SAP Cloud Platform identitet supportteamet](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) att hämta dessa värden. Om du inte förstår identifierarvärde Läs i dokumentationen för SAP Cloud Platform identitetsverifiering om [klient SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+
+4. Om du vill konfigurera programmet i **SP** initierade läge, Välj **visa avancerade inställningar för URL: en**.
 
     ![URL: er och SAP Cloud Platform identitet autentisering domän med enkel inloggning information](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    I den **logga URL** Skriv en URL med följande mönster: `https://<entity-id>.accounts.ondemand.com/admin`.
+    I den **logga URL** Skriv en URL med följande mönster: `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Det här värdet inte existerar. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta den [klientautentisering för SAP Cloud Platform identitet supportteamet](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) att hämta det här värdet.
+    > [!NOTE]
+    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Använd din specifika program inloggnings-URL. Kontakta den [klientautentisering för SAP Cloud Platform identitet supportteamet](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) om du har en osäker.
 
 5. I den **SAML-signeringscertifikat** väljer **XML-Metadata för**. Spara metadatafilen på datorn.
 
@@ -289,4 +293,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

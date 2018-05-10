@@ -3,7 +3,7 @@ title: Azure-säkerhet och efterlevnad modell - FFIEC finansiella tjänster regl
 description: Azure-säkerhet och efterlevnad modell - FFIEC finansiella tjänster reglerade arbetsbelastningar
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure-säkerhet och efterlevnad modell - FFIEC finansiella tjänster reglerade arbetsbelastningar
 
@@ -42,7 +42,7 @@ Arkitekturen består av följande komponenter och använder funktioner för dist
 - **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenterna i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
 - **Automatisk distribution skript**. Dessa skript att distribuera lösningen för slutpunkt till slutpunkt. Skripten består av:
     - En installation av modulen och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och kontrollera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade. 
-    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [betalning bearbetning utkast databasen][code-repo]. 
+    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [betalning bearbetning utkast databasen] [kod lagringsplatsen]. 
 
 ## <a name="architectural-diagram"></a>Arkitekturdiagram
 
@@ -305,7 +305,7 @@ Standarddistribution är avsedd att ge en basnivå av Security Center rekommenda
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Komponenter för att distribuera den här lösningen är tillgängliga i den [modell databasen][code-repo]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
+Komponenter för att distribuera den här lösningen finns i [modell kod databasen] [kod lagringsplatsen]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
 
 Skripten lägga till domänanvändare i Azure AD-klient som du anger. Microsoft rekommenderar att skapa en ny Azure AD-klient om du vill använda som ett test.
 
@@ -388,8 +388,3 @@ Kunder ansvarar för att behålla en kopia av den [ansvar sammanfattning matrise
 - Alla kundnamn, transaktionsposter och eventuella relaterade data på den här sidan är fiktiva, skapas för denna grundläggande arkitektur och endast för jämförelseändamål. Ingen verklig associering eller koppling är avsedd och oavsiktliga ingen.  
 - Den här lösningen har utvecklats gemensamt av Microsoft och Avyan rådgivning och är tillgängliga under den [MIT-licensen](https://opensource.org/licenses/MIT).
 
-### <a name="document-authors"></a>Dokumentförfattare
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Databasen"

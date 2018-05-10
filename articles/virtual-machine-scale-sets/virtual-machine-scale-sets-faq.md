@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
@@ -450,9 +450,9 @@ Om resurstilläggsdefinitionen i virtuella datorns skaluppsättning modellen upp
 
 Om en befintlig virtuell dator är tjänsten lagats, visas den som en omstart och tillägg finns inte på nytt. Om det avbildade, är det som ersätter enhetens OS med källbilden. Alla specialisering från den senaste modellen, till exempel tillägg, körs.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Hur jag ansluta till en virtuell dator skala en Azure AD-domän
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hur jag ansluta till en virtuell dator skala en Active Directory-domän
 
-Du kan definiera ett tillägg för att ansluta till en virtuell dator skala ett Azure Active Directory (Azure AD)-domän. 
+Du kan definiera ett tillägg för att ansluta till en virtuell dator skala en Active Directory (AD)-domän. 
 
 Definiera ett tillägg genom att använda egenskapen JsonADDomainExtension:
 

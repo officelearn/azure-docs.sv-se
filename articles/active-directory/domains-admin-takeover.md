@@ -6,31 +6,29 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
-Den här artikeln beskrivs två sätt att ta över ett DNS-namn i en ohanterad katalog i Azure Active Directory (AD Azure). När en Självbetjäningsanvändare som registrerar sig för en molnbaserad tjänst som använder Azure AD, läggs de till en ohanterad Azure AD-katalog baserat på deras e-postdomän. Mer information om självbetjäning eller ”viral” registreringen för en tjänst finns [vad är självbetjäningsregistrering för Azure Active Directory?]()
+Den här artikeln beskrivs två sätt att ta över ett DNS-namn i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registreringen för en tjänst finns [vad är självbetjäningsregistrering för Azure Active Directory?]()
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
-Under processen med admin övertag, du kan bevisa att du äger enligt beskrivningen i [lägga till ett anpassat domännamn i Azure AD](add-custom-domain.md). I nästa avsnitt beskrivs administratörsupplevelse i detalj, men här är en sammanfattning:
+Under processen för adminövertagande kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs adminupplevelsen mer detaljerat, men här följer en sammanfattning:
 
-* När du utför en [”interna” admin övertag](#internal-admin-takeover) av en ohanterad Azure-katalogen du läggs till som global administratör för katalogen ohanterad. Inga användare, domäner eller serviceplaner migreras till valfri katalog som du administrerar.
+* När du utför ett [”internt” adminövertagande](#internal-admin-takeover) av en ohanterad Azure-katalog läggs du till som global administratör för den ohanterade katalogen. Inga användare, domäner eller tjänstplaner migreras till en annan katalog som du administrerar.
 
-* När du utför en [”externa” admin övertag](#external-admin-takeover) en ohanterad Azure-katalogen du lägga till DNS-domännamnet för den ohanterade katalogen hanterad Azure-katalogen. När du lägger till namnet på en domän, skapas en koppling av användare till resurser i hanterad Azure-katalogen så att användarna kan fortsätta att komma åt tjänster utan avbrott. 
+* När du utför ett [”externt” adminövertagande](#external-admin-takeover) av en ohanterad Azure-katalog lägger du till DNS-domännamnet på den ohanterade katalogen till din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
 
 ## <a name="internal-admin-takeover"></a>Internt admin övertag
 

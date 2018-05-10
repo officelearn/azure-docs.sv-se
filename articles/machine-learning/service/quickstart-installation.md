@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 0a24adb94930024f6eaaa5ac270ae7fc35520132
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Snabbstart: Installera och komma igång med Azure Machine Learning-tjänster
 Azure Machine Learning-tjänsterna (förhandsversion) är en integrerad lösning från slutpunkt till slutpunkt för avancerade analyser inom dataforskning. Med den här lösningen kan professionella dataforskare få hjälp med att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -64,7 +64,7 @@ Använd Azure Portal till att etablera dina Azure Machine Learning-konton:
    Resursgrupp | _Din resursgrupp_ | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp för det här experimenteringskontot. 
    Plats | _Regionen som ligger närmast dina användare_ | Välj den plats som är närmast användarna och dataresurserna.
    Antal platser | 2 | Ange antalet platser. Lär dig hur [platserna påverkar prissättningen](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>I den här snabbstarten behöver du bara två platser. Platser kan läggas till eller tas bort efter behov i Azure-portalen.
-   Lagringskonto | _Unikt namn_ | Välj **Skapa nytt** och ange ett namn för att skapa ett [Azure-lagringskonto](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Namnet ska innehålla 3–24 tecken och får endast innehålla alfanumeriska tecken. Alternativt kan du välja **Använd befintligt** och välja ett befintligt lagringskonto i listrutan. Lagringskontot är obligatoriskt. Det används för att lagra projektartefakter och köra historikdata. 
+   Lagringskonto | _Unikt namn_ | Välj **Skapa nytt** och ange ett namn för att skapa ett [Azure-lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). Namnet ska innehålla 3–24 tecken och får endast innehålla alfanumeriska tecken. Alternativt kan du välja **Använd befintligt** och välja ett befintligt lagringskonto i listrutan. Lagringskontot är obligatoriskt. Det används för att lagra projektartefakter och köra historikdata. 
    Arbetsyta för experimenteringskonto | IrisGarden<br/>(namnet som används i självstudier) | Ange ett namn på en arbetsyta för det här kontot. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
    Tilldela ägare för arbetsytan | _Ditt konto_ | Välj ditt eget konto som ägare till arbetsytan.
    Skapa modellhanteringskonto | **markering** |Skapa ett konto för modellhantering nu så att resursen är tillgänglig när du vill distribuera och hantera modeller som webbtjänster i realtid. <br/><br/>Även om det är valfritt rekommenderar vi att du skapar modellhanteringskontot samtidigt som experimenteringskontot.

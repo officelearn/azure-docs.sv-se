@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search ska indexera dokument (till exempel PDF-filer, Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar det grunderna för att installera och konfigurera en indexerare blob. Sedan den erbjuder en ingående undersökning av beteenden och scenarier troligen kommer att stöta på.
@@ -279,7 +279,7 @@ Du kan också fortsätta indexera om fel inträffa när som helst bearbetning, a
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Identifiering av inkrementell indexering och borttagning
-När du ställer in en blob-indexeraren ska köras enligt ett schema, den indexerar endast ändrade blobbar, enligt blobben `LastModified` tidsstämpel.
+När du ställer in en blob-indexeraren ska köras enligt ett schema, den reindexes endast ändrade blobbar, enligt blobben `LastModified` tidsstämpel.
 
 > [!NOTE]
 > Du behöver ange en princip för identifiering av ändring – stegvis indexering aktiveras åt dig automatiskt.

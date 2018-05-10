@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: c80b47dcf2477fda5406c2e6efe3ee87ad1188d6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -141,12 +141,13 @@ IPv4 | Ja
 Behåll källans IP-adress | Ja
 Azure Virtual Network service-slutpunkter<br/><br/> (Azure Storage brandväggar och virtuella nätverk) | Nej
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 **Komponent** | **Stöds**
 --- | ---
 Värden NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
 SAN-nätverk (ISCSI) värd | Ja
 Värden multipath (MPIO) | Ja, testas med Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM för CLARiiON
+Virtuella Värdvolymerna (VVols) | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
 Gästen/server VMDK | Ja
 Gästen/server EFI/UEFI| Partiell (migrering till Azure för Windows Server 2012 och senare VMware endast virtuella datorer) </br></br> Se anmärkningen i slutet av tabellen
 Delad klusterdisk för gäst-server | Nej

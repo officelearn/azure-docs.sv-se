@@ -1,34 +1,34 @@
 ---
-title: "Kom igång med fjärråtkomst övervakningslösning - Azure | Microsoft Docs"
-description: "Den här kursen använder simulerade scenarier för att införa den fjärranslutna förkonfigurerade övervakningslösning. Dessa scenarier skapas när du distribuerar fjärråtkomst övervakning förkonfigurerade lösningen för första gången."
-services: 
+title: Kom igång med fjärråtkomst övervakningslösning - Azure | Microsoft Docs
+description: Den här kursen använder simulerade scenarier för att införa fjärråtkomst övervakning solution accelerator. Dessa scenarier skapas när du distribuerar fjärråtkomst övervakning solution accelerator för första gången.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Utforska funktionerna i fjärråtkomst övervakning solution accelerator
 
 Den här kursen visar de viktigaste funktionerna i den fjärranslutna övervakningslösning. För att införa dessa funktioner demonstreras kursen vanliga kundscenarier med en simulerad IoT-program för företaget Contoso.
 
 I kursen får du förstår typiska IoT-scenarier ger remote övervakningslösning out box.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
 > * Visualisera och filtrera enheter på instrumentpanelen
-> * Svara på ett larm
+> * Svara på en avisering
 > * Uppdatera den inbyggda programvaran i dina enheter
 > * Ordna dina tillgångar
 > * Stoppa och starta de simulerade enheterna
@@ -41,14 +41,14 @@ Följande videoklipp visar en genomgång av den fjärranslutna övervakningslös
 
 Den här kursen behöver en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso IoT exempeldistribution
 
 Du kan använda Contoso IoT exempeldistribution för att förstå grundläggande scenarier fjärrdatabasen övervakningslösning ger out box. Dessa scenarier bygger på verkliga IoT-distributioner. Troligen kommer du vill anpassa remote övervakningslösning för att uppfylla dina specifika krav, men Contoso-exempel hjälper dig att lära dig grunderna.
 
 > [!NOTE]
-> Om du använde CLI för att distribuera förkonfigurerade lösningen filen `deployment-{your deployment name}-output.json` innehåller information om distribution till exempel URL för åtkomst av distribuerade exemplet.
+> Om du använde CLI för att distribuera solution accelerator filen `deployment-{your deployment name}-output.json` innehåller information om distribution till exempel URL för åtkomst av distribuerade exemplet.
 
 Contoso-exempel etablerar en uppsättning simulerade enheter och regler för att fungera på dem. När du förstår de grundläggande scenarierna kan du utforska av lösningen funktioner i [utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning](iot-suite-remote-monitoring-monitor.md).
 
@@ -67,7 +67,7 @@ I följande tabell visas en sammanfattning av de etablerade enhetstyper:
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Kylaggregat            | Tryck på temperatur, fuktighet            | Typ, version på inbyggd programvara, modell               | Plats, våning, plats | Starta om, inbyggd programvara uppdateringen nödfall ventilen versionen ökad belastning                          |
 | Prototyper enhet | Temperatur, tryck, geografiska plats        | Typ, version på inbyggd programvara, modell               | Plats, läge          | Starta om, Firmware-uppdatering, flytta enheten, Stop-enhet, temperatur versionen, temperatur öka |
-| Motorn             | Tanken bränsle genom kylvätska sensor Vibration | Typ, version på inbyggd programvara, modell               | Plats, våning, plats | Starta om, Firmware-uppdatering tom tanken, Fill tanken                                              |
+| Motorn             | Tanken bränsle genom kylvätska sensor Vibration | Typ, version på inbyggd programvara, modell               | Plats, våning, plats | Firmware-uppdatering, tom tanken, Fill tanken                                              |
 | Lastbil              | Geografiska plats, hastighet, last temperatur     | Typ, version på inbyggd programvara, modell               | Plats, Läs in          | Lägre last temperatur, öka last temperatur, Firmware-uppdatering                         |
 | Snabba           | Våning Vibration, temperatur              | Typ, version på inbyggd programvara, modell, geografiska plats | Plats, plats        | Stoppa snabba Start snabba Firmware-uppdatering                                               |
 
@@ -81,50 +81,42 @@ Operatörer på Contoso vet de tröskelvärden som avgör om en enhet fungerar k
 | Regelnamn | Beskrivning | Tröskelvärde | Allvarsgrad | Berörda enheter |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Kylaggregat tryck för hög | Aviseringar om chillers nå högre än normalt tryck nivåer   |P > 250 psi       | Kritiska | Chillers            |
-| Prototyper enheten temp för hög  | Aviseringar om prototyper enheter nå högre än normal temperatur nivåer  |T > 80&deg; F |Kritiska | Prototyper enheter |
+| Prototyper enheten temp för hög  | Aviseringar om prototyper enheter nå högre än normal temperatur nivåer  |T &GT; 80&deg; F |Kritiska | Prototyper enheter |
 | Motorn tanken tom  | Aviseringar om motorn bränsletanken går tom                     | F < 5 gallon | Information     | Motorer             |
-| Högre än normal last temperatur | Aviseringar om lastbils last temperatur är högre än normalt                 | T<45&deg; F |Varning  | Lastbilar              |
+| Högre än normal last temperatur | Aviseringar om lastbils last temperatur är högre än normalt                 | T &LT; 45&deg; F |Varning  | Lastbilar              |
 | Snabba vibration stoppades      | Aviseringar om snabba slutar helt (baserat på vibration nivå)                     | V < 0,1 mm |Varning  | Hissar           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Fungera exempeldistribution Contoso
 
-Nu har du sett den första installationen i Contoso-exemplet. I följande avsnitt beskrivs tre scenarier i Contoso-exempel som visar hur en operatör kan använda förkonfigurerade lösningen.
+Nu har du sett den första installationen i Contoso-exemplet. I följande avsnitt beskrivs tre scenarier i Contoso-exempel som visar hur en operatör kan använda solution accelerator.
 
-## <a name="respond-to-a-pressure-alarm"></a>Svara på ett larm för hög belastning
+## <a name="respond-to-a-pressure-alert"></a>Svara på en avisering om hög belastning
 
-Det här scenariot visar hur du identifierar och svara på ett larm som utlöses av en kylaggregat enhet. Kylaggregat finns i Redmond, skapa 43 Våning 2.
+Det här scenariot visar hur du identifierar och svara på en avisering som utlöses av en kylaggregat enhet. Kylaggregat finns i Redmond, skapa 43 Våning 2.
 
-Som operatör kan se du i instrumentpanelen för att det finns ett larm som rör en kylaggregat tryck. Du kan Panorera och Zooma i kartan för att se mer information.
+Som operatör kan se du i instrumentpanelen för att det finns en avisering som rör en kylaggregat tryck. Du kan Panorera och Zooma i kartan för att se mer information.
 
-1. På den **instrumentpanelen** sidan den **System larm** rutnät som du kan se den **kylaggregat tryck för hög** larm. Kylaggregat markeras på kartan:
+1. På den **instrumentpanelen** sidan den **aviseringar** rutnät som du kan se den **kylaggregat tryck för hög** avisering. Kylaggregat markeras på kartan:
 
-    ![Instrumentpanelen visar trycket larm och enheten på kartan](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![Instrumentpanelen visar trycket aviseringen och enheten på kartan](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. Om du vill visa information om enhet och telemetri, klickar du på den markerade kylaggregat på kartan. Telemetrin visar en insamling tryck:
+1. Navigera till den **Underhåll** väljer **Underhåll** på navigeringsmenyn. På den **Underhåll** kan du visa information om regeln som utlöste aviseringen kylaggregat belastning.
 
-    ![Välj enhet på kartan för att visa detaljer](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
+1. Listan över aviseringar visar antalet gånger aviseringen har utlösts, bekräftelser och öppna och stänga aviseringar:
 
-1. Stäng **enheten detalj**.
+    ![Underhåll visar listan över aviseringar har utlösts](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Navigera till den **Underhåll** väljer **Underhåll** på navigeringsmenyn.
+1. Den senaste aviseringen i listan är det senaste. Klicka på den **kylaggregat tryck för hög** avisering för att visa de associerade enheter och telemetri. Telemetrin visar trycket toppar för kylaggregat:
 
-På den **Underhåll** kan du visa information om regeln som utlöste kylaggregat trycket larm.
+    ![Underhåll visar telemetri för den markerade varningen](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
-1. Listan över meddelanden visar antalet gånger som larmet har utlösts, bekräftelser och öppna och stänga larm:
+Nu har du identifierat problemet som utlöste aviseringen och den associerade enheten. Som operatör är nästa steg att bekräfta aviseringen och åtgärda problemet.
 
-    ![Underhåll visar listan över larm som har utlösts](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
+1. För att indikera att du nu fungerar på aviseringen, ändra den **Varna status** till **godkänd**:
 
-1. Första larmet i listan är det senaste. Klicka på den **kylaggregat tryck för hög** larm visa associerade enheter och telemetri. Telemetrin visar trycket toppar för kylaggregat:
+    ![Välj och bekräfta en avisering](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-    ![Underhåll visar telemetri för valda larm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
-
-Nu har du identifierat problemet som utlöste larm och den associerade enheten. Som operatör är nästa steg att bekräfta larm och åtgärda problemet.
-
-1. För att indikera att du nu arbetar med larm, ändra den **larm status** till **godkänd**:
-
-    ![Välj och bekräfta larm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
-
-1. För att fungera på kylaggregat markerar du den och väljer sedan **schema**. Välj **EmergencyValveRelease**, lägga till ett jobbnamn **ChillerPressureRelease**, och välj **tillämpa**. Dessa inställningar skapar ett jobb som körs omedelbart:
+1. För att fungera på kylaggregat markerar du den och väljer sedan **jobb**. Välj **metoden kör**, sedan **EmergencyValveRelease**, lägga till ett jobbnamn **ChillerPressureRelease**, och välj **tillämpa**. Dessa inställningar skapar ett jobb som körs omedelbart:
 
     ![Välj enheten och schemalägga en åtgärd](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -134,13 +126,13 @@ Nu har du identifierat problemet som utlöste larm och den associerade enheten. 
 
 Kontrollera slutligen att telemetri värdena från kylaggregat är tillbaka till normal.
 
-1. Om du vill visa rutnätet larm, navigera till den **instrumentpanelen** sidan.
+1. Om du vill visa aviseringar rutnätet, navigera till den **instrumentpanelen** sidan.
 
-1. Att visa enheter telemetri, markerar enheten för det ursprungliga larmet på kartan och bekräfta att du är tillbaka till normal.
+1. Att visa enheter telemetri, Välj enheten för den ursprungliga aviseringen på kartan och bekräfta att du är tillbaka till normal.
 
-1. Om du vill stänga incidenten, navigera till den **Underhåll** väljer larm, och ange status till **stängd**:
+1. Om du vill stänga incidenten, navigera till den **Underhåll** sidan väljer du aviseringen och ange status till **stängd**:
 
-    ![Välj och Stäng larm](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![Välj och stänga aviseringen](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## <a name="update-device-firmware"></a>Uppdatera enhetens inbyggda programvara
 
@@ -159,7 +151,7 @@ Använd för att utföra nödvändiga enhetens hanteringsuppgifter i **enheter**
 
     ![Välj en enhet på enhetssidan](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Klicka på den **schema** knappen och välj sedan **Firmware-uppdatering**. Ange värden för **jobbnamn**, **Version på inbyggd programvara**, och **Firmware URI**. Välj **tillämpa** att schemalägga jobbet ska köras nu:
+1. Klicka på den **jobb** knappen, Välj **metoden kör**, och välj sedan **Firmware-uppdatering**. Ange värden för **jobbnamn**, **Version på inbyggd programvara**, och **Firmware URI**. Välj **tillämpa** att schemalägga jobbet ska köras nu:
 
     ![Schemalägga firmware-uppdatering på enheten](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -176,17 +168,18 @@ Du kan använda den **Underhåll** att spåra jobbet när den körs.
 
 1. Leta upp den händelse som rör jobbet som du skapade. Kontrollera att uppdateringen firmware initierades korrekt.
 
-Du kan skapa ett filter för att verifiera versionen av inbyggd programvara uppdateras korrekt.
+<!-- 05/01 broken 
+You can create a filter to verify the firmware version updated correctly.
 
-1. Om du vill skapa ett filter, navigera till den **enheter** och välja **hantera filter**:
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![Hantera enhetsfilter](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Skapa ett filter som innehåller endast enheter med den nya versionen av inbyggd programvara:
+1. Create a filter that includes only devices with the new firmware version:
 
-    ![Skapa enhetsfilter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Gå tillbaka till den **enheter** sidan och kontrollera att enheten har den nya versionen av inbyggd programvara.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## <a name="organize-your-assets"></a>Ordna dina tillgångar
 
@@ -203,7 +196,7 @@ Du kan skapa taggnamn ska användas med enheter.
 
     ![Visa alla enheter](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. Välj den **lastbilar** och **prototyper** enheter. Välj **taggen**:
+1. Välj den **lastbilar** och **prototyper** enheter. Välj **jobb**:
 
     ![Välj enheter som prototyp och lastbil](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -211,19 +204,19 @@ Du kan skapa taggnamn ska användas med enheter.
 
     ![Lägg till tagg prototyp och lastbil enheter](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. Välj den **kylaggregat**, **snabba**, och **motorn** enheter. Välj **taggen**:
+1. Välj den **kylaggregat**, **snabba**, och **motorn** enheter. Välj **jobb**:
 
     ![Välj kylaggregat-motorn och snabba enheter](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Välj **taggen** och sedan skapa en ny text-tagg som kallas **FieldService** med ett värde **SmartBuilding**. Välj ett namn för jobbet. Klicka på **spara**:
+1. Välj **taggen** och sedan skapa en ny text-tagg som kallas **FieldService** med ett värde **SmartBuilding**. Välj ett namn för jobbet. Klicka på **Verkställ**:
 
     ![Lägg till tagg kylaggregat-motorn och snabba enheter](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 Du kan använda taggvärden för att skapa filter.
 
-1. På den **enheter** väljer **hantera filter**:
+1. På den **enheter** väljer **hantera enhetsgrupper**:
 
-    ![Hantera enhetsfilter](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Hantera enhetsgrupper](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Skapa ett nytt filter som använder taggnamnet **FieldService** och värdet **SmartBuilding**. Spara filter som **Smart byggnad**.
 
@@ -237,9 +230,17 @@ Du kan använda inställningsmenyn för att stoppa simulerade enheter. Detta hj�
 
 1. Välj den **inställningar** ikon.
 
-1. Sedan växla **kör** eller inaktivera:
+1. Sedan växla **Flowing** eller inaktivera:
 
     ![Menyn Inställningar](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="customize-the-ui"></a>Anpassa användargränssnittet
+
+Du kan använda enkla anpassningar för solution accelerator Fjärrövervaknings på inställningsmenyn. Du kan:
+
+- Växla mellan ljust och mörkt tema.
+- Ändra namnet för lösningen.
+- Ladda upp en anpassad logotyp.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -247,7 +248,7 @@ I kursen får du lärt dig att:
 
 >[!div class="checklist"]
 > * Visualisera och filtrera enheter på instrumentpanelen
-> * Svara på ett larm
+> * Svara på en avisering
 > * Uppdatera den inbyggda programvaran i dina enheter
 > * Ordna dina tillgångar
 > * Stoppa och starta de simulerade enheterna

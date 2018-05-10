@@ -27,11 +27,9 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2- Distribuera programmet
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3 – Aktivera HTTPS
-          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-        - name: 4 – Konfigurera CI/CD
+        - name: 3- Konfigurera CI/CD
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 5 – Övervaka och diagnostisera
+        - name: 4- Övervaka och diagnostisera
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Distribuera ett Java-program
       items:
@@ -563,42 +561,36 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: Övervaka och diagnostisera
       items:
-        - name: Övervakning av program
+        - name: Analysera med OMS
           items:
-            - name: Analysera med Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Lägg till loggning i programmet
-              href: service-fabric-how-to-diagnostics-log.md
-            - name: Sammanfatta händelser med EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Övervaka behållare
-              href: service-fabric-diagnostics-oms-containers.md
-        - name: Övervaka kluster
-          items:
-            - name: 'Fråga EventStore-API:er'
-              href: service-fabric-diagnostics-eventstore-query.md
-            - name: Windows Azure Diagnostics
-              href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux Azure Diagnostics
-              href: service-fabric-diagnostics-event-aggregation-lad.md
             - name: Konfigurera OMS Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
+            - name: Lägga till OMS-agenten
+              href: service-fabric-diagnostics-oms-agent.md
             - name: Övervaka med OMS
               href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Övervaka infrastruktur
+            - name: Övervaka behållare
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Analysera med Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Sammanfatta händelser – EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Sammanfatta händelser – Azure Diagnostics
           items:
-            - name: Prestandaövervakning med WAD
-              href: service-fabric-diagnostics-perf-wad.md
-            - name: Prestandaövervakning med OMS-agenten
-              href: service-fabric-diagnostics-oms-agent.md
-        - name: Övervaka hälsa
-          items:
-            - name: Rapportera och kontrollera hälsa
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Felsök med systemhälsorapporter
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Visa hälsorapporter
-              href: service-fabric-view-entities-aggregated-health.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Prestandaövervakning med WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Rapportera och kontrollera hälsa
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Lägga till loggning i tjänsten
+          href: service-fabric-how-to-diagnostics-log.md
+        - name: Felsök med systemhälsorapporter
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Visa hälsorapporter
+          href: service-fabric-view-entities-aggregated-health.md
         - name: Felsök ditt lokala kluster
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Referens

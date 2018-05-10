@@ -1,9 +1,9 @@
 ---
 title: Använd mongoimport och mongorestore med Azure Cosmos DB API för MongoDB | Microsoft Docs
 description: Lär dig hur du använder mongoimport och mongorestore för att importera data till en API för MongoDB-konto
-keywords: mongoimport, mongorestore
+keywords: mongoimport mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importera MongoDB-data 
 
@@ -28,7 +28,7 @@ Om du vill migrera data från MongoDB till ett Azure Cosmos DB-konto för använ
 * Hämta antingen *mongoimport.exe* eller *mongorestore.exe* från den [MongoDB Download Center](https://www.mongodb.com/download-center).
 * Hämta [anslutningssträngen för API för MongoDB](connect-mongodb-account.md).
 
-Om du importerar data från MongoDB och planerar att använda med Azure Cosmos DB, bör du använda den [datamigreringsverktyget](import-data.md) att importera data.
+Om du importerar data från MongoDB och planerar att använda med Azure Cosmos DB SQL API, bör du använda den [datamigreringsverktyget](import-data.md) att importera data.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -39,7 +39,7 @@ Den här självstudien omfattar följande uppgifter:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Öka genomflödet: din datamigrering varaktighet beror på mängden genomströmning som du angett för samlingar. Se till att öka genomflödet för större migrering av data. När du har slutfört migreringen, minska dataflöde för att spara kostnader. Mer information om ökar genomströmningen i den [Azure-portalen](https://portal.azure.com), se [prestandanivåer och prisnivåerna i Azure Cosmos DB](performance-levels.md).
+* Öka genomflödet: din datamigrering varaktighet beror på mängden genomströmning som du ställer in för en enskild samling eller en uppsättning samlingar. Se till att öka genomflödet för större migrering av data. När du har slutfört migreringen, minska dataflöde för att spara kostnader. Mer information om ökar genomströmningen i den [Azure-portalen](https://portal.azure.com), se [prestandanivåer och prisnivåerna i Azure Cosmos DB](performance-levels.md).
 
 * Aktivera SSL: Azure Cosmos-DB har stränga säkerhetskrav och standarder. Se till att aktivera SSL när du kommunicerar med ditt konto. I resten av artikeln finns information om hur du aktiverar SSL för mongoimport och mongorestore.
 
@@ -47,10 +47,11 @@ Den här självstudien omfattar följande uppgifter:
 
 1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan klickar du på den **Azure Cosmos DB** post.
 2. I den **prenumerationer** rutan, Välj namnet på ditt konto.
-3. I den **anslutningssträngen** bladet, klickar du på **anslutningssträngen**.  
-Den högra rutan innehåller all information som du behöver för att ansluta till ditt konto.
+3. I den **anslutningssträngen** bladet, klickar du på **anslutningssträngen**.
 
-    ![Anslutningen sträng bladet](./media/mongodb-migrate/ConnectionStringBlade.png)
+   Den högra rutan innehåller all information som du behöver för att ansluta till ditt konto.
+
+   ![Anslutningen sträng bladet](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Importera data till API: et för MongoDB med hjälp av mongoimport
 
@@ -80,9 +81,27 @@ Exempel:
 
 1. Skapa och skala dina samlingar:
         
-    * Standard etablerar Azure Cosmos DB en ny MongoDB-samling med 1 000 frågeenheter (RUs). Innan du påbörjar migreringen genom att använda mongoimport, mongorestore eller mongomirror skapa alla samlingar från den [Azure-portalen](https://portal.azure.com) eller från MongoDB-drivrutiner och verktyg. Om samlingen är större än 10 GB, se till att skapa en [delat/partitionerad samling](partition-data.md) med en lämplig Fragmentera nyckel.
+    * Standard etablerar Azure Cosmos DB en ny MongoDB-samling med 1 000 frågeenheter (RUs per sekund). Innan du påbörjar migreringen genom att använda mongoimport, mongorestore eller mongomirror skapa alla samlingar från den [Azure-portalen](https://portal.azure.com) eller från MongoDB-drivrutiner och verktyg. Om samlingen är större än 10 GB, se till att skapa en [delat/partitionerad samling](partition-data.md) med en lämplig Fragmentera nyckel.
 
-    * Från den [Azure-portalen](https://portal.azure.com), öka genomflödet av dina samlingar från 1 000 RUs för en enskild partition samling och 2 500 RUs för en delat samling för migreringen. Du kan undvika begränsning och migrera på kortare tid med högre genomströmning. Med varje timme fakturering i Azure Cosmos-databasen, kan du minska genomflödet omedelbart efter migrering för att spara kostnader.
+    * Från den [Azure-portalen](https://portal.azure.com), öka genomflödet av dina samlingar från 1 000 RUs per sekund för en enskild partition samling och 2 500 RUs per sekund för ett delat samling för migreringen. Du kan undvika begränsning och migrera på kortare tid med högre genomströmning. Med varje timme fakturering i Azure Cosmos-databasen, kan du minska genomflödet omedelbart efter migrering för att spara kostnader.
+
+    * Förutom etablering RUs per sekund på samlingsnivå, kan du också etablera RU/s för en uppsättning samlingar på den överordnade nivån för databasen. Detta kräver att skapa databasen och samlingar som definierar en Fragmentera nyckel för varje samling.
+
+    * Du kan skapa delat samlingar via din favorit-verktyget, drivrutiner och SDK. I det här exemplet använda vi Mongo-gränssnittet för att skapa en delat samling:
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Resultat:
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. Debiteringen ungefärliga RU för att skriva ett enskilt dokument:
 
@@ -92,7 +111,7 @@ Exempel:
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Kör ```db.runCommand({getLastRequestStatistics: 1})``` och du får ett svar som detta:
+    c. Kör ```db.runCommand({getLastRequestStatistics: 1})``` och du får ett svar på följande:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -111,7 +130,7 @@ Exempel:
     
     a. Aktivera utförlig loggning i MongoDB-gränssnittet med hjälp av det här kommandot: ```setVerboseShell(true)```
     
-    b. Kör en enkel fråga mot databasen: ```db.coll.find().limit(1)```. Du får ett svar som detta:
+    b. Kör en enkel fråga mot databasen: ```db.coll.find().limit(1)```. Du får ett svar som liknar följande:
 
         ```
         Fetched 1 record(s) in 100(ms)

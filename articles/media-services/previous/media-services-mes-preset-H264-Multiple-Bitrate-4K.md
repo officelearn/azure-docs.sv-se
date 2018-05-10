@@ -1,11 +1,11 @@
 ---
-title: "H264 Multibithastighet 4K Media Encoder Standard förinställda - Azure | Microsoft Docs"
-description: "Avsnittet ger en översikt över de ** H264 Multibithastighet 4 K ** uppgiften förinställda."
+title: H264 Multibithastighet 4K Media Encoder Standard förinställda - Azure | Microsoft Docs
+description: Avsnittet ger en översikt över de **H264 Multibithastighet 4K** aktivitet förinställningen.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: aba8e29e-d145-4f7b-814f-405f9c2a183b
 ms.service: media-services
 ms.workload: media
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 2d150fec68378e22ac644c0b8ccfe09c7f364738
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 Multibithastighet 4K
-`Media Encoder Standard`definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Det här avsnittet beskrivs de `H264 Multiple Bitrate 4K` förinställda XML och JSON-format.  
   

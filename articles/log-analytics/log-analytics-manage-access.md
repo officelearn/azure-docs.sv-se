@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -34,7 +34,7 @@ För att skapa en arbetsyta måste du:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
 En arbetsyta är en Azure-resurs och en behållare där data samlas in, aggregeras, analyseras och presenteras på Azure Portal.
 
-Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta. Tidigare kunde du endast analysera data inifrån den aktuella arbetsytan, vilket begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration. Nu kan du [fråga över flera arbetsytor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), vilket ger en systemomfattande överblick över dina data. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta. Tidigare kunde du endast analysera data inifrån den aktuella arbetsytan, vilket begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration. Nu kan du [fråga över flera arbetsytor](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), vilket ger en systemomfattande överblick över dina data. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
 
 För närvarande tillhandahåller en arbetsyta:
 

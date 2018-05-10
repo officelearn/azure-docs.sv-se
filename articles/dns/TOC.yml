@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: Skapa DNS-zon och -post – CLI
       href: dns-getstarted-cli.md
-- name: Exempel
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Självstudier
   items:
     - name: Skapa privat DNS-zon och -post
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Skapa anpassade DNS-poster för en webbapp
       href: dns-web-sites-custom-domain.md
+- name: Exempel
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Begrepp
   items:
     - name: DNS-zoner och -poster

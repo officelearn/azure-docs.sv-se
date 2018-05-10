@@ -1,11 +1,10 @@
 ---
-title: "Exportera till SQL från Azure Application Insights | Microsoft Docs"
+title: Exportera till SQL från Azure Application Insights | Microsoft Docs
 description: Exportera kontinuerligt Application Insights-data till SQL med Stream Analytics.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
-editor: mrbullwinkle
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e410bb87d017a7659c3eaffbedef378aaf7f5716
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från Application Insights med Stream Analytics
 Den här artikeln visar hur du flyttar telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -32,7 +31,7 @@ Vi börjar med att anta att du redan har appen som du vill övervaka.
 I det här exemplet ska vi använda sidan Visa data, men samma mönster kan enkelt utökas till andra datatyper, till exempel anpassade händelser och undantag. 
 
 ## <a name="add-application-insights-to-your-application"></a>Lägg till Application Insights i ditt program
-Att komma igång:
+Så här kommer du igång:
 
 1. [Konfigurera Application Insights för webbsidor](app-insights-javascript.md). 
    
@@ -171,10 +170,10 @@ Prefixet sökvägar anger hur Stream Analytics hittar indatafilerna i lagringen.
 
 I det här exemplet:
 
-* `webapplication27`är namnet på Application Insights-resurs **i gemen**. 
-* `1234...`är instrumentation nyckel för Application Insights-resursen **med bindestreck bort**. 
-* `PageViews`är typ av data som vi vill analysera. Tillgängliga typer är beroende av filtret som du anger i löpande Export. Granska exporterade data för att se de tillgängliga typerna och se den [exportera datamodellen](app-insights-export-data-model.md).
-* `/{date}/{time}`ett mönster skrivs bokstavligt.
+* `webapplication27` är namnet på Application Insights-resurs **i gemen**. 
+* `1234...` är instrumentation nyckel för Application Insights-resursen **med bindestreck bort**. 
+* `PageViews` är typ av data som vi vill analysera. Tillgängliga typer är beroende av filtret som du anger i löpande Export. Granska exporterade data för att se de tillgängliga typerna och se den [exportera datamodellen](app-insights-export-data-model.md).
+* `/{date}/{time}` ett mönster skrivs bokstavligt.
 
 Öppna Essentials på dess översiktssidan för att få namnet och iKey av Application Insights-resurs, eller öppna inställningar.
 

@@ -5,20 +5,20 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+manager: dougeby
+ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
-Azure Cost Management hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig hur man:
+Azure Cost Management hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa prognoser för framtida utgifter

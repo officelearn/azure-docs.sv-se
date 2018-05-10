@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 897b45782dee14099d5d7a7b12c49e2bfd60b309
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupp med mappning av beroende
 
@@ -24,18 +24,18 @@ Den här artikeln beskriver hur du förfina en grupp med visualisera beroenden f
 # <a name="prepare-the-group-for-dependency-visualization"></a>Förbereda gruppen för beroende visualisering
 Om du vill visa beroenden för en grupp som du behöver hämta och installera agenter på varje lokal dator som ingår i gruppen. Dessutom om du har datorer med utan internet-anslutning, måste du hämta och installera [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
 
-### <a name="download-and-install-the-vm-agents"></a>Hämta och installera agenter för VM
+### <a name="download-and-install-the-vm-agents"></a>Hämta och installera VM-agenterna
 1. I **översikt**, klickar du på **hantera** > **grupper**går du till den nödvändiga gruppen.
 2. I listan över datorer i den **beroendeagent** kolumnen, klickar du på **måste du installera** att visa instruktioner om hur du hämtar och installerar agenter.
 3. På den **beroenden** ladda ned och installera Microsoft Monitoring Agent (MMA) och beroende-agenten på varje virtuell dator som ingår i gruppen.
-4. Kopiera arbetsyte-ID och nyckel. Du behöver dem när du installerar MMA på lokala datorer.
+4. Kopiera arbetsytans ID och nyckel. Du behöver dem när du installerar MMA på lokala datorer.
 
 ### <a name="install-the-mma"></a>Installera MMA
 
 Installera agenten på en Windows-dator:
 
-1. Dubbelklicka på den hämta agenten.
-2. På sidan **Välkommen** klickar du på **Nästa**. På den **licensvillkoren** klickar du på **jag accepterar** att acceptera licensvillkoren.
+1. Dubbelklicka på den hämtade agenten.
+2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **Licensvillkor** klickar du på **Jag accepterar** för att acceptera licensen.
 3. I **målmappen**, behålla eller ändra standardinstallationsmappen > **nästa**. 
 4. I **installationsalternativ för Agent**väljer **Azure logganalys** > **nästa**. 
 5. Klicka på **Lägg till** att lägga till en ny logganalys-arbetsyta. Klistra in i arbetsyte-ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
@@ -49,13 +49,13 @@ Installera agenten på en Linux-dator:
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
 
-### <a name="install-the-dependency-agent"></a>Installera agenten beroende
+### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 1. Dubbelklicka på installationsfilen för att installera agenten beroende på en Windows-dator, och följ instruktionerna i guiden.
 2. Installera agenten beroende på en Linux-dator, installera som rot med följande kommando:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Lär dig mer](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) om operativsystem som stöds av beroendeagent. 
+[Lär dig mer](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) om operativsystem som stöds av beroendeagent. 
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Förfina grupp baserat på beroendet visualiseringen
 När du har installerat agenter på alla datorer i gruppen kan du visualisera beroenden för gruppen och förfina genom att följa de nedanstående steg.
@@ -69,7 +69,7 @@ När du har installerat agenter på alla datorer i gruppen kan du visualisera be
     - Processer som körs på datorn som du kan expandera varje dator kryssrutan för att visa processer
     - Egenskaper som fullständigt kvalificerade namn, operativsystem, etc. för MAC-adress för varje dator som du kan klicka på varje dator om du vill visa den här informationen
 
-     ![Visa beroenden för grupp](./media/how-to-create-group-dependencies/view-group-dependencies.png)
+     ![Visa gruppberoenden](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Klicka på tidsintervall om du vill ändra den om du vill visa mer detaljerad beroenden. Som standard är intervallet en timme. Du kan ändra tidsintervallet eller ange start- och slutdatum och varaktighet.
 4. Kontrollera beroende datorer processen körs på varje dator och identifiera de datorer som ska läggas till eller tas bort från gruppen.

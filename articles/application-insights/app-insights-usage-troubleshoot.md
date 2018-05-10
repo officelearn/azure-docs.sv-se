@@ -1,9 +1,9 @@
 ---
-title: "Felsöka användningsanalys i Azure Application Insights"
-description: "Felsökningsguide för - och analysera användning av plats och program med Application Insights."
+title: Felsöka användningsanalys i Azure Application Insights
+description: Felsökningsguide för - och analysera användning av plats och program med Application Insights.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Felsöka användningsanalys i Application Insights
 Har frågor om den [användning analytics verktyg i Application Insights](app-insights-usage-overview.md): [användare, sessioner, händelser](app-insights-usage-segmentation.md), [skorstenar](usage-funnels.md), [användaren flödar](app-insights-usage-flows.md), [Kvarhållning](app-insights-usage-retention.md), eller kohorter? Här är några svar.

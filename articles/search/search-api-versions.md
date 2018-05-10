@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 3235813708b3c097e7f66610796f75eafd06aa05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="api-versions-in-azure-search"></a>API-versioner i Azure Search
 Azure Search samlar funktionen uppdateras regelbundet. Ibland, men inte alltid kräver dessa uppdateringar oss att publicera en ny version av våra API för att bevara bakåtkompatibilitet. En ny version kan du styra hur och när du integrerar tjänstuppdateringar för sökning i koden.
@@ -32,8 +32,9 @@ Nedan en ögonblicksbild av de aktuella versionerna av alla programmeringsgräns
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |5.0 |Allmänt tillgänglig, publicerat April 2018 |
 | [Förhandsversion av .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Förhandsgranskning, publicerat maj 2017 |
-| [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Allmänt tillgänglig |
-| [Tjänsten REST API-förhandsgranskning](search-api-2016-09-01-preview.md) |2016-09-01-preview |Förhandsversion |
+| [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Allmänt tillgänglig |
+| [Tjänsten REST API 2016-09-01-Preview](search-api-2016-09-01-preview.md) |2016-09-01-preview |Förhandsversion |
+| [Tjänsten REST API-2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-preview |Förhandsversion |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Allmänt tillgänglig |
 | [REST API för hantering](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Allmänt tillgänglig |
 

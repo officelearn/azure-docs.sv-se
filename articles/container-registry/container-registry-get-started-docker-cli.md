@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f2d3bde5e92a035709b1a8e49b76d3da079680
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-behållarregister med hjälp av Docker CLI
 
@@ -125,6 +125,6 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 Nu när du känner till grunderna är du redo att börja använda registret! Distribuera behållare bilder från registret för att:
 
-* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes-tjänsten (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure-Behållarinstanser](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

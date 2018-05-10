@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 2c6f5cf2d89da0c2418ac58ca5d47a8aa05e732f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-best-practices"></a>Sakernas Internet säkerhetsmetoder
 
 Skydda Sakernas Internet (IoT)-infrastruktur kräver en rigorösa security-strategi. Den här strategin måste du skydda data i molnet, skydda dataintegriteten som överförs via det offentliga internet och etablera enheter på ett säkert sätt. Varje lager skapar större säkerhet säkerhet i hela infrastrukturen.
@@ -7,7 +23,7 @@ Skydda Sakernas Internet (IoT)-infrastruktur kräver en rigorösa security-strat
 Den här strategin för säkerhet på djupet kan utvecklas och utförs med aktiv medverkan av olika aktörer med tillverkning, utveckling och distribution av IoT-enheter och infrastrukturen. Nedan följer en beskrivning av dessa spelare.
 
 * **IoT maskinvara tillverkare/integrator**: dessa spelare normalt tillverkare av IoT-maskinvara som distribueras i dietetisk montering maskinvara från olika tillverkare och leverantörer som tillhandahåller maskinvara för en IoT-distribution tillverkade eller integrerat med andra leverantörer.
-* **IoT-lösningen developer**: utvecklingen av en IoT-lösning bör göras av en för lösningsutvecklare. Den här utvecklare kan en del av en interna team eller en systemintegreraren (SI) som har specialiserat sig på den här aktiviteten. IoT-lösningen utvecklare kan utveckla olika komponenter i IoT-lösningen från början, integrera olika standardprogram eller öppen källkod komponenter eller anta förkonfigurerade lösningar med mindre anpassning.
+* **IoT-lösningen developer**: utvecklingen av en IoT-lösning bör göras av en för lösningsutvecklare. Den här utvecklare kan en del av en interna team eller en systemintegreraren (SI) som har specialiserat sig på den här aktiviteten. IoT-lösningen utvecklare kan utveckla olika komponenter i IoT-lösningen från början, integrera olika standardprogram eller öppen källkod komponenter eller anta solution Accelerator med mindre anpassning.
 * **IoT-lösningen deployer**: efter IoT-lösningen har utvecklats, den måste distribueras i fältet. Den här processen distribution av maskinvara, sammankoppling av enheter och distribution av lösningar i maskinvaruenheter eller molnet.
 * **IoT-lösningen operatorn**: efter IoT-lösningen distribueras kräver den långsiktiga driften, övervakningen, uppgraderingar och underhåll. Dessa uppgifter kan utföras av en intern team som omfattar information technology specialister, maskinvara åtgärder och underhåll team och domän specialister som övervakar rätt beteendet för övergripande IoT-infrastruktur.
 

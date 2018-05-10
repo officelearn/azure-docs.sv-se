@@ -1,10 +1,26 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sakernas Internet security från grunden
 
 Sakernas Internet (IoT) utgör unika säkerhet, sekretess och kompatibilitet utmaningar för företag över hela världen. Till skillnad från traditionella cyber teknik där problemen omfångsfasen handlar om programvara och hur den har implementerats gäller IoT vad som händer när cyber och fysiska arbetslivet Konvergera. Skydda IoT-lösningar kräver att säkerställa säker etablering av enheter, säker anslutning mellan dessa enheter och molnet och säkert dataskydd i molnet under bearbetning och lagring. Arbeta mot dessa funktioner är dock begränsad resurs enheter, geografisk fördelning av distributioner och ett stort antal enheter i en lösning.
 
-Den här artikeln innehåller hur Microsoft Azure IoT Suite ger en säker och privat molnlösning för Sakernas Internet. Azure IoT Suite ger en komplett lösning för slutpunkt till slutpunkt med säkerhet som är inbyggda i varje steg från grunden. Microsoft säker programutveckling är en del av programvara tekniker tips är rotad i Microsofts åren länge upplevelse av att utveckla säkra program. För att säkerställa att detta, är Security Development Lifecycle (SDL) den grundläggande development metod, tillsammans med en mängd infrastruktur säkerhetsnivå tjänster som operativa säkerhet försäkran OSA och Microsoft Digital Crimes Unit i Microsoft Security Response Center och Microsoft Malware Protection Center.
+Den här artikeln innehåller hur IoT solution Accelerator ger en säker och privat molnlösning för Sakernas Internet. Solution Accelerator leverera en komplett lösning för slutpunkt till slutpunkt med säkerhet som är inbyggda i varje steg från grunden. Microsoft säker programutveckling är en del av programvara tekniker tips är rotad i Microsofts åren länge upplevelse av att utveckla säkra program. För att säkerställa att detta, är Security Development Lifecycle (SDL) den grundläggande development metod, tillsammans med en mängd infrastruktur säkerhetsnivå tjänster som operativa säkerhet försäkran OSA och Microsoft Digital Crimes Unit i Microsoft Security Response Center och Microsoft Malware Protection Center.
 
-Azure IoT Suite erbjuder unika funktioner som gör etablering, ansluta till och lagring av data från IoT-enheter enkelt och transparent och de flesta av alla, säker. Den här artikeln undersöks säkerhetsfunktioner Azure IoT Suite och distribution för att garantera säkerhet, sekretess och kompatibilitet utmaningar behandlas.
+Solution Accelerator erbjuder unika funktioner som gör etablering, ansluter till och lagring av data från IoT-enheter enkelt och transparent och de flesta av alla, säker. Den här artikeln undersöks säkerhetsfunktioner för Azure IoT-lösningen acceleratorer och distribution för att garantera säkerhet, sekretess och kompatibilitet utmaningar behandlas.
 
 ## <a name="introduction"></a>Introduktion
 
@@ -26,17 +42,17 @@ Microsoft Azure erbjuder en komplett molnlösning som kombinerar en ständigt v�
 
 Microsofts system ger kontinuerlig intrångsidentifiering och förebygga, service skydd mot attacker, reguljära intrång testning och kriminalteknisk verktyg för att identifiera och åtgärda hot. [Multifaktorautentisering](../articles/active-directory/authentication/multi-factor-authentication.md) ger ett extra lager av säkerhet för slutanvändare få åtkomst till nätverket. Och för programmet och värd-providern, erbjuder Microsoft åtkomstkontroll, övervakning, skadlig kod, säkerhetsproblem genomsökning, korrigeringsfiler och konfigurationshantering.
 
-Microsoft Azure IoT Suite drar nytta av säkerhet och sekretess som är inbyggda i Azure-plattformen tillsammans med SDL och OSA processer för säker utveckling och drift av alla Microsoft-programvara. De här procedurerna tillhandahålla infrastrukturen skydd, nätverksskydd och identitets- och funktioner som är grundläggande för att säkerheten för en lösning.
+Solution Accelerator dra nytta av säkerhet och sekretess som är inbyggda i Azure-plattformen tillsammans med SDL och OSA processer för säker utveckling och drift av alla Microsoft-programvara. De här procedurerna tillhandahålla infrastrukturen skydd, nätverksskydd och identitets- och funktioner som är grundläggande för att säkerheten för en lösning.
 
-Den [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) inom den [IoT Suite](../articles/iot-suite/iot-suite-what-is-azure-iot.md) ger en fullständigt hanterad tjänst som gör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster som [ Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) genom att använda säkerhetsreferenser per enhet och åtkomstkontroll.
+Den [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) inom den [IoT solution Accelerator](../articles/iot-suite/iot-suite-what-is-azure-iot.md) ger en fullständigt hanterad tjänst som gör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster som [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) genom att använda säkerhetsreferenser per enhet och åtkomstkontroll.
 
-Om du vill kommunicera bäst säkerhet och sekretess som finns inbyggda i Azure IoT Suite, uppdelad i den här artikeln suite till tre primära säkerhetsområden.
+Om du vill kommunicera bäst säkerhet och sekretess som finns inbyggda i Azure IoT solution Accelerator, uppdelad i den här artikeln suite till tre primära säkerhetsområden.
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Azure IoT-lösningsacceleratorer](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Säker enhetsetableringen och autentisering
 
-Azure IoT Suite skyddar enheter när de ut i fältet genom att tillhandahålla en unik identitetsnyckel för varje enhet som kan användas av IoT-infrastruktur för att kommunicera med enheten när den är i drift. Processen går snabbt och enkelt att ställa in. Genererad nyckel med en användarvalda enhets-ID utgör grunden för en token som används i all kommunikation mellan enheten och Azure IoT Hub.
+Solution Accelerator skydda enheter när de ut i fältet genom att tillhandahålla en unik identitetsnyckel för varje enhet som kan användas av IoT-infrastruktur för att kommunicera med enheten när den är i drift. Processen går snabbt och enkelt att ställa in. Genererad nyckel med en användarvalda enhets-ID utgör grunden för en token som används i all kommunikation mellan enheten och Azure IoT Hub.
 
 Enhets-ID kan vara kopplad till en enhet under tillverkning (som är, blinkade i en modul för maskinvara förtroende) eller använda en befintlig fast identitet som en proxy (till exempel serienummer CPU). Eftersom den här identifieringsinformation i enheten inte är enkelt, är det viktigt att införa logiska enhets-ID om de underliggande enhet maskinvaruändringarna men den logiska enheten är densamma. I vissa fall associationen mellan en enhetsidentitet kan inträffa vid tidpunkten för distribution av enheten (till exempel en autentiserad fältet tekniker fysiskt konfigurerar en ny enhet under kommunikationen med serverdelen lösning). Den [Azure IoT Hub identitetsregistret](../articles/iot-hub/iot-hub-devguide.md) tillhandahåller säker lagring av enheten identiteter och säkerhetsnycklar för en lösning. En eller flera enheter identiteter kan läggas till en lista över tillåtna eller blockerade webbplatser, aktivera fullständig kontroll över enheten.
 
@@ -64,9 +80,9 @@ Säkerhetsfunktioner för ytterligare en anslutning är:
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Säker bearbetning och lagring i molnet
 
-Azure IoT Suite hjälper att säkra data för från krypterad kommunikation till databearbetning i molnet. Det ger flexibilitet för att implementera ytterligare kryptering och hantering av säkerhetsnycklar.
+Från krypterad kommunikation till databearbetning i molnet skydda solution Accelerator data. Det ger flexibilitet för att implementera ytterligare kryptering och hantering av säkerhetsnycklar.
 
-Azure Active Directory (AAD) ger för användarautentisering och auktorisering, Azure IoT Suite en principbaserad auktoriseringsmodellen för data i molnet, möjliggör enkel åtkomsthantering som kan granskas och granskas. Den här modellen kan också nästan omedelbar återkallade åtkomst till data i molnet och enheter som är anslutna till Azure IoT Suite.
+Använder Azure Active Directory (AAD) för autentisering och auktorisering, utgör Azure IoT solution Accelerator en auktoriseringsmodell för principbaserad för data i molnet, möjliggör enkel åtkomsthantering som kan granskas och granskas. Den här modellen kan också nästan omedelbar återkallade åtkomst till data i molnet och enheter som är anslutna till Azure IoT-Lösningsacceleratorer.
 
 När data finns i molnet, kan de bearbetas och lagras i alla användardefinierade arbetsflöden. Åtkomst till varje del av informationen som kontrolleras med Azure Active Directory, beroende på lagringstjänsten som används.
 
@@ -76,11 +92,11 @@ Alla nycklar som används av IoT-infrastruktur lagras i molnet i säker lagring 
 
 Sakernas Internet börjar med dina saker – de saker som betyder mest för företag. IoT kan leverera häpnadsväckande värdet till ett företag genom att minska kostnaderna, öka intäkter och omvandla företag. Lyckats transformationen beror till stor del på att välja rätt IoT programvara och service provider. Det innebär att hitta en provider som inte bara catalyzes transformationen genom att förstå behov och krav, men ger också tjänster och program som skapats med säkerhet, sekretess, genomskinlighet och kompatibilitet som större designöverväganden. Microsoft har omfattande erfarenhet av att utveckla och distribuera säkra program och tjänster och fortsätter att vara ledande i den här nya ålder Sakernas Internet.
 
-Microsoft Azure IoT Suite bygger i säkerhetsåtgärder genom design, aktivera säker övervakning av tillgångar att förbättra effektiviteten operativa Enhetsprestanda att aktivera innovation och använda avancerade analyser för att omvandla företag. Med dess överlappande tillvägagångssättet för säkerhet, flera säkerhetsfunktioner och designmönster kan Azure IoT Suite distribuera en infrastruktur som kan användas för att omvandla ett företag.
+Solution Accelerator bygger i säkerhetsåtgärder genom design, aktivera säker övervakning av tillgångar att förbättra effektiviteten operativa Enhetsprestanda att aktivera innovation och använda avancerade dataanalys att omvandla företag. Med dess överlappande tillvägagångssättet för säkerhet, flera säkerhetsfunktioner och designmönster hjälpa solution Accelerator dig att distribuera en infrastruktur som kan användas för att omvandla ett företag.
 
 ## <a name="additional-information"></a>Ytterligare information
 
-Varje Azure IoT Suite förkonfigurerade lösning skapar instanser av Azure-tjänster, exempelvis:
+Varje lösningsaccelerator skapar instanser av Azure-tjänster, exempelvis:
 
 * [**Azure IoT-hubb**](https://azure.microsoft.com/services/iot-hub/): din gateway som ansluter molnet till enheter. Du kan skala till miljontals anslutningar per hubb och bearbeta massiva mängder data med per enhet autentiseringsstöd som hjälper dig att skydda din lösning.
 * [**Azure Cosmos-DB**](https://azure.microsoft.com/services/cosmos-db/): en skalbar, -indexerat databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och egenskaper för säkerhetsbehörighet. Azure Cosmos-DB ger hög prestanda och hög genomströmning bearbetning, schema-oberoende indexering av data och en omfattande SQL-gränssnitt.

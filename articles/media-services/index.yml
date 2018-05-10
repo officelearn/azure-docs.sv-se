@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation för Azure Media Services
+metadata:
+  document_id: 
+  title: Dokumentation för Azure Media Services | Microsoft Docs
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+  ms.openlocfilehash: 6bee2f17db6d1f79dd2ba84a278ff6a82b871a9e
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Azure Media Services är en molnbaserad plattform för att skapa lösningar för videor i sändningskvalitet för direktuppspelning, förbättra tillgängligheten och distributionen, analysera innehållet och mycket mer.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/azure/media-services/latest/"> <br><strong>Azure Media Services v3 (förhandsversion)</strong></a> <p>Lär dig mer om att strömma på begäran, sända live och analysera dina videoklipp med Media Services v3.</p>
+    - html: <a href="/azure/media-services/previous/"> <br><strong>Azure Media Services v2 (GA)</strong></a> <p>Lär dig mer om att strömma på begäran, sända live och analysera dina videoklipp med Media Services v2.</p>
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du skapar ett Media Services-konto, börjar koda dina videoklipp och använder Azure Media Player för att spela upp dem:'
+  - type: list
+    style: ordered
+    items:
+    - html: Strömma filer&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig mer om att strömma filer och analysera dina videoklipp med Media Services:'
+  - type: list
+    style: ordered
+    items:
+    - html: Ladda upp, koda, strömma videoklipp&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
+    - html: Analysera videoklipp&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>

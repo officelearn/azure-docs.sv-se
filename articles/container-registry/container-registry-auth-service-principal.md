@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 2dd96880292f98d6635ae5223b34cf3b78c81e16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 16af83522dd55744c485f6dd3696481e16da1b22
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container registret autentisering med tjänstens huvudnamn
 
@@ -51,7 +51,7 @@ Du kan använda dess autentiseringsuppgifter i dina program och tjänster för i
 
 Konfigurera enskilda program att använda service principal autentiseringsuppgifter är utanför omfånget för den här artikeln, hittar du anvisningar för vissa specifika tjänster och plattformar här:
 
-* [Autentisera med Azure-behållaren registret från Azure Container Service (AKS)](container-registry-auth-aks.md)
+* [Autentisera med Azure-behållaren registret från Azure Kubernetes-tjänsten (AKS)](container-registry-auth-aks.md)
 * [Autentisera med Azure-behållaren registret från Azure-Behållarinstanser (ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->

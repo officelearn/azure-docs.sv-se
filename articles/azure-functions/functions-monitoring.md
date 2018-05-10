@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Funktioner har också inbyggd övervakning som inte använder Application Insights. Vi rekommenderar Application Insights eftersom det ger mer data och bättre sätt att analysera data. Information om inbyggd övervakning finns i [i den här artikeln för senaste](#monitoring-without-application-insights).
+Funktioner har också [inbyggda övervakning som inte använder Application Insights](#monitoring-without-application-insights). Vi rekommenderar Application Insights eftersom det ger mer data och bättre sätt att analysera data.
 
-## <a name="enable-application-insights-integration"></a>Aktivera Application Insights-integrering
+## <a name="application-insights-pricing-and-limits"></a>Application Insights priser och gränser
 
-Den måste veta instrumentation nyckeln för en instans av Application Insights för en funktionsapp att skicka data till Application Insights. Det finns två sätt att göra anslutningen som det [Azure-portalen](https://portal.azure.com):
+Du kan prova Application Insights-integrering med funktionen appar kostnadsfritt. Men det finns en daglig gräns för hur mycket data kan bearbetas gratis och du kan träffa denna gräns under testningen. Azure tillhandahåller portal och e-postaviseringar när du närmar dig din dagliga gränsen.  Men om du missar de aviseringarna och nådde gränsen som nya loggar visas inte i Application Insights frågor. Vara medveten om gränsen för att undvika onödiga tidsåtgången för felsökning. Mer information finns i [hantera priser och data volym i Application Insights](../application-insights/app-insights-pricing.md).
 
-* [Skapa en ansluten Application Insights-instans när du skapar appen funktionen](#new-function-app).
-* [Ansluta en Application Insights-instans till en befintlig funktionsapp](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>Aktivera App Insights-integrering
+
+Den måste veta instrumentation nyckeln för Application Insights-resurs för en funktionsapp att skicka data till Application Insights. Nyckeln måste anges i en appinställning med namnet APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Du kan ställa in den här anslutningen i den [Azure-portalen](https://portal.azure.com):
+
+* [Automatiskt för en ny funktionsapp](#new-function-app)
+* [Anslut en App Insights-resursen manuellt](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>Ny funktionsapp
 
-Aktivera Application Insights i funktionen appen **skapa** sidan:
+1. Gå till appen med funktionen **skapa** sidan.
 
 1. Ange den **Programinsikter** växla **på**.
 
 2. Välj en **Application Insights plats**.
 
+   Välj den region som ligger närmast din funktionsapp region i en [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill att data ska lagras.
+
    ![Aktivera Application Insights när du skapar en funktionsapp](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>Befintliga funktionsapp
+3. Ange den nödvändiga informationen.
 
-Hämta instrumentation nyckeln och spara den i en funktionsapp:
+1. Välj **Skapa**.
 
-1. Skapa Application Insights-instans. Ange program **allmänna**.
+Nästa steg är att [inaktivera inbyggda loggning](#disable-built-in-logging).
 
-   ![Skapa en instans av Application Insights, Skriv allmänna](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>Anslut en App Insights-resursen manuellt 
 
-2. Kopiera instrumentation nyckeln från den **Essentials** sidan av Application Insights-instansen. Hovra över slutet av värdet för nyckeln visas att hämta en **Klicka om du vill kopiera** knappen.
+1. Skapa Application Insights-resursen. Ange program **allmänna**.
+
+   ![Skapa en Application Insights-resurs skriver Allmänt](media/functions-monitoring/ai-general.png)
+
+2. Kopiera instrumentation nyckeln från den **Essentials** sidan i Application Insights-resursen. Hovra över slutet av värdet för nyckeln visas att hämta en **Klicka om du vill kopiera** knappen.
 
    ![Kopiera nyckeln som Application Insights instrumentation](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Hämta instrumentation nyckeln och spara den i en funktionsapp:
 
 Om du aktiverar Application Insights, rekommenderar vi att du inaktiverar den [inbyggd loggning som använder Azure storage](#logging-to-storage). Inbyggd loggning är användbart för testning med lätta arbetsbelastningar men är inte avsedd för hög belastning produktion. Application Insights rekommenderas för övervakning av produktionen. Om du använder inbyggd loggning i produktion kan loggning posten vara ofullständiga på grund av begränsningar i Azure Storage.
 
-Om du vill inaktivera inbyggda loggning genom att ta bort den `AzureWebJobsDashboard` appinställningen. Information om hur du tar bort app-inställningar i Azure portal finns det **programinställningar** avsnitt i [hur du hanterar en funktionsapp](functions-how-to-use-azure-function-app-settings.md#settings).
+Om du vill inaktivera inbyggda loggning genom att ta bort den `AzureWebJobsDashboard` appinställningen. Information om hur du tar bort app-inställningar i Azure portal finns det **programinställningar** avsnitt i [hur du hanterar en funktionsapp](functions-how-to-use-azure-function-app-settings.md#settings). Innan du tar bort appinställningen, se till att inga befintliga funktioner i appen med samma funktion använder den för Azure Storage-utlösare och bindningar.
 
-När du aktiverar Application Insights och inaktivera inbyggda loggning, den **övervakaren** för en funktion i Azure-portalen går du till Application Insights.
+## <a name="view-telemetry-in-monitor-tab"></a>Visa telemetri i fliken övervakning
 
-## <a name="view-telemetry-data"></a>Visa telemetridata
+När du har ställt in Application Insights integration som visas i föregående avsnitt, kan du visa telemetridata i den **övervakaren** fliken.
 
-För att navigera till den anslutna Application Insights-instansen från en funktionsapp i portalen, Välj den **Programinsikter** länk på funktionsapp **översikt** sidan.
+1. På sidan funktionen app väljer du en funktion som har körts minst en gång när Application Insights har konfigurerats och välj sedan den **övervakaren** fliken.
+
+   ![Välj fliken övervakning](media/functions-monitoring/monitor-tab.png)
+
+2. Välj **uppdatera** regelbundet tills listan med funktionsanrop visas.
+
+   Det kan ta upp till 5 minuter innan listan ska visas på grund av hur telemetridata för klienten batchar för överföring till servern. (Den här fördröjningen kan inte användas för den [direktsänd dataström med mått](../application-insights/app-insights-live-stream.md). Tjänsten ansluter till värden för funktioner när du läser in sidan så loggar strömmas direkt till sidan.)
+
+   ![Anrop listan](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. Om du vill visa loggarna för ett visst funktionsanrop, Välj den **datum** kolumnen länk för att anropa.
+
+   ![Anrop Informationslänk](media/functions-monitoring/invocation-details-link-ai.png)
+
+   Loggning utdata för att anropa visas i en ny sida.
+
+   ![Anropsinformation](media/functions-monitoring/invocation-details-ai.png)
+
+Båda sidor (anrop listan och information) som länkar till Application Insights Analytics-fråga som hämtar data:
+
+![Kör i Application Insights](media/functions-monitoring/run-in-ai.png)
+
+![Programlista insikter Analytics anrop](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+De här frågorna du se att listan anrop är begränsad till den senaste 30 dagar längre än 20 rader (`where timestamp > ago(30d) | take 20`) och anrop information om listan är för de senaste 30 dagarna utan gräns.
+
+Mer information finns i [fråga telemetridata](#query-telemetry-data) senare i den här artikeln.
+
+## <a name="view-telemetry-in-app-insights"></a>Visa telemetri i appen insikter
+
+Om du vill öppna Application Insights från en funktionsapp i Azure portal, Välj den **Application Insights** länken i den **konfigurerats funktioner** avsnitt i appen funktionen **översikt** sidan.
+
+![Application Insights länk på översiktssidan](media/functions-monitoring/ai-link.png)
+
 
 Information om hur du använder Application Insights finns i [Application Insights dokumentationen](https://docs.microsoft.com/azure/application-insights/). Detta avsnitt visar några exempel på hur du visar data i Application Insights. Om du redan är bekant med Application Insights kan du gå direkt till [avsnitt om att konfigurera och anpassa telemetridata](#configure-categories-and-log-levels).
 
@@ -221,7 +266,7 @@ Dessa loggar visas som ”begäranden” i Application Insights. De visar lyckad
 
 Alla dessa loggar skrivs på `Information` nivå, så om du filtrerar på `Warning` eller senare, visas inte någon av dessa data.
 
-### <a name="category-hostaggregator"></a>Category Host.Aggregator
+### <a name="category-hostaggregator"></a>Kategori Host.Aggregator
 
 Dessa loggar ge antal och genomsnitt av funktionsanrop via en [konfigurerbara](#configure-the-aggregator) period tid. Standardvärdet är 30 sekunder eller 1 000 resultat, beroende på vilket som inträffar först. 
 
@@ -256,7 +301,7 @@ Enligt beskrivningen i föregående avsnitt samlar körningsmiljön in data om f
 
 ## <a name="configure-sampling"></a>Konfigurera provtagning
 
-Application Insights har en [provtagning](../application-insights/app-insights-sampling.md) funktion som kan skydda dig från producerar för mycket telemetridata ibland av belastning. När antalet objekt som telemetri överskrider en angiven hastighet, startar Application Insights att ignorera slumpmässigt vissa inkommande objekt. Du kan konfigurera provtagning i *host.json*.  Här är ett exempel:
+Application Insights har en [provtagning](../application-insights/app-insights-sampling.md) funktion som kan skydda dig från producerar för mycket telemetridata ibland av belastning. När antalet objekt som telemetri överskrider en angiven hastighet, startar Application Insights att ignorera slumpmässigt vissa inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är 5. Du kan konfigurera provtagning i *host.json*.  Här är ett exempel:
 
 ```json
 {
@@ -489,13 +534,19 @@ Rapportera ett problem med Application Insights integrering i funktioner och ge 
 
 ## <a name="monitoring-without-application-insights"></a>Övervakning utan Application Insights
 
-Vi rekommenderar Application Insights för övervakningsfunktionerna eftersom det ger mer data och bättre sätt att analysera data. Men du kan också hitta loggar och telemetridata på Azure portal-sidorna för en funktionsapp.
+Vi rekommenderar Application Insights för övervakningsfunktionerna eftersom det ger mer data och bättre sätt att analysera data. Men om du föredrar att systemets inbyggda loggning som använder Azure Storage kan du fortsätta att använda.
 
 ### <a name="logging-to-storage"></a>Loggning till lagring
 
-Inbyggd loggning använder storage-konto som anges av anslutningssträngen i den `AzureWebJobsDashboard` appinställningen. Om inställningen appen är konfigurerad, visas loggningsdata i Azure-portalen. Gå till filer, Välj tjänsten för funktionen och gå sedan till i resursen lagring `LogFiles > Application > Functions > Function > your_function` till finns i loggfilen. Välj en funktion i en funktion app-sida, och välj sedan den **övervakaren** fliken och hämta en lista över funktionen körningar. Välj en funktion körning ska granska varaktighet, indata, fel och associerade loggfilerna.
+Inbyggd loggning använder storage-konto som anges av anslutningssträngen i den `AzureWebJobsDashboard` appinställningen. Välj en funktion i en funktion app-sida, och välj sedan den **övervakaren** fliken och väljer att behålla i klassiskt läge.
 
-Om du använder Application Insights och har [inbyggd loggning har inaktiverats](#disable-built-in-logging), **övervakaren** fliken tar dig till Application Insights.
+![Växla till klassisk vy](media/functions-monitoring/switch-to-classic-view.png)
+
+ Du kan hämta en lista över funktionen körningar. Välj en funktion körning ska granska varaktighet, indata, fel och associerade loggfilerna.
+
+Om du har aktiverat Application Insights tidigare, men nu ska du gå tillbaka till inbyggda loggning, inaktivera Application Insights manuellt och välj sedan den **övervakaren** fliken. Ta bort inställningen APPINSIGHTS_INSTRUMENTATIONKEY app om du vill inaktivera Application Insights-integration.
+
+Även om den **övervakaren** visar Application Insights-data, kan du se loggdata i filsystemet om du inte gjort [inaktiverad inbyggda loggning](#disable-built-in-logging). Gå till filer, Välj tjänsten för funktionen och gå sedan till i resursen lagring `LogFiles > Application > Functions > Function > your_function` till finns i loggfilen.
 
 ### <a name="real-time-monitoring"></a>Realtidsövervakning
 

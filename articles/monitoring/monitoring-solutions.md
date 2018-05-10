@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Lösningar för hantering i Azure
 Hanteringslösningar utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om använda och installera dem.
 
 Hanteringslösningar vanligtvis samla in information till logganalys och anger loggen sökningar och vyer för att analysera insamlade data. De kan också använda andra tjänster som Azure Automation för att utföra åtgärder som rör programmet eller tjänsten.
 
-Du kan lägga till lösningar för din Azure-prenumeration för alla program och tjänster som du använder. De finns vanligtvis på utan kostnad men samla in data som kan anropa avgifter för användning. Förutom lösningar som tillhandahålls av Microsoft, partner och kunder kan [skapa hanteringslösningar](../operations-management-suite/operations-management-suite-solutions-creating.md) som ska användas i sina egna miljö eller som finns tillgängliga för kunder via gemenskapen.
+Du kan lägga till lösningar för din Azure-prenumeration för alla program och tjänster som du använder. De finns vanligtvis på utan kostnad men samla in data som kan anropa avgifter för användning. Förutom lösningar som tillhandahålls av Microsoft, partner och kunder kan [skapa hanteringslösningar](../monitoring/monitoring-solutions-creating.md) som ska användas i sina egna miljö eller som finns tillgängliga för kunder via gemenskapen.
 
 ## <a name="using-management-solutions"></a>Med hjälp av lösningar för hantering
 Den **översikt** sidan för varje logganalys-arbetsytan visar en panel för varje lösning som är installerad på arbetsytan. Klicka på ikonen att öppna vyn som innehåller mer detaljerad analys lösningen insamlade data.

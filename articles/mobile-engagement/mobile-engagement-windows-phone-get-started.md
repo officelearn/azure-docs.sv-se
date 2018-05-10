@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9fb1426e66df6cd8085342743b7d045c297743e5
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9bf51bf6a4e2b84771edb9841e1b0ae18953826c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Kom igång med Azure Mobile Engagement för Windows Phone Silverlight-appar
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att f
 I den här kursen visas ett enkelt scenario för sändning med Mobile Engagement. Du får skapa en tom Windows Phone Silverlight-app som samlar in grundläggande data och tar emot push-meddelanden med Microsoft Push Notification Service (MPNS).
 
 > [!NOTE]
-> Tjänsten Azure Mobile Engagement kommer att dras tillbaka i mars 2018 och är för närvarande endast tillgänglig för befintliga kunder. Mer information finns i [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Tjänsten Azure Mobile Engagement kommer att dras tillbaka i mars 2018 och är för närvarande endast tillgänglig för befintliga kunder. Mer information finns i [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 > [!NOTE]
 > Windows Phone 8.1 och projekt i tidigare versioner stöds inte i Visual Studio 2017.  Mer information finns i [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Visual Studio 2017 – målplattform och plattformskompatibilitet).

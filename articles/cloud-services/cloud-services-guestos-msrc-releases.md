@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-guest-os"></a>Azure-Gästoperativsystem
 Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Azure-Gästoperativsystem. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för en viss [familj] [ family-explain] de introducerades i.
+
+## <a name="april-guest-os"></a>April gästoperativsystemet
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 18-04 | [4093119] |Windows 10-säkerhet |5.18 |10 april 2018 |
+| Rel 18-04 | [4093108] |Windows-säkerhet |2,73 |10 april 2018 |
+| Rel 18-04 | [4093122] |Windows-säkerhet |3,60 |10 april 2018 |
+| Rel 18-04 | [4093115] |Windows-säkerhet |4,53 |10 april 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2,73, 3,60, 4,53 |10 april 2018 |
+| Rel 18-04 | [4093110] |Flash |3,60, 4,53, 5.18 |10 april 2018 |
+| Gäller inte | [4088875] |Insamling av mars icke-säkerhet |2,73 |13 mars 2018 |
+| Gäller inte | [4099950] |Krav för mars insamling av icke-säkerhet|2,73 |13 mars 2018 |
+| Gäller inte | [4088877] |Insamling av mars icke-säkerhet |3,60 |13 mars 2018 |
+| Gäller inte | [4088876] |Insamling av mars icke-säkerhet |4,53 |13 mars 2018 |
 
 ## <a name="march-guest-os"></a>Mars gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
@@ -613,6 +627,18 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Gäller inte |[3007054] |PIN-kodsskyddade utskrifter alternativet alltid visas när du skriver ut ett dokument i Windows Store-programmet i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2999802] |Heldragen linje i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Långt inloggningen när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+
+[4093119]: http://support.microsoft.com/kb/4093119
+[4093108]: http://support.microsoft.com/kb/4093108 
+[4093122]: http://support.microsoft.com/kb/4093122
+[4093115]: http://support.microsoft.com/kb/4093115
+[4092946]: http://support.microsoft.com/kb/4092946
+[4093110]: http://support.microsoft.com/kb/4093110
+[4088875]: http://support.microsoft.com/kb/4088875
+[4099950]: http://support.microsoft.com/kb/4099950
+[4088877]: http://support.microsoft.com/kb/4088877
+[4088876]: http://support.microsoft.com/kb/4088876
 
 [4088787]: http://support.microsoft.com/kb/4088787
 [4088776]: http://support.microsoft.com/kb/4088776 

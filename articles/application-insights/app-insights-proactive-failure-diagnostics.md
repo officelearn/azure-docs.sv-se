@@ -1,9 +1,9 @@
 ---
-title: "Identifiering – fel avvikelser i Application Insights för smartkort | Microsoft Docs"
-description: "Aviserar om ovanliga ändringar i antalet misslyckade förfrågningar till ditt webbprogram och ger diagnostiska analys. Ingen konfiguration krävs."
+title: Identifiering – fel avvikelser i Application Insights för smartkort | Microsoft Docs
+description: Aviserar om ovanliga ändringar i antalet misslyckade förfrågningar till ditt webbprogram och ger diagnostiska analys. Ingen konfiguration krävs.
 services: application-insights
-documentationcenter: 
-author: yorac
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mbullwin
-ms.openlocfilehash: ca484f4d11cf8ab18db2d0c6152f369a90311f10
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; yossiy
+ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---failure-anomalies"></a>Identifiering – fel avvikelser för smartkort
 [Application Insights](app-insights-overview.md) automatiskt meddelar dig i nära realtid om ditt webbprogram påträffar en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en onormal ökning i frekvensen för HTTP-begäranden eller beroendeanrop som rapporteras som misslyckad. För begäranden är misslyckade begäranden vanligtvis de med svarskoder 400 eller högre. För att hantera och diagnostisera problemet ska ges en analys av egenskaperna hos fel och relaterad telemetri i meddelandet. Det finns även länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen installation eller konfiguration, eftersom den använder maskininlärningsalgoritmer för att förutsäga vanliga fel.
@@ -61,7 +61,7 @@ Resulterande analysen skickas till dig som aviseringen om du har inte konfigurer
 
 Som det [aviseringar du manuellt ange](app-insights-alerts.md), du kan kontrollera status för aviseringen och konfigurerar det i bladet aviseringar för Application Insights-resurs. Men till skillnad från andra aviseringar, behöver du inte installera eller konfigurera Smart identifiering. Om du vill kan du inaktivera det eller ändra dess mål e-postadresser.
 
-## <a name="configure-alerts"></a>Konfigurera aviseringar
+## <a name="configure-alerts"></a>Konfigurera varningar
 Du kan inaktivera Smart identifiering, ändra e-postmottagare, skapa en webhook eller välja att mer detaljerad varningsmeddelanden.
 
 Öppna sidan aviseringar. Fel avvikelser ingår tillsammans med eventuella aviseringar som du har angett manuellt och du kan se om den är i tillståndet aviseringar.

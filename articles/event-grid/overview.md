@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure händelse rutnätet
 
@@ -24,13 +24,17 @@ Händelsen rutnätet stöder för närvarande följande områden:
 
 * Sydostasien
 * Asien Öst
-* USA, centrala
-*   USA, östra
-*   USA, östra 2
+* Östra Australien
+* Sydöstra Australien
+* Centrala USA
+*   Östra USA
+*   Östra USA 2
 * Västeuropa
 * Nordeuropa
+* Östra Japan
+* Västra Japan
 *   Västra centrala USA
-*   USA, västra
+*   Västra USA
 *   Västra USA 2
 
 Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md). Följande bild visar hur händelsen rutnätet ansluter källor och hanterare, men ger inte en omfattande lista över vilka alternativ som stöds.
@@ -44,11 +48,14 @@ För närvarande stöder följande Azure-tjänster skickar händelser till händ
 * Azure-prenumerationer (hanteringsåtgärder)
 * Anpassade avsnitt
 * Event Hubs
-* IoT-hubb
+* IoT Hub
+* Media Services
 * Resursgrupper (hanteringsåtgärder)
 * Service Bus
-* Storage Blob
-* Storage General-purpose v2 (GPv2)
+* Lagringsblob
+* Lagring allmänna v2 (GPv2)
+
+Länkar till artiklar som visar hur du använder varje händelsekälla finns [händelsekällor i Azure händelse rutnät](event-sources.md).
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
@@ -57,11 +64,15 @@ För närvarande stöder följande Azure-tjänster hantera händelser från Even
 * Azure Automation
 * Azure Functions
 * Event Hubs
+* Hybridanslutningar
 * Logic Apps
 * Microsoft Flow
+* Queue Storage
 * WebHooks
 
 När du använder Azure Functions som hanterare kan använda händelse rutnätet utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
+
+Länkar till artiklar som visar hur du använder varje händelsehanteraren finns [händelsehanterare i Azure händelse rutnät](event-handlers.md).
 
 ## <a name="concepts"></a>Begrepp
 

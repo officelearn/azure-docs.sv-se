@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Reporting vanliga frågor och svar | Microsoft Docs"
-description: "Azure Active Directory reporting vanliga frågor och svar."
+title: Azure Active Directory Reporting vanliga frågor och svar | Microsoft Docs
+description: Azure Active Directory reporting vanliga frågor och svar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -11,27 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a39183e65306ddc7cb81825b7abf27677339a3ba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8963dfb3c2d8b81309f44fcdcaab7ddc0b403e7e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting vanliga frågor och svar
 
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (AD Azure) reporting. Läs mer i informationen om [Azure Active Directory-rapportering](active-directory-reporting-azure-portal.md). 
 
-**F: Jag använder https://graph.windows.net/&lt;innehavarens namn&gt;/reports/ endpoint-API: er pull Azure AD-granskning och integrerad programanvändning rapporter i vårt reporting system programmässigt. Vad bör jag växla till?**
+**F: Jag använder den https://graph.windows.net/ &lt;innehavarens namn&gt;/reports/ endpoint-API: er pull Azure AD-granskning och integrerad programanvändning rapporter i vårt reporting system programmässigt. Vad bör jag växla till?**
 
-**S:** Leta upp vår [API-referensdokumentation](https://developer.microsoft.com/graph/) att se hur du kan använda de nya API: er för att komma åt [aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Den här slutpunkten har två rapporter (granskning och inloggningar) som innehåller alla data som du fick i den gamla API-slutpunkten. Den här nya slutpunkten har även en rapport för inloggningar med Azure AD Premium-licens som du kan använda för att få appanvändning, användning av enhet och logga in användarinformation.
+**S:** Leta upp den [API-referensdokumentation](https://developer.microsoft.com/graph/) att se hur du kan använda de nya API: er för att komma åt [aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Den här slutpunkten har två rapporter (granskning och inloggningar) som innehåller alla data som du fick i den gamla API-slutpunkten. Den här nya slutpunkten har även en rapport för inloggningar med Azure AD Premium-licens som du kan använda för att få appanvändning, användning av enhet och logga in användarinformation.
 
 
 --- 
 
-**F: Jag använder https://graph.windows.net/&lt;innehavarens namn&gt;/reports/ endpoint API: er kan hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till vår rapporteringssystem programmässigt. Vad bör jag växla till?**
+**F: Jag använder den https://graph.windows.net/ &lt;innehavarens namn&gt;/reports/ endpoint API: er kan hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra reporting system programmässigt. Vad bör jag växla till?**
 
 **S:** du kan använda den [identitetsskydd riskhändelser API](active-directory-identityprotection-graph-getting-started.md) till access security identifieringar via Microsoft Graph. Detta nya format ger större flexibilitet i hur du kan fråga efter data med avancerade filter, val av fält och mycket mer och standardiserar riskhändelser till en typ för enklare integrering med siem-servrar och andra verktyg för insamling av data. Eftersom data är i ett annat format, kan du ersätta en ny fråga för dina gamla frågor. Dock [nya API: N använder Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft standard för dessa API: er som O365 eller Azure AD. Så att arbetet som krävs kan antingen utöka din aktuella MS Graph investeringar eller hjälp kan du börja övergången till den här nya standard plattformen.
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: Vad är datalagring för aktivitetsloggar (granskning och inloggningar) i Azure portal?** 
 
-**S:** vi tillhandahåller 7 dagars data för kunden ledigt eller komma åt data i upp till 30 dagar genom att köpa en Azure AD Premium 1 eller 2 för Premium-licens. Mer information om rapporten kvarhållning finns [rapportkvarhållningsregler i Azure Active Directory](active-directory-reporting-retention.md).
+**S:** finns [för hur länge lagras insamlade data?} (Rapportkvarhållningsregler i azure Active Directory](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) för ett svar på frågan.
 
 --- 
 
@@ -76,7 +76,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: hur många poster kan fråga via aktiviteter API?**
 
-**S:** du kan fråga efter upp till 1 miljon poster (om du inte använder operatorn top som sorterar posten efter de senaste). Om du använder operatorn ”top”, kan du fråga upp till 500 kB poster. Du kan hitta Exempelfrågor för hur du använder API: et här [här](active-directory-reporting-api-getting-started.md).
+**S:** du kan fråga efter upp till 1 miljon poster (om du inte använder operatorn top som sorterar posten efter de senaste). Om du använder operatorn ”top”, kan du fråga upp till 500 kB poster. Du kan hitta Exempelfrågor för hur du använder API: et [här](active-directory-reporting-api-getting-started.md).
 
 ---
 
@@ -100,7 +100,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: det finns en risk händelse i Identity Protection men jag ser inte motsvarande inloggning i alla inloggningar. Förväntas detta?**
 
-**S:** Ja, identitetsskydd utvärderar risk för alla flöden för autentisering om om vara interaktiva eller icke-interaktivt. Alla inloggningar endast rapporten innehåller dock bara de interaktiva inloggningarna.
+**S:** Ja, identitetsskydd utvärderar risk för alla flöden för autentisering om interaktiv eller icke-interaktivt. Alla inloggningar endast rapporten innehåller dock bara de interaktiva inloggningarna.
 
 ---
 
@@ -124,6 +124,6 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: Vad gör händelsen risk ”logga in med ytterligare risker som identifierats” obestämd?**
 
-**S:** för att ge dig en överblick över alla riskfyllda inloggning i din miljö vi visa händelsen risk ”logga in med ytterligare risker som identifierats” för inloggningar som anses vara riskfyllda på grund av identifieringar exklusiv för Azure AD Identity Protection-prenumeranter.
+**S:** för att ge en förklaring till alla de riskfyllda inloggningarna i din miljö, ”logga in med ytterligare risk upptäckte” fungerar som platshållare för inloggningar för identifieringar som är exklusiv för Azure AD Identity Protection-prenumeranter.
 
 ---

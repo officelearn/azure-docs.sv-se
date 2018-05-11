@@ -12,10 +12,10 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea7469b1d1c3d1c20beca9b1fb3bef0d4dac9492
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -61,8 +61,8 @@ I följande tabell beskrivs de HTTP-variablerna som stöds. Ett tomt värde retu
 | Schemat för begäran | % {schema} | Anger schemat för begäran. |http |
 | Begärd URI (relativ) | % {request_uri} | Anger den relativa sökvägen, inklusive frågesträngen definieras i URI-begäran. | /Marketing/foo.js?loggedin=true |
 | Begärd URI (relativ utan frågesträngen) | % {URI: n} | Anger den relativa sökvägen till det begärda innehållet. <br /><br/>Viktig information:<br />-Den här relativa sökvägen undantar frågesträngen.<br />-URL-omskrivning visar den här relativa sökväg. En URL ska skrivas under följande förhållanden:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL omskrivning funktion: Den här funktionen skriver om den relativa sökvägen som definierats i URI-begäran.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Edge CNAME-URL: Om den här typen av begäran till motsvarande CDN-URL. |/800001/corigin/rewrittendir/foo.js |
-| Förfrågans URI | % {begäran} | Beskriver begäran. <br />Syntax: `HTTPMethod RelativePath Protocol` | Hämta /marketing/foo.js?loggedin=true HTTP/1.1 |
-| Svaret huvudets värde | % {resp_&lt;ResponseHeader&gt;} | Returnerar värdet som motsvarar det svarshuvudet som identifieras av den &lt;ResponseHeader&rt; har löpt ut. <br /><br />Om namnet på rubriken innehåller ett streck (till exempel användaragent) kan du ersätta det med ett understreck (till exempel User_Agent). | Exempel: % {resp_Content_Length}<br /><br />Exempel på värde: 100 |
+| Förfrågans URI | % {begäran} | Beskriver begäran. <br />Syntax: &lt;HTTP-metoden&gt; &lt;relativa sökvägen&gt; &lt;HTTP-protokoll&gt; | Hämta /marketing/foo.js?loggedin=true HTTP/1.1 |
+| Svaret huvudets värde | % {resp_&lt;ResponseHeader&gt;} | Returnerar värdet som motsvarar det svarshuvudet som identifieras av den &lt;ResponseHeader&gt; har löpt ut. <br /><br />Om namnet på rubriken innehåller ett streck (till exempel användaragent) kan du ersätta det med ett understreck (till exempel User_Agent). | Exempel: % {resp_Content_Length}<br /><br />Exempel på värde: 100 |
 
 ## <a name="usage"></a>Användning
 I följande tabell beskrivs korrekt syntax för en HTTP-variabel.
@@ -155,19 +155,19 @@ Viktig information:
      - Positivt: Anger längden på delsträngen från det första tecknet till höger.
      - Negativt: Anger längden på delsträngen från det första tecknet till vänster.
 
-#### <a name="examples"></a>Exempel:
+#### <a name="example"></a>Exempel:
 
 I följande exempel är beroende av följande exempel begäran URL:
 
-`https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
+https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 Följande sträng visar olika metoder för att ändra variabler:
 
-`https://www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm`
+https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
 Baserat på exemplet begärd URL, genererar ovan variabeln modifieringen följande värde:
 
-`https://www.mydomain.com/mobile/marketing/proposal.htm`
+https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Borttagning av mönster
@@ -180,7 +180,7 @@ Text som matchar ett specifikt mönster kan tas bort från början eller slutet 
 
 #### <a name="example"></a>Exempel:
 
-I det här exempelscenariot anges request_uri-variabeln till:
+I det här exempelscenariot den *request_uri* variabeln anges till:
 
 `/800001/myorigin/marketing/product.html?language=en-US`
 

@@ -15,15 +15,15 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a5466a0b5027fa8fe0edec3c9663e6cd1aafc9a3
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokertecken program i Azure Active Directory application proxy 
 
-I Azure Active Directory (Azure AD), konfigurera ett stort antal lokala program kan snabbt bli svårhanterligt och introducerar onödiga risker konfigurationsfel om många av dem ha samma inställningar. Med [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), du kan åtgärda problemet genom att använda jokertecken programpublicering att publicera och hantera många program på samma gång. Detta är en lösning som hjälper dig att:
+I Azure Active Directory (Azure AD), konfigurera ett stort antal lokala program kan snabbt bli svårhanterligt och introducerar onödiga risker konfigurationsfel om många av dem ha samma inställningar. Med [Azure AD Application Proxy](manage-apps/application-proxy.md), du kan åtgärda problemet genom att använda jokertecken programpublicering att publicera och hantera många program på samma gång. Detta är en lösning som hjälper dig att:
 
 -   Förenkla de administrativa omkostnaderna
 -   Minska antalet möjliga konfigurationsfel

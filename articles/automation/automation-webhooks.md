@@ -3,16 +3,17 @@ title: Starta en Azure Automation-runbook med en webhook
 description: En webhook som gör att en klient att starta en runbook i Azure Automation från ett HTTP-anrop.  Den här artikeln beskriver hur du skapar en webhook och hur du anropar en om du vill starta en runbook.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4ea7366a02dd95fac5c1a7307e6156a0481fa16d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bb64d0c5d94bb198b6ece2ea50a7fc248b93c7dd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation-runbook med en webhook
 En *webhook* kan du starta en viss runbook i Azure Automation via en HTTP-begäran. Detta gör att externa tjänster, till exempel Visual Studio Team Services, GitHub, Azure logganalys eller anpassade program att starta runbooks utan att implementera en fullständig lösning med hjälp av Azure Automation-API.  
@@ -23,11 +24,11 @@ Du kan jämföra webhooks andra metoder för att starta en runbook [starta en ru
 ## <a name="details-of-a-webhook"></a>Information om en webhook
 I följande tabell beskrivs de egenskaper som du måste konfigurera för en webhook.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Namn |Du kan ange vilket namn som helst för en webhook eftersom detta inte är exponerad för klienten.  Den används endast för dig för att identifiera runbook i Azure Automation. <br>  Som bästa praxis, bör du ge webhooken ett namn som är relaterade till klienter som använder den. |
 | URL |URL till webhooken är unika adressen som en klient anropar med en HTTP POST till att starta runbook kopplad till webhooken.  Det genereras automatiskt när du har skapat webhooken.  Du kan inte ange en anpassad URL. <br> <br>  URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Det bör därför behandlas som ett lösenord.  Av säkerhetsskäl bör visa du bara URL: en i Azure-portalen när webhook har skapats. Du bör anteckna URL-Adressen i en säker plats för framtida användning. |
-| Förfallodatum |Varje webhook har ett sista giltighetsdatum som den kan inte längre användas som ett certifikat.  Den här upphör att gälla kan ändras när du har skapat webhooken. |
+| Upphörandedatum |Varje webhook har ett sista giltighetsdatum som den kan inte längre användas som ett certifikat.  Den här upphör att gälla kan ändras när du har skapat webhooken. |
 | Enabled |En webhook är aktiverad som standard när den skapas.  Om du den inaktiverad, kommer ingen klient att kunna använda den.  Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den skapas. |
 
 ### <a name="parameters"></a>Parametrar
@@ -39,7 +40,7 @@ När en klient startar en runbook med en webhook, kan inte det åsidosätta de p
 
 Den **$WebhookData** objekt har följande egenskaper:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | WebhookName |Namnet på webhook. |
 | RequestHeader |Hash-tabell som innehåller huvuden inkommande POST-begäran. |

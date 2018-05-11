@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
 
@@ -95,9 +95,7 @@ I planen förbrukning skalas skala domänkontrollant automatiskt Processortid oc
 När du använder förbrukningen värd plan som funktionen kodfiler lagras på Azure-filresurser för den funktionen main storage-konto. När du tar bort huvudsakliga lagringskontot för funktionen appen kodfiler funktionen tas bort och kan inte återställas.
 
 > [!NOTE]
-> När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Överväg att något av följande alternativ för att undvika den här första fördröjningen:
-> - Värd för appen funktionen på en apptjänstplan med alltid på aktiverad.
-> - Använd en annan funktion för att utlösa blob bearbetning, till exempel en händelse rutnätet prenumeration eller ett meddelande i kön som innehåller blob-namnet. Ett exempel finns i [exempel blob inkommande bindningen](functions-bindings-storage-blob.md#input---example).
+> När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Använd en apptjänstplan med alltid på aktiverat för att undvika fördröjningen kall-start, eller Använd händelse rutnätet utlösaren. Mer information finns i [blob utlösaren bindning referensartikeln](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Runtime skalning
 

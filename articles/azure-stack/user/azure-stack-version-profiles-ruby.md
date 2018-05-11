@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 98d285bf8ec92e7b6baf709d4796ce2f4420c4f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Använda profiler för API-version med Ruby i Azure-stacken
 
@@ -36,7 +36,7 @@ En API-profil är en kombination av resursleverantörer och service-versioner. D
  - Om du vill använda den senaste api-versionen av en tjänst i **senaste** profilen för specifika symbolen. Till exempel om du vill använda den senaste api-versionen av beräkning service enbart använda de **senaste** profilen för den **Compute** symbolen.
  - Om du vill använda specifika api-versionen för en tjänst använder du specifika API-versioner som definierats i symbolen.
 
-> [!note] 
+> [!Note]   
 > Du kan kombinera alla alternativ i samma program.
 
 ## <a name="install-the-azure-ruby-sdk"></a>Installera Azure SDK för Ruby
@@ -96,7 +96,8 @@ För att kunna använda Azure SDK för Ruby med Azure-stacken, måste du ange f�
 Microsoft Azure Resource Manager är ett ramverk för hantering som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället för individuellt, i en enda åtgärd.
 
 Du kan hämta metadata-information från Resource Manager-slutpunkten. Slutpunkten returnerar en JSON-fil med den information som krävs för att köra din kod.
-  > [!note]  
+
+  > [!Note]  
   > Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`  
   > Den **ResourceManagerUrl** i integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -208,7 +209,7 @@ Du kan använda i följande exempel finns i GitHub repositoreis som referens ska
 
 Se till att du har installerat Ruby om du vill köra exemplet. Om du använder Visual Studio Code kan hämta SDK för Ruby som ett tillägg samt. 
 
-> [!note]  
+> [!Note]  
 > Du kan hämta databasen för exempel på ”[hantera Azure-resurser och resursgrupper med Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)”.
 
 1. Klona lagringsplatsen.
@@ -243,7 +244,7 @@ Se till att du har installerat Ruby om du vill köra exemplet. Om du använder V
   - Exportera AZURE_SUBSCRIPTION_ID = {ditt prenumerations-id}
   - Exportera ARM_ENDPOINT = {AzureStack Resource manager URL: en}
 
-  > [!note]  
+  > [!Note]  
   > I Windows, Använd i stället för export.
 
 4. Kontrollera plats-variabeln anges till AzureStack-plats. Till exempel lokala = ”lokalt”

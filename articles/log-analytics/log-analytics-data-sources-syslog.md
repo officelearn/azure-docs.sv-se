@@ -1,8 +1,8 @@
 ---
 title: Samla in och analysera Syslog-meddelanden i OMS Log Analytics | Microsoft Docs
-description: "Syslog är en händelse loggning protokoll som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar samling Syslog-meddelanden i logganalys och information om poster skapas i OMS-databasen."
+description: Syslog är en händelse loggning protokoll som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar samling Syslog-meddelanden i logganalys och information om poster skapas i OMS-databasen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i logganalys
 Syslog är en händelse loggning protokoll som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När OMS-Agent för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till logganalys där motsvarande post har skapats i OMS-databasen.  
@@ -31,12 +31,12 @@ Syslog är en händelse loggning protokoll som är gemensamma för Linux.  Progr
 ![Syslog-samling](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Konfigurera Syslog
-OMS-Agent för Linux endast samlar in händelser med verksamhet och allvarlighetsgraderna som anges i dess konfiguration.  Du kan konfigurera Syslog via OMS-portalen eller genom att hantera konfigurationsfiler på Linux-agenter.
+OMS-Agent för Linux endast samlar in händelser med verksamhet och allvarlighetsgraderna som anges i dess konfiguration.  Du kan konfigurera Syslog via Azure-portalen eller genom att hantera konfigurationsfiler på Linux-agenter.
 
-### <a name="configure-syslog-in-the-oms-portal"></a>Konfigurera Syslog i OMS-portalen
-Konfigurera Syslog från den [Data-menyn i logganalys-inställningar](log-analytics-data-sources.md#configuring-data-sources).  Den här konfigurationen levereras till konfigurationsfilen på varje Linux-agenten.
+### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurera Syslog i Azure-portalen
+Konfigurera Syslog från den [Data-menyn i avancerade inställningar för Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Den här konfigurationen levereras till konfigurationsfilen på varje Linux-agenten.
 
-Du kan lägga till en ny funktion genom att skriva dess namn och klicka på  **+** .  Endast meddelanden med de valda allvarlighetsgraderna kommer att samlas in för varje anläggning.  Kontrollera allvarlighetsgraderna för viss-funktion som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
+Du kan lägga till en ny funktion genom att skriva dess namn och klicka på **+**.  Endast meddelanden med de valda allvarlighetsgraderna kommer att samlas in för varje anläggning.  Kontrollera allvarlighetsgraderna för viss-funktion som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
 
 ![Konfigurera Syslog](media/log-analytics-data-sources-syslog/configure.png)
 
@@ -138,8 +138,8 @@ Du kan ta bort en funktion genom att ta bort delen av konfigurationsfilen.  Du k
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Samla in data från ytterligare Syslog-portar
 OMS-agenten lyssnar efter Syslog-meddelanden på den lokala klienten på port 25224.  När agenten har installerats kan en syslog-standardkonfiguration appliceras och finns på följande plats:
 
-* Rsyslog:`/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng:`/etc/syslog-ng/syslog-ng.conf`
+* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 Du kan ändra portnumret genom att skapa två konfigurationsfiler: en FluentD .config-fil och en rsyslog-eller-syslog-ng fil beroende på daemon för Syslog som du har installerat.  
 
@@ -183,7 +183,7 @@ När du har slutfört ändringarna, Syslog och OMS-agent måste-tjänsten starta
 ## <a name="syslog-record-properties"></a>Egenskaper för Syslog-post
 Syslog-poster har en typ av **Syslog** och ha egenskaper i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Dator |Dator som händelsen samlats in från. |
 | Anläggningen |Definierar en del av systemet som genererade meddelandet. |
@@ -201,8 +201,8 @@ Följande tabell innehåller olika exempel på loggen frågor som hämtar Syslog
 |:--- |:--- |
 | Syslog |Alla systemloggar. |
 | Syslog &#124; där SeverityLevel == ”error” |Alla Syslog-poster med allvarlighetsgraden fel. |
-| Syslog &#124; Sammanfatta AggregatedValue = count() per dator |Antal Syslog poster per dator. |
-| Syslog &#124; Sammanfatta AggregatedValue = count() av anläggningen |Antal Syslog poster efter anläggning. |
+| Syslog &#124; sammanfatta AggregatedValue = count() per dator |Antal Syslog poster per dator. |
+| Syslog &#124; sammanfatta AggregatedValue = count() av anläggningen |Antal Syslog poster efter anläggning. |
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [logga sökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.

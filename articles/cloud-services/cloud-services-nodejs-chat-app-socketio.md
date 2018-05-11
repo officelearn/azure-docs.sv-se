@@ -1,11 +1,11 @@
 ---
-title: "Node.js-program med Socket.io – Azure"
-description: "Lär dig hur du använder socket.io i ett node.js-program i Azure."
+title: Node.js-program med Socket.io – Azure
+description: Lär dig hur du använder socket.io i ett node.js-program i Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO i Azure-molntjänst
 
@@ -28,7 +28,7 @@ En skärmbild av det färdiga programmet understiger:
 
 ![Ett webbläsarfönster som visar den tjänst som finns i Azure][completed-app]  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Kontrollera att följande produkter och versioner är installerade för att slutföra exemplet i den här artikeln:
 
 * Installera [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -61,7 +61,7 @@ För det här projektet kommer vi att använda chatt-exempel från den [Socket.I
 
 1. Skapa en lokal kopia av databasen med hjälp av den **klona** knappen. Du kan också använda den **ZIP-** för att hämta projektet.
    
-   ![Ett fönster i webbläsaren visa https://github.com/LearnBoost/socket.io/tree/master/examples/chat, med ikonen ZIP download markerat][chat-example-view]
+   ![En webbläsare fönstret visa https://github.com/LearnBoost/socket.io/tree/master/examples/chat, med ikonen ZIP download markerat][chat-example-view]
 2. Navigera katalogstruktur lokal databas tills du når den **exempel\\chatt** directory. Kopiera innehållet i den här katalogen för den **C:\\nod\\chatapp\\WorkerRole1** katalog som skapades tidigare.
    
    ![Explorer visar innehållet i exemplen\\chatt directory extraheras från arkivet][chat-contents]

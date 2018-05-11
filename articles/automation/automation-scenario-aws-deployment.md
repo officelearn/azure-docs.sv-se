@@ -1,18 +1,19 @@
 ---
 title: Automatisera distributionen av en virtuell dator i Amazon Web Services
-description: "Den här artikeln visar hur du använder Azure Automation för att automatisera genereringen av en Amazon Web Service VM"
+description: Den här artikeln visar hur du använder Azure Automation för att automatisera genereringen av en Amazon Web Service VM
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c2505bfdc664d52960b3e3a6c9b4646189e0b175
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario – etablera en virtuell dator i AWS
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i prenumerationen Amazon Web Service (AWS) och ge den virtuella datorn ett specifikt namn – AWS refererar till som ”märkning” den virtuella datorn.

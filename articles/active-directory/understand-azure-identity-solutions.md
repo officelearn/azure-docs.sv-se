@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 53d34f373dc31befe75072733976b2e4126ff2b0
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
 Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
@@ -113,10 +113,10 @@ Vi har massor av bra resurser online för att du lär dig allt om Azure AD. Här
 * [Hantera lösenord från valfri plats](active-directory-passwords-update-your-own-password.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Hur du ger säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md)
+* [Hur du ger säker fjärråtkomst till lokala program](manage-apps/application-proxy.md)
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
 * [Vad är Microsoft Azure Active Directory-licensiering?](active-directory-licensing-whatis-azure-portal.md)
-* [Hur kan identifiera ej sanktionerade molnappar som används inom organisationen](active-directory-cloudappdiscovery-whatis.md)
+* [Hur kan identifiera ej sanktionerade molnappar som används inom organisationen](manage-apps/cloud-app-discovery.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

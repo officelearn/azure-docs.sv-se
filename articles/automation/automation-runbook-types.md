@@ -1,18 +1,19 @@
 ---
 title: Azure Automation Runbook-typer
-description: "Beskriver de olika typerna av runbooks som du kan använda i Azure Automation- och säkerhetsaspekter som du bör beakta när du fastställer vilken typ som ska användas. "
+description: 'Beskriver de olika typerna av runbooks som du kan använda i Azure Automation- och säkerhetsaspekter som du bör beakta när du fastställer vilken typ som ska användas. '
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f3a6b15891a4a1564073d149a198f6789b407342
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 800380c68e1bb1314021ab60f92ccd3b392dbe32
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-runbook-types"></a>Typer av Azure Automation-runbook
 Azure Automation har stöd för flera typer av runbooks som beskrivs kortfattat i följande tabell.  I avsnitten nedan innehåller ytterligare information om varje typ av bland annat tänka på när du använder.
@@ -58,7 +59,7 @@ PowerShell-runbooks är baserade på Windows PowerShell.  Du redigera direkt kod
 Följande är aktuella kända problem med PowerShell-runbooks.
 
 * PowerShell-runbooks kan inte hämta en okrypterad [variabeltillgång](automation-variables.md) med ett null-värde.
-* PowerShell-runbooks kan inte hämta en [variabeltillgång](automation-variables.md) med  *~*  i namnet.
+* PowerShell-runbooks kan inte hämta en [variabeltillgång](automation-variables.md) med *~* i namnet.
 * Get-Process i en loop i ett PowerShell-runbook kan krascha efter ca 80 iterationer. 
 * En PowerShell-runbook kan misslyckas om det görs ett försök att skriva en stor mängd data till utdataströmmen samtidigt.   Du kan ofta undvika det här problemet genom att skicka ut bara den information som du behöver när du arbetar med stora objekt.  Till exempel i stället för att mata ut ungefär så *Get-Process*, du kan spara de obligatoriska fälten med *Get-Process | Välj processnamn CPU*.
 

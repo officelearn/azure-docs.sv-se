@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 05/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5140d25119729a391b21735ab9110c216afda669
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -49,9 +49,27 @@ Om du vill visa ett program i appgalleriet för Azure AD, måste du först anvä
 
 *   **OpenID Connect**: skapa flera program i Azure AD och genomföra den [Azure AD medgivande framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) för ditt program. Skicka inloggningsbegäran om till en gemensam slutpunkt så att en kund kan ge medgivande till programmet. Du kan styra användaråtkomst baserat på klient-ID och användarens UPN togs emot i token. Om du vill integrera ditt program med Azure AD, följer du de [utvecklare instruktioner](active-directory-authentication-scenarios.md).
 
+    ![Tidslinjen för registrering OpenID Connect i galleriet](./media/active-directory-app-gallery-listing/openid.png)
+
+    * Om du vill lägga till programmet i listan i galleriet med OpenID Connect, Välj **OpenID Connect och OAuth 2.0** som ovan.
+
+    * Om du har några frågor om åtkomst kan kontakta den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** eller **WS Fed**: ditt program måste ha möjlighet att göra SAML/WS-Fed SSO-integrering i SP eller IDP-läge. Om din app stöder SAML 2.0, kan du integrera den direkt med en Azure AD-klient med hjälp av den [instruktioner för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
 
+    ![Tidslinjen för registrering SAML 2.0 eller WS-Fed till gallery](./media/active-directory-app-gallery-listing/saml.png)
+
+    * Om du vill lägga till programmet i listan i galleriet med **SAML 2.0** eller **WS Fed**väljer **SAMl 2.0/WS-Fed** som ovan.
+
+    * Om du har några frågor om åtkomst kan kontakta den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **Lösenord SSO**: skapa ett webbprogram som har en HTML-inloggningssida konfigurera [lösenordsbaserade enkel inloggning](../active-directory-appssoaccess-whatis.md). Lösenordsbaserade SSO, även kallat lösenord vaulting, kan du hantera åtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto som din organisation sociala medier app konton.
+
+    ![Tidslinjen för registrering lösenord SSO till gallery](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * Om du vill lägga till programmet i listan i galleriet lösenord SSO, Välj **lösenord SSO** som ovan.
+
+    * Om du har några frågor om åtkomst kan kontakta den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Uppdatera/ta bort befintlig registrering
 
@@ -60,7 +78,7 @@ Om du vill uppdatera eller ta bort ett befintligt program i appgalleriet för Az
 * Välj lämpligt alternativ från den under bild
 
     ![Tidslinjen för registrering saml till gallery](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * Om du vill uppdatera ett befintligt program väljer du **uppdatera befintliga program lista**.
 
     * Om du vill ta bort ett befintligt program från Azure AD-galleriet väljer **ta bort befintliga program lista**
@@ -86,6 +104,10 @@ Tidslinje för hur du visar en lista över en SAML 2.0 eller ett WS-Fed program 
 Tidslinje för hur du visar en lista över ett program med OpenID Connect i galleriet är 2 – 5 arbetsdagar.
 
    ![Tidslinjen för registrering saml till gallery](./media/active-directory-app-gallery-listing/timeline2.png)
+
+Tidslinje för hur du visar en lista över program i galleriet med stöd för användaretablering är 40-45 dagar.
+
+   ![Tidslinjen för registrering saml till gallery](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Eskaleringar
 

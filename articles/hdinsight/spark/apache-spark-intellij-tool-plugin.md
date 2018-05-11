@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: d663756c52a23096888b9ee568fea23163d33aa9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3d9f9cd835056b61ee72ddde5add285f47665ac1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -86,7 +86,7 @@ Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka 
    > ![Lagringsutforskaren i IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
 
    
-3. Du kan se ett länkade kluster i **HDInsight** nod om informationen om indata är rätt. Nu kan du skicka ett program till den här länkade klustret.
+3. Du kan se ett länkade kluster i **HDInsight** nod om indata är rätt. Nu kan du skicka ett program till den här länkade klustret.
 
    ![länkade kluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -283,11 +283,15 @@ Dessa fel inträffa eftersom heap-storlek inte är tillräckligt stor för Spark
 ![Lägga till alternativ i rutan ”alternativ för virtuell dator” i IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-För att skicka ett program till Azure Data Lake Store, Välj **interaktiv** läge under processen för Azure-inloggning. Om du väljer **automatisk** läge, du får ett felmeddelande.
+När länkar ett kluster, jag vill föreslå du för att ange autentiseringsuppgifter för lagring.
 
-![Interaktiv inloggning](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Länka kluster, ange autentiseringsuppgifter för lagring](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Nu ska löste vi problemet. Du kan välja ett Azure Data Lake-kluster att skicka ditt program med valfri metod för inloggning.
+Det finns två lägen för att skicka jobb. Om lagring autentiseringsuppgifter tillhandahålls används batchläge för att skicka jobbet. Annars kommer att användas interaktivt läge. Om klustret är upptagen, kan du få felmeddelandet nedan.
+
+![Intellij uppstår fel när klustret upptagen](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Intellij uppstår fel när klustret upptagen](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>Feedback och kända problem
 För närvarande kan stöds visa Spark utdata direkt inte.

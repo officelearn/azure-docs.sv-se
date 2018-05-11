@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2180c0da4dc77e854a9b73eb31472feae7c7c3ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -30,9 +30,9 @@ Artiklarna nedan är bra startpunkter för dem som för en kort beskrivning av A
 
 | Artikel Guide |  |
 |:---:| --- |
-| En introduktion till management programproblem som löser Azure AD |[Hantera program med Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
+| En introduktion till management programproblem som löser Azure AD |[Hantera program med Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | En översikt över de olika funktionerna i Azure AD som härrör aktivering av enkel inloggning, definiera vem som har åtkomst till appar och hur användare starta appar |[Programåtkomst och enkel inloggning i Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| En titt på de olika stegen när integrera appar i din Azure AD |[Integrera Azure Active Directory med program](active-directory-integrating-applications-getting-started.md)<br /><br />[Aktivera enkel inloggning till SaaS-appar](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Hantera åtkomst till appar](active-directory-managing-access-to-apps.md) |
+| En titt på de olika stegen när integrera appar i din Azure AD |[Integrera Azure Active Directory med program](manage-apps/plan-an-application-integration.md)<br /><br />[Aktivera enkel inloggning till SaaS-appar](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Hantera åtkomst till appar](active-directory-managing-access-to-apps.md) |
 | En förklaring av hur appar representeras i Azure AD |[Hur och varför program läggs till Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Felsökning av artiklar
@@ -78,8 +78,8 @@ Om du har program i ditt privata nätverk som ska användas av användare och en
 
 | Artikel Guide |  |
 |:---:| --- |
-| Översikt över Azure AD Application Proxy och hur det fungerar |[Att tillhandahålla säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md) |
-| Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](active-directory-application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Hur du publicerar program med App-Proxy](active-directory-application-proxy-publish.md)<br /><br />[Hur du använder ett eget domännamn](active-directory-application-proxy-custom-domains.md) |
+| Översikt över Azure AD Application Proxy och hur det fungerar |[Att tillhandahålla säker fjärråtkomst till lokala program](manage-apps/application-proxy.md) |
+| Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](active-directory-application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Hur du publicerar program med App-Proxy](application-proxy-publish-azure-portal.md)<br /><br />[Hur du använder ett eget domännamn](active-directory-application-proxy-custom-domains.md) |
 | Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](application-proxy-enable-remote-access-sharepoint.md) |
 | Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](active-directory-application-proxy-native-client.md)<br /><br />[Ge stöd för anspråksmedvetna program](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](active-directory-application-proxy-connectors-azure-portal.md) |
 | Felsökningsguide för Application Proxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
@@ -121,7 +121,7 @@ Cloud App Discovery hjälper IT-avdelningar information om vilka SaaS-appar anv�
 
 | Artikel Guide |  |
 |:---:| --- |
-| En allmän översikt över hur det fungerar |[Hitta ej sanktionerad molnprogram med Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
+| En allmän översikt över hur det fungerar |[Hitta ej sanktionerad molnprogram med Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
 | En mer grundlig genomgång i hur det fungerar med svar på frågor om sekretess |[Säkerhet och överväganden för sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | Vanliga frågor och svar |[Vanliga frågor och svar för Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | Självstudier för distribution av Cloud App Discovery |[Handboken för distribution](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Distributionsguiden för System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installera på proxyservrar med anpassade portar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |

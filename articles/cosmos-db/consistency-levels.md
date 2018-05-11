@@ -1,7 +1,7 @@
 ---
 title: Konsekvensnivåer i Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos-DB har fem konsekvensnivåer för att belastningsutjämna eventuell konsekvens, tillgänglighet och svarstid kompromisser.
-keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
+keywords: slutliga konsekvensen azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data justerbara konsekvensnivåer i Azure Cosmos DB
 Azure Cosmos-DB är utformad från grunden upp med global distributionsplatsen i åtanke för varje datamodell. Den är utformad att erbjuda förutsägbar låg latens garantier och flera väldefinierade Avslappnad konsekvenskontroll modeller. För närvarande Azure Cosmos DB innehåller fem konsekvensnivåer: stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Begränsat föråldrad, session, konsekvent prefix och eventuell är kallas ”Avslappnad konsekvenskontroll modeller” eftersom de ger mindre konsekvent än starkt, vilket är de flesta hög konsekvent modell tillgänglig. 
@@ -44,7 +44,7 @@ Följande tabell visar de specifika garantier som varje konsekvensnivå erbjuder
 | Konsekvensnivå | Garantier |
 | --- | --- |
 | Stark | Linearizability. Läser garanteras att returnera den senaste versionen av ett objekt.|
-| Begränsad föråldring | Konsekvent Prefix. Läsningar släpar efter skrivningar med k-prefix eller t-intervall |
+| Begränsad föråldring | Konsekvent Prefix. Läser lag bakom skrivningar av högst k prefix eller t intervall |
 | Session   | Konsekvent Prefix. Monotoniska läsningar, monotoniska skrivningar, läs-dina-skrivningar, skrivning-följer-läsning |
 | Konsekvent prefix | De uppdateringar som returneras är något prefix av alla uppdateringar, utan några mellanrum |
 | Eventuell  | Oordnade läsningar |

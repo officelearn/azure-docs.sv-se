@@ -1,8 +1,8 @@
 ---
-title: "Felsöka Azure filsynkronisering (förhandsversion) | Microsoft Docs"
-description: "Felsöka vanliga problem med synkronisering av Azure-filen."
+title: Felsöka Azure filsynkronisering (förhandsversion) | Microsoft Docs
+description: Felsöka vanliga problem med synkronisering av Azure-filen.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -28,12 +28,20 @@ Den här artikeln är utformat för att hjälpa dig att felsöka och lösa probl
 1. Avsnittet kommentarer i den här artikeln.
 2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
+4. Microsoft-supporten. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="storage-sync-service-object-management"></a>Lagringshantering synkroniseringstjänsten objekt
 Om du vill flytta en resurs från en prenumeration till en annan prenumeration blockeras filresurser för synkronisering (lagring-synkroniseringstjänsten) flyttas. 
 
 ## <a name="agent-installation-and-server-registration"></a>Agentregistreringen för installation och server
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Vid registreringen av servern, visas felmeddelandet ”termen” Sök AzureRMResource' identifieras inte som namn... ”
+Problemet är att cmdlet Sök-AzureRMResource har ändrats i AzureRM v6.  Nästa version av agenten för synkronisering kommer att åtgärdas för att stödja AzureRM v6.  Fram till dess kan komma du runt problemet genom att:
+1. Stoppa den aktuella ServerRegistration.exe via taskmgr
+2. Öppna ett PowerShell-Kommandotolken som administratör
+3. PS C:\> avinstallera modulen AzureRM
+4. PS C:\> install-module-name AzureRM - RequiredVersion 5.7.0
+5. Starta C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Felsöka agentinstallationsproblem**  
 Om installationen av Azure filsynkronisering misslyckas vid en upphöjd kommandotolk kör du följande kommando för att aktivera loggning under agentinstallationen:
 

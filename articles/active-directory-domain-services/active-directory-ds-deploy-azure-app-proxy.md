@@ -1,8 +1,8 @@
 ---
 title: 'Azure Active Directory Domain Services: Distribuera Azure Active Directory Application Proxy | Microsoft Docs'
-description: "Använda Azure AD Application Proxy på Azure Active Directory Domain Services hanterade domäner"
+description: Använda Azure AD Application Proxy på Azure Active Directory Domain Services hanterade domäner
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 13141549b5b1b77f45dd6fa1c7560b9f9d0e9b72
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD Application Proxy på en Azure AD Domain Services-hanterad domän
 Azure Active Directory (AD) Application Proxy hjälper dig att stöd för fjärranvändare genom att publicera lokala program som kan nås via internet. Med Azure AD Domain Services kan du nu lift-och-SKIFT äldre program som körs lokalt Azure Infrastructure Services. Du kan sedan publicera dessa program med Azure AD Application Proxy för att tillhandahålla säker fjärråtkomst till användare i din organisation.
 
-Om du har använt Azure AD Application Proxy, mer information om den här funktionen med följande artikel: [ge säker fjärråtkomst till lokala program](../active-directory/active-directory-application-proxy-get-started.md).
+Om du har använt Azure AD Application Proxy, mer information om den här funktionen med följande artikel: [ge säker fjärråtkomst till lokala program](../active-directory/manage-apps/application-proxy.md).
 
 
 ## <a name="before-you-begin"></a>Innan du börjar

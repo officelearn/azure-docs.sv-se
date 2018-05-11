@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-deasim
-ms.openlocfilehash: 3538b80b8acc239eee518db482ab14bb6f559d12
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b3138c2c3136b4bfa6c1c96e5f278bbadef6a73d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -39,7 +39,7 @@ Den här artikeln visar aktuella platserna för punkt av förekomst (POP), sorte
 | --- | --- | --- | --- |
 | Nordamerika | Toronto, Kanada<br />Querétaro, Mexico<br />San Juan registreringen<br />Ashburn, VA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Phoenix, AZ, USA<br />Quincy, WA, USA<br />SAN Antonio, TX, USA<br />Lista Clara, CA, USA<br />| Mexiko, Mexiko<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA<br />Washington, Domänkontrollant, USA | Kanada<br />Mexiko<br />USA |
 | Sydamerika | Campinas, Brasilien<br />Rio de Janeiro, Brasilien<br />Santiago, underordnad | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, underordnad<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Rights reserved<br />Lima, Peru | Brasilien<br />Peru |
-| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Madrid, Spanien<br />Stockholm, Sverige<br />Zürich, Schweiz<br />Durham, Storbritannien<br />London, Storbritannien<br />Manchester, Storbritannien | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spanien<br />Bromma, Sverige<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Danmark<br />Frankrike<br />Tyskland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
+| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Madrid, Spanien<br />Stockholm, Sverige<br />Zürich, Schweiz<br />Durham, Storbritannien<br />London, Storbritannien<br />Manchester, Storbritannien | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spanien<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Danmark<br />Frankrike<br />Tyskland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
 | Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | |
 | Mellanöstern | | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar |
 | Indien | Chennai, Indien<br />Mumbai, Indien | Bangaluru (Bangalore), India<br />Chennai, Indien<br />Delhi i Indien<br />Mumbai, Indien<br />New Delhi i Indien<br /> | Indien |

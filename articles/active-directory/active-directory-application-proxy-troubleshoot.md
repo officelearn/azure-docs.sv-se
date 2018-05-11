@@ -15,11 +15,11 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 54e0ebe60981ef429fdfc97cee1b460b03261a9f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 96e7361ce66caaa653706d22f767e1a109fdacf7
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsökning av problem med Application Proxy och felmeddelanden
 Om fel uppstår i att komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD Application Proxy fungerar:
@@ -88,7 +88,7 @@ Om det uppstår ett fel eller problem med Azure AD Application Proxy som inte fi
 
 ## <a name="see-also"></a>Se också
 * [Aktivera Application Proxy för Azure Active Directory](active-directory-application-proxy-enable.md)
-* [Publicera program med Application Proxy](active-directory-application-proxy-publish.md)
+* [Publicera program med Application Proxy](application-proxy-publish-azure-portal.md)
 * [Aktivera enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)
 * [Aktivera villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
 

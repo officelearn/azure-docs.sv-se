@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a426f7f424bc1941890c80a83997d8e08b368884
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain arbetsstationen
 
@@ -68,20 +68,18 @@ Att lägga till användare till den **administratörer** i Azure AD-katalog:
 
 Använda i Blockchain Workbench för att hantera användare och organisationer som ingår i din consortium. Du kan lägga till eller ta bort användare i program och roller.
 
-[Öppna Blockchain arbetsstationen](blockchain-workbench-deploy.md#blockchain-workbench-web-url) i webbläsaren och logga in som administratör.
+1. [Öppna Blockchain arbetsstationen](blockchain-workbench-deploy.md#blockchain-workbench-web-url) i webbläsaren och logga in som administratör.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>Hantera medlemmar i program
+    Medlemmar läggs till varje program. Medlemmar kan ha en eller flera programroller att inleda kontrakt eller vidta åtgärder.
 
-Medlemmar läggs till varje program. Medlemmar kan ha en eller flera programroller att inleda kontrakt eller vidta åtgärder.
+2. Om du vill hantera medlemskap för ett program, väljer du en program-panelen i den **program** fönstret.
 
-Om du vill lägga till medlemmar i ett program, väljer du en program-panelen i den **program** fönstret.
+    Antalet medlemmar som hör till det valda programmet visas i panelen medlemmar.
 
-![Välj program](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Välj program](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> Antalet medlemmar som hör till det valda programmet visas i panelen medlemmar.
 
 #### <a name="add-member-to-application"></a>Lägg till medlem i programmet
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: a6cd67e4f3c3ab58b83d2ebadbe1856dd61b0f18
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 666253d16ac51dcc21174211f71794f8b0ede07d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -87,7 +87,7 @@ Den här processen skiljer sig från [använder säker konfigurationer utan till
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hämta en [introduktion till Azure DSC-tillägg hanterare](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Granska de [Azure Resource Manager-mall för DSC-tillägg](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Hämta en [introduktion till Azure DSC-tillägg hanterare](dsc-overview.md).
+- Granska de [Azure Resource Manager-mall för DSC-tillägg](dsc-template.md).
 - Mer information om PowerShell DSC går du till den [PowerShell Dokumentationscenter](/powershell/dsc/overview).
 - Fler funktioner som du kan hantera med hjälp av PowerShell DSC, samt mer DSC-resurser, bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

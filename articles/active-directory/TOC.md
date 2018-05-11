@@ -167,16 +167,16 @@
 #### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Hantera appar
-### [Översikt](active-directory-enable-sso-scenario.md)
-### [Komma igång](active-directory-integrating-applications-getting-started.md)
+### [Översikt](manage-apps/what-is-application-management.md)
+### [Komma igång](manage-apps/plan-an-application-integration.md)
 ### [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Skapa ögonblicksrapporter](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Skapa ögonblicksrapporter](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Använda en parser för loggar](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
+### [Få åtkomst till appar med App Proxy](manage-apps/application-proxy.md)
 #### Kom igång
 ##### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
 ##### [Publicera appar](application-proxy-publish-azure-portal.md)

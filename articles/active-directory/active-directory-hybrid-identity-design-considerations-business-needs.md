@@ -1,11 +1,11 @@
 ---
-title: "Identitetskrav för hybrid cloud identitet design Azure | Microsoft Docs"
-description: "Identifiera företagets affärsbehov som leder dig att fastställa krav för hybrid identity-design."
-documentationcenter: 
+title: Identitetskrav för hybrid cloud identitet design Azure | Microsoft Docs
+description: Identifiera företagets affärsbehov som leder dig att fastställa krav för hybrid identity-design.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Ange identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att använda den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och för att lägga till nya och intressanta funktioner som att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity-design.  Dessa tjänster och arbetsbelastningar behöver utnyttja hybrididentitet både lokalt och i molnet.  
 
 Du behöver gå igenom dessa viktiga aspekter av företag att förstå vad det är ett krav nu och företaget planerar för framtiden. Om du inte har synligheten för långsiktig strategi för identitet hybridutformning, är risken att lösningen inte är skalbar när verksamheten behöver växa och ändra.   T han diagrammet nedan visar ett exempel på en hybrid identity-arkitektur och arbetsbelastningar som är att låsas upp för användare. Detta är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en fast hybrid identity-strategi. 
 
-Vissa komponenter som ingår i hybrid identity-arkitektur![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+Vissa komponenter som ingår i hybrid identity-arkitektur ![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Fastställa affärsbehov
 Alla företag har olika krav, även om dessa företag finns i samma bransch, verkliga företag kraven kan variera. Du kan fortfarande utnyttja bästa praxis från branschen, men slutligen är det företagets affärsbehov som leder dig att fastställa krav för hybrid identity-design. 
@@ -56,7 +56,7 @@ Du måste också vara medveten om molntjänster som ditt företag kan ha. Det ä
 * För närvarande är den här integreringen i produktion eller är en pilot?
 
 > [!NOTE]
-> Om du inte har en korrekt mappning för alla dina appar och molntjänster, kan du använda verktyget Cloud App Discovery. Det här verktyget kan ge IT-avdelningen insyn i alla organisationens affärsbehov och konsumenten molnappar. Den gör det enklare att upptäcka skugg-it, information om användarmönster och eventuell användaråtkomst till dina molnprogram. Få igång finns [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
+> Om du inte har en korrekt mappning för alla dina appar och molntjänster, kan du använda verktyget Cloud App Discovery. Det här verktyget kan ge IT-avdelningen insyn i alla organisationens affärsbehov och konsumenten molnappar. Den gör det enklare att upptäcka skugg-it, information om användarmönster och eventuell användaråtkomst till dina molnprogram. Få igång finns [Cloud app discovery](manage-apps/cloud-app-discovery.md).
 > 
 > 
 
@@ -65,7 +65,7 @@ Därefter måste du utvärdera integreringskraven identitet. Det är viktigt att
 
 * Kommer din organisation använder federation, standardautentisering eller båda?
 * Är ett krav för federationen?  På grund av följande:
-  * Kerberos-based SSO
+  * Kerberos-baserad SSO
   * Företaget har ett lokalt program (antingen inbyggd interna eller 3 part) som använder SAML eller liknande funktioner för federation.
   * MFA via smartkort. RSA SecurID osv.
   * Klienten åtkomstregler som löser frågorna nedan:

@@ -3,20 +3,23 @@ title: Runbook-körningen i Azure Automation
 description: Innehåller information om hur en runbook i Azure Automation bearbetas.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 05/08/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 286c23e95f030f92b67e8a505905d11d6ece0297
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a6a429b85e0d7522e5840a0ad020d12f4f4d471e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körningen i Azure Automation
 
 När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare ska köras varje jobb. När anställda delas av flera Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du kan inte har styra vilken Worker services-begäran för jobbet. En enstaka runbook kan ha flera jobb körs samtidigt. Körningsmiljön för jobb från samma Automation-kontot kan återanvändas. När du visar listan över runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook för att kunna spåra statusen för var och en. En beskrivning av olika jobbstatus [jobbstatus](#job-statuses).
+
+[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Följande diagram visar livscykeln för ett runbook-jobb för [grafiska runbook-flöden](automation-runbook-types.md#graphical-runbooks) och [PowerShell-arbetsflöde runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -34,7 +37,7 @@ I följande tabell beskrivs de olika statuslägen som är möjliga för ett jobb
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Slutförd |Jobbet har slutförts. |
+| Slutfört |Jobbet har slutförts. |
 | Misslyckad |För [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md), det gick inte att kompilera runbook. För [PowerShell-skript runbooks](automation-runbook-types.md), det gick inte att starta runbook eller jobbet påträffade ett undantag. |
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom den nått den [fördelning](#fair-share) begränsa tre gånger och startas från samma kontrollpunkten eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på resurser på en Automation arbetare blir tillgängliga så att den kan startas. |

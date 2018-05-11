@@ -1,12 +1,12 @@
 ---
 title: StorSimple 8000 Series uppdatering 4 viktig information | Microsoft Docs
-description: "Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 4."
+description: Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 4.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f4db5a49b71b0c384da7af2b90bd5426a4f35c72
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 Series uppdatering 4 viktig information
-> [!NOTE]
-> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## <a name="overview"></a>Översikt
 
@@ -72,7 +69,7 @@ Följande tabell innehåller en översikt över problem som har åtgärdats i up
 | --- | --- | --- | --- | --- |
 | 1 |Redundans |I den tidigare versionen efter växling vid fel, uppstod ett problem relaterat till rensning observerats hos kunden. Det här problemet löses i den här versionen. |Ja |Ja |
 | 2 |Lokalt fästa volymer |I den tidigare versionen uppstod ett problem till relaterade volymer kan skapas för lokalt fästa volymer som skulle resultera i fel vid skapande av volymen. Det här problemet var roten orsakade och fast i den här versionen. |Ja |Nej |
-| 3 |Support-paket |Det fanns problem relaterade till stöd för paket som skulle resultera i ett System.OutOfMemory undantag eller andra fel som leder stöd paketet skapas i föregående versionen. De här felen korrigeras i den här versionen. |Ja |Ja |
+| 3 |Supportpaket |Det fanns problem relaterade till stöd för paket som skulle resultera i ett System.OutOfMemory undantag eller andra fel som leder stöd paketet skapas i föregående versionen. De här felen korrigeras i den här versionen. |Ja |Ja |
 | 4 |Övervakning |I tidigare version fästa det ett problem som rör övervakning diagram för lokalt volymer där förbrukning visades i EB. Det här problemet löses i den här versionen. |Ja |Ja |
 | 5 |Migrering |Det fanns flera problem relaterade till tillförlitligheten för migrering från 5000 7000-serien 8000-serien enheter i föregående versionen. Dessa problem har åtgärdats i den här versionen. |Ja |Ja |
 | 6 |Uppdatering |I tidigare versioner, om det uppstod ett fel för uppdateringen, domänkontrollanterna hamnar i återställningsläge och därför användaren gick inte att fortsätta med uppdateringen måste du kontakta Microsoft Support. <br> Det här beteendet har ändrats i den här versionen. Om användaren har ett update-fel när båda domänkontrollanterna kör samma version (Update 4), flyttas inte domänkontrollanterna till återställningsläge. Om användaren påträffar felet, rekommenderar vi att de vänta lite och försök sedan uppdateringen. Det nya försöket lyckas. Om det nya försöket misslyckas, bör de kontakta Microsoft Support. |Ja |Ja |

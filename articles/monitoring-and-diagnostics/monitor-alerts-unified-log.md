@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 3a4277d2106078136cee09dfe6aefc87a73c4e08
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Loggen aviseringar i Azure-Monitor - aviseringar 
 Den här artikeln innehåller information om loggen aviseringar är en av typerna av aviseringar som stöds i den nya [Azure aviseringar](monitoring-overview-unified-alerts.md) och användarna kan använda Azures analytics platform som bas för aviseringar... Mer information om måttet aviseringar via loggar avser [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
@@ -92,7 +92,7 @@ Föreställ dig ett scenario där du vill lägga till en avisering om alla dator
 - **Tidsperiod:** 30 minuter<br>
 - **Varna frekvens:** fem minuter<br>
 - **Aggregera värde:** bra än 90<br>
-- **Utlösaren avisering baserat på:** totalt överträdelser som är större än 5<br>
+- **Utlösaren avisering baserat på:** totalt överträdelser som är större än 2<br>
 
 Frågan skulle skapa ett genomsnittligt värde för varje dator med 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna.  Exempeldata visas nedan för tre datorer.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake-verktyg för Visual Studio Code
 
@@ -449,6 +449,10 @@ Data Lake-verktyg för VS-koden har stöd för följande funktioner:
 
     ![Data Lake-verktyg för Visual Studio Code syntax visar](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >I förberedelse för den nya allmänna Data Protection förordning (BNPR) försättas effekt på 25 maj 2018, rekommenderar vi att användare av Azure Data Lake-verktyg för Visual Studio Code uppgradera till version 0.2.13 eller senare. Den här versionen innehåller ändras baserat på de senaste kraven på dataskydd. Observera att tidigare versioner inte är tillgängliga för hämtning och är föråldrade. 
+ 
+   
 ## <a name="next-steps"></a>Nästa steg
 - [Utveckla U-SQL med Python, R och CSharp för Azure Data Lake Analytics i VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [Lokal U-SQL kör och lokala debug med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)

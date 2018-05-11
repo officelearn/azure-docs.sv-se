@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använda Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av data vid angivna intervall. Dessa kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -90,12 +90,12 @@ Den här artikeln beskriver hur du återställer en virtuell dator till en ny vi
 
     Den **återställa** bladet visar att återställningspunkten har angetts.
 
-9. Om du inte redan har det, går till den **återställa** bladet. Se till att en [återställningspunkt väljs](#select-restore-point-for-restore), och välj **Återställ konfiguration**. Den **Återställ konfiguration** blad öppnas.
+9. Om du inte redan har det, går till den **återställa** bladet. Se till att en [återställningspunkt väljs](#select-a-restore-point-for-restore), och välj **Återställ konfiguration**. Den **Återställ konfiguration** blad öppnas.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Välj en återställning VM-konfiguration
 När du har valt återställningspunkten du Välj en konfiguration för återställning av VM. Du kan använda Azure-portalen eller PowerShell om du vill konfigurera den återställda virtuella datorn.
 
-1. Om du inte redan har det, går till den **återställa** bladet. Se till att en [återställningspunkt väljs](#select-restore-point-for-restore), och välj **Återställ konfiguration**. Den **Återställ konfiguration** blad öppnas.
+1. Om du inte redan har det, går till den **återställa** bladet. Se till att en [återställningspunkt väljs](#select-a-restore-point-for-restore), och välj **Återställ konfiguration**. Den **Återställ konfiguration** blad öppnas.
 
     ![Återställa konfigurationsguiden](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. På den **Återställ konfiguration** bladet har du två alternativ:

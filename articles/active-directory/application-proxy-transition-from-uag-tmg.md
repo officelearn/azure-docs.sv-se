@@ -15,11 +15,11 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a433c18be29416992304b2cb8cfa9acabe895ea6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6764a0eeb27b8bff24140ff2c12e9e66b06b48b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Jämför fjärråtkomstlösningar
 
@@ -62,5 +62,5 @@ Azure AD Application Proxy har unika fördelar jämfört med liknande produkter,
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använda Azure AD-program för att ge säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md)
+- [Använda Azure AD-program för att ge säker fjärråtkomst till lokala program](manage-apps/application-proxy.md)
 - [Övergången från Forefront TMG och UAG till Application Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

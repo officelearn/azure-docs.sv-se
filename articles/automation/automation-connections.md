@@ -3,16 +3,17 @@ title: Anslutningstillgångar i Azure Automation
 description: Anslutningstillgångar i Azure Automation innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfigurationen. Den här artikeln beskriver hur du anslutningar och hur du arbetar med dem i både text och grafiska redigering.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d2c2cc2964b8223a564d45359f332597a1ca1f87
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 548748843443fe28d801912ae37de9b584096ffa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 

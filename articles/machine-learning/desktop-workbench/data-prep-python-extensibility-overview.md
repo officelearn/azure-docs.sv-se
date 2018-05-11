@@ -4,19 +4,17 @@ description: Det här dokumentet innehåller en översikt och detaljerad exempel
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
 Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
@@ -24,14 +22,10 @@ Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på
 ## <a name="custom-code-steps"></a>Anpassad kod steg 
 Data förberedelser har följande anpassade steg där användare kan skriva kod:
 
-* Filen Reader *
-* Skrivaren *
 * Lägg till kolumn
 * Avancerat filter
 * Transformera dataflöde
 * Transformera Partition
-
-* De här stegen stöds inte för närvarande i ett Spark-körning.
 
 ## <a name="code-block-types"></a>Typer av kod block 
 Vi stöder två typer av kod block för var och en av de här stegen. Vi stöder först ett bare Python-uttryck som körs eftersom. Vi stöder andra, en Python-modulen där vi kallar en särskild funktion med en känd signatur i den kod som du anger.
@@ -158,74 +152,6 @@ Exempel
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>Filen läsare 
-### <a name="purpose"></a>Syfte 
-Filen Reader tillägget punkten kan du helt kontrollen processen med att läsa en fil i ett dataflöde. Systemet anropar koden och vidarebefordrar i listan över filer som du ska bearbeta. Din kod måste skapas och returnera ett Pandas dataframe. 
-
->[!NOTE]
->Tillägget nu fungerar inte i Spark. 
-
-
-### <a name="how-to-use"></a>Hur du ska använda detta 
-Du har åtkomst till det här tillägget punkt från den **Öppna datakälla** guiden. Välj **filen** på första sidan och välj sedan din plats. På den **Välj parametrar** sidan den **filtyp** listrutan Välj **anpassad fil (skript)**. 
-
-Koden får en Pandas dataframe med namnet ”df” som innehåller information om filerna du behöver läsa. Om du väljer att öppna en katalog som innehåller flera filer innehåller i dataframe mer än en rad.  
-
-Den här dataframe har följande kolumner:
-
-- Sökväg: Filen som ska läsas.
-- PathHint: Anger där filen finns. Värden: Lokal AzureBlobStorage och AzureDataLakeStorage.
-- AuthenticationType: Typ av autentisering som används för att komma åt filen. Värden: None, SasToken och OAuthToken.
-- AuthenticationValue: Innehåller inget eller token som ska användas.
-
-### <a name="syntax"></a>Syntax 
-Uttryck 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Modul  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Skrivare 
-### <a name="purpose"></a>Syfte 
-Skrivaren tillägget punkten kan du helt kontroll av skrivning av data från ett dataflöde. Systemet anropar koden och vidarebefordrar i en dataframe. Koden kan använda dataframe för att skriva data du vill. 
-
->[!NOTE]
->Skrivaren tillägget plats fungerar inte i Spark.
-
-
-### <a name="how-to-use"></a>Hur du ska använda detta 
-Du kan lägga till tillägget nu med de skriva (skript) dataströmsblocket. Det är tillgängligt på den översta **transformationer** menyn.
-
-### <a name="syntax"></a>Syntax 
-Uttryck
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Modul
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Den här anpassade write block kan finnas mitt i en lista över steg. Om du använder en modul, måste skriv-funktionen returnera dataframe som indata till det steg som följer. 
 
 ## <a name="add-column"></a>Lägg till kolumn 
 ### <a name="purpose"></a>Syfte

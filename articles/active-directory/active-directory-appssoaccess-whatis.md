@@ -14,11 +14,11 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 19eb9bb593b349d88d8235dc2f1eca448e7646f5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1bd45027ea9c3dbffc642afedc4e478c96bffe7
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (Skriv till exempel ett lösenord) en andra gång.
@@ -191,7 +191,7 @@ Dessa länkar använder samma access control mekanismer som åtkomstpanelen och 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Hitta ej sanktionerad molnprogram med Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+* [Hitta ej sanktionerad molnprogram med Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 * [Introduktion till att hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 * [Jämförelse av funktioner för att hantera externa identiteter i Azure AD](active-directory-b2b-compare-external-identities.md)
 

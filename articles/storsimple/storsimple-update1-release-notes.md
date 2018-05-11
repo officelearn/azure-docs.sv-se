@@ -1,11 +1,11 @@
 ---
 title: StorSimple 8000 Series uppdatering 1.2 viktig information | Microsoft Docs
-description: "Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 1.2."
+description: Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 1.2.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
 ms.service: storsimple
 ms.devlang: NA
@@ -15,16 +15,13 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2856cda1fde04ab61b4cf15ad0dcc3db2a9df68
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Uppdatera 1.2 viktig information för enheten StorSimple 8000-serien
-> [!NOTE]
-> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## <a name="overview"></a>Översikt
 Följande information beskriver de nya funktionerna och identifiera kritiska öppna problem för StorSimple 8000 Series uppdatering 1.2. De innehåller också en lista över StorSimple-programvara, drivrutiner och uppdateringar av inbyggd disk i den här versionen. 
@@ -54,13 +51,13 @@ Dessa funktioner publicerades först med uppdatering 1 som har gjorts tillgängl
 * **Migrering från 5000 7000-serien 8000-serien enheter** – den här versionen finns en ny funktion för migrering som användarna i StorSimple 5000 7000-serien installation kan migrera sina data till en fysisk installation för StorSimple 8000-serien eller en virtuell installation. Funktionen för hårdlänksmigrering har två viktiga värderingsförslag:                                                                  
   
   * **Kontinuitet för företag**, genom att aktivera migrering av befintliga data på 5000 7000-serien installationer 8000-serien-enheterna.
-  * **Förbättrad funktionen erbjudanden av utrustning i 8000-serien**, till exempel effektiv centraliserad hantering av flera installationer via StorSimple Manager-tjänsten, bättre maskinvaruklass och uppdatera inbyggd programvara, virtuella installationer, mobility data och funktioner i framtida Översikt.
+  * **Förbättrad funktionen erbjudanden av utrustning i 8000-serien**, till exempel effektiv centraliserad hantering av flera installationer via StorSimple Manager-tjänsten, bättre maskinvaruklass och uppdatera inbyggd programvara, virtuella installationer, data mobility och funktioner i framtida Översikt.
     
     Referera till den [Migreringsguide](http://www.microsoft.com/download/details.aspx?id=47322) för information om hur du migrerar en virtuell StorSimple 5000 7000-serien till en serieenhet i 8000-. 
 * **Tillgänglighet i Azure Portal för myndigheter** – StorSimple är nu tillgängligt i Azure Government-portalen. Se hur du [distribuera en virtuell StorSimple-enhet i Azure Portal för myndigheter](storsimple-deployment-walkthrough-gov.md).
 * **Stöd för andra molntjänstleverantörer** – andra molntjänstleverantörer som stöds är Amazon S3, Amazon S3 med RRS, HP och OpenStack (beta).
 * **Uppdatera till senaste lagring API: er** – med den här versionen, StorSimple har uppdaterats till den senaste Azure Storage service API: er. StorSimple 8000-serien enheter som körs före uppdatering 1 programvaruversioner (versionen 0,1 och 0,2 0,3) använder versioner av Azure Storage Service API: erna äldre än 17 juli 2009. Enligt informationen i den uppdaterade [meddelande om borttagning av Storage-tjänstversioner](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), genom att 1 augusti 2016 dessa API: er att bli inaktuell. Det är viktigt att du tillämpar StorSimple 8000 Series uppdatering 1 före den 1 augusti 2016. Om du inte gör stoppa StorSimple-enheter fungerar korrekt.
-* **Stöd för zonen Redundant lagring (ZRS)** – med uppgraderingen till den senaste versionen av API: er för lagring, StorSimple 8000-serien stöder zonen Redundant lagring (ZRS) förutom lokalt Redundant lagring (LRS) och Geo-redundant lagring (GRS). Referera till den här [artikel på Azure Storage redundansalternativ](../storage/common/storage-redundancy.md) ZRS information.
+* **Stöd för zonen Redundant lagring (ZRS)** – med uppgraderingen till den senaste versionen av API: er för lagring, StorSimple 8000-serien stöder zonen Redundant lagring (ZRS) förutom lokalt Redundant lagring (LRS) och Geo-redundant lagring (GRS ). Referera till den här [artikel på Azure Storage redundansalternativ](../storage/common/storage-redundancy.md) ZRS information.
 * **Förbättrad inledande distributionen och uppdatera experience** – i den här versionen, installation och uppdatera processer har förbättrats. Installationen via installationsguiden har förbättrats för att ge feedback till användaren om nätverkskonfigurationen och brandväggsinställningar är felaktig. Ytterligare diagnostiska cmdlets har angetts som hjälper dig med felsökning av nätverk för enheten. Finns det [distribution artikeln Felsöka](storsimple-troubleshoot-deployment.md) för mer information om nya diagnostiska cmdlets som används för felsökning.
 
 ## <a name="issues-fixed-in-update-12"></a>Problem som åtgärdas i uppdateringen 1.2
@@ -94,7 +91,7 @@ Följande tabell innehåller en översikt över kända problem i den här versio
 | 6 |Webbproxy |Om din webbproxykonfigurationen har det angivna protokollet HTTPS, enhet-till-tjänst-kommunikation kommer att påverkas och enheten ska försättas i offlineläge. Stöd för paket skapas också i process förbrukar betydande resurser på enheten. |Kontrollera att URL: en för web proxy har det angivna protokollet HTTP. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Nej |
 | 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet, måste du starta om den aktiva styrenheten på enheten. | |Ja |Nej |
 | 8 |Hög molnet latens och hög i/o-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög molnet latens (ordning sekunder) och höga i/o-arbetsbelastning, enheten volymer som ingår i ett degraderat tillstånd och I/o kan misslyckas med felet ”enheten är inte klar”. |Du måste starta om styrenheterna eller utför en växling vid fel med enheten för att återställa från den här situationen manuellt. |Ja |Nej |
-| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** du väljer det första objektet så att du kan skapa en ny **VolumeContainer** objekt, returnerar cmdleten alla objekt. |Omsluta cmdlet inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - först 1 - vänta** |Ja |Ja |
+| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** du väljer det första objektet så att du kan skapa en ny **VolumeContainer** objektet, cmdlet returnerar alla objekt. |Omsluta cmdlet inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - första 1 - vänta** |Ja |Ja |
 | 10 |Migrering |När flera volymbehållare skickas för migrering är ETA för senaste säkerhetskopian exakt endast för den första volymbehållaren. Dessutom startas parallella migrering efter de första 4 säkerhetskopiorna i första volymbehållare migreras. |Vi rekommenderar att du migrerar en volymbehållare i taget. |Ja |Nej |
 | 11 |Migrering |Efter återställningen läggs inte volymer till principen för säkerhetskopiering eller gruppen virtuell disk. |Du behöver lägga till dessa volymer till en princip för säkerhetskopiering för att skapa säkerhetskopior. |Ja |Ja |
 | 12 |Migrering |När migreringen är klar, måste enheten 5000/7000-serien inte komma åt behållarna migrerade data. |Vi rekommenderar att du tar bort migrerade databehållare när migreringen har slutförts och bekräftats. |Ja |Nej |

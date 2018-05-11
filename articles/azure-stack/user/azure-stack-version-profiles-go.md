@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använda profiler för API-version med gå i Azure-stacken
 
@@ -61,7 +61,8 @@ SDK gå beror på Azure gå-AutoRest-moduler att skicka REST-begäranden till Az
 Att köra ett exempel gå kod på Azure Stack:
   1. Installera Azure SDK för gå och dess beroenden. Anvisningar finns i föregående avsnitt, [installera Azure SDK för Gå](#install-azure-sdk-for-go).
   2. Hämta metadata-information från Resource Manager-slutpunkten. Slutpunkten returnerar en JSON-fil med den information som krävs för att köra koden gå.
-  > [!note]  
+
+  > [!Note]  
   > Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`  
   > Den **ResourceManagerUrl** i integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ Det här avsnittet presenteras ett vanligt sätt att hämta authorizer token på
 ## <a name="example"></a>Exempel
 
 Det här avsnittet visas ett exempel gå kod för att skapa virtuella nätverk på Azure-stacken. Mer komplett exempel på Gå SDK finns [Azure gå SDk-exempel databasen](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack-exempel finns under hybrid / sökväg inuti tjänstemapparna av databasen.
-> [!note]  
+
+> [!Note]  
 > Om du vill köra koden i det här exemplet, kontrollera att prenumerationen används **nätverk** resursprovidern som **registrerade**. För att verifiera den ser ut för prenumerationen på Azure Stack-portalen och klicka på **resursleverantörer.**
 
 1. Importera nödvändiga paketen i koden. Du bör använda den senaste profilen på Azure-stacken för att importera nätverksmodulen. 
@@ -194,7 +196,7 @@ Det här avsnittet visas ett exempel gå kod för att skapa virtuella nätverk p
   )
   ````
 
-2. Definiera din miljövariabler. Observera att om du vill skapa ett virtuellt nätverk måste ha en resursgrupp. 
+2. Definiera din miljövariabler. Om du vill skapa ett virtuellt nätverk som du behöver ha en resursgrupp. 
 
   ````go
   var (

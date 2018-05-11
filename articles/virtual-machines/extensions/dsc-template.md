@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 7657f27e25af62f13371a9216596f142dc2491dd
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -394,6 +394,6 @@ Följ det format som anges i föregående exempel. Håll utkik efter citattecken
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [med virtuella skalan anger med Azure DSC-tillägg](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- Hitta mer information om [hantering av DSC-säkra autentiseringsuppgifter](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Hämta en [introduktion till Azure DSC-tillägg hanteraren](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Hitta mer information om [hantering av DSC-säkra autentiseringsuppgifter](dsc-credentials.md).
+- Hämta en [introduktion till Azure DSC-tillägg hanteraren](dsc-overview.md).
 - Mer information om PowerShell DSC går du till den [PowerShell Dokumentationscenter](/powershell/dsc/overview).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c0ca120da27daa7a498f73b9c62530e3af26e539
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure-loggning och granskning
 ## <a name="introduction"></a>Introduktion
@@ -65,12 +65,12 @@ Azure ger utförlig loggning för varje Azure-tjänst. Dessa loggar kategorisera
 
 I följande tabell listas de viktigaste typ av loggar som är tillgängliga i Azure.
 
-| Loggen kategori | Loggtyp | Användningsområden | Integrering |
+| Loggkategori | Loggtyp | Användningsområden | Integrering |
 | ------------ | -------- | ------ | ----------- |
 |[Aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Kontroll-plan händelser på Azure Resource Manager-resurser|   Ger information om åtgärder som utfördes på resurser i din prenumeration.| REST-API: T & [Azure Övervakare](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|ofta data om handhavandet av Azure Resource Manager resurserna i prenumerationen| Ger information om åtgärder som din resurs utförde själva| Övervakare för Azure [dataström](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD-rapportering](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Loggar och rapporter|Logga in användaraktiviteter & System aktivitetsinformation om användare och grupphantering|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Virtuella & molntjänster](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows-händelseloggen & Linux Syslog|    Samlar in systemdata och loggningsdata på virtuella datorer och överför data till ett lagringskonto som du väljer.|   Windows använder [BOMULLSTUSS](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure-diagnostik lagring) och Linux i Azure-monitor|
+|[Virtuella & molntjänster](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows-händelseloggen & Linux Syslog| Samlar in systemdata och loggningsdata på virtuella datorer och överför data till ett lagringskonto som du väljer.|   Windows använder [BOMULLSTUSS](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure-diagnostik lagring) och Linux i Azure-monitor|
 |[Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Loggning för lagring och ger mätvärdesdata för ett lagringskonto|Ger inblick i trace-begäranden, analysera användningstrender och diagnostisera problem med ditt lagringskonto.|    REST API eller [klientbibliotek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Loggar för flödet av NSG (Nätverkssäkerhetsgrupp)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-format och visar utgående och inkommande flöden på grundval av per regel|Visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp|[Nätverksbevakaren](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Loggar, undantag och anpassade diagnostik|    Performance Management (APM) programtjänsten för webbutvecklare på flera plattformar.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -209,7 +209,7 @@ Följande typer av autentiserade och anonyma begäranden loggas.
 
 
 
-| Autentiserad  | Anonym|
+| Autentiserad  | Anonymt|
 | :------------- | :-------------|
 | Lyckade begäranden | Lyckade begäranden |
 |Misslyckade begäranden, inklusive timeout, begränsning, nätverk, auktorisering och andra fel | Begäranden som använder en delad signatur åtkomst (SAS), inklusive misslyckade och lyckade begäranden |
@@ -266,7 +266,7 @@ Utöver föregående loggningsfunktioner har Nätverksbevakaren för närvarande
 
 ### <a name="application-insight"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar Management-program (APM)-tjänst för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Det är att automatiskt identifiera prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar Management-program (APM)-tjänst för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den upptäcker automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.
 
  Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
@@ -355,7 +355,7 @@ Det finns fyra olika sätt att [att samla in loggar och mått för Azure-tjänst
 | Tjänst | Resurstyp | Logs | Mått | Lösning |
 | :------ | :------------ | :--- | :------ | :------- |
 |Programgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure-program](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application Insights||     Anslutning|  Anslutning|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [anslutningsprogrammet (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Application Insights||     Koppling|  Koppling|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [anslutningsprogrammet (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation-konton|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostik||       [Mer information](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch-konton|    Microsoft.Batch/<br>batchAccounts|  Diagnostik|    Diagnostik||
 |Klassiska molntjänster||       Storage||       [Mer information](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|

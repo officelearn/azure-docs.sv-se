@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: cefb5b7157f2fc8672ed419961cd3a90314b95e0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du extrahera informationen från bilder i kognitiva Sök scenarier
 
@@ -32,10 +32,12 @@ Du kan inte inaktivera avbildningen normalisering. Kunskaper som itererar över 
 
 | Konfigurationsparameter | Beskrivning |
 |--------------------|-------------|
-| imageAction   | Värdet ”none” om ingen åtgärd som ska vidtas när inbäddade bilder eller bildfiler påträffades. <br/>Ange antingen ”generateNormalizedImages” att generera en matris med normaliserade avbildningar som en del av dokumentet sprickbildning. Dessa avbildningar visas i den *normalized_images* fältet. <br/>Standardvärdet är ”none”. Den här konfigurationen är endast relevant för blob-datakällor när ”dataToExtract” anges till ”contentAndMetadata”. |
+| imageAction   | Värdet ”none” om ingen åtgärd som ska vidtas när inbäddade bilder eller bildfiler påträffades. <br/>Ange till ”generateNormalizedImages” för att generera en matris med normaliserade avbildningar som en del av dokumentet sprickbildning. Dessa avbildningar visas i den *normalized_images* fältet. <br/>Standardvärdet är ”none”. Den här konfigurationen är endast relevant för blob-datakällor när ”dataToExtract” anges till ”contentAndMetadata”. |
 |  normalizedImageMaxWidth | Den maximala bredden (i bildpunkter) för normaliserade bilder som skapas. Standardvärdet är 2000.|
 |  normalizedImageMaxHeight | Maximal höjd (i bildpunkter) för normaliserade bilder som skapas. Standardvärdet är 2000.|
 
+> [!NOTE]
+> Om du ställer in den *imageAction* -egenskapen till något annat än ”none” du kommer inte att ange den *parsingMode* egenskapen till något annat än ”standard”.  Du kan bara ange en av de här två egenskaperna till ett standardvärde i indexeraren konfigurationen.
 
 2000 bildpunkter normaliserade bilder maximala bredd och höjd Standardvärdet baseras på de maximala storlekar som stöds av den [OCR kunskaper](cognitive-search-skill-ocr.md) och [bild analys kunskaper](cognitive-search-skill-image-analysis.md). Om du ökar de maximala gränserna, misslyckas bearbetning på stora bilder.
 

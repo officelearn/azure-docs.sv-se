@@ -8,8 +8,8 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -29,7 +29,7 @@ Fysiska servrar | Replikeringen av lokala Windows-/ Linux fysiska serversto Azur
 
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
-VMware | vCenter Server 6.5 6.0, eller 5.5 eller vSphere 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs process-serverkomponenter på konfigurationsservern, så att det här nätverket där du ställer in konfigurationsservern och om du inte anger en dedikerad processerver. 
+VMware | vCenter Server 6.5 6.0, eller 5.5 eller vSphere 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs process-serverkomponenter på konfigurationsservern, så att det här nätverket där du ställer in konfigurationsservern och om du inte anger en dedikerad processerver.
 Fysiska | Gäller inte
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery konfigurationsservern
@@ -38,19 +38,19 @@ Konfigurationsservern är en lokal dator som kör Site Recovery-komponenter, ink
 
 **Komponent** | **Krav**
 --- |---
-Processorkärnor | 8 
+Processorkärnor | 8
 RAM | 12 GB
 Antal diskar | 3 diskar<br/><br/> Diskar innehåller OS-disk, disk för processen server cache och kvarhållningsenhetens för återställning efter fel.
 Ledigt diskutrymme | 600 GB diskutrymme som krävs för processen serverns cacheminne.
 Ledigt diskutrymme | 600 GB diskutrymme som krävs för kvarhållningsenhetens.
-Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 | 
-Nationella inställningar för operativsystem | Engelska (en-us) 
+Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 |
+Nationella inställningar för operativsystem | Engelska (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") ska installeras.
 Windows Server-roller | Aktivera inte: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 Grupprinciper| Aktivera inte: <br> -Förhindra åtkomst till Kommandotolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> -Förtroende för bifogade filer. <br> -Aktivera körning av skript. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Se till att du:<br/><br/> -Inte har en befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställning  <br> -Inte har redan befintliga webbplats/app lyssnar på port 443<br>
-NIC-typ | VMXNET3 (när distribueras som en VM VMware) 
-IP-adresstyp | Statisk 
+NIC-typ | VMXNET3 (när distribueras som en VM VMware)
+IP-adresstyp | Statisk
 Portar | 443 används för kontrollen kanal orchestration)<br>9443 som används för datatransport
 
 ## <a name="replicated-machines"></a>Replikerade datorer
@@ -138,7 +138,8 @@ Flera nätverkskort | Ja
 Reserverad IP-adress | Ja
 IPv4 | Ja
 Behåll källans IP-adress | Ja
-Azure Virtual Network service-slutpunkter<br/><br/> (Azure Storage brandväggar och virtuella nätverk) | Nej
+Azure Virtual Network service-slutpunkter<br/> (utan Azure Storage brandväggar) | Ja
+Accelererat nätverk | Nej
 
 ## <a name="storage"></a>Storage
 **Komponent** | **Stöds**
@@ -184,7 +185,7 @@ Blockblob-objekt | Nej
 Kryptering i vila (Storage Service-kryptering)| Ja
 Premium Storage | Ja
 Import/export service | Nej
-Slutpunkter för virtuella nätverk<br/><br/> Brandväggar för lagring och virtuella nätverk som konfigurerats på mål-storage-cache lagringskontot (används för att lagra data för replikering) | Nej
+Azure Storage-brandväggar för virtuella nätverk som konfigurerats på mål-storage-cache lagringskontot (används för att lagra data för replikering) | Nej
 Generella v2 storage-konton (både frekvent och lågfrekvent nivå) | Nej
 
 ## <a name="azure-compute"></a>Azure-beräkning
@@ -201,16 +202,16 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven fö
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystemet | Kontrollera [operativsystem](#replicated machines). | Det går inte att kontrollera om stöds inte. 
-Gästen operativsystemets arkitektur | 64-bitars. | Det går inte att kontrollera om stöds inte. 
-Operativsystemdisken | Upp till 2 048 GB. | Det går inte att kontrollera om stöds inte. 
+Gästoperativsystemet | Kontrollera [operativsystem](#replicated machines). | Det går inte att kontrollera om stöds inte.
+Gästen operativsystemets arkitektur | 64-bitars. | Det går inte att kontrollera om stöds inte.
+Operativsystemdisken | Upp till 2 048 GB. | Det går inte att kontrollera om stöds inte.
 Operativsystemet disk antal | 1 | Det går inte att kontrollera om stöds inte.  
 Datadiskar | 64 eller mindre. | Det går inte att kontrollera om stöds inte.  
-Datadiskstorleken | Upp till 4,095 GB | Det går inte att kontrollera om stöds inte. 
-Nätverkskort | Stöd för flera kort. | 
-Delad virtuell Hårddisk | Stöds ej. | Det går inte att kontrollera om stöds inte. 
-FC-disk | Stöds ej. | Det går inte att kontrollera om stöds inte. 
-BitLocker | Stöds ej. | BitLocker måste inaktiveras innan du aktiverar replikering för en dator. | 
+Datadiskstorleken | Upp till 4,095 GB | Det går inte att kontrollera om stöds inte.
+Nätverkskort | Stöd för flera kort. |
+Delad virtuell Hårddisk | Stöds ej. | Det går inte att kontrollera om stöds inte.
+FC-disk | Stöds ej. | Det går inte att kontrollera om stöds inte.
+BitLocker | Stöds ej. | BitLocker måste inaktiveras innan du aktiverar replikering för en dator. |
 VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Datornamnet måste börja och sluta med en bokstav eller siffra. |  Uppdatera värdet i datoregenskaperna i Site Recovery.
 
 

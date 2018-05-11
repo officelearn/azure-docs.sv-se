@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: be5ecfdd4465d721dee49c4963cb2267b2b0a40a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>vCore-baserade inköpsmodell för Azure SQL Database (förhandsgranskning)
 
@@ -58,7 +58,7 @@ I vCore-baserade köp modellen (förhandsgranskning) kunder betalningen för:
 
 ## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Att välja tjänstnivån, bearbetning, minne, lagring och i/o-resurser
 
-Konvertera till vCore-baserade inköpsmodell (förhandsversion) kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra. Om den databas eller en elastisk pool förbrukar mer än 300 DTU konvertering till vCore kan minska dina kostnader. Du kan konvertera med hjälp av din API väljer eller Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om DTU-inköpsmodell uppfyller dina företagskrav på prestanda och, ska du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modell, bör du välja prestandanivå med hjälp av följande tumregel: varje 100 DTU i standardnivån kräver minst 1 vCore och varje 125 DTU i Premium-nivån kräver minst 1 vCore.
+Konvertera till vCore-baserade inköpsmodell (förhandsversion) kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra. Om den databas eller en elastisk pool förbrukar mer än 300 DTU konvertering till vCore kan minska dina kostnader. Du kan konvertera med hjälp av din API väljer eller Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om DTU-inköpsmodell uppfyller dina företagskrav på prestanda och, ska du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modell, bör du välja prestandanivå med hjälp av följande tumregel: varje 100 DTU i standardnivån kräver minst 1 vCore i generella skiktet; varje 125 DTU i Premium-nivån kräver minst 1 vCore i företag kritisk nivå.
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
@@ -67,7 +67,7 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 |Bäst för|De flesta arbetsbelastningar. Erbjudanden budget objektorienterad belastningsutjämnade och skalbar beräkning och lagring-alternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
 |Compute|1-16 vCore|1-16 vCore|
 |Minne|7 GB per kärna |7 GB per kärna |
-|Lagring|Premium Fjärrlagring, 5 GB – 4 TB|Lokala SSD-lagringen, 5 GB – 1 TB|
+|Storage|Premium Fjärrlagring, 5 GB – 4 TB|Lokala SSD-lagringen, 5 GB – 1 TB|
 |I/o-genomströmning (CA)|500 IOPS per vCore med 7500 högsta IOPS|5 000 IOPS per kärna|
 |Tillgänglighet|1 repliken, utan läsning skalning|3 repliker, 1 [Läs skala](sql-database-read-scale-out.md), zonen redundant hög tillgänglighet|
 |Säkerhetskopior|RA-GRS, 7-35 dagar (7 dagar som standard)|RA-GRS, 7-35 dagar (7 dagar som standard) *|

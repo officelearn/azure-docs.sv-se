@@ -11,12 +11,15 @@ På första start uppmanas molnet Shell du att associera en ny eller befintlig f
 
 När du använder grundläggande inställningar och välj endast en prenumeration skapar molnet Shell tre resurser å dina vägnar i stöds region som ligger närmast du:
 * Resursgrupp: `cloud-shell-storage-<region>`
-* Storage-konto:`cs<uniqueGuid>`
-* Filresurs:`cs-<user>-<domain>-com-<uniqueGuid>`
+* Storage-konto: `cs<uniqueGuid>`
+* Filresurs: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![Inställningen för prenumeration](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
 Filresursen monterar som `clouddrive` i din `$Home` directory. Detta är en engångsåtgärd och filresursen automatiskt monterar i efterföljande sessioner. 
+
+> [!NOTE]
+> Av säkerhetsskäl bör varje användare etablera egna lagring.  Användarna måste ha deltagare åtkomst för rollbaserad åtkomstkontroll (RBAC) eller senare.
 
 I Bash, filresursen även innehåller en 5 GB-avbildning som skapas för dig som automatiskt kvarstår data i din `$Home` directory. 
 
@@ -37,7 +40,7 @@ Associerade konton måste finnas i samma region som molntjänster Shell-dator so
 Hitta din tilldelade region som du kan:
 * Visa anteckningen i dialogrutan ”Avancerade Lagringsinställningar”
 * Referera till namnet på det lagringskonto som skapats åt dig (ex: `cloud-shell-storage-westus`)
-* Kör `env` och leta upp variabeln`ACC_LOCATION`
+* Kör `env` och leta upp variabeln `ACC_LOCATION`
 
 Molnet Shell dator finns i följande områden:
 |Område|Region|

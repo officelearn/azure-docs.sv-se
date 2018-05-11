@@ -3,16 +3,17 @@ title: Skapa en Azure Automation kör som-konton
 description: I den här artikeln beskrivs hur du uppdaterar ditt Automation-konto och skapar Kör som-konton med PowerShell eller från Portal.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 239478a9e697d9eed474a9bfcc0d12fb6a05faee
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 03a5cf6fd049e63616155a87bf112636b74be0a1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uppdatera autentiseringen av ditt Automation-konto med Kör som-konton 
 Du kan uppdatera ditt befintliga Automation-konto från Azure Portal eller med PowerShell om:

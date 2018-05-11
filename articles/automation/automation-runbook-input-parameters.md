@@ -3,16 +3,17 @@ title: Indataparametrar för Runbook
 description: Indataparametrarna för Runbook ökas flexibiliteten för runbooks genom att du kan skicka data till en runbook när den startas. Den här artikeln beskrivs olika scenarier där indataparametrar används i runbooks.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3e1e00f81fe7761494ae73b2c8ac7419cb5ffa32
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -29,7 +30,7 @@ PowerShell och [PowerShell-arbetsflöde runbooks](automation-first-runbook-textu
 | **Egenskap** | **Beskrivning** |
 |:--- |:--- |
 | Typ |Krävs. Datatypen för värdet för parametern. .NET-typ är giltig. |
-| Namn |Krävs. Parameterns namn. Detta måste vara unika inom en runbook och kan bara innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
+| Namn |Krävs. Namnet på parametern. Detta måste vara unika inom en runbook och kan bara innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
 | Obligatorisk |Valfri. Anger om ett värde måste anges för parametern. Om du väljer **$true**, och sedan ett värde måste anges när runbooken startar. Om du väljer **$false**, och sedan ett värde är valfritt. |
 | Standardvärde |Valfri. Anger ett värde som används för parametern om ett värde inte skickas när runbook startas. Ett standardvärde kan anges för alla parametrar och görs automatiskt parametern valfria oavsett inställningen obligatoriskt. |
 
@@ -90,7 +91,7 @@ Du kan använda den [ **Write-Output** ](https://technet.microsoft.com/library/h
    
    | **Egenskap** | **Beskrivning** |
    |:--- |:--- |
-   | Namn |Krävs. Parameterns namn. Detta måste vara unika inom en runbook och kan bara innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
+   | Namn |Krävs. Namnet på parametern. Detta måste vara unika inom en runbook och kan bara innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
    | Beskrivning |Valfri. Beskrivning om syftet med indataparameter. |
    | Typ |Valfri. Datatypen som förväntas för parametervärdet. Parametrar som stöds är **sträng**, **Int32**, **Int64**, **Decimal**, **booleskt**,  **DateTime**, och **objektet**. Om datatypen inte är markerat används som standard **sträng**. |
    | Obligatorisk |Valfri. Anger om ett värde måste anges för parametern. Om du väljer **Ja**, och sedan ett värde måste anges när runbooken startar. Om du väljer **inga**, och sedan ett värde inte är nödvändiga när runbook startas och du kan endast ange ett standardvärde. |

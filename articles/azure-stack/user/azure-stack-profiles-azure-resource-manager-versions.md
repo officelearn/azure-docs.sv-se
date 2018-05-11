@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resursen tjänstproviderns API-versioner som stöds av profiler i Azure-stacken
 
@@ -25,12 +25,12 @@ Du kan hitta resursprovidern och versionsnummer för varje API-profil som använ
 
 API-profilen använder tre namngivningsregler:
  - senaste
- - åååå-mm-dd-hybrid
+ - Åååå-mm-dd-hybrid
  - åååå-mm-dd-profil
 
 En förklaring av API-profiler och version versionen takt för Azure-Stack finns [hantera API-version-profiler i Azure-stacken](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > Den **senaste** API profil innehåller den senaste versionen av resursen tjänstproviderns API-version och ingår inte i den här artikeln.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Översikt över 2018-03-01-hybrid
@@ -96,7 +96,7 @@ Du kan använda rollbaserad åtkomstkontroll för att hantera de åtgärder anv�
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
-| Resurstyp | API-Version |
+| Resurstyp | API-version |
 |----------------------------------|----------------------|
 | Delegerad providern prenumerationer | 2015-06-01 - preview |
 | Delegerad användning mängder | 2015-06-01 - preview |
@@ -109,7 +109,7 @@ Du kan använda rollbaserad åtkomstkontroll för att hantera de åtgärder anv�
 
 Azure Compute-API: erna ger programmatisk åtkomst till virtuella datorer och deras stödresurser. Mer information finns i [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
 
-| Resurstyp | API-Version |
+| Resurstyp | API-version |
 |---------------------------------------------------------------|-------------|
 | Tillgänglighetsuppsättningar | 2016-03-30 |
 | Platser | 2016-03-30 |
@@ -120,7 +120,7 @@ Azure Compute-API: erna ger programmatisk åtkomst till virtuella datorer och de
 | Åtgärder | 2016-03-30 |
 | Virtuella datorer | 2016-03-30 |
 | Virtuella datorer-tillägg | 2016-03-30 |
-| Skalningsuppsättningar för Virtual Machines | 2016-03-30 |
+| Virtual Machine Scale Sets | 2016-03-30 |
 | Anger/tillägg för virtuella datorn | 2016-03-30 |
 | Anger/nätverksgränssnitt för virtuella datorn | 2016-03-30 |
 | Virtual Machine Scale uppsättningar för virtuella datorer | 2016-03-30 |
@@ -128,7 +128,7 @@ Azure Compute-API: erna ger programmatisk åtkomst till virtuella datorer och de
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
-| Resurstyp | API-Version |
+| Resurstyp | API-version |
 |------------------|-------------|
 | Hantering | 2015-04-01 |
 | Hanterat innehåll | 2015-04-01 |
@@ -224,7 +224,7 @@ Storage Resource Provider (SRP) kan du hantera ditt lagringskonto och nycklar ge
 | Platser | 2016-01-01 |
 | Platser-kvoter | 2016-01-01 |
 | Åtgärder | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Användningsområden | 2016-01-01 |
 
 ## <a name="details-for-the-2017-03-09-profile"></a>Information om 2017-03-09-profil
@@ -244,7 +244,7 @@ Storage Resource Provider (SRP) kan du hantera ditt lagringskonto och nycklar ge
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-| Resurstyp | API-Version |
+| Resurstyp | API-version |
 |---------------------------------------------------------------|-------------|
 | Tillgänglighetsuppsättningar | 2016-03-30 |
 | Platser | 2016-03-30 |
@@ -255,7 +255,7 @@ Storage Resource Provider (SRP) kan du hantera ditt lagringskonto och nycklar ge
 | Åtgärder | 2016-03-30 |
 | Virtuella datorer | 2016-03-30 |
 | Virtuella datorer-tillägg | 2016-03-30 |
-| Skalningsuppsättningar för Virtual Machines | 2016-03-30 |
+| Virtual Machine Scale Sets | 2016-03-30 |
 | Anger/tillägg för virtuella datorn | 2016-03-30 |
 | Anger/nätverksgränssnitt för virtuella datorn | 2016-03-30 |
 | Virtual Machine Scale uppsättningar för virtuella datorer | 2016-03-30 |
@@ -319,7 +319,7 @@ Storage Resource Provider (SRP) kan du hantera ditt lagringskonto och nycklar ge
 | Platser | 2016-01-01 |
 | Platser-kvoter | 2016-01-01 |
 | Åtgärder | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Användningsområden | 2016-01-01 |
 
 ## <a name="next-steps"></a>Nästa steg

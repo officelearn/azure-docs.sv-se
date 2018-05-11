@@ -3,17 +3,18 @@ title: Hantera en virtuell Azure-dator med inventeringssamling | Microsoft Docs
 description: Hantera en virtuell dator med inventeringssamling
 services: automation
 ms.service: automation
+ms.component: change-inventory-management
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0b744911d37e2d54f88ebeac3ec64a309bab22b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9f9c157fc8d1674aefcfea2ddea2aab3a4e86444
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -58,7 +59,7 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 ### <a name="windows-registry"></a>Windows-registret
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -67,7 +68,7 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 ### <a name="windows-files"></a>Windows-filer
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -76,7 +77,7 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 ### <a name="linux-files"></a>Linux-filer
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |

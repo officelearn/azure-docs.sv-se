@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 702fe812d4ff80c9f18a163af38f883ed3739f12
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -162,7 +162,7 @@ Ungefärlig tid till slutförd: 60 minuter
 
 ### <a name="considerations"></a>Överväganden
 
-1. Ovan [kursen](active-directory-saas-servicenow-tutorial.md) refererar till gamla Azure AD-hanteringen. Men PoC baseras på [Snabbstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away) upplevelse.
+1. Ovan [kursen](active-directory-saas-servicenow-tutorial.md) refererar till gamla Azure AD-hanteringen. Men PoC baseras på [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) upplevelse.
 2. Om det inte finns i galleriet målprogrammet, kan du använda ”ta med din egen app”. Läs mer: [vad är nytt i Enterprise programhantering i Azure Active Directory: lägga till anpassade program från en plats](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS-lösenord SSO-konfiguration

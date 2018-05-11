@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Tableau Online | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tableau Online."
+title: 'Självstudier: Azure Active Directory-integrering med Tableau Online | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tableau Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae9dbde509726065da7eaee2c7aec491389f45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e7de7946769eb2aeeac1c8b21448efa142728bb
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Självstudier: Azure Active Directory-integrering med Tableau Online
 
@@ -31,7 +31,7 @@ Integrera Tableau Online med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Tableau Online, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. I den **inloggnings-URL** textruta anger du URL:`https://sso.online.tableau.com`
+    a. I den **inloggnings-URL** textruta anger du URL: `https://sso.online.tableau.com`
 
-    b. I den **identifierare** textruta anger du URL:`https://sso.online.tableau.com/public/sp/<instancename>`
+    b. I den **identifierare** textruta anger du URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -161,10 +161,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
    ![Konfigurera enkel inloggning](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
@@ -203,7 +199,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i Tableau O
 1. På **Tableau Online**, klickar du på **inställningar** och sedan **autentisering** avsnitt. Rulla ned till **Välj användare** avsnitt. Klicka på **lägga till användare** och sedan **ange e-postadresser**.
    
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_15.png)
-2. Välj **lägga till användare för enkel inloggning (SSO) autentisering**. I den **ange e-postadresser** textruta Lägg tillbritta.simon@contoso.com
+2. Välj **lägga till användare för enkel inloggning (SSO) autentisering**. I den **ange e-postadresser** textruta Lägg till britta.simon@contoso.com
    
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_11.png)
 3. Klicka på **Skapa**.
@@ -262,4 +258,3 @@ När du klickar på panelen Tableau Online på åtkomstpanelen du bör få autom
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-

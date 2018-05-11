@@ -3,8 +3,8 @@ title: Spara pengar genom före betalar för virtuella datorer i Azure - Azure |
 description: Läs mer om Azure reserverade virtuella datorinstans att spara på kostnaderna för virtuella datorer.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: yashar
+ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Spara pengar på virtuella datorer med den reserverade virtuella instanser 
 Den reserverade virtuella instanser kan du före betala för ett år eller tre års beräkningskapacitet att få rabatt på de virtuella datorerna som du använder. Minskar avsevärt kostnaderna för virtuella datorer, upp till 72 procent på betalning per användning priser – med Summa åtagande för ett år eller tre år. Den reserverade virtuella instanser är fakturering rabatt och påverkar inte runtime-tillståndet för virtuella datorer.
@@ -35,6 +35,7 @@ Azure-kunder med dessa prenumerationer typer kan du köpa en reserverad virtuell
 -   Enterprise-avtalstyp av prenumerationserbjudande (MS-AZR - 0017P).
 -   [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) typ av prenumerationserbjudande (MS-AZR - 003 P).
 Du måste ha rollen ”ägare” på prenumerationen du köper reserverade instans. För att köpa reservationer i enterprise-registrering aktivera företagsadministratören reservation inköp i EA-portal inställningen är aktiverat som standard.
+-   Cloud Solution Providers (CSP) partners kan använda Azure-hanteringsportalen eller [Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations) att köpa reservationer.
 
 ## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>Hur är ett reserverat virtuella Datorinstanser inköp faktureras?
 Reservation inköpet debiteras betalningsmetod knutna till prenumerationen. Om du har en Enterprise-prenumeration dras reservation kostnaden från ditt summa saldo. Om ditt summa saldo inte täcker kostnaden för reservation, är du debiteras överförbrukning.
@@ -69,5 +70,7 @@ Mer information om reserverade instanser för virtuella datorer, finns i följan
 - [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
+- [Reserverade instanser i programmet för Partner Center Cloud Solution Providers (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som identifieras av Azure Active Directory Identity Protection
 Säkerhetsrisker är svagheter i din miljö som kan utnyttjas av en angripare. Vi rekommenderar att åtgärda dessa problem för att förbättra säkerhetsläget i din organisation och förhindrar att angripare utnyttjar dem.
@@ -47,7 +47,7 @@ I moderna företag inte IT-avdelningar ofta känner till alla molnprogram som an
 
 Vi rekommenderar att din organisation distribuerar Cloud App Discovery att identifiera ohanterade molnprogram och hantera dessa program med Azure Active Directory.
 
-Mer information finns i [hitta ohanterade molnprogram med Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+Mer information finns i [hitta ohanterade molnprogram med Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Säkerhetsaviseringar från Privileged Identity Management
 Den här säkerhetsrisken hjälper dig att identifiera och lösa aviseringar om Privilegierade identiteter i din organisation.  

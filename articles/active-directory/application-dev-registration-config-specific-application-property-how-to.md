@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Fylla i specifika fält för en anpassad utvecklade program
 
-Den här artikeln ger en kort beskrivning av alla tillgängliga fält i registreringsformuläret program i den [Azure-portalen](https://portal.azure.com).
+Den här artikeln får du en kort beskrivning av alla tillgängliga fält i registreringsformuläret program i den [Azure-portalen](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Registrera ett nytt program
 
@@ -43,7 +43,7 @@ Den här artikeln ger en kort beskrivning av alla tillgängliga fält i registre
 | |**Interna**: ett program som kan installeras på en användares dator eller enhet           |
 | Inloggnings-URL      | Den URL där användarna kan logga in att använda ditt program                                  |
 
-När du har fyllt fälten ovan kan programmet registreras i Azure portal och du omdirigeras till sidan program. Den **inställningar** knappen i rutan programmet öppnas sidan inställningar som har fler fält som du kan anpassa ditt program. I tabellen nedan beskrivs alla fält i inställningssidan. Observera att du bara se en delmängd av dessa fält, beroende på om du har skapat ett webbprogram eller interna program.
+När du har fyllt fälten ovan kan programmet är registrerad i Azure portal och du omdirigeras till sidan program. Den **inställningar** knappen i rutan programmet öppnas sidan inställningar som har fler fält som du kan anpassa ditt program. I tabellen nedan beskrivs alla fält i inställningssidan. Observera att du bara se en delmängd av dessa fält, beroende på om du har skapat ett webbprogram eller interna program.
 
 | Fält           | Beskrivning                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,8 +54,8 @@ När du har fyllt fälten ovan kan programmet registreras i Azure portal och du 
 | Utloggnings-URL      | Den här URL: en enda utloggning logga ut. Azure AD skickar en logga ut begäran till denna URL när användaren tar bort sin session med Azure AD med hjälp av andra registrerade programmet.                                                                                                                                       |
 | Multi-klient  | Den här växeln anger om programmet ska kunna användas av flera klienter. Detta innebär normalt att externa organisationer kan använda ditt program genom att registrera det i klientorganisationen och bevilja åtkomst till organisationens data.                                                                   |
 | Svars-URL:er      | Svaret URL: er är slutpunkter där Azure AD returnerar de token som ditt program begär.                                                                                                                                                                                                          |
-| Omdirigerings-URI:er   | För interna program är där användaren att skickas till följande auktoriseringen. Azure AD-kontroll som omdirigerings-URI programmet tillhandahåller i OAuth 2.0-begäran matchar ett av de registrerade värdena i portalen.                                                            |
+| Omdirigerings-URI:er   | Detta är för interna program där användaren skickas efter auktoriseringen. Azure AD-kontroll som omdirigerings-URI programmet tillhandahåller i OAuth 2.0-begäran matchar ett av de registrerade värdena i portalen.                                                            |
 | Nycklar            | Du kan skapa nycklar för att programmatiskt åtkomst web API: er som skyddas av Azure AD utan någon användarinteraktion. Från den \* \*nycklar\* \* anger du en beskrivning av nyckeln och utgångsdatum och spara för att generera nyckeln. Se till att spara den någonstans säker, du kan inte komma åt den senare.             |
 
 ## <a name="next-steps"></a>Nästa steg
-[Hantera program med Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Hantera program med Azure Active Directory](manage-apps/what-is-application-management.md)

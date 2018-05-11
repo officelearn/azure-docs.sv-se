@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Teamphoria | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Teamphoria."
+title: 'Självstudier: Azure Active Directory-integrering med Teamphoria | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 260c85b14032e17def01ded4a461e6337d66239b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 724d1624a3ba86aba3665169a14115b2a90e0069
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Självstudier: Azure Active Directory-integrering med Teamphoria
 
@@ -31,15 +31,7 @@ Integrera Teamphoria med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Teamphoria, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Teamphoria.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Teamphoria, behöver du följande:
 
@@ -118,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv URL-Adressen med följande mönster:`https://<sub-domain>.teamphoria.com/login`    
+    a. I den **inloggnings-URL** textruta Skriv URL-Adressen med följande mönster: `https://<sub-domain>.teamphoria.com/login`    
 
     > [!NOTE] 
     > Observera att detta inte är verkliga värden. Du måste uppdatera dessa värden med den faktiska inloggnings-URL. Kontakta [Teamphoria klienten supportteamet](https://www.teamphoria.com/) att hämta Webbadress för inloggning. 

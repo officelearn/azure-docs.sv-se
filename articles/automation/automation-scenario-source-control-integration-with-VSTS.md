@@ -7,13 +7,14 @@ author: eamonoreilly
 ms.author: eamono
 keywords: Azure powershell, VSTS, källkontroll, automation
 ms.service: automation
+ms.component: process-automation
 ms.topic: article
 ms.date: 03/19/2017
-ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: edd9174a9141c4db36a1b25d5f1147f9c7b2e2c2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure Automation-scenario – Automation källkontrollintegrering med Visual Studio Team Services
 
@@ -28,7 +29,7 @@ Det här scenariot består av två PowerShell-runbooks som kan importeras direkt
 
 Runbook | Beskrivning| 
 --------|------------|
-Sync-VSTS | Importera runbooks eller konfigurationer från VSTS källkontroll när en incheckning är klar. Om du kör manuellt, importerar och publicerar alla runbooks eller konfigurationer i Automation-kontot.| 
+Synkronisera VSTS | Importera runbooks eller konfigurationer från VSTS källkontroll när en incheckning är klar. Om du kör manuellt, importerar och publicerar alla runbooks eller konfigurationer i Automation-kontot.| 
 Sync-VSTSGit | Importera runbooks eller konfigurationer från VSTS Git källkontroll när en incheckning är klar. Om du kör manuellt, importerar och publicerar alla runbooks eller konfigurationer i Automation-kontot.|
 
 ### <a name="variables"></a>Variabler
@@ -56,7 +57,7 @@ Du kan nu [publicera](automation-creating-importing-runbook.md#publishing-a-runb
 Skapa en [webhook](automation-webhooks.md) för synkronisering VSTS runbook och Fyll i parametrarna som visas nedan. Kontrollera att du kopierar webhooksadressen som behövs för en tjänst hook i VSTS. VSAccessTokenVariableName är namn (VSToken) för säker variabeln som du skapade tidigare för att rymma den personliga åtkomsttoken. 
 
 Integrera med VSTS (synkronisera VSTS.ps1) använder följande parametrar:
-### <a name="sync-vsts-parameters"></a>Sync-VSTS Parameters
+### <a name="sync-vsts-parameters"></a>Synkronisera VSTS parametrar
 
 Parameter | Beskrivning| 
 --------|------------|

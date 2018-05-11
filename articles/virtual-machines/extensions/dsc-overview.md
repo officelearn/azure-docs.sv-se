@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 356356288823c86c77e46fdfba2cf81a7ef11e0d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -59,7 +59,7 @@ Installera WMF kräver en omstart. Efter omstart, hämtar tillägget .zip-filen 
 
 ### <a name="default-configuration-script"></a>Standard-konfigurationsskript
 
-Azure DSC-tillägg innehåller ett standard-konfigurationsskript som har avsedd att vara används när du hanterar en virtuell dator till Azure Automation DSC-tjänsten. Skriptparametrarna ligger i linje med konfigurerbara egenskaper för [Local Configuration Manager](/powershell/dsc/metaconfig). Skriptparametrar finns [standard konfigurationsskript](extensions-dsc-template.md#default-configuration-script) i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](extensions-dsc-template.md). Fullständig skriptet finns på [Azure quickstart mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+Azure DSC-tillägg innehåller ett standard-konfigurationsskript som har avsedd att vara används när du hanterar en virtuell dator till Azure Automation DSC-tjänsten. Skriptparametrarna ligger i linje med konfigurerbara egenskaper för [Local Configuration Manager](/powershell/dsc/metaconfig). Skriptparametrar finns [standard konfigurationsskript](dsc-template.md#default-configuration-script) i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](dsc-template.md). Fullständig skriptet finns på [Azure quickstart mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-tillägg i Resource Manager-mallar
 
@@ -155,6 +155,6 @@ Loggar för tillägget lagras på följande plats: `C:\WindowsAzure\Logs\Plugins
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om PowerShell DSC går du till den [PowerShell Dokumentationscenter](/powershell/dsc/overview).
-- Granska de [Resource Manager-mall för DSC-tillägg](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Granska de [Resource Manager-mall för DSC-tillägg](dsc-template.md).
 - Fler funktioner som du kan hantera med hjälp av PowerShell DSC, samt mer DSC-resurser, bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Mer information om att skicka känslig parametrar i konfigurationer finns [hantera autentiseringsuppgifter på ett säkert sätt med hanteraren för DSC-tillägg](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Mer information om att skicka känslig parametrar i konfigurationer finns [hantera autentiseringsuppgifter på ett säkert sätt med hanteraren för DSC-tillägg](dsc-credentials.md).

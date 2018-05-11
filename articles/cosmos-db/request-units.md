@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -48,81 +48,6 @@ Vi rekommenderar att komma igång med att titta på nedanstående video, där Az
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
-
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Ange kapacitet för begäran-enhet i Azure Cosmos DB
-
-Du kan ange hur många frågeenheter per sekund (RU per sekund) som du vill reserverade både för en enskild behållare eller för en uppsättning behållare. Baserat på etablerat dataflöde, allokerar Azure Cosmos DB fysiska partitioner som värd för dina behållare och delningar/rebalances data över partitioner när det växer.
-
-När du tilldelar RU/s på nivån enskilda behållaren behållarna kan skapas som *fast* eller *obegränsade*. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Om du vill skapa ett obegränsat antal behållare, måste du ange en lägsta dataflöde på 1 000 RU/s och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden kan du se till att ditt diagram-behållare/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
-
-När du tilldelar RU/sek i en behållare kan de behållare som hör till den här uppsättningen behandlas som *obegränsade* behållare och måste ange en partitionsnyckel.
-
-![Etablering av frågeenheter för enskilda behållare och behållare][6]
-
-> [!NOTE]
-> En partitionsnyckel är en logisk gräns och inte en fysisk. Därför behöver du inte begränsa antalet distinkta partitionsnyckelvärden. I praktiken är det bättre att ha tydligare partitionsnyckelvärden än mindre, Azure Cosmos DB har flera alternativ för belastningsutjämning.
-
-Här är ett kodfragment för att skapa en behållare med 3 000 frågeenheter per sekund för en enskild behållare med SQL-API .NET SDK:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Här är ett kodfragment för etablering 100 000 enheter per sekund för begäran i en behållare med SQL-API .NET SDK:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-
-Azure Cosmos-DB fungerar på en modell för reservation för genomströmning. Det vill säga du debiteras mängden genomströmning *reserverade*, oavsett hur mycket av den genomströmningen är aktivt *används*. Som programmet har belastning, data och användning mönster ändring som du kan enkelt skala uppåt och nedåt antalet, som reserverats RUs via SDK eller med hjälp av den [Azure Portal](https://portal.azure.com).
-
-Varje behållare eller uppsättning behållare, mappas till en `Offer` resurs i Azure Cosmos DB som innehåller metadata om etablerat dataflöde. Du kan ändra det allokerade genomflödet genom att leta upp motsvarande erbjudande resurs för en behållare och sedan uppdateras med det nya värdet för genomströmning. Här är ett kodfragment för att ändra genomflödet av en behållare till 5 000 frågeenheter per andra med .NET SDK:
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Det finns ingen inverkan på tillgängligheten för din behållare eller uppsättning behållare, när du ändrar genomflödet. Nya reserverat dataflöde är vanligtvis effektiva i sekunder för tillämpning av nya genomflöde.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Genomströmning isolering i globalt distribuerade databaser
 
@@ -347,6 +272,11 @@ Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall
 Om du har mer än ett klientoperativsystem kumulativt högre begärandehastighet, försök standardbeteendet inte finns tillräckligt och klienten genereras en `DocumentClientException` med statusen code 429 till programmet. I detta fall kanske du vill överväga hantering försök beteende och logiken i ditt program felhantering rutiner eller öka dataflödet för behållaren (eller uppsättning behållare).
 
 ## <a name="next-steps"></a>Nästa steg
+ 
+Mer information om hur du ställer och få dataflöde med hjälp av Azure-portalen och SDK finns:
+
+* [Ange och hämta genomflöde i Azure Cosmos DB](set-throughput.md)
+
 Utforska gärna dessa resurser om du vill veta mer om reserverat dataflöde med Azure Cosmos DB databaser kan:
 
 * [Azure DB Cosmos-priser](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -360,4 +290,4 @@ Om du vill komma igång med skalning och prestandatester med Azure Cosmos DB, se
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/provisioning_set_containers.png
+

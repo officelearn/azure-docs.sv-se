@@ -1,11 +1,11 @@
 ---
 title: StorSimple 8000 Series uppdatering 2.2 viktig information | Microsoft Docs
-description: "Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 2.2."
+description: Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 2.2.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5cf03ea8-2a0f-4552-b6dc-7ea517783d7b
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 06c14bdd24dd24a98b3838a2ba73b657ce56785a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 78be340b4a47fed88f5e8c3f5741ae7024124bd5
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 Series uppdatering 2.2 viktig information
-> [!NOTE]
-> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Översikt
 Följande information beskriver de nya funktionerna och identifiera kritiska öppna problem för StorSimple 8000 Series uppdatering 2.2. De innehåller också en lista över StorSimple-programuppdateringar som ingår i den här versionen.
@@ -59,7 +57,7 @@ Följande tabeller innehåller en översikt över problem som har korrigerats i 
 | 6 |Kopiera värden på klientsidan |Ett ovanligt fel som rör ODX tidsinställning påträffades i tidigare versioner av programvaran när du kopierar data från en volym till en annan volym. Detta leder till en domänkontrollant och växling vid fel och systemet kan potentiellt gå i återställningsläge. Det här felet är åtgärdat i den här versionen. |Ja |Nej |
 | 7 |Windows Management Instrumentation (WMI) |I tidigare versioner av programvaran har flera instanser av web proxy misslyckades med undantaget ”<ManagementException> providern kunde inte läsas in”. Det här programfelet har tilldelats en WMI-minnesläcka och nu har åtgärdats. |Ja |Nej |
 | 8 |Uppdatering |I vissa sällsynta fall kan i tidigare versioner av programvaran, emot användaren ”CisPowershellHcsscripterror” när du försöker skanna eller installera uppdateringar. Det här problemet löses i den här versionen. |Ja |Ja |
-| 9 |Support-paket |I den här versionen har till de stöd paketet samlas in och överföra förbättringar. |Ja |Ja |
+| 9 |Supportpaket |I den här versionen har till de stöd paketet samlas in och överföra förbättringar. |Ja |Ja |
 
 ## <a name="known-issues-in-update-22"></a>Kända problem i uppdatering 2.2
 Följande tabell innehåller en översikt över kända problem i den här versionen.
@@ -74,7 +72,7 @@ Följande tabell innehåller en översikt över kända problem i den här versio
 | 6 |Webbproxy |Om din webbproxykonfigurationen har det angivna protokollet HTTPS, enhet-till-tjänst-kommunikation kommer att påverkas och enheten ska försättas i offlineläge. Stöd för paket skapas också i process förbrukar betydande resurser på enheten. |Kontrollera att URL: en för web proxy har det angivna protokollet HTTP. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Nej |
 | 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet, måste du starta om den aktiva styrenheten på enheten. | |Ja |Nej |
 | 8 |Hög molnet latens och hög i/o-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög molnet latens (ordning sekunder) och höga i/o-arbetsbelastning, enheten volymer som ingår i ett degraderat tillstånd och I/o kan misslyckas med felet ”enheten är inte klar”. |Du måste starta om styrenheterna eller utför en växling vid fel med enheten för att återställa från den här situationen manuellt. |Ja |Nej |
-| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** du väljer det första objektet så att du kan skapa en ny **VolumeContainer** objekt, returnerar cmdleten alla objekt. |Omsluta cmdlet inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - först 1 - vänta** |Ja |Ja |
+| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** du väljer det första objektet så att du kan skapa en ny **VolumeContainer** objektet, cmdlet returnerar alla objekt. |Omsluta cmdlet inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - första 1 - vänta** |Ja |Ja |
 | 10 |Migrering |När flera volymbehållare skickas för migrering är ETA för senaste säkerhetskopian exakt endast för den första volymbehållaren. Dessutom startas parallella migrering efter de första 4 säkerhetskopiorna i första volymbehållare migreras. |Vi rekommenderar att du migrerar en volymbehållare i taget. |Ja |Nej |
 | 11 |Migrering |Efter återställningen läggs inte volymer till principen för säkerhetskopiering eller gruppen virtuell disk. |Du behöver lägga till dessa volymer till en princip för säkerhetskopiering för att skapa säkerhetskopior. |Ja |Ja |
 | 12 |Migrering |När migreringen är klar, måste enheten 5000/7000-serien inte komma åt behållarna migrerade data. |Vi rekommenderar att du tar bort migrerade databehållare när migreringen har slutförts och bekräftats. |Ja |Nej |

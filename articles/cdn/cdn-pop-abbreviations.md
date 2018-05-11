@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: bbb62a5f47c2fda6e24a204f30939e43676b33a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 373095d1783a8e6e52d43e80377c01b448706fbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP platser av förkortning
 > [!div class="op_single_selector"]
-> * [POP platser efter region](cdn-pop-locations.md)
-> * [POP platser av förkortning](cdn-pop-abbreviations.md)
+> * [POP-platser efter region](cdn-pop-locations.md)
+> * [POP-platser efter förkortning](cdn-pop-abbreviations.md)
 > 
 
 
@@ -31,14 +31,16 @@ Den här artikeln innehåller POP platser, sorterade efter POP förkortning för
 
 Förkortning | Plats | Region
 | --- | --- | --- |
-AGA | Atlanta, Georgia, USA | Nordamerika: ostkust USA
-AGB | Atlanta, Georgia, USA | Nordamerika: ostkust USA
+AGA | Stockholm, USA | Nordamerika: ostkust USA
+AGB | Stockholm, USA | Nordamerika: ostkust USA
 AKL | Auckland, Nya Zeeland | Asien
 AMA | Amsterdam, Nederländerna | Europa
+AMB | Amsterdam, Nederländerna | Europa
 AMS | Amsterdam, Nederländerna | Europa
 ARN | Stockholm, Sverige | Europa
-ATL | Atlanta, Georgia, USA | Nordamerika: ostkust USA
+ATL | Stockholm, USA | Nordamerika: ostkust USA
 BAQ | Barranquilla, Colombia | Latinamerika
+BLR | Bangaluru (Bangalore), India | Asien
 BNJ | Newark, New Jersey, USA | Nordamerika: ostkust USA
 BOS | Boston, Massachusetts, USA | Nordamerika: ostkust USA
 BTH | Batam, Indonesien | Asien
@@ -46,13 +48,13 @@ BUE | Buenos Aires, Argentina | Latinamerika
 BUR | Los Angeles, California, USA | Nordamerika: någon annan USA
 CDG | Paris, Frankrike | Europa
 CGH | São Paulo, Brasilien | Latinamerika
-CGK | Jakarta, Indonesia | Asien
-CHA | Chicago, Illinois, USA | Nordamerika: ostkust USA
-CHB | Chicago, Illinois, USA | Nordamerika: ostkust USA
-CJB | Bangalore, India | Asien
+CGK | Djakarta, Indonesien | Asien
+Ä | Chicago, Illinois, USA | Nordamerika: ostkust USA
+CHOHUNG | Chicago, Illinois, USA | Nordamerika: ostkust USA
 CNJ | Newark, New Jersey, USA | Nordamerika: ostkust USA
 CPH | Köpenhamn, Danmark | Europa
-CPM | Los Angeles, California, USA | Nordamerika: någon annan USA
+KOPIOR/MINUT | Los Angeles, California, USA | Nordamerika: någon annan USA
+CVA | Ashburn, Virginia, USA | Nordamerika: ostkust USA
 DAA | Dallas, Texas, USA | Nordamerika: Central kust USA
 DAB | Dallas, Texas, USA | Nordamerika: Central kust USA
 DCA | Ashburn, Virginia, USA | Nordamerika: ostkust USA
@@ -70,13 +72,13 @@ FRB | Frankfurt, Tyskland | Europa
 FRC | Frankfurt, Tyskland | Europa
 FRF | Frankfurt, Tyskland | Europa
 FTW | Dallas, Texas, USA | Nordamerika: Centrala USA
-FTY | Atlanta, Georgia, USA | Nordamerika: ostkust USA
-GIG | Rio de Janeiro, Brasilien | Latinamerika
+FTY | Stockholm, USA | Nordamerika: ostkust USA
+GB | Rio de Janeiro, Brasilien | Latinamerika
 GRU | São Paulo, Brasilien | Latinamerika
-HEL | Helsingfors, Finland | Europa
-HHP | Hongkong | Asien
-HKC | Hongkong | Asien
-HKG | Hongkong | Asien
+HJÄ | Helsingfors, Finland | Europa
+HHP | Hongkong SAR | Asien
+HKC | Hongkong SAR | Asien
+HKG | Hongkong SAR | Asien
 HND | Tokyo, Japan | Asien
 IAD | Ashburn, Virginia, USA | Nordamerika: ostkust USA
 ICN | Seoul, Korea | Asien
@@ -86,7 +88,7 @@ JNB | Johannesburg, Sydafrika | Europa
 KHH | Kaohsiung, Taiwan | Asien
 KIX | Osaka, Japan | Asien
 LAA | Los Angeles, California, USA | Nordamerika: någon annan USA
-LAB | Los Angeles, California, USA | Nordamerika: någon annan USA
+TESTLABB | Los Angeles, California, USA | Nordamerika: någon annan USA
 LAM | Los Angeles, California, USA | Nordamerika: någon annan USA
 LAN | Los Angeles, California, USA | Nordamerika: någon annan USA
 LAX | Los Angeles, California, USA | Nordamerika: någon annan USA
@@ -99,18 +101,19 @@ LHN | London, Storbritannien | Europa
 LHR | London, Storbritannien | Europa
 LIM | Lima, Peru | Latinamerika
 MAA | Chennai, Indien | Asien
-MAD | Madrid, Spanien | Europa
+FÅR | Madrid, Spanien | Europa
 MDE | Medellin, Colombia | Latinamerika
 MDW | Chicago, Illinois, USA | Nordamerika: ostkust USA
 MEB | Melbourne, Australien | Asien
 MEL | Melbourne, Australien | Asien
 MEX | Mexiko, Mexiko | Nordamerika
-MIA | Miami, Florida, USA | Nordamerika: ostkust USA
+FÖRLORADE | Miami, Florida, USA | Nordamerika: ostkust USA
 MIB | Miami, Florida, USA | Nordamerika: ostkust USA
 MIC | Miami, Florida, USA | Nordamerika: ostkust USA
+FRU | Marseille, Frankrike | Europa
 MXP | Milano, Italien | Europa
 NAG | Mumbai, Indien | Asien
-NJA | Tokyo, Japan | Asien
+NDL | Delhi i Indien | Asien
 NRT | Tokyo, Japan | Asien
 NYA | New York, New York, USA | Nordamerika: ostkust USA
 NYB | New York, New York, USA | Nordamerika: ostkust USA
@@ -118,13 +121,15 @@ OMM | Muskat, Oman | Mellanöstern
 RD | Chicago, Illinois, USA | Nordamerika: Centrala USA
 ORMATION OM SIG SJÄLVA | Paris, Frankrike | Europa
 OXR | Los Angeles, California, USA | Nordamerika: någon annan USA
+FÖR | Paris, Frankrike | Europa
 PAE | Seattle, Washington, USA | Nordamerika: någon annan USA
-PBC | Puebla, Mexico | Nordamerika
+PBC | Puebla, Mexiko | Nordamerika
 PHL | Philadelphia, Pennsylvania, USA | Nordamerika: ostkust USA
 PNQ | Mumbai, Indien | Asien
 POX | Paris, Frankrike | Europa
-QRO | Santiago de Querétaro, Mexico | Nordamerika
+QRO | Santiago Tyskland Querétaro, Mexiko | Nordamerika
 RHV | SAN Jose, California, USA | Nordamerika: någon annan USA
+REVBEN | Rio de Janeiro, Brasilien | Latinamerika
 RIX | Riga, Lettland | Europa
 RTM | Amsterdam, Nederländerna | Europa
 SAA | SAN Jose, California, USA | Nordamerika: någon annan USA
@@ -132,19 +137,20 @@ SAB | SAN Jose, California, USA | Nordamerika: någon annan USA
 SCL | Valparaíso, underordnad | Latinamerika
 SEA | Seattle, Washington, USA | Nordamerika: någon annan USA
 SEB | Seattle, Washington, USA | Nordamerika: någon annan USA
-SEC | Seattle, Washington, USA | Nordamerika: någon annan USA
+SEK | Seattle, Washington, USA | Nordamerika: någon annan USA
+GB | Singapore | Asien
 SIN | Singapore | Asien
 SJC | SAN Jose, California, USA | Nordamerika: någon annan USA
 SJO | SAN Jose, California, USA | Nordamerika: någon annan USA
-STO | Stockholm, Sverige | Europa
+SLUTA | Stockholm, Sverige | Europa
 SYD | Sydney, Australien | Asien
-TEB | New York, New York, USA | Nordamerika: ostkust USA
+TIR | Chennai, Indien | Asien
 TKA | Tokyo, Japan | Asien
 TKB | Tokyo, Japan | Asien
 TOJ | Madrid, Spanien | Europa
 UAE | Fujairah, Förenade Arabemiraten | Europa
-UIO | Quito, Ecuador | Latinamerika
-VIE | Wien, Österrike | Europa
+UIO | Rights reserved | Latinamerika
+VISA | Wien, Österrike | Europa
 VNY | Los Angeles, California, USA | Nordamerika: någon annan USA
 WAW | Warszawa, Polen | Europa
 

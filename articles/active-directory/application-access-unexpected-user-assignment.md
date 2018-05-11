@@ -1,11 +1,11 @@
 ---
-title: "Hur du tilldela användare till program | Microsoft Docs"
-description: "Förstå hur användare tilldelas till ett program i din klient"
+title: Hur du tilldela användare till program | Microsoft Docs
+description: Förstå hur användare tilldelas till ett program i din klient
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6681131f24dd36ccc5881d50f3efdf9806b15c58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eff24ddcb02f4aa4cac28d722e73222ca2e686e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-assign-users-to-applications"></a>Tilldela användare till program
 
@@ -43,7 +43,7 @@ För en användare komma åt ett program, måste de först tilldelas till den p�
 
 3.  En administratör aktiverar [Self-service programåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare att lägga till ett program som använder den [programmet åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till App** funktionen **utan business godkännande**
 
-4.  En administratör aktiverar [Self-service programåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare att lägga till ett program som använder den [programmet åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till App** funktionen, men endast w**: te tidigare godkännande från en vald uppsättning företag godkännare**
+4.  En administratör aktiverar [Self-service programåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare att lägga till ett program som använder den [programmet åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till App** funktionen, men endast w **: te tidigare godkännande från en vald uppsättning företag godkännare**
 
 5.  En administratör aktiverar [Self-service Group Management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) så att en användare att ansluta till en grupp som ett program har tilldelats **utan business godkännande**
 
@@ -58,4 +58,4 @@ För en användare komma åt ett program, måste de först tilldelas till den p�
 10. En användare [samtycker till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) sig genom att logga in till programmet
 
 ## <a name="next-steps"></a>Nästa steg
-[Hantera program med Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Hantera program med Azure Active Directory](manage-apps/what-is-application-management.md)

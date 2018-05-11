@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 Det här avsnittet beskrivs alternativen för att flytta data från flata filer (CSV eller TVS format) eller data som lagras i en lokal SQL Server till en Azure SQL-databas. Dessa uppgifter för att flytta data till molnet är en del av Team av vetenskapliga data.
@@ -33,8 +33,8 @@ I följande tabell sammanfattas alternativ för att flytta data till en Azure SQ
 
 | <b>KÄLLA</b> | <b>MÅL: Azure SQL-databas</b> |
 | --- | --- |
-| <b>Flat-fil (CSV eller TVS formaterad)</b> |<a href="#bulk-insert-sql-query">Bulk Insert SQL-fråga |
-| <b>Lokal SQLServer</b> |1. <a href="#export-flat-file">Exportera till Flat-fil<br> 2. <a href="#insert-tables-bcp">Migreringsguiden för SQL-databas<br> 3. <a href="#db-migration">Databasen tillbaka in och återställa<br> 4. <a href="#adf">Azure Data Factory |
+| <b>Flat-fil (CSV eller TVS formaterad)</b> |[Bulk Insert SQL-fråga](#bulk-insert-sql-query) |
+| <b>Lokal SQLServer</b> |1.[exportera till Flat-fil](#export-flat-file)<br> 2. [Migreringsguiden för SQL-databas](#insert-tables-bcp)<br> 3. [Databasen tillbaka in och återställa](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Förhandskrav
 De procedurer som beskrivs här måste du ha:

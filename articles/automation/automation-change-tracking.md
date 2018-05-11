@@ -3,17 +3,18 @@ title: Spåra ändringar med Azure Automation
 description: Ändringsspårning-lösningen hjälper dig att identifiera program- och Windows-tjänst-ändringar som sker i din miljö.
 services: automation
 ms.service: automation
+ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med lösningen för ändringsspårning
 
@@ -45,7 +46,7 @@ Använd följande steg för att konfigurera spårning av filen på Linux-datorer
 2. På den **ändringsspårning** väljer **Linux filer**, klicka på **+ Lägg till** att lägga till en ny fil att spåra.
 3. På den **Lägg till Linux-fil för ändringsspårning**, ange information för filen eller katalogen för att spåra och klicka på **spara**.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Bestämmer om inställningen som tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -67,7 +68,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 2. På den **ändringsspårning** väljer **Windows-filer**, klicka på **+ Lägg till** att lägga till en ny fil att spåra.
 3. På den **lägga till Windows-filen för ändringsspårning**, ange information att spåra och klicka på filen **spara**.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Bestämmer om inställningen som tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -82,7 +83,7 @@ Använd följande steg för att konfigurera registret viktiga spårning på Wind
 2. På den **ändringsspårning** väljer **Windows-registret**, klicka på **+ Lägg till** att lägga till en ny registernyckel för att spåra.
 3. På den **lägga till Windows-registret för ändringsspårning**, ange information om nyckeln att spåra och klicka på **spara**.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Bestämmer om inställningen som tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |

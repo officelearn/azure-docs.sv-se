@@ -3,9 +3,9 @@ title: Skapa och distribuera en Node.js Express-app till Azure Cloud Services
 description: Skapa och distribuera ett program Express.js i Node.js till Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Skapa och distribuera en Node.js-webbapp med Express på en Azure-molntjänster
 
@@ -97,7 +97,7 @@ Nu ändra för att visa meddelandet ”Välkommen till Express i Azure”.
    
    ![Innehållet i filen index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade är standard visningsmotor används av Express-program. Mer information om Jade visningsmotor finns [http://jade-lang.com][http://jade-lang.com].
+   Jade är standard visningsmotor används av Express-program. Mer information om Jade visningsmotor finns [ http://jade-lang.com ] [ http://jade-lang.com].
 2. Ändra den sista raden genom att lägga till **i Azure**.
    
    ![Läser av den sista raden i filen index.jade: p Välkommen till \#{title} i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

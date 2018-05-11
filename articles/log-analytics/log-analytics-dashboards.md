@@ -1,11 +1,11 @@
 ---
 title: Skapa en anpassad instrumentpanel i Azure Log Analytics | Microsoft Docs
-description: "Den här guiden hjälper dig att förstå hur logganalys instrumentpaneler kan visualisera alla dina sparad logg-sökningar, vilket ger dig en enda lins att visa din miljö."
+description: Den här guiden hjälper dig att förstå hur logganalys instrumentpaneler kan visualisera alla dina sparad logg-sökningar, vilket ger dig en enda lins att visa din miljö.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i logganalys
 
 Den här guiden hjälper dig att förstå hur logganalys instrumentpaneler kan visualisera alla dina sparad logg-sökningar, vilket ger dig en enda lins att visa din miljö.
 
 >[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och du inte kan redigera den befintliga **min instrumentpanel**. Om arbetsytan inte hade någon **min instrumentpanel** paneler som lagts till, och sedan inte visas **min instrumentpanel** arbetsytans uppgraderade. 
+> Du kan inte längre redigera din befintliga **min instrumentpanel**. Den här funktionen håller inaktuell.
 
 ![Exempel instrumentpanelen](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
@@ -70,7 +70,7 @@ Det finns tre typer av panelen visualiseringar kan välja mellan:
 | diagramtyp | syfte |
 | --- | --- |
 | ![Liggande stapeldiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Visar en tidslinje för din sparad logg sökresultat som ett stapeldiagram eller en lista med resultat av ett fält beroende på om sökningen loggen aggregerar resultaten efter ett fält eller inte. |
-| ![Mått](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Visar träffar din totala Sök resultatet som ett tal i en panel. Mått paneler kan du ange ett tröskelvärde som ska markeras panelen när tröskelvärdet har uppnåtts. |
+| ![mått](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Visar träffar din totala Sök resultatet som ett tal i en panel. Mått paneler kan du ange ett tröskelvärde som ska markeras panelen när tröskelvärdet har uppnåtts. |
 | ![raden](./media/log-analytics-dashboards/oms-dashboards-line.png) |Visar en tidslinje sparad logg Sök resultatet träffar med värden som ett linjediagram. |
 
 ### <a name="threshold"></a>Tröskelvärde

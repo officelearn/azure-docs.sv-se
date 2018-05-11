@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Mjuk borttagning för Azure Storage BLOB (förhandsgranskning)
 
@@ -292,7 +292,7 @@ Ja, mjuk borttagning kan konfigureras för befintliga och nya storage-konton.
 
 **Om jag tar bort ett hela konto eller behållaren med mjuk borttagning aktiverat alla associerade BLOB sparas?**
 
-Nej, om du tar bort ett hela konto eller behållaren alla associerade blobbar tas bort permanent. Om du vill veta hur du skyddar ett lagringskonto från oavsiktliga borttagningar finns i Azure Resource Manager-artikeln [låsresurser för att förhindra oväntade ändringar](/azure-resource-manager/resource-group-lock-resources.md).
+Nej, om du tar bort ett hela konto eller behållaren alla associerade blobbar tas bort permanent. Om du vill veta hur du skyddar ett lagringskonto från oavsiktliga borttagningar finns i Azure Resource Manager-artikeln [låsresurser för att förhindra oväntade ändringar](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Kan jag visa kapacitetsdata för borttagna data?**
 

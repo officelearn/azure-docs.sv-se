@@ -76,7 +76,6 @@
         - name: Skapa offentlig Load Balancer med IPv6 (mall)
           href: load-balancer-ipv6-internet-template.md
     - name: Konfigurera intern Load Balancer
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: Konfigurera intern Load Balancer (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

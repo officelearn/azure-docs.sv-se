@@ -3,21 +3,22 @@ title: Skapa en watcher uppgift i Azure Automation-konto
 description: Lär dig hur du skapar en watcher aktivitet i Azure Automation-konto kan du titta på för nya filer som skapas i en mapp.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: article
 ms.date: 03/19/2017
-ms.openlocfilehash: 8cd5f77d9711ffc95e6a55e97297a23fd87c6bb7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2ae5fe2f2cd01eb9a0d7105c34c1dc216479720c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation-watcher uppgifter att spåra ändringar på en lokal dator
 
 Azure Automation använder uppgifter för hälsotillståndsövervakare att bevaka händelser och utlösa åtgärder. Den här självstudiekursen vägleder dig genom att skapa en watcher uppgift att övervaka när en ny fil har lagts till i en katalog.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Importera en watcher runbook

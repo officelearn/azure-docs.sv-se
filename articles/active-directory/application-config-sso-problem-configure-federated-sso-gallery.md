@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera federerad enkel inloggning för ett program för Azure AD-galleriet problemet | Microsoft Docs"
-description: "Vissa av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som listas i Azure AD Application Gallery"
+title: Konfigurera federerad enkel inloggning för ett program för Azure AD-galleriet problemet | Microsoft Docs
+description: Vissa av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som listas i Azure AD Application Gallery
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 86ddb91ae16da797e32c6e1a8a8b2cd8fca989a8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem som konfigurerar federerad enkel inloggning för ett program för Azure AD-galleriet
 
@@ -108,4 +108,4 @@ Azure AD Ange inte en URL för att hämta metadata. Metadata kan endast hämtas 
 Information om hur du anpassar SAML attributet anspråk som skickas till ditt program finns [anspråk mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-[Hantera program med Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Hantera program med Azure Active Directory](manage-apps/what-is-application-management.md)

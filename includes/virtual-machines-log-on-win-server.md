@@ -5,16 +5,18 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 842083f0f69552fb9076423386353dbb4dae73b5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-1. Om du klickar på **Anslut** så skapas och hämtas en protokollfil för fjärrskrivbord (.rdp-fil). Klicka på **Öppna** för att använda filen.
+1. Klicka på den **Anslut** på egenskapssidan för virtuell dator. 
+2. I den **Anslut till den virtuella datorn** , hålla väljer lämpliga alternativ och klickar på **ladda ned RDP-filen**.
+2. Öppna den hämta RDP-filen och klicka på **Anslut** när du tillfrågas. 
 2. Du får en varning att `.rdp`-filen kommer från en okänd utgivare. Detta är normalt. Fortsätt genom att klicka på **Anslut** i fjärrskrivbordsfönstret.
    
     ![Skärmbild med ett varning som meddelar att utgivaren är okänd.](./media/virtual-machines-log-on-win-server/rdp-warn.png)

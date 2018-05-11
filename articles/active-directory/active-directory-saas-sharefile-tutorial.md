@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Citrix ShareFile | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Citrix ShareFile."
+title: 'Självstudier: Azure Active Directory-integrering med Citrix ShareFile | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Citrix ShareFile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f633206c03a9639a375535ed7c8f5c84aa334ebf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Självstudier: Azure Active Directory-integrering med Citrix ShareFile
 
@@ -32,7 +32,7 @@ Integrera Citrix ShareFile med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Citrix ShareFile behöver du följande:
 
@@ -108,14 +108,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Citrix ShareFile domän med enkel inloggning information](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<tenant-name>.sharefile.com/saml/login`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenant-name>.sharefile.com/saml/login`
 
-    > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Citrix ShareFile klienten supportteamet](https://www.citrix.co.in/products/sharefile/support.html) att hämta det här värdet. 
+    b. I den **identifierare (enhets-ID)** textruta Skriv en URL med följande mönster:
+
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com`|
+    | `https://<tenant-name>.sharefile.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.eu/saml/info`|
+    | `https://<tenant-name>.sharefile.eu/saml/info`|
+    | |
+    
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster:
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com/saml/acs`|
+    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    | |
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [Citrix ShareFile klienten supportteamet](https://www.citrix.co.in/products/sharefile/support.html) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. Klicka på **spara** knappen.
 
@@ -123,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. På den **Citrix-konfiguration för ShareFile** klickar du på **konfigurera Citrix ShareFile** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Citrix ShareFile konfiguration](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+    ![Citrix ShareFile konfiguration](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. Logga in i ett annat webbläsarfönster din **Citrix ShareFile** företagets webbplats som administratör.
 
@@ -148,10 +167,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     e. I **logga ut URL** textruta klistra in värdet för **Sign-Out URL** som du har kopierat från Azure-portalen.
 
 11. Klicka på **spara** i Citrix ShareFile management portal.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -201,7 +216,7 @@ För att aktivera Azure AD-användare kan logga in Citrix ShareFile etableras de
    
    ![Grundläggande Information](./media/active-directory-saas-sharefile-tutorial/IC799951.png "grundläggande Information")
    
-   a. I den **e-postadress** textruta skriver Britta Simon som e-postadress  **brittasimon@contoso.com** .
+   a. I den **e-postadress** textruta skriver Britta Simon som e-postadress **brittasimon@contoso.com**.
    
    b. I den **Förnamn** textruta typen **Förnamn** för användare som **Britta**.
    
@@ -254,8 +269,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_01.png
@@ -269,4 +282,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

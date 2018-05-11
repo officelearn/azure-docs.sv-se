@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatisera OS och framework korrigering med ACR skapa
 
@@ -20,8 +20,7 @@ Behållare för nya nivåer av virtualisering, isolera program- och developer be
 
 **Skapa ACR**, en uppsättning funktioner i Azure Container registret ger inte bara interna behållaren image build funktion, men även automatiserar [OS och framework korrigering](#automate-os-and-framework-patching) för Docker-behållare.
 
-> [!IMPORTANT]
-> ACR skapa pågår i förhandsversionen och stöds endast av Azure-behållaren register i den **östra USA** och **Västeuropa** regioner. Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner den [kompletterande villkor för användning][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="what-is-acr-build"></a>Vad är ACR skapa?
 
@@ -73,7 +72,6 @@ När du är redo att automatisera OS och ramverk för uppdatering genom att skap
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

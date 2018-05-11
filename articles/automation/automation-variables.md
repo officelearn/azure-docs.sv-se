@@ -1,18 +1,19 @@
 ---
-title: "Variabeln tillgångar i Azure Automation"
-description: "Variabeln tillgångar är värden som är tillgängliga för alla runbooks och i Azure Automation DSC-konfigurationer.  Den här artikeln beskriver hur du variabler och hur du arbetar med dem i både text och grafiska redigering."
+title: Variabeln tillgångar i Azure Automation
+description: Variabeln tillgångar är värden som är tillgängliga för alla runbooks och i Azure Automation DSC-konfigurationer.  Den här artikeln beskriver hur du variabler och hur du arbetar med dem i både text och grafiska redigering.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2cae2746df5c9262fc0cb0071d20c04172bd5635
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabeln tillgångar i Azure Automation
 
@@ -60,8 +61,8 @@ Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgi
 
 | Aktiviteter | Beskrivning |
 |:---|:---|
-|Get-AutomationVariable|Hämtar värdet för en befintlig variabel.|
-|Set-AutomationVariable|Anger värdet för en befintlig variabel.|
+|Get-automationvariable|Hämtar värdet för en befintlig variabel.|
+|Set-automationvariable|Anger värdet för en befintlig variabel.|
 
 > [!NOTE] 
 > Du bör undvika att använda variabler i – Name-parametern i **Get-automationvariable,** i en runbook eller DSC-konfigurationen eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfiguration och automatisering variabler i designläge.

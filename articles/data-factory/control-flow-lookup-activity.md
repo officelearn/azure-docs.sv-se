@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -31,11 +31,9 @@ Sökning aktivitet kan läsa och returnera innehållet i en konfigurationsfil, k
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Följande datakällor stöds för närvarande för sökning:
+Följande datakällor stöds för sökning. Det maximala antalet rader som kan returneras av sökning aktiviteten är **5000**, och upp till **2MB** i storlek. För närvarande maximala längd för sökning aktivitet innan timeout är en timme.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
-
-Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, och upp till **2MB** i storlek.
 
 ## <a name="syntax"></a>Syntax
 
@@ -64,10 +62,11 @@ DataSet | Ger dataset-referens för sökningen. Hämta information från avsnitt
 källa | Innehåller egenskaper för dataset-specifik datakälla, samma som kopieringskälla för aktiviteten. Hämta information från avsnittet ”Kopiera Aktivitetsegenskaper” i varje motsvarande connector-artikel. | Nyckel/värde-par | Ja
 firstRowOnly | Anger om du vill returnera endast den första raden eller alla rader. | Boolesk | Nej. Standardvärdet är `true`.
 
-Observera följande punkter:
+**Observera följande:**
 
 1. Källkolumnen med ByteArray typ stöds inte.
 2. Strukturen stöds inte i definitionen för datamängden. För textfiler specifikt, kan du använda rubrikraden för att ange ett kolumnnamn.
+3. Om käll-sökning är en JSON-filerna på `jsonPathDefinition` inställning för nytt shaping JSON-objekt inte stöds för hela objekt ska hämtas.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Använda sökning aktivitet resultat i en efterföljande aktivitet
 

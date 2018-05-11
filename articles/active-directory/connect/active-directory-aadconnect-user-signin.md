@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect användaren inloggningsalternativ
 Azure Active Directory (AD Azure) Connect kan användarna att logga in på både till molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitetsmodellen som hjälper dig att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -28,6 +28,7 @@ Om du redan är bekant med Azure AD identitetsmodellen och vill veta mer om en v
 * [Synkronisering av lösenords-hash-](#password-hash-synchronization) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
 * [Direkt-autentisering](active-directory-aadconnect-pass-through-authentication.md) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
 * [Federerad enkel inloggning (med Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Federation med PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > Det är viktigt att komma ihåg att genom att konfigurera federation för Azure AD kan du upprätta förtroende mellan Azure AD-klienten och externa domäner. Med den här federerade domänen förtroende har användare åtkomst till Azure AD cloud resurser inom innehavaren.  
@@ -88,6 +89,13 @@ Om du distribuerar en ny servergrupp eller använder en befintlig servergrupp, b
 * Den dator som du kör guiden på för att kunna ansluta till andra datorer som du vill installera AD FS eller Web Application Proxy på med hjälp av Windows Remote Management.
 
 Mer information finns i [Konfigurera enkel inloggning med AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>Federation med PingFederate
+Med federerad inloggning, kan dina användare logga in på Azure AD-baserade tjänster med sina lokala lösenord. När de inte är i företagsnätverket, behöver de även ange sina lösenord.
+
+Mer information om hur du konfigurerar PingFederate för användning med Azure Active Directory finns [PingFederate integrering med Azure Active Directory och Office 365](https://www.pingidentity.com/AzureADConnect)
+
+Information om hur du konfigurerar Azure AD Connect med PingFederate finns [Azure AD Connect anpassad installation](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Logga in med hjälp av en tidigare version av AD FS eller en lösning från tredje part
 Om du redan har konfigurerat moln-inloggning med hjälp av en tidigare version av AD FS (till exempel AD FS 2.0) eller en tredje parts federationsleverantör kan du hoppa över Användarkonfiguration inloggning via Azure AD Connect. Detta gör att du får den senaste synkroniseringen och andra Azure AD Connect-funktioner när du fortfarande använder din befintliga lösning för inloggning.

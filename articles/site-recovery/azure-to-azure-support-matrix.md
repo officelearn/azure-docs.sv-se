@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: sujayt
-ms.openlocfilehash: 215874020395faebd70b6dd15a29f1bf23638a84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -142,20 +142,20 @@ Kina | Kina Öst, Kina Nord
 **Konfiguration** | **Stöds/stöds ej** | **Kommentarer**
 --- | --- | ---
 Storlek | Alla Virtuella Azure-datorstorleken med minst 2 CPU-kärnor och 1 GB RAM-minne | Referera till [storlekar för virtuella Azure-datorn](../virtual-machines/windows/sizes.md)
-Tillgänglighetsuppsättningar | Stöds | Om mål-undernätet inte har samma IP-Adressen finns är en tillgänglig IP-adresser i undernätet reserverad för den här virtuella datorn. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '.
-Du kan markera nätverkskortet och ange undernät och IP-önskat. | Stöds | Dynamisk IP
+Tillgänglighetsuppsättningar | Stöds | Om du använder alternativet ”Aktivera replikering' steget i portalen är tillgänglighetsuppsättningen automatiskt skapa baserat på källan region konfiguration. Du kan ändra tillgänglighetsuppsättning för målet i ' replikerade objekt > Inställningar > beräkning och nätverk > tillgänglighetsuppsättning som helst.
+Hybrid Använd förmånen (NAV) virtuella datorer | Stöds | Om den Virtuella källdatorn har hubb licens aktiverad, använder testa redundans eller Failover VM också HUB-licens.
 Skalningsuppsättningar för virtuella datorer | Stöds inte |
-Om nätverkskortet på den Virtuella källdatorn har dynamisk IP-konfiguration, nätverkskortet på failover VM är också dynamisk som standard. | Stöds | Du konfigurera din traffic manager så att trafiken dirigeras till slutpunkten i källan region regelbundet och slutpunkten i målregionen vid redundans.
-Azure hanterade DNS | Stöds | Oautentiserad Proxy
-Referera till nätverk riktlinjerna. | Stöds | Oautentiserad Proxy
-Autentiserad proxyserver | Stöds | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med hjälp av Azure Site Recovery.
+Azure Galleriavbildningar - Microsoft publicerat | Stöds | Så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery som stöds
+Azure-galleriet bilder - publicerade från tredje part | Stöds | Stöd för så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery.
+Anpassad bilder - publicerade från tredje part | Stöds | Stöd för så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery.
+Virtuella datorer migreras med hjälp av Site Recovery | Stöds | Om det är en VMware/fysiska datorn har migrerat till Azure med Site Recovery måste du avinstallera den äldre versionen av mobilitetstjänsten och starta om datorn innan du replikerar till en annan Azure-region.
 
-## <a name="support-for-storage-configuration"></a>Plats-till-plats-VPN med lokalt (med eller utan ExpressRoute)
+## <a name="support-for-storage-configuration"></a>Stöd för konfiguration för lagring
 
 **Konfiguration** | **Stöds/stöds ej** | **Kommentarer**
 --- | --- | ---
-Se till att udr: er och NSG: er har konfigurerats så att Site recovery trafik inte dirigeras till lokalt. | VIRTUELLA NÄTVERK PÅ VNET-ANSLUTNING | Lär dig mer om [nätverk vägledning för att replikera virtuella Azure-datorer](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Börja skydda dina arbetsbelastningar av replikering av virtuella Azure-datorer | 4095 GB | Lär dig mer om [nätverk vägledning för att replikera virtuella Azure-datorer](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximal storlek för OS-disk | 2 048 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximal datadiskstorleken | 4095 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Antalet datadiskar | Upp till 64 som stöds av en viss Azure VM-storlek | Referera till [storlekar för virtuella Azure-datorn](../virtual-machines/windows/sizes.md)
 Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har exkluderats från replikering alltid. Du bör inte spärra beständiga data diskutrymme enligt vägledning för Azure. Referera till [diskutrymme på Azure Virtual Machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) för mer information.
 Förändringstakten för data på disken | Högst 10 Mbit/s per disk för Premium-lagring och 2 Mbit/s per disk för standardlagring | Om förändringstakten genomsnittlig data på disken är utöver 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) kontinuerligt, kommer inte replikeringen att fånga upp. Om det är en databearbetning burst och förändringstakten för data som är större än 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) under en viss tid och kommer, fånga replikering upp. I det här fallet kan du se något fördröjd återställningspunkter.
@@ -175,7 +175,7 @@ GRS | Stöds |
 RA-GRS | Stöds |
 ZRS | Stöds inte |  
 Kall och het lagring | Stöds inte | Virtuella diskar stöds inte på kall och het lagring
-Virtuella nätverksslutpunkter (Azure Storage brandväggar och virtuella nätverk)  | Nej | Att tillåta åtkomst till specifika virtuella Azure-nätverk på cache storage-konton som används för att lagra replikerade data stöds inte.
+Azure Storage-brandväggar för virtuella nätverk  | Nej | Att tillåta åtkomst till specifika virtuella Azure-nätverk på cache storage-konton som används för att lagra replikerade data stöds inte.
 Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generella V1 storage-konton
 
 >[!IMPORTANT]
@@ -200,6 +200,8 @@ Oautentiserad Proxy | Stöds | Referera till [nätverk riktlinjerna.](site-recov
 Autentiserad proxyserver | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med hjälp av Azure Site Recovery.    
 Plats-till-plats-VPN med lokalt (med eller utan ExpressRoute)| Stöds | Se till att udr: er och NSG: er har konfigurerats så att Site recovery trafik inte dirigeras till lokalt. Referera till [nätverk riktlinjerna.](site-recovery-azure-to-azure-networking-guidance.md)  
 Virtuella nätverk på VNET-anslutning | Stöds | Referera till [nätverk riktlinjerna.](site-recovery-azure-to-azure-networking-guidance.md)  
+Slutpunkter för virtuellt nätverk | Stöds | Azure Storage-brandväggar för virtuella nätverk stöds inte. Att tillåta åtkomst till specifika virtuella Azure-nätverk på cache storage-konton som används för att lagra replikerade data stöds inte.
+Accelererat nätverk | Stöds inte | En virtuell dator med snabbare nätverk aktiverat kan replikeras, men redundans VM inte snabbare nätverk aktiverad. Snabbare nätverksfunktioner inaktiveras även för Virtuella källdatorn för återställning efter fel.
 
 
 ## <a name="next-steps"></a>Nästa steg

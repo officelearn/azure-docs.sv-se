@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect: Vanliga frågor och svar - | Microsoft Docs"
-description: "Den här sidan har vanliga frågor om Azure AD Connect."
+title: 'Azure Active Directory Connect: Vanliga frågor och svar - | Microsoft Docs'
+description: Den här sidan har vanliga frågor om Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 05/09/2018
 ms.author: billmath
-ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46a9bf47b4998c4d5be47f67556fbdb3ba7b71db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Vanliga frågor om Azure Active Directory Connect
 
@@ -98,6 +98,68 @@ Vi stöder för närvarande inte ändra HTML-attribut på sidan logga in. Vi arb
 
 **F: finns det ett sätt att förhindra samtidiga sessioner?**</br>
 Nej.
+
+## <a name="auto-upgrade"></a>Uppgradera automatiskt
+
+**F: Vad är fördelarna och konsekvenserna av att använda automatisk uppgradering?**</br>
+Vi rekommenderar att alla kunder att aktivera automatisk uppgradering för sina Azure AD Connect-installationen. Fördelarna är att de alltid får de senaste korrigeringarna, inklusive säkerhetsuppdateringar säkerhetsproblem som påträffades i Azure AD Connect. Uppgraderingsprocessen är problemfritt och sker automatiskt när en ny version är tillgänglig. Vi har tusentals Azure AD Connect kunder med automatisk uppgradering med varje ny utgåva.
+
+Automatisk uppgraderingsprocessen alltid först upprättar om en installation lämpar sig för automatisk uppgradering (Detta omfattar söker efter egna ändringar till regler, specifika miljöfaktorer etc.) och om så uppgraderingen utförs och testas. Om testerna visar att en uppgradering inte har lyckats, kommer den tidigare versionen automatiskt hämta återställas.
+
+Processen kan ta några timmar beroende på storleken på miljön och medan uppgraderingen sker ingen synkronisering mellan Windows Server AD och Azure AD sker.
+
+**F: Jag har fått ett e-postmeddelande om att uppgradera min automatiskt fungerar inte längre som jag behöver installera en ny version. Varför måste jag göra detta?**</br>
+Senaste året släppte vi en version av Azure AD Connect som under vissa omständigheter kan ha inaktiverats automatiskt uppgradera funktionen på servern. Vi har löst problemet i Azure AD Connect version 1.1.750.0, som släpptes i slutet av den senaste månaden. Vi behöver kunder som har drabbats av det här problemet manuellt uppgradera till den senaste versionen av Azure AD Connect för att undvika problemet. Om du vill uppgradera manuellt, måste du hämta och kör den senaste versionen av filen AADConnect.msi.
+ 
+-  Om din nuvarande version är äldre än 1.1.750.0, måste du uppgradera till den senaste versionen [som kan hämtas](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+- Om din Azure AD Connect-version är 1.1.750.0 eller senare, behöver du inte göra något för att minimera uppgradera problemet automatiskt som du redan på den version som har en korrigering för detta. 
+
+**F: Jag har fått ett e-postmeddelande om att uppgradera till den senaste versionen för att aktivera automatisk uppgradering på nytt. Jag är på 1.1.654.0, måste du uppgradera?** </br>    
+Ja, du måste uppgradera till 1.1.750 eller nyare återaktivera uppgradera automatiskt. Här är en länk som förklarar hur du uppgraderar till en nyare version
+
+**F: Jag har fått ett e-postmeddelande om att uppgradera till den senaste versionen för att aktivera automatisk uppgradering på nytt. Jag har använt PowerShell för att aktivera automatisk uppgradering, behöver jag fortfarande installera den senaste versionen?**</br>    
+Ja, du fortfarande behöver uppgradera till version 1.1.750.0 eller senare. Aktivera automatisk uppgradering tjänsten med PowerShell minska inte automatiskt uppgradera problemet finns i versionerna innan 1.1.750
+
+**F: Jag vill uppgradera till en nyare version, men jag är inte säker som har installerat Azure AD Connect och vi har inte användarnamn och lösenord.  Behövs detta?**</br>
+Du behöver inte veta användarnamnet och lösenord som ursprungligen användes för att uppgradera Azure AD Connect – Azure AD-kontot som har rollen Global administratör kan användas.
+
+**F: hur kan jag hitta vilken version av Azure AD Connect jag på?**</br>   
+Om du vill kontrollera vilken version av Azure AD Connect är installerat på servern, gå till Kontrollpanelen och leta upp den installerade versionen av Microsoft Azure AD Connect i ”program > program och-funktioner:
+
+![version](media/active-directory-aadconnect-faq/faq1.png)
+
+**F: hur utför en uppgradering till den senaste versionen av AADConnect?**</br>    
+Detta [artikel](active-directory-aadconnect-upgrade-previous-version.md) förklarar hur du uppgraderar till en nyare version. 
+
+**F: vi redan har uppgraderats till den senaste versionen av AADConnect förra året, behöver vi att uppgradera igen?**</br> Azure AD Connect-team gör uppdateras ofta till tjänsten och det är viktigt att servern är uppdaterad med den senaste versionen för att dra nytta av felkorrigeringar och säkerhetsuppdateringar samt nya funktioner. Om du aktiverar automatisk uppgradering programvaruversion kommer att uppdateras automatiskt. Om du vill hitta versionshistorik av Azure AD Connect, följer du detta [länk](active-directory-aadconnect-version-history.md).
+
+**F: hur lång tid tar det för att utföra uppgraderingen och vad som är effekten på Mina användare?**</br>    
+Den tid som behövs för att uppgradera beror på storleken på din klient och för större organisationer kan det vara bäst att göra detta i kväll eller helg. Observera att inga synkroniseringsåtgärden äger rum under uppgraderingen.
+
+**F: Jag tror att jag har uppgraderat till AADConnect men i Office-portalen fortfarande nämns DirSync.  Wny är detta?**</br>    
+Office-teamet arbetar för att hämta Office-portalen uppdateringar så att den återger produktnamnet på aktuella – avspeglar inte vilka synkroniseringsverktyget som du använder.
+
+**F: jag kontrolleras min uppgradera automatiskt status och det står ”avbruten”. Varför är det avbruten? Bör jag aktivera det?**</br>     
+Ett programfel introducerades i en tidigare version som i vissa fall skulle innebära att automatisk uppgraderingsstatus inställd på ”avbrutna”. Manuellt om du aktiverar det är tekniskt möjligt men kräver flera komplexa steg så att det bästa som du kan göra är att installera den senaste versionen av Azure AD Connect
+
+**F: mitt företag har strikt ändra verksamhetskrav och vill styra när den skickas. Kan du styra när automatiska uppgradering startas?**</br> Nej, det finns ingen sådan funktion idag är det något vi utvärderar för framtida versioner.
+
+**F: kan jag får ett e-postmeddelande om den automatiska uppgraderingen misslyckades? Hur vet jag att lyckades?**</br>     
+Du meddelas inte om resultatet av uppgraderingen, det är något som vi utvärderar för framtida versioner.
+
+**Q:do du publicerar en tidslinje för när du planerar att skicka ut automatiska uppgraderingar?**</br>    
+Uppgradera automatiskt är det första steget i vår process versionen av en nyare version så när det finns en ny version vi skickar automatiska uppgraderingar. Nyare versioner av Azure AD Connect är förhand angivna i den [översikt över Azure AD](../../active-directory/whats-new.md).
+
+**F: automatiska uppgradering uppgradera AAD Connect Health?**</br>   Ja, uppgradera automatiskt uppgraderas AAD Connect Health även
+
+**F: behöver du också uppgradera automatiskt AAD Connect-servrar i Mellanlagringsläge?**</br>   
+Nej, du kan inte automatisk uppgradering en Azure AD Connect-server som är i mellanlagringsläge.
+
+**F: om automatiska uppgradering misslyckas och servern AAD Connect inte startar, vad ska jag göra?**</br>   
+I sällsynta fall kan startar Azure AD Connect-tjänsten inte efter uppgraderingen. I dessa fall måste du starta om servern, vilket vanligtvis för att rätta till problemet. Öppna ett supportärende om Azure AD Connect-tjänsten fortfarande inte startar. Här är en [länken](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) som förklarar hur du gör. 
+
+**F: Jag vet inte vilka risker är när du uppgraderar till en nyare version av Azure AD Connect. Kan du anropa mig om du vill hjälpa mig med uppgraderingen?**</br>
+Om du behöver hjälp uppgradering till en nyare version av Azure AD Connect, öppna ett supportärende här är en [länken](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) som visar hur du gör.
 
 ## <a name="troubleshooting"></a>Felsökning
 **F: hur kan jag få hjälp med Azure AD Connect?**

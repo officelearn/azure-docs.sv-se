@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 353762f33da8e5d48f6b70df3b790287eeab7ff9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolera i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -124,6 +124,20 @@ Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är d
 
 ## <a name="compute-isolation"></a>Compute-isolering
 Microsoft Azure tillhandahåller olika molnbaserade databehandling tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise. Dessa beräkningar instans och tjänsten erbjuder isolering på flera nivåer för att skydda data utan att kompromissa flexibilitet i konfigurationen som kunder kräver.
+
+### <a name="isolated-virtual-machine-sizes"></a>Isolerade virtuella Datorstorlekar
+Azure Compute erbjuder virtuella storlekar som är isolerad till en specifik maskinvara och dedikerad till en enskild kund.  Dessa storlekar för virtuella datorer som passar bäst för arbetsbelastningar som kräver en hög grad av isolerade från andra kunder för arbetsbelastningar som involverar element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser av dessa isolerade virtuella datorer med hjälp av ytterligare [Azure stöd för kapslade virtuella datorer](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+
+Använda en isolerad storlek garanterar att den virtuella datorn endast en körs på den specifika serverinstansen.  De aktuella isolerade virtuella inkluderar:
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* Standard_D15_v2
+
+Du kan lära dig mer om varje isolerat storlek [här](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & rot OS-isolering mellan rot VM & gäst-VM
 Azures beräkningsplattform baseras på datorn virtualisering, vilket innebär att alla kunden koden körs i en virtuell dator för Hyper-V. Det finns en Hypervisor som körs direkt via maskinvaran och delar en nod i variabelnummer av gäst virtuella maskiner (VMs) på varje nod i Azure (eller slutpunkter i nätverket).

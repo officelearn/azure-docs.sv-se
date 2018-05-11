@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Direkt autentisering – vanliga frågor och svar | Microsoft Docs"
-description: "Svar på vanliga frågor och svar om Azure Active Directory direkt-autentisering"
+title: 'Azure AD Connect: Direkt autentisering – vanliga frågor och svar | Microsoft Docs'
+description: Svar på vanliga frågor och svar om Azure Active Directory direkt-autentisering
 services: active-directory
-keywords: "Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 7a817092581ef0be0b6be063282f7484c46ff094
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direkt-autentisering: Vanliga frågor och svar
 
@@ -48,7 +48,7 @@ Ja. Direkt-autentiseringen stöder `Alternate ID` som användarnamnet som konfig
 
 Nej. Direkt-autentisering _inte_ automatiskt redundans till hash-synkronisering av lösenord. Det fungerar endast som en reserv för [scenarier som inte stöder direkt autentiseringen idag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om du vill undvika användaren logga in fel, bör du konfigurera direkt autentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD Application Proxy](../active-directory-application-proxy-get-started.md) connector på samma server som en direkt autentiseringsagent?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector på samma server som en direkt autentiseringsagent?
 
 Ja. Rebranded versioner av direkt autentiseringsagent, version 1.5.193.0 eller senare, stöder den här konfigurationen.
 

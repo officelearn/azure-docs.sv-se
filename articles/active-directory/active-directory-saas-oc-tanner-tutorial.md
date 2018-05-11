@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med O.C. Turesson - AppreciateHub | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och O.C. Turesson - AppreciateHub."
+title: 'Självstudier: Azure Active Directory-integrering med O.C. Turesson - AppreciateHub | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och O.C. Turesson - AppreciateHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ae98e6fce3507e023a72cab35894c7c2f7a87656
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d643a9ad6dd2b19fc3b8932b80d416fbc62d7a3
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Självstudier: Azure Active Directory-integrering med O.C. Turesson - AppreciateHub
 
@@ -31,7 +31,7 @@ Integrera O.C. Turesson - AppreciateHub med Azure AD ger följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Konfigurera Azure AD-integrering med O.C. Turesson - AppreciateHub, behöver du följande:
 
@@ -110,12 +110,12 @@ I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
+    a. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<companyname>.octanner.net/sp/ACS.saml2`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska Reply-URL. Kontakta [O.C. Turesson - AppreciateHub supportteamet](mailto:sso@octanner.com) att hämta det här värdet.
 
-    b. Öppna metadatafilen med hjälp av följande länk: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
+    b. Öppna metadatafilen med hjälp av följande länk: [ https://fed.appreciatehub.com/fed/sp/metadata ](https://fed.appreciatehub.com/fed/sp/metadata).
    
     c. Leta upp den **md:AssertionConsumerService** nod. 
    

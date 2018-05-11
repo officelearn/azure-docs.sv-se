@@ -9,11 +9,11 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdd0ef182e0d18409ca608a645ff4011f00f9fa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera uppdateringshantering, ändringsspårning och lager-lösningar
 
@@ -41,11 +41,17 @@ Välj **uppdateringshantering** under **UPPDATERINGSHANTERING**. Log Analytics-a
 
 ![Publicera update lösning](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Konfiguration av scope
+## <a name="scope-configuration"></a>Omfattningskonfiguration
 
 Varje lösning använder en Scope-konfiguration på arbetsytan för att fokusera på de datorer som hämta lösningen. Konfigurationen av är en grupp med en eller flera sparade sökningar som används för att begränsa omfattningen av lösningen på specifika datorer. Åtkomst till Scope-konfigurationerna i ditt Automation-konto under **relaterade resurser**väljer **arbetsytan**. I arbetsytan under **ARBETSYTAN DATAKÄLLOR**väljer **omfång konfigurationer**.
 
-Två Scope-konfigurationer som skapas som standard **MicrosoftDefaultScopeConfig ChangeTracking** och **MicrosoftDefaultScopeConfig uppdateringar**.
+Om den valda arbetsytan inte har skapa lösningar för hantering av uppdateringar eller ändringsspårning har följande omfång konfigurationer:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig uppdateringar**
+
+Om den valda arbetsytan har redan lösningen. Lösningen distribueras inte igen och konfigurationen av läggs inte till den.
 
 ## <a name="saved-searches"></a>Sparade sökningar
 
@@ -68,7 +74,7 @@ Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning*
 
 Klicka på **+ Lägg till Azure VM**, Välj en virtuell dator i listan. På den **uppdateringshantering** klickar du på **aktivera**. Den aktuella virtuella datorn läggs till i datorgruppen sparad sökning för lösningen.
 
-## <a name="onboard-a-non-azure-machine"></a>Publicera en Azure-dator
+## <a name="onboard-a-non-azure-machine"></a>Publicera en virtuell dator utan Azure
 
 Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 

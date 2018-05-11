@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 22ef129830941ee7001dd5e0be1501bf9d755eb7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 
@@ -27,7 +27,7 @@ Azure Active Directory (AD) Application Proxy hjälper dig att stöd för fjärr
 
 Den här artikeln vägleder dig genom stegen för att publicera en lokal app med Application Proxy. När du har slutfört den här artikeln kommer användarna att kunna fjärransluta till din app. Och du kan redo att konfigurera extra funktioner för programmet som enkel inloggning, personlig information och säkerhetskrav.
 
-Lär dig mer om den här funktionen med artikeln om du har använt Application Proxy [ge säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md).
+Lär dig mer om den här funktionen med artikeln om du har använt Application Proxy [ge säker fjärråtkomst till lokala program](manage-apps/application-proxy.md).
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publicera en lokal app för fjärråtkomst

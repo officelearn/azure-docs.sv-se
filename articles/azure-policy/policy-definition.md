@@ -9,11 +9,11 @@ ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 3750bc409753868566c91c01cf6093f439c599f9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -256,120 +256,61 @@ Ett exempel på granskning när ett tillägg för virtuell dator inte har distri
 
 Du kan använda egenskapen alias för att få åtkomst till specifika egenskaper för en resurstyp. Alias kan du begränsa vilka värden eller villkor tillåts för en egenskap för en resurs. Varje alias mappar till sökvägar i olika API-versioner för en viss resurstyp. Under principutvärdering av hämtar principmodulen egenskapssökvägen för den API-versionen.
 
-**Microsoft.Cache/Redis**
+Lista över alla alias växer alltid. Använd någon av följande metoder för att identifiera vilka alias som stöds av Azure-principen:
 
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Ange är om Redis-servern ssl-port (6379) aktiverat. |
-| Microsoft.Cache/Redis/shardCount | Ange antalet shards som ska skapas på en Premium klustret Cache.  |
-| Microsoft.Cache/Redis/sku.capacity | Ange storleken för Redis-cache för att distribuera.  |
-| Microsoft.Cache/Redis/sku.family | Ange SKU-familjen att använda. |
-| Microsoft.Cache/Redis/sku.name | Ange vilken typ av Redis-Cache för att distribuera. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Ange namnet på prisnivån. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Ange erbjudandet om plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imagePublisher | Ange utgivaren av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageSku | Ange SKU plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageVersion | Ange versionen av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Ange identifieraren för den bild som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageOffer | Ange erbjudandet om plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imagePublisher | Ange utgivaren av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageSku | Ange SKU plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageVersion | Ange versionen av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/licenseType | Ange att avbildningen eller disken är licensierad lokalt. Det här värdet används bara för bilder som innehåller operativsystemet Windows Server.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Ange erbjudandet om plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Ange utgivaren av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/virtualMachines/imageSku | Ange SKU plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/virtualMachines/imageVersion | Ange versionen av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Ange vhd-URI. |
-| Microsoft.Compute/virtualMachines/sku.name | Ange storleken på den virtuella datorn. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Anger tillgänglighetsuppsättning-id för den virtuella datorn. |
+- Azure CLI
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Ange namnet på tilläggets utgivare. |
-| Microsoft.Compute/virtualMachines/extensions/type | Ange vilken typ av tillägget. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Ange versionen av tillägget. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- REST API / ARMClient
 
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Ange identifieraren för den bild som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageOffer | Ange erbjudandet om plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imagePublisher | Ange utgivaren av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageSku | Ange SKU plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/imageVersion | Ange versionen av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
-| Microsoft.Compute/licenseType | Ange att avbildningen eller disken är licensierad lokalt. Det här värdet används bara för bilder som innehåller operativsystemet Windows Server. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Ange prefixet för alla virtuella datorer i skaluppsättning. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Ange blob-URI för användaravbildning. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Ange behållare webbadresserna som används för att lagra operativsystemet diskar för skalan. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Ange storleken på virtuella datorer i en skaluppsättning. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Ange nivån för virtuella datorer i en skaluppsättning. |
-
-**Microsoft.Network/applicationGateways**
-
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | Ange storleken för gatewayen. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Ange vilken typ av den här virtuella nätverksgatewayen. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | Ange namnet på gateway-SKU. |
-
-**Microsoft.Sql/servers**
-
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Ange versionen av servern. |
-
-**Microsoft.Sql/databases**
-
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Ange versionen av databasen. |
-| Microsoft.Sql/servers/databases/elasticPoolName | Ange namnet på den elastiska poolen databasen är i. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Ange konfigurerade tjänsten nivå mål-ID för databasen. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Ange namnet på det konfigurerade servicenivåmålet för databasen.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Alias | Beskrivning |
-| ----- | ----------- |
-| servrar/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Ange totalt antal delade DTU för elastiska databaspool. |
-| servrar/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Ange version för den elastiska poolen. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Alias | Beskrivning |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Ange den åtkomstnivå som används för fakturering. |
-| Microsoft.Storage/storageAccounts/accountType | Ange namnet på SKU. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Ange om tjänsten krypterar data som lagras i blob storage-tjänst. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Ange om tjänsten krypterar data som lagras i tjänsten file storage. |
-| Microsoft.Storage/storageAccounts/sku.name | Ange namnet på SKU. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Ange för att tillåta endast https-trafik till storage-tjänst. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Kontrollera om tjänstslutpunkten för virtuella nätverk har aktiverats. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## <a name="initiatives"></a>Initiativ
 

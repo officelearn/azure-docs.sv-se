@@ -1,24 +1,24 @@
 ---
-title: "Distribuera StorSimple enheten Manager-tjänsten i Azure | Microsoft Docs"
-description: "Beskriver hur du skapar och tar bort StorSimple enheten Manager-tjänsten i Azure-portalen och beskriver hur du hanterar nyckeln för tjänstregistrering."
+title: Distribuera StorSimple enheten Manager-tjänsten i Azure | Microsoft Docs
+description: Beskriver hur du skapar och tar bort StorSimple enheten Manager-tjänsten i Azure-portalen och beskriver hur du hanterar nyckeln för tjänstregistrering.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple enheten Manager-tjänsten för StorSimple 8000-serien enheter
 
@@ -29,7 +29,9 @@ StorSimple Device Manager-tjänsten körs i Microsoft Azure och ansluter till fl
 Den här självstudiekursen beskriver de steg som krävs för att skapa, borttagning, migrering av tjänsten och hantering av nyckel för tjänstregistrering. Informationen i den här artikeln gäller endast StorSimple 8000-serien enheter. Mer information om virtuella StorSimple-matriser, gå till [distribuera StorSimple enheten Manager-tjänsten för din virtuella StorSimple-matrisen](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Alla klassiska StorSimple enheten chefer flyttades automatiskt till den nya Azure-portalen. Om du har några frågor, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md). Azure Service Management (ASM) PowerShell cmdlets stöds inte efter övergången till den nya Azure-portalen. Uppdatera skript för att hantera dina enheter och gå sedan till den [Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter](storsimple-8000-automation-azurerm-scripts.md) för mer information. Den nya Azure portalen stöder enheter som kör uppdatering 5.0 eller senare. Installera uppdatering 5 omedelbart om enheten inte är uppdaterad. Mer information finns på [installera uppdatering 5](storsimple-8000-install-update-5.md). Du kan inte uppdatera en moln-installation om du använder en StorSimple moln installation (8010/8020). Använd den senaste versionen av programvaran för att skapa en ny installation av moln med uppdatering 5.0 och sedan växla över till den nya molntjänster installationen skapas. Alla enheter som kör uppdatering 4.0 eller tidigare får [minskas hanteringsfunktioner](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  Azure-portalen stöder enheter som kör uppdatering 5.0 eller senare. Installera uppdatering 5 omedelbart om enheten inte är uppdaterad. Mer information finns på [installera uppdatering 5](storsimple-8000-install-update-5.md). 
+> - Du kan inte uppdatera en moln-installation om du använder en StorSimple moln installation (8010/8020). Använd den senaste versionen av programvaran för att skapa en ny installation av moln med uppdatering 5.0 och sedan växla över till den nya molntjänster installationen skapas. 
+> - Alla enheter som kör uppdatering 4.0 eller tidigare får [minskas hanteringsfunktioner](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Skapa en tjänst
 Om du vill skapa en StorSimple Device Manager-tjänst måste du ha:
@@ -38,11 +40,7 @@ Om du vill skapa en StorSimple Device Manager-tjänst måste du ha:
 * Ett aktivt Microsoft Azure storage-konto
 * Faktureringsinformation som används för hantering
 
-Endast prenumerationer med ett Enterprise-avtal är tillåtna. Microsoft Sponsorship prenumerationer som tilläts i den klassiska Azure portalen stöds inte i Azure-portalen. Följande meddelande visas när du använder en prenumeration som inte stöds:
-
-![Prenumerationen är inte giltigt](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-Du kan också välja att generera en standardkontot för lagring när du skapar tjänsten.
+Endast prenumerationer med ett Enterprise-avtal är tillåtna. Du kan också välja att generera en standardkontot för lagring när du skapar tjänsten.
 
 En enskild tjänst kan hantera flera enheter. Men en enhet kan sträcka sig över flera tjänster. Stora företag kan ha flera instanser av tjänsten ska fungera med olika prenumerationer, organisationer eller även distribution platser. 
 
@@ -78,7 +76,7 @@ Utför följande steg för att ta bort en tjänst.
 
 2. Då kommer du till bladet StorSimple Device Manager-tjänsten. Klicka på **Ta bort**.
 
-    ![Ta bort tjänsten](./media/storsimple-8000-manage-service/deletessdevman2.png)
+    ![Ta bort tjänst](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
 3. Klicka på **Ja** i meddelande om bekräftelse. Det kan ta några minuter för tjänsten som ska tas bort.
 
@@ -149,8 +147,7 @@ Det här steget utförs i Windows PowerShell för StorSimple-gränssnittet på b
 
 > [!NOTE]
 > Inga åtgärder kan utföras i Azure-portalen för din StorSimple Manager-tjänsten tills nyckelförnyelse har slutförts.
-> 
-> 
+
 
 Utför följande steg om du använder enhetens seriekonsol för att ansluta till Windows PowerShell-gränssnittet.
 
@@ -177,12 +174,12 @@ Utför följande steg för att uppdatera tjänsten datakryptering på enheten.
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Uppdatera krypteringsnyckeln för tjänstdata på fysiska enheter
 1. Använda Windows PowerShell för StorSimple för att ansluta till konsolen. Välj alternativ 1 för att logga in med fullständig åtkomst.
-2. Skriv följande vid kommandotolken:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. Skriv följande vid kommandotolken:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Ange den krypteringsnyckel för tjänstdata som du fick i [steg 2: använda Windows PowerShell för StorSimple att initiera tjänsten data encryption key ändras](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Uppdatera krypteringsnyckeln för tjänstdata på alla 8010/8020 moln-installationer
 1. Hämta och installera [uppdatering CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-skript. 
-2. Öppna PowerShell och Skriv vid kommandotolken:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+2. Öppna PowerShell och Skriv vid kommandotolken:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Det här skriptet säkerställer att krypteringsnyckel för tjänstdata är inställd på 8010/8020 moln installationer under Enhetshanteraren.
 

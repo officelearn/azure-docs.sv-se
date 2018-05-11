@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b59e3dae685c4994c44582d569875637b335bf87
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -70,7 +70,7 @@ Du måste lägga till Amazon Web Services (AWS) från galleriet i listan över h
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Amazon Web Services (AWS)**väljer **Amazon Web Services (AWS)** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Amazon Web Services (AWS)** väljer **Amazon Web Services (AWS)** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Amazon Web Services (AWS) i resultatlistan](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
@@ -190,7 +190,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
   
     d. Klicka på **nästa: behörigheter**.
 
-16. På den **ansluta behörigheterna principer** dialogrutan klickar du på **nästa: granska**.  
+16. På den **ansluta behörigheterna principer** dialogrutan, behöver du inte bifoga alla principer. Klicka på **nästa: granska**.  
     
     ![Konfigurera principen för enkel inloggning][33]
 

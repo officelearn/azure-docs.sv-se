@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och lager från en virtuell dator i Azure
 
@@ -38,11 +38,17 @@ Navigera till de andra lösningarna och klicka på **aktivera**, logganalys och 
 > [!NOTE]
 > **Ändringsspårning** och **inventering** använder samma lösning när en aktiveras den andra är aktiverad samt.
 
-## <a name="scope-configuration"></a>Konfiguration av scope
+## <a name="scope-configuration"></a>Omfattningskonfiguration
 
 Varje lösning använder en Scope-konfiguration på arbetsytan för att fokusera på de datorer som hämta lösningen. Konfigurationen av är en grupp med en eller flera sparade sökningar som används för att begränsa omfattningen av lösningen på specifika datorer. Åtkomst till Scope-konfigurationerna i ditt Automation-konto under **relaterade resurser**väljer **arbetsytan** i arbetsytan under **ARBETSYTAN DATAKÄLLOR**, Välj **omfång konfigurationer**.
 
-De två scope-konfigurationerna som skapas som standard är **MicrosoftDefaultScopeConfig ChangeTracking** och **MicrosoftDefaultScopeConfig uppdateringar**.
+Om den valda arbetsytan inte har skapa lösningar för hantering av uppdateringar eller ändringsspårning har följande omfång konfigurationer:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig uppdateringar**
+
+Om den valda arbetsytan har redan lösningen. Lösningen distribueras inte igen och konfigurationen av läggs inte till den.
 
 Klicka på ellipserna (...) på någon av de konfigurationer och välj **redigera**. På den **redigera konfigurationen** väljer **Välj datorgrupper** att öppna den **datorgrupper** sidan. Den här sidan visar sparade sökningar som används för att skapa Scope-konfiguration.
 

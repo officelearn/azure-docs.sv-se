@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Självstudier: Azure Active Directory-integrering med Workday
 
@@ -174,19 +174,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![SAML identitetsleverantörer](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML identitetsleverantörer")
    
-    c. Välj **aktivera idp initierade logga ut**.
-   
-    d. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **Sign-Out URL** värdet och klistrar in det i den **logga ut svars-URL** textruta.
+    c. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **Sign-Out URL** värdet och klistrar in det i den **logga ut svars-URL** textruta.
 
-    e. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **SAML inloggning tjänst-URL för enkel** värdet och klistrar in det i den **IdP SSO-tjänstens URL** textruta.
+    d. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **SAML inloggning tjänst-URL för enkel** värdet och klistrar in det i den **IdP SSO-tjänstens URL** textruta.
 
-    f. I **används för miljöer** textruta väljer du namnet på miljön.
+    e. I **används för miljöer** textruta väljer du namnet på miljön.
 
-    g. Klicka på **providern offentliga nyckel identitetscertifikat**, och klicka sedan på **skapa**. 
+    f. Klicka på **providern offentliga nyckel identitetscertifikat**, och klicka sedan på **skapa**. 
 
     ![Skapa](./media/active-directory-saas-workday-tutorial/IC782928.png "skapa")
 
-    h. Klicka på **skapa x509 offentliga nyckel**. 
+    g. Klicka på **skapa x509 offentliga nyckel**. 
 
     ![Skapa](./media/active-directory-saas-workday-tutorial/IC782929.png "skapa")
 

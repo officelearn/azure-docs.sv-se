@@ -4,7 +4,7 @@ description: I referensdokumentationen för Azure CDN regler motorn funktioner.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,10 +12,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -1240,25 +1240,25 @@ Vi rekommenderar starkt att använda en absolut URL. Användning av en relativ U
 
 **Exempelscenario**
 
-Det här exemplet visar hur du omdirigera en kant CNAME-URL som motsvarar denna grundläggande CDN-URL: http://marketing.azureedge.net/brochures
+Det här exemplet visar hur du omdirigera en kant CNAME-URL som motsvarar denna grundläggande CDN-URL: http:\//marketing.azureedge.net/brochures
 
-Kvalificerade begäranden omdirigeras till den här grundläggande edge CNAME-URL: http://cdn.mydomain.com/resources
+Kvalificerade begäranden omdirigeras till den här grundläggande edge CNAME-URL: http:\//cdn.mydomain.com/resources
 
-Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![URL: en omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Viktiga punkter:**
 
 - Funktionen omdirigerings-URL: en definierar begäran URL: er som omdirigeras. Därför krävs inte ytterligare matchar villkoren. Även om det matchar villkoret har angetts som ”Always”, omdirigeras begäranden som pekar på mappen ”broschyrer” på ”marknadsföring” kund ursprung. 
 - Alla matchande begäranden omdirigeras till gränsen CNAME-URL som definierats i alternativet mål. 
     - Exempelscenario #1: 
-        - Exempel på begäran (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL-begäran (efter omdirigering): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Exempel på begäran (CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - URL-begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Exempelscenario #2: 
-        - Exempel på begäran (kant CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL-begäran (efter omdirigering): http://cdn.mydomain.com/resources/widgets.pdf Exempelscenario
+        - Exempel på begäran (kant CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - URL-begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/widgets.pdf Exempelscenario
     - Exempelscenario #3: 
-        - Exempel på begäran (kant CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL-begäran (efter omdirigering): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Exempel på begäran (kant CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL-begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - Schemat för begäran (% {schema}) variabeln utnyttjas i alternativet mål, vilket garanterar att begäran schemat förblir oförändrad efter omdirigeringen.
 - URL-segment som har hämtats från begäran läggs till den nya URL via ”$1”.
 
@@ -1282,17 +1282,17 @@ Alternativ|Beskrivning
 
 **Exempelscenario 1**
 
-Det här exemplet visar hur du omdirigera en kant CNAME-URL som motsvarar denna grundläggande CDN-URL: http://marketing.azureedge.net/brochures/
+Det här exemplet visar hur du omdirigera en kant CNAME-URL som motsvarar denna grundläggande CDN-URL: http:\//marketing.azureedge.net/brochures/
 
-Kvalificerade begäranden omdirigeras till den här grundläggande edge CNAME-URL: http://MyOrigin.azureedge.net/resources/
+Kvalificerade begäranden omdirigeras till den här grundläggande edge CNAME-URL: http:\//MyOrigin.azureedge.net/resources/
 
-Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![URL: en omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Exempelscenario 2**
 
 Det här exemplet visar hur du omdirigera en kant CNAME-URL från versaler till gemener med reguljära uttryck.
 
-Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![URL: en omdirigering](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Viktiga punkter:**

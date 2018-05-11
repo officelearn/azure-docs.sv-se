@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8426d03d5c3058638fecc0fe27a03a7699a23add
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1e809f83b43c32031b66c8f470575da6e9fcdc56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mappa fält till händelse rutnätet schema
 
@@ -49,6 +49,10 @@ När du skapar en anpassad avsnittet Ange mappning från din ursprungliga hände
 I följande exempel skapar en anpassad avsnittet med några mappas och fält som standard:
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \

@@ -1,8 +1,8 @@
 ---
 title: BNPR i Azure Active Directory application proxy | Microsoft Docs
-description: "Läs mer om BNPR i Azure Active Directory-programproxy."
+description: Läs mer om BNPR i Azure Active Directory-programproxy.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
@@ -15,11 +15,11 @@ ms.date: 02/16/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5e99fba2f226e1e9b401bd8ef5b3b85a5e8c6a7c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a3df15743b4918d72fac5f8769a2d3ee721a452f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="gdpr-in-the-azure-active-directory-application-proxy"></a>BNPR i Azure Active Directory application proxy  
 
@@ -80,5 +80,5 @@ Om du vill inaktivera connector-loggarna som du behöver justera `C:\Program Fil
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över Azure AD-programproxy finns [ge säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md).
+En översikt över Azure AD-programproxy finns [ge säker fjärråtkomst till lokala program](manage-apps/application-proxy.md).
 

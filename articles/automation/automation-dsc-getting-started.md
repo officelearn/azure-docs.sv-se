@@ -3,16 +3,17 @@ title: Komma igång med Azure Automation DSC
 description: Förklaring och exempel på de vanligaste uppgifterna i Azure Automation önskad tillstånd Configuration (DSC)
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0a00050712aa62f3b12e4af4c3da3a1dc0e60219
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7ab5c7f2f3676392b8fa0cc0b2a1c8f66d8ef3a9
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Komma igång med Azure Automation DSC
 
@@ -20,7 +21,7 @@ Den här artikeln förklarar hur du utför de vanligaste uppgifterna med Azure A
 
 Den här artikeln innehåller stegvisa instruktioner till med hjälp av Azure Automation DSC. Om du vill att en exempel-miljö som redan har konfigurerat utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mall: den här mallen ställer in en slutförd Azure Automation DSC-miljö, inklusive en Azure VM är hanteras av Azure Automation DSC.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill utföra exemplen i den här artikeln krävs följande:
 

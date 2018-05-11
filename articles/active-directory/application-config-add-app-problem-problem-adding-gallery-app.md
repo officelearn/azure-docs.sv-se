@@ -1,11 +1,11 @@
 ---
-title: "Lägga till ett program för Azure AD-galleriet problemet | Microsoft Docs"
-description: "Förstå de vanliga problem personer står inför när du lägger till Azure AD-galleriet program och vad du kan göra för att lösa dem."
+title: Lägga till ett program för Azure AD-galleriet problemet | Microsoft Docs
+description: Förstå de vanliga problem personer står inför när du lägger till Azure AD-galleriet program och vad du kan göra för att lösa dem.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 79713cd343e1b876cd7a1b6653bbe00b43272a55
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cb43976c17bfd46d1f16f0bdaff1c164bdc0fb6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problem att lägga till ett program för Azure AD-galleriet
 
@@ -25,15 +25,15 @@ Den här artikeln hjälper dig att förstå de vanliga problem personer står in
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Jag har klickat på knappen ”Lägg till” och mitt program tog lång tid ska visas
 
-I vissa fall kan det ta 1 till 2 minuter (och ibland längre) för ett program ska visas när du lägger till den i din katalog. Även om detta inte är normal prestanda ser programmet tillägg pågår genom att klicka på den **meddelanden** ikonen (sal) i övre högra hörnet på den [Azure Portal](https://portal.azure.com/) och letar efter en **pågår** eller **slutförd** meddelande med etiketten **skapa program.**
+I vissa fall kan det ta 1 till 2 minuter (och ibland längre) för ett program ska visas när du lägger till den i din katalog. Även om detta inte är normal prestanda ser programmet tillägg pågår genom att klicka på den **meddelanden** ikonen (sal) i övre högra hörnet på de [Azure-portalen](https://portal.azure.com/) och titta för en **pågår** eller **slutförd** meddelande med etiketten **skapa program.**
 
-Om ditt program aldrig har lagts till, eller det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer om hur du eller dela med en stöd engingeer visas mer information om felet genom att följa stegen i den [så visas detaljerad information om en portalmeddelandet](#how-to-see-the-details-of-a-portal-notification) avsnitt.
+Om ditt program aldrig har lagts till, eller det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer om hur du eller dela med en supporttekniker, kan du se mer information om felet genom att följa stegen i den [så visas detaljerad information om en portalmeddelandet](#how-to-see-the-details-of-a-portal-notification) avsnitt.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Jag har klickat på knappen ”Lägg till” och mitt program visas inte
 
-Ibland på grund av temporära problem nätverksproblem eller ett programfel kan lägga till ett program misslyckas. Du ser detta händer när du klickar på den **meddelanden** ikonen (sal) i övre högra hörnet i Azure Portal och du ser ikonen red (!) bredvid ditt **skapa program** meddelande. Detta anger att ett fel uppstod när du skapar programmet.
+Ibland på grund av temporära problem nätverksproblem eller ett programfel kan lägga till ett program misslyckas. Du ser detta händer när du klickar på den **meddelanden** ikonen (sal) i övre högra hörnet i Azure portal och du ser ikonen red (!) bredvid ditt **skapa program** meddelande. Detta anger att ett fel uppstod när du skapar programmet.
 
-Om det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer om hur du eller dela med en stöd engingeer visas mer information om felet genom att följa stegen i den [så visas detaljerad information om en portalmeddelandet](#how-to-see-the-details-of-a-portal-notification) avsnitt.
+Om det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer om hur du eller dela med en supporttekniker, kan du se mer information om felet genom att följa stegen i den [så visas detaljerad information om en portalmeddelandet](#how-to-see-the-details-of-a-portal-notification) avsnitt.
 
  ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Jag vet inte hur du ställer in Mina program när jag har lagt till
 
@@ -54,9 +54,7 @@ Du kan se information om eventuella portalmeddelandet genom att följa stegen ne
     >
     >
 
-3.  Den här öppna den **detaljer** bladet.
-
-4.  Använd den här informationen dig att förstå mer information om problemet.
+4.  Använd informationen under **detaljer** att lära dig mer information om problemet.
 
 5.  Om du fortfarande behöver hjälp kan du också dela informationen med en supporttekniker eller produktgruppen för att få hjälp med problemet.
 
@@ -68,7 +66,7 @@ Det är mycket viktigt att du dela **allt som anges nedan** med en supportteknik
 
 ## <a name="notification-details-explained"></a>Meddelandeinformation förklaras
 
-Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller exempel på var och en av dem.
+Se följande beskrivningar för mer information om meddelanden.
 
 ### <a name="essential-notification-items"></a>Viktigt meddelande objekt
 
@@ -80,11 +78,11 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel – **intern url har angett används redan av ett annat program**
 
--   **Meddelande-Id** – unikt id för meddelandet
+-   **Meddelande-ID** – unikt ID för meddelandet
 
     -   Exempel – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Id för klientbegäran** – specifik begäran-id som din webbläsare
+-   **ID för klientbegäran** – specifik begäran-ID som din webbläsare
 
     -   Exempel – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -92,19 +90,19 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel – **2017-03-23T19:50:43.7583681Z**
 
--   **Internt transaktions-Id** – internt ID vi kan använda för att söka av fel i vårt system
+-   **Internt transaktions-ID** – internt ID vi kan använda för att söka av fel i vårt system
 
     -   Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** – användaren som utförde åtgärden
 
-    -   Exempel –**tperkins@f128.info**
+    -   Exempel – **tperkins@f128.info**
 
--   **Klient-Id** – unikt ID för den klient som användaren som utförde åtgärden var medlem av
+-   **Klient-ID** – unikt ID för den klient som användaren som utförde åtgärden var medlem av
 
     -   Exempel – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Användarobjektet Id** – unikt ID för den användare som utförde åtgärden
+-   **Objekt-ID för användaren** – unikt ID för den användare som utförde åtgärden
 
     -   Exempel – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -118,7 +116,7 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel – **misslyckades**
 
--   **Objekt-Id** – **(kan vara tom)** objekt-ID som åtgärden utfördes
+-   **Objekt-ID** – **(kan vara tom)** objekt-ID som åtgärden utfördes
 
     -   Exempel – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -126,9 +124,10 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel – **intern url 'http://bing.com/' är ogiltig eftersom den redan används**
 
--   **Kopiera fel** – klickar du på den **kopiera-ikonen** till höger om den **Kopieringsfel** textruta för att kopiera meddelande allt delar med en support eller produkt grupp tekniker
+-   **Kopiera fel** – Klicka på den **kopiera-ikonen** till höger om den **Kopieringsfel** textruta för att kopiera meddelande allt delar med en grupp för stöd eller produkt 
+-   tekniker
 
-    -   Exempel```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    -   Exempel ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Nästa steg
-[Hantera program med Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Hantera program med Azure Active Directory](manage-apps/what-is-application-management.md)

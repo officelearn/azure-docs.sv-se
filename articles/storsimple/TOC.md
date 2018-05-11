@@ -62,7 +62,7 @@
 ### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Säkerhetsöverväganden](storsimple-8000-security.md)
 ### [Regional tillgänglighet](storsimple-regions.md)
-### [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## Kom igång
 
@@ -189,10 +189,11 @@
 ## Viktig information
 ### [Uppdatering 5 – aktuell](storsimple-update5-release-notes.md)
 ### [Uppdatering 4](storsimple-update4-release-notes.md)
-### [Uppdatering 3](storsimple-update3-release-notes.md)
-### [Uppdatering 2.2](storsimple-update21-release-notes.md)
+
 
 ### Arkiv
+#### [Uppdatering 3](storsimple-update3-release-notes.md)
+#### [Uppdatering 2.2](storsimple-update21-release-notes.md)
 #### [Uppdatering 2](storsimple-update2-release-notes.md)
 #### [Uppdatering 1](storsimple-update1-release-notes.md)
 #### [Uppdatering 0.3](storsimple-february-2015-release-notes.md)

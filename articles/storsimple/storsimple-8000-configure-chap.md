@@ -1,24 +1,24 @@
 ---
-title: "Konfigurera CHAP för StorSimple 8000-serieenhet | Microsoft Docs"
-description: "Beskriver hur du konfigurerar CHAP Challenge Handshake Authentication Protocol () på en StorSimple-enhet."
+title: Konfigurera CHAP för StorSimple 8000-serieenhet | Microsoft Docs
+description: Beskriver hur du konfigurerar CHAP Challenge Handshake Authentication Protocol () på en StorSimple-enhet.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurera CHAP för din StorSimple-enhet
 
@@ -77,8 +77,8 @@ Målet autentiserar initieraren i enkelriktad autentisering. Den här autentiser
 4. I den **avancerade inställningar** dialogrutan:
    
    1. Välj den **aktivera CHAP inloggning** kryssrutan.
-   2. I den **namn** fältet, ange det användarnamn som du angav för CHAP-initieraren i den klassiska portalen.
-   3. I den **mål hemlighet** fältet, ange lösenordet du angav för CHAP-initieraren i den klassiska portalen.
+   2. I den **namn** fältet, ange det användarnamn som du angav för CHAP-initieraren på Azure-portalen.
+   3. I den **mål hemlighet** fältet, ange lösenordet du angav för CHAP-initieraren på Azure-portalen.
    4. Klicka på **OK**.
       
        ![Avancerade inställningar som är allmänt](./media/storsimple-configure-chap/IC740946.png)
@@ -131,8 +131,8 @@ I dubbelriktad autentisering målet autentiserar initieraren och sedan initierar
 8. I den **avancerade egenskaper** dialogrutan:
    
    1. Välj den **aktivera CHAP inloggning** kryssrutan.
-   2. I den **namn** fältet, ange det användarnamn som du angav för CHAP-initieraren i den klassiska portalen.
-   3. I den **mål hemlighet** fältet, ange lösenordet du angav för CHAP-initieraren i den klassiska portalen.
+   2. I den **namn** fältet, ange det användarnamn som du angav för CHAP-initieraren på Azure-portalen.
+   3. I den **mål hemlighet** fältet, ange lösenordet du angav för CHAP-initieraren på Azure-portalen.
    4. Välj den **utför ömsesidig autentisering** kryssrutan.
       
        ![Avancerade inställningar ömsesidig autentisering](./media/storsimple-configure-chap/IC740950.png)

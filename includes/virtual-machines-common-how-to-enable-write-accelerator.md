@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 54faa5a50b3fe965bc7f95fc0da0fdda9388412f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>Skriva Accelerator
 Skriva Accelerator är en funktion för disken för M-serien virtuella maskiner (VMs på Premium-lagring med Azure hanterade diskar) exklusivt. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. Skriva Accelerator är idealisk där logguppdateringar krävs för att spara till disk på en hög performant sätt för moderna databaser.
@@ -42,7 +42,7 @@ Dessa begränsningar gäller när du använder skriva snabbtangenten för ett Az
 
 - Premium-diskcachelagring måste anges till 'Ingen' eller 'Read Only'. Cachelagring lägen stöds inte.
 - Ögonblicksbilder på disken skriva Accelerator aktiverad stöds inte ännu. Den blockerar Azure Backup-tjänsten möjligheten att utföra en programkonsekvent ögonblicksbild av alla diskar på den virtuella datorn.
-- Endast mindre i/o-storlekar tar snabbare sökvägen. I arbetsbelastningen situationer där data blir bulk läsas in eller där transaction log buffertar för olika DBMS fylls i större utsträckning innan du hämtar beständig lagring, risken är som i/o som skrivs till disk inte tar snabbare sökvägen.
+- Endast mindre i/o-storlekar (< = 32KiB) tar snabbare sökvägen. I arbetsbelastningen situationer där data blir bulk läsas in eller där transaction log buffertar för olika DBMS fylls i större utsträckning innan du hämtar beständig lagring, risken är som i/o som skrivs till disk inte tar snabbare sökvägen.
 
 Det finns begränsningar för Azure Premium Storage virtuella hårddiskar per virtuell dator som kan användas genom att skriva Accelerator. Aktuella begränsningar är:
 
@@ -105,7 +105,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Två huvudscenarier kan skriptas som visas i följande avsnitt.
 
-#### <a name="adding--new-disk-supported-by-write-accelerator"></a>Lägga till nya disken som stöds av skriva Accelerator
+#### <a name="adding-a-new-disk-supported-by-write-accelerator"></a>Lägga till en ny disk som stöds av skriva Accelerator
 Du kan använda det här skriptet för att lägga till en ny disk till den virtuella datorn. Disken som skapats med det här skriptet kommer att använda skriva Accelerator.
 
 ```
@@ -157,6 +157,28 @@ Du måste anpassa namnen på VM, disk och resursgruppen. Skriptet ovan lägger t
 
 > [!Note]
 > Skriptet ovan ska koppla bort disk som har angetts, aktivera skriva Accelerator mot disken och ansluta disken igen
+
+### <a name="enabling-through-azure-portal"></a>Aktivera via Azure Portal
+
+Du kan aktivera skriva Accelerator via portalen där du anger disken cache-inställningar: 
+
+![Skriva Accelerator på Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+
+### <a name="enabling-through-azure-cli"></a>Aktivera via Azure CLI
+Du kan använda den [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) att skriva Accelerator. 
+
+Om du vill aktivera skriva Accelerator på en befintlig disk, Använd kommandot nedan, Ersätt diskName, VMName och ResourceGroup för egna: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+Att ansluta en disk med skriva Accelerator aktiverat du använda den under kommando med värdena:
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+Ange egenskapen till false om du vill inaktivera skriva Accelerator: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>Aktivera via Rest API: er
 För att kunna distribuera via Azure Rest-API, måste du installera Azure armclient

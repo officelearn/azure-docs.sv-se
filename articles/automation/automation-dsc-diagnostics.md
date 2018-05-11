@@ -3,16 +3,17 @@ title: Vidarebefordra Azure Automation DSC rapporterar data till logganalys
 description: Den här artikeln visar hur du skickar önskad tillstånd Configuration (DSC) rapporterar data till logganalys att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e87420c6f390d607ce6f0f57df4634a134a93d63
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation DSC rapporterar data till logganalys
 
@@ -116,7 +117,7 @@ Diagnostik från Azure Automation skapar två typer av poster i logganalys.
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid när kompatibilitetskontrollen kördes. |
 | OperationName |DscNodeStatusData |
@@ -126,7 +127,7 @@ Diagnostik från Azure Automation skapar två typer av poster i logganalys.
 | DscReportStatus |Om kompatibilitetskontrollen har körts. |
 | ConfigurationMode | Hur används konfigurationen på noden. Möjliga värden är __”ApplyOnly”__,__”ApplyandMonitior”__, och __”ApplyandAutoCorrect”__. <ul><li>__ApplyOnly__: DSC gäller konfigurationen av och inget ytterligare såvida inte en ny konfiguration flyttas till målnoden eller när en ny konfiguration hämtas från en server. DSC kontrollerar inte om inte ett tidigare konfigurerade tillstånd efter första gången för en ny konfiguration. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyOnly__ träder i kraft. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. MGM gäller alla nya konfigurationer. Efter första gången för en ny konfiguration om målnoden drifts från det önskade läget rapporterar DSC diskrepans i loggarna. DSC försöker tillämpa konfigurationen tills den lyckas innan __ApplyAndMonitor__ träder i kraft.</li><li>__ApplyAndAutoCorrect__: DSC gäller alla nya konfigurationer. Efter första gången för en ny konfiguration om målnoden drifts från det önskade läget DSC rapporterar diskrepans i loggarna och återställer den aktuella konfigurationen.</li></ul> |
 | HostName_s | Namnet på den hantera noden. |
-| IPAddress | IPv4-adressen för den hantera noden. |
+| IP-adress | IPv4-adressen för den hantera noden. |
 | Kategori | DscNodeStatus |
 | Resurs | Namnet på Azure Automation-konto. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
@@ -147,7 +148,7 @@ Diagnostik från Azure Automation skapar två typer av poster i logganalys.
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid när kompatibilitetskontrollen kördes. |
 | OperationName |DscResourceStatusData|

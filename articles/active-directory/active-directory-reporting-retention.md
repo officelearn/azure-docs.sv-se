@@ -1,32 +1,32 @@
 ---
-title: "Rapportkvarhållningsregler i Azure Active Directory | Microsoft Docs"
-description: "Bevarandeprinciper på rapportdata i Azure Active Directory"
+title: Rapportkvarhållningsregler i Azure Active Directory | Microsoft Docs
+description: Bevarandeprinciper på rapportdata i Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9101b3877f8a011878baeed0d5c23d29fddaeaad
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Rapportkvarhållningsregler i Azure Active Directory
 
 
 Det här avsnittet ger svar på de vanligaste frågorna tillsammans med datalagring för olika aktivitetsrapporter i Azure Active Directory. 
 
-**F: hur kan du få insamlingen av aktivitetsdata starta?**
+### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>F: hur kan du få insamlingen av aktivitetsdata starta?
 
 **S:**
 
@@ -36,7 +36,7 @@ Det här avsnittet ger svar på de vanligaste frågorna tillsammans med datalagr
 | Azure AD Kostnadsfri | Första gången du öppnar den [Azure Active Directory-bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) eller använda den [reporting API: er](https://aka.ms/aadreports)  |
 
 ---
-**F: när är aktivitetsdata i Azure portal?**
+### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>F: när är aktivitetsdata i Azure portal?
 
 **S:**
 
@@ -44,13 +44,15 @@ Det här avsnittet ger svar på de vanligaste frågorna tillsammans med datalagr
 - **Inom två timmar** - om du inte har aktiverat rapportering i Azure-portalen
 
 ---
-**F: hur kan du få insamling av säkerhet signaler igång?**  
+
+### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>F: hur kan du få insamling av säkerhet signaler igång?  
 
 **S:** för säkerhet signaler samling processen startar när du delta i använda Identity Protection Center. 
 
 
 ---
-**F: hur länge insamlade data lagras?**
+
+### <a name="q-for-how-long-is-the-collected-data-stored"></a>F: hur länge insamlade data lagras?
 
 **S:**
 
@@ -59,7 +61,7 @@ Det här avsnittet ger svar på de vanligaste frågorna tillsammans med datalagr
 | Rapport                 | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Kataloggranskning        | 7 dagar        | 30 dagar             | 30 dagar             |
-| Inloggningsaktivitet       | Saknas           | 30 dagar             | 30 dagar             |
+| Inloggningsaktivitet       | Gäller inte           | 30 dagar             | 30 dagar             |
 | Azure MFA-användning        | 30 dagar       | 30 dagar             | 30 dagar             |
 
 **Säkerhet signaler**

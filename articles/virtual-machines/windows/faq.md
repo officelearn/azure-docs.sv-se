@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: f427035f413dde304c2270006c6665120cb3e1e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c60b7df4d766ddf321ce2c807994f3b83046f1ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor och svar om virtuella Windows-datorer
 Den här artikeln tar några vanliga frågor om Windows-datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Linux-version av det här avsnittet finns [vanliga frågor om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -88,27 +88,27 @@ Användarnamn kan vara högst 20 tecken långt och får inte sluta med en punkt 
 Följande användarnamn är inte tillåtna:
 <table>
     <tr>
-        <td style="text-align:center">Administratören </td><td style="text-align:center"> administratör </td><td style="text-align:center"> användare </td><td style="text-align:center"> Användare1</td>
+        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">A</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> USER3</td>
-    </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">ADM</td><td style="text-align:center">Admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+    </tr>   <tr>
+        <td style="text-align:center">Administratören</td><td style="text-align:center">ASPNET</td><td style="text-align:center">säkerhetskopiering</td><td style="text-align:center">konsol</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">David </td><td style="text-align:center">Gäst</td><td style="text-align:center">John</td><td style="text-align:center">ägare</td>
     </tr>
     <tr>
-        <td style="text-align:center">säkerhetskopiering </td><td style="text-align:center"> konsol </td><td style="text-align:center"> David </td><td style="text-align:center"> Gäst</td>
+        <td style="text-align:center">rot</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
     </tr>
     <tr>
-        <td style="text-align:center">john </td><td style="text-align:center"> ägare </td><td style="text-align:center"> rot </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">Test2</td><td style="text-align:center">test3</td><td style="text-align:center">Användare</td><td style="text-align:center">Användare1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Användare4 lade </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">Användare2</td><td style="text-align:center">USER3</td><td style="text-align:center">Användare4 lade</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -124,17 +124,17 @@ Följande lösenord är inte tillåtna:
 
 <table>
     <tr>
-        <td>abc@123 </td>
-        <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
-        <td>Pa$$word </td>
+        <td>abc@123</td>
+        <td>ILOVEYOU!</td>
+        <td>P@$$w0rd</td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
-        <td>Lösenord! </td>
-        <td>Password1 </td>
-        <td>Password22 </td>
-        <td>ILOVEYOU! </td>
+        <td>Pa$ $word</td>
+        <td>pass@word1</td>
+        <td>Lösenord!</td>
+        <td>Password1</td>
+        <td>Password22</td>
     </tr>
 </table>

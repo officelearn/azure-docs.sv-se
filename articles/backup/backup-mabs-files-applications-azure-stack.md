@@ -13,16 +13,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 5/9/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 905f6b13928d11243202059af0ad255971102da8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a907335ace1f6ea9ec427327d28ca9be5ce02fcc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure-stacken
 Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och program på Azure-stacken. Installera Microsoft Azure Backup Server för att säkerhetskopiera filer och program som en virtuell dator som körs på Azure-stacken. När du har installerat Azure Backup-Server, Lägg till Azure-diskar för att öka den lokala lagringen tillgänglig för kortsiktig säkerhetskopiering. Azure Backup-servern använder Azure-lagring för långsiktig kvarhållning.
+
+> [!NOTE]
+> Även om Azure Backup Server och System Center Data Protection Manager (DPM) är liknande, finns DPM inte stöd för användning med Azure-stacken.
+>
+
 
 ## <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 Azure Backup-Server skyddar följande Azure Stack virtuella arbetsbelastningar.
@@ -49,7 +54,7 @@ Om du vill installera Azure Backup Server på en virtuell dator i Azure-stacken,
 Kör Azure Backup Server på en virtuell dator i Azure-stacken med storlek A2 eller större. Hjälp med att välja en storlek på virtuell dator, hämtar den [Kalkylatorn för storlek på Azure-stacken VM](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Virtuella nätverk på Azure-stacken virtuella datorer
-Alla virtuella datorer som används i en arbetsbelastning i Azure-stacken måste tillhöra samma virtuella Azure-nätverket och Azure-prenumeration. 
+Alla virtuella datorer som används i en arbetsbelastning i Azure-stacken måste tillhöra samma virtuella Azure-nätverket och Azure-prenumeration.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Lagra säkerhetskopierade data på lokal disk och i Azure
 Azure Backup-servern lagrar säkerhetskopierade data på Azure diskar som är anslutna till den virtuella datorn för operativa återställning. Diskarna och lagringsutrymmet är kopplade till den virtuella datorn hanterar Azure Backup Server lagring för dig. Hur mycket lagringsutrymme för säkerhetskopierade data beror på antalet och storleken på diskar som är anslutna till varje [virtuella Azure-stacken](../azure-stack/user/azure-stack-storage-overview.md). Varje storleken på stacken virtuella Azure-datorn har ett maximalt antal diskar som kan kopplas till den virtuella datorn. A2 är till exempel fyra diskar. A3 är åtta diskar. A4 är 16 diskar. Igen, storlek och antalet diskar avgör den totala lagringspoolen för säkerhetskopiering.
@@ -82,9 +87,9 @@ Om du vill skala distributionen har följande alternativ:
 
 ## <a name="bare-metal-recovery-for-azure-stack-vm"></a>Bare Metal Recovery för Azure-Stack VM
 
-En återställning utan operativsystem (BMR)-säkerhetskopiering skyddar operativsystemfiler och alla kritisk volymdata utom användardata. En säkerhetskopiering av BMR omfattar en säkerhetskopia av systemtillståndet. Följande procedurer beskriver hur du återställer data för BMR. 
+En återställning utan operativsystem (BMR)-säkerhetskopiering skyddar operativsystemfiler och alla kritisk volymdata utom användardata. En säkerhetskopiering av BMR omfattar en säkerhetskopia av systemtillståndet. Följande procedurer beskriver hur du återställer data för BMR.
 
-### <a name="run-recovery-on-the-azure-backup-server"></a>Köra återställning på Azure Backup-servern 
+### <a name="run-recovery-on-the-azure-backup-server"></a>Köra återställning på Azure Backup-servern
 
 Öppna konsolen Azure Backup Server.
 
@@ -102,9 +107,9 @@ I konsolen Azure Backup Server:
 
 ### <a name="restore-the-machine"></a>Återställa datorn
 
-1. Öppna en upphöjd kommandotolk och Skriv följande kommandon på den virtuella datorn där du vill återställa BMR. **/bootore** anger att Windows RE startas automatiskt nästa gång datorn startas.
+1. Öppna en upphöjd kommandotolk och Skriv följande kommandon på den virtuella datorn där du vill återställa BMR. **/boottore** anger att Windows RE startas automatiskt nästa gång datorn startas.
 ```
-Reagent /boottore
+Reagentc /boottore
 shutdown /r /t 0
 ```
 

@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Hur du ta bort etableringen av enheter som tidigare har etablerats för automatisk 
 
@@ -29,7 +29,7 @@ I allmänhet avetablering en enhet i två steg:
    - Information om hur du disenroll en enhet finns [så disenroll en enhet från Azure IoT-hubb Device etablering Service](how-to-revoke-device-access-portal.md).
    - Information om hur du disenroll en enhet med en av SDK: er för etablering service programmässigt finns [hantera enhetsregistrering med tjänsten SDK](how-to-manage-enrollments-sdks.md).
 
-2. Avregistrera enheten från din IoT-hubb för att förhindra framtida kommunikation och dataöverföringen. Igen, kan du tillfälligt inaktivera eller ta bort enhetens post i identitetsregistret för IoT-hubb där den etablerades permanent. Se [inaktivera enheter](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) lära dig mer om avstängning. Se ”Device Management / IoT-enheter” för din IoT-hubb-resurs i den [Azure-portalen](https://portal.azure.com).
+2. Avregistrera enheten från din IoT-hubb för att förhindra framtida kommunikation och dataöverföringen. Igen, kan du tillfälligt inaktivera eller ta bort enhetens post i identitetsregistret för IoT-hubb där den etablerades permanent. Se [inaktivera enheter](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) lära dig mer om avstängning. Se ”Device Management / IoT-enheter” för din IoT-hubb-resurs i den [Azure-portalen](https://portal.azure.com).
 
 Hur du utför för att ta bort etableringen av en enhet beror på dess mekanism för attestering av och tillämpliga registrering posten med din etablering tjänst. Följande avsnitt innehåller en översikt över processen, beroende på vilken typ av registrering och attestering.
 

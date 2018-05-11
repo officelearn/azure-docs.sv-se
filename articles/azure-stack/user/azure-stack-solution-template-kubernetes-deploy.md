@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71d920ea1c143ed65510b77e1804e9c5e38cc180
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/10/2018
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-> [!note]  
+> [!Note]  
 > Azure Container insamlingstjänsten (ACS) Kubernetes på Azure-stacken är i privat förhandsvisning. Azure Stack-operatorn måste begära åtkomst till Kubernetes Marketplace-objektet som behövs för att utföra instruktionerna i den här artikeln.
 
 I följande artikel ser ut på att använda en lösningsmall för Azure Resource Manager-att distribuera och tillhandahålla resurser för Kubernetes i en enda, samordnad åtgärd. Du måste samla in nödvändig information om installationen av Azure-stacken, generera mallen, och sedan distribuerar till ditt moln.
@@ -121,7 +121,7 @@ Ge service principal åtkomst till din prenumeration så att säkerhetsobjekt ka
 
 6. Ange den **master profil DNS-prefix** som är unikt för regionen. Detta måste vara en region-unikt namn som `k8s-12345`. Försök att välja det samma som resursgruppen namn som bästa praxis.
 
-    > [!note]  
+    > [!Note]  
     > Använd ett DNS-prefix för nya och unika master profil för varje kluster.
 
 7. Ange antalet agenter i klustret. Det här värdet kallas den **Agentantal Pool profil**. Det kan vara mellan 1 och 32

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som är bra för relationsdatabas servrar, medelstora till stora cacheminnen och analyser i minnet. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -25,6 +25,8 @@ Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som �
 * Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationen 2,4 GHz Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) eller E5 2673 v4 2,3 GHz (Broadwell) processorer, och med Intel Turbo förstärkningen teknik 2.0 kan gå upp till 3.1 GHz. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
 * Ev3-serien funktioner E5-2673 v4 2,3 GHz (Broadwell) processor i en hyper-threaded konfiguration för att ge en bättre lösning där värdet för den mest allmänna ändamål arbetsbelastningar och ta Ev3 justeras mot generella virtuella datorer med de flesta andra moln.  Minne har expanderats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk- och gränser har justerats på grundval av per core ska justeras med övergången till hypertrådar.  Ev3 är Följ upp till höga minnesområdet VM-storlekar D/Dv2 familjer.
+
+* Azure Compute erbjuder virtuella storlekar som är isolerad till en specifik maskinvara och dedikerad till en enskild kund.  Dessa storlekar för virtuella datorer som passar bäst för arbetsbelastningar som kräver en hög grad av isolerade från andra kunder för arbetsbelastningar som involverar element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser av dessa isolerade virtuella datorer med hjälp av ytterligare [Azure stöd för kapslade virtuella datorer](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Se tabellerna i virtuella familjer nedan för din isolerade VM-alternativ.
 
 ## <a name="esv3-series"></a>Esv3-serien 
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Vad är nytt i Enterprise programhantering i Azure Active Directory 
 
@@ -28,17 +28,17 @@ Azure Active Directory (AD Azure) har förbättrats enterprise hantera program, 
 Här följer några av förbättringarna för Azure AD i den [Azure-portalen](https://portal.azure.com).
 
 - En förbättrad programgalleriet användarupplevelse med en förenklad tillämpning skapa modell och stöd för alla programtyper som du ofta. 
-- En helt ny Snabbstart-upplevelse som kan hjälpa dig att komma igång med en pilot för programmet. 
+- En helt ny quickstart-upplevelse som kan hjälpa dig att komma igång med en pilot för programmet. 
 - Konfigurera självbetjäning principer med bara några klickningar. 
 - Förbättringar av application proxy enkel inloggning konfiguration och sätta egna program-upplevelser, så att du kan få mer gjort än innan.
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Förbättringar av Azure Active Directory-Programgalleriet
 
-Lägg till program, oavsett om de är från den [programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), anpassade program som du utöka till molnet eller nya program som du utvecklar.  Du kan komma igång med den nya upplevelsen genom att klicka på **Lägg till** på den **företagsprogram** översikt eller **alla program** blad.
+Lägg till program, oavsett om de är från den [programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), anpassade program som du utöka till molnet eller nya program som du utvecklar.  Du kan komma igång med den nya upplevelsen genom att klicka på **Lägg till** under **företagsprogram** eller **alla program**.
  
   ![Lägga till ett program](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-En gång i galleriet ser du våra aktuella program som stöder användaretablering visas främre och center.  Du kan bläddra i alla typer av olika kategorier till de program som du är intresserad mer detaljerat eller du kan använda sökupplevelsen för att snabbt hitta de program som du vill integrera.
+En gång i galleriet visas alla aktuella program som har stöd för användaretablering visas främre och center. Du kan bläddra i alla typer av olika kategorier till de program som du är intresserad mer detaljerat eller du kan använda sökupplevelsen för att snabbt hitta de program som du vill integrera.
 
   ![Programgalleriet](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -51,7 +51,7 @@ Förutom att lägga till redan integrerade program från galleriet är alla anpa
  
 **Börja lägga till egna program**:
 
-1. Klicka på den **lägga till en egen länk** överst i galleriet för programmet. 
+1. Klicka på **lägga till en egen länk** överst i galleriet för programmet. 
 2. Du ser två alternativ framför du: **distribuera ett befintligt program** eller **utveckla ett nytt program**. Läs vidare för att lära dig skillnaden mellan de två alternativen och hur de används.
 
 ### <a name="deploying-existing-applications"></a>Distribuera befintliga program
@@ -64,9 +64,9 @@ Förutom att lägga till redan integrerade program från galleriet är alla anpa
 ### <a name="developing-new-applications"></a>Utveckla nya program
 
 1. Om du utvecklar ett nytt program är det enkelt för dig att få till registret för programmet från galleriet:
-2. Klicka på den **lägga till egna** alternativet från galleriet program, Välj den **utveckla ett befintligt program** val och du ser en snabb länk till Lägg till programupplevelse.
+2. Klicka på den **lägga till egna** alternativet från galleriet program, Välj **utveckla ett befintligt program**, ser du en snabb länk till Lägg till programupplevelse.
 
-  ![Lägga till en nyligen utvecklat program i ett par klick](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
+  ![Lägga till en nyligen utvecklade program i ett par klick](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
 >[!NOTE]
@@ -75,25 +75,25 @@ Förutom att lägga till redan integrerade program från galleriet är alla anpa
   ![Hantera åtkomst till det nya programmet under företagsprogram](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Snabbstartsguide: komma igång med ditt nya program direkt 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>Snabbstart: Komma igång med ditt nya program direkt 
 
 När du har lagt till ett program, om det vara förintegrerade eller egna app har vi skapat en skräddarsydd upplevelse Snabbkurs att få med dig snabbt grundat i den nya upplevelsen för program. Om du följer varje alternativ systematiskt vi vägleder dig genom Användargränssnittet och hur du kan komma igång med en pilot för det nya programmet så snabbt som möjligt. 
  
-  ![De nya program snabb start upplevelse](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
+  ![Den nya program quickstart upplevelsen](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
- Du kan besöka den nya Snabbstart upplevelsen när som helst och för alla program genom att klicka på **Snabbstart** från den vänstra navigeringsmenyn i programmet.
+ Du kan besöka den nya quickstart upplevelsen när som helst och för alla program genom att klicka på **Quickstart** från den vänstra navigeringsmenyn i programmet.
 
 
 ## <a name="updated-application-proxy-configuration"></a>Uppdaterade program proxykonfiguration
 Nu ska vi Säg något av de nya program som du har lagt till körs i din lokala miljö och du vill integrera med Azure AD.  En kall Nyheter på den nya konfigurationen upplevelsen i den nya Azure AD-portalen är att dela upp programmets inloggning-läge från dess proxykonfiguration för programmet, du kan nu enkelt exponera lösenord SSO eller federerade program som körs i företagsnätverket direkt till molnet, utan att behöva skapa flera instanser av programmet.
 
-Utöver detta, kan du nu också konfigurera något nytt program du har lagt till för användning med Azure AD Application Proxy direkt från den nya portalen, inklusive program som stöder intern upplevelser för Windows-autentisering.
+Du kan också konfigurera något nytt program du har lagt till för användning med Azure AD Application Proxy direkt från den nya portalen, inklusive program som stöder intern upplevelser för Windows-autentisering.
 
   ![Konfigurera ett program att använda integrerad Windows-autentisering inloggning alternativet](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 Du kommer igång med att konfigurera en intern Windows-autentisering program med Application Proxy:
-1. Klicka på enkel inloggning navigeringsobjektet och välj **integrerad Windows-autentisering** i bladet inställningar inloggning och konfigurera inställningarna enligt dina önskemål.
+1. Klicka på enkel inloggning navigeringsobjektet och välj **integrerad Windows-autentisering** under inloggning inställningar och konfigurera inställningarna enligt dina önskemål.
 2. Utöver att stödja dessa nya autentiseringslägen, kan du även överföra certifikat från anpassade domäner att stödja program som körs på säkra slutpunkter inom din organisation.  
  
    ![Överföra ett certifikat som ska användas med Application Proxy](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +102,28 @@ Du kommer igång med att konfigurera en intern Windows-autentisering program med
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Avancerad federerad enkel inloggning konfiguration
 
-För de som du använder idag federerade program, finns det många nya funktioner i bladet SAML-baserad inloggning konfiguration. Börja med, kan nu du helt anpassa, lägga till, ta bort och mappa befintliga användarattribut som anspråk i SAML-token.
+För de som du använder idag federerade program, finns det många nya funktioner i SAML-baserad inloggning konfiguration. Börja med, kan nu du helt anpassa, lägga till, ta bort och mappa befintliga användarattribut som anspråk i SAML-token.
  
   ![Anpassa attribut för SAML-token användaren skickades till externa program](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 Kontrollera att ut den nya federerad enkel inloggning konfiguration:
-1. Öppna en federerade program **enkel inloggning** bladet från den vänstra navigeringsmenyn och kontrollera att den '*SAML-baserade inloggning** läge är markerad. 
+1. Öppna en federerade program **enkel inloggning** från den vänstra navigeringsmenyn och kontrollera att den '*SAML-baserade inloggning** läge är markerad. 
 2. En gång, aktivera kryssrutan under den **användarattribut** rubrik att ändra alla attribut som ingår i en SAML-token som skickades till programmet.
 
-Du kan också skapa, förnyelse, och hantera certifikat för federerad enkel inloggning, samt redigera som hämtar ett meddelande när certifikatet upphör snart att gälla. Du ser dessa nya alternativ under den **certifikat** rubrik i samma enkel inloggning bladet.
+Du kan också skapa, förnyelse, och hantera certifikat för federerad enkel inloggning, samt redigera som hämtar ett meddelande när certifikatet upphör snart att gälla. Du ser dessa nya alternativ under den **certifikat** rubrik i samma enkel inloggning rutan.
  
   ![Skapa ett nytt certifikat, anpassa e-postmeddelanden upphör att gälla och alternativ för Certifikatsignering](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>Relay tillstånd paramenter
-Slutligen har vi också utökade uppsättning URL för SAML-parametrar som vi stöder för att inkludera den **Relay tillstånd parametern**, vilket är den sida som användarna hamnar på inuti en externa program när inloggningen har slutförts. Detta är mycket användbar inställningen för att konfigurera om du vill skicka dina användare till en specifik plats i programmet för att få dem går snabbt.
+### <a name="relay-state-parameter"></a>Parametern State Relay
+Slutligen har vi också utökade uppsättning URL för SAML-parametrar som vi stöder för att inkludera den **Relay tillstånd parametern**, vilket är den sida som användarna hamnar på inuti en externa program när inloggningen har slutförts. Det här är en användbar inställningen för att konfigurera om du vill skicka dina användare till en specifik plats i programmet för att få dem går snabbt.
 
   ![Parametern SAML Relay tillstånd](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **Ange parametern state relay**:
 
-1. Aktivera den **visa avancerade inställningar för URL: en** kryssrutan under den **domän och URL: er** rubriken på den enkel inloggning på bladet för konfigurationen. 
-2. När du gör det visas en uppsättning nya URL: en inkommande rutor visas som gör att du kan ange den här och andra, SAML-URL-inställningar.
+1. Aktivera den **visa avancerade inställningar för URL: en** kryssrutan under den **domän och URL: er** rubriken på den enkel inloggning i rutan konfiguration. 
+2. En uppsättning nya URL: en inkommande rutor visas så att du kan ange den här parametern och andra inställningar för SAML-URL.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Ta med ditt eget lösenord SSO-program
 
@@ -133,7 +133,8 @@ Vi vet att inte alla program har stöd för identitetsfederation direkt ur låda
 
 **Checka ut funktionen Ta med egna program**:
 
-1. När du ställer in enkel inloggning läge för ett nytt anpassat program som du har lagt till **lösenordsbaserade inloggning**, ange URL: en där programmet återgivningar dess inloggningssidan och på **spara**.  
+1. När du ställer in enkel inloggning läge för ett nytt anpassat program som du har lagt till **lösenordsbaserade inloggning**, ange Webbadressen där programmet återgivningar dess inloggningsskärm och 
+2. Klicka på **Spara**.  
 2. När du gör det kan vi ska automatiskt skrapa URL: en för ett användarnamn och lösenord Inmatningsruta och du kan använda Azure AD för att säkert överföra lösenord för det aktuella programmet med hjälp av webbläsartillägget för åtkomst-panelen.
 
 ## <a name="configure-self-service-application-access"></a>Konfigurera självbetjäning programåtkomst
@@ -153,7 +154,7 @@ Vi hoppas att du vill med hjälp av den förbättrade Azure AD-upplevelse. Skriv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [hantera program med Azure Active Directory](active-directory-enable-sso-scenario.md).
+Mer information finns i [hantera program med Azure Active Directory](manage-apps/what-is-application-management.md).
 
 
 

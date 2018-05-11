@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stöd matrix för Hyper-V-replikering till Azure
 
@@ -23,9 +23,9 @@ Den här artikeln sammanfattar de stödda komponenter och inställningar för ka
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
 **Scenario** | **Detaljer**
---- | --- 
+--- | ---
 Hyper-V med Virtual Machine Manager | Du kan utföra katastrofåterställning till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar som hanteras av Virtual Machine Manager, utföra du också återställning till en sekundär lokal plats. Mer information om det här scenariot [självstudierna](tutorial-vmm-to-vmm.md).
-Hyper-V utan att Virtual Machine Manager | Du kan utföra katastrofåterställning till Azure för virtuella datorer som körs på Hyper-V-värdar som inte hanteras av Virtual Machine Manager.<br/><br/> Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell. 
+Hyper-V utan att Virtual Machine Manager | Du kan utföra katastrofåterställning till Azure för virtuella datorer som körs på Hyper-V-värdar som inte hanteras av Virtual Machine Manager.<br/><br/> Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.
 
 
 ## <a name="on-premises-servers"></a>Lokala servrar
@@ -39,7 +39,7 @@ Hyper-V (som körs med Virtual Machine Manager) | Virtual Machine Manager 2016, 
 ## <a name="replicated-vms"></a>Replikerade virtuella datorer
 
 
-I följande tabell sammanfattas VM-stöd. Site Recovery har stöd för alla arbetsbelastningar som körs på ett operativsystem som stöds. 
+I följande tabell sammanfattas VM-stöd. Site Recovery har stöd för alla arbetsbelastningar som körs på ett operativsystem som stöds.
 
  **Komponent** | **Detaljer**
 --- | ---
@@ -78,7 +78,8 @@ Flera nätverkskort | Ja | Ja
 Reserverad IP | Ja | Ja
 IPv4 | Ja | Ja
 Behåll källans IP-adress | Ja | Ja
-Azure Virtual Network service-slutpunkter<br/><br/> (Azure Storage brandväggar och virtuella nätverk) | Nej | Nej
+Azure Virtual Network service-slutpunkter<br/> (utan Azure Storage brandväggar) | Ja | Ja
+Accelererat nätverk | Nej | Nej
 
 
 ## <a name="hyper-v-host-storage"></a>Lagring för Hyper-V-värd
@@ -125,7 +126,7 @@ Blockblob-objekt | Nej | Nej
 Kryptering i vila (SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Import/export service | Nej | Nej
-Azure Virtual Network service-slutpunkter (Azure Storage brandväggar och virtuella nätverk) på målet till cache storage-konto som används för data för replikering | Nej | Nej
+Azure Storage-brandväggar för virtuella nätverk som konfigurerats på mål-storage-cache lagringskontot (används för att lagra data för replikering) | Nej | Nej
 
 
 ## <a name="azure-compute-features"></a>Azure compute-funktioner
@@ -159,9 +160,9 @@ VM-typ | Generation 1<br/><br/> Generation 2 – Windows | Generation 2 virtuell
 ## <a name="recovery-services-vault-actions"></a>Recovery Services-valvet åtgärder
 
 **Åtgärd** |  **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
---- | --- | --- 
-Flytta valvet mellan resursgrupper<br/><br/> Inom och över prenumerationer | Nej | Nej 
-Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/> Inom och över prenumerationer | Nej | Nej 
+--- | --- | ---
+Flytta valvet mellan resursgrupper<br/><br/> Inom och över prenumerationer | Nej | Nej
+Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/> Inom och över prenumerationer | Nej | Nej
 
 
 ## <a name="provider-and-agent"></a>Provider och agent
@@ -179,4 +180,4 @@ Microsoft Azure Recovery Services-agenten | Samordnar replikering mellan Hyper-V
 
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [förbereda Azure](tutorial-prepare-azure.md) för katastrofåterställning för lokala Hyper-V virtuella datorer. 
+Lär dig hur du [förbereda Azure](tutorial-prepare-azure.md) för katastrofåterställning för lokala Hyper-V virtuella datorer.

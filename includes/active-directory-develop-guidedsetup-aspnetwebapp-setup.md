@@ -2,24 +2,17 @@
 title: ta med fil
 description: ta med fil
 services: active-directory
-documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/04/2018
+ms.date: 05/08/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 1c51d70a3747da6a8f51c5fc6341c1975cebbdb7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5d3af1800e18e3686e69d4a25131c68d3bdc805b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
@@ -29,7 +22,7 @@ Det här avsnittet visar hur du installerar och konfigurerar autentisering pipel
 
 ### <a name="create-your-aspnet-project"></a>Skapa din ASP.NET-projekt
 
-1. I Visual Studio: `File` > `New` > `Project`<br/>
+1. I Visual Studio: `File` > `New` > `Project`
 2. Under *Visual C# \Web*väljer `ASP.NET Web Application (.NET Framework)`.
 3. Namnge ditt program och klicka på *OK*
 4. Välj `Empty` och markera kryssrutan för att lägga till `MVC` referenser
@@ -40,11 +33,11 @@ Det här avsnittet visar hur du installerar och konfigurerar autentisering pipel
 2. Lägg till *OWIN mellanprogram NuGet-paket* genom att skriva följande i fönstret Package Manager-konsolen:
 
     ```powershell
-    Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 3.1.0
-    Install-Package Microsoft.Owin.Security.Cookies -Version 3.1.0
-    Install-Package Microsoft.Owin.Host.SystemWeb -Version 3.1.0
+    Install-Package Microsoft.Owin.Security.OpenIdConnect
+    Install-Package Microsoft.Owin.Security.Cookies
+    Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Om dessa bibliotek
 >Bibliotek ovan aktivera enkel inloggning (SSO) med OpenID Connect via cookie-baserad autentisering. När autentiseringen är slutförd och token som representerar användaren skickas till ditt program, skapar OWIN mellanprogram sessions-cookie. Webbläsaren använder sedan cookien för efterföljande förfrågningar så att användaren inte behöver ange lösenordet igen och ingen ytterligare verifiering krävs.
@@ -54,20 +47,19 @@ Det här avsnittet visar hur du installerar och konfigurerar autentisering pipel
 Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera OpenID Connect autentisering. Den här klassen kommer att köras automatiskt när IIS-processen startar.
 
 > [!TIP]
-> Om ditt projekt inte har en `Startup.cs` filen i rotmappen:<br/>
-> 1. Högerklicka på projektets rotmapp: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Ge den namnet `Startup.cs`<br/>
+> Om ditt projekt inte har en `Startup.cs` filen i rotmappen:
+> 1. Högerklicka på projektets rotmapp: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Ge den namnet `Startup.cs`
 >
 >> Kontrollera att den klass som valts är en OWIN-startklass och inte en standard C#-klass. Kontrollera detta genom att kontrollera om du ser `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` ovanför namnområdet.
 
-1. Lägg till *OWIN* och *Microsoft.IdentityModel* referenser till `Startup.cs` så att den med hjälp av deklarationer blir följande:
+1. Lägg till *OWIN* och *Microsoft.IdentityModel* referenser till `Startup.cs`:
 
     ```csharp
-    using System;
-    using System.Threading.Tasks;
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
@@ -100,7 +92,7 @@ Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera O
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -109,13 +101,16 @@ Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera O
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -137,9 +132,7 @@ Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera O
             return Task.FromResult(0);
         }
     }
-
     ```
-
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information

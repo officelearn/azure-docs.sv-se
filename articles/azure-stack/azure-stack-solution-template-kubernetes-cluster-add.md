@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c66b0d7ea5ade90c6bb8f88006f2a09bd407deaa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -77,6 +77,9 @@ Lägg till följande Ubuntu Server bild Marketplace:
     - **SKU**: 16.04 LTS
     - **Version**: 16.04.201802220
 
+    > [!Note]  
+    > Mer än en version av Ubuntu Server 16.04 LTS får anges. Du behöver lägga till den version som matchar. Klustret Kubernetes kräver exakt vilken version av objektet.
+
 6. Välj **hämta.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Lägga till ett anpassat skript för Linux
@@ -95,6 +98,9 @@ Lägg till klustret Kubernetes från Marketplace:
     - **Erbjuder**: anpassat skript för Linux 2.0
     - **Version**: 2.0.3
     - **Publisher**: Microsoft Corp
+
+    > [!Note]  
+    > Mer än en version för anpassat skript för Linux får anges. Du behöver lägga till den version som matchar. Klustret Kubernetes kräver exakt vilken version av objektet.
 
 6. Välj **hämta.**
 
@@ -138,6 +144,8 @@ Ta bort objektet Kubernetes klustret:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera ett Kubernetes kluster till Azure-stacken](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Distribuera ett Kubernetes kluster till Azure-stacken](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Översikt över erbjuda tjänster i Azure-stacken](azure-stack-offer-services-overview.md)

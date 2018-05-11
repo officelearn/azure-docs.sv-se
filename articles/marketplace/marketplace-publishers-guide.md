@@ -1,6 +1,6 @@
 ---
 title: Guide för Azure Marketplace och AppSource publisher
-description: Steg för steg guide och publicera checklistor för nya publikationer Azure Marketplace
+description: Översikt över vilka Azure Marketplace och AppSource gäller för appen och tjänsten utgivare
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -12,10 +12,10 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0e91e0b561093d3a82298f7d59b8c12ed02a81f4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 30847ff20abf6654e58a0e72a12f04dcd88d5871
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
@@ -87,7 +87,7 @@ Varje storefront stöder flera publishing alternativ och erbjudande typer. Välj
 |---------|---------|---------|
 |**lista**    |    Kontakta mig rådgivning     |  Azure Marketplace, AppSource       |
 |**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS utvärderingsversion, interaktiva demo, Testkör    |  Azure Marketplace, AppSource       |
-|**Transaktionen**     |   Virtuell dator, lösningsmall för, hanterade program      |    Azure Marketplace     |
+|**Transaktionen**     |   Virtuell dator, lösningsmall, hanterade program, behållare, SaaS-prenumerationer      |    Azure Marketplace     |
 
 
 
@@ -163,97 +163,6 @@ Visar en lista över erbjudandet i marketplace-storefront är en startfönstret 
 Mer information om våra GTM fördelar och sätt att växa i marketplace finns [GTM fördelar på webbplatsen MPN](https://partner.microsoft.com/en-US/reach-customers/gtm).
 
 
-### <a name="determine-the-listing-type-right-for-your-offer"></a>Bestäm vilken lista för ditt erbjudande
-
-Varje storefront stöder flera publishing alternativ och erbjudande typer. Välj en typ av erbjudande som bäst motsvarar dina program och information om tjänsten. Alla publiceringsalternativ får partners åtkomst till leda delning. 
-
-
-#### <a name="list"></a>Visa lista
-
-Använd kontakta mig när deltagande test- eller transaktionen nivå inte är möjligt. Fördelen med den här metoden är att du kan utgivare med en lösning på marknaden omedelbart tar emot leads som kan vara nurtured i grundläggande avtal att starta business-svänghjul. Nackdelen är dock att kunden engagement är begränsad, jämfört med andra erbjudandetyper av.
-
->[!IMPORTANT]
->Engagera kunder är bäst med utvärderingsversion och Transact erbjuder. Värdet för kontakta mig är lead som visas, så om du väljer den här typen av lista, se till att ditt lead mål har konfigurerats och du är redo att maximera lead. 
-
-När erbjudandet består i huvudsak av professionella tjänster (till exempel bedömningar implementeringar, diskussionsgrupper), Använd erbjuda tjänster samråd med typen. Erbjudande omfång, varaktighet och pris måste åtgärdas, måste vara för en kund och måste utföras på platsen.
-
-#### <a name="trial"></a>Utvärdering
-
-Att tillhandahålla en testperiod ökar engagement erbjuds kunderna och därför en rikare exponering av din lösning. En utvärderingsversion ger kunder möjlighet att utforska din lösning innan du köper. Du har högre risken för befordran i skyltfönster med utvärderingsversionen, och du kan förvänta mer och mer omfattande leads från uppdrag.
- 
-Alla alternativ för testversionen distribueras till din utvärderingsversion miljö och/eller Azure-prenumeration i stället för i kundens miljö eller Azure-prenumeration. Försök ska vara kund lampa utan några ytterligare inköp och minimal eventuella ytterligare konfiguration för att slutföra en enkel användningsfall. Försök måste åtminstone innehålla kostnadsfri support under hela utvärderingsperioden. Användare ska nurtured och övervakas längs en avsiktlig utvärdering sökväg för bästa resultat. Utgivare uppmuntras att använda både marketplace leads och utgivarens egna i appen tillgångsinformation för att övervaka och hantera användare.
-
-Det finns tre vanliga utvärderingsversion scenarier:
-
-**Kostnadsfri utvärderingsversion**
-
-Använd en kostnadsfri utvärderingsversion när erbjuder en utvärderingsversion till försök, SaaS-baserad lösning eller app. Det här alternativet enheter hög kvalitet leads från berörda kunder, som hjälper dig att starta svänghjul ditt företag. Kostnadsfria utvärderingar kan presenteras som begränsad användning eller begränsad varaktighet utvärderingskonton. De måste innehålla ett anrop till åtgärd för att påskynda konvertering till betald användning av programvaran.
-
-|**Utvärderingsversion alternativet**  |**Viktiga fördelar**  |**Välj det här alternativet om...**  |
-|---------|---------|---------|
-|**Kostnadsfri utvärderingsversion**    |     Gör det möjligt för kunder att prova produkten innan de köpa med en automatisk metod för att konvertera till betald användning. Du kan också bevis på koncept för kund- och gemensamma interaktion med Microsoft försäljning team. |     Lösningen är en virtuell dator eller lösningsmall.<br><br> Din lösning är en SaaS erbjuder du erbjuda en multitenant SaaS-produkt. <br><br>Du har en första gången på en gång en kund och snabbt. <br><br>Du har en enda klient men lägger till kunder som gästanvändare.|
-
-**Testkör**
-
-Använd en testkörning när lösningen har distribuerats via en eller flera virtuella datorer via IaaS eller SaaS-appar. Fördelen med den här metoden är automatiserad etablering av en virtuell installation eller hela lösningsmiljö couched i en värdpartner ”interaktiv rundtur” lösning för utvärdering av kund utan extra kostnad till kunden. Kunden behöver inte vara en befintlig Azure kund för att generera högre kvalitet leads.
-
-Det finns ytterligare fördelar med att en test-enhet:
-
-- 27% av användaren söker på marketplace förfinad av användare att visa erbjudanden med test-enheter. 
-- Erbjudanden med test enheter generera leads 38% mer än erbjudanden utan. 
-- 36% av den nya kunden förvärv på marketplace komma från kunder som tog en test-enhet. 
-- Testa enheter aktivera Microsoft fältet Säljare att bättre förstå produkten för samtidigt säljer arbete.
-
-|**Utvärderingsversion alternativet**  |**Viktiga fördelar**  |**Välj det här alternativet om...**  |
-|---------|---------|---------|
-|**Testkör**     |     Gör det möjligt för kunder att prova produkten innan de köpa. Ger en interaktiv upplevelse i lösningen även på en förkonfigurerad konfiguration. |   Lösningen är en virtuell dator, lösningsmall för eller SaaS-app med en enskild klient eller komplicerade att etablera. <br><br>Du har inte en metod för att konvertera en utvärderingsversion till en betalprenumeration. |
-
-**Interaktiv Demo**
-
-Ta dina kunder i en interaktiv miljö för en produkt med en interaktiv demo. Fördelen med det här alternativet är att du kan ange en testperiod utan komplicerade etablering för sammansatta lösningar. Det här alternativet ger kunder en titt på lösningen. Och det möjliggör utgivare att börja ta emot leads som kan vara nurtured i grundläggande avtal att starta svänghjul ditt företag. 
-
-|**Utvärderingsversion alternativet**  |**Viktiga fördelar**  |**Välj det här alternativet om...**  |
-|---------|---------|---------|
-|**Interaktiv demo**    |  Ger kunder möjlighet att se din produkt fungerar utan komplexitet av installationsprogrammet.       |    Lösningen kräver komplexa installationen som skulle vara svårt att uppnå i utvärderingsperioden.     |
-
-#### <a name="transaction"></a>Transaktionen
-
-I Azure Marketplace, använda en *virtuella* när lösningen har distribuerats som virtuell utrustning till kundens prenumeration. Virtuella datorer är fullständigt commerce aktiveras via betalning per användning eller BYOL-aktiverade licensmodeller. Microsoft commerce-transaktion är värd för och debiterar kunden för utgivaren. Utgivaren hämtar fördelen att utnyttjar kundens önskade betalning relationen med Microsoft, inklusive Enterprise-avtal. 
-
->[!NOTE]
->För tillfället användas ett Enterprise-avtal monetära åtaganden mot Azure användning av den virtuella installationen, men inte mot utgivarens programvara licensavgifter.
-
-Använd en *Azure lösningsmall* när en lösning kräver ytterligare distribution och konfiguration av automation utöver den virtuella installationen. Lösningsmallar kan automatisera etablering av en eller flera virtuella datorresurser och etablera nätverk och lagringsresurser. Lösningsmallar ger automation fördelar på samma virtuella datorer och hela lösningen för IaaS-baserade miljöer. Lär dig mer om hur du skapar lösningsmallar för [GitHub](https://github.com/MicrosoftDocs/azure-docs).
-
-Använd en *Azure hanterad app* när du distribuerar en virtuell dator eller en hel IaaS-baserad lösning till kundens prenumeration-- och utgivare eller kund vill lösning som ska hanteras av en tredje part (till exempel en SI eller MSP). Lär dig mer om hur du skapar hanterade appar [Azure hanterade program, översikt](https://docs.microsoft.com/azure/managed-applications/overview). En lista över vanliga frågor finns [Marketplace vanliga frågor och svar](https://azure.microsoft.com/marketplace/faq/).
-
->[!NOTE]
-> Hanterade appar måste vara distribueras via Marketplace. Observera att du kan nå till berörda kunder om du har lead delning aktiverad om kunden kommunikation är viktig.
-
-#### <a name="azure-certified-program"></a>Azure certifierad program
-
-Alla virtuella datorer i Azure Marketplace som testas för programmet Azure Certified. Program:
-
-- Säkerställer kunder att den virtuella datorn är kompatibel med Azure-plattformen och Marketplace sälja modellen.
-- Tester för godkännande av avbildning online säkerhet, inklusive virus och skadlig kod.
-- Aktiverar badging på nivån erbjudandet för att förbättra uppgradering till Microsoft enterprise-kunder som en validerad lösning.
-- Mer information hittar [Microsoft Azure-certifierad](https://azure.microsoft.com/en-us/marketplace/programs/certified/).
-
-
-#### <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publishing processer av produkten för Office, Dynamics och Power BI
-För AppSource-appar som utökar Office, Dynamics och Power BI kan du lära dig mer om specifika krav i produktspecifika-dokumentationen i det här avsnittet. 
-
-
-|Produkt |Publicerar information  |
-|---------|---------|
-|Office 365     |    Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 för ekonomi och åtgärder  |   När du sammanställer för Enterprise Edition, granska den [publicering processen och riktlinjer](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 för kunden Engagement |Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Lär dig mer om [Cortana i AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
-|AppSource samråd erbjudanden     |  Granska de [riktlinjer och lära dig hur du skickar in erbjudandet](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
-
-
 ### <a name="requirements-by-listing-type"></a>Krav per listtyp
 
 #### <a name="prerequisites-for-marketplace-publishing"></a>Krav för Marketplace-publicering
@@ -298,6 +207,23 @@ För AppSource-appar som utökar Office, Dynamics och Power BI kan du lära dig 
 |---------|---------|---------|
 |**Fakturering och mätning**    |  Den virtuella datorn måste ha stöd för Bring Your Own License eller användningsbaserad kan de månatliga fakturering.       |    Transaktionen    |
 |**Azure-kompatibel virtuell hårddisk (VHD)**     |   Virtuella datorer måste baseras på [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) eller [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaktionen      |
+
+#### <a name="prerequisites-specific-to-transaction-publishing-for-containers"></a>Krav som är specifika för transaktionen publicering för behållare
+
+
+|**Krav**  |**Detaljer** |**Publiceringsalternativ**  |
+|---------|---------|---------|
+|**Fakturering och mätning**   |  Din behållaren måste ha stöd för antingen gratis eller ta med din egen licens fakturering modeller.       |  Transaktionen       |
+|**Docker-baserad avbildning**    |   Behållaren bilder måste baseras på bildformat Docker och måste hämtas från Azure-behållare register.      |  Transaktionen       |
+
+#### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>Krav som är specifika för Transation publicering för SaaS App prenumerationer
+
+|**Krav**  |**Detaljer** |**Publiceringsalternativ**  |
+|---------|---------|---------|
+|**Fakturering och mätning**    |   Erbjudandet är kostar debiteras per månad. Användningsbaserad priser och användningsbaserad ”true up” funktioner stöds inte just nu.      |   Transaktionen      |
+|**Annullering**  |   Erbjudandet är cancelable av kunden när som helst.      |   Transaktionen      |
+|**Landningssida för transaktion**     |   Värd för en Azure anpassade transaktion landningssida där användare kan skapa och hantera sina SaaS-tjänstkontot.      |    Transaktionen     |
+|**SaaS-prenumeration API**    |   Du exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort en användare konto och service-plan. Ändringar för kritiska API måste stödjas inom 24 timmar. Icke-kritiska API ändringar släpps regelbundet.      |     Transaktionen    |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Krav som är specifika för samråd Services publicering
 
@@ -364,11 +290,11 @@ Det är viktigt att förstå de nödvändiga komponenterna för att skapa ett er
 
 |Du behöver den här publishing artefakt  |För den här erbjudandetypen  |
 |---------|---------|
-|**Rubrik (högst 50 tecken)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar)       |
-|**Sammanfattning (högst 200 tecken)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar)       |
-|**Lång Sammanfattning (högst 256 tecken)**     |   Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar)      |
-|**HTML-baserad beskrivning (högst 3 000 tecken)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar)       |
-|**Logotyp (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar)       |
+|**Rubrik (högst 50 tecken)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar), behållare, SaaS-prenumerationer       |
+|**Sammanfattning (högst 200 tecken)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar), behållare, SaaS-prenumerationer       |
+|**Lång Sammanfattning (högst 256 tecken)**     |   Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar), behållare, SaaS-prenumerationer      |
+|**HTML-baserad beskrivning (högst 3 000 tecken)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar), behållare, SaaS-prenumerationer      |
+|**Logotyp (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)**    |  Transaktionen: virtuella datorer, Azure appar (lösningsmallar och hanterade appar), behållare, SaaS-prenumerationer     |
 
 
 **SKU**
@@ -380,6 +306,7 @@ Det är viktigt att förstå de nödvändiga komponenterna för att skapa ett er
 |**Information om operativsystem**    |   Transaktionen: virtuella datorer      |
 |**Portar och protokoll som används**    |  Transaktionen: virtuella datorer       |
 |**Disk-version och SAS-URL för varje virtuell Hårddisk används**   |  Transaktionen: virtuella datorer       |
+|**Azure Container registret (ACR) databasen avbildningsinformation inklusive prenumerations-ID, resursgruppens namn, registrets, databasnamn, användarnamn, lösenord och bildtaggen (valfritt)** | Transaktionen: behållare |
 
 
 #### <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök

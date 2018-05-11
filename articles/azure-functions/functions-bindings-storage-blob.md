@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -31,23 +31,42 @@ Den här artikeln förklarar hur du arbetar med Azure Blob storage bindningar i 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> [Endast BLOB storage-konton](../storage/common/storage-create-storage-account.md#blob-storage-accounts) stöds inte för blob-utlösare. BLOB storage utlösare kräver ett allmänt lagringskonto. Du kan använda endast blob storage-konton för inkommande och utgående bindningar.
-
 ## <a name="packages"></a>Paket
 
 Blob storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Använd händelsen rutnätet utlösaren instead of-utlösare för Blob-lagring för endast blob-lagringskonton för hög skala eller för att undvika kall start fördröjningar. Mer information finns i följande **utlösaren** avsnitt. 
+
 ## <a name="trigger"></a>Utlösare
 
-Använd en Blob storage-utlösare för att starta en funktion när en ny eller uppdaterad blob har upptäckts. Blobbinnehållet tillhandahålls som indata för funktionen.
+Blob storage-utlösare startar en funktion när en ny eller uppdaterad blob har identifierats. Blobbinnehållet tillhandahålls som indata för funktionen.
 
-> [!NOTE]
-> När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar när en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Överväg att något av följande alternativ för att undvika den här första fördröjningen:
-> - Använda en apptjänstplan med alltid på aktiverad.
-> - Använd en annan funktion för att utlösa blob bearbetning, till exempel ett kömeddelande som innehåller blobbnamnet på. Ett exempel finns i [blob inkommande bindningar exemplet nedan](#input---example).
+Den [händelse rutnätet utlösaren](functions-bindings-event-grid.md) har inbyggt stöd för [blob händelser](../storage/blobs/storage-blob-event-overview.md) och kan också användas för att starta en funktion när en ny eller uppdaterad blob har upptäckts. Ett exempel finns i [bildstorlek med händelsen rutnätet](../event-grid/resize-images-on-storage-blob-upload-event.md) kursen.
+
+Använd händelsen rutnätet instead of-utlösare för Blob-lagring för följande scenarier:
+
+* Endast BLOB storage-konton
+* Hög skalning
+* Kalla startfördröjningen
+
+### <a name="blob-only-storage-accounts"></a>Endast BLOB storage-konton
+
+[Endast BLOB storage-konton](../storage/common/storage-create-storage-account.md#blob-storage-accounts) stöds för blob-indata och utdata bindningar men inte för blob-utlösare. BLOB storage utlösare kräver ett allmänt lagringskonto.
+
+### <a name="high-scale"></a>Hög skalning
+
+Hög skalning löst kan definieras som behållare som har mer än 100 000 blobbar eller lagringskonton som har fler än 100 blob-uppdateringar per sekund.
+
+### <a name="cold-start-delay"></a>Kalla startfördröjningen
+
+Om appen funktionen finns på förbrukning planen, kan det vara upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. För att undvika fördröjningen kall-start kan du växla till en App Service-plan med alltid på aktiverat eller Använd en annan utlösare.
+
+### <a name="queue-storage-trigger"></a>Queue storage utlösare
+
+Ett annat alternativ för bearbetning av blobbar är Queue storage utlösaren utöver händelsen rutnätet, men den har inget inbyggt stöd för blob-händelser. Du skulle behöva skapa Kömeddelanden när du skapar eller uppdaterar blobbar. Ett exempel som förutsätter att du har gjort det, finns det [blob-indatabindning exemplet nedan](#input---example).
 
 ## <a name="trigger---example"></a>Utlösaren - exempel
 
@@ -283,13 +302,13 @@ Om du vill söka efter klammerparenteser i filnamn, escape-klammerparenteserna m
 "path": "images/{{20140101}}-{name}",
 ```
 
-Om blob heter *{20140101}-soundfile.mp3*, `name` variabelvärdet i Funktionskoden är *soundfile.mp3*. 
+Om blob heter  *{20140101}-soundfile.mp3*, `name` variabelvärdet i Funktionskoden är *soundfile.mp3*. 
 
 ## <a name="trigger---metadata"></a>Utlösaren - metadata
 
 Blob-utlösare innehåller flera metadataegenskaper för. De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Dessa värden har samma semantik som den [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) typen.
 
-|Egenskap  |Typ  |Beskrivning  |
+|Egenskap   |Typ  |Beskrivning  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Sökvägen till den utlösande blobben.|
 |`Uri`|`System.Uri`|Den blob-URI för den primära platsen.|

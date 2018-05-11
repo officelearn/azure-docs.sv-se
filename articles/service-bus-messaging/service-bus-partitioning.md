@@ -6,13 +6,13 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/08/2016
+ms.date: 05/10/2016
 ms.author: sethm
-ms.openlocfilehash: 0759decec9d80f1f836110a8907049213ca1eed6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 387801d971a349562c8a6aefc2f8d615edfd2f3a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
@@ -21,7 +21,7 @@ Azure Service Bus använder flera meddelandet mäklare att bearbeta meddelanden 
 Information om Service Bus internals finns i [Service Bus-arkitektur] [ Service Bus architecture] artikel.
 
 > [!NOTE]
-> Partitionering är tillgänglig vid skapande av entiteten för alla köer och ämnen i Basic eller Standard SKU: er. Det är inte tillgängligt för Premium meddelande-SKU, men alla befintliga partitionerade enheter i Premium fungerar som förväntat.
+> Partitionering är tillgänglig vid skapande av entiteten för alla köer och ämnen i Basic eller Standard SKU: er. Det är inte tillgängligt för Premium meddelande-SKU, men alla tidigare partitionerade enheter i Premium-namnområden som fungerar som förväntat.
  
 Det går inte att ändra alternativet partitionering på en befintlig kö eller ett ämne; Du kan bara ange alternativet när du skapar entiteten.
 
@@ -43,9 +43,7 @@ I meddelanden standardnivån, kan du skapa Service Bus-köer och ämnen i 1, 2, 
 
 ### <a name="premium"></a>Premium
 
-I ett namnområde för Premium-nivån, kan du skapa Service Bus-köer och ämnen i 1, 2, 3, 4, 5, 10, 20, 40 eller 80 GB-storlekar (standardvärdet är 1 GB). Med partitionering aktiverad som standard skapar Service Bus två partitioner per enhet. Du kan se den maximala storleken på din partitionerade kö eller ett ämne genom att titta på posten den [Azure-portalen][Azure portal]i den **översikt** bladet för den enheten.
-
-Mer information om partitionering i Premium messaging nivån finns [Service Bus Premium- och Standard-meddelandenivåer](service-bus-premium-messaging.md). 
+I ett namnområde för Premium-nivån stöds partitionering inte. Du kan dock skapa Service Bus-köer och ämnen i 1, 2, 3, 4, 5, 10, 20, 40 eller 80 GB-storlekar (standardvärdet är 1 GB). Du kan se storleken på din kö eller ett ämne genom att titta på posten den [Azure-portalen][Azure portal]i den **översikt** bladet för den enheten.
 
 ### <a name="create-a-partitioned-entity"></a>Skapa en partitionerad entitet
 
@@ -59,7 +57,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Du kan också skapa en partitionerad kö eller ett ämne i den [Azure-portalen] [ Azure portal] eller i Visual Studio. När du skapar en kö eller ett ämne i portalen på **aktivera partitionering** alternativ i en kö eller avsnittet **skapa** dialogrutan är markerad som standard. Du kan bara inaktivera det här alternativet i en standardnivån enheten. i Premium-nivån är partitionering alltid aktiverat. I Visual Studio klickar du på den **aktivera partitionering** kryssrutan i den **ny kö** eller **ny artikel** dialogrutan.
+Du kan också skapa en partitionerad kö eller ett ämne i den [Azure-portalen][Azure portal]. När du skapar en kö eller ett ämne i portalen på **aktivera partitionering** alternativ i en kö eller avsnittet **skapa** dialogrutan är markerad som standard. Du kan bara inaktivera det här alternativet i en standardnivån enheten. i Premium-nivån partitionering stöds inte och kryssrutan har ingen effekt. 
 
 ## <a name="use-of-partition-keys"></a>Användning av partitionsnycklar
 När ett meddelande är i kö i en partitionerad kö eller ett ämne, kontrollerar Service Bus förekomsten av en partitionsnyckel. Om den hittar en väljs fragment baserat på nyckeln. Om det inte hittar en partitionsnyckel, väljs fragment baserat på en intern algoritm.

@@ -3,16 +3,17 @@ title: Skapa eller importera en runbook i Azure Automation
 description: Den här artikeln beskriver hur du skapar en ny runbook i Azure Automation eller importera en från en fil.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c49b2f19da7f59e413dedbd757ca8b6fc6c7e674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3d372938a4efb8701ab6916cd391794dbddd1f1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Skapa eller importera en runbook i Azure Automation
 Du kan lägga till en runbook i Azure Automation genom att antingen [skapar en ny](#creating-a-new-runbook) eller genom att importera en befintlig runbook från en fil eller från den [Runbook-galleriet](automation-runbook-gallery.md). Den här artikeln innehåller information om hur du skapar och importerar runbooks från en fil.  Du kan hämta alla detaljer om hur du använder community runbooks och moduler i [Azure Automation Runbook- och stänga](automation-runbook-gallery.md).

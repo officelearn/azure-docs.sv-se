@@ -3,8 +3,8 @@ title: Förstå Azure reserverade virtuella instanser rabatt program | Microsoft
 description: Lär dig hur Azure reserverade VM-instans rabatt tillämpas på virtuella datorer som körs.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikdesai
+author: yashesvi
+manager: yashar
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
-ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: yashar
+ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Förstå hur reserverade virtuella datorinstans rabatt används
 När du köper reserverade VM-instans tillämpas reservation rabatten automatiskt på virtuella datorer som matchar de attribut och kvantitet för reservation. En reservation omfattar infrastrukturkostnader för de virtuella datorerna. I följande tabell visas kostnaderna för den virtuella datorn när du har köpt en reservation. I samtliga fall måste du debiteras för lagring och nätverk i de normala takt.
 
 | Typ av virtuell dator  | Tillägg med reservation |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |Virtuella Linux-datorer utan ytterligare programvara | Reservation omfattar VM-infrastrukturkostnader.|
 |Linux virtuella datorer med programvara avgifter (till exempel Red Hat) | Reservation omfattar kostnader med infrastruktur. Du debiteras för ytterligare programvara.|
 |Virtuella Windows-datorer utan ytterligare programvara |Reservation omfattar kostnader med infrastruktur. Du debiteras för Windows-program.|
@@ -53,7 +53,9 @@ Mer information om reserverade instanser för virtuella datorer, finns i följan
 - [Spara pengar på virtuella datorer med den reserverade virtuella instanser](billing-save-compute-costs-reservations.md)
 - [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Förstå reserverade användning för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
+
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

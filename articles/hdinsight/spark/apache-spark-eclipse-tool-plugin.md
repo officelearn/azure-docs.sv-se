@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för Eclipse för att skapa Spark-program för ett HDInsight-kluster
 
@@ -229,13 +229,15 @@ Lös felet [ladda ned den körbara filen](http://public-repo-1.hortonworks.com/h
    ![Spark programmet lokala kör resultat](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>Kända problem
-För att skicka ett program till Azure Data Lake Store, Välj **interaktiv** läge under processen för Azure-inloggning. Om du väljer **automatisk** läge kan du få ett fel.
+När länkar ett kluster, jag vill föreslå du för att ange autentiseringsuppgifter för lagring.
 
-![Interaktiv inloggning](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Interaktiv inloggning](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-Du kan välja ett Azure Data Lake-kluster för att skicka ditt program med valfri metod för inloggning.
+Det finns två lägen för att skicka jobb. Om lagring autentiseringsuppgifter tillhandahålls används batchläge för att skicka jobbet. Annars kommer att användas interaktivt läge. Om klustret är upptagen, kan du få felmeddelandet nedan.
 
-För närvarande kan stöds visa Spark utdata direkt inte.
+![Eclipse uppstår fel när klustret upptagen](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![Eclipse uppstår fel när klustret upptagen](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>Feedback
 Skicka ett e-postmeddelande på om du har feedback eller om du stöter på andra problem när du använder det här verktyget hdivstool@microsoft.com.

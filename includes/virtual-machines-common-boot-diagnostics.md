@@ -1,16 +1,16 @@
-Nu finns stöd för två felsökningsfunktioner i Azure: konsolutdata och skärmbild för Azure Virtual Machines Resource Manager-distributionsmodellen. 
+Stöd för två felsöka funktioner är nu tillgängligt i Azure: konsolens utdata och skärmbild stöd för virtuella datorer i Azure Resource Manager-modellen. 
 
-När du använder en egen avbildning i Azure eller till och med startar en av plattformsavbildningarna, kan det finnas många orsaker till att en virtuell dator övergår i tillståndet Ej startbar. Med de här funktionerna kan du enkelt diagnostisera och återställa virtuella datorer vid startfel.
+När en egen avbildning till Azure eller även starta en av avbildningarna plattform, kan det finnas många orsaker till varför en virtuell dator hämtar till tillståndet ej startbar. Dessa funktioner kan du enkelt diagnostisera och återställa dina virtuella datorer från startfel.
 
-För virtuella Linux-datorer kan du lätt visa utdata från konsolloggen på portalen:
+Du kan enkelt se utdata från konsolen loggen från portalen för Linux virtuella datorer:
 
 ![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-För både virtuella Windows- och Linux-datorer kan du dock även se en skärmbild av den virtuella datorn från hypervisor-program:
+Men för både Windows och Linux virtuella datorer kan Azure du också se en skärmbild av den virtuella datorn från hypervisor-programmet:
 
 ![Fel](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-De här båda funktionerna finns för Azure Virtual Machines i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
+Båda dessa funktioner stöds för virtuella Azure-datorer i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
 
 ## <a name="common-boot-errors"></a>Vanliga startfel
 
@@ -29,15 +29,20 @@ De här båda funktionerna finns för Azure Virtual Machines i alla regioner. T�
 - [Startfel eller INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Aktivera diagnostik på en ny virtuell dator
-1. När du skapar en ny virtuell dator från förhandsversionsportalen, väljer du **Azure Resource Manager** från listrutan med distributionsmodeller:
+1. När du skapar en ny virtuell dator från Azure Portal väljer den **Azure Resource Manager** distribution modellen listrutan:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Konfigurera övervakningsalternativet och välj det lagringskonto där du vill placera de här diagnostikfilerna.
+2. I **inställningar**, aktivera den **starta diagnostik**, och välj sedan ett lagringskonto som du vill att dessa diagnostiska filerna.
  
-    ![Skapa en virtuell dator](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Skapa en virtuell dator](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
 
-3. Om du distribuerar från en Azure Resource Manager-mall går du till den virtuella datorresursen och lägger till diagnostikprofilavsnittet. Kom ihåg att använda API-versionsrubriken 2015-06-15.
+    > [!NOTE]
+    > Start-diagnostik har inte stöd för premium-lagringskontot. Om du använder premium storage-konto för startdiagnostikinställningar kan du får felmeddelandet StorageAccountTypeNotSupported när du startar den virtuella datorn.
+    >
+    > 
+
+3. Om du distribuerar en Azure Resource Manager-mall, navigera till din virtuella datorresurser och Lägg till avsnittet diagnostics profil. Kom ihåg att använda API-versionsrubriken 2015-06-15.
 
     ```json
     {
@@ -59,11 +64,18 @@ De här båda funktionerna finns för Azure Virtual Machines i alla regioner. T�
         }
     ```
 
-Om du vill distribuera en virtuell exempeldator med aktiverad startdiagnostik, kan du kolla in vår repo här.
+Kolla våra lagringsplatsen här om du vill distribuera en virtuell dator i exemplet med startdiagnostikinställningar aktiverad.
 
-## <a name="update-an-existing-virtual-machine"></a>Uppdatera en befintlig virtuell dator ##
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Aktivera startdiagnostikinställningar på befintlig virtuell dator 
 
-Du kan också uppdatera en befintlig virtuell dator via portalen om du vill aktivera startdiagnostik via portalen. Välj alternativet Startdiagnostik och Spara. Starta om den virtuella datorn så att ändringarna börjar gälla.
+Följ dessa steg om du vill aktivera startdiagnostikinställningar på en befintlig virtuell dator:
 
-![Uppdatera befintlig virtuell dator](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och välj sedan den virtuella datorn.
+2. I **stöd + felsökning**väljer **starta diagnostik** > **inställningar**, ändra status till **på**, och sedan Välj ett lagringskonto. 
+4. Kontrollera att alternativet Start diagnostik är markerad och spara ändringen.
+
+    ![Uppdatera befintlig virtuell dator](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
+
+3. Starta om den virtuella datorn så att ändringarna börjar gälla.
+
 

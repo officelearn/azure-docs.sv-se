@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbb709ebbecbfd5da7522b17fe837460d50fae11
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a925f8be619d0a4606205eeba5f78b2e8ba8a188
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du native client appar att interagera med proxy-program
 
@@ -34,7 +34,7 @@ Använda Azure AD Authentication Library, som tar hand om autentisering och stö
 Den här artikeln vägleder dig genom fyra stegen för att publicera en interna program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
 ## <a name="step-1-publish-your-application"></a>Steg 1: Publicera programmet
-Publicera programmet proxy precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med programproxy](active-directory-application-proxy-publish.md).
+Publicera programmet proxy precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med programproxy](application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>Steg 2: Konfigurera ditt program
 Konfigurera ditt interna program på följande sätt:

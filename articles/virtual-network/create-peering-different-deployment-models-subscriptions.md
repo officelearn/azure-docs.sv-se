@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa ett virtuellt nätverk peering - olika distributionsmodeller och prenumerationer
 
@@ -33,7 +33,7 @@ Stegen för att skapa ett virtuellt nätverk som peering är olika beroende på 
 |[Båda Resource Manager](create-peering-different-subscriptions.md) |Annorlunda|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |samma|
 
-Att går inte skapa ett virtuellt nätverk som peering mellan två virtuella nätverk som distribuerats via den klassiska distributionsmodellen. Den här kursen använder virtuella nätverk som finns i samma region. Den här självstudiekursen peers virtuella nätverk i samma region. Du kan också peer-virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region).  
+Att går inte skapa ett virtuellt nätverk som peering mellan två virtuella nätverk som distribuerats via den klassiska distributionsmodellen. Den här kursen använder virtuella nätverk som finns i samma region. Den här självstudiekursen peers virtuella nätverk i samma region. Du kan också peer-virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region). Vi rekommenderar att du bekanta dig med de [peering kraven och begränsningarna](virtual-network-manage-peering.md#requirements-and-constraints) innan peering virtuella nätverk.
 
 När du skapar ett virtuellt nätverk peering mellan virtuella nätverk som finns i olika prenumerationer måste prenumerationerna vara kopplad till samma Azure Active Directory-klienten. Om du inte redan har en Azure Active Directory-klient, kan du snabbt [skapar du en](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan ansluta virtuella nätverk för olika prenumerationer och olika Azure Active Directory innehavare med hjälp av en Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

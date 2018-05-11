@@ -3,16 +3,17 @@ title: Migrera från Orchestrator till Azure Automation
 description: Beskriver hur du migrerar runbooks och integration packs från System Center Orchestrator till Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 873d234a9ba0ae50b4b11cf65b9630bb79e883e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d692e4dc639cbd290b465980da2319ac590627c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (Beta)
 Runbooks i [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) baseras på aktiviteter från integrationspaketen som är skrivna specifikt för Orchestrator medan runbooks i Azure Automation baseras på Windows PowerShell.  [Grafiska runbook-flöden](automation-runbook-types.md#graphical-runbooks) i Azure Automation liknande utseende för Orchestrator-runbooks har med deras aktiviteter som representerar PowerShell cmdlets, underordnade runbooks och tillgångar.
@@ -124,7 +125,7 @@ Orsaken till att den här strategin används är för bäst spegling funktioner 
 Runbooks i Orchestrator starta andra runbooks med den **anropa Runbook** aktivitet. Om runbook omvandlas innehåller den här aktiviteten och **vänta på slutförande** alternativet anges kommer en runbook-aktivitet skapas för den konverterade runbook.  Om den **vänta på slutförande** alternativet inte anges, och sedan en Arbetsflödesskriptet aktivitet skapas som använder **Start AzureAutomationRunbook** att starta runbook.  När du har importerat konverterade runbook till Azure Automation måste du ändra den här aktiviteten med den information som anges i aktiviteten.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [System Center 2012 - Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)
+* [System Center 2012 – Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)
 * [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 * [Runbook Worker-hybrid](automation-hybrid-runbook-worker.md)
 * [Standardaktiviteter för orchestrator](http://technet.microsoft.com/library/hh403832.aspx)

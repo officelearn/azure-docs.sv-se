@@ -3,16 +3,17 @@ title: Vidarebefordra jobbdata från Azure Automation till Log Analytics
 description: Den här artikeln visar hur du skickar jobbstatus och runbook-jobbet dataströmmar till Azure Log Analytics för att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f96419ea1e6cb8a6f15ba67948b2a139f647dd6c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys
 Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till logganalys-arbetsytan. Jobbet loggar och dataströmmar för jobbet är synliga i Azure-portalen eller med PowerShell, för enskilda jobb och detta kan du utföra enkla undersökningar. Med Log Analytics kan du nu:
@@ -81,7 +82,7 @@ Se till att i utdata:
 Diagnostik från Azure Automation skapar två typer av poster i logganalys och märks **AzureDiagnostics**. Följande frågor använda uppgraderade frågespråket till logganalys. Information om vanliga frågor mellan äldre frågespråket och nya Azure Log Analytics-frågespråket [äldre till nya Azure Log Analytics-frågespråket fusklapp](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Jobbloggar
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
@@ -103,7 +104,7 @@ Diagnostik från Azure Automation skapar två typer av poster i logganalys och m
 
 
 ### <a name="job-streams"></a>Dataströmmar för jobbet
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |

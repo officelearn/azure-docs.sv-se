@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Skapa, uppdatera statistik på tabellerna i Azure SQL Data Warehouse
 Rekommendationer och exempel för att skapa och uppdatera frågan optimering statistik på tabellerna i Azure SQL Data Warehouse.
@@ -22,24 +22,46 @@ Rekommendationer och exempel för att skapa och uppdatera frågan optimering sta
 ## <a name="why-use-statistics"></a>Varför använda statistik?
 Ju mer Azure SQL Data Warehouse medveten om dina data, desto snabbare den kan köra frågor mot den. Samla in statistik på dina data och läsa in informationen i SQL Data Warehouse är en av de viktigaste sakerna som du kan göra för att optimera dina frågor. Detta beror på att Frågeoptimeringen SQL Data Warehouse är en kostnad-baserade optimering. Den jämför kostnaden för olika frågeplaner och väljer plan med lägst kostnad, som i de flesta fall är den plan som kör den snabbaste. Till exempel om optimering uppskattar att datumet du filtrerar i frågan returnerar en rad, kan det välja ett annat schema än om den beräknar som det valda datumet returnerar 1 miljoner rader.
 
-Processen för att skapa och uppdatera statistik för närvarande är en manuell process, men den är enkel att göra.  Du kommer snart att kunna skapa och uppdatera statistik på enskild kolumner och index automatiskt.  Du kan avsevärt automatisera hanteringen av statistik på dina data med hjälp av följande information. 
+## <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
+När automatiskt skapar statistik är valt AUTO_CREATE_STATISTICS kan SQL Data Warehouse analyserar inkommande användarfrågor där kolumn statistik skapas för kolumner som saknar statistik. Frågeoptimeringen skapar statistik på enskilda kolumner i frågan predikat eller Anslut till villkoret för att förbättra kardinalitet uppskattningar för frågeplanen. Automatisk generering av statistik är för tillfället aktiverat som standard.
 
-## <a name="scenarios"></a>Scenarier
-Provade statistik skapas för varje kolumn är ett enkelt sätt att komma igång. Inaktuella statistik leda till något sämre prestanda. Uppdatera statistik på alla kolumner i takt med dina data växer kan dock använda minne. 
+Du kan kontrollera om ditt informationslager har konfigurerat genom att köra följande kommando:
 
-Här följer några rekommendationer för olika scenarier:
-| **scenario** | Rekommendation |
-|:--- |:--- |
-| **Kom igång** | Uppdatera alla kolumner när du har migrerat till SQL Data Warehouse |
-| **De viktigaste kolumn för statistik** | Hash-fördelningsnyckel |
-| **Andra viktigaste kolumn för statistik** | Partitionsnyckeln |
-| **Andra viktiga kolumner för statistik** | Datum, ofta ansluter till, gruppera efter, HAVING, och där |
-| **Frekvens av statistik uppdateringar**  | Konservativ: varje dag <br></br> När du läser in eller Transformera data |
-| **Sampling** |  Mindre än 1 miljard rader, använda provtagning standard (20 procent) <br></br> Med mer än 1 miljard rader är statistik på 2 procent-intervallet bra |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+Om ditt data warehouse inte har konfigurerats AUTO_CREATE_STATISTICS rekommenderar vi att du aktiverar den här egenskapen genom att köra följande kommando:
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+Följande uttryck utlöser automatisk generering av statistik: Markera, infoga – Välj, CTAS, uppdatera, ta bort och FÖRKLARA om den innehåller en koppling eller förekomsten av ett predikat har identifierats. 
+
+> [!NOTE]
+> Automatisk generering av statistik skapas inte för tillfälliga eller externa tabeller.
+> 
+
+Automatisk generering av statistik skapas synkront så riskerar en liten försämrade prestanda om kolumnerna inte redan har statistik skapas för dem. Skapa statistik kan ta några sekunder på en enda kolumn beroende på storleken på tabellen. För att undvika att mäta försämring av prestanda, särskilt i prestandatest, bör du kontrollera statistik har skapats först genom att köra arbetsbelastningen benchmark innan profilering av systemet.
+
+> [!NOTE]
+> Skapandet av statistik loggas också i [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) av en annan användare.
+> 
+
+När automatisk statistik skapas de ska vara i formatet: _WA_Sys_< 8 siffror kolumn-id hexadecimalt > _ < 8 siffror tabell-id i hexadecimalt >. Du kan visa statistik som redan har skapats genom att köra följande kommando:
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>Uppdatera statistik
 
 Ett bra tips är att uppdatera statistik i datumkolumnerna varje dag som nya datum har lagts till. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra fördelningen data och se statistik för gammal. Statistik om en land-kolumn i tabellen för en kund kan däremot aldrig behöver uppdateras eftersom fördelningen av värden i allmänhet inte ändra. Under förutsättning att distributionen är konstant mellan kunder, ska lägga till nya rader i tabellen variationen inte du ändra fördelningen data. Men om ditt data warehouse endast innehåller ett land och du hämta data från ett nytt land, måste vilket resulterar i data från flera länder lagras, du uppdatera statistik i kolumnen land.
+
+Här följer rekommendationer uppdatera statistik:
+
+| **Ofta stats uppdateras** | Konservativ: varje dag <br></br> När du läser in eller Transformera data. **Provtagning** |  Mindre än 1 miljard rader, använda provtagning standard (20 procent) <br></br> Med mer än 1 miljard rader statistik på 2 procent-intervallet är bra |
 
 En av de första frågorna när du felsöker en fråga är **”är statistik uppdaterade”?**
 

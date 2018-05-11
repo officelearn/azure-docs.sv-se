@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: Språk som stöds
       href: supported-languages.md
+    - name: Förbrukningsmodell
+      href: consumption-model.md
 - name: Instruktionsguider
   items:
     - name: Hantera Maps-konton
@@ -115,7 +117,7 @@
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: Tekniska fallstudier
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Videoklipp

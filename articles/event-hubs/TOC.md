@@ -28,6 +28,11 @@
 ### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)
 ### [Skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md)
 ### [Integrera Apache Spark med Event Hubs](event-hubs-spark-connector.md)
+## Event Hubs för Kafka
+### [Event Hubs för Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+### [Skapa Kafka-aktiverad Event Hubs](event-hubs-create-kafka-enabled.md) 
+### [Strömma till Azure Event Hubs för Kafka Ecosystem](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Använda Kafka MirrorMaker med Azure Event Hubs för Kafka Ecosystem](event-hubs-kafka-mirror-maker-tutorial.md)
 ## Utveckla
 ### [Skicka händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Ta emot händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

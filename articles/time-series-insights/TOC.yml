@@ -7,10 +7,13 @@
     - name: Om Time Series Insights
       href: time-series-insights-overview.md
 - name: Snabbstarter
-  expanded: true
   items:
     - name: Utforska Time Series Insights
       href: time-series-quickstart.md
+- name: Självstudier
+  items:
+    - name: Utforska TSI JavaScript-klientbibliotek
+      href: tutorial-explore-js-client-lib.md
 - name: Begrepp
   items:
     - name: Planera din miljö
@@ -73,7 +76,7 @@
           href: /azure/iot-hub
         - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: Maps
+        - name: Kartor
           href: /azure/azure-maps
         - name: 'Tjänst-SDK:er'
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'

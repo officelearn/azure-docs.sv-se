@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: Routningstäckning
       href: routing-coverage.md
+    - name: Söka efter kategorier
+      href: search-categories.md
     - name: Språk som stöds
       href: supported-languages.md
 - name: Instruktionsguider

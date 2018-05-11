@@ -24,23 +24,27 @@
       href: blockchain-workbench-use-API.md
     - name: Felsöka appar
       href: blockchain-workbench-troubleshooting.md
-    - name: Hämta information om Workbench DB
-      href: blockchain-workbench-getdb-details.md
-    - name: Konfigurera brandvägg för Workbench SQL DB
-      href: blockchain-workbench-database-firewall.md
-    - name: Använda Workbench-data i Excel
-      href: blockchain-workbench-data-excel.md
-    - name: Använda Workbench-data i Power BI
-      href: blockchain-workbench-data-powerbi.md
-    - name: Använda Workbench-data i SQL Management Studio
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: Använda Workbench-data
+      items:
+        - name: Konfigurera DB-brandväggen
+          href: blockchain-workbench-database-firewall.md
+        - name: Hämta information om DB
+          href: blockchain-workbench-getdb-details.md
+        - name: Använda data i Excel
+          href: blockchain-workbench-data-excel.md
+        - name: Använda data i Power BI
+          href: blockchain-workbench-data-powerbi.md
+        - name: Använda data i SQL Management Studio
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: Referens
   items:
+    - name: Kodexempel
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Konfiguration
       href: blockchain-workbench-configuration-overview.md
     - name: Databasvyer
       href: blockchain-workbench-database-views.md
-    - name: REST-API
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: Meddelande-API
       href: blockchain-workbench-messages-overview.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'

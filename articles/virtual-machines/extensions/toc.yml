@@ -1,0 +1,95 @@
+- name: Dokumentation om VM-tillägg
+  href: ../index.md
+- name: Översikt
+  items:
+    - name: Om Azure-tillägg
+      href: overview.md
+    - name: VM-agent för Linux
+      href: agent-linux.md
+    - name: VM-agent för Windows
+      href: agent-windows.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Använda det anpassade skripttillägget
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
+- name: Begrepp
+  items:
+    - name: Linux
+      href: features-linux.md
+    - name: Windows
+      href: features-windows.md
+- name: Instruktionsguider
+  items:
+    - name: Anpassat skripttillägg
+      items:
+        - name: Linux – version 2
+          href: custom-script-linux.md
+        - name: Linux – version 1 (OSTC)
+          href: custom-script-linuxOstc.md
+        - name: Windows
+          href: custom-script-windows.md
+    - name: OMS-tillägg
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: Windows
+          href: oms-windows.md
+    - name: Diagnostics-tillägg
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: Windows
+          href: diagnostics-windows.md
+        - name: Använd mallar
+          href: diagnostics-template.md
+    - name: Network Watcher-agent
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: Windows
+          href: network-watcher-windows.md
+    - name: PowerShell DSC-tillägg
+      href: dsc-overview.md
+      items:
+        - name: DSC och Windows
+          href: dsc-windows.md
+        - name: Hantera autentiseringsuppgifter
+          href: dsc-credentials.md
+        - name: Använd mallar
+          href: dsc-template.md
+    - name: IaaS-program mot skadlig kod för Windows
+      href: iaas-antimalware-windows.md
+    - name: Key Vault-tillägg
+      href: key-vault-windows.md
+    - name: Ögonblicksbild av VM-tillägg
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: Windows
+          href: vmsnapshot-windows.md
+    - name: Tillägg från tredje part
+      items:
+        - name: Stackify Retrace
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: Inaktuella tillägg
+      items:
+        - name: Tillägg för logginsamlare
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+    - name: Begränsa installation av tillägg
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: Windows
+          href: extensions-rmpolicy-howto-ps.md
+    - name: Uppdatera Linux-agenten
+      href: update-linux-agent.md
+    - name: Exportera tillägg
+      href: export-templates.md
+    - name: Felsöka
+      href: troubleshoot.md

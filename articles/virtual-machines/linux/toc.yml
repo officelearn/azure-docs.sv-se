@@ -51,6 +51,8 @@
       href: tutorial-mean-stack.md
     - name: 16 – Säker webbserver med SSL
       href: tutorial-secure-web-server.md
+    - name: Distribuera en Packer-avbildning och appar till en skalningsuppsättning
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Exempel
   items:
     - name: Azure CLI

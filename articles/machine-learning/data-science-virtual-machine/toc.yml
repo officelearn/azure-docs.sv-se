@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: Använda en virtuell Geo-AI-dator för datavetenskap
       href: use-geo-ai-dsvm.md
+- name: Riktlinjer för Enterprise
+  items:
+    - name: Översikt
+      href: dsvm-enterprise-overview.md
+    - name: Skalning
+      href: dsvm-pools.md
+    - name: Active Directory-integrering
+      href: dsvm-common-identity.md
+    - name: Skydda autentiseringsuppgifter för resursåtkomst
+      href: dsvm-secure-access-keys.md
 - name: Referens
   expanded: true
   items:

@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: Omdirigera webbtrafik med hjälp av Azure PowerShell
       href: tutorial-url-redirect-powershell.md
+    - name: Skapa en zonredundant programgateway
+      href: create-zone-redundant.md
 - name: Referens
   items:
     - name: Azure CLI

@@ -29,6 +29,8 @@
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Mall](tutorial-autoscale-template.md)
+## Distribuera appar till en skalningsuppsättning för en virtuell Azure-dator med en anpassad Packer-avbildning
+### [Azure CLI 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Exempel
 ## [Azure CLI 2.0](cli-samples.md)

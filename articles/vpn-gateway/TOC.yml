@@ -8,6 +8,8 @@
   items:
     - name: Skapa och hantera VPN Gateway
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+    - name: Skapa och hantera S2S VPN-anslutningar
+      href: vpn-gateway-tutorial-vpnconnection-powershell.md
 - name: Exempel
   items:
     - name: Azure PowerShell

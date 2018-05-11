@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Hybrid Runbook Worker
       items:
-        - name: Distribuera Hybrid Runbook Worker
+        - name: Översikt över Hybrid Runbook Worker
           href: automation-hybrid-runbook-worker.md
-        - name: Azure Automation Windows Hybrid Runbook Worker
+        - name: Distribuera Windows Hybrid Runbook Worker
           href: automation-windows-hrw-install.md
-        - name: Azure Automation Linux Hybrid Runbook Worker
+        - name: Distribuera Linux Hybrid Runbook Worker
           href: automation-linux-hrw-install.md
-        - name: Kör Runbook-flöden i Worker
+        - name: Köra runbook-flöden på Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md
-        - name: Ta bort Azure Automation Hybrid Runbook Worker-arbeten
-          href: automation-remove-hrw.md
     - name: Distribuera konfigurationshantering (DSC)
       items:
         - name: Översikt över önskad tillståndskonfiguration (DSC)

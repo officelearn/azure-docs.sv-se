@@ -216,7 +216,7 @@
         - name: QnA Maker
           tocHref: /azure/cognitive-services/qnamaker/
           topicHref: /azure/cognitive-services/qnamaker/home
-        - name: Speech API
+        - name: API för taligenkänning
           tocHref: /azure/cognitive-services/Speech/
           topicHref: /azure/cognitive-services/Speech/home
         - name: Taltjänst (förhandsversion)
@@ -237,6 +237,9 @@
         - name: Web Language Model
           tocHref: /azure/cognitive-services/web-language-model/
           topicHref: /azure/cognitive-services/web-language-model/home
+        - name: Personlighetschatt
+          tocHref: /azure/cognitive-services/project-personality-chat/
+          topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: Anslutningar
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -336,7 +339,7 @@
         - name: IoT-lösningsacceleratorer
           tocHref: /azure/iot-suite/
           topicHref: /azure/iot-suite/
-        - name: Maps
+        - name: Kartor
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/
         - name: Time Series Insights

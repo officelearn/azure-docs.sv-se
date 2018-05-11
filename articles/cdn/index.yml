@@ -1,0 +1,85 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure CDN
+metadata:
+  title: Dokumentation om Azure CDN – Självstudier, API-referens | Microsoft Docs
+  description: Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverksoptimeringar med CDN POP-platser. Till exempel kan Azure CDN använda routningsoptimering för att kringgå BGP (Border Gateway Protocol).
+  services: cdn
+  author: czeumault
+  manager: carolz
+  ms.service: cdn
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/03/2018
+  ms.author: carolz
+  ms.openlocfilehash: 42d08e9a5893bf58ecf405cc5caf750ee3e1daf7
+  ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/11/2018
+abstract:
+  description: Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverksoptimeringar med CDN POP-platser. Till exempel kan Azure CDN använda routningsoptimering för att kringgå BGP (Border Gateway Protocol).
+sections:
+- title: 
+  items:
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cdn.svg
+      text: Läs mer om Azure CDN
+      href: /azure/cdn/cdn-overview
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du aktiverar Azure CDN genom att skapa en CDN-profil och en CDN-slutpunkt.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/get-started.svg
+      text: Komma igång med Azure CDN
+      href: /azure/cdn/cdn-create-new-endpoint
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du konfigurerar Azure CDN för dina behov.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Lägga till en anpassad domän i CDN-slutpunkten</a>
+    - html: <a href="/azure/cdn/cdn-custom-ssl">Konfigurera HTTPS på en anpassad domän</a>
+    - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Ange cachelagringsregler</a>
+- title: Videoklipp
+  items:
+  - type: paragraph
+    text: Titta på videor som visar hur Azure CDN fungerar.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/video-library.svg
+      text: Azure CDN-videobibliotek
+      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Hitta skript för att hantera vanliga uppgifter.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cdn">Kodexempel</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
+    - title: Språk
+      html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/cdn/">REST API-referens</a></p>

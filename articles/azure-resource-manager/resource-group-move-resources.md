@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -114,6 +114,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Application Insights
 * Automation
 * Azure Cosmos DB
+* Azure Relay
 * Batch
 * Bing-kartor
 * CDN
@@ -130,6 +131,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * IoT-hubbar
 * Key Vault
 * Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
+* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra resurser i Machine Learning kan flyttas mellan prenumerationer.
 * Media Services
@@ -137,7 +139,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Notification Hubs
 * Operational Insights
 * Operations Management
-* Power BI
+* Powerbi - både Powerbi Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
 * Redis Cache
 * Scheduler
@@ -148,7 +150,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Storage
 * Storage (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics-jobb inte kan flyttas när du kör i läget.
-* SQL Database-server - databasen och servern måste finnas i samma resursgrupp. När du flyttar en SQLServer, flyttas även alla databaser. Detta inkluderar Azure SQL Database och Azure SQL Data Warehouse-databaser. 
+* SQL Database-server - databasen och servern måste finnas i samma resursgrupp. När du flyttar en SQLServer, flyttas även alla databaser. Detta gäller Azure SQL Database och Azure SQL Data Warehouse-databaser. 
 * Traffic Manager
 * Det går inte att flytta virtuella datorer – virtuella datorer med hanterade diskar. Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella datorer (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
@@ -164,6 +166,8 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * AD-Hybrid-tjänsten för hälsotillstånd
 * Application Gateway
 * Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
 * BizTalk Services
 * Certifikat - Apptjänstcertifikat kan flyttas, men överförda certifikat har [begränsningar](#app-service-limitations).
 * Kubernetes Service
@@ -176,7 +180,7 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Offentliga IP - finns [offentliga IP-begränsningar](#pip-limitations)
 * Recovery Services-ventilen - också vill inte flytta beräknings-, nätverks- och resurser som är associerade med Recovery Services-valvet finns [återställningstjänster begränsningar](#recovery-services-limitations).
 * Säkerhet
-* StorSimple Device Manager
+* StorSimple Enhetshanteraren
 * Virtuella nätverk (klassiskt) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
@@ -188,6 +192,11 @@ Hanterade diskar stöder inte flytta. Den här begränsningen innebär att flera
 * Bilder som har skapats från hanterade diskar
 * Ögonblicksbilder som skapats från hanterade diskar
 * Tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
+
+Även om du inte kan flytta en hanterad disk kan du skapa en kopia och sedan skapa en ny virtuell dator från den befintliga hantera disken. Mer information finns i:
+
+* Kopiera hanterade diskar i samma prenumeration eller annan prenumeration med [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) eller [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Skapa en virtuell dator med en befintlig hanterade OS-disk med [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) eller [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
 
 Virtuella datorer som skapats från Marketplace-resurser med planer kopplade kan inte flyttas mellan resursgrupper eller prenumerationer. Ta bort etableringen av den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 

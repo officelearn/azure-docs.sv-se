@@ -9,8 +9,8 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e23db77a1be1650c0a10e45b8b38d232e41428f6
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: c095576ccce7e32850c3fb2daf8303a0d6e957bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -228,10 +228,11 @@ Följande tabeller innehåller en lista över uppdateringsklassificeringar i upp
 
 Följande adresser krävs för hantering av uppdateringar. Kommunikation till dessa adresser görs via port 443.
 
-* *.ods.opinsights.azure.com
-* *.oms.opinsights.azure.com
-* ods.systemcenteradvisor.com
-* *.blob.core.windows.net
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
 
 Mer information om portar som krävs för Hybrid Runbook Worker, [Hybrid Worker-rollen portar](automation-hybrid-runbook-worker.md#hybrid-worker-role)
 

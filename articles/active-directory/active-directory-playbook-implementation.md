@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory PoC Playbook implementering | Microsoft Docs
-description: "Utforska och snabbt implementera scenarier för identitets- och åtkomsthantering"
+description: Utforska och snabbt implementera scenarier för identitets- och åtkomsthantering
 services: active-directory
 keywords: Azure active directory, playbook, konceptbevis, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory bevis på koncept Playbook: implementering
 
@@ -87,7 +87,7 @@ En hybrididentitet är grunden för de flesta av de enterprise-kunder som redan 
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Säker fjärråtkomst till lokala program
 
-1. Bob, Azure AD globala administratören, har tagit emot ett stort antal begäranden om att ge anställda åtkomst till flera användbara lokala resurser, till exempel programmet utgifter när du arbetar via fjärranslutning. Han följer den [Application Proxy dokumentationen](active-directory-application-proxy-enable.md) att installera en koppling och publicera kostnader som ett program med Application Proxy. 
+1. Bob, Azure AD globala administratören, har tagit emot ett stort antal begäranden om att ge anställda åtkomst till flera användbara lokala resurser, till exempel programmet utgifter när du arbetar via fjärranslutning. Han följer den [Application Proxy dokumentationen](manage-apps/application-proxy-enable.md) att installera en koppling och publicera kostnader som ett program med Application Proxy. 
 2. Bob dela externa utgifter programmets URL med Susie en av de anställda som behöver fjärråtkomst. Hon har åtkomst till länken och efter att autentisera mot AAD hon kan att komma åt appen kostnader och fortsätter att vara produktiva när remote. 
 3. Bob fortsätter sedan att publicera ytterligare lokala program använder samma process och ge åtkomst till användare efter behov. Han lägger till villkorlig åtkomst och multifaktorautentisering för känsliga program som han publicerar för att säkerställa ytterligare säkerhet.
 

@@ -10,11 +10,11 @@ ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 1c13da977021538651084ec4462cf8bd32f131d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B-användare i Azure AD åtkomst till lokala program
 
@@ -27,7 +27,7 @@ Om appen lokalt använder SAML-baserad autentisering, kan du enkelt göra apparn
 Du måste göra följande:
 
 - Integrera SAML-app med hjälp av programmallen icke-galleriet enligt beskrivningen i [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](active-directory-saas-custom-apps.md). Se till att Observera att du använder för den **inloggnings-URL** värde.
--  Använda Azure AD Application Proxy för att publicera appen lokalt med **Azure Active Directory** konfigurerad som autentiseringskälla. Instruktioner finns i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+-  Använda Azure AD Application Proxy för att publicera appen lokalt med **Azure Active Directory** konfigurerad som autentiseringskälla. Instruktioner finns i [publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 
    När du konfigurerar den **intern Url** inställningen genom att använda den inloggnings-URL som du angav i programmallen inte galleriet. På så sätt kan användare komma åt appen från utanför gränsen för organisationen. Application Proxy som utför den SAML enkel inloggning för appen lokalt.
  
@@ -37,8 +37,8 @@ Du måste göra följande:
 
 Om du vill ge B2B-användare åtkomst till lokala program som skyddas med integrerad Windows-autentisering och Kerberos-begränsad delegering, måste följande komponenter:
 
-- **Autentisering via Azure AD Application Proxy**. B2B-användare måste kunna autentisera till programmet lokalt. Om du vill göra detta måste du publicera lokala appen via Azure AD Application Proxy. Mer information finns i [komma igång med Application Proxy och installera connector](active-directory-application-proxy-enable.md) och [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
-- **Auktorisering via ett B2B användarobjekt i den lokala katalogen**. Programmet måste kunna utföra åtkomstkontroller för användare och bevilja åtkomst till rätt resurser. IWA och KCD kräver ett användarobjekt i den lokala Windows Server Active Directory att slutföra detta tillstånd. Enligt beskrivningen i [hur enkel inloggning med KCD fungerar](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy måste det här objektet för att personifiera användaren och få en Kerberos-token till appen. 
+- **Autentisering via Azure AD Application Proxy**. B2B-användare måste kunna autentisera till programmet lokalt. Om du vill göra detta måste du publicera lokala appen via Azure AD Application Proxy. Mer information finns i [komma igång med Application Proxy och installera connector](manage-apps/application-proxy-enable.md) och [publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md).
+- **Auktorisering via ett B2B användarobjekt i den lokala katalogen**. Programmet måste kunna utföra åtkomstkontroller för användare och bevilja åtkomst till rätt resurser. IWA och KCD kräver ett användarobjekt i den lokala Windows Server Active Directory att slutföra detta tillstånd. Enligt beskrivningen i [hur enkel inloggning med KCD fungerar](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy måste det här objektet för att personifiera användaren och få en Kerberos-token till appen. 
 
    Det finns två metoder som kan användas för att skapa gästen användarobjekt som krävs för auktorisering i den lokala katalogen för Användarscenario B2B:
 

@@ -15,8 +15,8 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f480553e6a8ca09872cd638537bc6fb98e793d8b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 5554260ad2b47cf4c66046c95007c95e44f188bd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -50,7 +50,7 @@ Den här artikeln är avsedd för personer som publicerar en app med det här sc
 
 Om du redan har Application Proxy är aktiverat och har en koppling installeras, kan du hoppa över det här avsnittet och gå vidare till [lägga till din app i Azure AD med Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
-Application Proxy connector är en Windows Server-tjänst som dirigerar trafik från fjärranslutna anställda till publicerade appar. Mer detaljerad Installationsinstruktioner finns [aktivera Application Proxy på Azure-portalen](active-directory-application-proxy-enable.md).
+Application Proxy connector är en Windows Server-tjänst som dirigerar trafik från fjärranslutna anställda till publicerade appar. Mer detaljerad Installationsinstruktioner finns [aktivera Application Proxy på Azure-portalen](manage-apps/application-proxy-enable.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
 2. Välj **Azure Active Directory** > **programproxy**.
@@ -65,7 +65,7 @@ Application Proxy connector är en Windows Server-tjänst som dirigerar trafik f
 
 Det finns två åtgärder du måste vidta i Azure-portalen. Först måste du publicera ditt program med programproxy. Måste du samla in information om den app som du kan använda under PingAccess steg.
 
-Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av steg 1 – 8, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av steg 1 – 8, se [publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md).
 
 1. Om du inte i det sista avsnittet, logga in på den [Azure-portalen](https://portal.azure.com) som global administratör.
 2. Välj **Azure Active Directory** > **företagsprogram**.
@@ -181,5 +181,5 @@ När du har slutfört de här stegen kan ska din app vara igång. Prova genom at
 ## <a name="next-steps"></a>Nästa steg
 
 - [Konfigurera PingAccess för Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Hur tillhandahåller Azure AD Application Proxy enkel inloggning?](application-proxy-sso-overview.md)
+- [Hur tillhandahåller Azure AD Application Proxy enkel inloggning?](manage-apps/application-proxy-single-sign-on.md)
 - [Felsöka Application Proxy](active-directory-application-proxy-troubleshoot.md)

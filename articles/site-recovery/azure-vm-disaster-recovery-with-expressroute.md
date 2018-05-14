@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8b4c7bb561d311796f59b94a6e2fbcd9b571d2cd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 44ecbcc51cb53f4d7b68f5c5e24e7d81c5a4208c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Använda ExpressRoute med virtuella Azure-datorn katastrofåterställning
 
@@ -79,7 +79,7 @@ Som standard lämnar replikeringstrafiken inte Azure gränsen. Normalt definiera
 
 När Azure virtuella datorer har redundansväxlats till en annan region överförs befintlig ExpressRoute-anslutningen till det virtuella nätverket källa inte automatiskt till det virtuella målnätverket på regionen som recovery. En ny anslutning krävs för att ansluta ExpressRoute till det virtuella målnätverket.
 
-Du kan replikera virtuella Azure-datorer till någon Azure-region inom samma geografiska kluster som detaljerad [här](azure-to-azure-support-matrix.md#region-support). Om det valda målet Azure-regionen inte är inom samma geopolitiska region som källa, måste du aktivera ExpressRoute Premium om du använder en enda ExpressRoute-krets för källan och målet region-anslutning. Mer information [ExpressRoute platser](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [ExpressRoute priser](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+Du kan replikera virtuella Azure-datorer till någon Azure-region inom samma geografiska kluster som detaljerad [här](azure-to-azure-support-matrix.md#region-support). Om det valda målet Azure-regionen inte är inom samma geopolitiska region som källa, måste du aktivera ExpressRoute Premium om du använder en enda ExpressRoute-krets för källan och målet region-anslutning. Mer information [ExpressRoute platser](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [ExpressRoute priser](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>Två ExpressRoute-kretsar på två olika ExpressRoute-peering platser
 -   Den här konfigurationen är användbar om du vill försäkra mot fel på den primära ExpressRoute-kretsen och mot storskaliga regionala katastrofer som också kan påverka ExpressRoute-peering platser och störa din primära ExpressRoute-kretsen.

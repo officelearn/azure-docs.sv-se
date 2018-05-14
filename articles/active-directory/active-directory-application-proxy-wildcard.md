@@ -15,8 +15,8 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a5466a0b5027fa8fe0edec3c9663e6cd1aafc9a3
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -48,14 +48,14 @@ Till exempel: `http(s)://*.adventure-works.com`. Medan de interna och externa UR
 
 Om du har fler program med olika konfigurationsinställningar, måste du publicera dessa undantag som separata program att skriva över standardvärdena för jokertecknet. Program utan jokertecken alltid högre prioritet än jokertecken program. Dessa är ”” vanliga program ur konfiguration.
 
-Skapar ett program med jokertecken är baserad på samma [publishing programflöde](application-proxy-publish-azure-portal.md) som är tillgängliga för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i URL: er och potentiellt SSO-konfiguration.
+Skapar ett program med jokertecken är baserad på samma [publishing programflöde](manage-apps/application-proxy-publish-azure-portal.md) som är tillgängliga för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i URL: er och potentiellt SSO-konfiguration.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="custom-domains"></a>Anpassade domäner
 
-Medan [anpassade domäner](active-directory-application-proxy-custom-domains.md) är valfritt för alla andra program, de är en förutsättning för jokertecken program. Skapa anpassade domäner måste du:
+Medan [anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md) är valfritt för alla andra program, de är en förutsättning för jokertecken program. Skapa anpassade domäner måste du:
 
 1. Skapa en verifierad domän i Azure 
 2. Ladda upp ett SSL-certifikat i PFX-format till din programproxy.
@@ -117,7 +117,7 @@ Jokertecken programmet representeras med bara en panel i den [MyApps panelen](ht
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos-begränsad delegering
 
-För program som använder [kerberos-begränsad delegering (KCD) som metod för enkel inloggning](active-directory-application-proxy-sso-using-kcd.md), SPN-namnet visas för SSO-metod måste också ett jokertecken. SPN kan till exempel vara: `HTTP/*.adventure-works.com`. Du måste fortfarande ha enskilda SPN konfigureras på backend-servrar (till exempel `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+För program som använder [kerberos-begränsad delegering (KCD) som metod för enkel inloggning](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), SPN-namnet visas för SSO-metod måste också ett jokertecken. SPN kan till exempel vara: `HTTP/*.adventure-works.com`. Du måste fortfarande ha enskilda SPN konfigureras på backend-servrar (till exempel `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -136,7 +136,7 @@ Alla tre program:
 - Ha samma egenskaper
 
 
-Du kan publicera programmet jokertecken med hjälp av stegen som beskrivs i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). Det här scenariot förutsätter:
+Du kan publicera programmet jokertecken med hjälp av stegen som beskrivs i [publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). Det här scenariot förutsätter:
 
 - En klient med följande ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -144,7 +144,7 @@ Du kan publicera programmet jokertecken med hjälp av stegen som beskrivs i [pub
 
 - En **CNAME** post som pekar `*.adventure-works.com` till `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` har skapats.
 
-Efter den [beskrivs stegen](application-proxy-publish-azure-portal.md), du skapar ett nytt program proxy program i din klient. I det här exemplet är jokertecknet i följande fält:
+Efter den [beskrivs stegen](manage-apps/application-proxy-publish-azure-portal.md), du skapar ett nytt program proxy program i din klient. I det här exemplet är jokertecknet i följande fält:
 
 - Intern URL:
 
@@ -183,7 +183,7 @@ I det här scenariot behöver du dessutom tre Allmänt program ett annat program
 
 Du måste se till att det finns en CNAME-poster som pekar `finance.adventure-works.com` till programmet specifika slutpunkten, anges på sidan programproxy för programmet. I det här scenariot `finance.adventure-works.com` pekar på `https://finance-awcycles.msappproxy.net/`. 
 
-Efter den [beskrivs stegen](application-proxy-publish-azure-portal.md), det här scenariot kräver följande inställningar:
+Efter den [beskrivs stegen](manage-apps/application-proxy-publish-azure-portal.md), det här scenariot kräver följande inställningar:
 
 
 - I den **Intern URL**, du anger **ekonomi** i stället för ett jokertecken. 
@@ -212,8 +212,8 @@ Om du har flera program som publicerats för ekonomi och har `finance.adventure-
 
 Mer information om:
 
-- **Anpassade domäner**, se [arbeta med anpassade domäner i Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md).
+- **Anpassade domäner**, se [arbeta med anpassade domäner i Azure AD Application Proxy](manage-apps/application-proxy-configure-custom-domain.md).
 
-- **Publicera program**, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+- **Publicera program**, se [publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md)
 
 

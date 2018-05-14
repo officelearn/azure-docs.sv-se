@@ -1,18 +1,24 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault begränsning vägledning | Microsoft Docs"
-ms.service: key-vault
+title: Vägledning för Azure Key Vault-begränsning
+description: Key Vault begränsning begränsar antalet samtidiga anrop för att förhindra felaktig användning av resurser.
+services: key-vault
+documentationcenter: ''
 author: lleonard-msft
-ms.author: alleonar
 manager: mbaldwin
-ms.date: 06/21/2017
-ms.openlocfilehash: cc39a5ee466d2e1661281a32010c3d3201c4a0af
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+tags: ''
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: article
+ms.date: 05/10/2018
+ms.author: alleonar
+ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault begränsning vägledning
+# <a name="azure-key-vault-throttling-guidance"></a>Vägledning för Azure Key Vault-begränsning
 
 Begränsning är en process som du har initierat som begränsar antalet samtidiga anrop till Azure-tjänsten för att förhindra felaktig användning av resurser. Azure Key Vault (AKV) är utformad för att hantera ett stort antal begäranden. Om det inträffar ett överväldigande antal begäranden, upprätthåller begränsning din klientbegäranden optimala prestanda och tillförlitlighet för AKV-tjänsten.
 

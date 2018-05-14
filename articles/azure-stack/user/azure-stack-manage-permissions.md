@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9944f51c080da6edd89927bfd26398024c5d4de2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Hantera åtkomst till resurser med Azure Stack Role-Based åtkomstkontroll
 
@@ -38,6 +38,28 @@ Azure-stacken har tre grundläggande roller som du kan använda för alla typer 
 * **Ägare** kan hantera allt, inklusive åtkomst till resurser.
 * **Deltagare** kan hantera allt utom åtkomst till resurser.
 * **Läsaren** kan visa allt, men inte göra några ändringar.
+
+### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
+
+Azure-stacken har följande resurs-hierarki:
+
+* Varje prenumeration som hör till en katalog.
+* Varje resursgrupp som hör till en prenumeration.
+* Varje resurs tillhör en resursgrupp.
+
+Åtkomst som du har gett på en överordnad omfattning ärvs på underordnade omfattningar. Exempel:
+
+* Du kan tilldela rollen Läsare för en Azure AD-gruppen på prenumerationsomfattningen. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
+* Du tilldelar deltagarrollen till ett program på resursen Gruppomfång. Programmet kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
+
+### <a name="assigning-roles"></a>tilldela roller
+
+Du kan tilldela fler än en roll till en användare och varje roll kan vara associerat med ett annat omfång. Exempel:
+
+* Du tilldelar rollen TestUser-A i läsare prenumeration-1.
+* Du tilldelar TestUser-A ägarrollen TestVM-1.
+
+Azure [rolltilldelningar](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
 

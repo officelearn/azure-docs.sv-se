@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 81425c6ac4e463bd4242328206bd43ce78a1105a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure filen proxy- och brandväggsinställningarna synkroniseringsinställningar
+# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure filsynkronisering ansluter dina lokala servrar till Azure Files, aktivera synkronisering för flera platser och i molnet skiktning funktioner. Därmed kan måste en lokal server vara ansluten till internet. IT-administratör måste du bestämma bästa sökvägen för servern som ska få åtkomst till Azure-molntjänster.
 
 Den här artikeln ger insyn i specifika krav och tillgängliga alternativ för att kunna och på ett säkert sätt ansluta servern till Azure filsynkronisering.
+
+> [!Important]
+> Azure filsynkronisering stöder ännu inte brandväggar och virtuella nätverk för ett lagringskonto. 
 
 ## <a name="overview"></a>Översikt
 Azure filsynkronisering fungerar som en tjänst orchestration mellan Windows Server, Azure-filresursen och flera andra Azure-tjänster för att synkronisera data enligt beskrivningen i sync-grupp. För Azure filsynkronisering ska fungera korrekt, behöver du konfigurera dina servrar för att kommunicera med följande Azure-tjänster:
@@ -62,7 +65,7 @@ I följande tabell beskrivs domänerna som krävs för kommunikation:
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager-anrop måste göras av en autentiserad användare. Ska lyckas, används URL: en för autentisering av användare. |
 | **Azure Active Directory** | https://graph.windows.net/ | Som del av distributionen av Azure filsynkronisering skapas ett huvudnamn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för den. Detta säkerhetsobjekt används för att delegera en minimal uppsättning rättigheter till tjänsten Azure filsynkronisering. Den användare som utför installationen av Azure filsynkronisering måste vara en autentiserad användare med behörighet för ägaren av prenumerationen. |
 | **Azure Storage** | &ast;.core.windows.net | När servern hämtar en fil, sedan utför servern som flytt av data som är mer effektivt när kommunicerar direkt med Azure-filresursen i Lagringskontot. Servern har en SAS-nyckel som bara tillåter för åtkomst till resursen för filen. |
-| **Azure File Sync** | &ast;.one.microsoft.com | Efter första server registration servern tar emot en regionala URL för tjänstinstansen Azure filsynkronisering i regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt sätt med den instans som hanterar synkroniserades. |
+| **Azure filsynkronisering** | &ast;.one.microsoft.com | Efter första server registration servern tar emot en regionala URL för tjänstinstansen Azure filsynkronisering i regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt sätt med den instans som hanterar synkroniserades. |
 
 > [!Important]
 > När så att trafik till &ast;. one.microsoft.com, trafik till mer än bara synkroniseringstjänsten går från servern. Det finns många fler Microsoft-tjänster under underdomäner.

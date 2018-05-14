@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 5a2a818b6a36fd4dbaf3a18c1ef98d2a13596240
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -80,7 +80,7 @@ Kontakta Azure AD engineering team för att begära etablering support för ytte
 
 Konfigurationen av Azure AD etableras för ett valt program startar i den  **[Azure-portalen](https://portal.azure.com)**. I den **Azure Active Directory > företagsprogram** väljer **Lägg till**, sedan **alla**, och Lägg sedan till något av följande beroende på ditt scenario:
 
-* Alla program i den **aktuella program** avsnittet stöd för automatisk etablering. Se den [lista över program självstudier för användaretablering] active-directory-saas-kursen-list.md) för ytterligare mallar.
+* Alla program i den **aktuella program** avsnittet stöd för automatisk etablering. Finns det [lista över program självstudier för användaretablering](active-directory-saas-tutorial-list.md) för ytterligare mallar.
 
 * Använd alternativet ”icke-galleriet program” för anpassad utvecklat SCIM integreringar
 

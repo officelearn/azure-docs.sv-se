@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -43,6 +43,8 @@ Den här självstudien omfattar följande uppgifter:
 Innan du följer anvisningarna i den här artikeln bör du kontrollera att du har följande installerat:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
+
+* Öka genomflödet: din datamigrering varaktighet beror på mängden genomströmning som du ställer in för en enskild samling eller en uppsättning samlingar. Se till att öka genomflödet för större migrering av data. När du har slutfört migreringen, minska dataflöde för att spara kostnader. Mer information om ökar genomströmningen i Azure portal finns i prestandanivåer och prisnivåerna i Azure Cosmos-databasen.
 
 ## <a id="Overviewl"></a>Översikt över
 Verktyget datamigrering är en öppen källkod som importerar data till Azure Cosmos DB från olika källor, inklusive:

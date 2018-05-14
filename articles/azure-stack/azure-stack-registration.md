@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure stacken med Azure
 Registrera [Azure Stack](azure-stack-poc.md) med Azure kan du hämta marketplace-objekt från Azure och Ställ in commerce rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure handel och du kan se den under den prenumeration som används för registrering. 
 
 > [!IMPORTANT]
-> Registrering är obligatoriskt om du väljer lön-som-du-Använd fakturering modellen. Annars blir du i överträdelse av licensvillkoren för Azure Stack-distribution som användning inte rapporteras.
+> Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace-syndikeringsfeed. Du kan dessutom i överträdelse av Azure-stacken licensvillkoren om du inte registrerar när du använder lön-som-du-Använd fakturering modellen. Läs mer om Azure-stacken licensiering modeller i den [köpa sidan](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du registrerar Azure stacken med Azure måste du ha:

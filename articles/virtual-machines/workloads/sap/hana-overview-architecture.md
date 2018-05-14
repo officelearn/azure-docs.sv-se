@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Översikt över SAP HANA (stora instanser) och arkitektur på Azure
 
@@ -256,7 +256,7 @@ Den underliggande infrastrukturen för stora HANA-instansen innehåller funktion
 
 Finns det [SLA för SAP HANA i Azure (stora instanser)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
 
-## <a name="sizing"></a>Storlek
+## <a name="sizing"></a>Storleksändring
 
 Storlek för stora HANA-instansen är inte annorlunda än storleken för HANA i allmänhet. För befintliga och distribuerade system som du vill flytta från andra RDBMS till HANA, SAP innehåller ett antal rapporter som körs på din befintliga SAP-system. Om databasen flyttas till HANA rapporterna Kontrollera informationen och beräkna minneskrav för HANA-instansen. Läs följande SAP-information för mer information om hur du kör dessa rapporter och hämta de senaste korrigeringsfiler eller versioner:
 
@@ -303,6 +303,8 @@ Den här listan monterar krav för SAP HANA i Azure (större instanser).
    - Du måste ha nivåerna korrekt prenumeration som innehåller stöd för och hantera uppdateringar i operativsystem för stora HANA-instansen för Red Hat Linux. Red Hat rekommenderar Red Hat Enterprise Linux för [SAP-lösningar] (https://access.redhat.com/solutions/3082481 prenumeration. 
 
 Stöd matrix för de olika SAP HANA-versionerna med de olika versionerna av Linux, se [SAP Obs #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
+Kompatibilitetsmatrix för operativsystemet och HLI inbyggd programvara och drivrutin versioner finns [OS uppgradering för HLI](os-upgrade-hana-large-instance.md).
 
 
 **Databas**

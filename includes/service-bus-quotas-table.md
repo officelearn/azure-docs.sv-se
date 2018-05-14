@@ -5,14 +5,14 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 I följande tabell visas information för kvot som är specifika för Service Bus-meddelanden. Mer information om priser och andra kvoter för Service Bus finns i [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) Översikt.
 
@@ -20,7 +20,7 @@ I följande tabell visas information för kvot som är specifika för Service Bu
 | --- | --- | --- | --- | --- |
 | Maximalt antal grundläggande / standard namnområden per Azure-prenumeration |Namnrymd |Efterföljande begäranden om ytterligare grundläggande / standard namnområden avvisas av portalen. |100|
 | Maximalt antal premium-namnområden per Azure-prenumeration |Namnrymd |Efterföljande begäranden om ytterligare premium-namnområden avvisas av portalen. |10 |
-| Kön/avsnittet storlek |Entitet |Definierats vid skapande av kö/ämnet. <br/><br/> Efterföljande inkommande meddelanden avvisas och ett undantag tas emot av den anropande koden. |1, 2, 3, 4 och 5 GB.<br /><br />Om [partitionering](../articles/service-bus-messaging/service-bus-partitioning.md) är aktiverad, högsta kö/avsnittet storleken är 80 GB. |
+| Kön/avsnittet storlek |Entitet |Definierats vid skapande av kö/ämnet. <br/><br/> Efterföljande inkommande meddelanden avvisas och ett undantag tas emot av den anropande koden. |1, 2, 3, 4 och 5 GB.<br /><br />I Premium-SKU samt Standard med [partitionering](../articles/service-bus-messaging/service-bus-partitioning.md) aktiverad maximala kö/avsnittet storleken är 80 GB. |
 | Antalet samtidiga anslutningar på ett namnområde |Namnrymd |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. REST-åtgärder räknas inte mot samtidiga TCP-anslutningar. |NetMessaging: 1 000<br /><br />AMQP: 5 000 |
 | Antal samtidiga får begäranden på en entitet i kö-avsnittet-prenumeration |Entitet |Efterföljande ta emot förfrågningar avvisas och ett undantag tas emot av den anropande koden. Den här kvoten gäller för det kombinerade antalet parallella få åtgärder för alla prenumerationer på ett ämne. |5 000 |
 | Antal avsnitt/köer per namnområde för tjänsten |Namnrymd |Efterföljande förfrågningar för att skapa en ny artikel eller en kö på namnområde för tjänsten nekas. Därför, om konfigurerad via den [Azure-portalen][Azure portal], genereras ett felmeddelande. Om den anropas från ett hanteringsgränssnitt emot ett undantag av den anropande koden. |10 000<br /><br />Det totala antalet avsnitt plus köer i ett namnområde för tjänsten måste vara mindre än eller lika med 10 000.<br/>Detta gäller inte för Premium som alla entiteter partitioneras. |

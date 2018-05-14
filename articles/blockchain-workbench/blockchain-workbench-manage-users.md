@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a426f7f424bc1941890c80a83997d8e08b368884
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 440072a94ff7146ebcdb242a058ab48b434714f9
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain arbetsstationen
 
@@ -114,4 +114,7 @@ Använda i Blockchain Workbench för att hantera användare och organisationer s
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en blockchain program i Azure Blockchain arbetsstationen](blockchain-workbench-create-app.md)
+I den här artikeln har du lärt dig hur du hanterar användare för Azure Blockchain arbetsstationen. Information om hur du skapar ett program för blockchain fortsätta i nästa artikel.
+
+> [!div class="nextstepaction"]
+> [Skapa en blockchain program i Azure Blockchain arbetsstationen](blockchain-workbench-create-app.md)

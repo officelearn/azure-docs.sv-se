@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: dfd29e0956793cf776b9c0ea5ddbd4689ebcb015
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Felsökning: Azure plats-till-plats VPN-anslutningen kan inte ansluta och slutar fungera
 
@@ -26,7 +26,7 @@ När du har konfigurerat en plats-till-plats VPN-anslutning mellan ett lokalt n�
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Felsökningssteg
+## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
 Försök för att lösa problemet först till [återställa Azure VPN-gatewayen](vpn-gateway-resetgw-classic.md) och återställa tunneln från lokala VPN-enheten. Om problemet kvarstår följer du stegen nedan för att identifiera orsaken till problemet.
 

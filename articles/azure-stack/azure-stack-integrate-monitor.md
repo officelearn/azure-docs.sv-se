@@ -6,26 +6,25 @@ documentationcenter: ''
 author: jeffgilb
 manager: femila
 editor: ''
-ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 4188d114aa86086821b2c640d7f2d98a78bcbf4e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: thoroet
+ms.openlocfilehash: d7c8520602132722fd0c7138de4a276b9ac2208a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure-stacken
 
 Du behöver övervaka Azure Stack-programvara, fysiska datorer och fysiska nätverksväxlar för övervakning av externa Azure Stack-infrastrukturen. Dessa områden ger en metod för att hämta information om hälsa och avisering:
 
-- Azure Stack programvara erbjuder ett REST-baserad API för att hämta hälsotillstånd och aviseringar. (Med hjälp av programvarudefinierade tekniker som Storage Spaces Direct lagring hälsotillstånd och aviseringar är en del av programvaran övervakning.).
+- Azure Stack programvara erbjuder ett REST-baserad API för att hämta hälsotillstånd och aviseringar. Användning av programvarudefinierade som Storage Spaces Direct, lagring, hälsotillstånd och aviseringar är en del av programvaran övervakning.
 - Fysiska datorer kan göra hälsa och aviseringsinformation tillgängliga via huvudkortshanteringskontroller (bmc).
 - Fysiska nätverksenheter kan göra hälsa och aviseringsinformation tillgängliga via SNMP-protokollet.
 
@@ -91,433 +90,41 @@ Konfigurera plugin-fil ”Azurestack_plugin.py” med följande parametrar:
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>Använda PowerShell för att övervaka hälsotillstånd och aviseringar
 
 Om du inte använder Operations Manager, Nagios eller en Nagios-baserad lösning kan använda du PowerShell för att aktivera ett brett spektrum av övervakning av lösningar som kan integreras med Azure-stacken.
- 
+
 1. Om du vill använda PowerShell, se till att du har [PowerShell installeras och konfigureras](azure-stack-powershell-configure-quickstart.md) för en Azure-stacken operator-miljö. Installera PowerShell på en lokal dator som kan nå slutpunkten för Resource Manager (administratör) (https://adminmanagement. [Region]. [External_FQDN]).
 
 2. Kör följande kommandon för att ansluta till Azure Stack-miljö som operatör Azure Stack:
 
-   ```PowerShell
-   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+   ```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
-3. Ändra till den katalog där du installerade den [Azure Stack verktyg](https://github.com/Azure/AzureStack-Tools) som en del av PowerShell-installationen, till exempel c:\azurestack-tools-master. Sedan ändra till katalogen infrastruktur och kör följande kommando för att importera modulen infrastruktur:
 
+3. Använd kommandon, till exempel i följande exempel för att arbeta med aviseringar:
    ```PowerShell
-   Import-Module .\AzureStack.Infra.psm1
+    #Retrieve all alerts
+    Get-AzsAlert
+
+    #Filter for active alerts
+    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active
+
+    #Close alert
+    Close-AzsAlert -AlertID "ID"
+
+    #Retrieve resource provider health
+    Get-AzsRPHealth
+
+    #Retrieve infrastructure role instance health
+    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+
     ```
-4. Använd kommandon, till exempel i följande exempel för att arbeta med aviseringar:
-   ```PowerShell
-   #Retrieve all alerts
-   Get-AzsAlert -location [Region]
-
-   #Filter for active alerts
-   $Active=Get-AzsAlert -location [Region] | Where {$_.State -eq "active"}
-   $Active
-
-   #Close alert
-   Close-AzsAlert -location [Region] -AlertID "ID"
-
-   #Retrieve resource provider health
-   Get-AzsResourceProviderHealths -location [Region]
-
-   #Retrieve infrastructure role instance health
-   Get-AzsInfrastructureRoleHealths -location [Region]
-   ```
-
-## <a name="use-the-rest-api-to-monitor-health-and-alerts"></a>Använda REST-API för att övervaka hälsotillstånd och aviseringar
-
-Du kan använda REST API-anrop för att få aviseringar, stänga aviseringar och få hälsotillståndet för resursprovidrar.
-
-### <a name="get-alert"></a>Hämta avisering
-
-**Förfrågan**
-
-Begäran hämtar alla aktiva och stängda aviseringar för providern standardabonnemang. Det finns ingen brödtext i begäran.
-
-
-|Metod  |Förfrågans URI  |
-|---------|---------|
-|HÄMTA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
-|     |         |
-
-**Argument**
-
-|Argumentet  |Beskrivning  |
-|---------|---------|
-|armendpoint     |  Azure Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement.{RegionName}.{External FQDN}. Om den externa FQDN är till exempel *azurestack.external* och regionnamn är *lokala*, och sedan Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.       |
-|subid     |   Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.      |
-|RegionName     |    Regionnamn med Azure Stack-distributionen.     |
-|API-version     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
-|     |         |
-
-**Svar**
-
-```http
-GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/Alerts?api-version=2016-05-01 HTTP/1.1
-```
-
-```json
-{
-"value":[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
-"location":"local",
-"tags":{},
-"properties":
-{
-"closedTimestamp":"",
-"createdTimestamp":"2017-08-10T20:13:57.4398842Z",
-"description":[{"text":"The infrastructure role (Updates) is experiencing issues.",
-"type":"Text"}],
-"faultId":"ServiceFabric:/UpdateResourceProvider/fabric:/AzurestackUpdateResourceProvider",
-"alertId":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"faultTypeId":"ServiceFabricApplicationUnhealthy",
-"lastUpdatedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"alertProperties":
-{
-"healthState":"Warning",
-"name":"Updates",
-"fabricName":"fabric:/AzurestackUpdateResourceProvider",
-"description":null,
-"serviceType":"UpdateResourceProvider"},
-"remediation":[{"text":"1. Navigate to the (Updates) and restart the role. 2. If after closing the alert the issue persists, please contact support.",
-"type":"Text"}],
-"resourceRegistrationId":null,
-"resourceProviderRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"serviceRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"severity":"Warning",
-"state":"Active",
-"title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
-"impactedResourceDisplayName":"UpdateResourceProvider",
-"closedByUserAlias":null
-}
-},
-
-…
-```
-
-**Svarsinformation**
-
-
-|  Argumentet  |Beskrivning  |
-|---------|---------|
-|*ID*     |      Unikt ID för aviseringen.   |
-|*Namn*     |     Internt namn för aviseringen.   |
-|*typ*     |     Resursdefinitionen.    |
-|*Plats*     |       Namn på område.     |
-|*tagg*     |   Resurstaggar.     |
-|*closedtimestamp*    |  UTC-tid då aviseringen stängdes.    |
-|*createdtimestamp*     |     UTC-tid då aviseringen skapades.   |
-|*Beskrivning*     |    Beskrivning av aviseringen.     |
-|*faultid*     | Komponent som berörs.        |
-|*alertid*     |  Unikt ID för aviseringen.       |
-|*faulttypeid*     |  Unik typ av felaktiga komponenten.       |
-|*lastupdatedtimestamp*     |   UTC-tid då aviseringsinformation senast uppdaterades.    |
-|*healthstate*     | Övergripande hälsostatus.        |
-|*Namn*     |   Namnet på den specifika aviseringen.      |
-|*fabricname*     |    Registrerade fabric namnet på den felaktiga komponenten.   |
-|*Beskrivning*     |  Beskrivning av registrerade fabric-komponent.   |
-|*ServiceType*     |   Typ av registrerade fabrikstjänsten.   |
-|*Reparation*     |   Rekommenderade steg.    |
-|*typ*     |   Typ av avisering.    |
-|*resourceRegistrationid*    |     ID för den registrerade resursen som påverkas.    |
-|*resourceProviderRegistrationID*   |    ID för registrerad resursprovider för komponenten som påverkas.  |
-|*serviceregistrationid*     |    ID för en registrerad service.   |
-|*Allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
-|*Tillstånd*     |    Tillstånd för avisering.   |
-|*Rubrik*     |    Aviseringen rubrik.   |
-|*impactedresourceid*     |     ID för påverkas resurs.    |
-|*ImpactedresourceDisplayName*     |     Namnet på resursen påverkas.  |
-|*closedByUserAlias*     |   Användaren som stängde aviseringen.      |
-
-### <a name="close-alert"></a>Stäng avisering 
-
-**Förfrågan**
-
-Begäran stänger en avisering med ett unikt ID.
-
-|Metod    |Förfrågans URI  |
-|---------|---------|
-|PLACERA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
-
-**Argument**
-
-
-|Argumentet  |Beskrivning  |
-|---------|---------|
-|*armendpoint*     |   Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement.{RegionName}.{External FQDN}. Om den externa FQDN är till exempel *azurestack.external* och regionnamn är *lokala*, och sedan Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.      |
-|*subid*     |    Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.     |
-|*RegionName*     |   Regionnamn med Azure Stack-distributionen.      |
-|*API-version*     |    Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.     |
-|*alertid*     |    Unikt ID för aviseringen.     |
-
-**Brödtext**
-
-```json
-
-{
-"value":[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
-"location":"local",
-"tags":{},
-"properties":
-{
-"closedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"createdTimestamp":"2017-08-10T20:13:57.4398842Z",
-"description":[{"text":"The infrastructure role (Updates) is experiencing issues.",
-"type":"Text"}],
-"faultId":"ServiceFabric:/UpdateResourceProvider/fabric:/AzurestackUpdateResourceProvider",
-"alertId":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"faultTypeId":"ServiceFabricApplicationUnhealthy",
-"lastUpdatedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"alertProperties":
-{
-"healthState":"Warning",
-"name":"Updates",
-"fabricName":"fabric:/AzurestackUpdateResourceProvider",
-"description":null,
-"serviceType":"UpdateResourceProvider"},
-"remediation":[{"text":"1. Navigate to the (Updates) and restart the role. 2. If after closing the alert the issue persists, please contact support.",
-"type":"Text"}],
-"resourceRegistrationId":null,
-"resourceProviderRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"serviceRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"severity":"Warning",
-"state":"Closed",
-"title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
-"impactedResourceDisplayName":"UpdateResourceProvider",
-"closedByUserAlias":null
-}
-},
-```
-**Svar**
-
-```http
-PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b?api-version=2016-05-01 HTTP/1.1
-```
-
-```json
-{
-"value":[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
-"location":"local",
-"tags":{},
-"properties":
-{
-"closedTimestamp":"",
-"createdTimestamp":"2017-08-10T20:13:57.4398842Z",
-"description":[{"text":"The infrastructure role (Updates) is experiencing issues.",
-"type":"Text"}],
-"faultId":"ServiceFabric:/UpdateResourceProvider/fabric:/AzurestackUpdateResourceProvider",
-"alertId":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"faultTypeId":"ServiceFabricApplicationUnhealthy",
-"lastUpdatedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"alertProperties":
-{
-"healthState":"Warning",
-"name":"Updates",
-"fabricName":"fabric:/AzurestackUpdateResourceProvider",
-"description":null,
-"serviceType":"UpdateResourceProvider"},
-"remediation":[{"text":"1. Navigate to the (Updates) and restart the role. 2. If after closing the alert the issue persists, please contact support.",
-"type":"Text"}],
-"resourceRegistrationId":null,
-"resourceProviderRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"serviceRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"severity":"Warning",
-"state":"Closed",
-"title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
-"impactedResourceDisplayName":"UpdateResourceProvider",
-"closedByUserAlias":null
-}
-},
-```
-
-**Svarsinformation**
-
-
-|  Argumentet  |Beskrivning  |
-|---------|---------|
-|*ID*     |      Unikt ID för aviseringen.   |
-|*Namn*     |     Internt namn för aviseringen.   |
-|*typ*     |     Resursdefinitionen.    |
-|*Plats*     |       Namn på område.     |
-|*tagg*     |   Resurstaggar.     |
-|*closedtimestamp*    |  UTC-tid då aviseringen stängdes.    |
-|*createdtimestamp*     |     UTC-tid då aviseringen skapades.   |
-|*Beskrivning*     |    Beskrivning av aviseringen.     |
-|*faultid*     | Komponent som berörs.        |
-|*alertid*     |  Unikt ID för aviseringen.       |
-|*faulttypeid*     |  Unik typ av felaktiga komponenten.       |
-|*lastupdatedtimestamp*     |   UTC-tid då aviseringsinformation senast uppdaterades.    |
-|*healthstate*     | Övergripande hälsostatus.        |
-|*Namn*     |   Namnet på den specifika aviseringen.      |
-|*fabricname*     |    Registrerade fabric namnet på den felaktiga komponenten.   |
-|*Beskrivning*     |  Beskrivning av registrerade fabric-komponent.   |
-|*ServiceType*     |   Typ av registrerade fabrikstjänsten.   |
-|*Reparation*     |   Rekommenderade steg.    |
-|*typ*     |   Typ av avisering.    |
-|*resourceRegistrationid*    |     ID för den registrerade resursen som påverkas.    |
-|*resourceProviderRegistrationID*   |    ID för registrerad resursprovider för komponenten som påverkas.  |
-|*serviceregistrationid*     |    ID för en registrerad service.   |
-|*Allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
-|*Tillstånd*     |    Tillstånd för avisering.   |
-|*Rubrik*     |    Aviseringen rubrik.   |
-|*impactedresourceid*     |     ID för påverkas resurs.    |
-|*ImpactedresourceDisplayName*     |     Namnet på resursen påverkas.  |
-|*closedByUserAlias*     |   Användaren som stängde aviseringen.      |
-
-### <a name="get-resource-provider-health"></a>Hämta provider resurshälsa
-
-**Förfrågan**
-
-Begäran hämtar hälsostatus för alla registrerade providrar.
-
-
-|Metod  |Förfrågans URI  |
-|---------|---------|
-|HÄMTA    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
-
-
-**Argument**
-
-
-|Argument  |Beskrivning  |
-|---------|---------|
-|*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement.{RegionName}.{External FQDN}. Till exempel om den externa FQDN är azurestack.external och regionnamn är lokal Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.     |
-|*subid*     |     Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.    |
-|*RegionName*     |     Regionnamn med Azure Stack-distributionen.    |
-|*API-version*     |   Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
-
-
-**Svar**
-
-```http
-GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths?api-version=2016-05-01
-```
-
-```json
-{
-"value":[
-{
-"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
-"name":"03ccf38f-f6b1-4540-9dc8ec7b6389ecca",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/serviceHealths",
-"location":"local",
-"tags":{},
-"properties":{
-"registrationId":"03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
-"displayName":"Key Vault",
-"namespace":"Microsoft.KeyVault.Admin",
-"routePrefix":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local",
-"serviceLocation":"local",
-"infraURI":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local/infraRoles/Key Vault",
-"alertSummary":{"criticalAlertCount":0,"warningAlertCount":0},
-"healthState":"Healthy"
-}
-}
-
-…
-```
-**Svarsinformation**
-
-
-|Argumentet  |Beskrivning  |
-|---------|---------|
-|*Id*     |   Unikt ID för aviseringen.      |
-|*Namn*     |  Internt namn för aviseringen.       |
-|*typ*     |  Resursdefinitionen.       |
-|*Plats*     |  Namn på område.       |
-|*tagg*     |     Resurstaggar.    |
-|*RegistrationId*     |   Unik registrering för resursprovidern.      |
-|*Visningsnamn*     |Visningsnamn för resurs-providern.        |
-|*namnområde*     |   API-namnområdet resursprovidern implementerar.       |
-|*routePrefix*     |    URI för att interagera med resursprovidern.     |
-|*serviceLocation*     |   Den här resursprovidern har registrerats med region.      |
-|*infraURI*     |   URI för resursprovidern listats som en infrastruktur-roll.      |
-|*alertSummary*     |   Sammanfattning av kritiska meddelanden och varningsmeddelanden aviseringen som är associerade med resursprovidern.      |
-|*HealthState*     |    Hälsotillståndet för resursprovidern.     |
-
-
-### <a name="get-resource-health"></a>Hämta resurshälsa
-
-Begäran hämtar hälsostatus för en specifik registrerad resursprovider.
-
-**Förfrågan**
-
-|Metod  |Förfrågans URI  |
-|---------|---------|
-|HÄMTA     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
-
-**Argument**
-
-|Argument  |Beskrivning  |
-|---------|---------|
-|*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement.{RegionName}.{External FQDN}. Till exempel om den externa FQDN är azurestack.external och regionnamn är lokal Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.     |
-|*subid*     |Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.         |
-|*RegionName*     |  Regionnamn med Azure Stack-distributionen.       |
-|*API-version*     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.       |
-|*RegistrationID* |Registrerings-ID för en viss resurs-provider. |
-
-**Svar**
-
-```http
-GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/03ccf38f-f6b1-4540-9dc8-ec7b6389ecca /resourceHealths?api-version=2016-05-01 HTTP/1.1
-```
-
-```json
-{
-"value":
-[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/472aaaa6-3f63-43fa-a489-4fd9094e235f/resourceHealths/028c3916-ab86-4e7f-b5c2-0468e607915c",
-"name":"028c3916-ab86-4e7f-b5c2-0468e607915c",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/serviceHealths/resourceHealths",
-"location":"local",
-"tags":{},
-"properties":
-{"registrationId":"028c3916-ab86-4e7f-b5c2 0468e607915c","namespace":"Microsoft.Fabric.Admin","routePrefix":"/subscriptions/4aa97de3-6b83-4582-86e1 65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local",
-"resourceType":"infraRoles",
-"resourceName":"Privileged endpoint",
-"usageMetrics":[],
-"resourceLocation":"local",
-"resourceURI":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/Privileged endpoint",
-"rpRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"alertSummary":{"criticalAlertCount":0,"warningAlertCount":0},"healthState":"Unknown"
-}
-}
-…
-```
-
-**Svarsinformation**
-
-|Argumentet  |Beskrivning  |
-|---------|---------|
-|*Id*     |   Unikt ID för aviseringen.      |
-|*Namn*     |  Internt namn för aviseringen.       |
-|*typ*     |  Resursdefinitionen.       |
-|*Plats*     |  Namn på område.       |
-|*tagg*     |     Resurstaggar.    |
-|*RegistrationId*     |   Unik registrering för resursprovidern.      |
-|*resourceType*     |Typ av resurs.        |
-|*resourceName*     |   Resursnamnet.   |
-|*usageMetrics*     |    Användning mått för resursen.     |
-|*resourceLocation*     |   Namnet på regionen där distribueras.      |
-|*resourceURI*     |   URI för resursen.   |
-|*alertSummary*     |   Sammanfattning av kritiska och varningsaviseringar hälsostatus.     |
 
 ## <a name="learn-more"></a>Läs mer
 
 Information om inbyggda hälsoövervakning finns [övervaka hälsotillstånd och aviseringar i Azure-stacken](azure-stack-monitor-health.md).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -46,7 +46,7 @@ I en RDS-distribution köras för webbrollen och rollen för fjärrskrivbordsgat
 
 - Både RD webb- och fjärrskrivbordsgateway slutpunkter måste finnas på samma dator och med rot. Webbåtkomst och fjärrskrivbordsgateway publiceras som ett enda program med programproxy så att du har en enkel inloggning mellan de två programmen.
 
-- Du bör redan ha [distribueras RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), och [aktiverade Application Proxy](active-directory-application-proxy-enable.md).
+- Du bör redan ha [distribueras RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), och [aktiverade Application Proxy](manage-apps/application-proxy-enable.md).
 
 - Det här scenariot förutsätter att slutanvändarna går igenom Internet Explorer på Windows 7 eller Windows 10-datorer som ansluter via RD webbsidan. Om du behöver stöd för andra operativsystem, se [stöd för andra klientkonfigurationer](#support-for-other-client-configurations).
 
@@ -58,7 +58,7 @@ När du har installerat RDS och Azure AD Application Proxy för din miljö, gör
 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicera slutpunkten för RD-värden
 
-1. [Publicera ett nytt program med programproxy](application-proxy-publish-azure-portal.md) med följande värden:
+1. [Publicera ett nytt program med programproxy](manage-apps/application-proxy-publish-azure-portal.md) med följande värden:
    - Intern URL: https://\<rdhost\>.com / där \<rdhost\> är vanliga roten webbåtkomst och fjärrskrivbordsgateway delar.
    - Externa URL: Det här fältet fylls i automatiskt baserat på namnet på programmet, men du kan ändra den. Användarna kommer att gå till denna URL när de har åtkomst till Fjärrskrivbordstjänster.
    - Förautentiseringsmetod: Azure Active Directory

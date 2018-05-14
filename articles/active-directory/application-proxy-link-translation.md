@@ -15,17 +15,17 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e2057241065ecefbbcd398ddf482961359f51de7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a96296e8918c658f1dc3ebeadf01bd064e80716a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
 Azure AD Application Proxy gör dina lokala appar tillgängliga för användare som är fjärranslutna eller på sina egna enheter. Vissa appar har utvecklats med lokala länkar som är inbäddade i HTML. De här länkarna fungerar inte när appen används via fjärranslutning. När du har flera lokala program peka till varandra, räknar användarna länkar kan fortsätta arbeta när de inte är på kontoret. 
 
-Det bästa sättet att se till att länkarna fungerar på samma sätt både inom och utanför företagets nätverk är att konfigurera de externa URL: er för dina appar för att vara samma som deras interna URL: er. Använd [anpassade domäner](active-directory-application-proxy-custom-domains.md) att konfigurera externa URL: er om du vill att företagets domännamn i stället för standarddomänen proxy.
+Det bästa sättet att se till att länkarna fungerar på samma sätt både inom och utanför företagets nätverk är att konfigurera de externa URL: er för dina appar för att vara samma som deras interna URL: er. Använd [anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md) att konfigurera externa URL: er om du vill att företagets domännamn i stället för standarddomänen proxy.
 
 
 Om du inte kan använda anpassade domäner i din klientorganisation, finns det flera alternativ för att tillhandahålla den här funktionen. Alla dessa är också kompatibla med anpassade domäner och varandra, så att du kan konfigurera anpassade domäner och andra lösningar om det behövs. 
@@ -40,7 +40,7 @@ Dessa tre funktioner Behåll länkarna fungerar oavsett var dina användarna fin
 
  
 > [!NOTE]
-> Det sista alternativet är endast för klienter som av något skäl inte kan använda anpassade domäner har samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen finns om [anpassade domäner i Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) du kan använda. 
+> Det sista alternativet är endast för klienter som av något skäl inte kan använda anpassade domäner har samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen finns om [anpassade domäner i Azure AD Application Proxy](manage-apps/application-proxy-configure-custom-domain.md) du kan använda. 
 
 >Eller, om programmet som du behöver konfigurera länk översättningen är SharePoint finns [konfigurera alternativa åtkomstmappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) en annan metod för mappning av länkar. 
 
@@ -118,6 +118,6 @@ När användarna har åtkomst till det här programmet ska nu proxyn automatiskt
 Vi vill du att den här funktionen fungerar för alla dina appar. Vi söker efter 30 taggar i HTML- och CSS. Om du har ett exempel på genererade länkar som inte är som översätts skickar du ett kodstycke till [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Använda anpassade domäner med Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) ska ha samma interna och externa URL: en
+[Använda anpassade domäner med Azure AD Application Proxy](manage-apps/application-proxy-configure-custom-domain.md) ska ha samma interna och externa URL: en
 
 [Konfigurera alternativa åtkomstmappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3984c94770290ad29394a06b20f2dc64a980c4a8
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Hur du återställer en Linux VM lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk överensstämmelse med hjälp av VMAccess-tillägget
 Om du inte ansluta till en virtuell Linux-dator på Azure på grund av ett nytt lösenord, en felaktigt SSH (Secure Shell) nyckel eller ett problem med SSH-konfigurationen använder VMAccessForLinux-tillägget med Azure CLI för att återställa lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk konsekvenskontroll. 
@@ -42,7 +42,7 @@ Med Azure CLI, kan du göra följande:
 * [Kontrollera konsekvensen för tillagda diskar](#checkdisk)
 * [Reparera tillagda diskar på Linux-VM](#repairdisk)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste göra följande:
 
 * Du behöver [installerar Azure CLI](../../../cli-install-nodejs.md) och [ansluta till din prenumeration](/cli/azure/authenticate-azure-cli) att använda Azure-resurser som är kopplade till ditt konto.

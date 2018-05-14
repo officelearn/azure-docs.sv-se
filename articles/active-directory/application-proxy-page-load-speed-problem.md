@@ -1,11 +1,11 @@
 ---
-title: "Ett program med Application Proxy tar för lång tid att läsa in | Microsoft Docs"
-description: "Felsökning av problem med sidan belastningen prestanda med Azure AD Application Proxy"
+title: Ett program med Application Proxy tar för lång tid att läsa in | Microsoft Docs
+description: Felsökning av problem med sidan belastningen prestanda med Azure AD Application Proxy
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 517f78f811d57e06b4c6e6f0fad24d3b0f96b6e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Ett program med Application Proxy tar för lång tid att läsa in
 
-Den här artikeln hjälper dig att förstå varför ett program för Azure AD Application Proxy kan ta lång tid att läsa in och vad du kan göra för att lösa problemet.
+Den här artikeln hjälper dig att förstå varför ett program för Azure AD Application Proxy kan ta lång tid att läsa in. Här beskrivs också vad du kan göra för att lösa problemet.
 
 ## <a name="overview"></a>Översikt
-Om dina program fungerar, men du ser en lång fördröjning, kan det finnas några mindre justeringar i nätverkets topologi som du kan överväga för att förbättra hastighet. En utvärdering av olika topologier finns i [nätverk överväganden dokumentet](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
+Även om dina program fungerar, kan det leda till en lång fördröjning. Det kan finnas nätverks topologi justeringar som du kan göra att snabbare. En utvärdering av olika topologier finns i [nätverk överväganden dokumentet](application-proxy-network-topology-considerations.md).
 
-Om dessa överväganden inte hjälper kan har vi tyvärr inte för närvarande ytterligare rekommendationer för prestandajustering. Eftersom tjänsten Application Proxy expanderar till flera datacenter som är närmast du, kanske du vill se bättre svarstid direkt. Om du vill se en fullständig lista över Azure-datacenter, kan du se den [svarstid testsida](http://www.azurespeed.com/Azure/Latency). 
+Förutom nätverkstopologi finns det inga ytterligare rekommendationer för prestandajustering. Som Application Proxy service expanderar komma den till ett datacenter som fysiskt ligger närmare. Det finns närmare kan hjälpa dig med svarstid. En lista över Azure-datacenter, finns det [svarstid testsida](http://www.azurespeed.com/Azure/Latency). 
 
 Datacenter med Application Proxy-tjänsten finns med i [anslutningsverktyget portar Test](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Feedback om Application Proxy data center platser 
-Det kan finnas Azure-datacenter som ännu inte med Application Proxy men skulle leda till en bra svarstid förbättringar för dig. Data center plats <aadapfeedback@microsoft.com> så vi kan använda din feedback för att planera som vi expandera.
+Det kan finnas Azure-datacenter som inte ännu inkludera Application Proxy, men skulle leda till en bra svarstid förbättringar för dig. Data center plats för att skicka aadapfeedback@microsoft.com. Microsoft använder din feedback för expansion planer.
 
-Vi arbetar med vissa ytterligare funktioner som förbättra svarstiden för klienter som för närvarande finns långa fördröjningar och se till att dela dokumentationen när det är tillgängligt.
+Microsoft arbetar på ytterligare funktioner för att förbättra svarstiden. När dessa förbättringar finns uppdateras i dokumentationen.
 
 ## <a name="next-steps"></a>Nästa steg
 [Arbeta med befintliga lokala proxyservrar](application-proxy-working-with-proxy-servers.md)

@@ -1,8 +1,8 @@
 ---
-title: "Felsökning i Windows Azure-filer | Microsoft Docs"
-description: "Felsökning i Windows Azure-filer"
+title: Felsökning i Windows Azure-filer | Microsoft Docs
+description: Felsökning i Windows Azure-filer
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
 editor: na
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 78170df99e9ced304bebd9112d79b5c7e402f218
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsökning av problem med Azure-filer i Windows
 
@@ -55,11 +55,11 @@ Du kan använda Portqry fråga TCP:445 slutpunkten för att förstå om det är 
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
-Om TCP-port 445 blockeras av en regel längs sökvägen, visas följande utdata:
+Om TCP-port 445 blockeras av en regel längs nätverkssökvägen ser du följande utdata:
 
   `TCP port 445 (microsoft-ds service): FILTERED`
 
-Mer information om hur du använder Portqry finns [beskrivning av kommandoradsverktyget Portqry.exe](https://support.microsoft.com/help/310099).
+Mer information om hur du använder Portqry finns i [beskrivningen av kommandoradsverktyget Portqry.exe](https://support.microsoft.com/help/310099).
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
@@ -186,7 +186,7 @@ Om du vill kopiera en fil i nätverket, måste du först dekryptera den. Använd
 
 - Använd den **Kopiera /d** kommando. Det gör de krypterade filerna ska sparas som dekrypterade filer vid målet.
 - Ange följande registernyckel:
-  - Path = HKLM\Software\Policies\Microsoft\Windows\System
+  - Sökväg = HKLM\Software\Policies\Microsoft\Windows\System
   - Värdetypen = DWORD
   - Name = CopyFileAllowDecryptedRemoteDestination
   - Värde = 1

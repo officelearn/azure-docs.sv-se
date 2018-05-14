@@ -5,16 +5,16 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6160e3e6f23bf4eabb33295fa19323c71c7ed18d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -31,9 +31,6 @@ Ja. Mer information om hur du använder funktionen överför CSV-fil finns [Powe
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>Hur kan jag Anpassa min inbjudan e-post?
 Du kan anpassa nästan allt om bjuder in processen med hjälp av den [B2B inbjudan API: er](active-directory-b2b-api.md).
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>Kan en extern inbjudna användare lämnar organisationen när du har fått en inbjudan?
-Bjuda in organisationens administratör kan ta bort en B2B-samarbete gästanvändare från sina kataloger, men gästanvändaren kan inte lämna bjuda in organisationskatalog sig själva. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Gästanvändare kan återställa sina multifaktorautentisering metoden?
 Ja. Gästanvändare kan återställa sina multifaktorautentisering på samma sätt som vanliga användare gör.
@@ -99,9 +96,7 @@ Vi lyssnar hela tiden till din feedback för att förbättra B2B-samarbete. Vi b
 Också gärna skicka dina idéer och rösta på framtida funktioner på [B2B-samarbete idéer](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Kan vi skicka en inbjudan som automatiskt Inlöst så att användaren är bara ”klar”? Eller användaren har alltid klicka dig igenom till inlösning URL?
-Inbjudningar som skickas av en användare i organisationen bjuda in som även är medlem i resurspartnerns organisation behöver inte inlösning av B2B-användare.
-
-Vi rekommenderar att du bjuda in en användare från partnerorganisationen att ansluta till bjuda in organisationen. [Lägg till användaren till gästrollen bjuder in i resursorganisationen](active-directory-b2b-add-guest-to-role.md). Den här användaren kan erbjuda andra användare i resurspartnerns organisation med hjälp av inloggning Användargränssnittet, PowerShell-skript eller API: er. Sedan behöver B2B-samarbete användare från den organisationen inte lösa deras inbjudan.
+En bjuder in kan erbjuda andra användare i partnerorganisationen med hjälp av Användargränssnittet, PowerShell-skript eller API: er. Sedan kan avsändaren av inbjudan skicka gästanvändaren en direktlänk till en delad app. I de flesta fall finns det inte längre behöver öppna e-postinbjudan och klicka på en inlösning URL. Mer information finns i [Azure Active Directory B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Hur fungerar B2B-samarbete när inbjuden partnern använder federation för att lägga till egna lokal autentisering?
 Om partnern har en Azure AD-klient som är federerat till lokal autentisering infrastruktur, uppnås lokalt enkel inloggning (SSO) automatiskt. Om partnern som inte har en Azure AD-klient, skapas en Azure AD-kontot för nya användare. 

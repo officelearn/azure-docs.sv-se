@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Använda skalningsuppsättningar i virtuella datorer i Azure-stacken
 
@@ -38,14 +36,15 @@ Skaluppsättningar för den virtuella datorn stöder inte Autoskala på Azure-st
    Installera och konfigurerade PowerShell för Azure-stacken och Azure Stack-verktyg. Se [komma igång med PowerShell i Azure-stacken](azure-stack-powershell-configure-quickstart.md).
 
    När du har installerat Azure Stack-verktyg, se till att du importera följande PowerShell-modulen (sökväg i förhållande till den. \ComputeAdmin mappen i mappen AzureStack verktyg master):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Avbildning av operativsystemet**
 
    Om du inte har lagt till en operativsystemavbildning till din Azure-stacken Marketplace, se [lägga till Windows Server 2016 VM-avbildning i Azure Stack-marketplace](azure-stack-add-default-image.md).
 
-   För Linux-support, hämta Ubuntu Server 16.04 och lägga till den med hjälp av ```Add-AzsVMImage``` med följande parametrar: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   För Linux-support, hämta Ubuntu Server 16.04 och lägga till den med hjälp av ```Add-AzsPlatformImage``` med följande parametrar: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Lägg till virtuella datorns skaluppsättning
@@ -54,7 +53,7 @@ Redigera följande PowerShell-skript för din miljö och sedan köra den att lä
 
 ``$User`` är det konto som används för att ansluta administratörsportalen. Till exempel serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Uppdatera avbildningar i en skaluppsättning för virtuell dator 
 Användare kan uppdatera avbildningar i skaluppsättningen utan skaluppsättningen behöva återskapas när du har skapat en skaluppsättning för virtuell dator. Processen för att uppdatera en bild är beroende av följande scenarier:
@@ -83,12 +82,14 @@ Användare kan uppdatera avbildningar i skaluppsättningen utan skaluppsättning
 
    Följande är ett exempel på hur du anger *senaste*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Innan skalas upp kan använda en ny avbildning, måste du hämta den nya avbildningen:  
 
@@ -110,12 +111,12 @@ Mer information finns i [operativsystemet diskar och bilder](.\user\azure-stack-
 
 Skala set galleriobjektet om du vill ta bort en virtuell dator, kör följande PowerShell-kommando:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > Galleriobjektet kan inte tas bort omedelbart. Du natt måste uppdatera portalen flera gånger innan objektet visas som tas bort från på Marketplace.
 
-
 ## <a name="next-steps"></a>Nästa steg
 [Vanliga frågor om Azure-stacken](azure-stack-faq.md)
-

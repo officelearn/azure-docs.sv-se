@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Överväganden för att använda virtuella datorer i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Virtuella datorer är en på begäran, skalbara datorresurser som erbjuds av Azure-stacken. När du använder virtuella datorer, måste du förstå att det är skillnad mellan de funktioner som är tillgängliga i Azure och Azure-stacken. Den här artikeln innehåller en översikt över unika överväganden för virtuella datorer och dess funktioner i Azure-stacken. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) artikel.
+Azure Stack virtuella datorer innehåller på begäran skalbara datorresurser. Innan du distribuerar virtuella datorer (VM), måste du förstå skillnaderna mellan de virtuella funktionerna i Azure-stacken och Microsoft Azure. Den här artikeln beskriver dessa skillnader och identifierar viktiga överväganden för planering av distribution av virtuella datorer. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) artikel.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Cheat blad: virtuella skillnader
 
@@ -41,10 +41,12 @@ Virtuella datorer är en på begäran, skalbara datorresurser som erbjuds av Azu
 |Skalningsuppsättningar för virtuella datorer|Autoskala som stöds|Autoskala stöds inte.<br>Lägga till fler instanser i en skala som anges med portalen, Resource Manager-mallar eller PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer
-Azure inför gränserna på flera sätt att undvika överförbrukning av resurser (server lokalt och på tjänstenivå). Utan att placera vissa begränsningar på en innehavare förbrukningen av resurs kan klient-upplevelse påverkas när en mycket brus granne overconsumes resurser. 
-- För nätverk utgång från den virtuella datorn finns bandbredd caps på plats. Versaler i Azure-stacken matchar caps i Azure.  
-- För lagringsresurser implementerar Azure Stack IOPs lagringsgränser för att undvika grundläggande överförbrukning av resurser av klienter för åtkomst till lagring. 
-- För virtuella datorer med flera diskar i bifogade data är maximalt dataflöde för varje enskild datadisk 500 IOPS för HHDs och 2300 IOPS för SSD-enheter.
+
+Azure-stacken inför gränserna för att undvika över förbrukningen av resurser (server lokala och servicenivåer.) Dessa gränser förbättra upplevelsen klient genom att minska effekten av resurser som används av andra klienter.
+
+- För nätverk utgång från den virtuella datorn finns bandbredd caps på plats. Versaler i Azure-stacken är samma som caps i Azure.
+- För lagringsresurser implementerar Azure Stack IOPS lagringsgränser för att undvika grundläggande överförbrukning av resurser av klienter för åtkomst till lagring.
+- För virtuella datorer med flera anslutna diskar är det största genomflödet i varje datadisk 500 IOPS för HHDs och 2300 IOPS för SSD-enheter.
 
 I följande tabell visas de virtuella datorerna som stöds på Azure-Stack tillsammans med deras konfiguration:
 
@@ -61,11 +63,11 @@ I följande tabell visas de virtuella datorerna som stöds på Azure-Stack tills
 |Minnesoptimerad|Dv2-serien     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Minnesoptimerad|DSv2-serien-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Den här konsekvenskontroll innehåller mängd minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
+Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Detta inkluderar mängden minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda för virtuella datorer med samma storlek beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
- Azure-stacken innehåller en liten uppsättning tillägg. Uppdateringar och ytterligare tillägg och är tillgängliga via Marketplace-syndikeringsfeed.
+ Azure-stacken innehåller en liten uppsättning tillägg. Uppdateringar och ytterligare tillägg är tillgängligt via Marketplace-syndikeringsfeed.
 
 Använd följande PowerShell-skript för att hämta listan över tillägg för virtuell dator som är tillgängliga i Azure Stack-miljö:
 
@@ -92,18 +94,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 Listan över resurstyper som stöds och API-versioner kan variera om operatorn molnet uppdaterar din Azure Stack-miljö till en nyare version.
 
 ## <a name="windows-activation"></a>Windows-aktivering
 
-Windows-produkter måste användas i enlighet med användarrättigheter och licensvillkoren för Microsoft. Azure-stacken använder [automatisk aktivering av Virtuella](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) för att aktivera Windows Server virtuella maskiner (VMs). 
- - Eftersom Azure Stack-värden aktiveras med AVMA-nycklar för Windows Server 2016, alla virtuella datorer som kör Windows Server 2012 eller senare aktiveras automatiskt.
- - Virtuella datorer som kör Windows Server 2008 R2 aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx). 
+Windows-produkter måste användas i enlighet med användarrättigheter och licensvillkoren för Microsoft. Azure-stacken använder [automatisk aktivering av Virtuella](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) för att aktivera Windows Server virtuella maskiner (VMs).
+
+- Azure Stack-värd aktiverar Windows med AVMA-nycklar för Windows Server 2016. Alla virtuella datorer som kör Windows Server 2012 eller senare aktiveras automatiskt.
+- Virtuella datorer som kör Windows Server 2008 R2 aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx).
 
 Microsoft Azure använder KMS-aktivering för att aktivera Windows-datorer. Om du flyttar en virtuell dator från Azure-stacken till Azure och stöter aktivera problem, se [aktiveringsproblem för felsökning av Windows Azure virtuella](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Mer information finns på den [felsökning av Windows-aktivering fel på Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support Teamblogg post.
-
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,20 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 842446ec0db96b9234fe0c578481ab06e9f0c896
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till Azure Active Directory B2B-samarbete användare i Azure-portalen
 
 Du kan använda Azure-portalen att bjuda in användare för B2B-samarbete som global administratör eller en användare som har tilldelats någon av rollerna begränsad administratör directory. Du kan be gästanvändare i katalogen, en grupp eller ett program. När du bjuda in användare via någon av dessa metoder inbjudna användarkontot har lagts till Azure Active Directory (Azure AD), med en användare *gäst*. Gästanvändaren måste sedan lösa sina inbjudan för att komma åt resurser.
+
+När du lägger till en gästanvändare till katalogen kan du antingen skicka gästanvändaren en direktlänk till en delad app eller gästanvändaren kan klicka på inlösning Webbadressen i e-postinbjudan. Mer information om hur du inlösning finns [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> Du bör följa stegen i [anvisningar: lägga till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement) att lägga till URL-Adressen för din organisations sekretesspolicy. Som en del av den första gången inbjudan inlösning, måste en inbjudna användare godkänna Licensvillkor för din integritet fortsätta. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Lägga till gästanvändare i katalogen
 
@@ -86,7 +91,7 @@ Så här lägger du till B2B-samarbete användare till ett program som administr
  
 ## <a name="resend-invitations-to-guest-users"></a>Skicka inbjudningar för gästanvändare
 
-Om en gästanvändare inte har ännu Inlöst sina inbjudan, kan du skicka inbjudan.
+Om en gästanvändare inte har ännu Inlöst sina inbjudan, kan du skicka e-postinbjudan.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
@@ -105,6 +110,4 @@ Om en gästanvändare inte har ännu Inlöst sina inbjudan, kan du skicka inbjud
 
 - Information om hur icke-Azure AD-administratörer kan lägga till B2B gästanvändare finns [hur till B2B-samarbete användare av informationsarbetare?](active-directory-b2b-iw-add-users.md)
 - Information om e-postinbjudan finns [elementen i e-postinbjudan B2B-samarbete](active-directory-b2b-invitation-email.md).
-- Information om inlösning-process inbjudan finns [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md).
-
 

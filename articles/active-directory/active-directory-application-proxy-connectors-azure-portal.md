@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ffc453c98f8d21f1cd6f7025387031bdacf073a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av connector-grupper
 
@@ -33,7 +33,7 @@ Alla program som har tilldelats en grupp för anslutningen. Om du inte skapa gru
 >Om du har en stor Application Proxy-distribution kan inte tilldela alla program i standardgruppen för anslutningen. På så sätt kan nya anslutningar får inte någon live trafik tills du tilldelar dem till en grupp i active-koppling. Den här konfigurationen kan du placera kopplingar i ett inaktivt tillstånd genom att flytta dem till standardgruppen, så att du kan utföra underhåll utan att påverka dina användare.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill gruppera dina kontakter har se till att du [installerat flera kopplingar](active-directory-application-proxy-enable.md). När du installerar en ny koppling den automatiskt ansluter den **standard** connector grupp.
+Om du vill gruppera dina kontakter har se till att du [installerat flera kopplingar](manage-apps/application-proxy-enable.md). När du installerar en ny koppling den automatiskt ansluter den **standard** connector grupp.
 
 ## <a name="create-connector-groups"></a>Skapa grupper för anslutningstjänsten
 Följ dessa steg för att skapa så många connector-grupper som du vill använda. 
@@ -126,6 +126,6 @@ I exemplet nedan har två datacenter, A och B, med två kopplingar som fungerar 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå Azure AD Application Proxy-kopplingar](application-proxy-understand-connectors.md)
-* [Aktivera enkel inloggning](application-proxy-sso-overview.md)
+* [Aktivera enkel inloggning](manage-apps/application-proxy-single-sign-on.md)
 
 

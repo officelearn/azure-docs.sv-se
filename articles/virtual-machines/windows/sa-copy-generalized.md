@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure VM
 
@@ -78,6 +78,11 @@ Du kan också generalisera en Linux VM som använder `sudo waagent -deprovision+
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Frigör den virtuella datorn och ställa in tillståndet till generaliserad
+
+> [!IMPORTANT] 
+> Du kan inte lägga till, redigera eller ta bort taggar från en virtuell dator när den har markerats som generaliserad. Om du vill lägga till en tagg till den virtuella datorn, kontrollera att du lägger till taggar innan markeras som generaliserad.
+> 
+
 1. Frigöra VM-resurser.
    
     ```powershell

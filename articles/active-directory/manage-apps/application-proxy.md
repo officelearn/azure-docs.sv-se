@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb71bd0bcaae8d7f9cb3ae357e726ea1f1c00b07
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -51,7 +51,7 @@ Azure AD Application Proxy är:
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Vilka typer av program som fungerar med Application Proxy?
 Du kan komma åt olika typer av interna program med Azure AD Application Proxy:
 
-* Webbprogram som använder [integrerad Windows-autentisering](../active-directory-application-proxy-sso-using-kcd.md) för autentisering  
+* Webbprogram som använder [integrerad Windows-autentisering](application-proxy-configure-single-sign-on-with-kcd.md) för autentisering  
 * Webbprogram som använder formulärbaserad eller [huvud-baserade](../application-proxy-ping-access.md) åtkomst  
 * Web API: er som du vill exponera omfattande program på olika enheter  
 * Program som finns bakom en [servern för fjärrskrivbordsgateway](../application-proxy-publish-remote-desktop.md)  
@@ -87,14 +87,14 @@ Innan du konfigurerar Application Proxy, kontrollera att du har en stöds [Azure
 
 Kom igång med Application Proxy i två steg:
 
-1. [Aktivera Application Proxy och konfigurera anslutningen](../active-directory-application-proxy-enable.md).    
-2. [Publicera program](../application-proxy-publish-azure-portal.md) – Använd guiden snabbt och enkelt för att hämta dina lokala appar publicerade och är åtkomlig via fjärranslutning.
+1. [Aktivera Application Proxy och konfigurera anslutningen](application-proxy-enable.md).    
+2. [Publicera program](application-proxy-publish-azure-portal.md) – Använd guiden snabbt och enkelt för att hämta dina lokala appar publicerade och är åtkomlig via fjärranslutning.
 
 ## <a name="whats-next"></a>Nästa steg
 När du har publicerat din första app finns mycket mer du kan göra med Application Proxy:
 
-* [Aktivera enkel inloggning](../active-directory-application-proxy-sso-using-kcd.md)
-* [Publicera program med ditt domännamn](../active-directory-application-proxy-custom-domains.md)
+* [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
+* [Publicera program med ditt domännamn](application-proxy-configure-custom-domain.md)
 * [Lär dig mer om Azure AD Application Proxy-kopplingar](../application-proxy-understand-connectors.md)
 * [Arbeta med befintliga lokala proxyservrar](../application-proxy-working-with-proxy-servers.md) 
 * [Ange en anpassad startsida](../application-proxy-office365-app-launcher.md)

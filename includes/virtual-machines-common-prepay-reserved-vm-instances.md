@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Förskottsbetala virtuella datorer med reserverade VM-instanser
 
@@ -13,6 +13,7 @@ Betala i förhand för virtuella datorer och spara pengar med den reserverade vi
 Du kan köpa reserverade virtuella Datorinstanserna den [Azure-portalen](https://portal.azure.com). Att köpa en reserverad virtuell dator-instans:
 -   Du måste ha en ägarrollen för minst en Enterprise- eller prenumeration med användningsbaserad betalning.
 -   Enterprise-prenumerationer, reservation inköp måste vara aktiverade i den [EA portal](https://ea.azure.com).
+-   Endast admin agenter eller försäljning agenter kan köpa reservationer för Cloud Solution Providers (CSP) program.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Köp en reserverad virtuell dator-instans
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -50,3 +51,4 @@ Mer information om reserverade instanser för virtuella datorer, finns i följan
 - [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Förstå reserverade användning för Enterprise-registrering](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Windows programvarukostnader ingår inte i reserverade instanser](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Reserverade instanser i programmet för Partner Center Cloud Solution Providers (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

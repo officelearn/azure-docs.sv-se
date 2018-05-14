@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: ffdceeba829cc77d506236274ec1d1cc160eb525
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 7cc4c84ebae7ade4169f8d85a2d5cc11f1df6f87
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute med Azure Site Recovery
 
@@ -46,11 +46,11 @@ Det kombinerade scenariot representeras i följande diagram: ![på-lokal-till-Az
 
 Azure Site Recovery gör det möjligt för katastrofåterställning av [virtuella Azure-datorer](azure-to-azure-architecture.md). Beroende på om din Azure virtuella datorer används [Azure hanterade diskar](../virtual-machines/windows/managed-disks-overview.md), replikeringsdata som skickas till ett Azure Storage-konto eller replik hanterade disken på målet Azure-region. Även om replikering slutpunkter är offentliga replikeringstrafik för Virtuella Azure-replikering som standard inte sker via Internet, oavsett vilket Azure-region som det virtuella källnätverket finns i. Du kan åsidosätta Azures system standardvägen för adressprefixet 0.0.0.0/0 med en [anpassade väg](../virtual-network/virtual-networks-udr-overview.md#custom-routes) och minska VM-trafiken till en lokal virtuell nätverksenhet (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar, bör du [skapa ett virtuellt nätverk tjänstslutpunkten](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för ”lagring” så att replikeringstrafiken inte lämnar Azure gränsen.
 
-För Virtuella Azure-katastrofåterställning, så länge replikeringsdata inte lämnar kolumnrubrikens Azure krävs ExpressRoute inte för replikering. När virtuella datorer växla över till målet Azure-region, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+För Virtuella Azure-katastrofåterställning krävs som standard ExpressRoute inte för replikering. När virtuella datorer växla över till målet Azure-region, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
 Om du redan använder ExpressRoute för att ansluta från ditt lokala datacenter till virtuella Azure-datorer på den käll-regionen, kan du planera för återställning av ExpressRoute-anslutning på målregionen växling vid fel. Du kan använda samma ExpressRoute-krets att ansluta till målregionen via en virtuell nätverksanslutning eller använda en separat ExpressRoute-krets och anslutningen för katastrofåterställning. Olika möjliga scenarier beskrivs [här](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
 
-Du kan replikera virtuella Azure-datorer till någon Azure-region inom samma geografiska kluster som detaljerad [här](../site-recovery/azure-to-azure-support-matrix.md#region-support). Om det valda målet Azure-regionen inte är inom samma geopolitiska region som källa, kan du behöva aktivera ExpressRoute Premium. Mer information [ExpressRoute platser](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [ExpressRoute priser](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+Du kan replikera virtuella Azure-datorer till någon Azure-region inom samma geografiska kluster som detaljerad [här](../site-recovery/azure-to-azure-support-matrix.md#region-support). Om det valda målet Azure-regionen inte är inom samma geopolitiska region som källa, kan du behöva aktivera ExpressRoute Premium. Mer information [ExpressRoute platser](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [ExpressRoute priser](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [ExpressRoute-kretsar](../expressroute/expressroute-circuit-peerings.md).

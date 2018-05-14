@@ -1,11 +1,11 @@
 ---
-title: "Så här öppnar du portar i brandväggen krävs för ett program med Application Proxy | Microsoft Docs"
-description: "Ta reda på vilka portar som bör öppnas för Azure AD Application Proxy ska fungera korrekt"
+title: Så här öppnar du portar i brandväggen krävs för ett program med Application Proxy | Microsoft Docs
+description: Ta reda på vilka portar som bör öppnas för Azure AD Application Proxy ska fungera korrekt
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8d4be108db8c938c0340a7c00a528713d152f126
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b7b8642d29a815ba40655dd9cab519a2b12ecd8
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Så här öppnar du portar i brandväggen krävs för ett program med Application Proxy
 
-En fullständig lista över portarna som krävs och funktionerna i varje port finns i avsnittet förutsättningar i den [Application Proxy dokumentationen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). Observera att Application Proxy endast använder utgående portar.
+En fullständig lista över portarna som krävs och funktionerna i varje port finns i avsnittet förutsättningar i den [Application Proxy dokumentationen](manage-apps/application-proxy-enable.md). Observera att Application Proxy endast använder utgående portar.
 
 Du kan också kontrollera om du har alla de nödvändiga portarna öppna genom att öppna den [anslutningsverktyget portar Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) från ditt lokala nätverk. Flera gröna bockmarkeringarna innebär större flexibilitet. 
 

@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningarna i Azure Search
 Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **lediga**, **grundläggande**, eller **Standard** prisnivåer.
@@ -87,12 +87,13 @@ Kom ihåg att utesluta icke-frågbar data från begäran om du vill behålla sto
 
 ## <a name="indexer-limits"></a>Indexerare gränser
 
-Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, datakällor och indexerare.
+Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, datakällor, kunskaper och indexerare.
 
 | Resurs | Ledigt&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |
+| Maximal kunskaper |3 |5 eller 15 |50 |200 |200 |Gäller inte |
 | Maximal indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Gäller inte |
 | Maximal körtid | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |
 | BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |Gäller inte  |

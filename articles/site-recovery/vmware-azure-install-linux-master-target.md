@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installera en Linux-huvudmålsserver
 När du växlar över dina virtuella datorer till Azure kan du växla tillbaka de virtuella datorerna till den lokala platsen. För att växla tillbaka måste att skydda den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du en lokal huvudmålservern för att ta emot trafiken. 
@@ -330,9 +330,9 @@ När installationen är klar kan du registrera konfigurationsservern med hjälp 
      Vänta tills skriptet har slutförts. Om huvudmålservern har registrerats, visas huvudmålservern på den **Site Recovery-infrastruktur** i portalen.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Installera VMware-verktyg på huvudmålservern
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installera VMware-verktyg / öppna vm verktyg på huvudmålservern
 
-Du måste installera VMware-verktyg på huvudmålservern så att den kan identifiera datalager. Om inte verktygen är installerade, visas skyddar skärmen inte i datalager. Du måste starta om efter installationen av VMware-verktyg.
+Du måste installera VMware-verktyg eller öppna-vm-verktyg på huvudmålservern så att den kan identifiera datalager. Om inte verktygen är installerade, visas skyddar skärmen inte i datalager. Du måste starta om efter installationen av VMware-verktyg.
 
 ### <a name="upgrade-the-master-target-server"></a>Uppgradera huvudmålservern
 

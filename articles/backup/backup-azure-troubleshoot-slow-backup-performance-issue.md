@@ -1,24 +1,24 @@
 ---
-title: "Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup | Microsoft Docs"
-description: "Innehåller felsökningsinformation som hjälper dig att diagnostisera orsaken till Azure Backup prestandaproblem"
+title: Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup | Microsoft Docs
+description: Innehåller felsökningsinformation som hjälper dig att diagnostisera orsaken till Azure Backup prestandaproblem
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6ed1e2d7bfc08afe135cb85995fdebaa30202c23
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 Den här artikeln innehåller felsökningsinformation som hjälper dig att diagnostisera orsaken till långsam prestanda vid säkerhetskopiering av filer och mappar när du använder Azure Backup. När du använder Azure Backup-agenten för att säkerhetskopiera filer, kan det ta längre tid än förväntat säkerhetskopieringsprocessen. Den här fördröjningen kan bero på en eller flera av följande:
@@ -43,7 +43,7 @@ Windows tillhandahåller ett inbyggda verktyg som kallas [Prestandaövervakaren]
 
 Här följer några prestandaräknare och intervall som kan vara användbar vid diagnos av flaskhalsar för optimala säkerhetskopieringar.
 
-| Räknaren | Status |
+| Räknare | Status |
 | --- | --- |
 | Logisk Disk (fysisk Disk)--% inaktiv |• 100% inaktiv till 50% inaktiv = felfri</br>• 49% inaktiv till 20% inaktiv = varnings- eller Övervakare</br>• 19% inaktiv 0% inaktiv = kritiskt eller Out-of-specifikationen |
 | Logisk Disk (fysisk Disk)--% medel Disk sek läsning eller skrivning |• 0,001 ms 0.015 MS = felfri</br>• 0.015 ms 0.025 MS = varnings- eller Övervakare</br>• 0.026 ms eller längre = kritiskt eller Out-of-specifikationen |

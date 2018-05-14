@@ -12,82 +12,144 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS-program tekniska publiceringsguide
 
-Välkommen till guiden Publicera Azure Marketplace SaaS-program Technical. Den här guiden är avsedd att hjälpa kandidat och befintliga utgivare för att visa en lista över sina program och tjänster i Azure Marketplace med SaaS-program som erbjuder.  
-Du vill använda erbjudandet för SaaS-program när lösningen ska distribueras i din egen Azure-prenumeration och kunder kommer att logga in via ett användargränssnitt som du kan skapa och hantera att testa programmet. Detta åstadkoms med hjälp av [Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) utnyttjar den befintliga miljön som utvärderingsversion. Med andra ord är det en kund ledde, värdtjänster kostnadsfri utvärderingsversion. Det är viktigt att exponera din lösning på ett sätt som ger möjlighet att utforska din lösning separat utan avgift eller avgift för centraliserad i molnet och så att den här erbjudandetypen tillhandahåller en utvärderingsversion som matchar hur kunder söka efter molnlösningar.  
+Välkommen till guiden Publicera Azure Marketplace SaaS-program Technical. Den här guiden är avsedd att hjälpa kandidat och befintliga utgivare för att visa en lista över sina program och tjänster i Azure Marketplace med SaaS-program som erbjuder. 
 
-En översikt över alla andra Marketplace-erbjudanden, referera till den [Marketplace Publisher Guide](https://aka.ms/sellerguide).
+För att bättre förstå hur du publicerar ett SaaS-erbjudande, är den här guiden uppdelad i följande avsnitt:
+* Översikt över erbjudande
+* Affärskrav
+* Tekniska krav
+* Process för att publicera
+* Använda Azure Active Directory för att aktivera försök
+* Certifierar din Azure AD-integrering för Marketplace
 
-## <a name="saas-application-technical-guidance"></a>Teknisk vägledning för SaaS-program
-Tekniska krav för SaaS-program är enkelt. Utgivare krävs endast att integreras med Azure AD som ska publiceras.  Azure AD-integrering med program är väl dokumenterat och Microsoft tillhandahåller flera SDK-verktyg och resurser för att åstadkomma detta.  
+## <a name="offer-overview"></a>Översikt över erbjudande  
 
-Om du vill starta, rekommenderar vi att du har en prenumeration som är dedikerad för din Azure Marketplace-publicering, så att du kan isolera arbete från andra initiativ. Dessutom, om de inte redan installerats, rekommenderar vi att du har följande verktyg som en del av din utvecklingsmiljö: 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
-- [Azure Developer Tools (se vad som är tillgängligt)](https://azure.microsoft.com/tools/)  
-- [Visual Studio Code](https://code.visualstudio.com/)  
+SaaS-program finns i både Azure-skyltfönster i följande tabell beskrivs de aktuella tillgängliga alternativ:
 
-### <a name="resources"></a>Resurser
-Följande tabell innehåller länkar till de bästa Azure AD-resurserna för att komma igång: 
+| Storefront alternativet | Visar en lista över | Utvärderingsversion/Transact |  
+| --- | --- | --- |  
+| AppSource | Ja (kontakta mig) | Ja (PowerBI/Dynamics) |
+| Azure Marketplace | Nej | Ja (SaaS-appar) |   
 
-**Dokumentation**
+**Lista:** lista publiceringsalternativ består av en kontakta mig erbjudandetypen och används när en utvärderingsversion eller transaktionsnivå deltagande inte är möjligt. Fördelen med den här metoden är att du kan utgivare med en lösning på marknaden omedelbart tar emot leads som kan omvandlas till erbjudanden för att öka din verksamhet.  
+**Utvärderingsversion/Transact:** kunden har alternativet att köpa direkt eller begära en utvärderingsversion för lösningen. Tillhandahålla en utvärderingsversion upplevelse ökar engagement erbjuds kunder och ger kunder möjlighet att utforska din lösning innan du köper. Du vill ha bättre risken för befordran i skyltfönster med en utvärderingsversion upplevelse och förväntat mer och mer omfattande leads från uppdrag. Försök måste åtminstone innehålla kostnadsfri support under hela utvärderingsperioden.  
 
-- [Azure Active Directory-Guide för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+| Erbjudande för SaaS-appar | Affärskrav | Tekniska krav |  
+| --- | --- | --- |  
+| **Kontakta oss** | Ja | Nej |  
+| **PowerBI / Dynamics** | Ja | Ja (Azure AD-integrering) |  
+| **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
 
-- [Integrera med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
+Mer information om Marketplace-skyltfönster och en beskrivning av varje publiceringsalternativ finns i [Marketplace Publisher Guide](https://aka.ms/sellerguide) och [publiceringsalternativ](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
-- [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+## <a name="business-requirements"></a>Affärskrav
+SaaS erbjuder affärsbehov kan utföras parallellt med de tekniska kraven. De flesta affärsbehov och information som samlas in när du skapar SaaS-erbjudandet i partnerportalen molnet. Kraven är följande: 
+* Acceptera deltagande principer
+* Integrering med Microsoft 
+* Identifiera det erbjudande målgrupp
+* Definiera och avgöra leadhanteringen som ska användas
+* Ställa in sekretesspolicy och användningsvillkor
+* Definiera supportkontakter  
 
-- [Plan för Azure - säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
+Mer information du hittar du i avsnittet [krav för marketplace-publicering](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
-**Videoklipp**
+## <a name="technical-requirements"></a>Tekniska krav
 
-- [Azure Active Directory-autentisering med Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+Tekniska krav för SaaS-program är enkelt. Utgivare krävs endast att integreras med Azure Active Directory (AD Azure) som ska publiceras. Azure AD-integrering med program är väl dokumenterat och Microsoft tillhandahåller flera SDK-verktyg och resurser för att åstadkomma detta.  
 
-- [Azure Active Directory-identitet tekniska genomgång - del 1 av 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+Om du vill starta, rekommenderar vi att du har en prenumeration som är dedikerad för din Azure Marketplace-publicering, så att du kan isolera arbete från andra initiativ. När det är klart kan du börja distribuera SaaS-program i den här prenumerationen att starta utvecklingsarbetet.  
 
-- [Azure Active Directory-identitet tekniska genomgång - del 2 av 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+Bästa dokumentationen för Azure Active Directory, exempel och vägledning finns på följande platser: 
 
-- [Skapa appar med Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+* [Azure Active Directory-Guide för utvecklare](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Microsoft Azure-videor fokuserar på Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+* [Integrera med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
 
-**Utbildning**  
-- [Microsoft Azure för IT-proffs innehåll serien: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Integrera program med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
-**Tjänsten för Azure Active Directory-uppdateringar**  
-- [Tjänsten för Azure AD-uppdateringar](https://azure.microsoft.com/updates/?product=active-directory)
+* [Plan för Azure - säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
+
+Videokurser, kontrollerar du följande:
+
+* [Azure Active Directory-autentisering med Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+
+* [Azure Active Directory-identitet tekniska genomgång - del 1 av 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+
+* [Azure Active Directory-identitet tekniska genomgång - del 2 av 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+
+* [Skapa appar med Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+
+* [Microsoft Azure-videor fokuserar på Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+
+Gratis Azure Active Directory-utbildning finns på  
+* [Microsoft Azure för IT-proffs innehåll serien: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+
+Azure Active Directory tillhandahåller dessutom en plats för att söka efter uppdateringar av tjänsten   
+* [Tjänsten för Azure AD-uppdateringar](https://azure.microsoft.com/updates/?product=active-directory)
 
 Du kan använda följande resurser för support:
-- [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## <a name="the-azure-active-directory-gallery"></a>Azure Active Directory-galleriet
-Du kan också låta programmet visas i Azure AD application gallery som ingår i Azure Marketplace AppStore förutom med programmet visas i Azure Marketplace/AppSource. Kunder som använder Azure AD som en identitetsleverantör kan hitta annan SaaS-program kopplingar publicerade här. IT-administratörer kan lägga till kopplingar från galleriet appen och sedan konfigurera och använda kopplingar för enkel inloggning (SSO) och etablering. Azure AD stöder alla större federation-protokoll för enkel inloggning, inklusive SAML 2.0, OpenID Connect, OAuth och WS-Fed.  
+## <a name="publishing-process"></a>Process för att publicera
 
-När du har testat att integrera dina appar fungerar med Azure AD, skicka din begäran om åtkomst på vår Portal för program-nätverk. Om du har en Office 365-konto kan du använda som för att logga in på portalen. Du kan använda ditt Microsoft-konto (till exempel Outlook eller Hotmail) för att logga in om du inte har något Office 365-konto.
+SaaS publiceringsprocessen har både tekniska och affärskrav steg.  De flesta av det arbete som görs utveckla och integrera Azure Active Directory kan göras parallellt med arbete som krävs för att uppfylla kraven i erbjudandet. Flesta företags behov är en del av SaaS App Offer konfigurationen partnerportalen molnet.  
+Följande diagram visar publishing Huvudsteg för utvärderingsversionen/Transact erbjuder:  
 
-## <a name="program-benefits"></a>Programförmåner
-- Ger den bästa möjliga enkel inloggning för kunder
-- Enkel och minimal konfiguration av programmet
-- Kunder kan söka efter programmet och Sök i galleriet
-- Kunder kan använda den här integreringen oavsett vilka Azure AD-SKU de använder (ledigt, Basic eller Premium)
-- Steg för steg-konfiguration självstudier för våra ömsesidiga kunder
-- Gör att användaren etableringen för samma app om du använder SCIM
+![SaaS publishing steg](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
 
-## <a name="prerequisites"></a>Förutsättningar
-Om du vill visa ett program i Azure AD-galleriet måste först programmet implementera ett av federation-protokoll som stöds av Azure AD. Läs villkoren för Azure AD-programgalleriet på [juridisk Information för Microsoft Azure](https://azure.microsoft.com/support/legal/).  
+I följande tabell beskrivs var och en av de publishing Huvudsteg:  
 
-Nedan beskrivs ytterligare information om nödvändiga komponenter beroende på vilket protokoll du använder:
+| Publiceringen | Beskrivning |   
+| --- | --- |  
+| **Skapa SaaS-program** | Logga in på partnerportalen molnet, Välj **ny**, och välj sedan den **SaaS-appar** erbjuder. |  
+| **Skapa integrering med Azure AD** | Följ de tekniska kraven som beskrivs i föregående avsnitt för att integrera din SaaS erbjudande med Azure AD. |  
+| **Ange inställningar för erbjudande**| Ange alla SaaS erbjudande inledande information. Erbjuder ID och erbjuda namn som du vill använda. |     
+| **Ange den tekniska informationen** | Ange teknisk information om erbjudandet. För SaaS-program lösningens URI och typ av knapp som erbjudandet, förvärv (ledigt, spår eller kontakta mig) krävs. |  
+| **Testa Drive(Optional)** | Det här är en valfri typ av utvärderingsversion, behövs oftast för andra typer av Marketplace erbjuder. Det kan du ha utvärderingsversion som distribuerats i utgivarens prenumerationer kontra slutkunden. |  
+| **Ange erbjudande Storefront material**| I det här avsnittet kommer utgivaren länka och överför logotyper, marknadsföringsmaterial, juridiska dokument och konfigurera Leads hanteringssystemet. |
+| **Ange erbjudande kontakter** | Ange både tekniker kontakter och kontaktinformation för Support för SaaS-erbjudandet. |  
+| **Kontrollera SaaS appen Azure AD-integrering** | Innan du skickar din SaaS-app för publicering, måste du kontrollera att appen är integrerat med Azure AD |  
+| **Publicera erbjudandet**| När erbjudandet och tekniska resurserna har slutförts, kan du skicka erbjudandet. Detta startar publiceringsprocessen, där mallen lösningen är testas, verifiera, certifierad och godkänts för publicering. |
 
-**OpenID Connect** – skapa flera innehavare program i Azure AD och implementera medgivande ramverk för programmet. Skicka inloggningsbegäran om till vanliga slutpunkten så att en kund kan ge medgivande till programmet. Du kan styra kunden användaråtkomst baserat på klient-ID och användarens UPN togs emot i token.  
-**SAML 2.0 eller WS-Fed** -programmet måste ha en möjlighet att göra SAML eller WS-Fed SSO-integrering i SP eller IdP-läge.
+## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök  
+
+Microsoft verifierar alla Marketplace-användare med Azure AD, därför när en autentiserad användare klickar på via din utvärderingsversion registrering i Marketplace och omdirigeras till din utvärderingsversion miljö, du kan etablera användaren direkt till en utvärderingsversion utan en ytterligare inloggning steg. Den token som din app som tar emot från Azure AD under autentiseringen innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. Mer information om token finns [exempel token](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+
+Använda Azure AD för att aktivera 1-Klicka autentisering till din app eller utvärderingsversion gör följande:  
+* Förenklar kundupplevelsen från Marketplace till test.  
+* Underhåller känslan av en i produkten upplevelse även när användaren omdirigeras från Marketplace till din domän eller utvärderingsversion miljö.  
+* Minskar sannolikheten för nedläggning på omdirigering eftersom det inte finns ytterligare tecken i ett steg.  
+* Minskar distribution hinder för stor del av Azure AD-användare.  
+
+## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certifierar din Azure AD-integrering för Marketplace  
+
+Du kan certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt program är en klient eller flera innehavare, och om du är nybörjare till Azure AD federerad enkel inloggning (SSO) eller redan stöder den.  
+
+**För program med flera klienter:**  
+
+Om du redan har stöd för Azure AD, gör du följande:
+1.  Registrera ditt program i Azure-portalen
+2.  Aktivera supportfunktionen för flera innehavare i Azure AD för att hämta en testperiod för en enda klickning. Mer information hittar du [här](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+
+Om du är nybörjare på Azure AD federerad enkel inloggning gör du följande: 
+1.  Registrera ditt program i Azure-portalen
+2.  Utveckla enkel inloggning med Azure AD med hjälp av [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Aktivera stöd för flera innehavare funktion i AAD för att hämta en enda klickning utvärderingsversionen mer information hittar du [här](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+
+**För stöd för en innehavare program, använder du något av följande alternativ:**  
+* Lägga till användare i din katalog som gästanvändare med [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Etablera manuellt försök för kunder med hjälp av kontakta mig
+* Utveckla en per-kund Test-enhet
+* Skapa en flera innehavare demo exempelapp med enkel inloggning
+

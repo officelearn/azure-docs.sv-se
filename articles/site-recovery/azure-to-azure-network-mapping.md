@@ -1,24 +1,24 @@
 ---
-title: "Mappa virtuella nätverk mellan två Azure-regioner i Azure Site Recovery | Microsoft Docs"
-description: "Azure Site Recovery samordnar replikering, redundans och återställning av virtuella datorer och fysiska servrar. Läs mer om redundans till Azure eller till ett sekundärt datacenter."
+title: Mappa virtuella nätverk mellan två Azure-regioner i Azure Site Recovery | Microsoft Docs
+description: Azure Site Recovery samordnar replikering, redundans och återställning av virtuella datorer och fysiska servrar. Läs mer om redundans till Azure eller till ett sekundärt datacenter.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9294940785deb0834a419de8320286783635d68e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mappa virtuella nätverk i olika Azure-regioner
 
@@ -37,7 +37,7 @@ Om du vill mappa Azure-nätverk som finns i ett Azure region (Källnätverk) til
 
 I följande exempel körs den virtuella datorn i Östasien region. Den virtuella datorn replikeras till Sydostasien region.
 
-Om du vill skapa en nätverksmappning från regionen Östasien till Sydostasien region, välj platsen för källnätverket och platsen för målnätverket. Markera **OK**.
+Om du vill skapa en nätverksmappning från regionen Östasien till Sydostasien region, välj platsen för källnätverket och platsen för målnätverket. Välj **OK**.
 
 ![Lägga till nätverket mappning window - Välj käll- och målplatserna för källnätverket](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 

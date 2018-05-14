@@ -1,11 +1,11 @@
 ---
-title: "Problem som loggar in till ett program från åtkomstpanelen | Microsoft Docs"
-description: "Felsökning av problem med åtkomst till ett program från Microsoft Azure AD åtkomstpanelen på myapps.microsoft.com"
+title: Problem som loggar in till ett program från åtkomstpanelen | Microsoft Docs
+description: Felsökning av problem med åtkomst till ett program från Microsoft Azure AD åtkomstpanelen på myapps.microsoft.com
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: f73b7929aea35382f7ca684c866b65e070668d5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5765d64fccba69edd0ebe91a6c34694763e6c539
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problem som loggar in till ett program från åtkomstpanelen
 
@@ -516,7 +516,7 @@ Användare som du har valt att kunna starta programmen på åtkomstpanelen efter
 
 -   UPN (användarens e-postadress)
 
--   TenantID
+-   Klient-ID
 
 -   Typ av webbläsare
 
@@ -525,5 +525,5 @@ Användare som du har valt att kunna starta programmen på åtkomstpanelen efter
 -   Fiddler spårningar
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

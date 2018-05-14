@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ee8f30bc81d3c3bd0bf4659359a6ca3a9280f734
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Hantera enkel inloggning för företagsappar i
 
@@ -28,13 +28,13 @@ Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 Alla program som har ställts in för enkel inloggning kan visas och hanteras i Azure-portalen. Programmen kan hittas i den **alla tjänster** &gt; **företagsprogram** avsnitt i portalen. 
 
-![Företagsprogram bladet][1]
+![Företagsprogram bladet](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 Välj **alla program** att visa en lista över alla appar som har konfigurerats. Om du väljer en app visas resurser för appen, där rapporter kan visas för appen och en rad olika inställningar som kan hanteras.
 
 För att hantera inställningar för enkel inloggning, Välj **enkel inloggning**.
 
-![Programmet resursbladet][2]
+![Programmet resursbladet](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Lägen för enkel inloggning
 **Enkel inloggning** börjar med en **läge** menyn där enkel inloggning läget konfigureras. Tillgängliga alternativ inkluderar:
@@ -76,24 +76,19 @@ Den **konfigurera programmet** meny innehåller nya kortfattat och inbäddade in
 > 
 > 
 
-![Inbäddade dokument][3]
+![Inbäddade dokument](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Lösenordsbaserade inloggning
 Om stöds för programmet att välja lösenordsbaserade SSO-läge och välja **spara** omedelbart konfigureras för att göra lösenordsbaserade enkel inloggning. Mer information om hur du distribuerar lösenordsbaserade SSO finns [hur fungerar enkel inloggning med Azure Active Directory fungerar](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Lösenordsbaserade inloggning][4]
+![Lösenordsbaserade inloggning](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Länkade inloggning
 Om stöds för programmet kan att välja det länkade SSO-läget du ange den URL som du vill att Azure AD-åtkomstpanelen eller Office 365 ska användas när användarna klickar du på den här appen. Läs mer om länkade SSO (kallades tidigare ”befintliga SSO”), [hur fungerar enkel inloggning med Azure Active Directory fungerar](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Länkade inloggning][5]
+![Länkade inloggning](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Feedback
 
 Vi hoppas att du vill med hjälp av den förbättrade Azure AD-upplevelse. Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Vi är glada om hur du skapar nya nya produkter varje dag, och använder din information i form och definiera vad vi bygga härnäst.
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

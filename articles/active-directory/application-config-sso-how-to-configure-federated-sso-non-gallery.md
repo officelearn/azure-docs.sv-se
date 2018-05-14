@@ -1,11 +1,11 @@
 ---
-title: "Så här konfigurerar du federerad enkel inloggning för ett icke-galleriet program | Microsoft Docs"
-description: "Så här konfigurerar du federerad enkel inloggning för ett anpassat program för icke-galleriet som du vill integrera med Azure AD"
+title: Så här konfigurerar du federerad enkel inloggning för ett icke-galleriet program | Microsoft Docs
+description: Så här konfigurerar du federerad enkel inloggning för ett anpassat program för icke-galleriet som du vill integrera med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3296587de5f89b7c96a24ec975249c4705b9f072
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 65df07b6fca62476953ad98dc9e17d9a82c97a53
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program för icke-galleriet
 
@@ -181,4 +181,4 @@ Användare som du har valt att kunna starta dessa program med hjälp av de metod
 Information om hur du anpassar SAML attributet anspråk som skickas till ditt program finns [anspråk mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

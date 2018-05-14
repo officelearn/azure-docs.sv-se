@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1592e47509f2537bef9cbcefd3cf49618561edcc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Skapa dessa behållare för att bygga en effektiv hierarki som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [baserat åtkomstkontroller i Azure rollen](../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md). 
@@ -34,7 +34,7 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 2. Välj **alla tjänster** > **hanteringsgrupper**.
 3. Välj på huvudsidan i **nya hanteringsgruppen.** 
 
-    ![Skapa grupp](media/management-groups/create_main.png) 
+    ![HUVUDGRUPP](media/management-groups/main.png) 
 4.  Fyll i hantering av grupp-ID-fältet. 
     - Den **Hanteringsgruppens ID** är den unika identifieraren för katalogen som används för att skicka kommandon på den här hanteringsgruppen. Den här identifieraren kan inte redigeras när den har skapats eftersom den används i hela systemet Azure för att identifiera den här gruppen. 
     - Visningsnamnet är det namn som visas i Azure-portalen. Ett separat visningsnamn är valfri när du skapar management gruppen och kan ändras när som helst.  

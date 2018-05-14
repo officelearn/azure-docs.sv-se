@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: 7783d08283c2ff3fd277e9c8604c9d4cff242510
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74af858c433db2a178d5fa346315e3f8a2dbd4f2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråksmedvetna appar i Application Proxy
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till den säkerhet säkerhetstokentjänst (STS). STS begär autentiseringsuppgifter från användare mot en token och omdirigeras användaren till programmet. Det finns några sätt att aktivera Application Proxy ska fungera med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna program. 
@@ -28,7 +28,7 @@ Se till att STS som appen anspråksmedvetna omdirigerar till är tillgängligt u
 
 ## <a name="publish-your-application"></a>Publicera programmet
 
-1. Publicera programmet enligt instruktionerna i [publicera program med programproxy](application-proxy-publish-azure-portal.md).
+1. Publicera programmet enligt instruktionerna i [publicera program med programproxy](manage-apps/application-proxy-publish-azure-portal.md).
 2. Gå till sidan program i portalen och välj **enkel inloggning**.
 3. Om du väljer **Azure Active Directory** som din **förautentisering metoden**väljer **Azure AD enkel inloggning inaktiverat** som din **internt Autentiseringsmetod**. Om du väljer **Passthrough** som din **förautentisering metoden**, behöver du inte ändra något.
 
@@ -38,7 +38,7 @@ Du kan konfigurera AD FS för anspråksmedvetna program i ett av två sätt. Fö
 
 ### <a name="option-1-custom-domains"></a>Alternativ 1: Anpassade domäner
 
-Om alla interna URL: er för dina program är fullständigt kvalificerade domännamn (FQDN), så du kan konfigurera [anpassade domäner](active-directory-application-proxy-custom-domains.md) för dina program. Använd anpassade domäner för att skapa externa URL: er som är samma som de interna URL: er. När de externa URL: er matchar din interna URL: er, fungerar STS omdirigeringar om användarna är lokala eller fjärranslutna. 
+Om alla interna URL: er för dina program är fullständigt kvalificerade domännamn (FQDN), så du kan konfigurera [anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md) för dina program. Använd anpassade domäner för att skapa externa URL: er som är samma som de interna URL: er. När de externa URL: er matchar din interna URL: er, fungerar STS omdirigeringar om användarna är lokala eller fjärranslutna. 
 
 ### <a name="option-2-ws-federation"></a>Alternativ 2: WS-Federation
 
@@ -53,7 +53,7 @@ Om alla interna URL: er för dina program är fullständigt kvalificerade domän
    ![Lägga till en slutpunkt - värdet betrodda URL – skärmbild](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktivera enkel inloggning på](application-proxy-sso-overview.md) för program som inte är anspråksmedvetna
+* [Aktivera enkel inloggning på](manage-apps/application-proxy-single-sign-on.md) för program som inte är anspråksmedvetna
 * [Aktivera ursprunglig klientappar att interagera med proxy-program](active-directory-application-proxy-native-client.md)
 
 

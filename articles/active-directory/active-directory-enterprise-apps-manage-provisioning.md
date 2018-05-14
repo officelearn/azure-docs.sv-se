@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ebc4de2b3a01138a8b48cc637dcab5fc67a68841
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto-etablering för företagsappar i Azure-portalen
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användar konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till i kategorin ”aktuell” för den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -27,13 +27,13 @@ Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 Alla program som är konfigurerade för enkel inloggning i en katalog med en directory-administratör med hjälp av den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen kan hittas i den **alla tjänster** &gt; **företagsprogram** avsnitt i portalen. Enterprise-appar är appar som har distribuerats och används i din organisation.
 
-![Fönstret företagsprogram][0]
+![Fönstret företagsprogram](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 
 Att välja den **alla program** länken till vänster som visar en lista över alla appar som har konfigurerats, inklusive appar som har lagts till från galleriet. Markera en app laddas fönstret resurs för appen, där rapporter kan visas för appen och en rad olika inställningar som kan hanteras.
 
 Användarkontot provisioning-inställningar kan hanteras genom att välja **etablering** till vänster.
 
-![Programmet resurs fönstret][1]
+![Programmet resurs fönstret](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Etablering lägen
 Den **etablering** rutan börjar med en **läge** menyn som visar vilka etablering lägen stöds för ett företagsprogram och gör att de kan konfigureras. Tillgängliga alternativ inkluderar:
@@ -54,7 +54,7 @@ Det här avsnittet är där administratörer kan visa och redigera vad användar
 
 Det finns en förkonfigurerad uppsättning mappningar mellan användarobjekt i Azure AD och användarobjekt för varje SaaS-app. Vissa appar hantera andra typer av objekt, till exempel grupper eller kontakter. Att välja ett av dessa mappningar i tabellen visar redigeraren mappning till höger, där de kan visas och anpassat.
 
-![Programmet resurs fönstret][2]
+![Programmet resurs fönstret](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.png)
 
 Anpassningar som stöds är:
 
@@ -80,7 +80,3 @@ Länkar som den **etablering aktivitetsrapport** som ger en logg över alla anv�
 
 Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Teknikteamet taggade om hur du skapar nya nya produkter varje dag och de använder din information i form och definierar vad du ska bygga härnäst.
 
-
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
-[1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Öppen källkod tekniker vanliga frågor och svar för Web Apps i Azure
 
@@ -137,22 +137,22 @@ För Azure Marketplace och anpassade distributioner:
 
 * Mapp: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Filer av intresse:
-    * catalina.*yyyy-mm-dd*.log
+    * catalina. *åååå-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost.*yyyy-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
-    * site_access_log.*yyyy-mm-dd*.log
+    * Manager. *åååå-mm-dd*.log
+    * site_access_log. *åååå-mm-dd*.log
 
 
 För portalen **appinställningar** distributioner:
 
 * Mapp: D:\home\LogFiles
 * Filer av intresse:
-    * catalina.*yyyy-mm-dd*.log
+    * catalina. *åååå-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost.*yyyy-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
-    * site_access_log.*yyyy-mm-dd*.log
+    * Manager. *åååå-mm-dd*.log
+    * site_access_log. *åååå-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hur felsöker jag JDBC driver-anslutningsfel
 

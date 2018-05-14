@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8963dfb3c2d8b81309f44fcdcaab7ddc0b403e7e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -24,14 +24,14 @@ ms.lasthandoff: 05/11/2018
 
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (AD Azure) reporting. Läs mer i informationen om [Azure Active Directory-rapportering](active-directory-reporting-azure-portal.md). 
 
-**F: Jag använder den https://graph.windows.net/ &lt;innehavarens namn&gt;/reports/ endpoint-API: er pull Azure AD-granskning och integrerad programanvändning rapporter i vårt reporting system programmässigt. Vad bör jag växla till?**
+**F: Jag använder den https://graph.windows.net/&lt; innehavarens namn&gt;/reports/ endpoint-API: er pull Azure AD-granskning och integrerad programanvändning rapporter i vårt reporting system programmässigt. Vad bör jag växla till?**
 
 **S:** Leta upp den [API-referensdokumentation](https://developer.microsoft.com/graph/) att se hur du kan använda de nya API: er för att komma åt [aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Den här slutpunkten har två rapporter (granskning och inloggningar) som innehåller alla data som du fick i den gamla API-slutpunkten. Den här nya slutpunkten har även en rapport för inloggningar med Azure AD Premium-licens som du kan använda för att få appanvändning, användning av enhet och logga in användarinformation.
 
 
 --- 
 
-**F: Jag använder den https://graph.windows.net/ &lt;innehavarens namn&gt;/reports/ endpoint API: er kan hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra reporting system programmässigt. Vad bör jag växla till?**
+**F: Jag använder den https://graph.windows.net/&lt; innehavarens namn&gt;/reports/ endpoint API: er kan hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra reporting system programmässigt. Vad bör jag växla till?**
 
 **S:** du kan använda den [identitetsskydd riskhändelser API](active-directory-identityprotection-graph-getting-started.md) till access security identifieringar via Microsoft Graph. Detta nya format ger större flexibilitet i hur du kan fråga efter data med avancerade filter, val av fält och mycket mer och standardiserar riskhändelser till en typ för enklare integrering med siem-servrar och andra verktyg för insamling av data. Eftersom data är i ett annat format, kan du ersätta en ny fråga för dina gamla frågor. Dock [nya API: N använder Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft standard för dessa API: er som O365 eller Azure AD. Så att arbetet som krävs kan antingen utöka din aktuella MS Graph investeringar eller hjälp kan du börja övergången till den här nya standard plattformen.
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: Vad är datalagring för aktivitetsloggar (granskning och inloggningar) i Azure portal?** 
 
-**S:** finns [för hur länge lagras insamlade data?} (Rapportkvarhållningsregler i azure Active Directory](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) för ett svar på frågan.
+**S:** finns [för hur länge lagras insamlade data?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) för ett svar på frågan.
 
 --- 
 

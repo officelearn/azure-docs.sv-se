@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Skapa en blockchain program i Azure Blockchain arbetsstationen
 
 Du kan använda Azure Blockchain arbetsstationen för att skapa blockchain program som representerar flerparti arbetsflöden som definieras av konfiguration och kontraktkod som smart.
 
-Du lär dig hur du:
+Lär dig att:
 
 > [!div class="checklist"]
 > * Konfigurera ett blockchain-program
@@ -35,6 +35,8 @@ Du lär dig hur du:
 * Ett administratörskonto Blockchain arbetsstationen. Mer information finns i lägga till [Blockchain arbetsstationen administratörer i Azure Blockchain arbetsstationen](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 Vi ska skapa ett grundläggande program där en begärande skickar en begäran och skicka ett svar på begäran för en Övervakare. En begäran kan till exempel vara, ”Hello, hur är du”?, och svaret kan vara, ”jag är bra”!. Både begäran och svar registreras på den underliggande blockchain. 
+
+Följ stegen för att skapa programfilerna eller så kan du [hämta exemplet från GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>Konfigurationsfilen
 
@@ -398,4 +400,7 @@ Mer information om hur du hanterar användare i Blockchain arbetsstationen finns
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat ett program kan försöka [med hjälp av en blockchain](blockchain-workbench-use.md).
+Du har skapat en grundläggande förfrågan och svar-program i den här artikeln. Om du vill lära dig mer om att använda programmet, fortsätta till nästa anvisningar artikeln.
+
+> [!div class="nextstepaction"]
+> [Med hjälp av en blockchain](blockchain-workbench-use.md)

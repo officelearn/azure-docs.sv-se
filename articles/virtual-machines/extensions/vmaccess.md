@@ -3,7 +3,7 @@ title: Återställa åtkomst till en Azure Linux-dator | Microsoft Docs
 description: Hur du hanterar administrativa användare och återställa åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: danielsollondon
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,19 +13,39 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: danlep
-ms.openlocfilehash: a364d3c8c0297d988bc6a31b31921b49e70394bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/10/2018
+ms.author: danis
+ms.openlocfilehash: b90b7948d10ff91f3c63b772bc302b1def416f2b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI 2.0
+
+## <a name="overview"></a>Översikt
+
 Disken på Linux-VM visas fel. Du på något sätt återställa rotlösenordet för Linux-VM eller tagits bort av misstag din privata SSH-nyckel. Om detta har inträffat i dagar för datacenter, behöver du köra det och öppna sedan KVM få vid servern. Se Azure VMAccess-tillägget som den KVM-växel som gör att du kan använda konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
 
-Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, återställa användaråtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux. Du kan också utföra dessa steg med [Azure CLI 1.0](../linux/using-vmaccess-extension-nodejs.md).
+Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, återställa användaråtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux när de körs som virtuella datorer i Azure Resource Manager. Om du behöver hantera klassiska virtuella datorer – du kan följa anvisningarna i den [klassiska Virtuella dokumentationen](../linux/classic/reset-access-classic.md). 
 
+## <a name="prerequisites"></a>Förutsättningar
+
+### <a name="operating-system"></a>Operativsystem
+
+Tillägget för virtuell dator åtkomst kan köras mot dessa Linux-distributioner:
+
+
+| Distribution | Version |
+|---|---|
+| Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
+| Debian | Debian 7,9 +, 8.2 + |
+| Redhat | RHEL 6.7 +, 7.1 + |
+| Oracle Linux | 6.4+, 7.0+ |
+| SUSE | 11 och 12 |
+| OpenSuse | openSUSE Leap 42.2 + |
+| CentOS | CentOS 6.3 + 7.0 + |
+| CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Sätt att använda VMAccess-tillägget
 Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella Linux-datorer:

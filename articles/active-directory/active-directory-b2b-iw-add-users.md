@@ -5,20 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: a758fe4d9cb00af56f7b8ba6b894f0e87ee8c0d3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ab78d6530bb792ad01a04c6774fe680579251db
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Hur lägger informationsarbetare till B2B-samarbete användare till Azure Active Directory?
 
 Informationsanställda kan använda den [programmet åtkomstpanelen](http://myapps.microsoft.com) lägger B2B-samarbete användare till grupper och program som de administrerar.
+
+När en gästanvändare har lagts till katalogen kan informationsanställda kan antingen skicka gästanvändaren en direktlänk till en delad app eller gästanvändaren kan klicka på inlösning Webbadressen i e-postinbjudan. Mer information om hur du inlösning finns [B2B-samarbete inbjudan inlösning](active-directory-b2b-redemption-experience.md).
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>IT-anställda lägga till B2B-samarbete användare till ett program
 Tilldela B2B-samarbete användare till en app som en informationsanställd i en partnerorganisation som visas i följande video:

@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a925f8be619d0a4606205eeba5f78b2e8ba8a188
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 79ee3aca783d7c29959c2730696a313bf821b3bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -34,7 +34,7 @@ Använda Azure AD Authentication Library, som tar hand om autentisering och stö
 Den här artikeln vägleder dig genom fyra stegen för att publicera en interna program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
 ## <a name="step-1-publish-your-application"></a>Steg 1: Publicera programmet
-Publicera programmet proxy precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med programproxy](application-proxy-publish-azure-portal.md).
+Publicera programmet proxy precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med programproxy](manage-apps/application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>Steg 2: Konfigurera ditt program
 Konfigurera ditt interna program på följande sätt:
@@ -47,7 +47,7 @@ Konfigurera ditt interna program på följande sätt:
    ![Skapa en ny appregistrering](./media/active-directory-application-proxy-native-client/create.png)
 5. Välj **Skapa**.
 
-Mer detaljerad information om hur du skapar en ny appregistrering finns [integrera program med Azure Active Directory](.//develop/active-directory-integrating-applications.md).
+Mer detaljerad information om hur du skapar en ny appregistrering finns [integrera program med Azure Active Directory](./develop/active-directory-integrating-applications.md).
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Steg 3: Ge tillgång till andra program
@@ -97,4 +97,4 @@ När ADAL har redigerats med följande parametrar måste ska användarna kunna a
 
 Mer information om det ursprungliga programmet flödet finns [programspecifika i webb-API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Lär dig mer om hur du konfigurerar [enkel inloggning för Application Proxy](application-proxy-sso-overview.md)
+Lär dig mer om hur du konfigurerar [enkel inloggning för Application Proxy](manage-apps/application-proxy-single-sign-on.md)

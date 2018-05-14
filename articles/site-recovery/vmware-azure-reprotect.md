@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: aec87625cd00b11b41c248eecf7af650ae57036f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Skyddar datorer från Azure till en lokal plats
 
@@ -79,7 +79,7 @@ När du har skapat en huvudmålserver kan du göra följande:
     - Standard-kvarhållningsvolymen för Windows är R-volym.
     - Standard-kvarhållningsvolymen för Linux är /mnt/retention.
 - Du måste lägga till en ny enhet om du använder en befintlig process serverkonfiguration/server-dator eller en skala eller en process server eller huvudtjänsten server måldatorn. Den nya enheten ska kraven ovan. Om kvarhållningsenhetens inte finns, visas den inte i listrutan markeringen på portalen. När du lägger till en enhet till lokala huvudmålservern tar upp till 15 minuter för enheten visas i markeringen på portalen. Du kan också uppdatera konfigurationsservern om enheten inte visas efter 15 minuter.
-- Installera VMware-verktygen på huvudmålservern. Datastores på ESXi-värd på huvudmålservern kan inte identifieras utan VMware-verktyg.
+- Installera VMware-verktyg eller öppna-vm-verktyg på huvudmålservern. Utan verktyg, kan datastores på ESXi-värd på huvudmålservern inte identifieras.
 - Ange den `disk.EnableUUID=true` i konfigurationsparametrar för huvudmålservern virtuell dator i VMware. Om den här raden inte finns, kan du lägga till den. Den här inställningen krävs för att ge en konsekvent UUID till den virtuella disken (VMDK) så att den monterar korrekt.
 - ESX-värd som huvudmålservern ska skapas bör ha minst en VMFS datalagret som kopplats till den. Om det finns ingen, den **Datastore** indata på sidan Skapa nytt är tomt, och du kan inte fortsätta.
 - Huvudmålservern kan inte ha ögonblicksbilder på diskarna. Om det finns ögonblicksbilder, misslyckas återaktivera skydd och återställning efter fel.

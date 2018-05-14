@@ -1,11 +1,11 @@
 ---
-title: "Problem med att logga ett program för Azure AD-galleriet konfigurerad för enkel inloggning | Microsoft Docs"
-description: "Beskriver problemområden som vägledning för att felsöka problem med att logga in på Azure AD-galleriet program konfigurerade för lösenord för enkel inloggning"
+title: Problem med att logga ett program för Azure AD-galleriet konfigurerad för enkel inloggning | Microsoft Docs
+description: Beskriver problemområden som vägledning för att felsöka problem med att logga in på Azure AD-galleriet program konfigurerade för lösenord för enkel inloggning
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c01bf353c9617811e14a3d60f91584b57ac0b5e7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med att logga att ett program för Azure AD-galleriet som konfigurerats för lösenord för enkel inloggning
 
@@ -186,7 +186,7 @@ Användare som du har valt att kunna starta programmen på åtkomstpanelen efter
 
 -   UPN (användarens e-postadress)
 
--   TenantID
+-   Klient-ID
 
 -   Typ av webbläsare
 
@@ -195,5 +195,5 @@ Användare som du har valt att kunna starta programmen på åtkomstpanelen efter
 -   Fiddler spårningar
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

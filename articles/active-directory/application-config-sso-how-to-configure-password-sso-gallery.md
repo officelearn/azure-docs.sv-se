@@ -1,11 +1,11 @@
 ---
-title: "Så här konfigurerar du lösenord för enkel inloggning för ett program för Azure AD-galleriet | Microsoft Docs"
-description: "Hur du konfigurerar ett program för säker lösenordsbaserad enkel inloggning när det finns redan i Azure AD Application Gallery"
+title: Så här konfigurerar du lösenord för enkel inloggning för ett program för Azure AD-galleriet | Microsoft Docs
+description: Hur du konfigurerar ett program för säker lösenordsbaserad enkel inloggning när det finns redan i Azure AD Application Gallery
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aa02bfd22a656024d8638226dc1c5551b63e6d42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8e1d8471d2feb838a6ba3eb08eedc3ca4d30ab07
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett program för Azure AD-galleriet
 
@@ -179,4 +179,4 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 Användare som du har valt att kunna starta programmen på åtkomstpanelen efter en kort period.
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

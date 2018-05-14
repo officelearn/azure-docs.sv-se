@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -52,57 +52,24 @@ Du har tre konfigurationsalternativ:
 - Två HBase-kluster i två olika virtuella nätverk i samma region.
 - Två HBase-kluster i två olika virtuella nätverk i två olika regioner (geo-replikering).
 
+Den här artikeln beskriver scenariot geo-replikering.
+
 Som hjälper dig att ställa in miljöerna, har vi skapat några [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md). Om du vill konfigurera i miljöer med hjälp av andra metoder, se:
 
 - [Skapa Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Skapa HBase-kluster i Azure-nätverk](apache-hbase-provision-vnet.md)
 
-### <a name="set-up-one-virtual-network"></a>Konfigurera ett virtuellt nätverk
-
-Välj följande bild för att skapa två HBase-kluster i samma virtuella nätverk. Mallen finns på [Azure QuickStart mallar](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### <a name="set-up-two-virtual-networks-in-the-same-region"></a>Konfigurera två virtuella nätverk i samma region
-
-Välj följande bild för att skapa två virtuella nätverk med virtuella nätverk peering och två HBase-kluster i samma region. Mallen finns på [Azure QuickStart mallar](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-Det här scenariot kräver [virtuellt nätverk peering](../../virtual-network/virtual-network-peering-overview.md). Mallen kan virtuella nätverk peering.   
-
-HBase-replikering använder IP-adresserna för de virtuella datorerna ZooKeeper. Du måste konfigurera statiska IP-adresser för mål HBase ZooKeeper noder.
-
-**Konfigurera statiska IP-adresser**
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. På den vänstra menyn väljer **resursgrupper**.
-3. Välj den resursgrupp som har mål HBase-kluster. Det här är den resursgrupp som du angav när du använde Resource Manager-mall för att skapa miljön. Du kan använda filtret för att begränsa listan. Du kan se en lista över resurser som innehåller två virtuella nätverk.
-4. Välj det virtuella nätverk som innehåller mål HBase-kluster. Välj exempelvis **xxxx vnet2**. Tre enheter med namn som börjar med **nic-zookeepermode -** visas. Dessa enheter finns tre ZooKeeper virtuella datorer.
-5. Välj någon av de virtuella datorerna ZooKeeper.
-6. Välj **IP-konfigurationer**.
-7. Välj i listan, **ipConfig1**.
-8. Välj **Statiska**, och kopiera eller skriva ned den IP-adressen. Du måste IP-adress när du kör instruktionen skript för att aktivera replikering.
-
-  ![HDInsight HBase-replikering ZooKeeper statisk IP-adress](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. Upprepa steg 6 till den statiska IP-adressen för de andra två ZooKeeper-noderna.
-
-För scenariot mellan virtuella nätverk måste du använda den **- IP-** växeln när du anropar den `hdi_enable_replication.sh` skript åtgärd.
-
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Konfigurera två virtuella nätverk i två olika regioner
 
-Skapa två virtuella nätverk i två olika regioner och VPN-anslutning mellan till Vnet, klicka på följande bild. Mallen finns i [Azure QuickStart mallar](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+För att skapa två virtuella nätverk i två olika regioner och VPN-anslutning mellan till Vnet, väljer du följande bilden för att skapa den. Mallen finns i [offentlig blob storage]] (https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Vissa hårdkodade värden i mallen:
 
 **Virtuellt nätverk 1**
 
-| Egenskap | Värde |
+| Egenskap  | Värde |
 |----------|-------|
 | Plats | Västra USA |
 | Namn på virtuella nätverk | &lt;ClusterNamePrevix >-vnet1 |
@@ -116,15 +83,10 @@ Vissa hårdkodade värden i mallen:
 | VPN gateway-typ | Routningsbaserad |
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
-| Klusternamn | &lt;ClusterNamePrefix > 1 |
-| Klusterversion | 3.6 |
-| Typ av kluster | hbase |
-| Antalet för kluster worker nod | 2 |
-
 
 **VNet 2**
 
-| Egenskap | Värde |
+| Egenskap  | Värde |
 |----------|-------|
 | Plats | Östra USA |
 | Namn på virtuella nätverk | &lt;ClusterNamePrevix >-vnet2 |
@@ -138,14 +100,176 @@ Vissa hårdkodade värden i mallen:
 | VPN gateway-typ | Routningsbaserad |
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
-| Klusternamn | &lt;ClusterNamePrefix > 2 |
-| Klusterversion | 3.6 |
-| Typ av kluster | hbase |
-| Antalet för kluster worker nod | 2 |
 
-HBase-replikering använder IP-adresserna för de virtuella datorerna ZooKeeper. Du måste konfigurera statiska IP-adresser för mål HBase ZooKeeper noder. Om du vill konfigurera statiska IP-Adressen finns [konfigurera två virtuella nätverk i samma region](#set-up-two-virtual-networks-in-the-same-region) i den här artikeln.
+## <a name="setup-dns"></a>Konfigurera DNS
 
-För scenariot mellan virtuella nätverk måste du använda den **- IP-** växeln när du anropar den `hdi_enable_replication.sh` skript åtgärd.
+I det sista avsnittet skapas en virtuell Ubuntu-dator i var och en av de två virtuella nätverk i mallen.  I det här avsnittet Installera Bind på två DNS-virtuella datorer och sedan konfigurera DNS-vidarebefordran på två virtuella datorer.
+
+Om du vill installera Bind måste yon att hitta den offentliga IP-adressen för två DNS-virtuella datorer.
+
+1. Öppna [Azure-portalen](https://portal.azure.com).
+2. Öppna DNS-virtuella datorn genom att välja **resursgrupper > [resursgruppens namn] > [vnet1DNS]**.  Resursgruppens namn är det du har skapat i föregående procedur. Standard DNS-namn för virtuell dator är *vnet1DNS* och *vnet2NDS*.
+3. Välj **egenskaper** att öppna egenskapssidan för det virtuella nätverket.
+4. Skriv ned den **offentliga IP-adressen**, och även kontrollera den **privata IP-adressen**.  Den privata IP-adressen är **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  
+
+Använd följande procedur om du vill installera bindning:
+
+1. Använda SSH för att ansluta till den __offentliga IP-adressen__ för den virtuella datorn i DNS. I följande exempel ansluter till en virtuell dator på 40.68.254.142:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Ersätt `sshuser` med SSH-användarkonto som du angav när du skapar den virtuella datorn i DNS.
+
+    > [!NOTE]
+    > Det finns flera olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
+    >
+    > * [Azure-molnet Shell](../../cloud-shell/quickstart.md)
+    > * [Bash på Ubuntu på Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. Använd följande kommandon från SSH-sessionen om du vill installera bindning:
+
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
+    ```
+
+3. Om du vill konfigurera Bind att vidarebefordra begäran till din DNS-server för lokal namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` filen:
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > Ersätter värdena i den `goodclients` avsnitt med IP-adressintervall i två virtuella nätverk. Det här avsnittet beskriver de adresser som DNS-servern accepterar begäranden från.
+
+    Om du vill redigera den här filen använder du följande kommando:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    Om du vill spara filen, Använd __Ctrl + X__, __Y__, och sedan __RETUR__.
+
+4. Använd följande kommando från SSH-session:
+
+    ```bash
+    hostname -f
+    ```
+
+    Det här kommandot returnerar ett värde som liknar följande:
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    Den `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är den __DNS-suffix__ för den här virtuella nätverket. Spara det här värdet eftersom det används senare.
+
+    Du måste också reda på DNS-suffix från DNS-servern. Du behöver den i nästa steg.
+
+5. Konfigurera Bind att matcha DNS-namn för resurser i det virtuella nätverket med följande text som innehållet i den `/etc/bind/named.conf.local` filen:
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > Du måste ersätta den `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med DNS-suffixet för det virtuella nätverket. Vidarebefordraren IP-Adressen är den privata IP-adressen för DNS-servern i det virtuella nätverket.
+
+    Om du vill redigera den här filen använder du följande kommando:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    Om du vill spara filen, Använd __Ctrl + X__, __Y__, och sedan __RETUR__.
+
+6. Om du vill starta bindning, använder du följande kommando:
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. Om du vill kontrollera att binda kan matcha namnen på de resurser i det virtuella nätverket, Använd följande kommandon:
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    ```
+
+    > [!IMPORTANT]
+    > Ersätt `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med fullständigt kvalificerade domännamnet (FQDN) för den virtuella datorn i DNS i andra nätverk.
+    >
+    > Ersätt `10.2.0.4` med den __interna IP-adress__ på anpassade DNS-servern i det virtuella nätverket.
+
+    Svaret ser ut som följande text:
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    Fram till nu kan du söka efter IP-adress från nätverket utan angivna DNS-serverns IP-adress.
+
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern
+
+Använd följande steg om du vill konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för Azure rekursiv matcharen:
+
+1. I den [Azure-portalen](https://portal.azure.com), Välj det virtuella nätverket och väljer sedan __DNS-servrar__.
+
+2. Välj __anpassade__, och ange den __interna IP-adress__ för anpassade DNS-servern. Välj slutligen __spara__.
+
+6. Öppna den virtuella datorn för DNS-server i vnet1 och på **starta om**.  Du måste starta om alla virtuella datorer i det virtuella nätverket så att DNS-konfigurationen ska börja gälla.
+7. Upprepa steg konfigurera anpassade DNS-servern för vnet2.
+
+Du kan ansluta till två DNS-virtuella datorer med hjälp av SSH och pinga DNS-servern för det virtuella nätverket med hjälp av dess värdnamn för att testa DNS-konfigurationen. Om det inte fungerar, använder du följande kommando för att kontrollera status för DNS:
+
+```bash
+sudo service bind9 status
+```
+
+## <a name="create-hbase-clusters"></a>Skapa HBase-kluster
+
+Skapa ett HBase-kluster i var och en av de två virtuella nätverk med följande konfiguration:
+
+- **Resursgruppens namn**: Använd samma resursgruppens namn som du har skapat de virtuella nätverken.
+- **Klustret typen**: HBase
+- **Version**: HBase 1.1.2 (HDI 3,6)
+- **Plats**: använda samma plats som det virtuella nätverket.  Som standard är vnet1 *västra USA*, och vnet2 *östra USA*.
+- **Lagring**: skapa ett nytt lagringskonto för klustret.
+- **Virtuellt nätverk** (från avancerade inställningar på portalen): Välj vnet1 som du skapade i föregående procedur.
+- **Undernät**: standardnamnet som används i mallen är **Undernät1**.
+
+För att säkerställa att miljön är korrekt konfigurerad, måste du kunna pinga den headnode FQDN mellan två kluster.
 
 ## <a name="load-test-data"></a>Läs in testdata
 
@@ -195,7 +319,6 @@ Valfria argument:
 |-du--dst-ambari-användare | Anger användarnamn för administratören för Ambari på mål HBase-kluster. Standardvärdet är **admin**. |
 |-t,--tabell-lista | Anger tabellerna som ska replikeras. Till exempel:--tabell lista = ”tabell1; tabell2; tabell 3”. Om du inte anger tabeller, replikeras alla befintliga HBase-tabeller.|
 |-m,--dator | Anger huvudnoden där skriptåtgärden körs. Värdet är antingen **hn1** eller **hn0**. Eftersom den **hn0** huvudnod är vanligtvis busier, bör du använda **hn1**. Använd det här alternativet när du kör skriptet $0 som en skriptåtgärd från HDInsight-portalen eller Azure PowerShell.|
-|-ip | Krävs när du aktivera replikering mellan två virtuella nätverk. Det här argumentet fungerar som en växel som ska använda statiska IP-adresser för ZooKeeper-noder från repliken kluster i stället för FQDN-namn. Du måste förkonfigurera statiska IP-adresser innan du aktiverar replikering. |
 |-cp, - copydata | Gör det möjligt för migrering av befintliga data på tabellerna om replikering har aktiverats. |
 |-rpm, -replikera-phoenix-metadata | Aktiverar replikering på Phoenix systemtabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix tabeller på replik kluster innan du använder det här skriptet. |
 |-h,--hjälp | Visar användningsinformation. |

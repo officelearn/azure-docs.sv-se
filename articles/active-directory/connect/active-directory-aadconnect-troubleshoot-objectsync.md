@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/1/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objekt synkronisering med Azure AD Connect-synkronisering
 Det här dokumentet innehåller anvisningar att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning.
@@ -34,6 +34,7 @@ Utför följande steg om du vill köra aktiviteten felsökning i guiden:
 4.  Gå till sidan ytterligare aktiviteter, Välj felsökning och klicka på Nästa.
 5.  På sidan felsökning klickar du på Starta om du vill starta menyn felsökning i PowerShell.
 6.  Välj felsöka objekt synkronisering på huvudmenyn.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Felsöka indataparametrar
 Följande indataparametrarna behövs för felsökning uppgiften:
@@ -47,6 +48,8 @@ Felsökning aktiviteten utför följande kontroller:
 1.  Identifiera UPN-matchningsfel om objektet är synkroniserad med Azure Active Directory
 2.  Kontrollera om objektet är filtrerad på grund av domän filtrering
 3.  Kontrollera om objektet är filtrerad på grund av att organisationsenhetsfiltrering
+4.  Kontrollera om objektet synkroniseringen har blockerats på grund av en länkad postlåda
+5. Kontrollera om objektet är dynamisk distributionsgrupp som inte ska synkroniseras
 
 Resten av det här avsnittet beskriver specifika resultat som returneras av aktiviteten. I varje fall ger aktiviteten en analys följt av rekommenderade åtgärder för att lösa problemet.
 
@@ -76,9 +79,17 @@ Objektet ligger utanför omfånget på grund av domän inte konfigurerats. I exe
 Objektet är utanför omfånget som saknas i domänen kör profiler/köra steg. Objektet är synkroniserad omfång som den domän som den tillhör saknas kör steg för den fullständiga importen kör profil i exemplet nedan.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>Objekt filtreras på grund av att organisationsenhetsfiltrering
-Objektet är inte synkroniserat scope på grund av OU-filtrering konfiguration. I exemplet nedan objektet tillhör OU = NoSync, DC = bvtadwbackdc, DC = com.  Organisationsenheten ingår inte i omfånget för synkronisering.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>Objekt filtreras på grund av att organisationsenhetsfiltrering
+Objektet är inte synkroniserat scope på grund av OU-filtrering konfiguration. I exemplet nedan objektet tillhör OU = NoSync, DC = bvtadwbackdc, DC = com.  Organisationsenheten ingår inte i omfånget för synkronisering.</br>
+
+![ORGANISATIONSENHET](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Länkad postlåda problemet
+En länkad postlåda ska associeras med ett externt master konto finns i en annan betrodd kontoskog. Om det finns ingen sådan externa master konto, så Azure AD Connect synkroniserar inte användaren konto motsvarar länkad postlåda i Exchange-skogen till Azure AD-klient.</br>
+![Länkad postlåda](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Dynamisk distributionsgrupp problemet
+På grund av olika skillnader mellan lokala synkroniserar Active Directory och Azure Active Directory, Azure AD Connect inte dynamiska distributionsgrupper till Azure AD-klient.
 
 ## <a name="html-report"></a>HTML-rapport
 Förutom att analysera objektet genererar felsökning uppgiften också en HTML-rapport som har allt kända om objektet. HTML-rapport kan delas med supportteamet att göra ytterligare felsökning, om det behövs.

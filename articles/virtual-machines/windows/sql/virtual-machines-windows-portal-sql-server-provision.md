@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 05/04/2018
 ms.author: jroth
-ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell dator i Windows SQL Server i Azure-portalen
 
@@ -114,7 +114,7 @@ I steget **Storlek** väljer du en storlek för den virtuella datorn i fönstret
 
 ![Storleksalternativ för en virtuell dator med SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md). Om du behöver en datorstorlek som inte finns i listan, klickar du på **Visa alla**.
+Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md).
 
 > [!NOTE]
 > Mer information om storlekar för virtuella datorer finns i [Storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -130,7 +130,14 @@ På sidan **Inställningar** ställer du in Azure-lagring, nätverk och övervak
    > [!NOTE]
    > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [hanterade diskar översikt över Azure] [... / hanteras-diskar-overview.md). Mer information om hanterade diskar i en tillgänglighetsuppsättning finns i [Använda hanterade diskar för virtuella datorer i tillgänglighetsuppsättning](../manage-availability.md).
 
-* Under **Nätverk** kan du acceptera de automatiskt ifyllda värdena. Du kan också klicka på varje funktion för att manuellt konfigurera det **virtuella nätverket**, **undernätet**, den **offentliga IP-adressen** och **nätverkssäkerhetsgruppen**. Behåll standardinställningarna för den här genomgången.
+* Under **nätverk**, Välj alla inkommande portar som i den **Välj offentlig ingående portar** lista. Om du vill fjärrskrivbord på den virtuella datorn, väljer du exempelvis den **RDP (port 3389)** port.
+
+   ![Ingående portar](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > Du kan välja den **MS SQL (1433)** porten till SQL Server via fjärranslutning. Men detta behövs inte här, eftersom den **SQL Server-inställningar** ger även det här alternativet. Om du väljer port 1433 i det här steget, öppnas den oberoende dina val i den **SQL Server-inställningar** steg.
+
+   Du kan göra andra ändringar i nätverksinställningar eller Behåll standardinställningarna.
 
 * Azure aktiverar **övervakning** som standard med samma lagringskonto som används för den virtuella datorn. Du kan ändra dessa inställningar här.
 

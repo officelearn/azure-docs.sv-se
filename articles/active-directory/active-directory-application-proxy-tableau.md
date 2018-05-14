@@ -15,8 +15,8 @@ ms.date: 05/02/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cd27bab470b7037087421fac1e9eeabe10957831
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7fa8654e413ac337994d35afdce7bd3478127f64
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -31,7 +31,7 @@ Scenario i den här artikeln förutsätter att du har:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) konfigurerats. 
 
-- En [Application Proxy connector](active-directory-application-proxy-enable.md) installerad. 
+- En [Application Proxy connector](manage-apps/application-proxy-enable.md) installerad. 
 
  
 
@@ -54,7 +54,7 @@ Om du vill publicera Tableau, måste du publicera ett program i Azure Portal.
 
 För:
 
-- Detaljerade instruktioner steg 1 – 8, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+- Detaljerade instruktioner steg 1 – 8, se [publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 - Information om hur du hittar Tableau värden för fälten App Proxy finns i dokumentationen för Tableau.  
 
 **Publicera din app**: 

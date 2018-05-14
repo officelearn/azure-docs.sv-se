@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 13141549b5b1b77f45dd6fa1c7560b9f9d0e9b72
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -95,7 +95,7 @@ Du har konfigurerat Azure AD Application Proxy och integreras med din Azure AD D
 
 * **Migrera dina program på virtuella Azure-datorer:** kan du lift-och-SKIFT dina program från lokala servrar till Azure virtuella datorer som är anslutna till din hanterade domän. Detta hjälper dig att ta bort infrastrukturkostnader körs lokalt.
 
-* **Publicera program med Azure AD Application Proxy:** publicera program som körs på din virtuella Azure-datorer med hjälp av Azure AD Application Proxy. Mer information finns i [publicera program med Azure AD Application Proxy](../active-directory/application-proxy-publish-azure-portal.md)
+* **Publicera program med Azure AD Application Proxy:** publicera program som körs på din virtuella Azure-datorer med hjälp av Azure AD Application Proxy. Mer information finns i [publicera program med Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Obs distribution – publicera IWA (integrerad Windows-autentisering)-program med hjälp av Azure AD Application Proxy

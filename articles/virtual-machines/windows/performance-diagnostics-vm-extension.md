@@ -1,24 +1,24 @@
 ---
-title: "Azure prestanda diagnostik VM-tillägget för Windows | Microsoft Docs"
-description: "Introducerar Azure prestanda diagnostik VM-tillägget för Windows."
+title: Azure prestanda diagnostik VM-tillägget för Windows | Microsoft Docs
+description: Introducerar Azure prestanda diagnostik VM-tillägget för Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/29/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ea7f4652aff07282c9c106f3894db807f341210
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azure prestanda diagnostik VM-tillägget för Windows
 
@@ -65,13 +65,13 @@ Följande JSON visar schemat för Azure prestanda diagnostik VM-tillägget. Det 
 |   **Namn**   |**Värdet / exempel**|       **Beskrivning**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Versionen av API: et.
-|publisher|Microsoft.Azure.Performance.Diagnostics|Publisher namnområde för tillägget.
+|Publisher|Microsoft.Azure.Performance.Diagnostics|Publisher namnområde för tillägget.
 |typ|AzurePerformanceDiagnostics|Typ av VM-tillägget.
 |typeHandlerVersion|1.0|Versionen av tillägget hanteraren.
 |performanceScenario|grundläggande|Scenario för prestanda som du vill samla in data. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
 |traceDurationInSeconds|300|Varaktighet för spårning, om något av alternativen för spårningen har valts.
-|perfCounterTrace|p|Alternativet för att aktivera spårning av prestandaräknaren. Giltiga värden är **p** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
-|networkTrace|n|Alternativet för att aktivera spårning i nätverket. Giltiga värden är **n** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
+|perfCounterTrace|P|Alternativet för att aktivera spårning av prestandaräknaren. Giltiga värden är **p** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
+|networkTrace|N|Alternativet för att aktivera spårning i nätverket. Giltiga värden är **n** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
 |xperfTrace|x|Alternativet för att aktivera XPerf spårning. Giltiga värden är **x** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
 |storPortTrace|S|Alternativet för att aktivera spårning för StorPort. Giltiga värden är **s** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
 |srNumber|123452016365929|Stöd för biljettnumret, om de är tillgängliga. Låt värdet som tom om du inte har den.

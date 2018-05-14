@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: afa976d94b77a98e4c8678310bb80d81b74e54f6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett program för icke-galleriet
 
@@ -190,4 +190,4 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 Användare som du har valt att kunna starta programmen på åtkomstpanelen efter en kort period.
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

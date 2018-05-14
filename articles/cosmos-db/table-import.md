@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importera data för användning med Azure Cosmos DB tabell API
 
@@ -29,6 +29,10 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera data med verktyget datamigrering
 > * Importera data med AzCopy
 > * Migrera från tabellen API (förhandsgranskning) till tabellen API 
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Öka genomflödet: din datamigrering varaktighet beror på mängden genomströmning som du ställer in för en enskild samling eller en uppsättning samlingar. Se till att öka genomflödet för större migrering av data. När du har slutfört migreringen, minska dataflöde för att spara kostnader. Mer information om ökar genomströmningen i Azure portal finns i prestandanivåer och prisnivåerna i Azure Cosmos-databasen.
 
 ## <a name="data-migration-tool"></a>Verktyg för migrering
 

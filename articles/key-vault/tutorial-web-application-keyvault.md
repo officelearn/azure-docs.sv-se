@@ -5,18 +5,18 @@ services: key-vault
 documentationcenter: ''
 author: barclayn
 manager: mbaldwin
-ms.assetid: ''
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4a765b314b9879877bb6ff926e4a6584456b7823
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Nyckelvalvet
 
@@ -61,8 +61,8 @@ Nu kan du skapa ett Nyckelvalv i resursgruppen som du skapade i föregående ste
 > Även om ”ContosoKeyVault” används som namn på vår Key Vault under hela den här självstudiekursen, måste du använda ett unikt namn.
 
 * Valvnamnet **ContosoKeyVault**.
-* Resursgruppens namn **ContosoResourceGroup**.
-* Platsen **östra USA**.
+* Resursgruppnamnet **ContosoResourceGroup**.
+* Platsen är **Östra USA**.
 
 ```azurecli
 az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
@@ -74,9 +74,9 @@ Kommandots utdata visar egenskaperna för den nyligen skapade Nyckelvalvet. Ante
 * **Valvet URI**: I det här exemplet är https://<YourKeyVaultName>.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 >[!IMPORTANT]
-> Om det uppstår fel parametern 'vault_name' måste uppfylla följande mönster: ' ^ [en-öA-Z0 - 9-] {3,24} $”-namnet param värde är inte unikt eller överensstämde inte med en sträng som består av alfanumeriska tecken från 3 till 24 lång.
+> Om det uppstår fel parametern 'vault_name' måste uppfylla följande mönster: ' ^ [en-öA-Z0 - 9-]{3,24}$”-namnet param värde är inte unikt eller överensstämde inte med en sträng som består av alfanumeriska tecken från 3 till 24 lång.
 
-Azure-konto är nu den enda behörighet att utföra några åtgärder på den här nya valvet.
+Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
 ## <a name="add-a-secret-to-key-vault"></a>Lägg till en hemlighet i nyckelvalvet
 

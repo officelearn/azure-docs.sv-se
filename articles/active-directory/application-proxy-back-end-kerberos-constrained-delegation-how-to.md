@@ -1,11 +1,11 @@
 ---
-title: "Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy | Microsoft Docs"
-description: "Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy."
+title: Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy | Microsoft Docs
+description: Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -30,7 +30,7 @@ Därför försöker den här artikeln ger en enda åtkomstpunkt för referens so
 
 Den här artikeln gör följande antaganden:
 
--   Distributionen av Azure Application Proxy per [dokumentationen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) och allmän åtkomst till icke KCD program fungerar som förväntat.
+-   Distributionen av Azure Application Proxy per [dokumentationen](manage-apps/application-proxy-enable.md) och allmän åtkomst till icke KCD program fungerar som förväntat.
 
 -   Publicerade målprogrammet baseras på IIS och Microsofts implementering av Kerberos.
 
@@ -42,7 +42,7 @@ Den här artikeln gör följande antaganden:
 
 Azure Application Proxy kan distribueras till många typer av infrastrukturer eller miljöer och arkitekturerna säkert varierar mellan olika företag. En av de vanligaste orsakerna till KCD-relaterade problem är inte miljöer, men ganska enkelt att konfigurationer eller allmänna tillsyn.
 
-Därför är det alltid bäst att starta genom att kontrollera att du har uppfyllt alla krav som anges i [med KCD enkel inloggning med Application Proxy-artikel](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) innan du startar felsökning.
+Därför är det alltid bäst att starta genom att kontrollera att du har uppfyllt alla krav som anges i [med KCD enkel inloggning med Application Proxy-artikel](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) innan du startar felsökning.
 
 Särskilt avsnittet om hur du konfigurerar KCD på 2012R2, eftersom det använder ett helt olika sätt att konfigurera KCD på tidigare versioner av Windows, utan även när du är uppmärksam på flera saker:
 
@@ -68,13 +68,13 @@ alla de bär samma symtom på att utföra en enkel inloggning inte och därför 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Hur du sedan felsöka beror på problemet och observeras symptom. Utforska följande länkar innan skickas vidare, eftersom de innehåller användbar information som du inte får ännu har komma över:
+Hur du felsöker beror på problemet och observerade symptom. Utforska följande länkar innan skickas vidare, eftersom de innehåller användbar information som du inte får ännu har komma över:
 
--   [Felsökning av problem med Application Proxy och felmeddelanden](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Felsökning av problem med Application Proxy och felmeddelanden](active-directory-application-proxy-troubleshoot.md)
 
--   [Kerberos-fel och problem](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Kerberos-fel och problem](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Arbeta med enkel inloggning när lokalt och i molnet identiteter är inte identiska](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Arbeta med enkel inloggning när lokalt och i molnet identiteter är inte identiska](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Om du har den här långt, sedan viktigaste problemet definitivt finns. Starta genom att avgränsa flödet in i tre olika steg som du kan felsöka.
 
@@ -98,7 +98,7 @@ Och motsvarande poster visas i händelseloggen skulle ses som händelser 13019 e
 
 -   Använd en A-post i din interna DNS för programmets adress och inte en CNAME-post
 
--   Bekräfta att kopplingen värden har beviljats behörighet att delegera till den avsedda målkonto SPN och **Använd valfritt autentiseringsprotokoll** är markerad. Mer information om det här avsnittet finns [SSO configuration artikel](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Bekräfta att kopplingen värden har beviljats behörighet att delegera till den avsedda målkonto SPN och **Använd valfritt autentiseringsprotokoll** är markerad. Mer information om det här avsnittet finns [SSO configuration artikel](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Kontrollera att det finns bara en instans av SPN finns i AD genom att utfärda en `setspn -x` från en kommandotolk på alla värddatorer för medlem av domänen
 
@@ -179,4 +179,4 @@ Om du är fortfarande inte vidare problemet gärna stöd mer än hjälpa och for
 -   Dubbla hopp autentisering - ofta används i scenarier där ett program nivåer, med en serverdelen och front end båda kräver autentisering, till exempel SQL Reporting Services.
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera kerberos-begränsad delegering (KCD) på en hanterad domän](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Konfigurera kerberos-begränsad delegering (KCD) på en hanterad domän](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

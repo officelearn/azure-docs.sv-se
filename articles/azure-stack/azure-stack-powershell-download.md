@@ -1,24 +1,24 @@
 ---
-title: "Hämta Azure Stack-verktyg från GitHub | Microsoft Docs"
-description: "Lär dig hur du hämtar verktyg som krävs för att arbeta med Azure-stacken."
+title: Hämta Azure Stack-verktyg från GitHub | Microsoft Docs
+description: Lär dig hur du hämtar verktyg som krävs för att arbeta med Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Hämta Azure Stack-verktyg från GitHub
 
@@ -53,13 +53,10 @@ Den **AzureStack verktyg** databasen innehåller PowerShell-moduler som har stö
 | Funktioner | Beskrivning | vem som kan använda den här modulen? |
 | --- | --- | --- |
 | [Molnfunktioner](user/azure-stack-validate-templates.md) | Använd den här modulen för att få molnfunktioner för ett moln. Till exempel med hjälp av den här modulen kan du molnfunktioner, till exempel API-versionen och Azure Resource Manager-resurser. Du kan också hämta VM-tillägg för Azure-stacken och Azure-moln med hjälp av den här modulen. | Molnoperatörer och användare |
-| [Azure Stack beräkning administration](azure-stack-add-vm-image.md) | Använd den här modulen för att lägga till eller ta bort en VM-avbildning från marketplace för Azure-stacken. | Molnoperatörer |
-| [Azure Stack infrastruktur för administration](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Använd den här modulen för att hantera Azure-stacken infrastruktur för virtuella datorer, aviseringar, uppdateringar och så vidare. |  Molnoperatörer|
 | [Resource Manager-princip för Azure-stacken](user/azure-stack-policy-module.md) | Använd den här modulen för att konfigurera en Azure-prenumeration eller ett Azure-resursgrupp med samma version och tjänsten tillgänglighet som Azure-stacken. | Molnoperatörer och användare |
 | [Registrera med Azure](azure-stack-register.md) | Använd den här modulen för att registrera din development kit instans med Azure. Du kan hämta marketplace-objekt från Azure och använda dem i Azure-stacken efter registrering. | Molnoperatörer |
 | [Azure Stack-distribution](azure-stack-run-powershell-script.md) | Använd den här modulen för att förbereda Azure Stack värddatorn att distribuera och omdistribuera med hjälp av Azure-stacken virtuell hårddisk (VHD)-bild. | Molnoperatörer|
-| [Ansluta till Azure-stacken](azure-stack-connect-powershell.md) | Använd den här modulen för att ansluta till en Azure-Stack-instans med hjälp av PowerShell och konfigurera VPN-anslutning till Azure-stacken. | Molnoperatörer och användare |
-| [Administrationen av Azure Stack](azure-stack-create-offer.md) | Använd den här modulen för att skapa ett erbjudande för standard-klient med obegränsad kvoter på beräkning, Azure Storage, nätverk och Key Vault-tjänster.   | Molnoperatörer|
+| [Ansluta till Azure-stacken](azure-stack-connect-powershell.md) | Använd den här modulen för att konfigurera VPN-anslutning till Azure-stacken. | Molnoperatörer och användare |
 | [Mall för systemhälsoverifierare](user/azure-stack-validate-templates.md) | Använd den här modulen för att kontrollera om en befintlig eller en ny mall kan distribueras till Azure-stacken. | Molnoperatörer och användare|
 
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 5569a7608a61b4e79a03264e0ccf62682782264b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Blockchain arbetsstationen adresskonfigurationen som refereras till Azure
 
@@ -41,7 +41,7 @@ Ett blockchain program innehåller configuration metadata, arbetsflöden och anv
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | ApplicationName | Unikt programnamn. Motsvarande smart kontrakt måste ha samma **ApplicationName** för tillämpliga avtal.  | Ja |
-| Visningsnamn | Eget namn för programmet. | Ja |
+| DisplayName | Eget namn för programmet. | Ja |
 | Beskrivning | Beskrivning av programmet. | Nej |
 | ApplicationRoles | Samling av [ApplicationRoles](#application-roles). Användarroller som kan fungera eller delta i programmet.  | Ja |
 | Arbetsflöden | Samling av [arbetsflöden](#workflows). Varje arbetsflöde som fungerar som en tillståndsdator styr flödet av affärslogiken. | Ja |
@@ -55,7 +55,7 @@ Affärslogiken för ett program kan modelleras som en tillståndsdator där vidt
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | För unika Arbetsflödesnamn. Motsvarande smart kontrakt måste ha samma **namn** för tillämpliga avtal. | Ja |
-| Visningsnamn | Eget namn för arbetsflödet. | Ja |
+| DisplayName | Eget namn för arbetsflödet. | Ja |
 | Beskrivning | Beskrivning av arbetsflödet. | Nej |
 | Initierare | Samling av [ApplicationRoles](#application-roles). Roller som är kopplade till användare som har behörighet att skapa kontrakt i arbetsflödet. | Ja |
 | StartState | Namnet på arbetsflödet initialt tillstånd. | Ja |
@@ -79,7 +79,7 @@ Vilka datatyper som stöds.
 | Money    | Money-datatyp |
 | state    | Arbetsflödets tillstånd |
 | sträng   | Datatypen String |
-| användare     | Adressen för typ användare |
+| Användare     | Adressen för typ användare |
 | time     | Time-datatyp |
 |`[ Application Role Name ]`| Alla namn som anges i programrollen. Begränsar användarna av den rolltypen. |
 
@@ -124,7 +124,7 @@ Definierar funktioner som kan utföras på arbetsflödet.
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | Det unika namnet på funktionen. Motsvarande smart kontrakt måste ha samma **namn** för tillämplig funktion. | Ja |
-| Visningsnamn | Eget namn för funktionen. | Ja |
+| DisplayName | Eget namn för funktionen. | Ja |
 | Beskrivning | Beskrivning av funktionen | Nej |
 | Parametrar | Samling av [identifierare](#identifiers) motsvarande parametrar för funktionen. | Ja |
 
@@ -172,7 +172,7 @@ En samling av unikt tillstånd i ett arbetsflöde. Varje tillstånd fångar upp 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | Unikt namn för tillståndet. Motsvarande smart kontrakt måste ha samma **namn** för tillämpligt tillstånd. | Ja |
-| Visningsnamn | Eget namn för tillståndet. | Ja |
+| DisplayName | Eget namn för tillståndet. | Ja |
 | Beskrivning | Beskrivning av tillståndet. | Nej |
 | Värdet | Ett heltal som visas i användargränssnittet Blockchain arbetsstationen för att visa förlopp i business logic kontrollflödet. | Ja |
 | Stil | Visuella tips som anger om tillståndet representerar en lyckad eller misslyckad status. Det finns två giltiga värden: `Success` eller `Failure`. | Ja |
@@ -242,7 +242,7 @@ Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en 
 |-------|-------------|:--------:|
 | AllowedRoles | Lista över program roller kan initiera övergången. Alla användare av den angivna rollen kanske att utföra åtgärden. | Nej |
 | AllowedInstanceRoles | Lista med användarroller deltar eller anges i smart kontraktet får initiera övergången. Instansen roller har definierats i **egenskaper** i arbetsflöden. Dessa användare representerar en användare som deltar eller angetts i smart kontraktet och alla användare av en rolltyp. | Nej |
-| Visningsnamn | Eget namn för övergången. | Ja |
+| DisplayName | Eget namn för övergången. | Ja |
 | Beskrivning | Beskrivning av övergången. | Nej |
 | Funktion | Namnet på funktionen för att initiera övergången. | Ja |
 | NextStates | En samling av potentiella nästa tillstånd efter en lyckad övergång. | Ja |
@@ -309,7 +309,7 @@ Identifierare som representerar en samling information som används för att bes
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smart kontrakt måste ha samma **namn** för tillämpliga egenskapen eller parametern. | Ja |
-| Visningsnamn | Eget namn för egenskapen eller parametern. | Ja |
+| DisplayName | Eget namn för egenskapen eller parametern. | Ja |
 | Beskrivning | Beskrivning av egenskapen eller parametern. | Nej |
 
 ### <a name="identifiers-example"></a>Identifierare exempel
@@ -491,5 +491,6 @@ I följande exempel definieras en grundläggande begäran och svar program där 
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Azure Blockchain arbetsstationen](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Distribuera Azure Blockchain Workbench](blockchain-workbench-deploy.md)
 

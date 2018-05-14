@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs vanliga frågor och svar | Microsoft Docs"
-description: "Händelsehubbar i Azure vanliga frågor (FAQ)"
+title: Azure Event Hubs vanliga frågor och svar | Microsoft Docs
+description: Händelsehubbar i Azure vanliga frågor (FAQ)
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Händelsehubbar
 
@@ -112,7 +112,7 @@ En lista över möjliga Händelsehubbar undantag, se [undantag översikt](event-
 Händelsehubbar stöder två typer av [diagnostik loggar](event-hubs-diagnostic-logs.md) -avbilda felloggarna och operativa loggar - som representeras i json och kan aktiveras via Azure-portalen.
 
 ### <a name="support-and-sla"></a>Support och servicenivåavtal
-Teknisk support för Händelsehubbar är tillgänglig via den [community-forumen](https://social.msdn.microsoft.com/forums/azure/home). Support för fakturering och prenumerationshantering ges utan kostnad.
+Teknisk support för Händelsehubbar är tillgänglig via den [community-forumen](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Support för fakturering och prenumerationshantering ges utan kostnad.
 
 Läs mer om våra SLA i den [serviceavtal](https://azure.microsoft.com/support/legal/sla/) sidan.
 

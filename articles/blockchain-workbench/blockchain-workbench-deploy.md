@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain arbetsstationen
 
@@ -254,4 +254,7 @@ När Azure Blockchain arbetsstationen har distribuerats, nästa steg är att kon
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har Azure Blockchain arbetsstationen distribueras nästa steg är att [hantera användare i Azure Blockchain arbetsstationen](blockchain-workbench-manage-users.md).
+Du har distribuerat Azure Blockchain arbetsstationen i den här artikeln. Information om hur du skapar ett program för blockchain fortsätta i nästa artikel.
+
+> [!div class="nextstepaction"]
+> [Skapa en blockchain program i Azure Blockchain arbetsstationen](blockchain-workbench-create-app.md)

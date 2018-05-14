@@ -13,16 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/9/2018
+ms.date: 5/11/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: a907335ace1f6ea9ec427327d28ca9be5ce02fcc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 99ac43efa5d3211bbe2d790f28532e682058313c
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure-stacken
-Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och program på Azure-stacken. Installera Microsoft Azure Backup Server för att säkerhetskopiera filer och program som en virtuell dator som körs på Azure-stacken. När du har installerat Azure Backup-Server, Lägg till Azure-diskar för att öka den lokala lagringen tillgänglig för kortsiktig säkerhetskopiering. Azure Backup-servern använder Azure-lagring för långsiktig kvarhållning.
+Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och program på Azure-stacken. Installera Microsoft Azure Backup Server för att säkerhetskopiera filer och program som en virtuell dator som körs på Azure-stacken. Du kan skydda alla program som körs på någon Azure Stack-server i samma virtuella nätverk. När du har installerat Azure Backup-Server, Lägg till Azure-diskar för att öka den lokala lagringen tillgänglig för kortsiktig säkerhetskopiering. Azure Backup-servern använder Azure-lagring för långsiktig kvarhållning.
 
 > [!NOTE]
 > Även om Azure Backup Server och System Center Data Protection Manager (DPM) är liknande, finns DPM inte stöd för användning med Azure-stacken.
@@ -44,8 +44,7 @@ Azure Backup-Server skyddar följande Azure Stack virtuella arbetsbelastningar.
 | SQL Server 2012 SP1 | Databas |
 | SharePoint 2013 | Servergrupp, databas, klientdel, webbserver |
 | SharePoint 2010 | Servergrupp, databas, klientdel, webbserver |
-| Systemtillstånd | Systemtillstånd |
-| Återställning utan operativsystem (BMR) | BMR, systemtillstånd, filer, mappar | 
+
 
 ## <a name="install-azure-backup-server"></a>Installera Azure Backup-Server
 Om du vill installera Azure Backup Server på en virtuell dator i Azure-stacken, finns i artikeln [förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server](backup-azure-microsoft-azure-backup.md). Innan du installerar och konfigurerar Azure Backup Server, Tänk på följande:
@@ -76,47 +75,13 @@ Om delas med andra virtuella datorer, kan lagringsstorleken för kontot och IOPS
     - data återställs från molnet (lokalt mellanlagringsområde)
   
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Konfigurera Azure Backup tillfälliga disklagring
-Varje virtuell dator i Azure-stacken medföljer tillfälliga diskutrymme, som är tillgängliga för användaren som volym D:`\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras så att det finns i D:`\`, och cacheplatsen kan placeras på C:`\`. På så sätt behöver ingen lagring hämtas från datadiskar som är kopplade till den virtuella datorn i Azure Backup Server.
+Varje virtuell dator i Azure-stacken medföljer tillfälliga diskutrymme, som är tillgängliga för användaren som volym `D:\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras så att det finns i `D:\`, och cacheplatsen kan placeras på `C:\`. På så sätt behöver ingen lagring hämtas från datadiskar som är kopplade till den virtuella datorn i Azure Backup Server.
 
 ### <a name="scaling-deployment"></a>Skalning distribution
 Om du vill skala distributionen har följande alternativ:
   - Skala upp – öka storleken på Azure Backup Server virtuell dator från en serie D-serien och öka den lokala lagringen [per Azure Stack virtuella instruktioner](../azure-stack/user/azure-stack-manage-vm-disks.md).
   - Omfördela data: skicka äldre data till Azure Backup Server och spara endast senaste data på det lagringsutrymme som är kopplade till Azure Backup-Server.
   - Skala ut – Lägg till fler Azure Backup-servrar för att skydda arbetsbelastningarna.
-
-
-## <a name="bare-metal-recovery-for-azure-stack-vm"></a>Bare Metal Recovery för Azure-Stack VM
-
-En återställning utan operativsystem (BMR)-säkerhetskopiering skyddar operativsystemfiler och alla kritisk volymdata utom användardata. En säkerhetskopiering av BMR omfattar en säkerhetskopia av systemtillståndet. Följande procedurer beskriver hur du återställer data för BMR.
-
-### <a name="run-recovery-on-the-azure-backup-server"></a>Köra återställning på Azure Backup-servern
-
-Öppna konsolen Azure Backup Server.
-
-1. I konsolträdet klickar du på **Recovery**, söka efter den dator du vill återställa och klicka på **Bare Metal Recovery**.
-2. Tillgängliga återställningspunkter visas i fetstil i kalendern. Välj datum och tid för återställningspunkten du vill använda.
-3. I **Välj typ av återställning**väljer **kopiera till en nätverksmapp**.
-4. I **ange mål**, Välj om du vill kopiera data. Kom ihåg den angivna platsen måste ha tillräckligt med utrymme för återställningspunkten. Du rekommenderas du skapar en ny mapp.
-5. I **Ange återställningsalternativ**, Välj säkerhetsinställningar ska gälla för och välja att använda SAN-baserade ögonblicksbilder av maskinvara för snabbare återställning.     SAN-baserade ögonblicksbilder av maskinvara är ett alternativ om du har ett SAN-nätverk med den här funktionen aktiveras och möjligheten att skapa och dela en klon så att den blir skrivbar. Även för SAN-baserade ögonblicksbilder av maskinvara ska fungera, måste den skyddade datorn och Azure Backup Server vara ansluten till samma nätverk.
-6. Ställ in meddelandealternativ och klickar på **återställa** på den **sammanfattning** sidan.
-
-### <a name="set-up-the-share-location"></a>Ange platsen för resursen
-I konsolen Azure Backup Server:
-1. Navigera till mappen som innehåller säkerhetskopian i restore-plats.
-2. Dela mappen ovanför WindowsImageBackup så att roten för den delade mappen WindowsImageBackup är. Om mappen WindowsImageBackup inte är delade hittar återställningen inte säkerhetskopieringen. Om du vill ansluta med WinRE, behöver du en WinRE-tillgänglig resurs och rätt IP-adress och autentiseringsuppgifter.
-
-### <a name="restore-the-machine"></a>Återställa datorn
-
-1. Öppna en upphöjd kommandotolk och Skriv följande kommandon på den virtuella datorn där du vill återställa BMR. **/boottore** anger att Windows RE startas automatiskt nästa gång datorn startas.
-```
-Reagentc /boottore
-shutdown /r /t 0
-```
-
-2. Välj språk och nationella inställningar i dialogrutan Öppna. På den **installera** väljer **reparera datorn**.
-3. På den **Systemåterställningsalternativ** väljer **återställa datorn med en systemavbildning som du skapade tidigare**.
-4. På den **Välj en säkerhetskopierad systemavbildning** väljer **Välj en systemavbildning** > **Avancerat** > **Sök efter en systemavbildning i nätverket**. Om en varning visas väljer du **Ja**. Gå till nätverksresursen, ange autentiseringsuppgifterna och Välj återställningspunkt om du vill välja en bild. Detta söker efter specifika säkerhetskopior som är tillgängliga i denna återställningspunkt. Välj återställningspunkten.
-5. I **Välj hur du vill återställa säkerhetskopian**väljer **formatera och partitionera om diskar**. På nästa skärm kontrollerar inställningar och klickar på **Slutför** att starta återställningsjobbet. En omstart som krävs.
 
 ## <a name="see-also"></a>Se också
 Information om hur du använder Azure Backup Server för att skydda finns andra arbetsbelastningar i följande artiklar:

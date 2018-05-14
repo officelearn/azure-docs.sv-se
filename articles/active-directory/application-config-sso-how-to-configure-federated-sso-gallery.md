@@ -1,11 +1,11 @@
 ---
-title: "Så här konfigurerar du federerad enkel inloggning för ett program för Azure AD-galleriet | Microsoft Docs"
-description: "Hur du konfigurerar federerad enkel inloggning för ett befintligt program i Azure AD-galleriet och använda självstudier för att komma igång snabbare"
+title: Så här konfigurerar du federerad enkel inloggning för ett program för Azure AD-galleriet | Microsoft Docs
+description: Hur du konfigurerar federerad enkel inloggning för ett befintligt program i Azure AD-galleriet och använda självstudier för att komma igång snabbare
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e71480910432c6475ca97d20853a72b864195faa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program för Azure AD-galleriet
 
@@ -210,7 +210,7 @@ Användare som du har valt att kunna starta dessa program med hjälp av de metod
 Information om hur du anpassar SAML attributet anspråk som skickas till ditt program finns [anspråk mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 
 

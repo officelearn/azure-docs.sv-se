@@ -2,24 +2,23 @@
 title: Skapa och publicera en Marketplace-objektet i Azure-stacken | Microsoft Docs
 description: Skapa och publicera en Marketplace-objektet i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
@@ -110,7 +109,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="metadata"></a>Metadata
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Visningsnamn |X |Sträng |Rekommendation av 80 tecken |Portalen kanske inte visar dina objektnamnet avslutas om det är längre än 80 tecken. |
+| DisplayName |X |Sträng |Rekommendation av 80 tecken |Portalen kanske inte visar dina objektnamnet avslutas om det är längre än 80 tecken. |
 | PublisherDisplayName |X |Sträng |Rekommendation 30 tecken |Portalen kanske inte visar utgivarens namn utan problem om det är längre än 30 tecken. |
 | PublisherLegalName |X |Sträng |Maximalt 256 tecken | |
 | Sammanfattning |X |Sträng |60 och 100 tecken | |
@@ -136,15 +135,15 @@ Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll
 
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Visningsnamn |X |Sträng |Högst 64 tecken | |
-| Uri |X |URI | | |
+| DisplayName |X |Sträng |Högst 64 tecken | |
+| URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Ytterligare egenskaper
 Utöver föregående metadata innehåller Marketplace författare anpassade nyckel/värde-par data i följande format:
 
 | Namn | Krävs | Typ | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Visningsnamn |X |Sträng |Högst 25 tecken | |
+| DisplayName |X |Sträng |Högst 25 tecken | |
 | Värde |X |Sträng |Maximalt 30 tecken | |
 
 ### <a name="html-sanitization"></a>HTML-rensning

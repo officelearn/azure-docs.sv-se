@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -73,11 +73,11 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure-portalen.
 
     ![Navigeringsfönster][3]
 5. Öppna den **granska loggarna lagring** bladet väljer **lagringsinformation**. Välj Azure storage-konto där loggar sparas, och välj sedan kvarhållningsperioden. Kommer att ta bort de gamla loggarna. Klicka sedan på **OK**.
-   >[!TIP]
-   >Använd samma lagringskonto för alla granskad databaser för att få mest av granskning rapporter mallarna.
+    >[!TIP]
+    >Använd samma lagringskonto för alla granskad databaser för att få mest av granskning rapporter mallarna.
 
     <a id="storage-screenshot"></a>![Navigeringsfönstret][4]
-6. Om du vill anpassa granskade händelser kan du göra detta via PowerShell eller REST API.
+6. Om du vill anpassa granskade händelser kan du göra detta via [PowerShell-cmdlets](#subheading-7) eller [REST API](#subheading-9).
 7. När du har konfigurerat inställningarna för granskning, kan du aktivera funktionen för identifiering av nya hot och konfigurera e-postmeddelanden för att ta emot säkerhetsaviseringar. När du använder hotidentifiering får proaktiva varningar på avvikande databasaktiviteter som kan indikera potentiella hot mot säkerheten. Mer information finns i [komma igång med hotidentifiering](sql-database-threat-detection-get-started.md).
 8. Klicka på **Spara**.
 
@@ -149,8 +149,8 @@ Med geo-replikerade databaser när du aktiverar granskning på den primära data
    * Blobbgranskning måste vara aktiverat på den *primära databasen själva*, inte på servern.
    * När blobbgranskning är aktiverat på den primära databasen kan aktiveras den också på den sekundära databasen.
 
-     >[!IMPORTANT]
-     >Med databasnivå granskning måste lagringsinställningarna för den sekundära databasen vara samma som den primära databasen orsakar mellan regionala trafik. Vi rekommenderar att du aktiverar granskning endast servernivå och lämna databasnivå granskning inaktiveras för alla databaser.
+    >[!IMPORTANT]
+    >Med databasnivå granskning måste lagringsinställningarna för den sekundära databasen vara samma som den primära databasen orsakar mellan regionala trafik. Vi rekommenderar att du aktiverar granskning endast servernivå och lämna databasnivå granskning inaktiveras för alla databaser.
 <br>
 
 ### <a id="subheading-6">Sessionsnycklar för lagring</a>
@@ -165,37 +165,45 @@ Det är sannolikt att uppdatera din lagringsnycklar regelbundet i produktionen. 
 3. Gå tillbaka till bladet granskning configuration växla lagringsåtkomstnyckel från sekundär till primär och klicka sedan på **OK**. Klicka på **spara** längst upp på bladet granskning konfiguration.
 4. Gå tillbaka till bladet storage-konfiguration och återskapa den sekundära åtkomstnyckeln (som förberedelse för nyckeln nästa uppdateringscykeln).
 
-## <a name="additional-information"></a>Extra information
+## <a name="additional-information"></a>Ytterligare information
 
 * Mer information om loggen formatera hierarki av lagringsmappen och namngivningskonventioner, finns det [Blobbreferens till granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
-   > [!IMPORTANT]
-   > Azure SQL-databasen och Audit lagrar 4 000 tecken för Teckenfält i en granskningspost. När den **instruktionen** eller **data_sensitivity_information** värden som returneras från en granskningsbar åtgärd innehåller fler än 4 000 tecken blir alla data utöver de första 4 000 tecken  **trunkerad och inte granskas**.
+    > [!IMPORTANT]
+    > Azure SQL-databasen och Audit lagrar 4 000 tecken för Teckenfält i en granskningspost. När den **instruktionen** eller **data_sensitivity_information** värden som returneras från en granskningsbar åtgärd innehåller fler än 4 000 tecken blir alla data utöver de första 4 000 tecken  **trunkerad och inte granskas**.
 
-* Granskningsloggar skrivs till **Tilläggsblobbar** i ett Azure Blob storage på din Azure-prenumeration.
-   * **Premium-lagring** är för närvarande **stöds inte** av Tilläggsblobbar.
-   * **Lagring i VNet** är för närvarande **stöds inte**.
+* Granskningsloggar skrivs till **Tilläggsblobbar** i ett Azure Blob storage på din Azure-prenumeration:
+    * **Premium-lagring** är för närvarande **stöds inte** av Tilläggsblobbar.
+    * **Lagring i VNet** är för närvarande **stöds inte**.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Hantera SQL database auditing med hjälp av Azure PowerShell
+* Granska standardprincipen innehåller följande uppsättning åtgärdsgrupper som ska granska alla frågor och lagrade procedurer som körs mot databasen samt lyckade och misslyckade inloggningar och alla åtgärder:
 
-* **PowerShell-cmdlets**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    Du kan konfigurera granskning för olika typer av åtgärder och åtgärdsgrupper med hjälp av PowerShell som beskrivs i den [hantera SQL database auditing med hjälp av Azure PowerShell](#subheading-7) avsnitt.
 
-   Ett exempel på skript finns [konfigurera granskning och hotidentifiering identifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a id="subheading-7"></a>Hantera SQL database auditing med hjälp av Azure PowerShell
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>Hantera SQL database auditing med hjälp av REST API
+**PowerShell-cmdlets**:
 
-* **REST API - blobbgranskning**:
+* [Skapa eller uppdatera databasen Blob granskningsprincip (Set-AzureRMSqlDatabaseAuditing)][105]
+* [Skapa eller uppdatera Server Blob granskningsprincip (Set-AzureRMSqlServerAuditing)][106]
+* [Hämta databasen granskningsprincip (Get-AzureRMSqlDatabaseAuditing)][101]
+* [Hämta Server Blob granskningsprincip (Get-AzureRMSqlServerAuditing)][102]
 
-   * [Skapa eller uppdatera databasen Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [Skapa eller uppdatera Server Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [Hämta databasen Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [Hämta Server Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [Hämta Server Blob granskning resultat](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+Ett exempel på skript finns [konfigurera granskning och hotidentifiering identifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a id="subheading-9"></a>Hantera SQL database auditing med hjälp av REST API
+
+**REST API - blobbgranskning**:
+
+* [Skapa eller uppdatera databasen Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Skapa eller uppdatera Server Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Hämta databasen Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Hämta Server Blob granskningsprincip](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Hämta Server Blob granskning resultat](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +212,9 @@ Det är sannolikt att uppdatera din lagringsnycklar regelbundet i produktionen. 
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

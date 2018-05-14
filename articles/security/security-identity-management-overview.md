@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8e83eb161f487a73d5984425e2c24993006a08a5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över säkerheten i Azure identity management
 Microsoft identitets- och lösningar hjälp IT skydda åtkomst till program och resurser i företagets datacenter och i molnet, aktivera nivåer av verifiering, till exempel multifaktorautentisering och principer för villkorlig åtkomst. Misstänkt aktivitet med avancerad säkerhet rapportering, granskning och aviseringar hjälper dig att minimera potentiella säkerhetsproblem. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) ger enkel inloggning till tusentals molnet (SaaS)-appar och åtkomst till webbprogram som du kör lokalt.
@@ -64,9 +64,9 @@ Azure AD Application Proxy kan du publicera lokala program som [SharePoint](http
 
 Läs mer:
 
-* [Aktivera Azure AD Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [Aktivera Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publicera program med Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
-* [Single-sign-on med Application Proxy](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
+* [Single-sign-on med Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Arbeta med villkorlig åtkomst](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication

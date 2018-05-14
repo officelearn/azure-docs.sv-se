@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e2fa997876444fa52c419eb46d2b2d87b74fa8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 11726b274d72f263ff3defeb7eb7b80594681e15
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
@@ -125,7 +125,7 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
   Det finns ingen peering mellan VirtualNetwork1 och VirtualNetwork3 via VirtualNetwork2. Om du vill skapa ett virtuellt nätverk peering mellan VirtualNetwork1 och VirtualNetwork3, måste du skapa en peering mellan VirtualNetwork1 och VirtualNetwork3.
 - Du kan inte matcha namn i peerkoppla virtuella nätverk med hjälp av standard-Azure namnmatchning. Om du vill matcha namnen på andra virtuella nätverk, måste du använda [Azure DNS för privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller en anpassad DNS-server. Information om hur du konfigurerar DNS-servern finns [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Resurser i peerkoppla virtuella nätverk i samma region kan kommunicera med varandra med samma bandbredd och svarstid som om de befann sig i samma virtuella nätverk. Storlek på varje virtuell dator har sin egen maximal nätverksbandbredd men. Läs mer om maximal nätverksbandbredd för olika virtuella datorstorlekar i [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) storlekar för virtuella datorer.
-- Prenumerationer som båda virtuella nätverken i peering, måste vara kopplad till samma Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar du en](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan använda en [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) att ansluta två virtuella nätverk som finns i olika prenumerationer som är kopplade till olika Active Directory-klienter.
+- Virtuella nätverk kan finnas i samma eller olika prenumerationer. När de virtuella nätverk har olika prenumerationer kan måste båda prenumerationer vara kopplad till samma Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar du en](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan använda en [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) att ansluta två virtuella nätverk som finns i olika prenumerationer som är kopplade till olika Active Directory-klienter.
 - Ett virtuellt nätverk kan peerkoppla till ett annat virtuellt nätverk och också vara ansluten till ett annat virtuellt nätverk med en gateway för virtuella Azure-nätverket. När virtuella nätverk är anslutna via peering och en gateway, flödar trafik mellan virtuella nätverk via peering konfigurationen i stället för gatewayen.
 - En nominell avgift tas ut för ingående och utgående trafik som använder virtuell nätverks-peering. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-network).
 * <a name="cross-region"></a>Du kan peer-virtuella nätverk i samma region eller olika regioner. Följande begränsningar gäller inte när båda virtuella nätverk finns i den *samma* region, men gäller när de virtuella nätverken är globalt peerkoppla: 

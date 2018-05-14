@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera resurser med av hanteringsgrupper 
 Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera dessa behållare för hierarkier som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad åtkomst kontroller (RBAC)](../role-based-access-control/overview.md). Läs mer om av hanteringsgrupper i [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md).
@@ -103,9 +103,9 @@ Du kan visa en hanteringsgrupp som du har en direkt eller ärvda RBAC roll på.
 ### <a name="view-in-the-portal"></a>Visa på portalen
 1. Logga in på den [Azure-portalen](https://portal.azure.com)
 2. Välj **alla tjänster** > **hanteringsgrupper** 
-3. Hanteringsgrupp hierarki sidan läses in där visas alla grupper som du har åtkomst till. 
+3. Hanteringsgruppen hierarkin sidan belastningar där du kan utforska alla hanteringsgrupper och prenumerationer som du har åtkomst till. Att välja gruppnamnet går du ned en nivå i hierarkin. Navigeringen fungerar som en Utforskaren. 
     ![Main](media/management-groups/main.png)
-4. Välj en enskild hanteringsgrupp information  
+4. Om du vill se information om hanteringsgruppen, Välj den **(detaljer)** länken bredvid rubriken för hanteringsgruppen. Om den här länken inte finns kan har du inte behörighet att visa den hanteringsgruppen.  
 
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 Du kan använda kommandot Get-AzureRmManagementGroup för att hämta alla grupper.  
@@ -151,7 +151,7 @@ För att se vilka behörigheter som du har, Välj hanteringsgruppen och välj se
 6. I menyn som öppnas väljer du den **resurstypen** av objektet du försöker flytta vilket **prenumeration**.
 7. Välj prenumerationen i listan med rätt-ID. 
 
-    ![Underordnade objekt](media/management-groups/add_context_2.png)
+    ![Underordnade](media/management-groups/add_context_2.png)
 8. Välj ”Spara”
 
 **Ta bort en prenumeration från en hanteringsgrupp**

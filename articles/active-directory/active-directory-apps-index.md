@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f899e3f45174aef8274810e184cc374bcca2c50
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -79,8 +79,8 @@ Om du har program i ditt privata nätverk som ska användas av användare och en
 | Artikel Guide |  |
 |:---:| --- |
 | Översikt över Azure AD Application Proxy och hur det fungerar |[Att tillhandahålla säker fjärråtkomst till lokala program](manage-apps/application-proxy.md) |
-| Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](active-directory-application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Hur du publicerar program med App-Proxy](application-proxy-publish-azure-portal.md)<br /><br />[Hur du använder ett eget domännamn](active-directory-application-proxy-custom-domains.md) |
-| Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](manage-apps/application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Hur du publicerar program med App-Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Hur du använder ett eget domännamn](manage-apps/application-proxy-configure-custom-domain.md) |
+| Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](application-proxy-enable-remote-access-sharepoint.md) |
 | Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](active-directory-application-proxy-native-client.md)<br /><br />[Ge stöd för anspråksmedvetna program](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](active-directory-application-proxy-connectors-azure-portal.md) |
 | Felsökningsguide för Application Proxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
 

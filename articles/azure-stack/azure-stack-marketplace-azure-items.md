@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -220,5 +220,6 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![NooBaa Hybrid AWS S3 kompatibel - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibel storage-tjänst som omfattar offentliga och lokala resurser med kapacitet. | NooBaa |
 | ![Brandvägg för PT-program](media/azure-stack-marketplace-azure-items/pt.png) | [Brandvägg för PT-program](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Brandvägg för PT program identifierar kända & okänd säkerhetsrisker och förebygger attacker i webbprogram. <b>Ladda ned båda PT Marketplace-objekt.</b> | Positivt tekniker |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. <b>Ladda ned båda Puppet Marketplace-objekt.</b> | Puppet |
+| ![Begäran om förnyelse snabb återställning](media/azure-stack-marketplace-azure-items/quest.png) | [Begäran om förnyelse snabb återställning kärnor](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snabb återställning avancerade dataskydd förenar säkerhetskopiering, replikering och återställning i en enkel att använda en lösning. | Begäran om förnyelse programvara |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Bäst i klassen infrastrukturhantering för öppen källkod. | SUSE |
 | ![Verktyget ZeroDown program](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |

@@ -1,11 +1,11 @@
 ---
-title: "Tilldela användare och grupper till ett program | Microsoft Docs"
-description: "Tilldela användare till programmet för att bevilja åtkomst"
+title: Tilldela användare och grupper till ett program | Microsoft Docs
+description: Tilldela användare till programmet för att bevilja åtkomst
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d670b2400fc1ac50afdcc8b809a1d482c3219686
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 19303237e7e2c3c3a7f373102465875c34a571d1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Tilldela användare och grupper till ett program
 
@@ -163,4 +163,4 @@ När du har slutfört självbetjäning programkonfigurationen användare kan nav
 Dessa godkännanden stöder godkännandearbetsflöden, vilket innebär att om du anger flera godkännare alla godkännare kan godkännare åtkomst till programmet.
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

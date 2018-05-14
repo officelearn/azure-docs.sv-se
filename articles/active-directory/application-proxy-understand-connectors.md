@@ -15,11 +15,11 @@ ms.date: 10/12/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 14e2b82b5c32e1b36bf730b7b834c9b8ad124629
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-kopplingar
 
@@ -33,7 +33,7 @@ Kopplingar är förenklad agenter som sitter lokalt och underlätta utgående an
 
 Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera anslutningen på en Windows Server 2012 R2 eller 2016-dator. Anslutningen måste kunna kommunicera med tjänsten Application Proxy samt lokala program som du publicerar. 
 
-Mer information om nätverkskraven för connector-servern finns [komma igång med Application Proxy och installera en koppling](active-directory-application-proxy-enable.md).
+Mer information om nätverkskraven för connector-servern finns [komma igång med Application Proxy och installera en koppling](manage-apps/application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Underhåll
 Kopplingar och tjänsten tar hand om alla aktiviteter för hög tillgänglighet. De kan läggas till eller tas bort dynamiskt. Varje gång en ny begäran kommer dirigeras till en av de kopplingar som är tillgänglig. Om en koppling inte är tillgänglig, kan den inte svara på den här trafiken.
@@ -50,7 +50,7 @@ Du behöver inte manuellt ta bort kopplingar som inte används. När du kör en 
 
 ## <a name="automatic-updates"></a>Automatiska uppdateringar
 
-Azure AD innehåller automatiska uppdateringar för alla kopplingar som du distribuerar. Kopplingar uppdateras automatiskt så länge som Application Proxy Connector Updater-tjänsten körs. Om du inte ser Connector Updater-tjänsten på servern, behöver du [installerar om din anslutning](active-directory-application-proxy-enable.md) att hämta uppdateringar. 
+Azure AD innehåller automatiska uppdateringar för alla kopplingar som du distribuerar. Kopplingar uppdateras automatiskt så länge som Application Proxy Connector Updater-tjänsten körs. Om du inte ser Connector Updater-tjänsten på servern, behöver du [installerar om din anslutning](manage-apps/application-proxy-enable.md) att hämta uppdateringar. 
 
 Om du inte vill vänta på en automatisk uppdatering att gå till din koppling, kan du utföra en manuell uppgradering. Gå till den [connector hämtningssidan](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) på den server där din koppling finns och välj **hämta**. Den här processen som aktiveras av en uppgradering för den lokala anslutningen. 
 
@@ -123,7 +123,7 @@ Kopplingar kan också anslutas till domäner eller skogar som har ett partiellt 
 
 Vanligtvis är enkla connector distribution och kräver ingen särskild konfiguration. Det finns emellertid vissa unika villkor som ska övervägas:
 
-* Organisationer som begränsar den utgående trafiken måste [öppna portar som krävs](active-directory-application-proxy-enable.md#open-your-ports).
+* Organisationer som begränsar den utgående trafiken måste [öppna portar som krävs](manage-apps/application-proxy-enable.md#open-your-ports).
 * FIPS-kompatibla datorer kan krävas för att ändra konfigurationen så att connector-processer att generera och lagra ett certifikat.
 * Organisationer som låsa deras miljö baserat på de processer som utfärdar nätverk begäranden har se till att båda connector-tjänster är aktiverade för åtkomst till alla portar som krävs och IP-adresser.
 * I vissa fall utgående vidarebefordra proxyservrar Bryt dubbelriktat certifikatautentisering och orsaka kommunikationen misslyckas.

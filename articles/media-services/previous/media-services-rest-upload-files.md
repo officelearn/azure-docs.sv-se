@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med hjälp av REST
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ Stegvisa instruktioner för hur du ställer in Postman för den här kursen finn
     ```
 4. Till vänster om den **Postman** klickar du på **1. Hämta AAD-Auth-token** -> **hämta Azure AD-Token för tjänstens huvudnamn**.
 
-    URL-delen är fylld med de **AzureADSTSEndpoint** miljövariabeln (som du värdet tidigare i den här kursen).
-    
-5. Tryck på **Skicka**.
+    URL-delen är fylld med de **AzureADSTSEndpoint** miljövariabeln (tidigare i självstudierna du ange värdena för [miljövariabler](#configure-the-environment) som stöder den [samling](#configure-the-collection)).
 
     ![Överför en fil](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. Tryck på **Skicka**.
 
     Du kan se de svar som innehåller ”access_token”. ”Test” skriptet använder det här värdet och anger den **AccessToken** miljövariabeln (som beskrivs ovan). Om du undersöker din miljövariabler visas att den här variabeln innehåller värdet för åtkomst-token (ägartoken) som används i resten av åtgärder. 
 

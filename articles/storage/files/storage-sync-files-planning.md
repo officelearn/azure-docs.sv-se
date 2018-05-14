@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -46,7 +46,14 @@ Azure filsynkronisering agenten är hämtningsbara paket som gör det möjligt f
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Serverslutpunkt
-En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. För närvarande, det går inte att skapa en serverslutpunkt för rot för en volym (till exempel `F:\` eller `C:\myvolume`, om en volym är monterad som en monteringspunkt).
+En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. 
+
+Du kan skapa en serverslutpunkt för via en monteringspunkt. Observera att monteringspunkter i serverns slutpunktens hoppas över.  
+
+Du kan skapa en serverslutpunkt för på volymen, men det finns två begränsningar om du gör det:
+* Molnet skiktning kan inte aktiveras.
+* Namnområdet för snabb återställning (där systemet snabbt stänger ned hela namnområdet och startar sedan att återställa innehållet) utförs inte.
+
 
 > [!Note]  
 > Endast icke flyttbara volymer stöds.  Enheter som mappas från en fjärransluten delad resurs stöds inte för slutpunktsökväg till en server.  Dessutom kan en serverslutpunkt för kan finnas på systemvolymen om molnet Windows skiktning stöds inte på systemvolymen.
@@ -98,14 +105,14 @@ Framtida versioner av Windows Server läggs när de blir tillgängliga. Tidigare
 > NTFS-volymer stöds. ReFS, FAT, FAT32 och andra filsystem stöds inte.
 
 ### <a name="files-skipped"></a>Filer som hoppades över
-| Filen/mappen | OBS |
+| Filen/mappen | Obs! |
 |-|-|
 | Desktop.ini | Filen som är specifika för system |
-| ethumbs.db$ | Temporär fil för miniatyrer |
+| ethumbs.DB$ | Temporär fil för miniatyrer |
 | ~$\*.\* | Temporär fil för Office |
 | \*tmp | Temporär fil |
 | \*.laccdb | Låsning Access DB-fil|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
 | \\System Volume Information | Mappen som är specifika för volym |
 | $RECYCLE. BIN| Mapp |
 | \\SyncShareState | Mapp för synkronisering |
@@ -144,7 +151,7 @@ Följande lösningar är kända för att stödja hoppar över offline-filer:
 
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee slutpunktssäkerhet](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (se ”Genomsök bara vad du behöver” på sidan 90 i PDF-filen)
-- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
+- [Kaspersky antivirusprogram](https://support.kaspersky.com/4684)
 - [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
 - [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
 
@@ -169,20 +176,20 @@ Ingen annan HSM-lösning bör inte användas med Azure filsynkronisering.
 ## <a name="region-availability"></a>Regional tillgänglighet
 Azure filsynkronisering är endast tillgänglig i följande regioner i förhandsgranskningen:
 
-| Område | Datacenter-plats |
+| Region | Datacenter-plats |
 |--------|---------------------|
-| Australien, östra | New South Wales |
-| Kanada, centrala | Toronto |
-| Kanada, östra | Quebec City |
-| USA, centrala | Iowa |
-| Asien, östra | Hong Kong |
-| USA, östra | Virginia |
+| Östra Australien | New South Wales |
+| Centrala Kanada | Toronto |
+| Östra Kanada | Quebec City |
+| Centrala USA | Iowa |
+| Östasien | Hongkong SAR |
+| Östra USA | Virginia |
 | Östra US2 | Virginia |
-| Europa, norra | Irland |
+| Norra Europa | Irland |
 | Sydostasien | Singapore |
-| Södra Storbritannien | London |
-| Europa, västra | Nederländerna |
-| USA, västra | Kalifornien |
+| Storbritannien, södra | London |
+| Västra Europa | Nederländerna |
+| Västra USA | Kalifornien |
 
 I preview stöder synkroniserar endast med en Azure-filresurs som finns i samma region som synkroniseringstjänsten för lagring.
 

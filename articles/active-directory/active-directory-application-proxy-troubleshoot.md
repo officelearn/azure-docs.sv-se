@@ -15,8 +15,8 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 96e7361ce66caaa653706d22f767e1a109fdacf7
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
@@ -50,7 +50,7 @@ När du har hittat Connector-fel från händelseloggen kan du använda den här 
 
 | Fel | Rekommenderade åtgärder |
 | ----- | ----------------- |
-| Registreringen av anslutningsverktyget misslyckades: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett din Active Directory-användarnamn och lösenord korrekt. Fel: 'ett eller flera fel uppstod ”. | Om du har stängt fönstret registreringen utan att logga in till Azure AD, kör guiden koppling igen och registrera anslutningsverktyget. <br><br> Om fönstret registrering öppnar och stänger sedan omedelbart utan att du kan logga in, får du förmodligen det här felet. Det här felet uppstår vid ett nätverksfel på datorn. Kontrollera att det är möjligt att ansluta från en webbläsare till en offentlig webbplats och att portarna är öppna som anges i [krav för Application Proxy](active-directory-application-proxy-enable.md). |
+| Registreringen av anslutningsverktyget misslyckades: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett din Active Directory-användarnamn och lösenord korrekt. Fel: 'ett eller flera fel uppstod ”. | Om du har stängt fönstret registreringen utan att logga in till Azure AD, kör guiden koppling igen och registrera anslutningsverktyget. <br><br> Om fönstret registrering öppnar och stänger sedan omedelbart utan att du kan logga in, får du förmodligen det här felet. Det här felet uppstår vid ett nätverksfel på datorn. Kontrollera att det är möjligt att ansluta från en webbläsare till en offentlig webbplats och att portarna är öppna som anges i [krav för Application Proxy](manage-apps/application-proxy-enable.md). |
 | Rensa fel visas i fönstret registrering. Det går inte att fortsätta | Om du ser detta fel och sedan stängs fönstret, du har angett felaktigt användarnamn eller lösenord. Försök igen. |
 | Registreringen av anslutningsverktyget misslyckades: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett din Active Directory-användarnamn och lösenord korrekt. Fel: ' AADSTS50059: ingen klient identifierande information finns i antingen begäran eller underförstås av alla angivna autentiseringsuppgifter och Sök efter service principal URI har misslyckats. | Du försöker logga in med ett Account och inte en domän som är en del av organisations-ID för den katalog som du försöker komma åt. Se till att administratören ingår i samma domännamn som klient-domän, till exempel om Azure AD-domänen är contoso.com, administratören vara admin@contoso.com. |
 | Det gick inte att hämta aktuella körningsprincipen för att köra PowerShell-skript. | Om anslutningen installationen misslyckas, kontrollera att PowerShell-körningsprincipen inte är inaktiverad. <br><br>1. Öppna Redigeraren för grupprinciper.<br>2. Gå till **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter** > **Windows PowerShell** och dubbelklicka på **aktivera skriptkörningen**.<br>3. Körningsprincipen kan vara inställd på antingen **inte konfigurerad** eller **aktiverad**. Om värdet **aktiverad**, se till att under Alternativ, körningsprincipen är inställd på antingen **Tillåt lokala skript och fjärranslutna signerade skript** eller **alla skript**. |
@@ -87,9 +87,9 @@ Den här listan innehåller fel som slutanvändarna kan uppstå när de försök
 Om det uppstår ett fel eller problem med Azure AD Application Proxy som inte finns i den här felsökningsguiden vill vi höra om den. Skicka ett e-postmeddelande till vår [feedback team](mailto:aadapfeedback@microsoft.com) med information om de fel.
 
 ## <a name="see-also"></a>Se också
-* [Aktivera Application Proxy för Azure Active Directory](active-directory-application-proxy-enable.md)
-* [Publicera program med Application Proxy](application-proxy-publish-azure-portal.md)
-* [Aktivera enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)
+* [Aktivera Application Proxy för Azure Active Directory](manage-apps/application-proxy-enable.md)
+* [Publicera program med Application Proxy](manage-apps/application-proxy-publish-azure-portal.md)
+* [Aktivera enkel inloggning](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Aktivera villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
 
 

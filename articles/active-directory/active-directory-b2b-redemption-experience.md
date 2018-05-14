@@ -1,37 +1,61 @@
 ---
-title: Azure Active Directory B2B-samarbete inbjudan inlösning | Microsoft Docs
-description: Azure Active Directory B2B-samarbete inbjudan inlösning upplevelse
+title: Inbjudan inlösning i B2B - samarbete i Azure Active Directory | Microsoft Docs
+description: Beskriver Azure AD B2B-samarbete inbjudan inlösning upplevelse för slutanvändare, inklusive avtalet till sekretessvillkor.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7a0b492ccb48352c5e8463d3196179237f0ca412
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2e354bc4ae06e86afd5d14e87ef796fce942521b
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete inbjudan inlösning
 
-## <a name="azure-ad-and-microsoft-account-users"></a>Azure AD och Microsoft-kontoanvändare
-För användare med befintlig Azure AD-kontot eller Microsoft-konton är inlösning upplevelsen lika enkelt som att logga in.
+Du kan erbjuda gästanvändare att komma åt delade appar om du vill samarbeta med användare från organisationer via Azure Active Directory (AD Azure) B2B-samarbete. När en gästanvändare läggs till katalogen via användargränssnittet eller uppmanas användaren via PowerShell, gästanvändare måste gå via en process för första gången medgivande där de godkänner [sekretessvillkor](#privacy-policy-agreement). Den här processen sker i något av följande sätt:
 
-## <a name="social-id-user-first-time-redemption"></a>Första gången inlösning för sociala användar-ID
-Azure AD B2B-samarbete är det enkelt för alla e-postadress som ska användas för inlösning. Titta på inlösning-upplevelse när en icke-Microsoft e-postadress används för B2B-samarbete. Detta flöde inlösning är mer komplicerad, eftersom du kan behöva skapa ett konto vid tidpunkten för inlösning. Checka ut i följande video:
+- Gästen avsändaren av inbjudan skickar ut en direktlänk till en delad app. När en användare klickar på länken för att logga in, accepterar du villkoren för sekretess och har åtkomst till sömlöst den delade resursen. (Gästanvändaren fortfarande får en e-postinbjudan med en inlösning URL, men än vissa särskilda fall kan den inte längre krävs för att använda e-postinbjudan.)  
+- Gästanvändaren får ett e-postinbjudan och klickar på URL: en åtgärd. Som en del av inloggning första gången uppmanas de att acceptera villkoren sekretess.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
-> 
+## <a name="redemption-through-a-direct-link"></a>Inlösning via en direktlänk
+
+En gäst bjuder in bjuda in gästanvändare genom att skicka ut en direktlänk till en delad app. Åtgärd-upplevelse är lika enkelt som att logga in i appen som delades med dem för gästanvändare. De kan klicka på en länk till appen, granska och acceptera villkoren sekretess och sömlöst till appen. I de flesta fall behöver gästanvändare längre klickar du på en inlösning URL i en e-postinbjudan.
+
+Om du uppmanas gästanvändare via användargränssnittet eller väljer att skicka e-postinbjudan som en del av PowerShell inbjudan får inbjudna användaren fortfarande ett e-postinbjudan. Den här e-post är användbara för följande särskilda fall:
+
+- Användaren har inte ett Azure AD-konto eller ett Microsoft-konto (MSA). I det här fallet måste användaren skapa ett MSA innan de klickar på länken eller de kan använda URL: en åtgärd i e-postinbjudan. Processen inlösning uppmanar automatiskt användaren att skapa en MSA.
+- Ibland kanske inbjudna användarobjektet inte har en e-postadress på grund av en konflikt med ett kontaktobjekt (till exempel ett Outlook kontakta objekt). I det här fallet måste användaren klicka på inlösning URL-Adressen i e-postinbjudan.
+- Användaren kan logga in med ett alias för e-postadressen har bjudits in. (Ett alias är en extra e-postadress som är associerad med ett e-postkonto.) I det här fallet måste användaren klicka på inlösning URL-Adressen i e-postinbjudan.
+
+Om dessa särskilda fall är viktiga för din organisation, rekommenderar vi att bjuda in användare med hjälp av metoder som fortfarande skickar e-postinbjudan. Även om en användare inte faller under någon av dessa specialfall, de kan fortfarande klicka på Webbadressen i ett e-postinbjudan för att få åtkomst.
+
+## <a name="redemption-through-the-invitation-email"></a>Inlösning via e-postinbjudan
+
+Om inbjuden genom en metod som skickar ett e-postinbjudan kan användare också lösa in en inbjudan via e-postinbjudan. En inbjudna användare kan klicka på inlösning Webbadressen i e-post, och sedan granska och Godkänn villkoren sekretess. Processen beskrivs i detalj här:
+
+1.  När du har fått en inbjudan, när en användare tar emot en inbjudan via e-post som skickas från **Microsoft Invitations**.
+2.  När en användare väljer **Kom igång** i e-postmeddelandet.
+3.  Om en användare inte har en Azure AD-kontot eller en MSA, uppmanas de att skapa en MSA.
+4.  När en användare dirigeras till den **granska behörigheter** skärmen, där de kan granska bjuda in organisationens sekretesspolicy och accepterar villkoren.
+
+## <a name="privacy-policy-agreement"></a>Sekretess princip avtal
+
+När alla gästanvändaren loggar in till resurser i en organisation för första gången, visas en **granska behörigheter** skärmen. Här kan granska de bjuda in företagets sekretesspolicy. En användare måste acceptera att sina uppgifter i enlighet med bjuda in organisationens sekretesspolicy för att fortsätta.
+
+![Skärmbild som visar användarinställningar i åtkomstpanelen](media/active-directory-b2b-redemption-experience/ConsentScreen.png) 
+
+Information om hur du som en Innehavaradministratör kan länka din organisations sekretesspolicy finns [anvisningar: lägga till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar om Azure AD B2B-samarbete:
-
-* [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Elementen i e-postinbjudan B2B-samarbete](active-directory-b2b-invitation-email.md)
-* [Vanliga och frågor svar om Azure Active Directory B2B-samarbete](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B-samarbete API och anpassning](active-directory-b2b-api.md)
+- [Vad är Azure AD B2B-samarbete?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Lägg till Azure Active Directory B2B-samarbete användare i Azure-portalen](active-directory-b2b-admin-add-users.md)
+- [Hur lägger informationsarbetare till B2B-samarbete användare till Azure Active Directory?](active-directory-b2b-iw-add-users.md)
+- [Lägg till användare i Azure Active Directory B2B-samarbete med hjälp av PowerShell](active-directory-b2b-api.md#powershell)
+- [Lämna en organisation som gästanvändare](active-directory-b2b-leave-the-organization.md)

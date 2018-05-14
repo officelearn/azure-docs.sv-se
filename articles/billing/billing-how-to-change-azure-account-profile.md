@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2017
+ms.date: 05/11/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ec0caccafd7ed6eaf91be153014d2e3aaf5a30b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: bce9e7de13ff95024685ccf916541357f5362727
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Ändra din profilinformation för Azure-konto som kontaktens e-post, adress och telefonnummer
 
@@ -31,7 +31,7 @@ E-postadressen i administratörsprofil konto används av Microsoft för att medd
 1. Logga in på den [Azure Kontocenter](https://account.azure.com/Profile).
 1. Välj den **redigera detaljer** knappen och uppdatera sedan den **profil** information.
 
-   ![Profil](./media/billing-how-to-change-azure-account-profile/profile.png)
+   ![profil](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

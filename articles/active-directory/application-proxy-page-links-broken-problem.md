@@ -1,11 +1,11 @@
 ---
-title: "Länkarna på sidan fungerar inte för ett program med Application Proxy | Microsoft Docs"
-description: "Felsökning av problem med brutna länkar på Application Proxy-program som du har integrerat med Azure AD"
+title: Länkarna på sidan fungerar inte för ett program med Application Proxy | Microsoft Docs
+description: Felsökning av problem med brutna länkar på Application Proxy-program som du har integrerat med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 64dcf5608710a85c47cd14ed9bee33594d46e083
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkarna på sidan fungerar inte för ett program med Application Proxy
 
@@ -34,15 +34,15 @@ Det finns tre sätt att lösa problemet. Alternativen nedan visas i i stigande k
 
 1.  Kontrollera att intern URL är en rotcertifikatutfärdare som innehåller de relevanta länkarna för programmet. Detta gör att alla länkar till att matcha som innehåll som publiceras inom samma program.
 
-    Om du ändrar Intern URL, men inte vill ändra Landningssida för användare, kan du ändra den URL-Adressen till tidigare publicerade Intern URL. Detta kan göras genom att gå till ”Azure Active Directory -”&gt; App registreringar -&gt; Välj program -&gt; egenskaper. I den här fliken kan du se fältet ”startsidan URL” som du kan justera ska önskade denna sida.
+    Om du ändrar Intern URL, men inte vill ändra Landningssida för användare, kan du ändra den URL-Adressen till tidigare publicerade Intern URL. Detta kan göras genom att gå till ”Azure Active Directory -”&gt; App registreringar -&gt; Välj program -&gt; egenskaper. I den här fliken kan du se fältet ”startsidan URL”, som du kan justera ska önskade denna sida.
 
-2.  Om dina program använder fullständigt kvalificerade domännamn (FQDN), använda [anpassade domäner](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) att publicera dina program. Den här funktionen gör att samma URL som ska användas både internt och externt.
+2.  Om dina program använder fullständigt kvalificerade domännamn (FQDN), använda [anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md) att publicera dina program. Den här funktionen gör att samma URL som ska användas både internt och externt.
 
-    Det här alternativet ser till att länkar i ditt program är externt tillgänglig via Application Proxy eftersom länkarna i programmet till Intern URL-adresser identifieras också externt. Observera att alla länkar fortfarande måste tillhöra ett publicerat program. Men med det här alternativet länkarna behöver du inte tillhör samma program och kan höra till flera program.
+    Det här alternativet ser till att länkar i ditt program är externt tillgänglig via Application Proxy eftersom länkarna i programmet till Intern URL-adresser identifieras också externt. Alla länkar måste tillhöra ett publicerat program. Men med det här alternativet länkarna behöver du inte tillhör samma program och kan höra till flera program.
 
-3.  Om inget av dessa alternativ är möjlig, ansluta förhandsgranskning för en ny funktion som gör översättning/skriva om URL: en. Med det här alternativet vara intern URL: er eller länkar som finns i HTML-innehållet i dina program översättas eller ”mappas”, publicerade externa App Proxy URL: er. Den här metoden fungerar för länkar i HTML- eller CSS och det hjälper inte om länken genereras via JS. 
+3.  Om inget av dessa alternativ är möjlig, kan du förhandsgranska en ny funktion som utför översättning/skriva om URL: en. Med den här funktionen är intern URL: er eller länkar som finns i HTML-innehållet i dina program översättas eller ”mappas”, publicerade externa App Proxy URL: er. Denna översättning fungerar bara på länkarna i HTML- eller CSS, och inte hjälper om länken genereras via JS. 
 
-Därför rekommenderar vi använder den [anpassade domäner](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) lösning om möjligt. Om du vill ansluta till förhandsversionen av e- <aadapfeedback@microsoft.com> med applicationId(s).
+Därför rekommenderar vi använder den [anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md) lösning om möjligt. Om du vill ansluta till förhandsversionen av e- <aadapfeedback@microsoft.com> med applicationId(s).
 
 ## <a name="next-steps"></a>Nästa steg
 [Arbeta med befintliga lokala proxyservrar](application-proxy-working-with-proxy-servers.md)

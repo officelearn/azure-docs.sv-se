@@ -1,11 +1,11 @@
 ---
-title: "Distribution och svar för Azure-webbappar | Microsoft Docs"
-description: "Få svar på vanliga frågor om distribution för funktionen Web Apps i Azure App Service."
+title: Distribution och svar för Azure-webbappar | Microsoft Docs
+description: Få svar på vanliga frågor om distribution för funktionen Web Apps i Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 318a236652229c4e093ca33886ac1831686aed73
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Distribution och svar för Web Apps i Azure
 
@@ -91,7 +91,7 @@ Har du två alternativ för att använda kontinuerlig distribution med Visual St
 *   Använd ett Git-projekt. Anslut via App Service med hjälp av distributionsalternativ för den lagringsplatsen.
 *   Använd ett Team Foundation Version kontrollen (TFVC)-projekt. Distribuera med build-agent för Apptjänst.
 
-Koden kontinuerlig distribution för båda alternativen beror på befintliga developer arbetsflöden och checka in procedurer. Mer information finns i följande artiklar: 
+Koden kontinuerlig distribution för båda alternativen beror på befintliga developer arbetsflöden och checka in procedurer. Mer information finns i dessa artiklar: 
 
 *   [Implementera kontinuerlig distribution för din app till en Azure-webbplats](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Konfigurera ett Visual Studio Team Services-konto så att den kan distribuera till en webbapp](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

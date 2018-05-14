@@ -14,10 +14,10 @@
   items:
     - name: Distribuera Workbench
       href: blockchain-workbench-deploy.md
-    - name: Hantera Workbench-användare
-      href: blockchain-workbench-manage-users.md
     - name: Skapa en blockkedjeapp
       href: blockchain-workbench-create-app.md
+    - name: Hantera Workbench-användare
+      href: blockchain-workbench-manage-users.md
     - name: Använda en blockkedjeapp
       href: blockchain-workbench-use.md
     - name: Använda Workbench-API

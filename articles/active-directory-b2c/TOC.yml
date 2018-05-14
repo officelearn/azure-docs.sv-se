@@ -114,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (enskild klient)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
             - name: Anpassad OpenID Connect
               href: active-directory-b2c-setup-oidc-idp.md
         - name: Konfigurera återställning av lösenord för självbetjäning
